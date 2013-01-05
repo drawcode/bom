@@ -51,6 +51,7 @@ public class EventInfo : BaseMeta {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public  url { get; set; }
+    public  data { get; set; }
     public  org_id { get; set; }
     public  usage_count { get; set; }
 
@@ -67,6 +68,9 @@ public class EventInfo : BaseMeta {
 	if (url != null) {
 	    dict = DataUtil.SetDictValue(dict, "url", url);
 	}
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
 	if (org_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "org_id", org_id);
 	}
@@ -80,6 +84,11 @@ public class EventInfo : BaseMeta {
 	if(dict.ContainsKey("url")) {
 	    if(dict["url"] != null) {
 	    	url = DataType.Instance.Fill(dict["url"]);
+	    }		
+	}
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.Fill(dict["data"]);
 	    }		
 	}
 	if(dict.ContainsKey("org_id")) {

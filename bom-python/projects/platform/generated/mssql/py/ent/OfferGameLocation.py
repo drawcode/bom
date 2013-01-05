@@ -64,6 +64,7 @@ class OfferGameLocation(BaseEntity):
     #self.__dict__.update(entries)
     self.game_location_id = None
     self.offer_id = None
+    self.data = None
     self.type_id = None
         
   def to_dict_obj(self):

@@ -36,6 +36,7 @@ class OfferLocation extends BaseLocation {
     }
     
     public $offer_id;
+    public $data;
 
     public function __construct() {
         

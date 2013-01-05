@@ -154,7 +154,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -198,7 +198,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'count'
-                + "/username/hash"
+                + "/by-username/by-hash"
                 + "/@username/" + username            
                 + "/@hash/" + hash            
                 ;
@@ -242,7 +242,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'count'
-                + "/username"
+                + "/by-username"
                 + "/@username/" + username            
                 ;
 
@@ -287,7 +287,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -342,7 +342,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -409,7 +409,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'set'
-                + "/username"
+                + "/by-username"
                 + "/@username/" + username            
                         
                 ;
@@ -466,7 +466,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -509,7 +509,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'del'
-                + "/username"
+                + "/by-username"
                 + "/@username/" + username            
                 ;
 
@@ -552,7 +552,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -597,7 +597,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'get'
-                + "/username/hash"
+                + "/by-username/by-hash"
                 + "/@username/" + username            
                 + "/@hash/" + hash            
                 ;
@@ -642,7 +642,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_service + 'get'
-                + "/username"
+                + "/by-username"
                 + "/@username/" + username            
                 ;
 
@@ -740,7 +740,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_type_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -783,7 +783,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_type_service + 'count'
-                + "/type-id"
+                + "/by-type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -828,7 +828,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_type_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -882,7 +882,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_type_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -938,7 +938,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_type_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -981,7 +981,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_type_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1025,7 +1025,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_type_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -1069,7 +1069,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_type_service + 'get'
-                + "/type-id"
+                + "/by-type-id"
                 + "/@type_id/" + type_id            
                 ;
 
@@ -1167,7 +1167,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1210,7 +1210,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -1253,7 +1253,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'count'
-                + "/type"
+                + "/by-type"
                 + "/@type/" + type            
                 ;
 
@@ -1296,7 +1296,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'count'
-                + "/group"
+                + "/by-group"
                 + "/@group/" + group            
                 ;
 
@@ -1340,7 +1340,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'count'
-                + "/code/type"
+                + "/by-code/by-type"
                 + "/@code/" + code            
                 + "/@type/" + type            
                 ;
@@ -1386,7 +1386,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -1443,7 +1443,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -1514,7 +1514,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                         
                 ;
@@ -1573,7 +1573,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1616,7 +1616,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -1659,7 +1659,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1703,7 +1703,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -1747,7 +1747,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'get'
-                + "/type"
+                + "/by-type"
                 + "/@type/" + type            
                 ;
 
@@ -1791,7 +1791,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'get'
-                + "/group"
+                + "/by-group"
                 + "/@group/" + group            
                 ;
 
@@ -1836,7 +1836,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_service + 'get'
-                + "/code/type"
+                + "/by-code/by-type"
                 + "/@code/" + code            
                 + "/@type/" + type            
                 ;
@@ -1935,7 +1935,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -1978,7 +1978,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -2022,7 +2022,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'count'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/@profile_id/" + profile_id            
                 + "/@attribute_id/" + attribute_id            
                 ;
@@ -2068,7 +2068,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -2124,7 +2124,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -2193,7 +2193,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'set'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                         
                 ;
@@ -2262,7 +2262,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'set'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/@profile_id/" + profile_id            
                 + "/@attribute_id/" + attribute_id            
                         
@@ -2321,7 +2321,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2364,7 +2364,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'del'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -2408,7 +2408,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'del'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/@profile_id/" + profile_id            
                 + "/@attribute_id/" + attribute_id            
                 ;
@@ -2452,7 +2452,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2496,7 +2496,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -2541,7 +2541,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_text_service + 'get'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/@profile_id/" + profile_id            
                 + "/@attribute_id/" + attribute_id            
                 ;
@@ -2640,7 +2640,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -2683,7 +2683,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -2727,7 +2727,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'count'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/@profile_id/" + profile_id            
                 + "/@attribute_id/" + attribute_id            
                 ;
@@ -2773,7 +2773,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -2829,7 +2829,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -2898,7 +2898,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'set'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                         
                 ;
@@ -2967,7 +2967,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'set'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/@profile_id/" + profile_id            
                 + "/@attribute_id/" + attribute_id            
                         
@@ -3026,7 +3026,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3069,7 +3069,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'del'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -3113,7 +3113,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'del'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/@profile_id/" + profile_id            
                 + "/@attribute_id/" + attribute_id            
                 ;
@@ -3157,7 +3157,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3201,7 +3201,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -3246,7 +3246,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_attribute_data_service + 'get'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/@profile_id/" + profile_id            
                 + "/@attribute_id/" + attribute_id            
                 ;
@@ -3345,7 +3345,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3389,7 +3389,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'count'
-                + "/profile-id/device-id"
+                + "/by-profile-id/by-device-id"
                 + "/@profile_id/" + profile_id            
                 + "/@device_id/" + device_id            
                 ;
@@ -3434,7 +3434,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'count'
-                + "/profile-id/token"
+                + "/by-profile-id/by-token"
                 + "/@profile_id/" + profile_id            
                 + "/@token/" + token            
                 ;
@@ -3478,7 +3478,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -3521,7 +3521,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'count'
-                + "/device-id"
+                + "/by-device-id"
                 + "/@device_id/" + device_id            
                 ;
 
@@ -3564,7 +3564,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'count'
-                + "/token"
+                + "/by-token"
                 + "/@token/" + token            
                 ;
 
@@ -3609,7 +3609,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -3666,7 +3666,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -3725,7 +3725,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3769,7 +3769,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'del'
-                + "/profile-id/device-id"
+                + "/by-profile-id/by-device-id"
                 + "/@profile_id/" + profile_id            
                 + "/@device_id/" + device_id            
                 ;
@@ -3814,7 +3814,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'del'
-                + "/profile-id/token"
+                + "/by-profile-id/by-token"
                 + "/@profile_id/" + profile_id            
                 + "/@token/" + token            
                 ;
@@ -3858,7 +3858,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'del'
-                + "/token"
+                + "/by-token"
                 + "/@token/" + token            
                 ;
 
@@ -3901,7 +3901,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -3946,7 +3946,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'get'
-                + "/profile-id/device-id"
+                + "/by-profile-id/by-device-id"
                 + "/@profile_id/" + profile_id            
                 + "/@device_id/" + device_id            
                 ;
@@ -3992,7 +3992,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'get'
-                + "/profile-id/token"
+                + "/by-profile-id/by-token"
                 + "/@profile_id/" + profile_id            
                 + "/@token/" + token            
                 ;
@@ -4037,7 +4037,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/@profile_id/" + profile_id            
                 ;
 
@@ -4081,7 +4081,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'get'
-                + "/device-id"
+                + "/by-device-id"
                 + "/@device_id/" + device_id            
                 ;
 
@@ -4125,7 +4125,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.profile_device_service + 'get'
-                + "/token"
+                + "/by-token"
                 + "/@token/" + token            
                 ;
 
@@ -4223,7 +4223,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.country_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4266,7 +4266,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.country_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -4311,7 +4311,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.country_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -4364,7 +4364,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.country_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -4427,7 +4427,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.country_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                         
                 ;
@@ -4482,7 +4482,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.country_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4525,7 +4525,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.country_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -4610,7 +4610,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.country_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4654,7 +4654,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.country_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -4752,7 +4752,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.state_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -4795,7 +4795,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.state_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -4840,7 +4840,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.state_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -4893,7 +4893,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.state_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -4956,7 +4956,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.state_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                         
                 ;
@@ -5011,7 +5011,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.state_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5054,7 +5054,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.state_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -5139,7 +5139,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.state_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5183,7 +5183,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.state_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -5281,7 +5281,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.city_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5324,7 +5324,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.city_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -5369,7 +5369,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.city_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -5422,7 +5422,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.city_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -5485,7 +5485,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.city_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                         
                 ;
@@ -5540,7 +5540,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.city_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5583,7 +5583,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.city_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -5668,7 +5668,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.city_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5712,7 +5712,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.city_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -5810,7 +5810,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.postal_code_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -5853,7 +5853,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.postal_code_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -5898,7 +5898,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.postal_code_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/@page/" + page
                 + "/@page_size/" + page_size
                 + "/@filter/" + filter
@@ -5951,7 +5951,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.postal_code_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                         
                 ;
@@ -6014,7 +6014,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.postal_code_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                         
                 ;
@@ -6069,7 +6069,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.postal_code_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6112,7 +6112,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.postal_code_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 
@@ -6197,7 +6197,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.postal_code_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/@uuid/" + uuid            
                 ;
 
@@ -6241,7 +6241,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = profile_profile_global.postal_code_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/@code/" + code            
                 ;
 

@@ -62,6 +62,7 @@ class ProfileOrg(BaseEntity):
   def __init__(self):
     super(ProfileOrg, self).__init__()
     #self.__dict__.update(entries)
+    self.data = None
     self.profile_id = None
     self.org_id = None
     self.type_id = None

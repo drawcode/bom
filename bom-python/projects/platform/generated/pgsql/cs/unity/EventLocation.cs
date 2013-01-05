@@ -51,6 +51,7 @@ public class EventLocation : BaseLocation {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public string event_id { get; set; }
+    public string data { get; set; }
 
     public EventLocation() {
         Reset();
@@ -65,6 +66,9 @@ public class EventLocation : BaseLocation {
 	if (event_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "event_id", event_id);
 	}
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
          return dict;
     }
 
@@ -72,6 +76,11 @@ public class EventLocation : BaseLocation {
 	if(dict.ContainsKey("event_id")) {
 	    if(dict["event_id"] != null) {
 	    	event_id = DataType.Instance.FillString(dict["event_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.FillString(dict["data"]);
 	    }		
 	}
     }

@@ -1,0 +1,86 @@
+using System;
+
+public class Orgs<T> : DataObjects<T> where T : new() {
+
+    private static T current;
+    private static volatile Orgs<T> instance;
+    private static object syncRoot = new Object();
+
+    private string DATA_KEY = "org-data";
+
+    public static T Current {
+        get {
+            if (current == null) {
+                lock (syncRoot) {
+                    if (current == null)
+                        current = new T();
+                }
+            }
+            return current;
+        }
+        set {
+            current = value;
+        }
+    }
+
+    public static Orgs<T> Instance {
+        get {
+            if (instance == null) {
+                lock (syncRoot) {
+                    if (instance == null)
+                        instance = new Orgs<T>();
+                }
+            }
+            return instance;
+        }
+    }
+
+    public Orgs() {
+        Reset();
+    }
+
+    public Orgs(bool loadData) {
+        Reset();
+        path = "data/" + DATA_KEY + ".json";
+        pathKey = DATA_KEY;
+        LoadData();
+    }
+}
+
+public class Org : BaseMeta {
+    // Attributes that are added or changed after launch should be like this to prevent
+    // profile conversions.
+    public string data { get; set; }
+
+    public Org() {
+        Reset();
+    }
+    
+    public override void Reset() {
+        base.Reset();
+    }
+
+    public override Dictionary<string, object> ToDictionary(){
+        dict = base.ToDictionary();
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
+         return dict;
+    }
+
+    public override void FillFromDictionary(Dictionary<string, object> dict){
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.FillString(dict["data"]);
+	    }		
+	}
+    }
+}
+
+
+
+
+
+
+
+

@@ -46,7 +46,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileUuid(
+        public virtual int CountProfileByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -56,7 +56,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_count_uuid"
+                , "usp_profile_count_by_uuid"
                 , parameters
                 );          
             }
@@ -66,7 +66,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileUsernameHash(
+        public virtual int CountProfileByUsernameByHash(
             string username
             , string hash
         )  {
@@ -78,7 +78,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_count_username_hash"
+                , "usp_profile_count_by_username_by_hash"
                 , parameters
                 );          
             }
@@ -88,7 +88,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileUsername(
+        public virtual int CountProfileByUsername(
             string username
         )  {
             List<SqlParameter> parameters 
@@ -98,7 +98,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_count_username"
+                , "usp_profile_count_by_username"
                 , parameters
                 );          
             }
@@ -108,7 +108,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -120,7 +120,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_browse_filter"
+                , "usp_profile_browse_by_filter"
                 , "profile"
                 , parameters
                 );         
@@ -132,7 +132,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileUuid(string set_type, Profile obj)  {
+        public virtual bool SetProfileByUuid(string set_type, Profile obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -152,7 +152,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_set_uuid"
+                , "usp_profile_set_by_uuid"
                 , parameters
                 );          
             }
@@ -163,7 +163,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileUsername(string set_type, Profile obj)  {
+        public virtual bool SetProfileByUsername(string set_type, Profile obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -183,7 +183,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_set_username"
+                , "usp_profile_set_by_username"
                 , parameters
                 );          
             }
@@ -194,7 +194,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileUuid(
+        public virtual bool DelProfileByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -204,7 +204,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_del_uuid"
+                    , "usp_profile_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -215,7 +215,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileUsername(
+        public virtual bool DelProfileByUsername(
             string username
         )  {
             List<SqlParameter> parameters 
@@ -225,7 +225,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_del_username"
+                    , "usp_profile_del_by_username"
                     , parameters
                     );
                 return true;            
@@ -236,7 +236,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileListUuid(
+        public virtual DataSet GetProfileListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -246,7 +246,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_get_uuid"
+                , "usp_profile_get_by_uuid"
                 , "profile"
                 , parameters
                 );           
@@ -257,7 +257,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileListUsernameHash(
+        public virtual DataSet GetProfileListByUsernameByHash(
             string username
             , string hash
         )  {
@@ -269,7 +269,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_get_username_hash"
+                , "usp_profile_get_by_username_by_hash"
                 , "profile"
                 , parameters
                 );           
@@ -280,7 +280,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileListUsername(
+        public virtual DataSet GetProfileListByUsername(
             string username
         )  {
             List<SqlParameter> parameters 
@@ -290,7 +290,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_get_username"
+                , "usp_profile_get_by_username"
                 , "profile"
                 , parameters
                 );           
@@ -319,7 +319,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileTypeUuid(
+        public virtual int CountProfileTypeByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -329,7 +329,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_type_count_uuid"
+                , "usp_profile_type_count_by_uuid"
                 , parameters
                 );          
             }
@@ -339,7 +339,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileTypeTypeId(
+        public virtual int CountProfileTypeByTypeId(
             string type_id
         )  {
             List<SqlParameter> parameters 
@@ -349,7 +349,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_type_count_type_id"
+                , "usp_profile_type_count_by_type_id"
                 , parameters
                 );          
             }
@@ -359,7 +359,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileTypeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -371,7 +371,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_type_browse_filter"
+                , "usp_profile_type_browse_by_filter"
                 , "profile_type"
                 , parameters
                 );         
@@ -383,7 +383,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileTypeUuid(string set_type, ProfileType obj)  {
+        public virtual bool SetProfileTypeByUuid(string set_type, ProfileType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -402,7 +402,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_type_set_uuid"
+                , "usp_profile_type_set_by_uuid"
                 , parameters
                 );          
             }
@@ -413,7 +413,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileTypeUuid(
+        public virtual bool DelProfileTypeByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -423,7 +423,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_type_del_uuid"
+                    , "usp_profile_type_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -434,7 +434,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileTypeListUuid(
+        public virtual DataSet GetProfileTypeListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -444,7 +444,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_type_get_uuid"
+                , "usp_profile_type_get_by_uuid"
                 , "profile_type"
                 , parameters
                 );           
@@ -455,7 +455,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileTypeListCode(
+        public virtual DataSet GetProfileTypeListByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -465,7 +465,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_type_get_code"
+                , "usp_profile_type_get_by_code"
                 , "profile_type"
                 , parameters
                 );           
@@ -476,7 +476,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileTypeListTypeId(
+        public virtual DataSet GetProfileTypeListByTypeId(
             string type_id
         )  {
             List<SqlParameter> parameters 
@@ -486,7 +486,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_type_get_type_id"
+                , "usp_profile_type_get_by_type_id"
                 , "profile_type"
                 , parameters
                 );           
@@ -515,7 +515,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeUuid(
+        public virtual int CountProfileAttributeByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -525,7 +525,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_count_uuid"
+                , "usp_profile_attribute_count_by_uuid"
                 , parameters
                 );          
             }
@@ -535,7 +535,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeCode(
+        public virtual int CountProfileAttributeByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -545,7 +545,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_count_code"
+                , "usp_profile_attribute_count_by_code"
                 , parameters
                 );          
             }
@@ -555,7 +555,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeType(
+        public virtual int CountProfileAttributeByType(
             int type
         )  {
             List<SqlParameter> parameters 
@@ -565,7 +565,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_count_type"
+                , "usp_profile_attribute_count_by_type"
                 , parameters
                 );          
             }
@@ -575,7 +575,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeGroup(
+        public virtual int CountProfileAttributeByGroup(
             int group
         )  {
             List<SqlParameter> parameters 
@@ -585,7 +585,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_count_group"
+                , "usp_profile_attribute_count_by_group"
                 , parameters
                 );          
             }
@@ -595,7 +595,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeCodeType(
+        public virtual int CountProfileAttributeByCodeByType(
             string code
             , int type
         )  {
@@ -607,7 +607,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_count_code_type"
+                , "usp_profile_attribute_count_by_code_by_type"
                 , parameters
                 );          
             }
@@ -617,7 +617,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileAttributeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileAttributeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -629,7 +629,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_browse_filter"
+                , "usp_profile_attribute_browse_by_filter"
                 , "profile_attribute"
                 , parameters
                 );         
@@ -641,7 +641,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeUuid(string set_type, ProfileAttribute obj)  {
+        public virtual bool SetProfileAttributeByUuid(string set_type, ProfileAttribute obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -663,7 +663,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_set_uuid"
+                , "usp_profile_attribute_set_by_uuid"
                 , parameters
                 );          
             }
@@ -674,7 +674,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeCode(string set_type, ProfileAttribute obj)  {
+        public virtual bool SetProfileAttributeByCode(string set_type, ProfileAttribute obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -696,7 +696,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_set_code"
+                , "usp_profile_attribute_set_by_code"
                 , parameters
                 );          
             }
@@ -707,7 +707,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeUuid(
+        public virtual bool DelProfileAttributeByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -717,7 +717,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_attribute_del_uuid"
+                    , "usp_profile_attribute_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -728,7 +728,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeCode(
+        public virtual bool DelProfileAttributeByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -738,7 +738,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_attribute_del_code"
+                    , "usp_profile_attribute_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -749,7 +749,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListUuid(
+        public virtual DataSet GetProfileAttributeListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -759,7 +759,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_get_uuid"
+                , "usp_profile_attribute_get_by_uuid"
                 , "profile_attribute"
                 , parameters
                 );           
@@ -770,7 +770,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListCode(
+        public virtual DataSet GetProfileAttributeListByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -780,7 +780,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_get_code"
+                , "usp_profile_attribute_get_by_code"
                 , "profile_attribute"
                 , parameters
                 );           
@@ -791,7 +791,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListType(
+        public virtual DataSet GetProfileAttributeListByType(
             int type
         )  {
             List<SqlParameter> parameters 
@@ -801,7 +801,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_get_type"
+                , "usp_profile_attribute_get_by_type"
                 , "profile_attribute"
                 , parameters
                 );           
@@ -812,7 +812,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListGroup(
+        public virtual DataSet GetProfileAttributeListByGroup(
             int group
         )  {
             List<SqlParameter> parameters 
@@ -822,7 +822,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_get_group"
+                , "usp_profile_attribute_get_by_group"
                 , "profile_attribute"
                 , parameters
                 );           
@@ -833,7 +833,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListCodeType(
+        public virtual DataSet GetProfileAttributeListByCodeByType(
             string code
             , int type
         )  {
@@ -845,7 +845,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_get_code_type"
+                , "usp_profile_attribute_get_by_code_by_type"
                 , "profile_attribute"
                 , parameters
                 );           
@@ -874,7 +874,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeTextUuid(
+        public virtual int CountProfileAttributeTextByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -884,7 +884,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_count_uuid"
+                , "usp_profile_attribute_text_count_by_uuid"
                 , parameters
                 );          
             }
@@ -894,7 +894,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeTextProfileId(
+        public virtual int CountProfileAttributeTextByProfileId(
             string profile_id
         )  {
             List<SqlParameter> parameters 
@@ -904,7 +904,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_count_profile_id"
+                , "usp_profile_attribute_text_count_by_profile_id"
                 , parameters
                 );          
             }
@@ -914,7 +914,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeTextProfileIdAttributeId(
+        public virtual int CountProfileAttributeTextByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -926,7 +926,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_count_profile_id_attribute_id"
+                , "usp_profile_attribute_text_count_by_profile_id_by_attribute_id"
                 , parameters
                 );          
             }
@@ -936,7 +936,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileAttributeTextListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileAttributeTextListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -948,7 +948,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_browse_filter"
+                , "usp_profile_attribute_text_browse_by_filter"
                 , "profile_attribute_text"
                 , parameters
                 );         
@@ -960,7 +960,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeTextUuid(string set_type, ProfileAttributeText obj)  {
+        public virtual bool SetProfileAttributeTextByUuid(string set_type, ProfileAttributeText obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -981,7 +981,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_set_uuid"
+                , "usp_profile_attribute_text_set_by_uuid"
                 , parameters
                 );          
             }
@@ -992,7 +992,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeTextProfileId(string set_type, ProfileAttributeText obj)  {
+        public virtual bool SetProfileAttributeTextByProfileId(string set_type, ProfileAttributeText obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1013,7 +1013,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_set_profile_id"
+                , "usp_profile_attribute_text_set_by_profile_id"
                 , parameters
                 );          
             }
@@ -1024,7 +1024,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeTextProfileIdAttributeId(string set_type, ProfileAttributeText obj)  {
+        public virtual bool SetProfileAttributeTextByProfileIdByAttributeId(string set_type, ProfileAttributeText obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1045,7 +1045,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_set_profile_id_attribute_id"
+                , "usp_profile_attribute_text_set_by_profile_id_by_attribute_id"
                 , parameters
                 );          
             }
@@ -1056,7 +1056,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeTextUuid(
+        public virtual bool DelProfileAttributeTextByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -1066,7 +1066,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_attribute_text_del_uuid"
+                    , "usp_profile_attribute_text_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -1077,7 +1077,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeTextProfileId(
+        public virtual bool DelProfileAttributeTextByProfileId(
             string profile_id
         )  {
             List<SqlParameter> parameters 
@@ -1087,7 +1087,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_attribute_text_del_profile_id"
+                    , "usp_profile_attribute_text_del_by_profile_id"
                     , parameters
                     );
                 return true;            
@@ -1098,7 +1098,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeTextProfileIdAttributeId(
+        public virtual bool DelProfileAttributeTextByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1110,7 +1110,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_attribute_text_del_profile_id_attribute_id"
+                    , "usp_profile_attribute_text_del_by_profile_id_by_attribute_id"
                     , parameters
                     );
                 return true;            
@@ -1121,7 +1121,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeTextListUuid(
+        public virtual DataSet GetProfileAttributeTextListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -1131,7 +1131,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_get_uuid"
+                , "usp_profile_attribute_text_get_by_uuid"
                 , "profile_attribute_text"
                 , parameters
                 );           
@@ -1142,7 +1142,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeTextListProfileId(
+        public virtual DataSet GetProfileAttributeTextListByProfileId(
             string profile_id
         )  {
             List<SqlParameter> parameters 
@@ -1152,7 +1152,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_get_profile_id"
+                , "usp_profile_attribute_text_get_by_profile_id"
                 , "profile_attribute_text"
                 , parameters
                 );           
@@ -1163,7 +1163,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeTextListProfileIdAttributeId(
+        public virtual DataSet GetProfileAttributeTextListByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1175,7 +1175,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_text_get_profile_id_attribute_id"
+                , "usp_profile_attribute_text_get_by_profile_id_by_attribute_id"
                 , "profile_attribute_text"
                 , parameters
                 );           
@@ -1204,7 +1204,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeDataUuid(
+        public virtual int CountProfileAttributeDataByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -1214,7 +1214,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_count_uuid"
+                , "usp_profile_attribute_data_count_by_uuid"
                 , parameters
                 );          
             }
@@ -1224,7 +1224,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeDataProfileId(
+        public virtual int CountProfileAttributeDataByProfileId(
             string profile_id
         )  {
             List<SqlParameter> parameters 
@@ -1234,7 +1234,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_count_profile_id"
+                , "usp_profile_attribute_data_count_by_profile_id"
                 , parameters
                 );          
             }
@@ -1244,7 +1244,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeDataProfileIdAttributeId(
+        public virtual int CountProfileAttributeDataByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1256,7 +1256,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_count_profile_id_attribute_id"
+                , "usp_profile_attribute_data_count_by_profile_id_by_attribute_id"
                 , parameters
                 );          
             }
@@ -1266,7 +1266,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileAttributeDataListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileAttributeDataListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -1278,7 +1278,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_browse_filter"
+                , "usp_profile_attribute_data_browse_by_filter"
                 , "profile_attribute_data"
                 , parameters
                 );         
@@ -1290,7 +1290,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeDataUuid(string set_type, ProfileAttributeData obj)  {
+        public virtual bool SetProfileAttributeDataByUuid(string set_type, ProfileAttributeData obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1311,7 +1311,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_set_uuid"
+                , "usp_profile_attribute_data_set_by_uuid"
                 , parameters
                 );          
             }
@@ -1322,7 +1322,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeDataProfileId(string set_type, ProfileAttributeData obj)  {
+        public virtual bool SetProfileAttributeDataByProfileId(string set_type, ProfileAttributeData obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1343,7 +1343,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_set_profile_id"
+                , "usp_profile_attribute_data_set_by_profile_id"
                 , parameters
                 );          
             }
@@ -1354,7 +1354,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeDataProfileIdAttributeId(string set_type, ProfileAttributeData obj)  {
+        public virtual bool SetProfileAttributeDataByProfileIdByAttributeId(string set_type, ProfileAttributeData obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1375,7 +1375,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_set_profile_id_attribute_id"
+                , "usp_profile_attribute_data_set_by_profile_id_by_attribute_id"
                 , parameters
                 );          
             }
@@ -1386,7 +1386,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeDataUuid(
+        public virtual bool DelProfileAttributeDataByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -1396,7 +1396,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_attribute_data_del_uuid"
+                    , "usp_profile_attribute_data_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -1407,7 +1407,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeDataProfileId(
+        public virtual bool DelProfileAttributeDataByProfileId(
             string profile_id
         )  {
             List<SqlParameter> parameters 
@@ -1417,7 +1417,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_attribute_data_del_profile_id"
+                    , "usp_profile_attribute_data_del_by_profile_id"
                     , parameters
                     );
                 return true;            
@@ -1428,7 +1428,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeDataProfileIdAttributeId(
+        public virtual bool DelProfileAttributeDataByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1440,7 +1440,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_attribute_data_del_profile_id_attribute_id"
+                    , "usp_profile_attribute_data_del_by_profile_id_by_attribute_id"
                     , parameters
                     );
                 return true;            
@@ -1451,7 +1451,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeDataListUuid(
+        public virtual DataSet GetProfileAttributeDataListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -1461,7 +1461,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_get_uuid"
+                , "usp_profile_attribute_data_get_by_uuid"
                 , "profile_attribute_data"
                 , parameters
                 );           
@@ -1472,7 +1472,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeDataListProfileId(
+        public virtual DataSet GetProfileAttributeDataListByProfileId(
             string profile_id
         )  {
             List<SqlParameter> parameters 
@@ -1482,7 +1482,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_get_profile_id"
+                , "usp_profile_attribute_data_get_by_profile_id"
                 , "profile_attribute_data"
                 , parameters
                 );           
@@ -1493,7 +1493,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeDataListProfileIdAttributeId(
+        public virtual DataSet GetProfileAttributeDataListByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1505,7 +1505,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_attribute_data_get_profile_id_attribute_id"
+                , "usp_profile_attribute_data_get_by_profile_id_by_attribute_id"
                 , "profile_attribute_data"
                 , parameters
                 );           
@@ -1534,7 +1534,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceUuid(
+        public virtual int CountProfileDeviceByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -1544,7 +1544,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_count_uuid"
+                , "usp_profile_device_count_by_uuid"
                 , parameters
                 );          
             }
@@ -1554,7 +1554,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceProfileIdDeviceId(
+        public virtual int CountProfileDeviceByProfileIdByDeviceId(
             string profile_id
             , string device_id
         )  {
@@ -1566,7 +1566,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_count_profile_id_device_id"
+                , "usp_profile_device_count_by_profile_id_by_device_id"
                 , parameters
                 );          
             }
@@ -1576,7 +1576,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceProfileIdToken(
+        public virtual int CountProfileDeviceByProfileIdByToken(
             string profile_id
             , string token
         )  {
@@ -1588,7 +1588,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_count_profile_id_token"
+                , "usp_profile_device_count_by_profile_id_by_token"
                 , parameters
                 );          
             }
@@ -1598,7 +1598,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceProfileId(
+        public virtual int CountProfileDeviceByProfileId(
             string profile_id
         )  {
             List<SqlParameter> parameters 
@@ -1608,7 +1608,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_count_profile_id"
+                , "usp_profile_device_count_by_profile_id"
                 , parameters
                 );          
             }
@@ -1618,7 +1618,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceDeviceId(
+        public virtual int CountProfileDeviceByDeviceId(
             string device_id
         )  {
             List<SqlParameter> parameters 
@@ -1628,7 +1628,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_count_device_id"
+                , "usp_profile_device_count_by_device_id"
                 , parameters
                 );          
             }
@@ -1638,7 +1638,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceToken(
+        public virtual int CountProfileDeviceByToken(
             string token
         )  {
             List<SqlParameter> parameters 
@@ -1648,7 +1648,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_count_token"
+                , "usp_profile_device_count_by_token"
                 , parameters
                 );          
             }
@@ -1658,7 +1658,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileDeviceListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileDeviceListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -1670,7 +1670,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_browse_filter"
+                , "usp_profile_device_browse_by_filter"
                 , "profile_device"
                 , parameters
                 );         
@@ -1682,7 +1682,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileDeviceUuid(string set_type, ProfileDevice obj)  {
+        public virtual bool SetProfileDeviceByUuid(string set_type, ProfileDevice obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1704,7 +1704,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_set_uuid"
+                , "usp_profile_device_set_by_uuid"
                 , parameters
                 );          
             }
@@ -1715,7 +1715,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceUuid(
+        public virtual bool DelProfileDeviceByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -1725,7 +1725,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_device_del_uuid"
+                    , "usp_profile_device_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -1736,7 +1736,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceProfileIdDeviceId(
+        public virtual bool DelProfileDeviceByProfileIdByDeviceId(
             string profile_id
             , string device_id
         )  {
@@ -1748,7 +1748,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_device_del_profile_id_device_id"
+                    , "usp_profile_device_del_by_profile_id_by_device_id"
                     , parameters
                     );
                 return true;            
@@ -1759,7 +1759,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceProfileIdToken(
+        public virtual bool DelProfileDeviceByProfileIdByToken(
             string profile_id
             , string token
         )  {
@@ -1771,7 +1771,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_device_del_profile_id_token"
+                    , "usp_profile_device_del_by_profile_id_by_token"
                     , parameters
                     );
                 return true;            
@@ -1782,7 +1782,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceToken(
+        public virtual bool DelProfileDeviceByToken(
             string token
         )  {
             List<SqlParameter> parameters 
@@ -1792,7 +1792,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_device_del_token"
+                    , "usp_profile_device_del_by_token"
                     , parameters
                     );
                 return true;            
@@ -1803,7 +1803,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListUuid(
+        public virtual DataSet GetProfileDeviceListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -1813,7 +1813,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_get_uuid"
+                , "usp_profile_device_get_by_uuid"
                 , "profile_device"
                 , parameters
                 );           
@@ -1824,7 +1824,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListProfileIdDeviceId(
+        public virtual DataSet GetProfileDeviceListByProfileIdByDeviceId(
             string profile_id
             , string device_id
         )  {
@@ -1836,7 +1836,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_get_profile_id_device_id"
+                , "usp_profile_device_get_by_profile_id_by_device_id"
                 , "profile_device"
                 , parameters
                 );           
@@ -1847,7 +1847,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListProfileIdToken(
+        public virtual DataSet GetProfileDeviceListByProfileIdByToken(
             string profile_id
             , string token
         )  {
@@ -1859,7 +1859,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_get_profile_id_token"
+                , "usp_profile_device_get_by_profile_id_by_token"
                 , "profile_device"
                 , parameters
                 );           
@@ -1870,7 +1870,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListProfileId(
+        public virtual DataSet GetProfileDeviceListByProfileId(
             string profile_id
         )  {
             List<SqlParameter> parameters 
@@ -1880,7 +1880,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_get_profile_id"
+                , "usp_profile_device_get_by_profile_id"
                 , "profile_device"
                 , parameters
                 );           
@@ -1891,7 +1891,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListDeviceId(
+        public virtual DataSet GetProfileDeviceListByDeviceId(
             string device_id
         )  {
             List<SqlParameter> parameters 
@@ -1901,7 +1901,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_get_device_id"
+                , "usp_profile_device_get_by_device_id"
                 , "profile_device"
                 , parameters
                 );           
@@ -1912,7 +1912,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListToken(
+        public virtual DataSet GetProfileDeviceListByToken(
             string token
         )  {
             List<SqlParameter> parameters 
@@ -1922,7 +1922,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_device_get_token"
+                , "usp_profile_device_get_by_token"
                 , "profile_device"
                 , parameters
                 );           
@@ -1951,7 +1951,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCountryUuid(
+        public virtual int CountCountryByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -1961,7 +1961,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_country_count_uuid"
+                , "usp_country_count_by_uuid"
                 , parameters
                 );          
             }
@@ -1971,7 +1971,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCountryCode(
+        public virtual int CountCountryByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -1981,7 +1981,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_country_count_code"
+                , "usp_country_count_by_code"
                 , parameters
                 );          
             }
@@ -1991,7 +1991,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseCountryListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseCountryListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2003,7 +2003,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_country_browse_filter"
+                , "usp_country_browse_by_filter"
                 , "country"
                 , parameters
                 );         
@@ -2015,7 +2015,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCountryUuid(string set_type, Country obj)  {
+        public virtual bool SetCountryByUuid(string set_type, Country obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2033,7 +2033,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_country_set_uuid"
+                , "usp_country_set_by_uuid"
                 , parameters
                 );          
             }
@@ -2044,7 +2044,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCountryCode(string set_type, Country obj)  {
+        public virtual bool SetCountryByCode(string set_type, Country obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2062,7 +2062,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_country_set_code"
+                , "usp_country_set_by_code"
                 , parameters
                 );          
             }
@@ -2073,7 +2073,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCountryUuid(
+        public virtual bool DelCountryByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2083,7 +2083,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_country_del_uuid"
+                    , "usp_country_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -2094,7 +2094,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCountryCode(
+        public virtual bool DelCountryByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2104,7 +2104,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_country_del_code"
+                    , "usp_country_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -2134,7 +2134,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetCountryListUuid(
+        public virtual DataSet GetCountryListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2144,7 +2144,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_country_get_uuid"
+                , "usp_country_get_by_uuid"
                 , "country"
                 , parameters
                 );           
@@ -2155,7 +2155,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetCountryListCode(
+        public virtual DataSet GetCountryListByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2165,7 +2165,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_country_get_code"
+                , "usp_country_get_by_code"
                 , "country"
                 , parameters
                 );           
@@ -2194,7 +2194,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountStateUuid(
+        public virtual int CountStateByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2204,7 +2204,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_state_count_uuid"
+                , "usp_state_count_by_uuid"
                 , parameters
                 );          
             }
@@ -2214,7 +2214,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountStateCode(
+        public virtual int CountStateByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2224,7 +2224,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_state_count_code"
+                , "usp_state_count_by_code"
                 , parameters
                 );          
             }
@@ -2234,7 +2234,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseStateListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseStateListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2246,7 +2246,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_state_browse_filter"
+                , "usp_state_browse_by_filter"
                 , "state"
                 , parameters
                 );         
@@ -2258,7 +2258,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetStateUuid(string set_type, State obj)  {
+        public virtual bool SetStateByUuid(string set_type, State obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2276,7 +2276,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_state_set_uuid"
+                , "usp_state_set_by_uuid"
                 , parameters
                 );          
             }
@@ -2287,7 +2287,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetStateCode(string set_type, State obj)  {
+        public virtual bool SetStateByCode(string set_type, State obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2305,7 +2305,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_state_set_code"
+                , "usp_state_set_by_code"
                 , parameters
                 );          
             }
@@ -2316,7 +2316,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelStateUuid(
+        public virtual bool DelStateByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2326,7 +2326,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_state_del_uuid"
+                    , "usp_state_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -2337,7 +2337,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelStateCode(
+        public virtual bool DelStateByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2347,7 +2347,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_state_del_code"
+                    , "usp_state_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -2377,7 +2377,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetStateListUuid(
+        public virtual DataSet GetStateListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2387,7 +2387,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_state_get_uuid"
+                , "usp_state_get_by_uuid"
                 , "state"
                 , parameters
                 );           
@@ -2398,7 +2398,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetStateListCode(
+        public virtual DataSet GetStateListByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2408,7 +2408,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_state_get_code"
+                , "usp_state_get_by_code"
                 , "state"
                 , parameters
                 );           
@@ -2437,7 +2437,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCityUuid(
+        public virtual int CountCityByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2447,7 +2447,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_city_count_uuid"
+                , "usp_city_count_by_uuid"
                 , parameters
                 );          
             }
@@ -2457,7 +2457,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCityCode(
+        public virtual int CountCityByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2467,7 +2467,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_city_count_code"
+                , "usp_city_count_by_code"
                 , parameters
                 );          
             }
@@ -2477,7 +2477,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseCityListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseCityListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2489,7 +2489,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_city_browse_filter"
+                , "usp_city_browse_by_filter"
                 , "city"
                 , parameters
                 );         
@@ -2501,7 +2501,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCityUuid(string set_type, City obj)  {
+        public virtual bool SetCityByUuid(string set_type, City obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2519,7 +2519,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_city_set_uuid"
+                , "usp_city_set_by_uuid"
                 , parameters
                 );          
             }
@@ -2530,7 +2530,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCityCode(string set_type, City obj)  {
+        public virtual bool SetCityByCode(string set_type, City obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2548,7 +2548,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_city_set_code"
+                , "usp_city_set_by_code"
                 , parameters
                 );          
             }
@@ -2559,7 +2559,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCityUuid(
+        public virtual bool DelCityByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2569,7 +2569,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_city_del_uuid"
+                    , "usp_city_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -2580,7 +2580,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCityCode(
+        public virtual bool DelCityByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2590,7 +2590,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_city_del_code"
+                    , "usp_city_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -2620,7 +2620,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetCityListUuid(
+        public virtual DataSet GetCityListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2630,7 +2630,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_city_get_uuid"
+                , "usp_city_get_by_uuid"
                 , "city"
                 , parameters
                 );           
@@ -2641,7 +2641,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetCityListCode(
+        public virtual DataSet GetCityListByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2651,7 +2651,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_city_get_code"
+                , "usp_city_get_by_code"
                 , "city"
                 , parameters
                 );           
@@ -2680,7 +2680,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPostalCodeUuid(
+        public virtual int CountPostalCodeByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2690,7 +2690,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_postal_code_count_uuid"
+                , "usp_postal_code_count_by_uuid"
                 , parameters
                 );          
             }
@@ -2700,7 +2700,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPostalCodeCode(
+        public virtual int CountPostalCodeByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2710,7 +2710,7 @@ namespace profile {
                 return (int)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_postal_code_count_code"
+                , "usp_postal_code_count_by_code"
                 , parameters
                 );          
             }
@@ -2720,7 +2720,7 @@ namespace profile {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowsePostalCodeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowsePostalCodeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2732,7 +2732,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_postal_code_browse_filter"
+                , "usp_postal_code_browse_by_filter"
                 , "postal_code"
                 , parameters
                 );         
@@ -2744,7 +2744,7 @@ namespace profile {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPostalCodeUuid(string set_type, PostalCode obj)  {
+        public virtual bool SetPostalCodeByUuid(string set_type, PostalCode obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2762,7 +2762,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_postal_code_set_uuid"
+                , "usp_postal_code_set_by_uuid"
                 , parameters
                 );          
             }
@@ -2773,7 +2773,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPostalCodeCode(string set_type, PostalCode obj)  {
+        public virtual bool SetPostalCodeByCode(string set_type, PostalCode obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2791,7 +2791,7 @@ namespace profile {
                 return (bool)data.ExecuteScalar(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_postal_code_set_code"
+                , "usp_postal_code_set_by_code"
                 , parameters
                 );          
             }
@@ -2802,7 +2802,7 @@ namespace profile {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPostalCodeUuid(
+        public virtual bool DelPostalCodeByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2812,7 +2812,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_postal_code_del_uuid"
+                    , "usp_postal_code_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -2823,7 +2823,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPostalCodeCode(
+        public virtual bool DelPostalCodeByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2833,7 +2833,7 @@ namespace profile {
                 data.ExecuteNonQuery(
                     BaseProfileData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_postal_code_del_code"
+                    , "usp_postal_code_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -2863,7 +2863,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPostalCodeListUuid(
+        public virtual DataSet GetPostalCodeListByUuid(
             string uuid
         )  {
             List<SqlParameter> parameters 
@@ -2873,7 +2873,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_postal_code_get_uuid"
+                , "usp_postal_code_get_by_uuid"
                 , "postal_code"
                 , parameters
                 );           
@@ -2884,7 +2884,7 @@ namespace profile {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPostalCodeListCode(
+        public virtual DataSet GetPostalCodeListByCode(
             string code
         )  {
             List<SqlParameter> parameters 
@@ -2894,7 +2894,7 @@ namespace profile {
                 return data.ExecuteDataSet(
                 BaseProfileData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_postal_code_get_code"
+                , "usp_postal_code_get_by_code"
                 , "postal_code"
                 , parameters
                 );           

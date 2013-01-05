@@ -38,6 +38,7 @@ class Photo extends BaseMeta {
     public $third_party_oembed;
     public $url;
     public $third_party_data;
+    public $data;
     public $third_party_url;
     public $third_party_id;
     public $content_type;

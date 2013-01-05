@@ -65,6 +65,7 @@ class Video(BaseMeta):
     self.third_party_oembed = None
     self.url = None
     self.third_party_data = None
+    self.data = None
     self.third_party_url = None
     self.third_party_id = None
     self.content_type = None

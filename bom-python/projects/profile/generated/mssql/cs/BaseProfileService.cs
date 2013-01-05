@@ -111,386 +111,386 @@ namespace profile {
             if(IsContext("profile/count")){
                 CountProfile();
             }
-            else if(IsContext("profile/count/uuid")){
-                CountProfileUuid();
+            else if(IsContext("profile/count/by-uuid")){
+                CountProfileByUuid();
             }
-            else if(IsContext("profile/count/username/hash")){
-                CountProfileUsernameHash();
+            else if(IsContext("profile/count/by-username/by-hash")){
+                CountProfileByUsernameByHash();
             }
-            else if(IsContext("profile/count/username")){
-                CountProfileUsername();
+            else if(IsContext("profile/count/by-username")){
+                CountProfileByUsername();
             }
-            else if(IsContext("profile/browse/filter")){
-                BrowseProfileListFilter();
+            else if(IsContext("profile/browse/by-filter")){
+                BrowseProfileListByFilter();
             }
-            else if(IsContext("profile/set/uuid")){
-                SetProfileUuid();
+            else if(IsContext("profile/set/by-uuid")){
+                SetProfileByUuid();
             }
-            else if(IsContext("profile/set/username")){
-                SetProfileUsername();
+            else if(IsContext("profile/set/by-username")){
+                SetProfileByUsername();
             }
-            else if(IsContext("profile/del/uuid")){
-                DelProfileUuid();
+            else if(IsContext("profile/del/by-uuid")){
+                DelProfileByUuid();
             }
-            else if(IsContext("profile/del/username")){
-                DelProfileUsername();
+            else if(IsContext("profile/del/by-username")){
+                DelProfileByUsername();
             }
-            else if(IsContext("profile/get/uuid")){
-                GetProfileListUuid();
+            else if(IsContext("profile/get/by-uuid")){
+                GetProfileListByUuid();
             }
-            else if(IsContext("profile/get/username/hash")){
-                GetProfileListUsernameHash();
+            else if(IsContext("profile/get/by-username/by-hash")){
+                GetProfileListByUsernameByHash();
             }
-            else if(IsContext("profile/get/username")){
-                GetProfileListUsername();
+            else if(IsContext("profile/get/by-username")){
+                GetProfileListByUsername();
             }
             if(IsContext("profile-type/count")){
                 CountProfileType();
             }
-            else if(IsContext("profile-type/count/uuid")){
-                CountProfileTypeUuid();
+            else if(IsContext("profile-type/count/by-uuid")){
+                CountProfileTypeByUuid();
             }
-            else if(IsContext("profile-type/count/type-id")){
-                CountProfileTypeTypeId();
+            else if(IsContext("profile-type/count/by-type-id")){
+                CountProfileTypeByTypeId();
             }
-            else if(IsContext("profile-type/browse/filter")){
-                BrowseProfileTypeListFilter();
+            else if(IsContext("profile-type/browse/by-filter")){
+                BrowseProfileTypeListByFilter();
             }
-            else if(IsContext("profile-type/set/uuid")){
-                SetProfileTypeUuid();
+            else if(IsContext("profile-type/set/by-uuid")){
+                SetProfileTypeByUuid();
             }
-            else if(IsContext("profile-type/del/uuid")){
-                DelProfileTypeUuid();
+            else if(IsContext("profile-type/del/by-uuid")){
+                DelProfileTypeByUuid();
             }
-            else if(IsContext("profile-type/get/uuid")){
-                GetProfileTypeListUuid();
+            else if(IsContext("profile-type/get/by-uuid")){
+                GetProfileTypeListByUuid();
             }
-            else if(IsContext("profile-type/get/code")){
-                GetProfileTypeListCode();
+            else if(IsContext("profile-type/get/by-code")){
+                GetProfileTypeListByCode();
             }
-            else if(IsContext("profile-type/get/type-id")){
-                GetProfileTypeListTypeId();
+            else if(IsContext("profile-type/get/by-type-id")){
+                GetProfileTypeListByTypeId();
             }
             if(IsContext("profile-attribute/count")){
                 CountProfileAttribute();
             }
-            else if(IsContext("profile-attribute/count/uuid")){
-                CountProfileAttributeUuid();
+            else if(IsContext("profile-attribute/count/by-uuid")){
+                CountProfileAttributeByUuid();
             }
-            else if(IsContext("profile-attribute/count/code")){
-                CountProfileAttributeCode();
+            else if(IsContext("profile-attribute/count/by-code")){
+                CountProfileAttributeByCode();
             }
-            else if(IsContext("profile-attribute/count/type")){
-                CountProfileAttributeType();
+            else if(IsContext("profile-attribute/count/by-type")){
+                CountProfileAttributeByType();
             }
-            else if(IsContext("profile-attribute/count/group")){
-                CountProfileAttributeGroup();
+            else if(IsContext("profile-attribute/count/by-group")){
+                CountProfileAttributeByGroup();
             }
-            else if(IsContext("profile-attribute/count/code/type")){
-                CountProfileAttributeCodeType();
+            else if(IsContext("profile-attribute/count/by-code/by-type")){
+                CountProfileAttributeByCodeByType();
             }
-            else if(IsContext("profile-attribute/browse/filter")){
-                BrowseProfileAttributeListFilter();
+            else if(IsContext("profile-attribute/browse/by-filter")){
+                BrowseProfileAttributeListByFilter();
             }
-            else if(IsContext("profile-attribute/set/uuid")){
-                SetProfileAttributeUuid();
+            else if(IsContext("profile-attribute/set/by-uuid")){
+                SetProfileAttributeByUuid();
             }
-            else if(IsContext("profile-attribute/set/code")){
-                SetProfileAttributeCode();
+            else if(IsContext("profile-attribute/set/by-code")){
+                SetProfileAttributeByCode();
             }
-            else if(IsContext("profile-attribute/del/uuid")){
-                DelProfileAttributeUuid();
+            else if(IsContext("profile-attribute/del/by-uuid")){
+                DelProfileAttributeByUuid();
             }
-            else if(IsContext("profile-attribute/del/code")){
-                DelProfileAttributeCode();
+            else if(IsContext("profile-attribute/del/by-code")){
+                DelProfileAttributeByCode();
             }
-            else if(IsContext("profile-attribute/get/uuid")){
-                GetProfileAttributeListUuid();
+            else if(IsContext("profile-attribute/get/by-uuid")){
+                GetProfileAttributeListByUuid();
             }
-            else if(IsContext("profile-attribute/get/code")){
-                GetProfileAttributeListCode();
+            else if(IsContext("profile-attribute/get/by-code")){
+                GetProfileAttributeListByCode();
             }
-            else if(IsContext("profile-attribute/get/type")){
-                GetProfileAttributeListType();
+            else if(IsContext("profile-attribute/get/by-type")){
+                GetProfileAttributeListByType();
             }
-            else if(IsContext("profile-attribute/get/group")){
-                GetProfileAttributeListGroup();
+            else if(IsContext("profile-attribute/get/by-group")){
+                GetProfileAttributeListByGroup();
             }
-            else if(IsContext("profile-attribute/get/code/type")){
-                GetProfileAttributeListCodeType();
+            else if(IsContext("profile-attribute/get/by-code/by-type")){
+                GetProfileAttributeListByCodeByType();
             }
             if(IsContext("profile-attribute-text/count")){
                 CountProfileAttributeText();
             }
-            else if(IsContext("profile-attribute-text/count/uuid")){
-                CountProfileAttributeTextUuid();
+            else if(IsContext("profile-attribute-text/count/by-uuid")){
+                CountProfileAttributeTextByUuid();
             }
-            else if(IsContext("profile-attribute-text/count/profile-id")){
-                CountProfileAttributeTextProfileId();
+            else if(IsContext("profile-attribute-text/count/by-profile-id")){
+                CountProfileAttributeTextByProfileId();
             }
-            else if(IsContext("profile-attribute-text/count/profile-id/attribute-id")){
-                CountProfileAttributeTextProfileIdAttributeId();
+            else if(IsContext("profile-attribute-text/count/by-profile-id/by-attribute-id")){
+                CountProfileAttributeTextByProfileIdByAttributeId();
             }
-            else if(IsContext("profile-attribute-text/browse/filter")){
-                BrowseProfileAttributeTextListFilter();
+            else if(IsContext("profile-attribute-text/browse/by-filter")){
+                BrowseProfileAttributeTextListByFilter();
             }
-            else if(IsContext("profile-attribute-text/set/uuid")){
-                SetProfileAttributeTextUuid();
+            else if(IsContext("profile-attribute-text/set/by-uuid")){
+                SetProfileAttributeTextByUuid();
             }
-            else if(IsContext("profile-attribute-text/set/profile-id")){
-                SetProfileAttributeTextProfileId();
+            else if(IsContext("profile-attribute-text/set/by-profile-id")){
+                SetProfileAttributeTextByProfileId();
             }
-            else if(IsContext("profile-attribute-text/set/profile-id/attribute-id")){
-                SetProfileAttributeTextProfileIdAttributeId();
+            else if(IsContext("profile-attribute-text/set/by-profile-id/by-attribute-id")){
+                SetProfileAttributeTextByProfileIdByAttributeId();
             }
-            else if(IsContext("profile-attribute-text/del/uuid")){
-                DelProfileAttributeTextUuid();
+            else if(IsContext("profile-attribute-text/del/by-uuid")){
+                DelProfileAttributeTextByUuid();
             }
-            else if(IsContext("profile-attribute-text/del/profile-id")){
-                DelProfileAttributeTextProfileId();
+            else if(IsContext("profile-attribute-text/del/by-profile-id")){
+                DelProfileAttributeTextByProfileId();
             }
-            else if(IsContext("profile-attribute-text/del/profile-id/attribute-id")){
-                DelProfileAttributeTextProfileIdAttributeId();
+            else if(IsContext("profile-attribute-text/del/by-profile-id/by-attribute-id")){
+                DelProfileAttributeTextByProfileIdByAttributeId();
             }
-            else if(IsContext("profile-attribute-text/get/uuid")){
-                GetProfileAttributeTextListUuid();
+            else if(IsContext("profile-attribute-text/get/by-uuid")){
+                GetProfileAttributeTextListByUuid();
             }
-            else if(IsContext("profile-attribute-text/get/profile-id")){
-                GetProfileAttributeTextListProfileId();
+            else if(IsContext("profile-attribute-text/get/by-profile-id")){
+                GetProfileAttributeTextListByProfileId();
             }
-            else if(IsContext("profile-attribute-text/get/profile-id/attribute-id")){
-                GetProfileAttributeTextListProfileIdAttributeId();
+            else if(IsContext("profile-attribute-text/get/by-profile-id/by-attribute-id")){
+                GetProfileAttributeTextListByProfileIdByAttributeId();
             }
             if(IsContext("profile-attribute-data/count")){
                 CountProfileAttributeData();
             }
-            else if(IsContext("profile-attribute-data/count/uuid")){
-                CountProfileAttributeDataUuid();
+            else if(IsContext("profile-attribute-data/count/by-uuid")){
+                CountProfileAttributeDataByUuid();
             }
-            else if(IsContext("profile-attribute-data/count/profile-id")){
-                CountProfileAttributeDataProfileId();
+            else if(IsContext("profile-attribute-data/count/by-profile-id")){
+                CountProfileAttributeDataByProfileId();
             }
-            else if(IsContext("profile-attribute-data/count/profile-id/attribute-id")){
-                CountProfileAttributeDataProfileIdAttributeId();
+            else if(IsContext("profile-attribute-data/count/by-profile-id/by-attribute-id")){
+                CountProfileAttributeDataByProfileIdByAttributeId();
             }
-            else if(IsContext("profile-attribute-data/browse/filter")){
-                BrowseProfileAttributeDataListFilter();
+            else if(IsContext("profile-attribute-data/browse/by-filter")){
+                BrowseProfileAttributeDataListByFilter();
             }
-            else if(IsContext("profile-attribute-data/set/uuid")){
-                SetProfileAttributeDataUuid();
+            else if(IsContext("profile-attribute-data/set/by-uuid")){
+                SetProfileAttributeDataByUuid();
             }
-            else if(IsContext("profile-attribute-data/set/profile-id")){
-                SetProfileAttributeDataProfileId();
+            else if(IsContext("profile-attribute-data/set/by-profile-id")){
+                SetProfileAttributeDataByProfileId();
             }
-            else if(IsContext("profile-attribute-data/set/profile-id/attribute-id")){
-                SetProfileAttributeDataProfileIdAttributeId();
+            else if(IsContext("profile-attribute-data/set/by-profile-id/by-attribute-id")){
+                SetProfileAttributeDataByProfileIdByAttributeId();
             }
-            else if(IsContext("profile-attribute-data/del/uuid")){
-                DelProfileAttributeDataUuid();
+            else if(IsContext("profile-attribute-data/del/by-uuid")){
+                DelProfileAttributeDataByUuid();
             }
-            else if(IsContext("profile-attribute-data/del/profile-id")){
-                DelProfileAttributeDataProfileId();
+            else if(IsContext("profile-attribute-data/del/by-profile-id")){
+                DelProfileAttributeDataByProfileId();
             }
-            else if(IsContext("profile-attribute-data/del/profile-id/attribute-id")){
-                DelProfileAttributeDataProfileIdAttributeId();
+            else if(IsContext("profile-attribute-data/del/by-profile-id/by-attribute-id")){
+                DelProfileAttributeDataByProfileIdByAttributeId();
             }
-            else if(IsContext("profile-attribute-data/get/uuid")){
-                GetProfileAttributeDataListUuid();
+            else if(IsContext("profile-attribute-data/get/by-uuid")){
+                GetProfileAttributeDataListByUuid();
             }
-            else if(IsContext("profile-attribute-data/get/profile-id")){
-                GetProfileAttributeDataListProfileId();
+            else if(IsContext("profile-attribute-data/get/by-profile-id")){
+                GetProfileAttributeDataListByProfileId();
             }
-            else if(IsContext("profile-attribute-data/get/profile-id/attribute-id")){
-                GetProfileAttributeDataListProfileIdAttributeId();
+            else if(IsContext("profile-attribute-data/get/by-profile-id/by-attribute-id")){
+                GetProfileAttributeDataListByProfileIdByAttributeId();
             }
             if(IsContext("profile-device/count")){
                 CountProfileDevice();
             }
-            else if(IsContext("profile-device/count/uuid")){
-                CountProfileDeviceUuid();
+            else if(IsContext("profile-device/count/by-uuid")){
+                CountProfileDeviceByUuid();
             }
-            else if(IsContext("profile-device/count/profile-id/device-id")){
-                CountProfileDeviceProfileIdDeviceId();
+            else if(IsContext("profile-device/count/by-profile-id/by-device-id")){
+                CountProfileDeviceByProfileIdByDeviceId();
             }
-            else if(IsContext("profile-device/count/profile-id/token")){
-                CountProfileDeviceProfileIdToken();
+            else if(IsContext("profile-device/count/by-profile-id/by-token")){
+                CountProfileDeviceByProfileIdByToken();
             }
-            else if(IsContext("profile-device/count/profile-id")){
-                CountProfileDeviceProfileId();
+            else if(IsContext("profile-device/count/by-profile-id")){
+                CountProfileDeviceByProfileId();
             }
-            else if(IsContext("profile-device/count/device-id")){
-                CountProfileDeviceDeviceId();
+            else if(IsContext("profile-device/count/by-device-id")){
+                CountProfileDeviceByDeviceId();
             }
-            else if(IsContext("profile-device/count/token")){
-                CountProfileDeviceToken();
+            else if(IsContext("profile-device/count/by-token")){
+                CountProfileDeviceByToken();
             }
-            else if(IsContext("profile-device/browse/filter")){
-                BrowseProfileDeviceListFilter();
+            else if(IsContext("profile-device/browse/by-filter")){
+                BrowseProfileDeviceListByFilter();
             }
-            else if(IsContext("profile-device/set/uuid")){
-                SetProfileDeviceUuid();
+            else if(IsContext("profile-device/set/by-uuid")){
+                SetProfileDeviceByUuid();
             }
-            else if(IsContext("profile-device/del/uuid")){
-                DelProfileDeviceUuid();
+            else if(IsContext("profile-device/del/by-uuid")){
+                DelProfileDeviceByUuid();
             }
-            else if(IsContext("profile-device/del/profile-id/device-id")){
-                DelProfileDeviceProfileIdDeviceId();
+            else if(IsContext("profile-device/del/by-profile-id/by-device-id")){
+                DelProfileDeviceByProfileIdByDeviceId();
             }
-            else if(IsContext("profile-device/del/profile-id/token")){
-                DelProfileDeviceProfileIdToken();
+            else if(IsContext("profile-device/del/by-profile-id/by-token")){
+                DelProfileDeviceByProfileIdByToken();
             }
-            else if(IsContext("profile-device/del/token")){
-                DelProfileDeviceToken();
+            else if(IsContext("profile-device/del/by-token")){
+                DelProfileDeviceByToken();
             }
-            else if(IsContext("profile-device/get/uuid")){
-                GetProfileDeviceListUuid();
+            else if(IsContext("profile-device/get/by-uuid")){
+                GetProfileDeviceListByUuid();
             }
-            else if(IsContext("profile-device/get/profile-id/device-id")){
-                GetProfileDeviceListProfileIdDeviceId();
+            else if(IsContext("profile-device/get/by-profile-id/by-device-id")){
+                GetProfileDeviceListByProfileIdByDeviceId();
             }
-            else if(IsContext("profile-device/get/profile-id/token")){
-                GetProfileDeviceListProfileIdToken();
+            else if(IsContext("profile-device/get/by-profile-id/by-token")){
+                GetProfileDeviceListByProfileIdByToken();
             }
-            else if(IsContext("profile-device/get/profile-id")){
-                GetProfileDeviceListProfileId();
+            else if(IsContext("profile-device/get/by-profile-id")){
+                GetProfileDeviceListByProfileId();
             }
-            else if(IsContext("profile-device/get/device-id")){
-                GetProfileDeviceListDeviceId();
+            else if(IsContext("profile-device/get/by-device-id")){
+                GetProfileDeviceListByDeviceId();
             }
-            else if(IsContext("profile-device/get/token")){
-                GetProfileDeviceListToken();
+            else if(IsContext("profile-device/get/by-token")){
+                GetProfileDeviceListByToken();
             }
             if(IsContext("country/count")){
                 CountCountry();
             }
-            else if(IsContext("country/count/uuid")){
-                CountCountryUuid();
+            else if(IsContext("country/count/by-uuid")){
+                CountCountryByUuid();
             }
-            else if(IsContext("country/count/code")){
-                CountCountryCode();
+            else if(IsContext("country/count/by-code")){
+                CountCountryByCode();
             }
-            else if(IsContext("country/browse/filter")){
-                BrowseCountryListFilter();
+            else if(IsContext("country/browse/by-filter")){
+                BrowseCountryListByFilter();
             }
-            else if(IsContext("country/set/uuid")){
-                SetCountryUuid();
+            else if(IsContext("country/set/by-uuid")){
+                SetCountryByUuid();
             }
-            else if(IsContext("country/set/code")){
-                SetCountryCode();
+            else if(IsContext("country/set/by-code")){
+                SetCountryByCode();
             }
-            else if(IsContext("country/del/uuid")){
-                DelCountryUuid();
+            else if(IsContext("country/del/by-uuid")){
+                DelCountryByUuid();
             }
-            else if(IsContext("country/del/code")){
-                DelCountryCode();
+            else if(IsContext("country/del/by-code")){
+                DelCountryByCode();
             }
             else if(IsContext("country/get")){
                 GetCountryList();
             }
-            else if(IsContext("country/get/uuid")){
-                GetCountryListUuid();
+            else if(IsContext("country/get/by-uuid")){
+                GetCountryListByUuid();
             }
-            else if(IsContext("country/get/code")){
-                GetCountryListCode();
+            else if(IsContext("country/get/by-code")){
+                GetCountryListByCode();
             }
             if(IsContext("state/count")){
                 CountState();
             }
-            else if(IsContext("state/count/uuid")){
-                CountStateUuid();
+            else if(IsContext("state/count/by-uuid")){
+                CountStateByUuid();
             }
-            else if(IsContext("state/count/code")){
-                CountStateCode();
+            else if(IsContext("state/count/by-code")){
+                CountStateByCode();
             }
-            else if(IsContext("state/browse/filter")){
-                BrowseStateListFilter();
+            else if(IsContext("state/browse/by-filter")){
+                BrowseStateListByFilter();
             }
-            else if(IsContext("state/set/uuid")){
-                SetStateUuid();
+            else if(IsContext("state/set/by-uuid")){
+                SetStateByUuid();
             }
-            else if(IsContext("state/set/code")){
-                SetStateCode();
+            else if(IsContext("state/set/by-code")){
+                SetStateByCode();
             }
-            else if(IsContext("state/del/uuid")){
-                DelStateUuid();
+            else if(IsContext("state/del/by-uuid")){
+                DelStateByUuid();
             }
-            else if(IsContext("state/del/code")){
-                DelStateCode();
+            else if(IsContext("state/del/by-code")){
+                DelStateByCode();
             }
             else if(IsContext("state/get")){
                 GetStateList();
             }
-            else if(IsContext("state/get/uuid")){
-                GetStateListUuid();
+            else if(IsContext("state/get/by-uuid")){
+                GetStateListByUuid();
             }
-            else if(IsContext("state/get/code")){
-                GetStateListCode();
+            else if(IsContext("state/get/by-code")){
+                GetStateListByCode();
             }
             if(IsContext("city/count")){
                 CountCity();
             }
-            else if(IsContext("city/count/uuid")){
-                CountCityUuid();
+            else if(IsContext("city/count/by-uuid")){
+                CountCityByUuid();
             }
-            else if(IsContext("city/count/code")){
-                CountCityCode();
+            else if(IsContext("city/count/by-code")){
+                CountCityByCode();
             }
-            else if(IsContext("city/browse/filter")){
-                BrowseCityListFilter();
+            else if(IsContext("city/browse/by-filter")){
+                BrowseCityListByFilter();
             }
-            else if(IsContext("city/set/uuid")){
-                SetCityUuid();
+            else if(IsContext("city/set/by-uuid")){
+                SetCityByUuid();
             }
-            else if(IsContext("city/set/code")){
-                SetCityCode();
+            else if(IsContext("city/set/by-code")){
+                SetCityByCode();
             }
-            else if(IsContext("city/del/uuid")){
-                DelCityUuid();
+            else if(IsContext("city/del/by-uuid")){
+                DelCityByUuid();
             }
-            else if(IsContext("city/del/code")){
-                DelCityCode();
+            else if(IsContext("city/del/by-code")){
+                DelCityByCode();
             }
             else if(IsContext("city/get")){
                 GetCityList();
             }
-            else if(IsContext("city/get/uuid")){
-                GetCityListUuid();
+            else if(IsContext("city/get/by-uuid")){
+                GetCityListByUuid();
             }
-            else if(IsContext("city/get/code")){
-                GetCityListCode();
+            else if(IsContext("city/get/by-code")){
+                GetCityListByCode();
             }
             if(IsContext("postal-code/count")){
                 CountPostalCode();
             }
-            else if(IsContext("postal-code/count/uuid")){
-                CountPostalCodeUuid();
+            else if(IsContext("postal-code/count/by-uuid")){
+                CountPostalCodeByUuid();
             }
-            else if(IsContext("postal-code/count/code")){
-                CountPostalCodeCode();
+            else if(IsContext("postal-code/count/by-code")){
+                CountPostalCodeByCode();
             }
-            else if(IsContext("postal-code/browse/filter")){
-                BrowsePostalCodeListFilter();
+            else if(IsContext("postal-code/browse/by-filter")){
+                BrowsePostalCodeListByFilter();
             }
-            else if(IsContext("postal-code/set/uuid")){
-                SetPostalCodeUuid();
+            else if(IsContext("postal-code/set/by-uuid")){
+                SetPostalCodeByUuid();
             }
-            else if(IsContext("postal-code/set/code")){
-                SetPostalCodeCode();
+            else if(IsContext("postal-code/set/by-code")){
+                SetPostalCodeByCode();
             }
-            else if(IsContext("postal-code/del/uuid")){
-                DelPostalCodeUuid();
+            else if(IsContext("postal-code/del/by-uuid")){
+                DelPostalCodeByUuid();
             }
-            else if(IsContext("postal-code/del/code")){
-                DelPostalCodeCode();
+            else if(IsContext("postal-code/del/by-code")){
+                DelPostalCodeByCode();
             }
             else if(IsContext("postal-code/get")){
                 GetPostalCodeList();
             }
-            else if(IsContext("postal-code/get/uuid")){
-                GetPostalCodeListUuid();
+            else if(IsContext("postal-code/get/by-uuid")){
+                GetPostalCodeListByUuid();
             }
-            else if(IsContext("postal-code/get/code")){
-                GetPostalCodeListCode();
+            else if(IsContext("postal-code/get/by-code")){
+                GetPostalCodeListByCode();
             }
         }    
         
@@ -514,16 +514,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileUuid() {
+        public virtual void CountProfileByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileInt wrapper = new ResponseProfileInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/count/uuid";
+            wrapper.action = "profile/count/by-uuid";
 
-            int i = api.CountProfileUuid(
+            int i = api.CountProfileByUuid(
                 _uuid
             );
             
@@ -534,7 +534,7 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileUsernameHash() {
+        public virtual void CountProfileByUsernameByHash() {
         
             string _username = (string)util.GetParamValue(_context, "username");
             string _hash = (string)util.GetParamValue(_context, "hash");
@@ -542,9 +542,9 @@ namespace profile {
             ResponseProfileInt wrapper = new ResponseProfileInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/count/username/hash";
+            wrapper.action = "profile/count/by-username/by-hash";
 
-            int i = api.CountProfileUsernameHash(
+            int i = api.CountProfileByUsernameByHash(
                 _username
                 , _hash
             );
@@ -556,16 +556,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileUsername() {
+        public virtual void CountProfileByUsername() {
         
             string _username = (string)util.GetParamValue(_context, "username");
 
             ResponseProfileInt wrapper = new ResponseProfileInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/count/username";
+            wrapper.action = "profile/count/by-username";
 
-            int i = api.CountProfileUsername(
+            int i = api.CountProfileByUsername(
                 _username
             );
             
@@ -575,19 +575,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileListFilter()  {
+        public virtual void BrowseProfileListByFilter()  {
         
             ResponseProfileList wrapper = new ResponseProfileList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/browse/filter";
+            wrapper.action = "profile/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            ProfileResult result = api.BrowseProfileListFilter(obj);
+            ProfileResult result = api.BrowseProfileListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -599,12 +599,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileUuid()  {
+        public virtual void SetProfileByUuid()  {
         
             ResponseProfileBool wrapper = new ResponseProfileBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/set/uuid";
+            wrapper.action = "profile/set/by-uuid";
                         
             Profile obj = new Profile();
             
@@ -658,17 +658,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileUuid(obj);
+            wrapper.data = api.SetProfileByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileUsername()  {
+        public virtual void SetProfileByUsername()  {
         
             ResponseProfileBool wrapper = new ResponseProfileBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/set/username";
+            wrapper.action = "profile/set/by-username";
                         
             Profile obj = new Profile();
             
@@ -722,21 +722,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileUsername(obj);
+            wrapper.data = api.SetProfileByUsername(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileUuid() {
+        public virtual void DelProfileByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileBool wrapper = new ResponseProfileBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/del/uuid";
+            wrapper.action = "profile/del/by-uuid";
 
-            bool completed = api.DelProfileUuid(
+            bool completed = api.DelProfileByUuid(
                         
                 _uuid
             );
@@ -747,16 +747,16 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileUsername() {
+        public virtual void DelProfileByUsername() {
         
             string _username = (string)util.GetParamValue(_context, "username");
 
             ResponseProfileBool wrapper = new ResponseProfileBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/del/username";
+            wrapper.action = "profile/del/by-username";
 
-            bool completed = api.DelProfileUsername(
+            bool completed = api.DelProfileByUsername(
                         
                 _username
             );
@@ -768,16 +768,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileListUuid() {
+        public virtual void GetProfileListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileList wrapper = new ResponseProfileList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/get/uuid";
+            wrapper.action = "profile/get/by-uuid";
 
-            List<Profile> objs = api.GetProfileListUuid(
+            List<Profile> objs = api.GetProfileListByUuid(
                 _uuid
             );
             
@@ -788,7 +788,7 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileListUsernameHash() {
+        public virtual void GetProfileListByUsernameByHash() {
         
             string _username = (string)util.GetParamValue(_context, "username");
             string _hash = (string)util.GetParamValue(_context, "hash");
@@ -796,9 +796,9 @@ namespace profile {
             ResponseProfileList wrapper = new ResponseProfileList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/get/username/hash";
+            wrapper.action = "profile/get/by-username/by-hash";
 
-            List<Profile> objs = api.GetProfileListUsernameHash(
+            List<Profile> objs = api.GetProfileListByUsernameByHash(
                 _username
                 , _hash
             );
@@ -810,16 +810,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileListUsername() {
+        public virtual void GetProfileListByUsername() {
         
             string _username = (string)util.GetParamValue(_context, "username");
 
             ResponseProfileList wrapper = new ResponseProfileList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile/get/username";
+            wrapper.action = "profile/get/by-username";
 
-            List<Profile> objs = api.GetProfileListUsername(
+            List<Profile> objs = api.GetProfileListByUsername(
                 _username
             );
             
@@ -848,16 +848,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileTypeUuid() {
+        public virtual void CountProfileTypeByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileTypeInt wrapper = new ResponseProfileTypeInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-type/count/uuid";
+            wrapper.action = "profile-type/count/by-uuid";
 
-            int i = api.CountProfileTypeUuid(
+            int i = api.CountProfileTypeByUuid(
                 _uuid
             );
             
@@ -868,16 +868,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileTypeTypeId() {
+        public virtual void CountProfileTypeByTypeId() {
         
             string _type_id = (string)util.GetParamValue(_context, "type_id");
 
             ResponseProfileTypeInt wrapper = new ResponseProfileTypeInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-type/count/type-id";
+            wrapper.action = "profile-type/count/by-type-id";
 
-            int i = api.CountProfileTypeTypeId(
+            int i = api.CountProfileTypeByTypeId(
                 _type_id
             );
             
@@ -887,19 +887,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileTypeListFilter()  {
+        public virtual void BrowseProfileTypeListByFilter()  {
         
             ResponseProfileTypeList wrapper = new ResponseProfileTypeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-type/browse/filter";
+            wrapper.action = "profile-type/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            ProfileTypeResult result = api.BrowseProfileTypeListFilter(obj);
+            ProfileTypeResult result = api.BrowseProfileTypeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -911,12 +911,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileTypeUuid()  {
+        public virtual void SetProfileTypeByUuid()  {
         
             ResponseProfileTypeBool wrapper = new ResponseProfileTypeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-type/set/uuid";
+            wrapper.action = "profile-type/set/by-uuid";
                         
             ProfileType obj = new ProfileType();
             
@@ -966,21 +966,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileTypeUuid(obj);
+            wrapper.data = api.SetProfileTypeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileTypeUuid() {
+        public virtual void DelProfileTypeByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileTypeBool wrapper = new ResponseProfileTypeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-type/del/uuid";
+            wrapper.action = "profile-type/del/by-uuid";
 
-            bool completed = api.DelProfileTypeUuid(
+            bool completed = api.DelProfileTypeByUuid(
                         
                 _uuid
             );
@@ -992,16 +992,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileTypeListUuid() {
+        public virtual void GetProfileTypeListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileTypeList wrapper = new ResponseProfileTypeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-type/get/uuid";
+            wrapper.action = "profile-type/get/by-uuid";
 
-            List<ProfileType> objs = api.GetProfileTypeListUuid(
+            List<ProfileType> objs = api.GetProfileTypeListByUuid(
                 _uuid
             );
             
@@ -1012,16 +1012,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileTypeListCode() {
+        public virtual void GetProfileTypeListByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseProfileTypeList wrapper = new ResponseProfileTypeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-type/get/code";
+            wrapper.action = "profile-type/get/by-code";
 
-            List<ProfileType> objs = api.GetProfileTypeListCode(
+            List<ProfileType> objs = api.GetProfileTypeListByCode(
                 _code
             );
             
@@ -1032,16 +1032,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileTypeListTypeId() {
+        public virtual void GetProfileTypeListByTypeId() {
         
             string _type_id = (string)util.GetParamValue(_context, "type_id");
 
             ResponseProfileTypeList wrapper = new ResponseProfileTypeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-type/get/type-id";
+            wrapper.action = "profile-type/get/by-type-id";
 
-            List<ProfileType> objs = api.GetProfileTypeListTypeId(
+            List<ProfileType> objs = api.GetProfileTypeListByTypeId(
                 _type_id
             );
             
@@ -1070,16 +1070,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeUuid() {
+        public virtual void CountProfileAttributeByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileAttributeInt wrapper = new ResponseProfileAttributeInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/count/uuid";
+            wrapper.action = "profile-attribute/count/by-uuid";
 
-            int i = api.CountProfileAttributeUuid(
+            int i = api.CountProfileAttributeByUuid(
                 _uuid
             );
             
@@ -1090,16 +1090,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeCode() {
+        public virtual void CountProfileAttributeByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseProfileAttributeInt wrapper = new ResponseProfileAttributeInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/count/code";
+            wrapper.action = "profile-attribute/count/by-code";
 
-            int i = api.CountProfileAttributeCode(
+            int i = api.CountProfileAttributeByCode(
                 _code
             );
             
@@ -1110,16 +1110,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeType() {
+        public virtual void CountProfileAttributeByType() {
         
             int _type = int.Parse(util.GetParamValue(_context, "type"));
 
             ResponseProfileAttributeInt wrapper = new ResponseProfileAttributeInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/count/type";
+            wrapper.action = "profile-attribute/count/by-type";
 
-            int i = api.CountProfileAttributeType(
+            int i = api.CountProfileAttributeByType(
                 _type
             );
             
@@ -1130,16 +1130,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeGroup() {
+        public virtual void CountProfileAttributeByGroup() {
         
             int _group = int.Parse(util.GetParamValue(_context, "group"));
 
             ResponseProfileAttributeInt wrapper = new ResponseProfileAttributeInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/count/group";
+            wrapper.action = "profile-attribute/count/by-group";
 
-            int i = api.CountProfileAttributeGroup(
+            int i = api.CountProfileAttributeByGroup(
                 _group
             );
             
@@ -1150,7 +1150,7 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeCodeType() {
+        public virtual void CountProfileAttributeByCodeByType() {
         
             string _code = (string)util.GetParamValue(_context, "code");
             int _type = int.Parse(util.GetParamValue(_context, "type"));
@@ -1158,9 +1158,9 @@ namespace profile {
             ResponseProfileAttributeInt wrapper = new ResponseProfileAttributeInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/count/code/type";
+            wrapper.action = "profile-attribute/count/by-code/by-type";
 
-            int i = api.CountProfileAttributeCodeType(
+            int i = api.CountProfileAttributeByCodeByType(
                 _code
                 , _type
             );
@@ -1171,19 +1171,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileAttributeListFilter()  {
+        public virtual void BrowseProfileAttributeListByFilter()  {
         
             ResponseProfileAttributeList wrapper = new ResponseProfileAttributeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/browse/filter";
+            wrapper.action = "profile-attribute/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            ProfileAttributeResult result = api.BrowseProfileAttributeListFilter(obj);
+            ProfileAttributeResult result = api.BrowseProfileAttributeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -1195,12 +1195,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAttributeUuid()  {
+        public virtual void SetProfileAttributeByUuid()  {
         
             ResponseProfileAttributeBool wrapper = new ResponseProfileAttributeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/set/uuid";
+            wrapper.action = "profile-attribute/set/by-uuid";
                         
             ProfileAttribute obj = new ProfileAttribute();
             
@@ -1262,17 +1262,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileAttributeUuid(obj);
+            wrapper.data = api.SetProfileAttributeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAttributeCode()  {
+        public virtual void SetProfileAttributeByCode()  {
         
             ResponseProfileAttributeBool wrapper = new ResponseProfileAttributeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/set/code";
+            wrapper.action = "profile-attribute/set/by-code";
                         
             ProfileAttribute obj = new ProfileAttribute();
             
@@ -1334,21 +1334,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileAttributeCode(obj);
+            wrapper.data = api.SetProfileAttributeByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAttributeUuid() {
+        public virtual void DelProfileAttributeByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileAttributeBool wrapper = new ResponseProfileAttributeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/del/uuid";
+            wrapper.action = "profile-attribute/del/by-uuid";
 
-            bool completed = api.DelProfileAttributeUuid(
+            bool completed = api.DelProfileAttributeByUuid(
                         
                 _uuid
             );
@@ -1359,16 +1359,16 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAttributeCode() {
+        public virtual void DelProfileAttributeByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseProfileAttributeBool wrapper = new ResponseProfileAttributeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/del/code";
+            wrapper.action = "profile-attribute/del/by-code";
 
-            bool completed = api.DelProfileAttributeCode(
+            bool completed = api.DelProfileAttributeByCode(
                         
                 _code
             );
@@ -1380,16 +1380,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeListUuid() {
+        public virtual void GetProfileAttributeListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileAttributeList wrapper = new ResponseProfileAttributeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/get/uuid";
+            wrapper.action = "profile-attribute/get/by-uuid";
 
-            List<ProfileAttribute> objs = api.GetProfileAttributeListUuid(
+            List<ProfileAttribute> objs = api.GetProfileAttributeListByUuid(
                 _uuid
             );
             
@@ -1400,16 +1400,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeListCode() {
+        public virtual void GetProfileAttributeListByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseProfileAttributeList wrapper = new ResponseProfileAttributeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/get/code";
+            wrapper.action = "profile-attribute/get/by-code";
 
-            List<ProfileAttribute> objs = api.GetProfileAttributeListCode(
+            List<ProfileAttribute> objs = api.GetProfileAttributeListByCode(
                 _code
             );
             
@@ -1420,16 +1420,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeListType() {
+        public virtual void GetProfileAttributeListByType() {
         
             int _type = int.Parse(util.GetParamValue(_context, "type"));
 
             ResponseProfileAttributeList wrapper = new ResponseProfileAttributeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/get/type";
+            wrapper.action = "profile-attribute/get/by-type";
 
-            List<ProfileAttribute> objs = api.GetProfileAttributeListType(
+            List<ProfileAttribute> objs = api.GetProfileAttributeListByType(
                 _type
             );
             
@@ -1440,16 +1440,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeListGroup() {
+        public virtual void GetProfileAttributeListByGroup() {
         
             int _group = int.Parse(util.GetParamValue(_context, "group"));
 
             ResponseProfileAttributeList wrapper = new ResponseProfileAttributeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/get/group";
+            wrapper.action = "profile-attribute/get/by-group";
 
-            List<ProfileAttribute> objs = api.GetProfileAttributeListGroup(
+            List<ProfileAttribute> objs = api.GetProfileAttributeListByGroup(
                 _group
             );
             
@@ -1460,7 +1460,7 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeListCodeType() {
+        public virtual void GetProfileAttributeListByCodeByType() {
         
             string _code = (string)util.GetParamValue(_context, "code");
             int _type = int.Parse(util.GetParamValue(_context, "type"));
@@ -1468,9 +1468,9 @@ namespace profile {
             ResponseProfileAttributeList wrapper = new ResponseProfileAttributeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute/get/code/type";
+            wrapper.action = "profile-attribute/get/by-code/by-type";
 
-            List<ProfileAttribute> objs = api.GetProfileAttributeListCodeType(
+            List<ProfileAttribute> objs = api.GetProfileAttributeListByCodeByType(
                 _code
                 , _type
             );
@@ -1500,16 +1500,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeTextUuid() {
+        public virtual void CountProfileAttributeTextByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileAttributeTextInt wrapper = new ResponseProfileAttributeTextInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/count/uuid";
+            wrapper.action = "profile-attribute-text/count/by-uuid";
 
-            int i = api.CountProfileAttributeTextUuid(
+            int i = api.CountProfileAttributeTextByUuid(
                 _uuid
             );
             
@@ -1520,16 +1520,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeTextProfileId() {
+        public virtual void CountProfileAttributeTextByProfileId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
 
             ResponseProfileAttributeTextInt wrapper = new ResponseProfileAttributeTextInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/count/profile-id";
+            wrapper.action = "profile-attribute-text/count/by-profile-id";
 
-            int i = api.CountProfileAttributeTextProfileId(
+            int i = api.CountProfileAttributeTextByProfileId(
                 _profile_id
             );
             
@@ -1540,7 +1540,7 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeTextProfileIdAttributeId() {
+        public virtual void CountProfileAttributeTextByProfileIdByAttributeId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _attribute_id = (string)util.GetParamValue(_context, "attribute_id");
@@ -1548,9 +1548,9 @@ namespace profile {
             ResponseProfileAttributeTextInt wrapper = new ResponseProfileAttributeTextInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/count/profile-id/attribute-id";
+            wrapper.action = "profile-attribute-text/count/by-profile-id/by-attribute-id";
 
-            int i = api.CountProfileAttributeTextProfileIdAttributeId(
+            int i = api.CountProfileAttributeTextByProfileIdByAttributeId(
                 _profile_id
                 , _attribute_id
             );
@@ -1561,19 +1561,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileAttributeTextListFilter()  {
+        public virtual void BrowseProfileAttributeTextListByFilter()  {
         
             ResponseProfileAttributeTextList wrapper = new ResponseProfileAttributeTextList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/browse/filter";
+            wrapper.action = "profile-attribute-text/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            ProfileAttributeTextResult result = api.BrowseProfileAttributeTextListFilter(obj);
+            ProfileAttributeTextResult result = api.BrowseProfileAttributeTextListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -1585,12 +1585,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAttributeTextUuid()  {
+        public virtual void SetProfileAttributeTextByUuid()  {
         
             ResponseProfileAttributeTextBool wrapper = new ResponseProfileAttributeTextBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/set/uuid";
+            wrapper.action = "profile-attribute-text/set/by-uuid";
                         
             ProfileAttributeText obj = new ProfileAttributeText();
             
@@ -1648,17 +1648,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileAttributeTextUuid(obj);
+            wrapper.data = api.SetProfileAttributeTextByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAttributeTextProfileId()  {
+        public virtual void SetProfileAttributeTextByProfileId()  {
         
             ResponseProfileAttributeTextBool wrapper = new ResponseProfileAttributeTextBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/set/profile-id";
+            wrapper.action = "profile-attribute-text/set/by-profile-id";
                         
             ProfileAttributeText obj = new ProfileAttributeText();
             
@@ -1716,17 +1716,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileAttributeTextProfileId(obj);
+            wrapper.data = api.SetProfileAttributeTextByProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAttributeTextProfileIdAttributeId()  {
+        public virtual void SetProfileAttributeTextByProfileIdByAttributeId()  {
         
             ResponseProfileAttributeTextBool wrapper = new ResponseProfileAttributeTextBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/set/profile-id/attribute-id";
+            wrapper.action = "profile-attribute-text/set/by-profile-id/by-attribute-id";
                         
             ProfileAttributeText obj = new ProfileAttributeText();
             
@@ -1784,21 +1784,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileAttributeTextProfileIdAttributeId(obj);
+            wrapper.data = api.SetProfileAttributeTextByProfileIdByAttributeId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAttributeTextUuid() {
+        public virtual void DelProfileAttributeTextByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileAttributeTextBool wrapper = new ResponseProfileAttributeTextBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/del/uuid";
+            wrapper.action = "profile-attribute-text/del/by-uuid";
 
-            bool completed = api.DelProfileAttributeTextUuid(
+            bool completed = api.DelProfileAttributeTextByUuid(
                         
                 _uuid
             );
@@ -1809,16 +1809,16 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAttributeTextProfileId() {
+        public virtual void DelProfileAttributeTextByProfileId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
 
             ResponseProfileAttributeTextBool wrapper = new ResponseProfileAttributeTextBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/del/profile-id";
+            wrapper.action = "profile-attribute-text/del/by-profile-id";
 
-            bool completed = api.DelProfileAttributeTextProfileId(
+            bool completed = api.DelProfileAttributeTextByProfileId(
                         
                 _profile_id
             );
@@ -1829,7 +1829,7 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAttributeTextProfileIdAttributeId() {
+        public virtual void DelProfileAttributeTextByProfileIdByAttributeId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _attribute_id = (string)util.GetParamValue(_context, "attribute_id");
@@ -1837,9 +1837,9 @@ namespace profile {
             ResponseProfileAttributeTextBool wrapper = new ResponseProfileAttributeTextBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/del/profile-id/attribute-id";
+            wrapper.action = "profile-attribute-text/del/by-profile-id/by-attribute-id";
 
-            bool completed = api.DelProfileAttributeTextProfileIdAttributeId(
+            bool completed = api.DelProfileAttributeTextByProfileIdByAttributeId(
                         
                 _profile_id
                 , _attribute_id
@@ -1852,16 +1852,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeTextListUuid() {
+        public virtual void GetProfileAttributeTextListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileAttributeTextList wrapper = new ResponseProfileAttributeTextList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/get/uuid";
+            wrapper.action = "profile-attribute-text/get/by-uuid";
 
-            List<ProfileAttributeText> objs = api.GetProfileAttributeTextListUuid(
+            List<ProfileAttributeText> objs = api.GetProfileAttributeTextListByUuid(
                 _uuid
             );
             
@@ -1872,16 +1872,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeTextListProfileId() {
+        public virtual void GetProfileAttributeTextListByProfileId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
 
             ResponseProfileAttributeTextList wrapper = new ResponseProfileAttributeTextList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/get/profile-id";
+            wrapper.action = "profile-attribute-text/get/by-profile-id";
 
-            List<ProfileAttributeText> objs = api.GetProfileAttributeTextListProfileId(
+            List<ProfileAttributeText> objs = api.GetProfileAttributeTextListByProfileId(
                 _profile_id
             );
             
@@ -1892,7 +1892,7 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeTextListProfileIdAttributeId() {
+        public virtual void GetProfileAttributeTextListByProfileIdByAttributeId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _attribute_id = (string)util.GetParamValue(_context, "attribute_id");
@@ -1900,9 +1900,9 @@ namespace profile {
             ResponseProfileAttributeTextList wrapper = new ResponseProfileAttributeTextList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-text/get/profile-id/attribute-id";
+            wrapper.action = "profile-attribute-text/get/by-profile-id/by-attribute-id";
 
-            List<ProfileAttributeText> objs = api.GetProfileAttributeTextListProfileIdAttributeId(
+            List<ProfileAttributeText> objs = api.GetProfileAttributeTextListByProfileIdByAttributeId(
                 _profile_id
                 , _attribute_id
             );
@@ -1932,16 +1932,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeDataUuid() {
+        public virtual void CountProfileAttributeDataByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileAttributeDataInt wrapper = new ResponseProfileAttributeDataInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/count/uuid";
+            wrapper.action = "profile-attribute-data/count/by-uuid";
 
-            int i = api.CountProfileAttributeDataUuid(
+            int i = api.CountProfileAttributeDataByUuid(
                 _uuid
             );
             
@@ -1952,16 +1952,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeDataProfileId() {
+        public virtual void CountProfileAttributeDataByProfileId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
 
             ResponseProfileAttributeDataInt wrapper = new ResponseProfileAttributeDataInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/count/profile-id";
+            wrapper.action = "profile-attribute-data/count/by-profile-id";
 
-            int i = api.CountProfileAttributeDataProfileId(
+            int i = api.CountProfileAttributeDataByProfileId(
                 _profile_id
             );
             
@@ -1972,7 +1972,7 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAttributeDataProfileIdAttributeId() {
+        public virtual void CountProfileAttributeDataByProfileIdByAttributeId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _attribute_id = (string)util.GetParamValue(_context, "attribute_id");
@@ -1980,9 +1980,9 @@ namespace profile {
             ResponseProfileAttributeDataInt wrapper = new ResponseProfileAttributeDataInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/count/profile-id/attribute-id";
+            wrapper.action = "profile-attribute-data/count/by-profile-id/by-attribute-id";
 
-            int i = api.CountProfileAttributeDataProfileIdAttributeId(
+            int i = api.CountProfileAttributeDataByProfileIdByAttributeId(
                 _profile_id
                 , _attribute_id
             );
@@ -1993,19 +1993,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileAttributeDataListFilter()  {
+        public virtual void BrowseProfileAttributeDataListByFilter()  {
         
             ResponseProfileAttributeDataList wrapper = new ResponseProfileAttributeDataList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/browse/filter";
+            wrapper.action = "profile-attribute-data/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            ProfileAttributeDataResult result = api.BrowseProfileAttributeDataListFilter(obj);
+            ProfileAttributeDataResult result = api.BrowseProfileAttributeDataListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -2017,12 +2017,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAttributeDataUuid()  {
+        public virtual void SetProfileAttributeDataByUuid()  {
         
             ResponseProfileAttributeDataBool wrapper = new ResponseProfileAttributeDataBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/set/uuid";
+            wrapper.action = "profile-attribute-data/set/by-uuid";
                         
             ProfileAttributeData obj = new ProfileAttributeData();
             
@@ -2080,17 +2080,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileAttributeDataUuid(obj);
+            wrapper.data = api.SetProfileAttributeDataByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAttributeDataProfileId()  {
+        public virtual void SetProfileAttributeDataByProfileId()  {
         
             ResponseProfileAttributeDataBool wrapper = new ResponseProfileAttributeDataBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/set/profile-id";
+            wrapper.action = "profile-attribute-data/set/by-profile-id";
                         
             ProfileAttributeData obj = new ProfileAttributeData();
             
@@ -2148,17 +2148,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileAttributeDataProfileId(obj);
+            wrapper.data = api.SetProfileAttributeDataByProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAttributeDataProfileIdAttributeId()  {
+        public virtual void SetProfileAttributeDataByProfileIdByAttributeId()  {
         
             ResponseProfileAttributeDataBool wrapper = new ResponseProfileAttributeDataBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/set/profile-id/attribute-id";
+            wrapper.action = "profile-attribute-data/set/by-profile-id/by-attribute-id";
                         
             ProfileAttributeData obj = new ProfileAttributeData();
             
@@ -2216,21 +2216,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileAttributeDataProfileIdAttributeId(obj);
+            wrapper.data = api.SetProfileAttributeDataByProfileIdByAttributeId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAttributeDataUuid() {
+        public virtual void DelProfileAttributeDataByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileAttributeDataBool wrapper = new ResponseProfileAttributeDataBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/del/uuid";
+            wrapper.action = "profile-attribute-data/del/by-uuid";
 
-            bool completed = api.DelProfileAttributeDataUuid(
+            bool completed = api.DelProfileAttributeDataByUuid(
                         
                 _uuid
             );
@@ -2241,16 +2241,16 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAttributeDataProfileId() {
+        public virtual void DelProfileAttributeDataByProfileId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
 
             ResponseProfileAttributeDataBool wrapper = new ResponseProfileAttributeDataBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/del/profile-id";
+            wrapper.action = "profile-attribute-data/del/by-profile-id";
 
-            bool completed = api.DelProfileAttributeDataProfileId(
+            bool completed = api.DelProfileAttributeDataByProfileId(
                         
                 _profile_id
             );
@@ -2261,7 +2261,7 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAttributeDataProfileIdAttributeId() {
+        public virtual void DelProfileAttributeDataByProfileIdByAttributeId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _attribute_id = (string)util.GetParamValue(_context, "attribute_id");
@@ -2269,9 +2269,9 @@ namespace profile {
             ResponseProfileAttributeDataBool wrapper = new ResponseProfileAttributeDataBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/del/profile-id/attribute-id";
+            wrapper.action = "profile-attribute-data/del/by-profile-id/by-attribute-id";
 
-            bool completed = api.DelProfileAttributeDataProfileIdAttributeId(
+            bool completed = api.DelProfileAttributeDataByProfileIdByAttributeId(
                         
                 _profile_id
                 , _attribute_id
@@ -2284,16 +2284,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeDataListUuid() {
+        public virtual void GetProfileAttributeDataListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileAttributeDataList wrapper = new ResponseProfileAttributeDataList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/get/uuid";
+            wrapper.action = "profile-attribute-data/get/by-uuid";
 
-            List<ProfileAttributeData> objs = api.GetProfileAttributeDataListUuid(
+            List<ProfileAttributeData> objs = api.GetProfileAttributeDataListByUuid(
                 _uuid
             );
             
@@ -2304,16 +2304,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeDataListProfileId() {
+        public virtual void GetProfileAttributeDataListByProfileId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
 
             ResponseProfileAttributeDataList wrapper = new ResponseProfileAttributeDataList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/get/profile-id";
+            wrapper.action = "profile-attribute-data/get/by-profile-id";
 
-            List<ProfileAttributeData> objs = api.GetProfileAttributeDataListProfileId(
+            List<ProfileAttributeData> objs = api.GetProfileAttributeDataListByProfileId(
                 _profile_id
             );
             
@@ -2324,7 +2324,7 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAttributeDataListProfileIdAttributeId() {
+        public virtual void GetProfileAttributeDataListByProfileIdByAttributeId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _attribute_id = (string)util.GetParamValue(_context, "attribute_id");
@@ -2332,9 +2332,9 @@ namespace profile {
             ResponseProfileAttributeDataList wrapper = new ResponseProfileAttributeDataList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-attribute-data/get/profile-id/attribute-id";
+            wrapper.action = "profile-attribute-data/get/by-profile-id/by-attribute-id";
 
-            List<ProfileAttributeData> objs = api.GetProfileAttributeDataListProfileIdAttributeId(
+            List<ProfileAttributeData> objs = api.GetProfileAttributeDataListByProfileIdByAttributeId(
                 _profile_id
                 , _attribute_id
             );
@@ -2364,16 +2364,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileDeviceUuid() {
+        public virtual void CountProfileDeviceByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileDeviceInt wrapper = new ResponseProfileDeviceInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/count/uuid";
+            wrapper.action = "profile-device/count/by-uuid";
 
-            int i = api.CountProfileDeviceUuid(
+            int i = api.CountProfileDeviceByUuid(
                 _uuid
             );
             
@@ -2384,7 +2384,7 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileDeviceProfileIdDeviceId() {
+        public virtual void CountProfileDeviceByProfileIdByDeviceId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _device_id = (string)util.GetParamValue(_context, "device_id");
@@ -2392,9 +2392,9 @@ namespace profile {
             ResponseProfileDeviceInt wrapper = new ResponseProfileDeviceInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/count/profile-id/device-id";
+            wrapper.action = "profile-device/count/by-profile-id/by-device-id";
 
-            int i = api.CountProfileDeviceProfileIdDeviceId(
+            int i = api.CountProfileDeviceByProfileIdByDeviceId(
                 _profile_id
                 , _device_id
             );
@@ -2406,7 +2406,7 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileDeviceProfileIdToken() {
+        public virtual void CountProfileDeviceByProfileIdByToken() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _token = (string)util.GetParamValue(_context, "token");
@@ -2414,9 +2414,9 @@ namespace profile {
             ResponseProfileDeviceInt wrapper = new ResponseProfileDeviceInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/count/profile-id/token";
+            wrapper.action = "profile-device/count/by-profile-id/by-token";
 
-            int i = api.CountProfileDeviceProfileIdToken(
+            int i = api.CountProfileDeviceByProfileIdByToken(
                 _profile_id
                 , _token
             );
@@ -2428,16 +2428,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileDeviceProfileId() {
+        public virtual void CountProfileDeviceByProfileId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
 
             ResponseProfileDeviceInt wrapper = new ResponseProfileDeviceInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/count/profile-id";
+            wrapper.action = "profile-device/count/by-profile-id";
 
-            int i = api.CountProfileDeviceProfileId(
+            int i = api.CountProfileDeviceByProfileId(
                 _profile_id
             );
             
@@ -2448,16 +2448,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileDeviceDeviceId() {
+        public virtual void CountProfileDeviceByDeviceId() {
         
             string _device_id = (string)util.GetParamValue(_context, "device_id");
 
             ResponseProfileDeviceInt wrapper = new ResponseProfileDeviceInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/count/device-id";
+            wrapper.action = "profile-device/count/by-device-id";
 
-            int i = api.CountProfileDeviceDeviceId(
+            int i = api.CountProfileDeviceByDeviceId(
                 _device_id
             );
             
@@ -2468,16 +2468,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileDeviceToken() {
+        public virtual void CountProfileDeviceByToken() {
         
             string _token = (string)util.GetParamValue(_context, "token");
 
             ResponseProfileDeviceInt wrapper = new ResponseProfileDeviceInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/count/token";
+            wrapper.action = "profile-device/count/by-token";
 
-            int i = api.CountProfileDeviceToken(
+            int i = api.CountProfileDeviceByToken(
                 _token
             );
             
@@ -2487,19 +2487,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileDeviceListFilter()  {
+        public virtual void BrowseProfileDeviceListByFilter()  {
         
             ResponseProfileDeviceList wrapper = new ResponseProfileDeviceList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/browse/filter";
+            wrapper.action = "profile-device/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            ProfileDeviceResult result = api.BrowseProfileDeviceListFilter(obj);
+            ProfileDeviceResult result = api.BrowseProfileDeviceListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -2511,12 +2511,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileDeviceUuid()  {
+        public virtual void SetProfileDeviceByUuid()  {
         
             ResponseProfileDeviceBool wrapper = new ResponseProfileDeviceBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/set/uuid";
+            wrapper.action = "profile-device/set/by-uuid";
                         
             ProfileDevice obj = new ProfileDevice();
             
@@ -2578,21 +2578,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetProfileDeviceUuid(obj);
+            wrapper.data = api.SetProfileDeviceByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileDeviceUuid() {
+        public virtual void DelProfileDeviceByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileDeviceBool wrapper = new ResponseProfileDeviceBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/del/uuid";
+            wrapper.action = "profile-device/del/by-uuid";
 
-            bool completed = api.DelProfileDeviceUuid(
+            bool completed = api.DelProfileDeviceByUuid(
                         
                 _uuid
             );
@@ -2603,7 +2603,7 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileDeviceProfileIdDeviceId() {
+        public virtual void DelProfileDeviceByProfileIdByDeviceId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _device_id = (string)util.GetParamValue(_context, "device_id");
@@ -2611,9 +2611,9 @@ namespace profile {
             ResponseProfileDeviceBool wrapper = new ResponseProfileDeviceBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/del/profile-id/device-id";
+            wrapper.action = "profile-device/del/by-profile-id/by-device-id";
 
-            bool completed = api.DelProfileDeviceProfileIdDeviceId(
+            bool completed = api.DelProfileDeviceByProfileIdByDeviceId(
                         
                 _profile_id
                 , _device_id
@@ -2625,7 +2625,7 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileDeviceProfileIdToken() {
+        public virtual void DelProfileDeviceByProfileIdByToken() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _token = (string)util.GetParamValue(_context, "token");
@@ -2633,9 +2633,9 @@ namespace profile {
             ResponseProfileDeviceBool wrapper = new ResponseProfileDeviceBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/del/profile-id/token";
+            wrapper.action = "profile-device/del/by-profile-id/by-token";
 
-            bool completed = api.DelProfileDeviceProfileIdToken(
+            bool completed = api.DelProfileDeviceByProfileIdByToken(
                         
                 _profile_id
                 , _token
@@ -2647,16 +2647,16 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileDeviceToken() {
+        public virtual void DelProfileDeviceByToken() {
         
             string _token = (string)util.GetParamValue(_context, "token");
 
             ResponseProfileDeviceBool wrapper = new ResponseProfileDeviceBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/del/token";
+            wrapper.action = "profile-device/del/by-token";
 
-            bool completed = api.DelProfileDeviceToken(
+            bool completed = api.DelProfileDeviceByToken(
                         
                 _token
             );
@@ -2668,16 +2668,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileDeviceListUuid() {
+        public virtual void GetProfileDeviceListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseProfileDeviceList wrapper = new ResponseProfileDeviceList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/get/uuid";
+            wrapper.action = "profile-device/get/by-uuid";
 
-            List<ProfileDevice> objs = api.GetProfileDeviceListUuid(
+            List<ProfileDevice> objs = api.GetProfileDeviceListByUuid(
                 _uuid
             );
             
@@ -2688,7 +2688,7 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileDeviceListProfileIdDeviceId() {
+        public virtual void GetProfileDeviceListByProfileIdByDeviceId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _device_id = (string)util.GetParamValue(_context, "device_id");
@@ -2696,9 +2696,9 @@ namespace profile {
             ResponseProfileDeviceList wrapper = new ResponseProfileDeviceList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/get/profile-id/device-id";
+            wrapper.action = "profile-device/get/by-profile-id/by-device-id";
 
-            List<ProfileDevice> objs = api.GetProfileDeviceListProfileIdDeviceId(
+            List<ProfileDevice> objs = api.GetProfileDeviceListByProfileIdByDeviceId(
                 _profile_id
                 , _device_id
             );
@@ -2710,7 +2710,7 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileDeviceListProfileIdToken() {
+        public virtual void GetProfileDeviceListByProfileIdByToken() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
             string _token = (string)util.GetParamValue(_context, "token");
@@ -2718,9 +2718,9 @@ namespace profile {
             ResponseProfileDeviceList wrapper = new ResponseProfileDeviceList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/get/profile-id/token";
+            wrapper.action = "profile-device/get/by-profile-id/by-token";
 
-            List<ProfileDevice> objs = api.GetProfileDeviceListProfileIdToken(
+            List<ProfileDevice> objs = api.GetProfileDeviceListByProfileIdByToken(
                 _profile_id
                 , _token
             );
@@ -2732,16 +2732,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileDeviceListProfileId() {
+        public virtual void GetProfileDeviceListByProfileId() {
         
             string _profile_id = (string)util.GetParamValue(_context, "profile_id");
 
             ResponseProfileDeviceList wrapper = new ResponseProfileDeviceList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/get/profile-id";
+            wrapper.action = "profile-device/get/by-profile-id";
 
-            List<ProfileDevice> objs = api.GetProfileDeviceListProfileId(
+            List<ProfileDevice> objs = api.GetProfileDeviceListByProfileId(
                 _profile_id
             );
             
@@ -2752,16 +2752,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileDeviceListDeviceId() {
+        public virtual void GetProfileDeviceListByDeviceId() {
         
             string _device_id = (string)util.GetParamValue(_context, "device_id");
 
             ResponseProfileDeviceList wrapper = new ResponseProfileDeviceList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/get/device-id";
+            wrapper.action = "profile-device/get/by-device-id";
 
-            List<ProfileDevice> objs = api.GetProfileDeviceListDeviceId(
+            List<ProfileDevice> objs = api.GetProfileDeviceListByDeviceId(
                 _device_id
             );
             
@@ -2772,16 +2772,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileDeviceListToken() {
+        public virtual void GetProfileDeviceListByToken() {
         
             string _token = (string)util.GetParamValue(_context, "token");
 
             ResponseProfileDeviceList wrapper = new ResponseProfileDeviceList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "profile-device/get/token";
+            wrapper.action = "profile-device/get/by-token";
 
-            List<ProfileDevice> objs = api.GetProfileDeviceListToken(
+            List<ProfileDevice> objs = api.GetProfileDeviceListByToken(
                 _token
             );
             
@@ -2810,16 +2810,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountCountryUuid() {
+        public virtual void CountCountryByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseCountryInt wrapper = new ResponseCountryInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "country/count/uuid";
+            wrapper.action = "country/count/by-uuid";
 
-            int i = api.CountCountryUuid(
+            int i = api.CountCountryByUuid(
                 _uuid
             );
             
@@ -2830,16 +2830,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountCountryCode() {
+        public virtual void CountCountryByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseCountryInt wrapper = new ResponseCountryInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "country/count/code";
+            wrapper.action = "country/count/by-code";
 
-            int i = api.CountCountryCode(
+            int i = api.CountCountryByCode(
                 _code
             );
             
@@ -2849,19 +2849,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseCountryListFilter()  {
+        public virtual void BrowseCountryListByFilter()  {
         
             ResponseCountryList wrapper = new ResponseCountryList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "country/browse/filter";
+            wrapper.action = "country/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            CountryResult result = api.BrowseCountryListFilter(obj);
+            CountryResult result = api.BrowseCountryListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -2873,12 +2873,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetCountryUuid()  {
+        public virtual void SetCountryByUuid()  {
         
             ResponseCountryBool wrapper = new ResponseCountryBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "country/set/uuid";
+            wrapper.action = "country/set/by-uuid";
                         
             Country obj = new Country();
             
@@ -2924,17 +2924,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetCountryUuid(obj);
+            wrapper.data = api.SetCountryByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetCountryCode()  {
+        public virtual void SetCountryByCode()  {
         
             ResponseCountryBool wrapper = new ResponseCountryBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "country/set/code";
+            wrapper.action = "country/set/by-code";
                         
             Country obj = new Country();
             
@@ -2980,21 +2980,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetCountryCode(obj);
+            wrapper.data = api.SetCountryByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelCountryUuid() {
+        public virtual void DelCountryByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseCountryBool wrapper = new ResponseCountryBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "country/del/uuid";
+            wrapper.action = "country/del/by-uuid";
 
-            bool completed = api.DelCountryUuid(
+            bool completed = api.DelCountryByUuid(
                         
                 _uuid
             );
@@ -3005,16 +3005,16 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelCountryCode() {
+        public virtual void DelCountryByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseCountryBool wrapper = new ResponseCountryBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "country/del/code";
+            wrapper.action = "country/del/by-code";
 
-            bool completed = api.DelCountryCode(
+            bool completed = api.DelCountryByCode(
                         
                 _code
             );
@@ -3044,16 +3044,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetCountryListUuid() {
+        public virtual void GetCountryListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseCountryList wrapper = new ResponseCountryList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "country/get/uuid";
+            wrapper.action = "country/get/by-uuid";
 
-            List<Country> objs = api.GetCountryListUuid(
+            List<Country> objs = api.GetCountryListByUuid(
                 _uuid
             );
             
@@ -3064,16 +3064,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetCountryListCode() {
+        public virtual void GetCountryListByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseCountryList wrapper = new ResponseCountryList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "country/get/code";
+            wrapper.action = "country/get/by-code";
 
-            List<Country> objs = api.GetCountryListCode(
+            List<Country> objs = api.GetCountryListByCode(
                 _code
             );
             
@@ -3102,16 +3102,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountStateUuid() {
+        public virtual void CountStateByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseStateInt wrapper = new ResponseStateInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "state/count/uuid";
+            wrapper.action = "state/count/by-uuid";
 
-            int i = api.CountStateUuid(
+            int i = api.CountStateByUuid(
                 _uuid
             );
             
@@ -3122,16 +3122,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountStateCode() {
+        public virtual void CountStateByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseStateInt wrapper = new ResponseStateInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "state/count/code";
+            wrapper.action = "state/count/by-code";
 
-            int i = api.CountStateCode(
+            int i = api.CountStateByCode(
                 _code
             );
             
@@ -3141,19 +3141,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseStateListFilter()  {
+        public virtual void BrowseStateListByFilter()  {
         
             ResponseStateList wrapper = new ResponseStateList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "state/browse/filter";
+            wrapper.action = "state/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            StateResult result = api.BrowseStateListFilter(obj);
+            StateResult result = api.BrowseStateListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -3165,12 +3165,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetStateUuid()  {
+        public virtual void SetStateByUuid()  {
         
             ResponseStateBool wrapper = new ResponseStateBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "state/set/uuid";
+            wrapper.action = "state/set/by-uuid";
                         
             State obj = new State();
             
@@ -3216,17 +3216,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetStateUuid(obj);
+            wrapper.data = api.SetStateByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetStateCode()  {
+        public virtual void SetStateByCode()  {
         
             ResponseStateBool wrapper = new ResponseStateBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "state/set/code";
+            wrapper.action = "state/set/by-code";
                         
             State obj = new State();
             
@@ -3272,21 +3272,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetStateCode(obj);
+            wrapper.data = api.SetStateByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelStateUuid() {
+        public virtual void DelStateByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseStateBool wrapper = new ResponseStateBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "state/del/uuid";
+            wrapper.action = "state/del/by-uuid";
 
-            bool completed = api.DelStateUuid(
+            bool completed = api.DelStateByUuid(
                         
                 _uuid
             );
@@ -3297,16 +3297,16 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelStateCode() {
+        public virtual void DelStateByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseStateBool wrapper = new ResponseStateBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "state/del/code";
+            wrapper.action = "state/del/by-code";
 
-            bool completed = api.DelStateCode(
+            bool completed = api.DelStateByCode(
                         
                 _code
             );
@@ -3336,16 +3336,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetStateListUuid() {
+        public virtual void GetStateListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseStateList wrapper = new ResponseStateList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "state/get/uuid";
+            wrapper.action = "state/get/by-uuid";
 
-            List<State> objs = api.GetStateListUuid(
+            List<State> objs = api.GetStateListByUuid(
                 _uuid
             );
             
@@ -3356,16 +3356,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetStateListCode() {
+        public virtual void GetStateListByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseStateList wrapper = new ResponseStateList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "state/get/code";
+            wrapper.action = "state/get/by-code";
 
-            List<State> objs = api.GetStateListCode(
+            List<State> objs = api.GetStateListByCode(
                 _code
             );
             
@@ -3394,16 +3394,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountCityUuid() {
+        public virtual void CountCityByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseCityInt wrapper = new ResponseCityInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "city/count/uuid";
+            wrapper.action = "city/count/by-uuid";
 
-            int i = api.CountCityUuid(
+            int i = api.CountCityByUuid(
                 _uuid
             );
             
@@ -3414,16 +3414,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountCityCode() {
+        public virtual void CountCityByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseCityInt wrapper = new ResponseCityInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "city/count/code";
+            wrapper.action = "city/count/by-code";
 
-            int i = api.CountCityCode(
+            int i = api.CountCityByCode(
                 _code
             );
             
@@ -3433,19 +3433,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseCityListFilter()  {
+        public virtual void BrowseCityListByFilter()  {
         
             ResponseCityList wrapper = new ResponseCityList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "city/browse/filter";
+            wrapper.action = "city/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            CityResult result = api.BrowseCityListFilter(obj);
+            CityResult result = api.BrowseCityListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -3457,12 +3457,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetCityUuid()  {
+        public virtual void SetCityByUuid()  {
         
             ResponseCityBool wrapper = new ResponseCityBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "city/set/uuid";
+            wrapper.action = "city/set/by-uuid";
                         
             City obj = new City();
             
@@ -3508,17 +3508,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetCityUuid(obj);
+            wrapper.data = api.SetCityByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetCityCode()  {
+        public virtual void SetCityByCode()  {
         
             ResponseCityBool wrapper = new ResponseCityBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "city/set/code";
+            wrapper.action = "city/set/by-code";
                         
             City obj = new City();
             
@@ -3564,21 +3564,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetCityCode(obj);
+            wrapper.data = api.SetCityByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelCityUuid() {
+        public virtual void DelCityByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseCityBool wrapper = new ResponseCityBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "city/del/uuid";
+            wrapper.action = "city/del/by-uuid";
 
-            bool completed = api.DelCityUuid(
+            bool completed = api.DelCityByUuid(
                         
                 _uuid
             );
@@ -3589,16 +3589,16 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelCityCode() {
+        public virtual void DelCityByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseCityBool wrapper = new ResponseCityBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "city/del/code";
+            wrapper.action = "city/del/by-code";
 
-            bool completed = api.DelCityCode(
+            bool completed = api.DelCityByCode(
                         
                 _code
             );
@@ -3628,16 +3628,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetCityListUuid() {
+        public virtual void GetCityListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponseCityList wrapper = new ResponseCityList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "city/get/uuid";
+            wrapper.action = "city/get/by-uuid";
 
-            List<City> objs = api.GetCityListUuid(
+            List<City> objs = api.GetCityListByUuid(
                 _uuid
             );
             
@@ -3648,16 +3648,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetCityListCode() {
+        public virtual void GetCityListByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponseCityList wrapper = new ResponseCityList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "city/get/code";
+            wrapper.action = "city/get/by-code";
 
-            List<City> objs = api.GetCityListCode(
+            List<City> objs = api.GetCityListByCode(
                 _code
             );
             
@@ -3686,16 +3686,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountPostalCodeUuid() {
+        public virtual void CountPostalCodeByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponsePostalCodeInt wrapper = new ResponsePostalCodeInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "postal-code/count/uuid";
+            wrapper.action = "postal-code/count/by-uuid";
 
-            int i = api.CountPostalCodeUuid(
+            int i = api.CountPostalCodeByUuid(
                 _uuid
             );
             
@@ -3706,16 +3706,16 @@ namespace profile {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountPostalCodeCode() {
+        public virtual void CountPostalCodeByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponsePostalCodeInt wrapper = new ResponsePostalCodeInt();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "postal-code/count/code";
+            wrapper.action = "postal-code/count/by-code";
 
-            int i = api.CountPostalCodeCode(
+            int i = api.CountPostalCodeByCode(
                 _code
             );
             
@@ -3725,19 +3725,19 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowsePostalCodeListFilter()  {
+        public virtual void BrowsePostalCodeListByFilter()  {
         
             ResponsePostalCodeList wrapper = new ResponsePostalCodeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "postal-code/browse/filter";
+            wrapper.action = "postal-code/browse/by-filter";
             
             SearchFilter obj = new SearchFilter();
             obj.page = Convert.ToInt32(util.GetParamValue(_context, "page"));
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "page-size"));
             obj.filter = util.GetParamValue(_context, "filter");
             
-            PostalCodeResult result = api.BrowsePostalCodeListFilter(obj);
+            PostalCodeResult result = api.BrowsePostalCodeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -3749,12 +3749,12 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetPostalCodeUuid()  {
+        public virtual void SetPostalCodeByUuid()  {
         
             ResponsePostalCodeBool wrapper = new ResponsePostalCodeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "postal-code/set/uuid";
+            wrapper.action = "postal-code/set/by-uuid";
                         
             PostalCode obj = new PostalCode();
             
@@ -3800,17 +3800,17 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetPostalCodeUuid(obj);
+            wrapper.data = api.SetPostalCodeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetPostalCodeCode()  {
+        public virtual void SetPostalCodeByCode()  {
         
             ResponsePostalCodeBool wrapper = new ResponsePostalCodeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "postal-code/set/code";
+            wrapper.action = "postal-code/set/by-code";
                         
             PostalCode obj = new PostalCode();
             
@@ -3856,21 +3856,21 @@ namespace profile {
             
             
             // get data
-            wrapper.data = api.SetPostalCodeCode(obj);
+            wrapper.data = api.SetPostalCodeByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelPostalCodeUuid() {
+        public virtual void DelPostalCodeByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponsePostalCodeBool wrapper = new ResponsePostalCodeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "postal-code/del/uuid";
+            wrapper.action = "postal-code/del/by-uuid";
 
-            bool completed = api.DelPostalCodeUuid(
+            bool completed = api.DelPostalCodeByUuid(
                         
                 _uuid
             );
@@ -3881,16 +3881,16 @@ namespace profile {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelPostalCodeCode() {
+        public virtual void DelPostalCodeByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponsePostalCodeBool wrapper = new ResponsePostalCodeBool();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "postal-code/del/code";
+            wrapper.action = "postal-code/del/by-code";
 
-            bool completed = api.DelPostalCodeCode(
+            bool completed = api.DelPostalCodeByCode(
                         
                 _code
             );
@@ -3920,16 +3920,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetPostalCodeListUuid() {
+        public virtual void GetPostalCodeListByUuid() {
         
             string _uuid = (string)util.GetParamValue(_context, "uuid");
 
             ResponsePostalCodeList wrapper = new ResponsePostalCodeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "postal-code/get/uuid";
+            wrapper.action = "postal-code/get/by-uuid";
 
-            List<PostalCode> objs = api.GetPostalCodeListUuid(
+            List<PostalCode> objs = api.GetPostalCodeListByUuid(
                 _uuid
             );
             
@@ -3940,16 +3940,16 @@ namespace profile {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetPostalCodeListCode() {
+        public virtual void GetPostalCodeListByCode() {
         
             string _code = (string)util.GetParamValue(_context, "code");
 
             ResponsePostalCodeList wrapper = new ResponsePostalCodeList();
             wrapper.message = "Success";
             wrapper.code = 0;
-            wrapper.action = "postal-code/get/code";
+            wrapper.action = "postal-code/get/by-code";
 
-            List<PostalCode> objs = api.GetPostalCodeListCode(
+            List<PostalCode> objs = api.GetPostalCodeListByCode(
                 _code
             );
             

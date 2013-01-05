@@ -63,6 +63,7 @@ class ProfileApp(BaseEntity):
     super(ProfileApp, self).__init__()
     #self.__dict__.update(entries)
     self.profile_id = None
+    self.data = None
     self.app_id = None
         
   def to_dict_obj(self):

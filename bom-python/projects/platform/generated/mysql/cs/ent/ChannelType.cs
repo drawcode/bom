@@ -74,10 +74,14 @@ namespace platform.ent {
 	
         }
     
+        public string data { get; set; }
         public string type { get; set; }
 
         public override Dictionary<string, object> ToDictionary(){
             dict = base.ToDictionary();
+	    	if (data != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "data", data);
+	    	}
 	    	if (type != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "type", type);
 	    	}
@@ -85,6 +89,11 @@ namespace platform.ent {
         }
 
         public override void FillFromDictionary(Dictionary<string, object> dict){
+	    	if(dict.ContainsKey("data")) {
+	    	    if(dict["data"] != null) {
+	    	    	data = DataType.Instance.FillString(dict["data"]);
+	    	    }		
+	    	}
 	    	if(dict.ContainsKey("type")) {
 	    	    if(dict["type"] != null) {
 	    	    	type = DataType.Instance.FillString(dict["type"]);

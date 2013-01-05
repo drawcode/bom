@@ -69,6 +69,7 @@ class Message(BaseEntity):
     self.app_id = None
     self.profile_to_id = None
     self.profile_to_name = None
+    self.data = None
     self.sent = None
     self.subject = None
         

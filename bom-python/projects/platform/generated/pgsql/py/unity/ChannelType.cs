@@ -50,6 +50,7 @@ public class ChannelTypes<T> : DataObjects<T> where T : new() {
 public class ChannelType : BaseMeta {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
+    public  data { get; set; }
     public  type { get; set; }
 
     public ChannelType() {
@@ -62,6 +63,9 @@ public class ChannelType : BaseMeta {
 
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
 	if (type != null) {
 	    dict = DataUtil.SetDictValue(dict, "type", type);
 	}
@@ -69,6 +73,11 @@ public class ChannelType : BaseMeta {
     }
 
     public override void FillFromDictionary(Dictionary<string, object> dict){
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.Fill(dict["data"]);
+	    }		
+	}
 	if(dict.ContainsKey("type")) {
 	    if(dict["type"] != null) {
 	    	type = DataType.Instance.Fill(dict["type"]);

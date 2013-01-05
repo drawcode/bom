@@ -46,58 +46,58 @@ class BaseGamingACT(object):
         return self.data.CountGame(
         )
                
-    def CountGameUuid(self
+    def CountGameByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameUuid(
+        return self.data.CountGameByUuid(
             uuid
         )
                
-    def CountGameCode(self
+    def CountGameByCode(self
         , code
     ) :         
-        return self.data.CountGameCode(
+        return self.data.CountGameByCode(
             code
         )
                
-    def CountGameName(self
+    def CountGameByName(self
         , name
     ) :         
-        return self.data.CountGameName(
+        return self.data.CountGameByName(
             name
         )
                
-    def CountGameOrgId(self
+    def CountGameByOrgId(self
         , org_id
     ) :         
-        return self.data.CountGameOrgId(
+        return self.data.CountGameByOrgId(
             org_id
         )
                
-    def CountGameAppId(self
+    def CountGameByAppId(self
         , app_id
     ) :         
-        return self.data.CountGameAppId(
+        return self.data.CountGameByAppId(
             app_id
         )
                
-    def CountGameOrgIdAppId(self
+    def CountGameByOrgIdByAppId(self
         , org_id
         , app_id
     ) :         
-        return self.data.CountGameOrgIdAppId(
+        return self.data.CountGameByOrgIdByAppId(
             org_id
             , app_id
         )
                
-    def BrowseGameListFilter(self, filter_obj) :
+    def BrowseGameListByFilter(self, filter_obj) :
         result = GameResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameListFilter(filter_obj)
+        rows = self.data.BrowseGameListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game = self.FillGame(row)
@@ -107,64 +107,64 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameUuid(self, set_type, obj) :            
-            return self.data.SetGameUuid(set_type, obj)
+    def SetGameByUuid(self, set_type, obj) :            
+            return self.data.SetGameByUuid(set_type, obj)
             
-    def SetGameCode(self, set_type, obj) :            
-            return self.data.SetGameCode(set_type, obj)
+    def SetGameByCode(self, set_type, obj) :            
+            return self.data.SetGameByCode(set_type, obj)
             
-    def SetGameName(self, set_type, obj) :            
-            return self.data.SetGameName(set_type, obj)
+    def SetGameByName(self, set_type, obj) :            
+            return self.data.SetGameByName(set_type, obj)
             
-    def SetGameOrgId(self, set_type, obj) :            
-            return self.data.SetGameOrgId(set_type, obj)
+    def SetGameByOrgId(self, set_type, obj) :            
+            return self.data.SetGameByOrgId(set_type, obj)
             
-    def SetGameAppId(self, set_type, obj) :            
-            return self.data.SetGameAppId(set_type, obj)
+    def SetGameByAppId(self, set_type, obj) :            
+            return self.data.SetGameByAppId(set_type, obj)
             
-    def SetGameOrgIdAppId(self, set_type, obj) :            
-            return self.data.SetGameOrgIdAppId(set_type, obj)
+    def SetGameByOrgIdByAppId(self, set_type, obj) :            
+            return self.data.SetGameByOrgIdByAppId(set_type, obj)
             
-    def DelGameUuid(self
+    def DelGameByUuid(self
         , uuid
     ) :
-        return self.data.DelGameUuid(
+        return self.data.DelGameByUuid(
             uuid
         )
         
-    def DelGameCode(self
+    def DelGameByCode(self
         , code
     ) :
-        return self.data.DelGameCode(
+        return self.data.DelGameByCode(
             code
         )
         
-    def DelGameName(self
+    def DelGameByName(self
         , name
     ) :
-        return self.data.DelGameName(
+        return self.data.DelGameByName(
             name
         )
         
-    def DelGameOrgId(self
+    def DelGameByOrgId(self
         , org_id
     ) :
-        return self.data.DelGameOrgId(
+        return self.data.DelGameByOrgId(
             org_id
         )
         
-    def DelGameAppId(self
+    def DelGameByAppId(self
         , app_id
     ) :
-        return self.data.DelGameAppId(
+        return self.data.DelGameByAppId(
             app_id
         )
         
-    def DelGameOrgIdAppId(self
+    def DelGameByOrgIdByAppId(self
         , org_id
         , app_id
     ) :
-        return self.data.DelGameOrgIdAppId(
+        return self.data.DelGameByOrgIdByAppId(
             org_id
             , app_id
         )
@@ -182,12 +182,12 @@ class BaseGamingACT(object):
                 results.append(game)
             return results        
         
-    def GetGameListUuid(self
+    def GetGameListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameListUuid(
+        rows = self.data.GetGameListByUuid(
             uuid
         )
         
@@ -197,12 +197,12 @@ class BaseGamingACT(object):
                 results.append(game)
             return results        
         
-    def GetGameListCode(self
+    def GetGameListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameListCode(
+        rows = self.data.GetGameListByCode(
             code
         )
         
@@ -212,12 +212,12 @@ class BaseGamingACT(object):
                 results.append(game)
             return results        
         
-    def GetGameListName(self
+    def GetGameListByName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetGameListName(
+        rows = self.data.GetGameListByName(
             name
         )
         
@@ -227,12 +227,12 @@ class BaseGamingACT(object):
                 results.append(game)
             return results        
         
-    def GetGameListOrgId(self
+    def GetGameListByOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetGameListOrgId(
+        rows = self.data.GetGameListByOrgId(
             org_id
         )
         
@@ -242,12 +242,12 @@ class BaseGamingACT(object):
                 results.append(game)
             return results        
         
-    def GetGameListAppId(self
+    def GetGameListByAppId(self
         , app_id
     ) :
 
         results = []
-        rows = self.data.GetGameListAppId(
+        rows = self.data.GetGameListByAppId(
             app_id
         )
         
@@ -257,13 +257,13 @@ class BaseGamingACT(object):
                 results.append(game)
             return results        
         
-    def GetGameListOrgIdAppId(self
+    def GetGameListByOrgIdByAppId(self
         , org_id
         , app_id
     ) :
 
         results = []
-        rows = self.data.GetGameListOrgIdAppId(
+        rows = self.data.GetGameListByOrgIdByAppId(
             org_id
             , app_id
         )
@@ -310,58 +310,58 @@ class BaseGamingACT(object):
         return self.data.CountGameCategory(
         )
                
-    def CountGameCategoryUuid(self
+    def CountGameCategoryByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameCategoryUuid(
+        return self.data.CountGameCategoryByUuid(
             uuid
         )
                
-    def CountGameCategoryCode(self
+    def CountGameCategoryByCode(self
         , code
     ) :         
-        return self.data.CountGameCategoryCode(
+        return self.data.CountGameCategoryByCode(
             code
         )
                
-    def CountGameCategoryName(self
+    def CountGameCategoryByName(self
         , name
     ) :         
-        return self.data.CountGameCategoryName(
+        return self.data.CountGameCategoryByName(
             name
         )
                
-    def CountGameCategoryOrgId(self
+    def CountGameCategoryByOrgId(self
         , org_id
     ) :         
-        return self.data.CountGameCategoryOrgId(
+        return self.data.CountGameCategoryByOrgId(
             org_id
         )
                
-    def CountGameCategoryTypeId(self
+    def CountGameCategoryByTypeId(self
         , type_id
     ) :         
-        return self.data.CountGameCategoryTypeId(
+        return self.data.CountGameCategoryByTypeId(
             type_id
         )
                
-    def CountGameCategoryOrgIdTypeId(self
+    def CountGameCategoryByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :         
-        return self.data.CountGameCategoryOrgIdTypeId(
+        return self.data.CountGameCategoryByOrgIdByTypeId(
             org_id
             , type_id
         )
                
-    def BrowseGameCategoryListFilter(self, filter_obj) :
+    def BrowseGameCategoryListByFilter(self, filter_obj) :
         result = GameCategoryResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameCategoryListFilter(filter_obj)
+        rows = self.data.BrowseGameCategoryListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_category = self.FillGameCategory(row)
@@ -371,31 +371,31 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameCategoryUuid(self, set_type, obj) :            
-            return self.data.SetGameCategoryUuid(set_type, obj)
+    def SetGameCategoryByUuid(self, set_type, obj) :            
+            return self.data.SetGameCategoryByUuid(set_type, obj)
             
-    def DelGameCategoryUuid(self
+    def DelGameCategoryByUuid(self
         , uuid
     ) :
-        return self.data.DelGameCategoryUuid(
+        return self.data.DelGameCategoryByUuid(
             uuid
         )
         
-    def DelGameCategoryCodeOrgId(self
+    def DelGameCategoryByCodeByOrgId(self
         , code
         , org_id
     ) :
-        return self.data.DelGameCategoryCodeOrgId(
+        return self.data.DelGameCategoryByCodeByOrgId(
             code
             , org_id
         )
         
-    def DelGameCategoryCodeOrgIdTypeId(self
+    def DelGameCategoryByCodeByOrgIdByTypeId(self
         , code
         , org_id
         , type_id
     ) :
-        return self.data.DelGameCategoryCodeOrgIdTypeId(
+        return self.data.DelGameCategoryByCodeByOrgIdByTypeId(
             code
             , org_id
             , type_id
@@ -414,12 +414,12 @@ class BaseGamingACT(object):
                 results.append(game_category)
             return results        
         
-    def GetGameCategoryListUuid(self
+    def GetGameCategoryListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryListUuid(
+        rows = self.data.GetGameCategoryListByUuid(
             uuid
         )
         
@@ -429,12 +429,12 @@ class BaseGamingACT(object):
                 results.append(game_category)
             return results        
         
-    def GetGameCategoryListCode(self
+    def GetGameCategoryListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryListCode(
+        rows = self.data.GetGameCategoryListByCode(
             code
         )
         
@@ -444,12 +444,12 @@ class BaseGamingACT(object):
                 results.append(game_category)
             return results        
         
-    def GetGameCategoryListName(self
+    def GetGameCategoryListByName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryListName(
+        rows = self.data.GetGameCategoryListByName(
             name
         )
         
@@ -459,12 +459,12 @@ class BaseGamingACT(object):
                 results.append(game_category)
             return results        
         
-    def GetGameCategoryListOrgId(self
+    def GetGameCategoryListByOrgId(self
         , org_id
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryListOrgId(
+        rows = self.data.GetGameCategoryListByOrgId(
             org_id
         )
         
@@ -474,12 +474,12 @@ class BaseGamingACT(object):
                 results.append(game_category)
             return results        
         
-    def GetGameCategoryListTypeId(self
+    def GetGameCategoryListByTypeId(self
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryListTypeId(
+        rows = self.data.GetGameCategoryListByTypeId(
             type_id
         )
         
@@ -489,13 +489,13 @@ class BaseGamingACT(object):
                 results.append(game_category)
             return results        
         
-    def GetGameCategoryListOrgIdTypeId(self
+    def GetGameCategoryListByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryListOrgIdTypeId(
+        rows = self.data.GetGameCategoryListByOrgIdByTypeId(
             org_id
             , type_id
         )
@@ -534,44 +534,44 @@ class BaseGamingACT(object):
         return self.data.CountGameCategoryTree(
         )
                
-    def CountGameCategoryTreeUuid(self
+    def CountGameCategoryTreeByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameCategoryTreeUuid(
+        return self.data.CountGameCategoryTreeByUuid(
             uuid
         )
                
-    def CountGameCategoryTreeParentId(self
+    def CountGameCategoryTreeByParentId(self
         , parent_id
     ) :         
-        return self.data.CountGameCategoryTreeParentId(
+        return self.data.CountGameCategoryTreeByParentId(
             parent_id
         )
                
-    def CountGameCategoryTreeCategoryId(self
+    def CountGameCategoryTreeByCategoryId(self
         , category_id
     ) :         
-        return self.data.CountGameCategoryTreeCategoryId(
+        return self.data.CountGameCategoryTreeByCategoryId(
             category_id
         )
                
-    def CountGameCategoryTreeParentIdCategoryId(self
+    def CountGameCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :         
-        return self.data.CountGameCategoryTreeParentIdCategoryId(
+        return self.data.CountGameCategoryTreeByParentIdByCategoryId(
             parent_id
             , category_id
         )
                
-    def BrowseGameCategoryTreeListFilter(self, filter_obj) :
+    def BrowseGameCategoryTreeListByFilter(self, filter_obj) :
         result = GameCategoryTreeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameCategoryTreeListFilter(filter_obj)
+        rows = self.data.BrowseGameCategoryTreeListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_category_tree = self.FillGameCategoryTree(row)
@@ -581,35 +581,35 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameCategoryTreeUuid(self, set_type, obj) :            
-            return self.data.SetGameCategoryTreeUuid(set_type, obj)
+    def SetGameCategoryTreeByUuid(self, set_type, obj) :            
+            return self.data.SetGameCategoryTreeByUuid(set_type, obj)
             
-    def DelGameCategoryTreeUuid(self
+    def DelGameCategoryTreeByUuid(self
         , uuid
     ) :
-        return self.data.DelGameCategoryTreeUuid(
+        return self.data.DelGameCategoryTreeByUuid(
             uuid
         )
         
-    def DelGameCategoryTreeParentId(self
+    def DelGameCategoryTreeByParentId(self
         , parent_id
     ) :
-        return self.data.DelGameCategoryTreeParentId(
+        return self.data.DelGameCategoryTreeByParentId(
             parent_id
         )
         
-    def DelGameCategoryTreeCategoryId(self
+    def DelGameCategoryTreeByCategoryId(self
         , category_id
     ) :
-        return self.data.DelGameCategoryTreeCategoryId(
+        return self.data.DelGameCategoryTreeByCategoryId(
             category_id
         )
         
-    def DelGameCategoryTreeParentIdCategoryId(self
+    def DelGameCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :
-        return self.data.DelGameCategoryTreeParentIdCategoryId(
+        return self.data.DelGameCategoryTreeByParentIdByCategoryId(
             parent_id
             , category_id
         )
@@ -627,12 +627,12 @@ class BaseGamingACT(object):
                 results.append(game_category_tree)
             return results        
         
-    def GetGameCategoryTreeListUuid(self
+    def GetGameCategoryTreeListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryTreeListUuid(
+        rows = self.data.GetGameCategoryTreeListByUuid(
             uuid
         )
         
@@ -642,12 +642,12 @@ class BaseGamingACT(object):
                 results.append(game_category_tree)
             return results        
         
-    def GetGameCategoryTreeListParentId(self
+    def GetGameCategoryTreeListByParentId(self
         , parent_id
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryTreeListParentId(
+        rows = self.data.GetGameCategoryTreeListByParentId(
             parent_id
         )
         
@@ -657,12 +657,12 @@ class BaseGamingACT(object):
                 results.append(game_category_tree)
             return results        
         
-    def GetGameCategoryTreeListCategoryId(self
+    def GetGameCategoryTreeListByCategoryId(self
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryTreeListCategoryId(
+        rows = self.data.GetGameCategoryTreeListByCategoryId(
             category_id
         )
         
@@ -672,13 +672,13 @@ class BaseGamingACT(object):
                 results.append(game_category_tree)
             return results        
         
-    def GetGameCategoryTreeListParentIdCategoryId(self
+    def GetGameCategoryTreeListByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryTreeListParentIdCategoryId(
+        rows = self.data.GetGameCategoryTreeListByParentIdByCategoryId(
             parent_id
             , category_id
         )
@@ -717,44 +717,44 @@ class BaseGamingACT(object):
         return self.data.CountGameCategoryAssoc(
         )
                
-    def CountGameCategoryAssocUuid(self
+    def CountGameCategoryAssocByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameCategoryAssocUuid(
+        return self.data.CountGameCategoryAssocByUuid(
             uuid
         )
                
-    def CountGameCategoryAssocGameId(self
+    def CountGameCategoryAssocByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameCategoryAssocGameId(
+        return self.data.CountGameCategoryAssocByGameId(
             game_id
         )
                
-    def CountGameCategoryAssocCategoryId(self
+    def CountGameCategoryAssocByCategoryId(self
         , category_id
     ) :         
-        return self.data.CountGameCategoryAssocCategoryId(
+        return self.data.CountGameCategoryAssocByCategoryId(
             category_id
         )
                
-    def CountGameCategoryAssocGameIdCategoryId(self
+    def CountGameCategoryAssocByGameIdByCategoryId(self
         , game_id
         , category_id
     ) :         
-        return self.data.CountGameCategoryAssocGameIdCategoryId(
+        return self.data.CountGameCategoryAssocByGameIdByCategoryId(
             game_id
             , category_id
         )
                
-    def BrowseGameCategoryAssocListFilter(self, filter_obj) :
+    def BrowseGameCategoryAssocListByFilter(self, filter_obj) :
         result = GameCategoryAssocResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameCategoryAssocListFilter(filter_obj)
+        rows = self.data.BrowseGameCategoryAssocListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_category_assoc = self.FillGameCategoryAssoc(row)
@@ -764,13 +764,13 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameCategoryAssocUuid(self, set_type, obj) :            
-            return self.data.SetGameCategoryAssocUuid(set_type, obj)
+    def SetGameCategoryAssocByUuid(self, set_type, obj) :            
+            return self.data.SetGameCategoryAssocByUuid(set_type, obj)
             
-    def DelGameCategoryAssocUuid(self
+    def DelGameCategoryAssocByUuid(self
         , uuid
     ) :
-        return self.data.DelGameCategoryAssocUuid(
+        return self.data.DelGameCategoryAssocByUuid(
             uuid
         )
         
@@ -787,12 +787,12 @@ class BaseGamingACT(object):
                 results.append(game_category_assoc)
             return results        
         
-    def GetGameCategoryAssocListUuid(self
+    def GetGameCategoryAssocListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryAssocListUuid(
+        rows = self.data.GetGameCategoryAssocListByUuid(
             uuid
         )
         
@@ -802,12 +802,12 @@ class BaseGamingACT(object):
                 results.append(game_category_assoc)
             return results        
         
-    def GetGameCategoryAssocListGameId(self
+    def GetGameCategoryAssocListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryAssocListGameId(
+        rows = self.data.GetGameCategoryAssocListByGameId(
             game_id
         )
         
@@ -817,12 +817,12 @@ class BaseGamingACT(object):
                 results.append(game_category_assoc)
             return results        
         
-    def GetGameCategoryAssocListCategoryId(self
+    def GetGameCategoryAssocListByCategoryId(self
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryAssocListCategoryId(
+        rows = self.data.GetGameCategoryAssocListByCategoryId(
             category_id
         )
         
@@ -832,13 +832,13 @@ class BaseGamingACT(object):
                 results.append(game_category_assoc)
             return results        
         
-    def GetGameCategoryAssocListGameIdCategoryId(self
+    def GetGameCategoryAssocListByGameIdByCategoryId(self
         , game_id
         , category_id
     ) :
 
         results = []
-        rows = self.data.GetGameCategoryAssocListGameIdCategoryId(
+        rows = self.data.GetGameCategoryAssocListByGameIdByCategoryId(
             game_id
             , category_id
         )
@@ -881,35 +881,35 @@ class BaseGamingACT(object):
         return self.data.CountGameType(
         )
                
-    def CountGameTypeUuid(self
+    def CountGameTypeByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameTypeUuid(
+        return self.data.CountGameTypeByUuid(
             uuid
         )
                
-    def CountGameTypeCode(self
+    def CountGameTypeByCode(self
         , code
     ) :         
-        return self.data.CountGameTypeCode(
+        return self.data.CountGameTypeByCode(
             code
         )
                
-    def CountGameTypeName(self
+    def CountGameTypeByName(self
         , name
     ) :         
-        return self.data.CountGameTypeName(
+        return self.data.CountGameTypeByName(
             name
         )
                
-    def BrowseGameTypeListFilter(self, filter_obj) :
+    def BrowseGameTypeListByFilter(self, filter_obj) :
         result = GameTypeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameTypeListFilter(filter_obj)
+        rows = self.data.BrowseGameTypeListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_type = self.FillGameType(row)
@@ -919,13 +919,13 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameTypeUuid(self, set_type, obj) :            
-            return self.data.SetGameTypeUuid(set_type, obj)
+    def SetGameTypeByUuid(self, set_type, obj) :            
+            return self.data.SetGameTypeByUuid(set_type, obj)
             
-    def DelGameTypeUuid(self
+    def DelGameTypeByUuid(self
         , uuid
     ) :
-        return self.data.DelGameTypeUuid(
+        return self.data.DelGameTypeByUuid(
             uuid
         )
         
@@ -942,12 +942,12 @@ class BaseGamingACT(object):
                 results.append(game_type)
             return results        
         
-    def GetGameTypeListUuid(self
+    def GetGameTypeListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameTypeListUuid(
+        rows = self.data.GetGameTypeListByUuid(
             uuid
         )
         
@@ -957,12 +957,12 @@ class BaseGamingACT(object):
                 results.append(game_type)
             return results        
         
-    def GetGameTypeListCode(self
+    def GetGameTypeListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameTypeListCode(
+        rows = self.data.GetGameTypeListByCode(
             code
         )
         
@@ -972,12 +972,12 @@ class BaseGamingACT(object):
                 results.append(game_type)
             return results        
         
-    def GetGameTypeListName(self
+    def GetGameTypeListByName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetGameTypeListName(
+        rows = self.data.GetGameTypeListByName(
             name
         )
         
@@ -1021,44 +1021,44 @@ class BaseGamingACT(object):
         return self.data.CountProfileGame(
         )
                
-    def CountProfileGameUuid(self
+    def CountProfileGameByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileGameUuid(
+        return self.data.CountProfileGameByUuid(
             uuid
         )
                
-    def CountProfileGameGameId(self
+    def CountProfileGameByGameId(self
         , game_id
     ) :         
-        return self.data.CountProfileGameGameId(
+        return self.data.CountProfileGameByGameId(
             game_id
         )
                
-    def CountProfileGameProfileId(self
+    def CountProfileGameByProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileGameProfileId(
+        return self.data.CountProfileGameByProfileId(
             profile_id
         )
                
-    def CountProfileGameProfileIdGameId(self
+    def CountProfileGameByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountProfileGameProfileIdGameId(
+        return self.data.CountProfileGameByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def BrowseProfileGameListFilter(self, filter_obj) :
+    def BrowseProfileGameListByFilter(self, filter_obj) :
         result = ProfileGameResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileGameListFilter(filter_obj)
+        rows = self.data.BrowseProfileGameListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_game = self.FillProfileGame(row)
@@ -1068,13 +1068,13 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetProfileGameUuid(self, set_type, obj) :            
-            return self.data.SetProfileGameUuid(set_type, obj)
+    def SetProfileGameByUuid(self, set_type, obj) :            
+            return self.data.SetProfileGameByUuid(set_type, obj)
             
-    def DelProfileGameUuid(self
+    def DelProfileGameByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileGameUuid(
+        return self.data.DelProfileGameByUuid(
             uuid
         )
         
@@ -1091,12 +1091,12 @@ class BaseGamingACT(object):
                 results.append(profile_game)
             return results        
         
-    def GetProfileGameListUuid(self
+    def GetProfileGameListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileGameListUuid(
+        rows = self.data.GetProfileGameListByUuid(
             uuid
         )
         
@@ -1106,12 +1106,12 @@ class BaseGamingACT(object):
                 results.append(profile_game)
             return results        
         
-    def GetProfileGameListGameId(self
+    def GetProfileGameListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameListGameId(
+        rows = self.data.GetProfileGameListByGameId(
             game_id
         )
         
@@ -1121,12 +1121,12 @@ class BaseGamingACT(object):
                 results.append(profile_game)
             return results        
         
-    def GetProfileGameListProfileId(self
+    def GetProfileGameListByProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameListProfileId(
+        rows = self.data.GetProfileGameListByProfileId(
             profile_id
         )
         
@@ -1136,13 +1136,13 @@ class BaseGamingACT(object):
                 results.append(profile_game)
             return results        
         
-    def GetProfileGameListProfileIdGameId(self
+    def GetProfileGameListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameListProfileIdGameId(
+        rows = self.data.GetProfileGameListByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -1191,37 +1191,37 @@ class BaseGamingACT(object):
         return self.data.CountGameNetwork(
         )
                
-    def CountGameNetworkUuid(self
+    def CountGameNetworkByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameNetworkUuid(
+        return self.data.CountGameNetworkByUuid(
             uuid
         )
                
-    def CountGameNetworkCode(self
+    def CountGameNetworkByCode(self
         , code
     ) :         
-        return self.data.CountGameNetworkCode(
+        return self.data.CountGameNetworkByCode(
             code
         )
                
-    def CountGameNetworkUuidType(self
+    def CountGameNetworkByUuidByType(self
         , uuid
         , type
     ) :         
-        return self.data.CountGameNetworkUuidType(
+        return self.data.CountGameNetworkByUuidByType(
             uuid
             , type
         )
                
-    def BrowseGameNetworkListFilter(self, filter_obj) :
+    def BrowseGameNetworkListByFilter(self, filter_obj) :
         result = GameNetworkResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameNetworkListFilter(filter_obj)
+        rows = self.data.BrowseGameNetworkListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_network = self.FillGameNetwork(row)
@@ -1231,16 +1231,16 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameNetworkUuid(self, set_type, obj) :            
-            return self.data.SetGameNetworkUuid(set_type, obj)
+    def SetGameNetworkByUuid(self, set_type, obj) :            
+            return self.data.SetGameNetworkByUuid(set_type, obj)
             
-    def SetGameNetworkCode(self, set_type, obj) :            
-            return self.data.SetGameNetworkCode(set_type, obj)
+    def SetGameNetworkByCode(self, set_type, obj) :            
+            return self.data.SetGameNetworkByCode(set_type, obj)
             
-    def DelGameNetworkUuid(self
+    def DelGameNetworkByUuid(self
         , uuid
     ) :
-        return self.data.DelGameNetworkUuid(
+        return self.data.DelGameNetworkByUuid(
             uuid
         )
         
@@ -1257,12 +1257,12 @@ class BaseGamingACT(object):
                 results.append(game_network)
             return results        
         
-    def GetGameNetworkListUuid(self
+    def GetGameNetworkListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameNetworkListUuid(
+        rows = self.data.GetGameNetworkListByUuid(
             uuid
         )
         
@@ -1272,12 +1272,12 @@ class BaseGamingACT(object):
                 results.append(game_network)
             return results        
         
-    def GetGameNetworkListCode(self
+    def GetGameNetworkListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameNetworkListCode(
+        rows = self.data.GetGameNetworkListByCode(
             code
         )
         
@@ -1287,13 +1287,13 @@ class BaseGamingACT(object):
                 results.append(game_network)
             return results        
         
-    def GetGameNetworkListUuidType(self
+    def GetGameNetworkListByUuidByType(self
         , uuid
         , type
     ) :
 
         results = []
-        rows = self.data.GetGameNetworkListUuidType(
+        rows = self.data.GetGameNetworkListByUuidByType(
             uuid
             , type
         )
@@ -1348,30 +1348,30 @@ class BaseGamingACT(object):
         return self.data.CountGameNetworkAuth(
         )
                
-    def CountGameNetworkAuthUuid(self
+    def CountGameNetworkAuthByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameNetworkAuthUuid(
+        return self.data.CountGameNetworkAuthByUuid(
             uuid
         )
                
-    def CountGameNetworkAuthGameIdGameNetworkId(self
+    def CountGameNetworkAuthByGameIdByGameNetworkId(self
         , game_id
         , game_network_id
     ) :         
-        return self.data.CountGameNetworkAuthGameIdGameNetworkId(
+        return self.data.CountGameNetworkAuthByGameIdByGameNetworkId(
             game_id
             , game_network_id
         )
                
-    def BrowseGameNetworkAuthListFilter(self, filter_obj) :
+    def BrowseGameNetworkAuthListByFilter(self, filter_obj) :
         result = GameNetworkAuthResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameNetworkAuthListFilter(filter_obj)
+        rows = self.data.BrowseGameNetworkAuthListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_network_auth = self.FillGameNetworkAuth(row)
@@ -1381,16 +1381,16 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameNetworkAuthUuid(self, set_type, obj) :            
-            return self.data.SetGameNetworkAuthUuid(set_type, obj)
+    def SetGameNetworkAuthByUuid(self, set_type, obj) :            
+            return self.data.SetGameNetworkAuthByUuid(set_type, obj)
             
-    def SetGameNetworkAuthGameIdGameNetworkId(self, set_type, obj) :            
-            return self.data.SetGameNetworkAuthGameIdGameNetworkId(set_type, obj)
+    def SetGameNetworkAuthByGameIdByGameNetworkId(self, set_type, obj) :            
+            return self.data.SetGameNetworkAuthByGameIdByGameNetworkId(set_type, obj)
             
-    def DelGameNetworkAuthUuid(self
+    def DelGameNetworkAuthByUuid(self
         , uuid
     ) :
-        return self.data.DelGameNetworkAuthUuid(
+        return self.data.DelGameNetworkAuthByUuid(
             uuid
         )
         
@@ -1407,12 +1407,12 @@ class BaseGamingACT(object):
                 results.append(game_network_auth)
             return results        
         
-    def GetGameNetworkAuthListUuid(self
+    def GetGameNetworkAuthListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameNetworkAuthListUuid(
+        rows = self.data.GetGameNetworkAuthListByUuid(
             uuid
         )
         
@@ -1422,13 +1422,13 @@ class BaseGamingACT(object):
                 results.append(game_network_auth)
             return results        
         
-    def GetGameNetworkAuthListGameIdGameNetworkId(self
+    def GetGameNetworkAuthListByGameIdByGameNetworkId(self
         , game_id
         , game_network_id
     ) :
 
         results = []
-        rows = self.data.GetGameNetworkAuthListGameIdGameNetworkId(
+        rows = self.data.GetGameNetworkAuthListByGameIdByGameNetworkId(
             game_id
             , game_network_id
         )
@@ -1485,75 +1485,75 @@ class BaseGamingACT(object):
         return self.data.CountProfileGameNetwork(
         )
                
-    def CountProfileGameNetworkUuid(self
+    def CountProfileGameNetworkByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileGameNetworkUuid(
+        return self.data.CountProfileGameNetworkByUuid(
             uuid
         )
                
-    def CountProfileGameNetworkGameId(self
+    def CountProfileGameNetworkByGameId(self
         , game_id
     ) :         
-        return self.data.CountProfileGameNetworkGameId(
+        return self.data.CountProfileGameNetworkByGameId(
             game_id
         )
                
-    def CountProfileGameNetworkProfileId(self
+    def CountProfileGameNetworkByProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileGameNetworkProfileId(
+        return self.data.CountProfileGameNetworkByProfileId(
             profile_id
         )
                
-    def CountProfileGameNetworkProfileIdGameId(self
+    def CountProfileGameNetworkByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountProfileGameNetworkProfileIdGameId(
+        return self.data.CountProfileGameNetworkByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def CountProfileGameNetworkProfileIdGameId(self
+    def CountProfileGameNetworkByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountProfileGameNetworkProfileIdGameId(
+        return self.data.CountProfileGameNetworkByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def CountProfileGameNetworkProfileIdGameIdGameNetworkId(self
+    def CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
     ) :         
-        return self.data.CountProfileGameNetworkProfileIdGameIdGameNetworkId(
+        return self.data.CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
             profile_id
             , game_id
             , game_network_id
         )
                
-    def CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self
+    def CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
     ) :         
-        return self.data.CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
+        return self.data.CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
             network_username
             , game_id
             , game_network_id
         )
                
-    def BrowseProfileGameNetworkListFilter(self, filter_obj) :
+    def BrowseProfileGameNetworkListByFilter(self, filter_obj) :
         result = ProfileGameNetworkResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileGameNetworkListFilter(filter_obj)
+        rows = self.data.BrowseProfileGameNetworkListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_game_network = self.FillProfileGameNetwork(row)
@@ -1563,51 +1563,51 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetProfileGameNetworkUuid(self, set_type, obj) :            
-            return self.data.SetProfileGameNetworkUuid(set_type, obj)
+    def SetProfileGameNetworkByUuid(self, set_type, obj) :            
+            return self.data.SetProfileGameNetworkByUuid(set_type, obj)
             
-    def SetProfileGameNetworkProfileIdGameId(self, set_type, obj) :            
-            return self.data.SetProfileGameNetworkProfileIdGameId(set_type, obj)
+    def SetProfileGameNetworkByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetProfileGameNetworkByProfileIdByGameId(set_type, obj)
             
-    def SetProfileGameNetworkProfileIdGameIdGameNetworkId(self, set_type, obj) :            
-            return self.data.SetProfileGameNetworkProfileIdGameIdGameNetworkId(set_type, obj)
+    def SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self, set_type, obj) :            
+            return self.data.SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(set_type, obj)
             
-    def SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self, set_type, obj) :            
-            return self.data.SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId(set_type, obj)
+    def SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self, set_type, obj) :            
+            return self.data.SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(set_type, obj)
             
-    def DelProfileGameNetworkUuid(self
+    def DelProfileGameNetworkByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileGameNetworkUuid(
+        return self.data.DelProfileGameNetworkByUuid(
             uuid
         )
         
-    def DelProfileGameNetworkProfileIdGameId(self
+    def DelProfileGameNetworkByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
-        return self.data.DelProfileGameNetworkProfileIdGameId(
+        return self.data.DelProfileGameNetworkByProfileIdByGameId(
             profile_id
             , game_id
         )
         
-    def DelProfileGameNetworkProfileIdGameIdGameNetworkId(self
+    def DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
     ) :
-        return self.data.DelProfileGameNetworkProfileIdGameIdGameNetworkId(
+        return self.data.DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(
             profile_id
             , game_id
             , game_network_id
         )
         
-    def DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self
+    def DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
     ) :
-        return self.data.DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(
+        return self.data.DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(
             network_username
             , game_id
             , game_network_id
@@ -1626,12 +1626,12 @@ class BaseGamingACT(object):
                 results.append(profile_game_network)
             return results        
         
-    def GetProfileGameNetworkListUuid(self
+    def GetProfileGameNetworkListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileGameNetworkListUuid(
+        rows = self.data.GetProfileGameNetworkListByUuid(
             uuid
         )
         
@@ -1641,12 +1641,12 @@ class BaseGamingACT(object):
                 results.append(profile_game_network)
             return results        
         
-    def GetProfileGameNetworkListGameId(self
+    def GetProfileGameNetworkListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameNetworkListGameId(
+        rows = self.data.GetProfileGameNetworkListByGameId(
             game_id
         )
         
@@ -1656,12 +1656,12 @@ class BaseGamingACT(object):
                 results.append(profile_game_network)
             return results        
         
-    def GetProfileGameNetworkListProfileId(self
+    def GetProfileGameNetworkListByProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameNetworkListProfileId(
+        rows = self.data.GetProfileGameNetworkListByProfileId(
             profile_id
         )
         
@@ -1671,13 +1671,13 @@ class BaseGamingACT(object):
                 results.append(profile_game_network)
             return results        
         
-    def GetProfileGameNetworkListProfileIdGameId(self
+    def GetProfileGameNetworkListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameNetworkListProfileIdGameId(
+        rows = self.data.GetProfileGameNetworkListByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -1688,14 +1688,14 @@ class BaseGamingACT(object):
                 results.append(profile_game_network)
             return results        
         
-    def GetProfileGameNetworkListProfileIdGameIdGameNetworkId(self
+    def GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameNetworkListProfileIdGameIdGameNetworkId(
+        rows = self.data.GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(
             profile_id
             , game_id
             , game_network_id
@@ -1707,14 +1707,14 @@ class BaseGamingACT(object):
                 results.append(profile_game_network)
             return results        
         
-    def GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(self
+    def GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(
+        rows = self.data.GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(
             network_username
             , game_id
             , game_network_id
@@ -1762,39 +1762,39 @@ class BaseGamingACT(object):
         return self.data.CountProfileGameDataAttribute(
         )
                
-    def CountProfileGameDataAttributeUuid(self
+    def CountProfileGameDataAttributeByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileGameDataAttributeUuid(
+        return self.data.CountProfileGameDataAttributeByUuid(
             uuid
         )
                
-    def CountProfileGameDataAttributeProfileId(self
+    def CountProfileGameDataAttributeByProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileGameDataAttributeProfileId(
+        return self.data.CountProfileGameDataAttributeByProfileId(
             profile_id
         )
                
-    def CountProfileGameDataAttributeProfileIdGameIdCode(self
+    def CountProfileGameDataAttributeByProfileIdByGameIdByCode(self
         , profile_id
         , game_id
         , code
     ) :         
-        return self.data.CountProfileGameDataAttributeProfileIdGameIdCode(
+        return self.data.CountProfileGameDataAttributeByProfileIdByGameIdByCode(
             profile_id
             , game_id
             , code
         )
                
-    def BrowseProfileGameDataAttributeListFilter(self, filter_obj) :
+    def BrowseProfileGameDataAttributeListByFilter(self, filter_obj) :
         result = ProfileGameDataAttributeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileGameDataAttributeListFilter(filter_obj)
+        rows = self.data.BrowseProfileGameDataAttributeListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_game_data_attribute = self.FillProfileGameDataAttribute(row)
@@ -1804,46 +1804,46 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetProfileGameDataAttributeUuid(self, set_type, obj) :            
-            return self.data.SetProfileGameDataAttributeUuid(set_type, obj)
+    def SetProfileGameDataAttributeByUuid(self, set_type, obj) :            
+            return self.data.SetProfileGameDataAttributeByUuid(set_type, obj)
             
-    def SetProfileGameDataAttributeProfileId(self, set_type, obj) :            
-            return self.data.SetProfileGameDataAttributeProfileId(set_type, obj)
+    def SetProfileGameDataAttributeByProfileId(self, set_type, obj) :            
+            return self.data.SetProfileGameDataAttributeByProfileId(set_type, obj)
             
-    def SetProfileGameDataAttributeProfileIdGameIdCode(self, set_type, obj) :            
-            return self.data.SetProfileGameDataAttributeProfileIdGameIdCode(set_type, obj)
+    def SetProfileGameDataAttributeByProfileIdByGameIdByCode(self, set_type, obj) :            
+            return self.data.SetProfileGameDataAttributeByProfileIdByGameIdByCode(set_type, obj)
             
-    def DelProfileGameDataAttributeUuid(self
+    def DelProfileGameDataAttributeByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileGameDataAttributeUuid(
+        return self.data.DelProfileGameDataAttributeByUuid(
             uuid
         )
         
-    def DelProfileGameDataAttributeProfileId(self
+    def DelProfileGameDataAttributeByProfileId(self
         , profile_id
     ) :
-        return self.data.DelProfileGameDataAttributeProfileId(
+        return self.data.DelProfileGameDataAttributeByProfileId(
             profile_id
         )
         
-    def DelProfileGameDataAttributeProfileIdGameIdCode(self
+    def DelProfileGameDataAttributeByProfileIdByGameIdByCode(self
         , profile_id
         , game_id
         , code
     ) :
-        return self.data.DelProfileGameDataAttributeProfileIdGameIdCode(
+        return self.data.DelProfileGameDataAttributeByProfileIdByGameIdByCode(
             profile_id
             , game_id
             , code
         )
         
-    def GetProfileGameDataAttributeListUuid(self
+    def GetProfileGameDataAttributeListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileGameDataAttributeListUuid(
+        rows = self.data.GetProfileGameDataAttributeListByUuid(
             uuid
         )
         
@@ -1853,12 +1853,12 @@ class BaseGamingACT(object):
                 results.append(profile_game_data_attribute)
             return results        
         
-    def GetProfileGameDataAttributeListProfileId(self
+    def GetProfileGameDataAttributeListByProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameDataAttributeListProfileId(
+        rows = self.data.GetProfileGameDataAttributeListByProfileId(
             profile_id
         )
         
@@ -1868,14 +1868,14 @@ class BaseGamingACT(object):
                 results.append(profile_game_data_attribute)
             return results        
         
-    def GetProfileGameDataAttributeListProfileIdGameIdCode(self
+    def GetProfileGameDataAttributeListByProfileIdByGameIdByCode(self
         , profile_id
         , game_id
         , code
     ) :
 
         results = []
-        rows = self.data.GetProfileGameDataAttributeListProfileIdGameIdCode(
+        rows = self.data.GetProfileGameDataAttributeListByProfileIdByGameIdByCode(
             profile_id
             , game_id
             , code
@@ -1963,44 +1963,44 @@ class BaseGamingACT(object):
         return self.data.CountGameSession(
         )
                
-    def CountGameSessionUuid(self
+    def CountGameSessionByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameSessionUuid(
+        return self.data.CountGameSessionByUuid(
             uuid
         )
                
-    def CountGameSessionGameId(self
+    def CountGameSessionByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameSessionGameId(
+        return self.data.CountGameSessionByGameId(
             game_id
         )
                
-    def CountGameSessionProfileId(self
+    def CountGameSessionByProfileId(self
         , profile_id
     ) :         
-        return self.data.CountGameSessionProfileId(
+        return self.data.CountGameSessionByProfileId(
             profile_id
         )
                
-    def CountGameSessionProfileIdGameId(self
+    def CountGameSessionByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameSessionProfileIdGameId(
+        return self.data.CountGameSessionByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def BrowseGameSessionListFilter(self, filter_obj) :
+    def BrowseGameSessionListByFilter(self, filter_obj) :
         result = GameSessionResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameSessionListFilter(filter_obj)
+        rows = self.data.BrowseGameSessionListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_session = self.FillGameSession(row)
@@ -2010,13 +2010,13 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameSessionUuid(self, set_type, obj) :            
-            return self.data.SetGameSessionUuid(set_type, obj)
+    def SetGameSessionByUuid(self, set_type, obj) :            
+            return self.data.SetGameSessionByUuid(set_type, obj)
             
-    def DelGameSessionUuid(self
+    def DelGameSessionByUuid(self
         , uuid
     ) :
-        return self.data.DelGameSessionUuid(
+        return self.data.DelGameSessionByUuid(
             uuid
         )
         
@@ -2033,12 +2033,12 @@ class BaseGamingACT(object):
                 results.append(game_session)
             return results        
         
-    def GetGameSessionListUuid(self
+    def GetGameSessionListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameSessionListUuid(
+        rows = self.data.GetGameSessionListByUuid(
             uuid
         )
         
@@ -2048,12 +2048,12 @@ class BaseGamingACT(object):
                 results.append(game_session)
             return results        
         
-    def GetGameSessionListGameId(self
+    def GetGameSessionListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameSessionListGameId(
+        rows = self.data.GetGameSessionListByGameId(
             game_id
         )
         
@@ -2063,12 +2063,12 @@ class BaseGamingACT(object):
                 results.append(game_session)
             return results        
         
-    def GetGameSessionListProfileId(self
+    def GetGameSessionListByProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetGameSessionListProfileId(
+        rows = self.data.GetGameSessionListByProfileId(
             profile_id
         )
         
@@ -2078,13 +2078,13 @@ class BaseGamingACT(object):
                 results.append(game_session)
             return results        
         
-    def GetGameSessionListProfileIdGameId(self
+    def GetGameSessionListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameSessionListProfileIdGameId(
+        rows = self.data.GetGameSessionListByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -2137,21 +2137,21 @@ class BaseGamingACT(object):
         return self.data.CountGameSessionData(
         )
                
-    def CountGameSessionDataUuid(self
+    def CountGameSessionDataByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameSessionDataUuid(
+        return self.data.CountGameSessionDataByUuid(
             uuid
         )
                
-    def BrowseGameSessionDataListFilter(self, filter_obj) :
+    def BrowseGameSessionDataListByFilter(self, filter_obj) :
         result = GameSessionDataResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameSessionDataListFilter(filter_obj)
+        rows = self.data.BrowseGameSessionDataListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_session_data = self.FillGameSessionData(row)
@@ -2161,13 +2161,13 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameSessionDataUuid(self, set_type, obj) :            
-            return self.data.SetGameSessionDataUuid(set_type, obj)
+    def SetGameSessionDataByUuid(self, set_type, obj) :            
+            return self.data.SetGameSessionDataByUuid(set_type, obj)
             
-    def DelGameSessionDataUuid(self
+    def DelGameSessionDataByUuid(self
         , uuid
     ) :
-        return self.data.DelGameSessionDataUuid(
+        return self.data.DelGameSessionDataByUuid(
             uuid
         )
         
@@ -2184,12 +2184,12 @@ class BaseGamingACT(object):
                 results.append(game_session_data)
             return results        
         
-    def GetGameSessionDataListUuid(self
+    def GetGameSessionDataListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameSessionDataListUuid(
+        rows = self.data.GetGameSessionDataListByUuid(
             uuid
         )
         
@@ -2253,48 +2253,48 @@ class BaseGamingACT(object):
         return self.data.CountGameContent(
         )
                
-    def CountGameContentUuid(self
+    def CountGameContentByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameContentUuid(
+        return self.data.CountGameContentByUuid(
             uuid
         )
                
-    def CountGameContentGameId(self
+    def CountGameContentByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameContentGameId(
+        return self.data.CountGameContentByGameId(
             game_id
         )
                
-    def CountGameContentGameIdPath(self
+    def CountGameContentByGameIdByPath(self
         , game_id
         , path
     ) :         
-        return self.data.CountGameContentGameIdPath(
+        return self.data.CountGameContentByGameIdByPath(
             game_id
             , path
         )
                
-    def CountGameContentGameIdPathVersion(self
+    def CountGameContentByGameIdByPathByVersion(self
         , game_id
         , path
         , version
     ) :         
-        return self.data.CountGameContentGameIdPathVersion(
+        return self.data.CountGameContentByGameIdByPathByVersion(
             game_id
             , path
             , version
         )
                
-    def CountGameContentGameIdPathVersionPlatformIncrement(self
+    def CountGameContentByGameIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , path
         , version
         , platform
         , increment
     ) :         
-        return self.data.CountGameContentGameIdPathVersionPlatformIncrement(
+        return self.data.CountGameContentByGameIdByPathByVersionByPlatformByIncrement(
             game_id
             , path
             , version
@@ -2302,14 +2302,14 @@ class BaseGamingACT(object):
             , increment
         )
                
-    def BrowseGameContentListFilter(self, filter_obj) :
+    def BrowseGameContentListByFilter(self, filter_obj) :
         result = GameContentResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameContentListFilter(filter_obj)
+        rows = self.data.BrowseGameContentListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_content = self.FillGameContent(row)
@@ -2319,63 +2319,63 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameContentUuid(self, set_type, obj) :            
-            return self.data.SetGameContentUuid(set_type, obj)
+    def SetGameContentByUuid(self, set_type, obj) :            
+            return self.data.SetGameContentByUuid(set_type, obj)
             
-    def SetGameContentGameId(self, set_type, obj) :            
-            return self.data.SetGameContentGameId(set_type, obj)
+    def SetGameContentByGameId(self, set_type, obj) :            
+            return self.data.SetGameContentByGameId(set_type, obj)
             
-    def SetGameContentGameIdPath(self, set_type, obj) :            
-            return self.data.SetGameContentGameIdPath(set_type, obj)
+    def SetGameContentByGameIdByPath(self, set_type, obj) :            
+            return self.data.SetGameContentByGameIdByPath(set_type, obj)
             
-    def SetGameContentGameIdPathVersion(self, set_type, obj) :            
-            return self.data.SetGameContentGameIdPathVersion(set_type, obj)
+    def SetGameContentByGameIdByPathByVersion(self, set_type, obj) :            
+            return self.data.SetGameContentByGameIdByPathByVersion(set_type, obj)
             
-    def SetGameContentGameIdPathVersionPlatformIncrement(self, set_type, obj) :            
-            return self.data.SetGameContentGameIdPathVersionPlatformIncrement(set_type, obj)
+    def SetGameContentByGameIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :            
+            return self.data.SetGameContentByGameIdByPathByVersionByPlatformByIncrement(set_type, obj)
             
-    def DelGameContentUuid(self
+    def DelGameContentByUuid(self
         , uuid
     ) :
-        return self.data.DelGameContentUuid(
+        return self.data.DelGameContentByUuid(
             uuid
         )
         
-    def DelGameContentGameId(self
+    def DelGameContentByGameId(self
         , game_id
     ) :
-        return self.data.DelGameContentGameId(
+        return self.data.DelGameContentByGameId(
             game_id
         )
         
-    def DelGameContentGameIdPath(self
+    def DelGameContentByGameIdByPath(self
         , game_id
         , path
     ) :
-        return self.data.DelGameContentGameIdPath(
+        return self.data.DelGameContentByGameIdByPath(
             game_id
             , path
         )
         
-    def DelGameContentGameIdPathVersion(self
+    def DelGameContentByGameIdByPathByVersion(self
         , game_id
         , path
         , version
     ) :
-        return self.data.DelGameContentGameIdPathVersion(
+        return self.data.DelGameContentByGameIdByPathByVersion(
             game_id
             , path
             , version
         )
         
-    def DelGameContentGameIdPathVersionPlatformIncrement(self
+    def DelGameContentByGameIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , path
         , version
         , platform
         , increment
     ) :
-        return self.data.DelGameContentGameIdPathVersionPlatformIncrement(
+        return self.data.DelGameContentByGameIdByPathByVersionByPlatformByIncrement(
             game_id
             , path
             , version
@@ -2396,12 +2396,12 @@ class BaseGamingACT(object):
                 results.append(game_content)
             return results        
         
-    def GetGameContentListUuid(self
+    def GetGameContentListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameContentListUuid(
+        rows = self.data.GetGameContentListByUuid(
             uuid
         )
         
@@ -2411,12 +2411,12 @@ class BaseGamingACT(object):
                 results.append(game_content)
             return results        
         
-    def GetGameContentListGameId(self
+    def GetGameContentListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameContentListGameId(
+        rows = self.data.GetGameContentListByGameId(
             game_id
         )
         
@@ -2426,13 +2426,13 @@ class BaseGamingACT(object):
                 results.append(game_content)
             return results        
         
-    def GetGameContentListGameIdPath(self
+    def GetGameContentListByGameIdByPath(self
         , game_id
         , path
     ) :
 
         results = []
-        rows = self.data.GetGameContentListGameIdPath(
+        rows = self.data.GetGameContentListByGameIdByPath(
             game_id
             , path
         )
@@ -2443,14 +2443,14 @@ class BaseGamingACT(object):
                 results.append(game_content)
             return results        
         
-    def GetGameContentListGameIdPathVersion(self
+    def GetGameContentListByGameIdByPathByVersion(self
         , game_id
         , path
         , version
     ) :
 
         results = []
-        rows = self.data.GetGameContentListGameIdPathVersion(
+        rows = self.data.GetGameContentListByGameIdByPathByVersion(
             game_id
             , path
             , version
@@ -2462,7 +2462,7 @@ class BaseGamingACT(object):
                 results.append(game_content)
             return results        
         
-    def GetGameContentListGameIdPathVersionPlatformIncrement(self
+    def GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , path
         , version
@@ -2471,7 +2471,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameContentListGameIdPathVersionPlatformIncrement(
+        rows = self.data.GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(
             game_id
             , path
             , version
@@ -2545,63 +2545,63 @@ class BaseGamingACT(object):
         return self.data.CountGameProfileContent(
         )
                
-    def CountGameProfileContentUuid(self
+    def CountGameProfileContentByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameProfileContentUuid(
+        return self.data.CountGameProfileContentByUuid(
             uuid
         )
                
-    def CountGameProfileContentGameIdProfileId(self
+    def CountGameProfileContentByGameIdByProfileId(self
         , game_id
         , profile_id
     ) :         
-        return self.data.CountGameProfileContentGameIdProfileId(
+        return self.data.CountGameProfileContentByGameIdByProfileId(
             game_id
             , profile_id
         )
                
-    def CountGameProfileContentGameIdUsername(self
+    def CountGameProfileContentByGameIdByUsername(self
         , game_id
         , username
     ) :         
-        return self.data.CountGameProfileContentGameIdUsername(
+        return self.data.CountGameProfileContentByGameIdByUsername(
             game_id
             , username
         )
                
-    def CountGameProfileContentUsername(self
+    def CountGameProfileContentByUsername(self
         , username
     ) :         
-        return self.data.CountGameProfileContentUsername(
+        return self.data.CountGameProfileContentByUsername(
             username
         )
                
-    def CountGameProfileContentGameIdProfileIdPath(self
+    def CountGameProfileContentByGameIdByProfileIdByPath(self
         , game_id
         , profile_id
         , path
     ) :         
-        return self.data.CountGameProfileContentGameIdProfileIdPath(
+        return self.data.CountGameProfileContentByGameIdByProfileIdByPath(
             game_id
             , profile_id
             , path
         )
                
-    def CountGameProfileContentGameIdProfileIdPathVersion(self
+    def CountGameProfileContentByGameIdByProfileIdByPathByVersion(self
         , game_id
         , profile_id
         , path
         , version
     ) :         
-        return self.data.CountGameProfileContentGameIdProfileIdPathVersion(
+        return self.data.CountGameProfileContentByGameIdByProfileIdByPathByVersion(
             game_id
             , profile_id
             , path
             , version
         )
                
-    def CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self
+    def CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , profile_id
         , path
@@ -2609,7 +2609,7 @@ class BaseGamingACT(object):
         , platform
         , increment
     ) :         
-        return self.data.CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
+        return self.data.CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
             game_id
             , profile_id
             , path
@@ -2618,31 +2618,31 @@ class BaseGamingACT(object):
             , increment
         )
                
-    def CountGameProfileContentGameIdUsernamePath(self
+    def CountGameProfileContentByGameIdByUsernameByPath(self
         , game_id
         , username
         , path
     ) :         
-        return self.data.CountGameProfileContentGameIdUsernamePath(
+        return self.data.CountGameProfileContentByGameIdByUsernameByPath(
             game_id
             , username
             , path
         )
                
-    def CountGameProfileContentGameIdUsernamePathVersion(self
+    def CountGameProfileContentByGameIdByUsernameByPathByVersion(self
         , game_id
         , username
         , path
         , version
     ) :         
-        return self.data.CountGameProfileContentGameIdUsernamePathVersion(
+        return self.data.CountGameProfileContentByGameIdByUsernameByPathByVersion(
             game_id
             , username
             , path
             , version
         )
                
-    def CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self
+    def CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
         , game_id
         , username
         , path
@@ -2650,7 +2650,7 @@ class BaseGamingACT(object):
         , platform
         , increment
     ) :         
-        return self.data.CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
+        return self.data.CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
             game_id
             , username
             , path
@@ -2659,14 +2659,14 @@ class BaseGamingACT(object):
             , increment
         )
                
-    def BrowseGameProfileContentListFilter(self, filter_obj) :
+    def BrowseGameProfileContentListByFilter(self, filter_obj) :
         result = GameProfileContentResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameProfileContentListFilter(filter_obj)
+        rows = self.data.BrowseGameProfileContentListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_profile_content = self.FillGameProfileContent(row)
@@ -2676,93 +2676,93 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameProfileContentUuid(self, set_type, obj) :            
-            return self.data.SetGameProfileContentUuid(set_type, obj)
+    def SetGameProfileContentByUuid(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByUuid(set_type, obj)
             
-    def SetGameProfileContentGameIdProfileId(self, set_type, obj) :            
-            return self.data.SetGameProfileContentGameIdProfileId(set_type, obj)
+    def SetGameProfileContentByGameIdByProfileId(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByGameIdByProfileId(set_type, obj)
             
-    def SetGameProfileContentGameIdUsername(self, set_type, obj) :            
-            return self.data.SetGameProfileContentGameIdUsername(set_type, obj)
+    def SetGameProfileContentByGameIdByUsername(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByGameIdByUsername(set_type, obj)
             
-    def SetGameProfileContentUsername(self, set_type, obj) :            
-            return self.data.SetGameProfileContentUsername(set_type, obj)
+    def SetGameProfileContentByUsername(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByUsername(set_type, obj)
             
-    def SetGameProfileContentGameIdProfileIdPath(self, set_type, obj) :            
-            return self.data.SetGameProfileContentGameIdProfileIdPath(set_type, obj)
+    def SetGameProfileContentByGameIdByProfileIdByPath(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByGameIdByProfileIdByPath(set_type, obj)
             
-    def SetGameProfileContentGameIdProfileIdPathVersion(self, set_type, obj) :            
-            return self.data.SetGameProfileContentGameIdProfileIdPathVersion(set_type, obj)
+    def SetGameProfileContentByGameIdByProfileIdByPathByVersion(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByGameIdByProfileIdByPathByVersion(set_type, obj)
             
-    def SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self, set_type, obj) :            
-            return self.data.SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(set_type, obj)
+    def SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(set_type, obj)
             
-    def SetGameProfileContentGameIdUsernamePath(self, set_type, obj) :            
-            return self.data.SetGameProfileContentGameIdUsernamePath(set_type, obj)
+    def SetGameProfileContentByGameIdByUsernameByPath(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByGameIdByUsernameByPath(set_type, obj)
             
-    def SetGameProfileContentGameIdUsernamePathVersion(self, set_type, obj) :            
-            return self.data.SetGameProfileContentGameIdUsernamePathVersion(set_type, obj)
+    def SetGameProfileContentByGameIdByUsernameByPathByVersion(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByGameIdByUsernameByPathByVersion(set_type, obj)
             
-    def SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self, set_type, obj) :            
-            return self.data.SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement(set_type, obj)
+    def SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self, set_type, obj) :            
+            return self.data.SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(set_type, obj)
             
-    def DelGameProfileContentUuid(self
+    def DelGameProfileContentByUuid(self
         , uuid
     ) :
-        return self.data.DelGameProfileContentUuid(
+        return self.data.DelGameProfileContentByUuid(
             uuid
         )
         
-    def DelGameProfileContentGameIdProfileId(self
+    def DelGameProfileContentByGameIdByProfileId(self
         , game_id
         , profile_id
     ) :
-        return self.data.DelGameProfileContentGameIdProfileId(
+        return self.data.DelGameProfileContentByGameIdByProfileId(
             game_id
             , profile_id
         )
         
-    def DelGameProfileContentGameIdUsername(self
+    def DelGameProfileContentByGameIdByUsername(self
         , game_id
         , username
     ) :
-        return self.data.DelGameProfileContentGameIdUsername(
+        return self.data.DelGameProfileContentByGameIdByUsername(
             game_id
             , username
         )
         
-    def DelGameProfileContentUsername(self
+    def DelGameProfileContentByUsername(self
         , username
     ) :
-        return self.data.DelGameProfileContentUsername(
+        return self.data.DelGameProfileContentByUsername(
             username
         )
         
-    def DelGameProfileContentGameIdProfileIdPath(self
+    def DelGameProfileContentByGameIdByProfileIdByPath(self
         , game_id
         , profile_id
         , path
     ) :
-        return self.data.DelGameProfileContentGameIdProfileIdPath(
+        return self.data.DelGameProfileContentByGameIdByProfileIdByPath(
             game_id
             , profile_id
             , path
         )
         
-    def DelGameProfileContentGameIdProfileIdPathVersion(self
+    def DelGameProfileContentByGameIdByProfileIdByPathByVersion(self
         , game_id
         , profile_id
         , path
         , version
     ) :
-        return self.data.DelGameProfileContentGameIdProfileIdPathVersion(
+        return self.data.DelGameProfileContentByGameIdByProfileIdByPathByVersion(
             game_id
             , profile_id
             , path
             , version
         )
         
-    def DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self
+    def DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , profile_id
         , path
@@ -2770,7 +2770,7 @@ class BaseGamingACT(object):
         , platform
         , increment
     ) :
-        return self.data.DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(
+        return self.data.DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
             game_id
             , profile_id
             , path
@@ -2779,31 +2779,31 @@ class BaseGamingACT(object):
             , increment
         )
         
-    def DelGameProfileContentGameIdUsernamePath(self
+    def DelGameProfileContentByGameIdByUsernameByPath(self
         , game_id
         , username
         , path
     ) :
-        return self.data.DelGameProfileContentGameIdUsernamePath(
+        return self.data.DelGameProfileContentByGameIdByUsernameByPath(
             game_id
             , username
             , path
         )
         
-    def DelGameProfileContentGameIdUsernamePathVersion(self
+    def DelGameProfileContentByGameIdByUsernameByPathByVersion(self
         , game_id
         , username
         , path
         , version
     ) :
-        return self.data.DelGameProfileContentGameIdUsernamePathVersion(
+        return self.data.DelGameProfileContentByGameIdByUsernameByPathByVersion(
             game_id
             , username
             , path
             , version
         )
         
-    def DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self
+    def DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
         , game_id
         , username
         , path
@@ -2811,7 +2811,7 @@ class BaseGamingACT(object):
         , platform
         , increment
     ) :
-        return self.data.DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(
+        return self.data.DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(
             game_id
             , username
             , path
@@ -2833,12 +2833,12 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListUuid(self
+    def GetGameProfileContentListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListUuid(
+        rows = self.data.GetGameProfileContentListByUuid(
             uuid
         )
         
@@ -2848,13 +2848,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListGameIdProfileId(self
+    def GetGameProfileContentListByGameIdByProfileId(self
         , game_id
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListGameIdProfileId(
+        rows = self.data.GetGameProfileContentListByGameIdByProfileId(
             game_id
             , profile_id
         )
@@ -2865,13 +2865,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListGameIdUsername(self
+    def GetGameProfileContentListByGameIdByUsername(self
         , game_id
         , username
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListGameIdUsername(
+        rows = self.data.GetGameProfileContentListByGameIdByUsername(
             game_id
             , username
         )
@@ -2882,12 +2882,12 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListUsername(self
+    def GetGameProfileContentListByUsername(self
         , username
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListUsername(
+        rows = self.data.GetGameProfileContentListByUsername(
             username
         )
         
@@ -2897,14 +2897,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListGameIdProfileIdPath(self
+    def GetGameProfileContentListByGameIdByProfileIdByPath(self
         , game_id
         , profile_id
         , path
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListGameIdProfileIdPath(
+        rows = self.data.GetGameProfileContentListByGameIdByProfileIdByPath(
             game_id
             , profile_id
             , path
@@ -2916,7 +2916,7 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListGameIdProfileIdPathVersion(self
+    def GetGameProfileContentListByGameIdByProfileIdByPathByVersion(self
         , game_id
         , profile_id
         , path
@@ -2924,7 +2924,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListGameIdProfileIdPathVersion(
+        rows = self.data.GetGameProfileContentListByGameIdByProfileIdByPathByVersion(
             game_id
             , profile_id
             , path
@@ -2937,7 +2937,7 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(self
+    def GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , profile_id
         , path
@@ -2947,7 +2947,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(
+        rows = self.data.GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(
             game_id
             , profile_id
             , path
@@ -2962,14 +2962,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListGameIdUsernamePath(self
+    def GetGameProfileContentListByGameIdByUsernameByPath(self
         , game_id
         , username
         , path
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListGameIdUsernamePath(
+        rows = self.data.GetGameProfileContentListByGameIdByUsernameByPath(
             game_id
             , username
             , path
@@ -2981,7 +2981,7 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListGameIdUsernamePathVersion(self
+    def GetGameProfileContentListByGameIdByUsernameByPathByVersion(self
         , game_id
         , username
         , path
@@ -2989,7 +2989,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListGameIdUsernamePathVersion(
+        rows = self.data.GetGameProfileContentListByGameIdByUsernameByPathByVersion(
             game_id
             , username
             , path
@@ -3002,7 +3002,7 @@ class BaseGamingACT(object):
                 results.append(game_profile_content)
             return results        
         
-    def GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(self
+    def GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
         , game_id
         , username
         , path
@@ -3012,7 +3012,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(
+        rows = self.data.GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(
             game_id
             , username
             , path
@@ -3055,44 +3055,44 @@ class BaseGamingACT(object):
         return self.data.CountGameApp(
         )
                
-    def CountGameAppUuid(self
+    def CountGameAppByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameAppUuid(
+        return self.data.CountGameAppByUuid(
             uuid
         )
                
-    def CountGameAppGameId(self
+    def CountGameAppByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameAppGameId(
+        return self.data.CountGameAppByGameId(
             game_id
         )
                
-    def CountGameAppAppId(self
+    def CountGameAppByAppId(self
         , app_id
     ) :         
-        return self.data.CountGameAppAppId(
+        return self.data.CountGameAppByAppId(
             app_id
         )
                
-    def CountGameAppGameIdAppId(self
+    def CountGameAppByGameIdByAppId(self
         , game_id
         , app_id
     ) :         
-        return self.data.CountGameAppGameIdAppId(
+        return self.data.CountGameAppByGameIdByAppId(
             game_id
             , app_id
         )
                
-    def BrowseGameAppListFilter(self, filter_obj) :
+    def BrowseGameAppListByFilter(self, filter_obj) :
         result = GameAppResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameAppListFilter(filter_obj)
+        rows = self.data.BrowseGameAppListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_app = self.FillGameApp(row)
@@ -3102,13 +3102,13 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameAppUuid(self, set_type, obj) :            
-            return self.data.SetGameAppUuid(set_type, obj)
+    def SetGameAppByUuid(self, set_type, obj) :            
+            return self.data.SetGameAppByUuid(set_type, obj)
             
-    def DelGameAppUuid(self
+    def DelGameAppByUuid(self
         , uuid
     ) :
-        return self.data.DelGameAppUuid(
+        return self.data.DelGameAppByUuid(
             uuid
         )
         
@@ -3125,12 +3125,12 @@ class BaseGamingACT(object):
                 results.append(game_app)
             return results        
         
-    def GetGameAppListUuid(self
+    def GetGameAppListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameAppListUuid(
+        rows = self.data.GetGameAppListByUuid(
             uuid
         )
         
@@ -3140,12 +3140,12 @@ class BaseGamingACT(object):
                 results.append(game_app)
             return results        
         
-    def GetGameAppListGameId(self
+    def GetGameAppListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameAppListGameId(
+        rows = self.data.GetGameAppListByGameId(
             game_id
         )
         
@@ -3155,12 +3155,12 @@ class BaseGamingACT(object):
                 results.append(game_app)
             return results        
         
-    def GetGameAppListAppId(self
+    def GetGameAppListByAppId(self
         , app_id
     ) :
 
         results = []
-        rows = self.data.GetGameAppListAppId(
+        rows = self.data.GetGameAppListByAppId(
             app_id
         )
         
@@ -3170,13 +3170,13 @@ class BaseGamingACT(object):
                 results.append(game_app)
             return results        
         
-    def GetGameAppListGameIdAppId(self
+    def GetGameAppListByGameIdByAppId(self
         , game_id
         , app_id
     ) :
 
         results = []
-        rows = self.data.GetGameAppListGameIdAppId(
+        rows = self.data.GetGameAppListByGameIdByAppId(
             game_id
             , app_id
         )
@@ -3217,44 +3217,44 @@ class BaseGamingACT(object):
         return self.data.CountProfileGameLocation(
         )
                
-    def CountProfileGameLocationUuid(self
+    def CountProfileGameLocationByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileGameLocationUuid(
+        return self.data.CountProfileGameLocationByUuid(
             uuid
         )
                
-    def CountProfileGameLocationGameLocationId(self
+    def CountProfileGameLocationByGameLocationId(self
         , game_location_id
     ) :         
-        return self.data.CountProfileGameLocationGameLocationId(
+        return self.data.CountProfileGameLocationByGameLocationId(
             game_location_id
         )
                
-    def CountProfileGameLocationProfileId(self
+    def CountProfileGameLocationByProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileGameLocationProfileId(
+        return self.data.CountProfileGameLocationByProfileId(
             profile_id
         )
                
-    def CountProfileGameLocationProfileIdGameLocationId(self
+    def CountProfileGameLocationByProfileIdByGameLocationId(self
         , profile_id
         , game_location_id
     ) :         
-        return self.data.CountProfileGameLocationProfileIdGameLocationId(
+        return self.data.CountProfileGameLocationByProfileIdByGameLocationId(
             profile_id
             , game_location_id
         )
                
-    def BrowseProfileGameLocationListFilter(self, filter_obj) :
+    def BrowseProfileGameLocationListByFilter(self, filter_obj) :
         result = ProfileGameLocationResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileGameLocationListFilter(filter_obj)
+        rows = self.data.BrowseProfileGameLocationListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_game_location = self.FillProfileGameLocation(row)
@@ -3264,13 +3264,13 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetProfileGameLocationUuid(self, set_type, obj) :            
-            return self.data.SetProfileGameLocationUuid(set_type, obj)
+    def SetProfileGameLocationByUuid(self, set_type, obj) :            
+            return self.data.SetProfileGameLocationByUuid(set_type, obj)
             
-    def DelProfileGameLocationUuid(self
+    def DelProfileGameLocationByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileGameLocationUuid(
+        return self.data.DelProfileGameLocationByUuid(
             uuid
         )
         
@@ -3287,12 +3287,12 @@ class BaseGamingACT(object):
                 results.append(profile_game_location)
             return results        
         
-    def GetProfileGameLocationListUuid(self
+    def GetProfileGameLocationListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileGameLocationListUuid(
+        rows = self.data.GetProfileGameLocationListByUuid(
             uuid
         )
         
@@ -3302,12 +3302,12 @@ class BaseGamingACT(object):
                 results.append(profile_game_location)
             return results        
         
-    def GetProfileGameLocationListGameLocationId(self
+    def GetProfileGameLocationListByGameLocationId(self
         , game_location_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameLocationListGameLocationId(
+        rows = self.data.GetProfileGameLocationListByGameLocationId(
             game_location_id
         )
         
@@ -3317,12 +3317,12 @@ class BaseGamingACT(object):
                 results.append(profile_game_location)
             return results        
         
-    def GetProfileGameLocationListProfileId(self
+    def GetProfileGameLocationListByProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameLocationListProfileId(
+        rows = self.data.GetProfileGameLocationListByProfileId(
             profile_id
         )
         
@@ -3332,13 +3332,13 @@ class BaseGamingACT(object):
                 results.append(profile_game_location)
             return results        
         
-    def GetProfileGameLocationListProfileIdGameLocationId(self
+    def GetProfileGameLocationListByProfileIdByGameLocationId(self
         , profile_id
         , game_location_id
     ) :
 
         results = []
-        rows = self.data.GetProfileGameLocationListProfileIdGameLocationId(
+        rows = self.data.GetProfileGameLocationListByProfileIdByGameLocationId(
             profile_id
             , game_location_id
         )
@@ -3395,53 +3395,53 @@ class BaseGamingACT(object):
         return self.data.CountGamePhoto(
         )
                
-    def CountGamePhotoUuid(self
+    def CountGamePhotoByUuid(self
         , uuid
     ) :         
-        return self.data.CountGamePhotoUuid(
+        return self.data.CountGamePhotoByUuid(
             uuid
         )
                
-    def CountGamePhotoExternalId(self
+    def CountGamePhotoByExternalId(self
         , external_id
     ) :         
-        return self.data.CountGamePhotoExternalId(
+        return self.data.CountGamePhotoByExternalId(
             external_id
         )
                
-    def CountGamePhotoUrl(self
+    def CountGamePhotoByUrl(self
         , url
     ) :         
-        return self.data.CountGamePhotoUrl(
+        return self.data.CountGamePhotoByUrl(
             url
         )
                
-    def CountGamePhotoUrlExternalId(self
+    def CountGamePhotoByUrlByExternalId(self
         , url
         , external_id
     ) :         
-        return self.data.CountGamePhotoUrlExternalId(
+        return self.data.CountGamePhotoByUrlByExternalId(
             url
             , external_id
         )
                
-    def CountGamePhotoUuidExternalId(self
+    def CountGamePhotoByUuidByExternalId(self
         , uuid
         , external_id
     ) :         
-        return self.data.CountGamePhotoUuidExternalId(
+        return self.data.CountGamePhotoByUuidByExternalId(
             uuid
             , external_id
         )
                
-    def BrowseGamePhotoListFilter(self, filter_obj) :
+    def BrowseGamePhotoListByFilter(self, filter_obj) :
         result = GamePhotoResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGamePhotoListFilter(filter_obj)
+        rows = self.data.BrowseGamePhotoListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_photo = self.FillGamePhoto(row)
@@ -3451,56 +3451,56 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGamePhotoUuid(self, set_type, obj) :            
-            return self.data.SetGamePhotoUuid(set_type, obj)
+    def SetGamePhotoByUuid(self, set_type, obj) :            
+            return self.data.SetGamePhotoByUuid(set_type, obj)
             
-    def SetGamePhotoExternalId(self, set_type, obj) :            
-            return self.data.SetGamePhotoExternalId(set_type, obj)
+    def SetGamePhotoByExternalId(self, set_type, obj) :            
+            return self.data.SetGamePhotoByExternalId(set_type, obj)
             
-    def SetGamePhotoUrl(self, set_type, obj) :            
-            return self.data.SetGamePhotoUrl(set_type, obj)
+    def SetGamePhotoByUrl(self, set_type, obj) :            
+            return self.data.SetGamePhotoByUrl(set_type, obj)
             
-    def SetGamePhotoUrlExternalId(self, set_type, obj) :            
-            return self.data.SetGamePhotoUrlExternalId(set_type, obj)
+    def SetGamePhotoByUrlByExternalId(self, set_type, obj) :            
+            return self.data.SetGamePhotoByUrlByExternalId(set_type, obj)
             
-    def SetGamePhotoUuidExternalId(self, set_type, obj) :            
-            return self.data.SetGamePhotoUuidExternalId(set_type, obj)
+    def SetGamePhotoByUuidByExternalId(self, set_type, obj) :            
+            return self.data.SetGamePhotoByUuidByExternalId(set_type, obj)
             
-    def DelGamePhotoUuid(self
+    def DelGamePhotoByUuid(self
         , uuid
     ) :
-        return self.data.DelGamePhotoUuid(
+        return self.data.DelGamePhotoByUuid(
             uuid
         )
         
-    def DelGamePhotoExternalId(self
+    def DelGamePhotoByExternalId(self
         , external_id
     ) :
-        return self.data.DelGamePhotoExternalId(
+        return self.data.DelGamePhotoByExternalId(
             external_id
         )
         
-    def DelGamePhotoUrl(self
+    def DelGamePhotoByUrl(self
         , url
     ) :
-        return self.data.DelGamePhotoUrl(
+        return self.data.DelGamePhotoByUrl(
             url
         )
         
-    def DelGamePhotoUrlExternalId(self
+    def DelGamePhotoByUrlByExternalId(self
         , url
         , external_id
     ) :
-        return self.data.DelGamePhotoUrlExternalId(
+        return self.data.DelGamePhotoByUrlByExternalId(
             url
             , external_id
         )
         
-    def DelGamePhotoUuidExternalId(self
+    def DelGamePhotoByUuidByExternalId(self
         , uuid
         , external_id
     ) :
-        return self.data.DelGamePhotoUuidExternalId(
+        return self.data.DelGamePhotoByUuidByExternalId(
             uuid
             , external_id
         )
@@ -3518,12 +3518,12 @@ class BaseGamingACT(object):
                 results.append(game_photo)
             return results        
         
-    def GetGamePhotoListUuid(self
+    def GetGamePhotoListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGamePhotoListUuid(
+        rows = self.data.GetGamePhotoListByUuid(
             uuid
         )
         
@@ -3533,12 +3533,12 @@ class BaseGamingACT(object):
                 results.append(game_photo)
             return results        
         
-    def GetGamePhotoListExternalId(self
+    def GetGamePhotoListByExternalId(self
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetGamePhotoListExternalId(
+        rows = self.data.GetGamePhotoListByExternalId(
             external_id
         )
         
@@ -3548,12 +3548,12 @@ class BaseGamingACT(object):
                 results.append(game_photo)
             return results        
         
-    def GetGamePhotoListUrl(self
+    def GetGamePhotoListByUrl(self
         , url
     ) :
 
         results = []
-        rows = self.data.GetGamePhotoListUrl(
+        rows = self.data.GetGamePhotoListByUrl(
             url
         )
         
@@ -3563,13 +3563,13 @@ class BaseGamingACT(object):
                 results.append(game_photo)
             return results        
         
-    def GetGamePhotoListUrlExternalId(self
+    def GetGamePhotoListByUrlByExternalId(self
         , url
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetGamePhotoListUrlExternalId(
+        rows = self.data.GetGamePhotoListByUrlByExternalId(
             url
             , external_id
         )
@@ -3580,13 +3580,13 @@ class BaseGamingACT(object):
                 results.append(game_photo)
             return results        
         
-    def GetGamePhotoListUuidExternalId(self
+    def GetGamePhotoListByUuidByExternalId(self
         , uuid
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetGamePhotoListUuidExternalId(
+        rows = self.data.GetGamePhotoListByUuidByExternalId(
             uuid
             , external_id
         )
@@ -3643,53 +3643,53 @@ class BaseGamingACT(object):
         return self.data.CountGameVideo(
         )
                
-    def CountGameVideoUuid(self
+    def CountGameVideoByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameVideoUuid(
+        return self.data.CountGameVideoByUuid(
             uuid
         )
                
-    def CountGameVideoExternalId(self
+    def CountGameVideoByExternalId(self
         , external_id
     ) :         
-        return self.data.CountGameVideoExternalId(
+        return self.data.CountGameVideoByExternalId(
             external_id
         )
                
-    def CountGameVideoUrl(self
+    def CountGameVideoByUrl(self
         , url
     ) :         
-        return self.data.CountGameVideoUrl(
+        return self.data.CountGameVideoByUrl(
             url
         )
                
-    def CountGameVideoUrlExternalId(self
+    def CountGameVideoByUrlByExternalId(self
         , url
         , external_id
     ) :         
-        return self.data.CountGameVideoUrlExternalId(
+        return self.data.CountGameVideoByUrlByExternalId(
             url
             , external_id
         )
                
-    def CountGameVideoUuidExternalId(self
+    def CountGameVideoByUuidByExternalId(self
         , uuid
         , external_id
     ) :         
-        return self.data.CountGameVideoUuidExternalId(
+        return self.data.CountGameVideoByUuidByExternalId(
             uuid
             , external_id
         )
                
-    def BrowseGameVideoListFilter(self, filter_obj) :
+    def BrowseGameVideoListByFilter(self, filter_obj) :
         result = GameVideoResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameVideoListFilter(filter_obj)
+        rows = self.data.BrowseGameVideoListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_video = self.FillGameVideo(row)
@@ -3699,56 +3699,56 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameVideoUuid(self, set_type, obj) :            
-            return self.data.SetGameVideoUuid(set_type, obj)
+    def SetGameVideoByUuid(self, set_type, obj) :            
+            return self.data.SetGameVideoByUuid(set_type, obj)
             
-    def SetGameVideoExternalId(self, set_type, obj) :            
-            return self.data.SetGameVideoExternalId(set_type, obj)
+    def SetGameVideoByExternalId(self, set_type, obj) :            
+            return self.data.SetGameVideoByExternalId(set_type, obj)
             
-    def SetGameVideoUrl(self, set_type, obj) :            
-            return self.data.SetGameVideoUrl(set_type, obj)
+    def SetGameVideoByUrl(self, set_type, obj) :            
+            return self.data.SetGameVideoByUrl(set_type, obj)
             
-    def SetGameVideoUrlExternalId(self, set_type, obj) :            
-            return self.data.SetGameVideoUrlExternalId(set_type, obj)
+    def SetGameVideoByUrlByExternalId(self, set_type, obj) :            
+            return self.data.SetGameVideoByUrlByExternalId(set_type, obj)
             
-    def SetGameVideoUuidExternalId(self, set_type, obj) :            
-            return self.data.SetGameVideoUuidExternalId(set_type, obj)
+    def SetGameVideoByUuidByExternalId(self, set_type, obj) :            
+            return self.data.SetGameVideoByUuidByExternalId(set_type, obj)
             
-    def DelGameVideoUuid(self
+    def DelGameVideoByUuid(self
         , uuid
     ) :
-        return self.data.DelGameVideoUuid(
+        return self.data.DelGameVideoByUuid(
             uuid
         )
         
-    def DelGameVideoExternalId(self
+    def DelGameVideoByExternalId(self
         , external_id
     ) :
-        return self.data.DelGameVideoExternalId(
+        return self.data.DelGameVideoByExternalId(
             external_id
         )
         
-    def DelGameVideoUrl(self
+    def DelGameVideoByUrl(self
         , url
     ) :
-        return self.data.DelGameVideoUrl(
+        return self.data.DelGameVideoByUrl(
             url
         )
         
-    def DelGameVideoUrlExternalId(self
+    def DelGameVideoByUrlByExternalId(self
         , url
         , external_id
     ) :
-        return self.data.DelGameVideoUrlExternalId(
+        return self.data.DelGameVideoByUrlByExternalId(
             url
             , external_id
         )
         
-    def DelGameVideoUuidExternalId(self
+    def DelGameVideoByUuidByExternalId(self
         , uuid
         , external_id
     ) :
-        return self.data.DelGameVideoUuidExternalId(
+        return self.data.DelGameVideoByUuidByExternalId(
             uuid
             , external_id
         )
@@ -3766,12 +3766,12 @@ class BaseGamingACT(object):
                 results.append(game_video)
             return results        
         
-    def GetGameVideoListUuid(self
+    def GetGameVideoListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameVideoListUuid(
+        rows = self.data.GetGameVideoListByUuid(
             uuid
         )
         
@@ -3781,12 +3781,12 @@ class BaseGamingACT(object):
                 results.append(game_video)
             return results        
         
-    def GetGameVideoListExternalId(self
+    def GetGameVideoListByExternalId(self
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetGameVideoListExternalId(
+        rows = self.data.GetGameVideoListByExternalId(
             external_id
         )
         
@@ -3796,12 +3796,12 @@ class BaseGamingACT(object):
                 results.append(game_video)
             return results        
         
-    def GetGameVideoListUrl(self
+    def GetGameVideoListByUrl(self
         , url
     ) :
 
         results = []
-        rows = self.data.GetGameVideoListUrl(
+        rows = self.data.GetGameVideoListByUrl(
             url
         )
         
@@ -3811,13 +3811,13 @@ class BaseGamingACT(object):
                 results.append(game_video)
             return results        
         
-    def GetGameVideoListUrlExternalId(self
+    def GetGameVideoListByUrlByExternalId(self
         , url
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetGameVideoListUrlExternalId(
+        rows = self.data.GetGameVideoListByUrlByExternalId(
             url
             , external_id
         )
@@ -3828,13 +3828,13 @@ class BaseGamingACT(object):
                 results.append(game_video)
             return results        
         
-    def GetGameVideoListUuidExternalId(self
+    def GetGameVideoListByUuidByExternalId(self
         , uuid
         , external_id
     ) :
 
         results = []
-        rows = self.data.GetGameVideoListUuidExternalId(
+        rows = self.data.GetGameVideoListByUuidByExternalId(
             uuid
             , external_id
         )
@@ -3907,53 +3907,53 @@ class BaseGamingACT(object):
         return self.data.CountGameRpgItemWeapon(
         )
                
-    def CountGameRpgItemWeaponUuid(self
+    def CountGameRpgItemWeaponByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameRpgItemWeaponUuid(
+        return self.data.CountGameRpgItemWeaponByUuid(
             uuid
         )
                
-    def CountGameRpgItemWeaponGameId(self
+    def CountGameRpgItemWeaponByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameRpgItemWeaponGameId(
+        return self.data.CountGameRpgItemWeaponByGameId(
             game_id
         )
                
-    def CountGameRpgItemWeaponUrl(self
+    def CountGameRpgItemWeaponByUrl(self
         , url
     ) :         
-        return self.data.CountGameRpgItemWeaponUrl(
+        return self.data.CountGameRpgItemWeaponByUrl(
             url
         )
                
-    def CountGameRpgItemWeaponUrlGameId(self
+    def CountGameRpgItemWeaponByUrlByGameId(self
         , url
         , game_id
     ) :         
-        return self.data.CountGameRpgItemWeaponUrlGameId(
+        return self.data.CountGameRpgItemWeaponByUrlByGameId(
             url
             , game_id
         )
                
-    def CountGameRpgItemWeaponUuidGameId(self
+    def CountGameRpgItemWeaponByUuidByGameId(self
         , uuid
         , game_id
     ) :         
-        return self.data.CountGameRpgItemWeaponUuidGameId(
+        return self.data.CountGameRpgItemWeaponByUuidByGameId(
             uuid
             , game_id
         )
                
-    def BrowseGameRpgItemWeaponListFilter(self, filter_obj) :
+    def BrowseGameRpgItemWeaponListByFilter(self, filter_obj) :
         result = GameRpgItemWeaponResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameRpgItemWeaponListFilter(filter_obj)
+        rows = self.data.BrowseGameRpgItemWeaponListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_rpg_item_weapon = self.FillGameRpgItemWeapon(row)
@@ -3963,56 +3963,56 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameRpgItemWeaponUuid(self, set_type, obj) :            
-            return self.data.SetGameRpgItemWeaponUuid(set_type, obj)
+    def SetGameRpgItemWeaponByUuid(self, set_type, obj) :            
+            return self.data.SetGameRpgItemWeaponByUuid(set_type, obj)
             
-    def SetGameRpgItemWeaponGameId(self, set_type, obj) :            
-            return self.data.SetGameRpgItemWeaponGameId(set_type, obj)
+    def SetGameRpgItemWeaponByGameId(self, set_type, obj) :            
+            return self.data.SetGameRpgItemWeaponByGameId(set_type, obj)
             
-    def SetGameRpgItemWeaponUrl(self, set_type, obj) :            
-            return self.data.SetGameRpgItemWeaponUrl(set_type, obj)
+    def SetGameRpgItemWeaponByUrl(self, set_type, obj) :            
+            return self.data.SetGameRpgItemWeaponByUrl(set_type, obj)
             
-    def SetGameRpgItemWeaponUrlGameId(self, set_type, obj) :            
-            return self.data.SetGameRpgItemWeaponUrlGameId(set_type, obj)
+    def SetGameRpgItemWeaponByUrlByGameId(self, set_type, obj) :            
+            return self.data.SetGameRpgItemWeaponByUrlByGameId(set_type, obj)
             
-    def SetGameRpgItemWeaponUuidGameId(self, set_type, obj) :            
-            return self.data.SetGameRpgItemWeaponUuidGameId(set_type, obj)
+    def SetGameRpgItemWeaponByUuidByGameId(self, set_type, obj) :            
+            return self.data.SetGameRpgItemWeaponByUuidByGameId(set_type, obj)
             
-    def DelGameRpgItemWeaponUuid(self
+    def DelGameRpgItemWeaponByUuid(self
         , uuid
     ) :
-        return self.data.DelGameRpgItemWeaponUuid(
+        return self.data.DelGameRpgItemWeaponByUuid(
             uuid
         )
         
-    def DelGameRpgItemWeaponGameId(self
+    def DelGameRpgItemWeaponByGameId(self
         , game_id
     ) :
-        return self.data.DelGameRpgItemWeaponGameId(
+        return self.data.DelGameRpgItemWeaponByGameId(
             game_id
         )
         
-    def DelGameRpgItemWeaponUrl(self
+    def DelGameRpgItemWeaponByUrl(self
         , url
     ) :
-        return self.data.DelGameRpgItemWeaponUrl(
+        return self.data.DelGameRpgItemWeaponByUrl(
             url
         )
         
-    def DelGameRpgItemWeaponUrlGameId(self
+    def DelGameRpgItemWeaponByUrlByGameId(self
         , url
         , game_id
     ) :
-        return self.data.DelGameRpgItemWeaponUrlGameId(
+        return self.data.DelGameRpgItemWeaponByUrlByGameId(
             url
             , game_id
         )
         
-    def DelGameRpgItemWeaponUuidGameId(self
+    def DelGameRpgItemWeaponByUuidByGameId(self
         , uuid
         , game_id
     ) :
-        return self.data.DelGameRpgItemWeaponUuidGameId(
+        return self.data.DelGameRpgItemWeaponByUuidByGameId(
             uuid
             , game_id
         )
@@ -4030,12 +4030,12 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_weapon)
             return results        
         
-    def GetGameRpgItemWeaponListUuid(self
+    def GetGameRpgItemWeaponListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemWeaponListUuid(
+        rows = self.data.GetGameRpgItemWeaponListByUuid(
             uuid
         )
         
@@ -4045,12 +4045,12 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_weapon)
             return results        
         
-    def GetGameRpgItemWeaponListGameId(self
+    def GetGameRpgItemWeaponListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemWeaponListGameId(
+        rows = self.data.GetGameRpgItemWeaponListByGameId(
             game_id
         )
         
@@ -4060,12 +4060,12 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_weapon)
             return results        
         
-    def GetGameRpgItemWeaponListUrl(self
+    def GetGameRpgItemWeaponListByUrl(self
         , url
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemWeaponListUrl(
+        rows = self.data.GetGameRpgItemWeaponListByUrl(
             url
         )
         
@@ -4075,13 +4075,13 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_weapon)
             return results        
         
-    def GetGameRpgItemWeaponListUrlGameId(self
+    def GetGameRpgItemWeaponListByUrlByGameId(self
         , url
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemWeaponListUrlGameId(
+        rows = self.data.GetGameRpgItemWeaponListByUrlByGameId(
             url
             , game_id
         )
@@ -4092,13 +4092,13 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_weapon)
             return results        
         
-    def GetGameRpgItemWeaponListUuidGameId(self
+    def GetGameRpgItemWeaponListByUuidByGameId(self
         , uuid
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemWeaponListUuidGameId(
+        rows = self.data.GetGameRpgItemWeaponListByUuidByGameId(
             uuid
             , game_id
         )
@@ -4171,53 +4171,53 @@ class BaseGamingACT(object):
         return self.data.CountGameRpgItemSkill(
         )
                
-    def CountGameRpgItemSkillUuid(self
+    def CountGameRpgItemSkillByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameRpgItemSkillUuid(
+        return self.data.CountGameRpgItemSkillByUuid(
             uuid
         )
                
-    def CountGameRpgItemSkillGameId(self
+    def CountGameRpgItemSkillByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameRpgItemSkillGameId(
+        return self.data.CountGameRpgItemSkillByGameId(
             game_id
         )
                
-    def CountGameRpgItemSkillUrl(self
+    def CountGameRpgItemSkillByUrl(self
         , url
     ) :         
-        return self.data.CountGameRpgItemSkillUrl(
+        return self.data.CountGameRpgItemSkillByUrl(
             url
         )
                
-    def CountGameRpgItemSkillUrlGameId(self
+    def CountGameRpgItemSkillByUrlByGameId(self
         , url
         , game_id
     ) :         
-        return self.data.CountGameRpgItemSkillUrlGameId(
+        return self.data.CountGameRpgItemSkillByUrlByGameId(
             url
             , game_id
         )
                
-    def CountGameRpgItemSkillUuidGameId(self
+    def CountGameRpgItemSkillByUuidByGameId(self
         , uuid
         , game_id
     ) :         
-        return self.data.CountGameRpgItemSkillUuidGameId(
+        return self.data.CountGameRpgItemSkillByUuidByGameId(
             uuid
             , game_id
         )
                
-    def BrowseGameRpgItemSkillListFilter(self, filter_obj) :
+    def BrowseGameRpgItemSkillListByFilter(self, filter_obj) :
         result = GameRpgItemSkillResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameRpgItemSkillListFilter(filter_obj)
+        rows = self.data.BrowseGameRpgItemSkillListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_rpg_item_skill = self.FillGameRpgItemSkill(row)
@@ -4227,56 +4227,56 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameRpgItemSkillUuid(self, set_type, obj) :            
-            return self.data.SetGameRpgItemSkillUuid(set_type, obj)
+    def SetGameRpgItemSkillByUuid(self, set_type, obj) :            
+            return self.data.SetGameRpgItemSkillByUuid(set_type, obj)
             
-    def SetGameRpgItemSkillGameId(self, set_type, obj) :            
-            return self.data.SetGameRpgItemSkillGameId(set_type, obj)
+    def SetGameRpgItemSkillByGameId(self, set_type, obj) :            
+            return self.data.SetGameRpgItemSkillByGameId(set_type, obj)
             
-    def SetGameRpgItemSkillUrl(self, set_type, obj) :            
-            return self.data.SetGameRpgItemSkillUrl(set_type, obj)
+    def SetGameRpgItemSkillByUrl(self, set_type, obj) :            
+            return self.data.SetGameRpgItemSkillByUrl(set_type, obj)
             
-    def SetGameRpgItemSkillUrlGameId(self, set_type, obj) :            
-            return self.data.SetGameRpgItemSkillUrlGameId(set_type, obj)
+    def SetGameRpgItemSkillByUrlByGameId(self, set_type, obj) :            
+            return self.data.SetGameRpgItemSkillByUrlByGameId(set_type, obj)
             
-    def SetGameRpgItemSkillUuidGameId(self, set_type, obj) :            
-            return self.data.SetGameRpgItemSkillUuidGameId(set_type, obj)
+    def SetGameRpgItemSkillByUuidByGameId(self, set_type, obj) :            
+            return self.data.SetGameRpgItemSkillByUuidByGameId(set_type, obj)
             
-    def DelGameRpgItemSkillUuid(self
+    def DelGameRpgItemSkillByUuid(self
         , uuid
     ) :
-        return self.data.DelGameRpgItemSkillUuid(
+        return self.data.DelGameRpgItemSkillByUuid(
             uuid
         )
         
-    def DelGameRpgItemSkillGameId(self
+    def DelGameRpgItemSkillByGameId(self
         , game_id
     ) :
-        return self.data.DelGameRpgItemSkillGameId(
+        return self.data.DelGameRpgItemSkillByGameId(
             game_id
         )
         
-    def DelGameRpgItemSkillUrl(self
+    def DelGameRpgItemSkillByUrl(self
         , url
     ) :
-        return self.data.DelGameRpgItemSkillUrl(
+        return self.data.DelGameRpgItemSkillByUrl(
             url
         )
         
-    def DelGameRpgItemSkillUrlGameId(self
+    def DelGameRpgItemSkillByUrlByGameId(self
         , url
         , game_id
     ) :
-        return self.data.DelGameRpgItemSkillUrlGameId(
+        return self.data.DelGameRpgItemSkillByUrlByGameId(
             url
             , game_id
         )
         
-    def DelGameRpgItemSkillUuidGameId(self
+    def DelGameRpgItemSkillByUuidByGameId(self
         , uuid
         , game_id
     ) :
-        return self.data.DelGameRpgItemSkillUuidGameId(
+        return self.data.DelGameRpgItemSkillByUuidByGameId(
             uuid
             , game_id
         )
@@ -4294,12 +4294,12 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_skill)
             return results        
         
-    def GetGameRpgItemSkillListUuid(self
+    def GetGameRpgItemSkillListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemSkillListUuid(
+        rows = self.data.GetGameRpgItemSkillListByUuid(
             uuid
         )
         
@@ -4309,12 +4309,12 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_skill)
             return results        
         
-    def GetGameRpgItemSkillListGameId(self
+    def GetGameRpgItemSkillListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemSkillListGameId(
+        rows = self.data.GetGameRpgItemSkillListByGameId(
             game_id
         )
         
@@ -4324,12 +4324,12 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_skill)
             return results        
         
-    def GetGameRpgItemSkillListUrl(self
+    def GetGameRpgItemSkillListByUrl(self
         , url
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemSkillListUrl(
+        rows = self.data.GetGameRpgItemSkillListByUrl(
             url
         )
         
@@ -4339,13 +4339,13 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_skill)
             return results        
         
-    def GetGameRpgItemSkillListUrlGameId(self
+    def GetGameRpgItemSkillListByUrlByGameId(self
         , url
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemSkillListUrlGameId(
+        rows = self.data.GetGameRpgItemSkillListByUrlByGameId(
             url
             , game_id
         )
@@ -4356,13 +4356,13 @@ class BaseGamingACT(object):
                 results.append(game_rpg_item_skill)
             return results        
         
-    def GetGameRpgItemSkillListUuidGameId(self
+    def GetGameRpgItemSkillListByUuidByGameId(self
         , uuid
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameRpgItemSkillListUuidGameId(
+        rows = self.data.GetGameRpgItemSkillListByUuidByGameId(
             uuid
             , game_id
         )
@@ -4409,53 +4409,53 @@ class BaseGamingACT(object):
         return self.data.CountGameProduct(
         )
                
-    def CountGameProductUuid(self
+    def CountGameProductByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameProductUuid(
+        return self.data.CountGameProductByUuid(
             uuid
         )
                
-    def CountGameProductGameId(self
+    def CountGameProductByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameProductGameId(
+        return self.data.CountGameProductByGameId(
             game_id
         )
                
-    def CountGameProductUrl(self
+    def CountGameProductByUrl(self
         , url
     ) :         
-        return self.data.CountGameProductUrl(
+        return self.data.CountGameProductByUrl(
             url
         )
                
-    def CountGameProductUrlGameId(self
+    def CountGameProductByUrlByGameId(self
         , url
         , game_id
     ) :         
-        return self.data.CountGameProductUrlGameId(
+        return self.data.CountGameProductByUrlByGameId(
             url
             , game_id
         )
                
-    def CountGameProductUuidGameId(self
+    def CountGameProductByUuidByGameId(self
         , uuid
         , game_id
     ) :         
-        return self.data.CountGameProductUuidGameId(
+        return self.data.CountGameProductByUuidByGameId(
             uuid
             , game_id
         )
                
-    def BrowseGameProductListFilter(self, filter_obj) :
+    def BrowseGameProductListByFilter(self, filter_obj) :
         result = GameProductResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameProductListFilter(filter_obj)
+        rows = self.data.BrowseGameProductListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_product = self.FillGameProduct(row)
@@ -4465,56 +4465,56 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameProductUuid(self, set_type, obj) :            
-            return self.data.SetGameProductUuid(set_type, obj)
+    def SetGameProductByUuid(self, set_type, obj) :            
+            return self.data.SetGameProductByUuid(set_type, obj)
             
-    def SetGameProductGameId(self, set_type, obj) :            
-            return self.data.SetGameProductGameId(set_type, obj)
+    def SetGameProductByGameId(self, set_type, obj) :            
+            return self.data.SetGameProductByGameId(set_type, obj)
             
-    def SetGameProductUrl(self, set_type, obj) :            
-            return self.data.SetGameProductUrl(set_type, obj)
+    def SetGameProductByUrl(self, set_type, obj) :            
+            return self.data.SetGameProductByUrl(set_type, obj)
             
-    def SetGameProductUrlGameId(self, set_type, obj) :            
-            return self.data.SetGameProductUrlGameId(set_type, obj)
+    def SetGameProductByUrlByGameId(self, set_type, obj) :            
+            return self.data.SetGameProductByUrlByGameId(set_type, obj)
             
-    def SetGameProductUuidGameId(self, set_type, obj) :            
-            return self.data.SetGameProductUuidGameId(set_type, obj)
+    def SetGameProductByUuidByGameId(self, set_type, obj) :            
+            return self.data.SetGameProductByUuidByGameId(set_type, obj)
             
-    def DelGameProductUuid(self
+    def DelGameProductByUuid(self
         , uuid
     ) :
-        return self.data.DelGameProductUuid(
+        return self.data.DelGameProductByUuid(
             uuid
         )
         
-    def DelGameProductGameId(self
+    def DelGameProductByGameId(self
         , game_id
     ) :
-        return self.data.DelGameProductGameId(
+        return self.data.DelGameProductByGameId(
             game_id
         )
         
-    def DelGameProductUrl(self
+    def DelGameProductByUrl(self
         , url
     ) :
-        return self.data.DelGameProductUrl(
+        return self.data.DelGameProductByUrl(
             url
         )
         
-    def DelGameProductUrlGameId(self
+    def DelGameProductByUrlByGameId(self
         , url
         , game_id
     ) :
-        return self.data.DelGameProductUrlGameId(
+        return self.data.DelGameProductByUrlByGameId(
             url
             , game_id
         )
         
-    def DelGameProductUuidGameId(self
+    def DelGameProductByUuidByGameId(self
         , uuid
         , game_id
     ) :
-        return self.data.DelGameProductUuidGameId(
+        return self.data.DelGameProductByUuidByGameId(
             uuid
             , game_id
         )
@@ -4532,12 +4532,12 @@ class BaseGamingACT(object):
                 results.append(game_product)
             return results        
         
-    def GetGameProductListUuid(self
+    def GetGameProductListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameProductListUuid(
+        rows = self.data.GetGameProductListByUuid(
             uuid
         )
         
@@ -4547,12 +4547,12 @@ class BaseGamingACT(object):
                 results.append(game_product)
             return results        
         
-    def GetGameProductListGameId(self
+    def GetGameProductListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProductListGameId(
+        rows = self.data.GetGameProductListByGameId(
             game_id
         )
         
@@ -4562,12 +4562,12 @@ class BaseGamingACT(object):
                 results.append(game_product)
             return results        
         
-    def GetGameProductListUrl(self
+    def GetGameProductListByUrl(self
         , url
     ) :
 
         results = []
-        rows = self.data.GetGameProductListUrl(
+        rows = self.data.GetGameProductListByUrl(
             url
         )
         
@@ -4577,13 +4577,13 @@ class BaseGamingACT(object):
                 results.append(game_product)
             return results        
         
-    def GetGameProductListUrlGameId(self
+    def GetGameProductListByUrlByGameId(self
         , url
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProductListUrlGameId(
+        rows = self.data.GetGameProductListByUrlByGameId(
             url
             , game_id
         )
@@ -4594,13 +4594,13 @@ class BaseGamingACT(object):
                 results.append(game_product)
             return results        
         
-    def GetGameProductListUuidGameId(self
+    def GetGameProductListByUuidByGameId(self
         , uuid
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProductListUuidGameId(
+        rows = self.data.GetGameProductListByUuidByGameId(
             uuid
             , game_id
         )
@@ -4612,8 +4612,8 @@ class BaseGamingACT(object):
             return results        
         
         
-    def FillGameStatisticLeaderboard(self, row) :
-        obj = GameStatisticLeaderboard()
+    def FillGameLeaderboard(self, row) :
+        obj = GameLeaderboard()
 
         if (row['status'] != None) :                 
             obj.status = row['status'] #dataType.FillData(dr, "status");                
@@ -4658,248 +4658,248 @@ class BaseGamingACT(object):
 
         return obj
         
-    def CountGameStatisticLeaderboard(self
+    def CountGameLeaderboard(self
     ) :         
-        return self.data.CountGameStatisticLeaderboard(
+        return self.data.CountGameLeaderboard(
         )
                
-    def CountGameStatisticLeaderboardUuid(self
+    def CountGameLeaderboardByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameStatisticLeaderboardUuid(
+        return self.data.CountGameLeaderboardByUuid(
             uuid
         )
                
-    def CountGameStatisticLeaderboardGameId(self
+    def CountGameLeaderboardByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardGameId(
+        return self.data.CountGameLeaderboardByGameId(
             game_id
         )
                
-    def CountGameStatisticLeaderboardCode(self
+    def CountGameLeaderboardByCode(self
         , code
     ) :         
-        return self.data.CountGameStatisticLeaderboardCode(
+        return self.data.CountGameLeaderboardByCode(
             code
         )
                
-    def CountGameStatisticLeaderboardCodeGameId(self
+    def CountGameLeaderboardByCodeByGameId(self
         , code
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardCodeGameId(
+        return self.data.CountGameLeaderboardByCodeByGameId(
             code
             , game_id
         )
                
-    def CountGameStatisticLeaderboardCodeGameIdProfileId(self
+    def CountGameLeaderboardByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardCodeGameIdProfileId(
+        return self.data.CountGameLeaderboardByCodeByGameIdByProfileId(
             code
             , game_id
             , profile_id
         )
                
-    def CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self
+    def CountGameLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :         
-        return self.data.CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
+        return self.data.CountGameLeaderboardByCodeByGameIdByProfileIdByTimestamp(
             code
             , game_id
             , profile_id
             , timestamp
         )
                
-    def CountGameStatisticLeaderboardProfileIdGameId(self
+    def CountGameLeaderboardByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardProfileIdGameId(
+        return self.data.CountGameLeaderboardByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def BrowseGameStatisticLeaderboardListFilter(self, filter_obj) :
-        result = GameStatisticLeaderboardResult()
+    def BrowseGameLeaderboardListByFilter(self, filter_obj) :
+        result = GameLeaderboardResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameStatisticLeaderboardListFilter(filter_obj)
+        rows = self.data.BrowseGameLeaderboardListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard = self.FillGameStatisticLeaderboard(row)
-                result.data.append(game_statistic_leaderboard)
+                game_leaderboard = self.FillGameLeaderboard(row)
+                result.data.append(game_leaderboard)
                 if(row["total_rows"] != None) :
                     result.total_rows = int(row["total_rows"])
         
         return result
 
-    def SetGameStatisticLeaderboardUuid(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardUuid(set_type, obj)
+    def SetGameLeaderboardByUuid(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardByUuid(set_type, obj)
             
-    def SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameStatisticLeaderboardCode(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardCode(set_type, obj)
+    def SetGameLeaderboardByCode(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardByCode(set_type, obj)
             
-    def SetGameStatisticLeaderboardCodeGameId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardCodeGameId(set_type, obj)
+    def SetGameLeaderboardByCodeByGameId(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardByCodeByGameId(set_type, obj)
             
-    def SetGameStatisticLeaderboardCodeGameIdProfileId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardCodeGameIdProfileId(set_type, obj)
+    def SetGameLeaderboardByCodeByGameIdByProfileId(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardByCodeByGameIdByProfileId(set_type, obj)
             
-    def SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(set_type, obj)
+    def SetGameLeaderboardByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardByCodeByGameIdByProfileIdByTimestamp(set_type, obj)
             
-    def DelGameStatisticLeaderboardUuid(self
+    def DelGameLeaderboardByUuid(self
         , uuid
     ) :
-        return self.data.DelGameStatisticLeaderboardUuid(
+        return self.data.DelGameLeaderboardByUuid(
             uuid
         )
         
-    def DelGameStatisticLeaderboardCode(self
+    def DelGameLeaderboardByCode(self
         , code
     ) :
-        return self.data.DelGameStatisticLeaderboardCode(
+        return self.data.DelGameLeaderboardByCode(
             code
         )
         
-    def DelGameStatisticLeaderboardCodeGameId(self
+    def DelGameLeaderboardByCodeByGameId(self
         , code
         , game_id
     ) :
-        return self.data.DelGameStatisticLeaderboardCodeGameId(
+        return self.data.DelGameLeaderboardByCodeByGameId(
             code
             , game_id
         )
         
-    def DelGameStatisticLeaderboardCodeGameIdProfileId(self
+    def DelGameLeaderboardByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
     ) :
-        return self.data.DelGameStatisticLeaderboardCodeGameIdProfileId(
+        return self.data.DelGameLeaderboardByCodeByGameIdByProfileId(
             code
             , game_id
             , profile_id
         )
         
-    def DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self
+    def DelGameLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :
-        return self.data.DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(
+        return self.data.DelGameLeaderboardByCodeByGameIdByProfileIdByTimestamp(
             code
             , game_id
             , profile_id
             , timestamp
         )
         
-    def DelGameStatisticLeaderboardProfileIdGameId(self
+    def DelGameLeaderboardByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameStatisticLeaderboardProfileIdGameId(
+        return self.data.DelGameLeaderboardByProfileIdByGameId(
             profile_id
             , game_id
         )
         
-    def GetGameStatisticLeaderboardList(self
+    def GetGameLeaderboardList(self
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardList(
+        rows = self.data.GetGameLeaderboardList(
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
+                game_leaderboard  = self.FillGameLeaderboard(row)
+                results.append(game_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListUuid(self
+    def GetGameLeaderboardListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListUuid(
+        rows = self.data.GetGameLeaderboardListByUuid(
             uuid
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
+                game_leaderboard  = self.FillGameLeaderboard(row)
+                results.append(game_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListGameId(self
+    def GetGameLeaderboardListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListGameId(
+        rows = self.data.GetGameLeaderboardListByGameId(
             game_id
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
+                game_leaderboard  = self.FillGameLeaderboard(row)
+                results.append(game_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListCode(self
+    def GetGameLeaderboardListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListCode(
+        rows = self.data.GetGameLeaderboardListByCode(
             code
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
+                game_leaderboard  = self.FillGameLeaderboard(row)
+                results.append(game_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListCodeGameId(self
+    def GetGameLeaderboardListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListCodeGameId(
+        rows = self.data.GetGameLeaderboardListByCodeByGameId(
             code
             , game_id
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
+                game_leaderboard  = self.FillGameLeaderboard(row)
+                results.append(game_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListCodeGameIdProfileId(self
+    def GetGameLeaderboardListByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListCodeGameIdProfileId(
+        rows = self.data.GetGameLeaderboardListByCodeByGameIdByProfileId(
             code
             , game_id
             , profile_id
@@ -4907,11 +4907,11 @@ class BaseGamingACT(object):
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
+                game_leaderboard  = self.FillGameLeaderboard(row)
+                results.append(game_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(self
+    def GetGameLeaderboardListByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -4919,7 +4919,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(
+        rows = self.data.GetGameLeaderboardListByCodeByGameIdByProfileIdByTimestamp(
             code
             , game_id
             , profile_id
@@ -4928,35 +4928,35 @@ class BaseGamingACT(object):
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
+                game_leaderboard  = self.FillGameLeaderboard(row)
+                results.append(game_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListProfileIdGameId(self
+    def GetGameLeaderboardListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListProfileIdGameId(
+        rows = self.data.GetGameLeaderboardListByProfileIdByGameId(
             profile_id
             , game_id
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
+                game_leaderboard  = self.FillGameLeaderboard(row)
+                results.append(game_leaderboard)
             return results        
         
-    def GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(self
+    def GetGameLeaderboardListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(
+        rows = self.data.GetGameLeaderboardListByProfileIdByGameIdByTimestamp(
             profile_id
             , game_id
             , timestamp
@@ -4964,13 +4964,13 @@ class BaseGamingACT(object):
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard  = self.FillGameStatisticLeaderboard(row)
-                results.append(game_statistic_leaderboard)
+                game_leaderboard  = self.FillGameLeaderboard(row)
+                results.append(game_leaderboard)
             return results        
         
         
-    def FillGameStatisticLeaderboardItem(self, row) :
-        obj = GameStatisticLeaderboardItem()
+    def FillGameLeaderboardItem(self, row) :
+        obj = GameLeaderboardItem()
 
         if (row['status'] != None) :                 
             obj.status = row['status'] #dataType.FillData(dr, "status");                
@@ -5015,248 +5015,248 @@ class BaseGamingACT(object):
 
         return obj
         
-    def CountGameStatisticLeaderboardItem(self
+    def CountGameLeaderboardItem(self
     ) :         
-        return self.data.CountGameStatisticLeaderboardItem(
+        return self.data.CountGameLeaderboardItem(
         )
                
-    def CountGameStatisticLeaderboardItemUuid(self
+    def CountGameLeaderboardItemByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameStatisticLeaderboardItemUuid(
+        return self.data.CountGameLeaderboardItemByUuid(
             uuid
         )
                
-    def CountGameStatisticLeaderboardItemGameId(self
+    def CountGameLeaderboardItemByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardItemGameId(
+        return self.data.CountGameLeaderboardItemByGameId(
             game_id
         )
                
-    def CountGameStatisticLeaderboardItemCode(self
+    def CountGameLeaderboardItemByCode(self
         , code
     ) :         
-        return self.data.CountGameStatisticLeaderboardItemCode(
+        return self.data.CountGameLeaderboardItemByCode(
             code
         )
                
-    def CountGameStatisticLeaderboardItemCodeGameId(self
+    def CountGameLeaderboardItemByCodeByGameId(self
         , code
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardItemCodeGameId(
+        return self.data.CountGameLeaderboardItemByCodeByGameId(
             code
             , game_id
         )
                
-    def CountGameStatisticLeaderboardItemCodeGameIdProfileId(self
+    def CountGameLeaderboardItemByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardItemCodeGameIdProfileId(
+        return self.data.CountGameLeaderboardItemByCodeByGameIdByProfileId(
             code
             , game_id
             , profile_id
         )
                
-    def CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self
+    def CountGameLeaderboardItemByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :         
-        return self.data.CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+        return self.data.CountGameLeaderboardItemByCodeByGameIdByProfileIdByTimestamp(
             code
             , game_id
             , profile_id
             , timestamp
         )
                
-    def CountGameStatisticLeaderboardItemProfileIdGameId(self
+    def CountGameLeaderboardItemByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardItemProfileIdGameId(
+        return self.data.CountGameLeaderboardItemByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def BrowseGameStatisticLeaderboardItemListFilter(self, filter_obj) :
-        result = GameStatisticLeaderboardItemResult()
+    def BrowseGameLeaderboardItemListByFilter(self, filter_obj) :
+        result = GameLeaderboardItemResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameStatisticLeaderboardItemListFilter(filter_obj)
+        rows = self.data.BrowseGameLeaderboardItemListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item = self.FillGameStatisticLeaderboardItem(row)
-                result.data.append(game_statistic_leaderboard_item)
+                game_leaderboard_item = self.FillGameLeaderboardItem(row)
+                result.data.append(game_leaderboard_item)
                 if(row["total_rows"] != None) :
                     result.total_rows = int(row["total_rows"])
         
         return result
 
-    def SetGameStatisticLeaderboardItemUuid(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardItemUuid(set_type, obj)
+    def SetGameLeaderboardItemByUuid(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardItemByUuid(set_type, obj)
             
-    def SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameLeaderboardItemByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardItemByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameStatisticLeaderboardItemCode(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardItemCode(set_type, obj)
+    def SetGameLeaderboardItemByCode(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardItemByCode(set_type, obj)
             
-    def SetGameStatisticLeaderboardItemCodeGameId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardItemCodeGameId(set_type, obj)
+    def SetGameLeaderboardItemByCodeByGameId(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardItemByCodeByGameId(set_type, obj)
             
-    def SetGameStatisticLeaderboardItemCodeGameIdProfileId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardItemCodeGameIdProfileId(set_type, obj)
+    def SetGameLeaderboardItemByCodeByGameIdByProfileId(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardItemByCodeByGameIdByProfileId(set_type, obj)
             
-    def SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(set_type, obj)
+    def SetGameLeaderboardItemByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardItemByCodeByGameIdByProfileIdByTimestamp(set_type, obj)
             
-    def DelGameStatisticLeaderboardItemUuid(self
+    def DelGameLeaderboardItemByUuid(self
         , uuid
     ) :
-        return self.data.DelGameStatisticLeaderboardItemUuid(
+        return self.data.DelGameLeaderboardItemByUuid(
             uuid
         )
         
-    def DelGameStatisticLeaderboardItemCode(self
+    def DelGameLeaderboardItemByCode(self
         , code
     ) :
-        return self.data.DelGameStatisticLeaderboardItemCode(
+        return self.data.DelGameLeaderboardItemByCode(
             code
         )
         
-    def DelGameStatisticLeaderboardItemCodeGameId(self
+    def DelGameLeaderboardItemByCodeByGameId(self
         , code
         , game_id
     ) :
-        return self.data.DelGameStatisticLeaderboardItemCodeGameId(
+        return self.data.DelGameLeaderboardItemByCodeByGameId(
             code
             , game_id
         )
         
-    def DelGameStatisticLeaderboardItemCodeGameIdProfileId(self
+    def DelGameLeaderboardItemByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
     ) :
-        return self.data.DelGameStatisticLeaderboardItemCodeGameIdProfileId(
+        return self.data.DelGameLeaderboardItemByCodeByGameIdByProfileId(
             code
             , game_id
             , profile_id
         )
         
-    def DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self
+    def DelGameLeaderboardItemByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :
-        return self.data.DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(
+        return self.data.DelGameLeaderboardItemByCodeByGameIdByProfileIdByTimestamp(
             code
             , game_id
             , profile_id
             , timestamp
         )
         
-    def DelGameStatisticLeaderboardItemProfileIdGameId(self
+    def DelGameLeaderboardItemByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameStatisticLeaderboardItemProfileIdGameId(
+        return self.data.DelGameLeaderboardItemByProfileIdByGameId(
             profile_id
             , game_id
         )
         
-    def GetGameStatisticLeaderboardItemList(self
+    def GetGameLeaderboardItemList(self
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardItemList(
+        rows = self.data.GetGameLeaderboardItemList(
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item  = self.FillGameStatisticLeaderboardItem(row)
-                results.append(game_statistic_leaderboard_item)
+                game_leaderboard_item  = self.FillGameLeaderboardItem(row)
+                results.append(game_leaderboard_item)
             return results        
         
-    def GetGameStatisticLeaderboardItemListUuid(self
+    def GetGameLeaderboardItemListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardItemListUuid(
+        rows = self.data.GetGameLeaderboardItemListByUuid(
             uuid
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item  = self.FillGameStatisticLeaderboardItem(row)
-                results.append(game_statistic_leaderboard_item)
+                game_leaderboard_item  = self.FillGameLeaderboardItem(row)
+                results.append(game_leaderboard_item)
             return results        
         
-    def GetGameStatisticLeaderboardItemListGameId(self
+    def GetGameLeaderboardItemListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardItemListGameId(
+        rows = self.data.GetGameLeaderboardItemListByGameId(
             game_id
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item  = self.FillGameStatisticLeaderboardItem(row)
-                results.append(game_statistic_leaderboard_item)
+                game_leaderboard_item  = self.FillGameLeaderboardItem(row)
+                results.append(game_leaderboard_item)
             return results        
         
-    def GetGameStatisticLeaderboardItemListCode(self
+    def GetGameLeaderboardItemListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardItemListCode(
+        rows = self.data.GetGameLeaderboardItemListByCode(
             code
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item  = self.FillGameStatisticLeaderboardItem(row)
-                results.append(game_statistic_leaderboard_item)
+                game_leaderboard_item  = self.FillGameLeaderboardItem(row)
+                results.append(game_leaderboard_item)
             return results        
         
-    def GetGameStatisticLeaderboardItemListCodeGameId(self
+    def GetGameLeaderboardItemListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardItemListCodeGameId(
+        rows = self.data.GetGameLeaderboardItemListByCodeByGameId(
             code
             , game_id
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item  = self.FillGameStatisticLeaderboardItem(row)
-                results.append(game_statistic_leaderboard_item)
+                game_leaderboard_item  = self.FillGameLeaderboardItem(row)
+                results.append(game_leaderboard_item)
             return results        
         
-    def GetGameStatisticLeaderboardItemListCodeGameIdProfileId(self
+    def GetGameLeaderboardItemListByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardItemListCodeGameIdProfileId(
+        rows = self.data.GetGameLeaderboardItemListByCodeByGameIdByProfileId(
             code
             , game_id
             , profile_id
@@ -5264,11 +5264,11 @@ class BaseGamingACT(object):
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item  = self.FillGameStatisticLeaderboardItem(row)
-                results.append(game_statistic_leaderboard_item)
+                game_leaderboard_item  = self.FillGameLeaderboardItem(row)
+                results.append(game_leaderboard_item)
             return results        
         
-    def GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(self
+    def GetGameLeaderboardItemListByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -5276,7 +5276,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(
+        rows = self.data.GetGameLeaderboardItemListByCodeByGameIdByProfileIdByTimestamp(
             code
             , game_id
             , profile_id
@@ -5285,35 +5285,35 @@ class BaseGamingACT(object):
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item  = self.FillGameStatisticLeaderboardItem(row)
-                results.append(game_statistic_leaderboard_item)
+                game_leaderboard_item  = self.FillGameLeaderboardItem(row)
+                results.append(game_leaderboard_item)
             return results        
         
-    def GetGameStatisticLeaderboardItemListProfileIdGameId(self
+    def GetGameLeaderboardItemListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardItemListProfileIdGameId(
+        rows = self.data.GetGameLeaderboardItemListByProfileIdByGameId(
             profile_id
             , game_id
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item  = self.FillGameStatisticLeaderboardItem(row)
-                results.append(game_statistic_leaderboard_item)
+                game_leaderboard_item  = self.FillGameLeaderboardItem(row)
+                results.append(game_leaderboard_item)
             return results        
         
-    def GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(self
+    def GetGameLeaderboardItemListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(
+        rows = self.data.GetGameLeaderboardItemListByProfileIdByGameIdByTimestamp(
             profile_id
             , game_id
             , timestamp
@@ -5321,13 +5321,13 @@ class BaseGamingACT(object):
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_item  = self.FillGameStatisticLeaderboardItem(row)
-                results.append(game_statistic_leaderboard_item)
+                game_leaderboard_item  = self.FillGameLeaderboardItem(row)
+                results.append(game_leaderboard_item)
             return results        
         
         
-    def FillGameStatisticLeaderboardRollup(self, row) :
-        obj = GameStatisticLeaderboardRollup()
+    def FillGameLeaderboardRollup(self, row) :
+        obj = GameLeaderboardRollup()
 
         if (row['status'] != None) :                 
             obj.status = row['status'] #dataType.FillData(dr, "status");                
@@ -5372,248 +5372,248 @@ class BaseGamingACT(object):
 
         return obj
         
-    def CountGameStatisticLeaderboardRollup(self
+    def CountGameLeaderboardRollup(self
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollup(
+        return self.data.CountGameLeaderboardRollup(
         )
                
-    def CountGameStatisticLeaderboardRollupUuid(self
+    def CountGameLeaderboardRollupByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupUuid(
+        return self.data.CountGameLeaderboardRollupByUuid(
             uuid
         )
                
-    def CountGameStatisticLeaderboardRollupGameId(self
+    def CountGameLeaderboardRollupByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupGameId(
+        return self.data.CountGameLeaderboardRollupByGameId(
             game_id
         )
                
-    def CountGameStatisticLeaderboardRollupCode(self
+    def CountGameLeaderboardRollupByCode(self
         , code
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupCode(
+        return self.data.CountGameLeaderboardRollupByCode(
             code
         )
                
-    def CountGameStatisticLeaderboardRollupCodeGameId(self
+    def CountGameLeaderboardRollupByCodeByGameId(self
         , code
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupCodeGameId(
+        return self.data.CountGameLeaderboardRollupByCodeByGameId(
             code
             , game_id
         )
                
-    def CountGameStatisticLeaderboardRollupCodeGameIdProfileId(self
+    def CountGameLeaderboardRollupByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupCodeGameIdProfileId(
+        return self.data.CountGameLeaderboardRollupByCodeByGameIdByProfileId(
             code
             , game_id
             , profile_id
         )
                
-    def CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self
+    def CountGameLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
+        return self.data.CountGameLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
             code
             , game_id
             , profile_id
             , timestamp
         )
                
-    def CountGameStatisticLeaderboardRollupProfileIdGameId(self
+    def CountGameLeaderboardRollupByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameStatisticLeaderboardRollupProfileIdGameId(
+        return self.data.CountGameLeaderboardRollupByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def BrowseGameStatisticLeaderboardRollupListFilter(self, filter_obj) :
-        result = GameStatisticLeaderboardRollupResult()
+    def BrowseGameLeaderboardRollupListByFilter(self, filter_obj) :
+        result = GameLeaderboardRollupResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameStatisticLeaderboardRollupListFilter(filter_obj)
+        rows = self.data.BrowseGameLeaderboardRollupListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup = self.FillGameStatisticLeaderboardRollup(row)
-                result.data.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup = self.FillGameLeaderboardRollup(row)
+                result.data.append(game_leaderboard_rollup)
                 if(row["total_rows"] != None) :
                     result.total_rows = int(row["total_rows"])
         
         return result
 
-    def SetGameStatisticLeaderboardRollupUuid(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupUuid(set_type, obj)
+    def SetGameLeaderboardRollupByUuid(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardRollupByUuid(set_type, obj)
             
-    def SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameStatisticLeaderboardRollupCode(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupCode(set_type, obj)
+    def SetGameLeaderboardRollupByCode(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardRollupByCode(set_type, obj)
             
-    def SetGameStatisticLeaderboardRollupCodeGameId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupCodeGameId(set_type, obj)
+    def SetGameLeaderboardRollupByCodeByGameId(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardRollupByCodeByGameId(set_type, obj)
             
-    def SetGameStatisticLeaderboardRollupCodeGameIdProfileId(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupCodeGameIdProfileId(set_type, obj)
+    def SetGameLeaderboardRollupByCodeByGameIdByProfileId(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardRollupByCodeByGameIdByProfileId(set_type, obj)
             
-    def SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(set_type, obj)
+    def SetGameLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(set_type, obj)
             
-    def DelGameStatisticLeaderboardRollupUuid(self
+    def DelGameLeaderboardRollupByUuid(self
         , uuid
     ) :
-        return self.data.DelGameStatisticLeaderboardRollupUuid(
+        return self.data.DelGameLeaderboardRollupByUuid(
             uuid
         )
         
-    def DelGameStatisticLeaderboardRollupCode(self
+    def DelGameLeaderboardRollupByCode(self
         , code
     ) :
-        return self.data.DelGameStatisticLeaderboardRollupCode(
+        return self.data.DelGameLeaderboardRollupByCode(
             code
         )
         
-    def DelGameStatisticLeaderboardRollupCodeGameId(self
+    def DelGameLeaderboardRollupByCodeByGameId(self
         , code
         , game_id
     ) :
-        return self.data.DelGameStatisticLeaderboardRollupCodeGameId(
+        return self.data.DelGameLeaderboardRollupByCodeByGameId(
             code
             , game_id
         )
         
-    def DelGameStatisticLeaderboardRollupCodeGameIdProfileId(self
+    def DelGameLeaderboardRollupByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
     ) :
-        return self.data.DelGameStatisticLeaderboardRollupCodeGameIdProfileId(
+        return self.data.DelGameLeaderboardRollupByCodeByGameIdByProfileId(
             code
             , game_id
             , profile_id
         )
         
-    def DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self
+    def DelGameLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
         , timestamp
     ) :
-        return self.data.DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(
+        return self.data.DelGameLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(
             code
             , game_id
             , profile_id
             , timestamp
         )
         
-    def DelGameStatisticLeaderboardRollupProfileIdGameId(self
+    def DelGameLeaderboardRollupByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameStatisticLeaderboardRollupProfileIdGameId(
+        return self.data.DelGameLeaderboardRollupByProfileIdByGameId(
             profile_id
             , game_id
         )
         
-    def GetGameStatisticLeaderboardRollupList(self
+    def GetGameLeaderboardRollupList(self
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupList(
+        rows = self.data.GetGameLeaderboardRollupList(
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup  = self.FillGameLeaderboardRollup(row)
+                results.append(game_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListUuid(self
+    def GetGameLeaderboardRollupListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListUuid(
+        rows = self.data.GetGameLeaderboardRollupListByUuid(
             uuid
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup  = self.FillGameLeaderboardRollup(row)
+                results.append(game_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListGameId(self
+    def GetGameLeaderboardRollupListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListGameId(
+        rows = self.data.GetGameLeaderboardRollupListByGameId(
             game_id
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup  = self.FillGameLeaderboardRollup(row)
+                results.append(game_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListCode(self
+    def GetGameLeaderboardRollupListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListCode(
+        rows = self.data.GetGameLeaderboardRollupListByCode(
             code
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup  = self.FillGameLeaderboardRollup(row)
+                results.append(game_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListCodeGameId(self
+    def GetGameLeaderboardRollupListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListCodeGameId(
+        rows = self.data.GetGameLeaderboardRollupListByCodeByGameId(
             code
             , game_id
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup  = self.FillGameLeaderboardRollup(row)
+                results.append(game_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(self
+    def GetGameLeaderboardRollupListByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(
+        rows = self.data.GetGameLeaderboardRollupListByCodeByGameIdByProfileId(
             code
             , game_id
             , profile_id
@@ -5621,11 +5621,11 @@ class BaseGamingACT(object):
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup  = self.FillGameLeaderboardRollup(row)
+                results.append(game_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(self
+    def GetGameLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -5633,7 +5633,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(
+        rows = self.data.GetGameLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(
             code
             , game_id
             , profile_id
@@ -5642,35 +5642,35 @@ class BaseGamingACT(object):
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup  = self.FillGameLeaderboardRollup(row)
+                results.append(game_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListProfileIdGameId(self
+    def GetGameLeaderboardRollupListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListProfileIdGameId(
+        rows = self.data.GetGameLeaderboardRollupListByProfileIdByGameId(
             profile_id
             , game_id
         )
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup  = self.FillGameLeaderboardRollup(row)
+                results.append(game_leaderboard_rollup)
             return results        
         
-    def GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(self
+    def GetGameLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(
+        rows = self.data.GetGameLeaderboardRollupListByProfileIdByGameIdByTimestamp(
             profile_id
             , game_id
             , timestamp
@@ -5678,8 +5678,8 @@ class BaseGamingACT(object):
         
         if(rows != None) :
             for row in rows :
-                game_statistic_leaderboard_rollup  = self.FillGameStatisticLeaderboardRollup(row)
-                results.append(game_statistic_leaderboard_rollup)
+                game_leaderboard_rollup  = self.FillGameLeaderboardRollup(row)
+                results.append(game_leaderboard_rollup)
             return results        
         
         
@@ -5714,30 +5714,30 @@ class BaseGamingACT(object):
         return self.data.CountGameLiveQueue(
         )
                
-    def CountGameLiveQueueUuid(self
+    def CountGameLiveQueueByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameLiveQueueUuid(
+        return self.data.CountGameLiveQueueByUuid(
             uuid
         )
                
-    def CountGameLiveQueueProfileIdGameId(self
+    def CountGameLiveQueueByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameLiveQueueProfileIdGameId(
+        return self.data.CountGameLiveQueueByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def BrowseGameLiveQueueListFilter(self, filter_obj) :
+    def BrowseGameLiveQueueListByFilter(self, filter_obj) :
         result = GameLiveQueueResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameLiveQueueListFilter(filter_obj)
+        rows = self.data.BrowseGameLiveQueueListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_live_queue = self.FillGameLiveQueue(row)
@@ -5747,24 +5747,24 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameLiveQueueUuid(self, set_type, obj) :            
-            return self.data.SetGameLiveQueueUuid(set_type, obj)
+    def SetGameLiveQueueByUuid(self, set_type, obj) :            
+            return self.data.SetGameLiveQueueByUuid(set_type, obj)
             
-    def SetGameLiveQueueProfileIdGameId(self, set_type, obj) :            
-            return self.data.SetGameLiveQueueProfileIdGameId(set_type, obj)
+    def SetGameLiveQueueByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameLiveQueueByProfileIdByGameId(set_type, obj)
             
-    def DelGameLiveQueueUuid(self
+    def DelGameLiveQueueByUuid(self
         , uuid
     ) :
-        return self.data.DelGameLiveQueueUuid(
+        return self.data.DelGameLiveQueueByUuid(
             uuid
         )
         
-    def DelGameLiveQueueProfileIdGameId(self
+    def DelGameLiveQueueByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameLiveQueueProfileIdGameId(
+        return self.data.DelGameLiveQueueByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -5782,12 +5782,12 @@ class BaseGamingACT(object):
                 results.append(game_live_queue)
             return results        
         
-    def GetGameLiveQueueListUuid(self
+    def GetGameLiveQueueListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameLiveQueueListUuid(
+        rows = self.data.GetGameLiveQueueListByUuid(
             uuid
         )
         
@@ -5797,12 +5797,12 @@ class BaseGamingACT(object):
                 results.append(game_live_queue)
             return results        
         
-    def GetGameLiveQueueListGameId(self
+    def GetGameLiveQueueListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameLiveQueueListGameId(
+        rows = self.data.GetGameLiveQueueListByGameId(
             game_id
         )
         
@@ -5812,13 +5812,13 @@ class BaseGamingACT(object):
                 results.append(game_live_queue)
             return results        
         
-    def GetGameLiveQueueListProfileIdGameId(self
+    def GetGameLiveQueueListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameLiveQueueListProfileIdGameId(
+        rows = self.data.GetGameLiveQueueListByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -5871,30 +5871,30 @@ class BaseGamingACT(object):
         return self.data.CountGameLiveRecentQueue(
         )
                
-    def CountGameLiveRecentQueueUuid(self
+    def CountGameLiveRecentQueueByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameLiveRecentQueueUuid(
+        return self.data.CountGameLiveRecentQueueByUuid(
             uuid
         )
                
-    def CountGameLiveRecentQueueProfileIdGameId(self
+    def CountGameLiveRecentQueueByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameLiveRecentQueueProfileIdGameId(
+        return self.data.CountGameLiveRecentQueueByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def BrowseGameLiveRecentQueueListFilter(self, filter_obj) :
+    def BrowseGameLiveRecentQueueListByFilter(self, filter_obj) :
         result = GameLiveRecentQueueResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameLiveRecentQueueListFilter(filter_obj)
+        rows = self.data.BrowseGameLiveRecentQueueListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_live_recent_queue = self.FillGameLiveRecentQueue(row)
@@ -5904,24 +5904,24 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameLiveRecentQueueUuid(self, set_type, obj) :            
-            return self.data.SetGameLiveRecentQueueUuid(set_type, obj)
+    def SetGameLiveRecentQueueByUuid(self, set_type, obj) :            
+            return self.data.SetGameLiveRecentQueueByUuid(set_type, obj)
             
-    def SetGameLiveRecentQueueProfileIdGameId(self, set_type, obj) :            
-            return self.data.SetGameLiveRecentQueueProfileIdGameId(set_type, obj)
+    def SetGameLiveRecentQueueByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameLiveRecentQueueByProfileIdByGameId(set_type, obj)
             
-    def DelGameLiveRecentQueueUuid(self
+    def DelGameLiveRecentQueueByUuid(self
         , uuid
     ) :
-        return self.data.DelGameLiveRecentQueueUuid(
+        return self.data.DelGameLiveRecentQueueByUuid(
             uuid
         )
         
-    def DelGameLiveRecentQueueProfileIdGameId(self
+    def DelGameLiveRecentQueueByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameLiveRecentQueueProfileIdGameId(
+        return self.data.DelGameLiveRecentQueueByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -5939,12 +5939,12 @@ class BaseGamingACT(object):
                 results.append(game_live_recent_queue)
             return results        
         
-    def GetGameLiveRecentQueueListUuid(self
+    def GetGameLiveRecentQueueListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameLiveRecentQueueListUuid(
+        rows = self.data.GetGameLiveRecentQueueListByUuid(
             uuid
         )
         
@@ -5954,12 +5954,12 @@ class BaseGamingACT(object):
                 results.append(game_live_recent_queue)
             return results        
         
-    def GetGameLiveRecentQueueListGameId(self
+    def GetGameLiveRecentQueueListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameLiveRecentQueueListGameId(
+        rows = self.data.GetGameLiveRecentQueueListByGameId(
             game_id
         )
         
@@ -5969,13 +5969,13 @@ class BaseGamingACT(object):
                 results.append(game_live_recent_queue)
             return results        
         
-    def GetGameLiveRecentQueueListProfileIdGameId(self
+    def GetGameLiveRecentQueueListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameLiveRecentQueueListProfileIdGameId(
+        rows = self.data.GetGameLiveRecentQueueListByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -6030,77 +6030,77 @@ class BaseGamingACT(object):
         return self.data.CountGameProfileStatistic(
         )
                
-    def CountGameProfileStatisticUuid(self
+    def CountGameProfileStatisticByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameProfileStatisticUuid(
+        return self.data.CountGameProfileStatisticByUuid(
             uuid
         )
                
-    def CountGameProfileStatisticCode(self
+    def CountGameProfileStatisticByCode(self
         , code
     ) :         
-        return self.data.CountGameProfileStatisticCode(
+        return self.data.CountGameProfileStatisticByCode(
             code
         )
                
-    def CountGameProfileStatisticGameId(self
+    def CountGameProfileStatisticByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticGameId(
+        return self.data.CountGameProfileStatisticByGameId(
             game_id
         )
                
-    def CountGameProfileStatisticCodeGameId(self
+    def CountGameProfileStatisticByCodeByGameId(self
         , code
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticCodeGameId(
+        return self.data.CountGameProfileStatisticByCodeByGameId(
             code
             , game_id
         )
                
-    def CountGameProfileStatisticProfileIdGameId(self
+    def CountGameProfileStatisticByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticProfileIdGameId(
+        return self.data.CountGameProfileStatisticByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def CountGameProfileStatisticCodeProfileIdGameId(self
+    def CountGameProfileStatisticByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticCodeProfileIdGameId(
+        return self.data.CountGameProfileStatisticByCodeByProfileIdByGameId(
             code
             , profile_id
             , game_id
         )
                
-    def CountGameProfileStatisticCodeProfileIdGameIdTimestamp(self
+    def CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.data.CountGameProfileStatisticCodeProfileIdGameIdTimestamp(
+        return self.data.CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(
             code
             , profile_id
             , game_id
             , timestamp
         )
                
-    def BrowseGameProfileStatisticListFilter(self, filter_obj) :
+    def BrowseGameProfileStatisticListByFilter(self, filter_obj) :
         result = GameProfileStatisticResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameProfileStatisticListFilter(filter_obj)
+        rows = self.data.BrowseGameProfileStatisticListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_profile_statistic = self.FillGameProfileStatistic(row)
@@ -6110,66 +6110,66 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameProfileStatisticUuid(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticUuid(set_type, obj)
+    def SetGameProfileStatisticByUuid(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByUuid(set_type, obj)
             
-    def SetGameProfileStatisticUuidProfileIdGameIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticUuidProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticProfileIdCode(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticProfileIdCode(set_type, obj)
+    def SetGameProfileStatisticByProfileIdByCode(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByProfileIdByCode(set_type, obj)
             
-    def SetGameProfileStatisticProfileIdCodeTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticProfileIdCodeTimestamp(set_type, obj)
+    def SetGameProfileStatisticByProfileIdByCodeByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByProfileIdByCodeByTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticCodeProfileIdGameIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticCodeProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticCodeProfileIdGameId(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticCodeProfileIdGameId(set_type, obj)
+    def SetGameProfileStatisticByCodeByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticByCodeByProfileIdByGameId(set_type, obj)
             
-    def DelGameProfileStatisticUuid(self
+    def DelGameProfileStatisticByUuid(self
         , uuid
     ) :
-        return self.data.DelGameProfileStatisticUuid(
+        return self.data.DelGameProfileStatisticByUuid(
             uuid
         )
         
-    def DelGameProfileStatisticCodeGameId(self
+    def DelGameProfileStatisticByCodeByGameId(self
         , code
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticCodeGameId(
+        return self.data.DelGameProfileStatisticByCodeByGameId(
             code
             , game_id
         )
         
-    def DelGameProfileStatisticProfileIdGameId(self
+    def DelGameProfileStatisticByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticProfileIdGameId(
+        return self.data.DelGameProfileStatisticByProfileIdByGameId(
             profile_id
             , game_id
         )
         
-    def DelGameProfileStatisticCodeProfileIdGameId(self
+    def DelGameProfileStatisticByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticCodeProfileIdGameId(
+        return self.data.DelGameProfileStatisticByCodeByProfileIdByGameId(
             code
             , profile_id
             , game_id
         )
         
-    def GetGameProfileStatisticListUuid(self
+    def GetGameProfileStatisticListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListUuid(
+        rows = self.data.GetGameProfileStatisticListByUuid(
             uuid
         )
         
@@ -6179,12 +6179,12 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListCode(self
+    def GetGameProfileStatisticListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListCode(
+        rows = self.data.GetGameProfileStatisticListByCode(
             code
         )
         
@@ -6194,12 +6194,12 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListGameId(self
+    def GetGameProfileStatisticListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListGameId(
+        rows = self.data.GetGameProfileStatisticListByGameId(
             game_id
         )
         
@@ -6209,13 +6209,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListCodeGameId(self
+    def GetGameProfileStatisticListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListCodeGameId(
+        rows = self.data.GetGameProfileStatisticListByCodeByGameId(
             code
             , game_id
         )
@@ -6226,13 +6226,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListProfileIdGameId(self
+    def GetGameProfileStatisticListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListProfileIdGameId(
+        rows = self.data.GetGameProfileStatisticListByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -6243,14 +6243,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListProfileIdGameIdTimestamp(
+        rows = self.data.GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(
             profile_id
             , game_id
             , timestamp
@@ -6262,14 +6262,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListCodeProfileIdGameId(self
+    def GetGameProfileStatisticListByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListCodeProfileIdGameId(
+        rows = self.data.GetGameProfileStatisticListByCodeByProfileIdByGameId(
             code
             , profile_id
             , game_id
@@ -6281,7 +6281,7 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic)
             return results        
         
-    def GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
@@ -6289,7 +6289,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(
+        rows = self.data.GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(
             code
             , profile_id
             , game_id
@@ -6346,51 +6346,51 @@ class BaseGamingACT(object):
         return self.data.CountGameStatisticMeta(
         )
                
-    def CountGameStatisticMetaUuid(self
+    def CountGameStatisticMetaByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameStatisticMetaUuid(
+        return self.data.CountGameStatisticMetaByUuid(
             uuid
         )
                
-    def CountGameStatisticMetaCode(self
+    def CountGameStatisticMetaByCode(self
         , code
     ) :         
-        return self.data.CountGameStatisticMetaCode(
+        return self.data.CountGameStatisticMetaByCode(
             code
         )
                
-    def CountGameStatisticMetaCodeGameId(self
+    def CountGameStatisticMetaByCodeByGameId(self
         , code
         , game_id
     ) :         
-        return self.data.CountGameStatisticMetaCodeGameId(
+        return self.data.CountGameStatisticMetaByCodeByGameId(
             code
             , game_id
         )
                
-    def CountGameStatisticMetaName(self
+    def CountGameStatisticMetaByName(self
         , name
     ) :         
-        return self.data.CountGameStatisticMetaName(
+        return self.data.CountGameStatisticMetaByName(
             name
         )
                
-    def CountGameStatisticMetaGameId(self
+    def CountGameStatisticMetaByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameStatisticMetaGameId(
+        return self.data.CountGameStatisticMetaByGameId(
             game_id
         )
                
-    def BrowseGameStatisticMetaListFilter(self, filter_obj) :
+    def BrowseGameStatisticMetaListByFilter(self, filter_obj) :
         result = GameStatisticMetaResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameStatisticMetaListFilter(filter_obj)
+        rows = self.data.BrowseGameStatisticMetaListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_statistic_meta = self.FillGameStatisticMeta(row)
@@ -6400,34 +6400,34 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameStatisticMetaUuid(self, set_type, obj) :            
-            return self.data.SetGameStatisticMetaUuid(set_type, obj)
+    def SetGameStatisticMetaByUuid(self, set_type, obj) :            
+            return self.data.SetGameStatisticMetaByUuid(set_type, obj)
             
-    def SetGameStatisticMetaCodeGameId(self, set_type, obj) :            
-            return self.data.SetGameStatisticMetaCodeGameId(set_type, obj)
+    def SetGameStatisticMetaByCodeByGameId(self, set_type, obj) :            
+            return self.data.SetGameStatisticMetaByCodeByGameId(set_type, obj)
             
-    def DelGameStatisticMetaUuid(self
+    def DelGameStatisticMetaByUuid(self
         , uuid
     ) :
-        return self.data.DelGameStatisticMetaUuid(
+        return self.data.DelGameStatisticMetaByUuid(
             uuid
         )
         
-    def DelGameStatisticMetaCodeGameId(self
+    def DelGameStatisticMetaByCodeByGameId(self
         , code
         , game_id
     ) :
-        return self.data.DelGameStatisticMetaCodeGameId(
+        return self.data.DelGameStatisticMetaByCodeByGameId(
             code
             , game_id
         )
         
-    def GetGameStatisticMetaListUuid(self
+    def GetGameStatisticMetaListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticMetaListUuid(
+        rows = self.data.GetGameStatisticMetaListByUuid(
             uuid
         )
         
@@ -6437,12 +6437,12 @@ class BaseGamingACT(object):
                 results.append(game_statistic_meta)
             return results        
         
-    def GetGameStatisticMetaListCode(self
+    def GetGameStatisticMetaListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticMetaListCode(
+        rows = self.data.GetGameStatisticMetaListByCode(
             code
         )
         
@@ -6452,12 +6452,12 @@ class BaseGamingACT(object):
                 results.append(game_statistic_meta)
             return results        
         
-    def GetGameStatisticMetaListName(self
+    def GetGameStatisticMetaListByName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticMetaListName(
+        rows = self.data.GetGameStatisticMetaListByName(
             name
         )
         
@@ -6467,12 +6467,12 @@ class BaseGamingACT(object):
                 results.append(game_statistic_meta)
             return results        
         
-    def GetGameStatisticMetaListGameId(self
+    def GetGameStatisticMetaListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticMetaListGameId(
+        rows = self.data.GetGameStatisticMetaListByGameId(
             game_id
         )
         
@@ -6482,13 +6482,13 @@ class BaseGamingACT(object):
                 results.append(game_statistic_meta)
             return results        
         
-    def GetGameStatisticMetaListCodeGameId(self
+    def GetGameStatisticMetaListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameStatisticMetaListCodeGameId(
+        rows = self.data.GetGameStatisticMetaListByCodeByGameId(
             code
             , game_id
         )
@@ -6543,77 +6543,77 @@ class BaseGamingACT(object):
         return self.data.CountGameProfileStatisticItem(
         )
                
-    def CountGameProfileStatisticItemUuid(self
+    def CountGameProfileStatisticItemByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameProfileStatisticItemUuid(
+        return self.data.CountGameProfileStatisticItemByUuid(
             uuid
         )
                
-    def CountGameProfileStatisticItemCode(self
+    def CountGameProfileStatisticItemByCode(self
         , code
     ) :         
-        return self.data.CountGameProfileStatisticItemCode(
+        return self.data.CountGameProfileStatisticItemByCode(
             code
         )
                
-    def CountGameProfileStatisticItemGameId(self
+    def CountGameProfileStatisticItemByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticItemGameId(
+        return self.data.CountGameProfileStatisticItemByGameId(
             game_id
         )
                
-    def CountGameProfileStatisticItemCodeGameId(self
+    def CountGameProfileStatisticItemByCodeByGameId(self
         , code
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticItemCodeGameId(
+        return self.data.CountGameProfileStatisticItemByCodeByGameId(
             code
             , game_id
         )
                
-    def CountGameProfileStatisticItemProfileIdGameId(self
+    def CountGameProfileStatisticItemByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticItemProfileIdGameId(
+        return self.data.CountGameProfileStatisticItemByProfileIdByGameId(
             profile_id
             , game_id
         )
                
-    def CountGameProfileStatisticItemCodeProfileIdGameId(self
+    def CountGameProfileStatisticItemByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameProfileStatisticItemCodeProfileIdGameId(
+        return self.data.CountGameProfileStatisticItemByCodeByProfileIdByGameId(
             code
             , profile_id
             , game_id
         )
                
-    def CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(self
+    def CountGameProfileStatisticItemByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.data.CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(
+        return self.data.CountGameProfileStatisticItemByCodeByProfileIdByGameIdByTimestamp(
             code
             , profile_id
             , game_id
             , timestamp
         )
                
-    def BrowseGameProfileStatisticItemListFilter(self, filter_obj) :
+    def BrowseGameProfileStatisticItemListByFilter(self, filter_obj) :
         result = GameProfileStatisticItemResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameProfileStatisticItemListFilter(filter_obj)
+        rows = self.data.BrowseGameProfileStatisticItemListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_profile_statistic_item = self.FillGameProfileStatisticItem(row)
@@ -6623,66 +6623,66 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameProfileStatisticItemUuid(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticItemUuid(set_type, obj)
+    def SetGameProfileStatisticItemByUuid(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemByUuid(set_type, obj)
             
-    def SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameProfileStatisticItemByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemByUuidByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticItemProfileIdCode(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticItemProfileIdCode(set_type, obj)
+    def SetGameProfileStatisticItemByProfileIdByCode(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemByProfileIdByCode(set_type, obj)
             
-    def SetGameProfileStatisticItemProfileIdCodeTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticItemProfileIdCodeTimestamp(set_type, obj)
+    def SetGameProfileStatisticItemByProfileIdByCodeByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemByProfileIdByCodeByTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameProfileStatisticItemByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemByCodeByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def SetGameProfileStatisticItemCodeProfileIdGameId(self, set_type, obj) :            
-            return self.data.SetGameProfileStatisticItemCodeProfileIdGameId(set_type, obj)
+    def SetGameProfileStatisticItemByCodeByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameProfileStatisticItemByCodeByProfileIdByGameId(set_type, obj)
             
-    def DelGameProfileStatisticItemUuid(self
+    def DelGameProfileStatisticItemByUuid(self
         , uuid
     ) :
-        return self.data.DelGameProfileStatisticItemUuid(
+        return self.data.DelGameProfileStatisticItemByUuid(
             uuid
         )
         
-    def DelGameProfileStatisticItemCodeGameId(self
+    def DelGameProfileStatisticItemByCodeByGameId(self
         , code
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticItemCodeGameId(
+        return self.data.DelGameProfileStatisticItemByCodeByGameId(
             code
             , game_id
         )
         
-    def DelGameProfileStatisticItemProfileIdGameId(self
+    def DelGameProfileStatisticItemByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticItemProfileIdGameId(
+        return self.data.DelGameProfileStatisticItemByProfileIdByGameId(
             profile_id
             , game_id
         )
         
-    def DelGameProfileStatisticItemCodeProfileIdGameId(self
+    def DelGameProfileStatisticItemByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
     ) :
-        return self.data.DelGameProfileStatisticItemCodeProfileIdGameId(
+        return self.data.DelGameProfileStatisticItemByCodeByProfileIdByGameId(
             code
             , profile_id
             , game_id
         )
         
-    def GetGameProfileStatisticItemListUuid(self
+    def GetGameProfileStatisticItemListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticItemListUuid(
+        rows = self.data.GetGameProfileStatisticItemListByUuid(
             uuid
         )
         
@@ -6692,12 +6692,12 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic_item)
             return results        
         
-    def GetGameProfileStatisticItemListCode(self
+    def GetGameProfileStatisticItemListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticItemListCode(
+        rows = self.data.GetGameProfileStatisticItemListByCode(
             code
         )
         
@@ -6707,12 +6707,12 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic_item)
             return results        
         
-    def GetGameProfileStatisticItemListGameId(self
+    def GetGameProfileStatisticItemListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticItemListGameId(
+        rows = self.data.GetGameProfileStatisticItemListByGameId(
             game_id
         )
         
@@ -6722,13 +6722,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic_item)
             return results        
         
-    def GetGameProfileStatisticItemListCodeGameId(self
+    def GetGameProfileStatisticItemListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticItemListCodeGameId(
+        rows = self.data.GetGameProfileStatisticItemListByCodeByGameId(
             code
             , game_id
         )
@@ -6739,13 +6739,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic_item)
             return results        
         
-    def GetGameProfileStatisticItemListProfileIdGameId(self
+    def GetGameProfileStatisticItemListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticItemListProfileIdGameId(
+        rows = self.data.GetGameProfileStatisticItemListByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -6756,14 +6756,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic_item)
             return results        
         
-    def GetGameProfileStatisticItemListProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticItemListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticItemListProfileIdGameIdTimestamp(
+        rows = self.data.GetGameProfileStatisticItemListByProfileIdByGameIdByTimestamp(
             profile_id
             , game_id
             , timestamp
@@ -6775,14 +6775,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic_item)
             return results        
         
-    def GetGameProfileStatisticItemListCodeProfileIdGameId(self
+    def GetGameProfileStatisticItemListByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticItemListCodeProfileIdGameId(
+        rows = self.data.GetGameProfileStatisticItemListByCodeByProfileIdByGameId(
             code
             , profile_id
             , game_id
@@ -6794,7 +6794,7 @@ class BaseGamingACT(object):
                 results.append(game_profile_statistic_item)
             return results        
         
-    def GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticItemListByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
@@ -6802,7 +6802,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(
+        rows = self.data.GetGameProfileStatisticItemListByCodeByProfileIdByGameIdByTimestamp(
             code
             , profile_id
             , game_id
@@ -6865,67 +6865,67 @@ class BaseGamingACT(object):
         return self.data.CountGameKeyMeta(
         )
                
-    def CountGameKeyMetaUuid(self
+    def CountGameKeyMetaByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameKeyMetaUuid(
+        return self.data.CountGameKeyMetaByUuid(
             uuid
         )
                
-    def CountGameKeyMetaCode(self
+    def CountGameKeyMetaByCode(self
         , code
     ) :         
-        return self.data.CountGameKeyMetaCode(
+        return self.data.CountGameKeyMetaByCode(
             code
         )
                
-    def CountGameKeyMetaCodeGameId(self
+    def CountGameKeyMetaByCodeByGameId(self
         , code
         , game_id
     ) :         
-        return self.data.CountGameKeyMetaCodeGameId(
+        return self.data.CountGameKeyMetaByCodeByGameId(
             code
             , game_id
         )
                
-    def CountGameKeyMetaName(self
+    def CountGameKeyMetaByName(self
         , name
     ) :         
-        return self.data.CountGameKeyMetaName(
+        return self.data.CountGameKeyMetaByName(
             name
         )
                
-    def CountGameKeyMetaKey(self
+    def CountGameKeyMetaByKey(self
         , key
     ) :         
-        return self.data.CountGameKeyMetaKey(
+        return self.data.CountGameKeyMetaByKey(
             key
         )
                
-    def CountGameKeyMetaGameId(self
+    def CountGameKeyMetaByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameKeyMetaGameId(
+        return self.data.CountGameKeyMetaByGameId(
             game_id
         )
                
-    def CountGameKeyMetaKeyGameId(self
+    def CountGameKeyMetaByKeyByGameId(self
         , key
         , game_id
     ) :         
-        return self.data.CountGameKeyMetaKeyGameId(
+        return self.data.CountGameKeyMetaByKeyByGameId(
             key
             , game_id
         )
                
-    def BrowseGameKeyMetaListFilter(self, filter_obj) :
+    def BrowseGameKeyMetaListByFilter(self, filter_obj) :
         result = GameKeyMetaResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameKeyMetaListFilter(filter_obj)
+        rows = self.data.BrowseGameKeyMetaListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_key_meta = self.FillGameKeyMeta(row)
@@ -6935,49 +6935,49 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameKeyMetaUuid(self, set_type, obj) :            
-            return self.data.SetGameKeyMetaUuid(set_type, obj)
+    def SetGameKeyMetaByUuid(self, set_type, obj) :            
+            return self.data.SetGameKeyMetaByUuid(set_type, obj)
             
-    def SetGameKeyMetaCodeGameId(self, set_type, obj) :            
-            return self.data.SetGameKeyMetaCodeGameId(set_type, obj)
+    def SetGameKeyMetaByCodeByGameId(self, set_type, obj) :            
+            return self.data.SetGameKeyMetaByCodeByGameId(set_type, obj)
             
-    def SetGameKeyMetaKeyGameId(self, set_type, obj) :            
-            return self.data.SetGameKeyMetaKeyGameId(set_type, obj)
+    def SetGameKeyMetaByKeyByGameId(self, set_type, obj) :            
+            return self.data.SetGameKeyMetaByKeyByGameId(set_type, obj)
             
-    def SetGameKeyMetaKeyGameIdLevel(self, set_type, obj) :            
-            return self.data.SetGameKeyMetaKeyGameIdLevel(set_type, obj)
+    def SetGameKeyMetaByKeyByGameIdByLevel(self, set_type, obj) :            
+            return self.data.SetGameKeyMetaByKeyByGameIdByLevel(set_type, obj)
             
-    def DelGameKeyMetaUuid(self
+    def DelGameKeyMetaByUuid(self
         , uuid
     ) :
-        return self.data.DelGameKeyMetaUuid(
+        return self.data.DelGameKeyMetaByUuid(
             uuid
         )
         
-    def DelGameKeyMetaCodeGameId(self
+    def DelGameKeyMetaByCodeByGameId(self
         , code
         , game_id
     ) :
-        return self.data.DelGameKeyMetaCodeGameId(
+        return self.data.DelGameKeyMetaByCodeByGameId(
             code
             , game_id
         )
         
-    def DelGameKeyMetaKeyGameId(self
+    def DelGameKeyMetaByKeyByGameId(self
         , key
         , game_id
     ) :
-        return self.data.DelGameKeyMetaKeyGameId(
+        return self.data.DelGameKeyMetaByKeyByGameId(
             key
             , game_id
         )
         
-    def GetGameKeyMetaListUuid(self
+    def GetGameKeyMetaListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameKeyMetaListUuid(
+        rows = self.data.GetGameKeyMetaListByUuid(
             uuid
         )
         
@@ -6987,12 +6987,12 @@ class BaseGamingACT(object):
                 results.append(game_key_meta)
             return results        
         
-    def GetGameKeyMetaListCode(self
+    def GetGameKeyMetaListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameKeyMetaListCode(
+        rows = self.data.GetGameKeyMetaListByCode(
             code
         )
         
@@ -7002,13 +7002,13 @@ class BaseGamingACT(object):
                 results.append(game_key_meta)
             return results        
         
-    def GetGameKeyMetaListCodeGameId(self
+    def GetGameKeyMetaListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameKeyMetaListCodeGameId(
+        rows = self.data.GetGameKeyMetaListByCodeByGameId(
             code
             , game_id
         )
@@ -7019,12 +7019,12 @@ class BaseGamingACT(object):
                 results.append(game_key_meta)
             return results        
         
-    def GetGameKeyMetaListName(self
+    def GetGameKeyMetaListByName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetGameKeyMetaListName(
+        rows = self.data.GetGameKeyMetaListByName(
             name
         )
         
@@ -7034,12 +7034,12 @@ class BaseGamingACT(object):
                 results.append(game_key_meta)
             return results        
         
-    def GetGameKeyMetaListKey(self
+    def GetGameKeyMetaListByKey(self
         , key
     ) :
 
         results = []
-        rows = self.data.GetGameKeyMetaListKey(
+        rows = self.data.GetGameKeyMetaListByKey(
             key
         )
         
@@ -7049,12 +7049,12 @@ class BaseGamingACT(object):
                 results.append(game_key_meta)
             return results        
         
-    def GetGameKeyMetaListGameId(self
+    def GetGameKeyMetaListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameKeyMetaListGameId(
+        rows = self.data.GetGameKeyMetaListByGameId(
             game_id
         )
         
@@ -7064,13 +7064,13 @@ class BaseGamingACT(object):
                 results.append(game_key_meta)
             return results        
         
-    def GetGameKeyMetaListKeyGameId(self
+    def GetGameKeyMetaListByKeyByGameId(self
         , key
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameKeyMetaListKeyGameId(
+        rows = self.data.GetGameKeyMetaListByKeyByGameId(
             key
             , game_id
         )
@@ -7081,13 +7081,13 @@ class BaseGamingACT(object):
                 results.append(game_key_meta)
             return results        
         
-    def GetGameKeyMetaListCodeLevel(self
+    def GetGameKeyMetaListByCodeByLevel(self
         , code
         , level
     ) :
 
         results = []
-        rows = self.data.GetGameKeyMetaListCodeLevel(
+        rows = self.data.GetGameKeyMetaListByCodeByLevel(
             code
             , level
         )
@@ -7138,51 +7138,51 @@ class BaseGamingACT(object):
         return self.data.CountGameLevel(
         )
                
-    def CountGameLevelUuid(self
+    def CountGameLevelByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameLevelUuid(
+        return self.data.CountGameLevelByUuid(
             uuid
         )
                
-    def CountGameLevelCode(self
+    def CountGameLevelByCode(self
         , code
     ) :         
-        return self.data.CountGameLevelCode(
+        return self.data.CountGameLevelByCode(
             code
         )
                
-    def CountGameLevelCodeGameId(self
+    def CountGameLevelByCodeByGameId(self
         , code
         , game_id
     ) :         
-        return self.data.CountGameLevelCodeGameId(
+        return self.data.CountGameLevelByCodeByGameId(
             code
             , game_id
         )
                
-    def CountGameLevelName(self
+    def CountGameLevelByName(self
         , name
     ) :         
-        return self.data.CountGameLevelName(
+        return self.data.CountGameLevelByName(
             name
         )
                
-    def CountGameLevelGameId(self
+    def CountGameLevelByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameLevelGameId(
+        return self.data.CountGameLevelByGameId(
             game_id
         )
                
-    def BrowseGameLevelListFilter(self, filter_obj) :
+    def BrowseGameLevelListByFilter(self, filter_obj) :
         result = GameLevelResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameLevelListFilter(filter_obj)
+        rows = self.data.BrowseGameLevelListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_level = self.FillGameLevel(row)
@@ -7192,34 +7192,34 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameLevelUuid(self, set_type, obj) :            
-            return self.data.SetGameLevelUuid(set_type, obj)
+    def SetGameLevelByUuid(self, set_type, obj) :            
+            return self.data.SetGameLevelByUuid(set_type, obj)
             
-    def SetGameLevelCodeGameId(self, set_type, obj) :            
-            return self.data.SetGameLevelCodeGameId(set_type, obj)
+    def SetGameLevelByCodeByGameId(self, set_type, obj) :            
+            return self.data.SetGameLevelByCodeByGameId(set_type, obj)
             
-    def DelGameLevelUuid(self
+    def DelGameLevelByUuid(self
         , uuid
     ) :
-        return self.data.DelGameLevelUuid(
+        return self.data.DelGameLevelByUuid(
             uuid
         )
         
-    def DelGameLevelCodeGameId(self
+    def DelGameLevelByCodeByGameId(self
         , code
         , game_id
     ) :
-        return self.data.DelGameLevelCodeGameId(
+        return self.data.DelGameLevelByCodeByGameId(
             code
             , game_id
         )
         
-    def GetGameLevelListUuid(self
+    def GetGameLevelListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameLevelListUuid(
+        rows = self.data.GetGameLevelListByUuid(
             uuid
         )
         
@@ -7229,12 +7229,12 @@ class BaseGamingACT(object):
                 results.append(game_level)
             return results        
         
-    def GetGameLevelListCode(self
+    def GetGameLevelListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameLevelListCode(
+        rows = self.data.GetGameLevelListByCode(
             code
         )
         
@@ -7244,13 +7244,13 @@ class BaseGamingACT(object):
                 results.append(game_level)
             return results        
         
-    def GetGameLevelListCodeGameId(self
+    def GetGameLevelListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameLevelListCodeGameId(
+        rows = self.data.GetGameLevelListByCodeByGameId(
             code
             , game_id
         )
@@ -7261,12 +7261,12 @@ class BaseGamingACT(object):
                 results.append(game_level)
             return results        
         
-    def GetGameLevelListName(self
+    def GetGameLevelListByName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetGameLevelListName(
+        rows = self.data.GetGameLevelListByName(
             name
         )
         
@@ -7276,12 +7276,12 @@ class BaseGamingACT(object):
                 results.append(game_level)
             return results        
         
-    def GetGameLevelListGameId(self
+    def GetGameLevelListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameLevelListGameId(
+        rows = self.data.GetGameLevelListByGameId(
             game_id
         )
         
@@ -7333,61 +7333,61 @@ class BaseGamingACT(object):
         return self.data.CountGameProfileAchievement(
         )
                
-    def CountGameProfileAchievementUuid(self
+    def CountGameProfileAchievementByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameProfileAchievementUuid(
+        return self.data.CountGameProfileAchievementByUuid(
             uuid
         )
                
-    def CountGameProfileAchievementProfileIdCode(self
+    def CountGameProfileAchievementByProfileIdByCode(self
         , profile_id
         , code
     ) :         
-        return self.data.CountGameProfileAchievementProfileIdCode(
+        return self.data.CountGameProfileAchievementByProfileIdByCode(
             profile_id
             , code
         )
                
-    def CountGameProfileAchievementUsername(self
+    def CountGameProfileAchievementByUsername(self
         , username
     ) :         
-        return self.data.CountGameProfileAchievementUsername(
+        return self.data.CountGameProfileAchievementByUsername(
             username
         )
                
-    def CountGameProfileAchievementCodeProfileIdGameId(self
+    def CountGameProfileAchievementByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
     ) :         
-        return self.data.CountGameProfileAchievementCodeProfileIdGameId(
+        return self.data.CountGameProfileAchievementByCodeByProfileIdByGameId(
             code
             , profile_id
             , game_id
         )
                
-    def CountGameProfileAchievementCodeProfileIdGameIdTimestamp(self
+    def CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
         , timestamp
     ) :         
-        return self.data.CountGameProfileAchievementCodeProfileIdGameIdTimestamp(
+        return self.data.CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(
             code
             , profile_id
             , game_id
             , timestamp
         )
                
-    def BrowseGameProfileAchievementListFilter(self, filter_obj) :
+    def BrowseGameProfileAchievementListByFilter(self, filter_obj) :
         result = GameProfileAchievementResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameProfileAchievementListFilter(filter_obj)
+        rows = self.data.BrowseGameProfileAchievementListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_profile_achievement = self.FillGameProfileAchievement(row)
@@ -7397,52 +7397,52 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameProfileAchievementUuid(self, set_type, obj) :            
-            return self.data.SetGameProfileAchievementUuid(set_type, obj)
+    def SetGameProfileAchievementByUuid(self, set_type, obj) :            
+            return self.data.SetGameProfileAchievementByUuid(set_type, obj)
             
-    def SetGameProfileAchievementUuidCode(self, set_type, obj) :            
-            return self.data.SetGameProfileAchievementUuidCode(set_type, obj)
+    def SetGameProfileAchievementByUuidByCode(self, set_type, obj) :            
+            return self.data.SetGameProfileAchievementByUuidByCode(set_type, obj)
             
-    def SetGameProfileAchievementProfileIdCode(self, set_type, obj) :            
-            return self.data.SetGameProfileAchievementProfileIdCode(set_type, obj)
+    def SetGameProfileAchievementByProfileIdByCode(self, set_type, obj) :            
+            return self.data.SetGameProfileAchievementByProfileIdByCode(set_type, obj)
             
-    def SetGameProfileAchievementCodeProfileIdGameId(self, set_type, obj) :            
-            return self.data.SetGameProfileAchievementCodeProfileIdGameId(set_type, obj)
+    def SetGameProfileAchievementByCodeByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetGameProfileAchievementByCodeByProfileIdByGameId(set_type, obj)
             
-    def SetGameProfileAchievementCodeProfileIdGameIdTimestamp(self, set_type, obj) :            
-            return self.data.SetGameProfileAchievementCodeProfileIdGameIdTimestamp(set_type, obj)
+    def SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :            
+            return self.data.SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(set_type, obj)
             
-    def DelGameProfileAchievementUuid(self
+    def DelGameProfileAchievementByUuid(self
         , uuid
     ) :
-        return self.data.DelGameProfileAchievementUuid(
+        return self.data.DelGameProfileAchievementByUuid(
             uuid
         )
         
-    def DelGameProfileAchievementProfileIdCode(self
+    def DelGameProfileAchievementByProfileIdByCode(self
         , profile_id
         , code
     ) :
-        return self.data.DelGameProfileAchievementProfileIdCode(
+        return self.data.DelGameProfileAchievementByProfileIdByCode(
             profile_id
             , code
         )
         
-    def DelGameProfileAchievementUuidCode(self
+    def DelGameProfileAchievementByUuidByCode(self
         , uuid
         , code
     ) :
-        return self.data.DelGameProfileAchievementUuidCode(
+        return self.data.DelGameProfileAchievementByUuidByCode(
             uuid
             , code
         )
         
-    def GetGameProfileAchievementListUuid(self
+    def GetGameProfileAchievementListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListUuid(
+        rows = self.data.GetGameProfileAchievementListByUuid(
             uuid
         )
         
@@ -7452,13 +7452,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListProfileIdCode(self
+    def GetGameProfileAchievementListByProfileIdByCode(self
         , profile_id
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListProfileIdCode(
+        rows = self.data.GetGameProfileAchievementListByProfileIdByCode(
             profile_id
             , code
         )
@@ -7469,12 +7469,12 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListUsername(self
+    def GetGameProfileAchievementListByUsername(self
         , username
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListUsername(
+        rows = self.data.GetGameProfileAchievementListByUsername(
             username
         )
         
@@ -7484,12 +7484,12 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListCode(self
+    def GetGameProfileAchievementListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListCode(
+        rows = self.data.GetGameProfileAchievementListByCode(
             code
         )
         
@@ -7499,12 +7499,12 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListGameId(self
+    def GetGameProfileAchievementListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListGameId(
+        rows = self.data.GetGameProfileAchievementListByGameId(
             game_id
         )
         
@@ -7514,13 +7514,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListCodeGameId(self
+    def GetGameProfileAchievementListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListCodeGameId(
+        rows = self.data.GetGameProfileAchievementListByCodeByGameId(
             code
             , game_id
         )
@@ -7531,13 +7531,13 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListProfileIdGameId(self
+    def GetGameProfileAchievementListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListProfileIdGameId(
+        rows = self.data.GetGameProfileAchievementListByProfileIdByGameId(
             profile_id
             , game_id
         )
@@ -7548,14 +7548,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListProfileIdGameIdTimestamp(self
+    def GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListProfileIdGameIdTimestamp(
+        rows = self.data.GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(
             profile_id
             , game_id
             , timestamp
@@ -7567,14 +7567,14 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListCodeProfileIdGameId(self
+    def GetGameProfileAchievementListByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListCodeProfileIdGameId(
+        rows = self.data.GetGameProfileAchievementListByCodeByProfileIdByGameId(
             code
             , profile_id
             , game_id
@@ -7586,7 +7586,7 @@ class BaseGamingACT(object):
                 results.append(game_profile_achievement)
             return results        
         
-    def GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(self
+    def GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
@@ -7594,7 +7594,7 @@ class BaseGamingACT(object):
     ) :
 
         results = []
-        rows = self.data.GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(
+        rows = self.data.GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(
             code
             , profile_id
             , game_id
@@ -7655,51 +7655,51 @@ class BaseGamingACT(object):
         return self.data.CountGameAchievementMeta(
         )
                
-    def CountGameAchievementMetaUuid(self
+    def CountGameAchievementMetaByUuid(self
         , uuid
     ) :         
-        return self.data.CountGameAchievementMetaUuid(
+        return self.data.CountGameAchievementMetaByUuid(
             uuid
         )
                
-    def CountGameAchievementMetaCode(self
+    def CountGameAchievementMetaByCode(self
         , code
     ) :         
-        return self.data.CountGameAchievementMetaCode(
+        return self.data.CountGameAchievementMetaByCode(
             code
         )
                
-    def CountGameAchievementMetaCodeGameId(self
+    def CountGameAchievementMetaByCodeByGameId(self
         , code
         , game_id
     ) :         
-        return self.data.CountGameAchievementMetaCodeGameId(
+        return self.data.CountGameAchievementMetaByCodeByGameId(
             code
             , game_id
         )
                
-    def CountGameAchievementMetaName(self
+    def CountGameAchievementMetaByName(self
         , name
     ) :         
-        return self.data.CountGameAchievementMetaName(
+        return self.data.CountGameAchievementMetaByName(
             name
         )
                
-    def CountGameAchievementMetaGameId(self
+    def CountGameAchievementMetaByGameId(self
         , game_id
     ) :         
-        return self.data.CountGameAchievementMetaGameId(
+        return self.data.CountGameAchievementMetaByGameId(
             game_id
         )
                
-    def BrowseGameAchievementMetaListFilter(self, filter_obj) :
+    def BrowseGameAchievementMetaListByFilter(self, filter_obj) :
         result = GameAchievementMetaResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseGameAchievementMetaListFilter(filter_obj)
+        rows = self.data.BrowseGameAchievementMetaListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 game_achievement_meta = self.FillGameAchievementMeta(row)
@@ -7709,34 +7709,34 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameAchievementMetaUuid(self, set_type, obj) :            
-            return self.data.SetGameAchievementMetaUuid(set_type, obj)
+    def SetGameAchievementMetaByUuid(self, set_type, obj) :            
+            return self.data.SetGameAchievementMetaByUuid(set_type, obj)
             
-    def SetGameAchievementMetaCodeGameId(self, set_type, obj) :            
-            return self.data.SetGameAchievementMetaCodeGameId(set_type, obj)
+    def SetGameAchievementMetaByCodeByGameId(self, set_type, obj) :            
+            return self.data.SetGameAchievementMetaByCodeByGameId(set_type, obj)
             
-    def DelGameAchievementMetaUuid(self
+    def DelGameAchievementMetaByUuid(self
         , uuid
     ) :
-        return self.data.DelGameAchievementMetaUuid(
+        return self.data.DelGameAchievementMetaByUuid(
             uuid
         )
         
-    def DelGameAchievementMetaCodeGameId(self
+    def DelGameAchievementMetaByCodeByGameId(self
         , code
         , game_id
     ) :
-        return self.data.DelGameAchievementMetaCodeGameId(
+        return self.data.DelGameAchievementMetaByCodeByGameId(
             code
             , game_id
         )
         
-    def GetGameAchievementMetaListUuid(self
+    def GetGameAchievementMetaListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetGameAchievementMetaListUuid(
+        rows = self.data.GetGameAchievementMetaListByUuid(
             uuid
         )
         
@@ -7746,12 +7746,12 @@ class BaseGamingACT(object):
                 results.append(game_achievement_meta)
             return results        
         
-    def GetGameAchievementMetaListCode(self
+    def GetGameAchievementMetaListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetGameAchievementMetaListCode(
+        rows = self.data.GetGameAchievementMetaListByCode(
             code
         )
         
@@ -7761,13 +7761,13 @@ class BaseGamingACT(object):
                 results.append(game_achievement_meta)
             return results        
         
-    def GetGameAchievementMetaListCodeGameId(self
+    def GetGameAchievementMetaListByCodeByGameId(self
         , code
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameAchievementMetaListCodeGameId(
+        rows = self.data.GetGameAchievementMetaListByCodeByGameId(
             code
             , game_id
         )
@@ -7778,12 +7778,12 @@ class BaseGamingACT(object):
                 results.append(game_achievement_meta)
             return results        
         
-    def GetGameAchievementMetaListName(self
+    def GetGameAchievementMetaListByName(self
         , name
     ) :
 
         results = []
-        rows = self.data.GetGameAchievementMetaListName(
+        rows = self.data.GetGameAchievementMetaListByName(
             name
         )
         
@@ -7793,12 +7793,12 @@ class BaseGamingACT(object):
                 results.append(game_achievement_meta)
             return results        
         
-    def GetGameAchievementMetaListGameId(self
+    def GetGameAchievementMetaListByGameId(self
         , game_id
     ) :
 
         results = []
-        rows = self.data.GetGameAchievementMetaListGameId(
+        rows = self.data.GetGameAchievementMetaListByGameId(
             game_id
         )
         
@@ -7806,6 +7806,2951 @@ class BaseGamingACT(object):
             for row in rows :
                 game_achievement_meta  = self.FillGameAchievementMeta(row)
                 results.append(game_achievement_meta)
+            return results        
+        
+        
+    def FillProfileReward(self, row) :
+        obj = ProfileReward()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['viewed'] != None) :                 
+            obj.viewed = row['viewed'] #dataType.FillData(dr, "viewed");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['profile_id'] != None) :                 
+            obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['downloaded'] != None) :                 
+            obj.downloaded = row['downloaded'] #dataType.FillData(dr, "downloaded");                
+        if (row['channel_id'] != None) :                 
+            obj.channel_id = row['channel_id'] #dataType.FillData(dr, "channel_id");                
+        if (row['reward_id'] != None) :                 
+            obj.reward_id = row['reward_id'] #dataType.FillData(dr, "reward_id");                
+        if (row['usage_count'] != None) :                 
+            obj.usage_count = row['usage_count'] #dataType.FillData(dr, "usage_count");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['blurb'] != None) :                 
+            obj.blurb = row['blurb'] #dataType.FillData(dr, "blurb");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountProfileReward(self
+    ) :         
+        return self.data.CountProfileReward(
+        )
+               
+    def CountProfileRewardByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountProfileRewardByUuid(
+            uuid
+        )
+               
+    def CountProfileRewardByProfileId(self
+        , profile_id
+    ) :         
+        return self.data.CountProfileRewardByProfileId(
+            profile_id
+        )
+               
+    def CountProfileRewardByRewardId(self
+        , reward_id
+    ) :         
+        return self.data.CountProfileRewardByRewardId(
+            reward_id
+        )
+               
+    def CountProfileRewardByProfileIdByRewardId(self
+        , profile_id
+        , reward_id
+    ) :         
+        return self.data.CountProfileRewardByProfileIdByRewardId(
+            profile_id
+            , reward_id
+        )
+               
+    def CountProfileRewardByProfileIdByChannelId(self
+        , profile_id
+        , channel_id
+    ) :         
+        return self.data.CountProfileRewardByProfileIdByChannelId(
+            profile_id
+            , channel_id
+        )
+               
+    def CountProfileRewardByProfileIdByChannelIdByRewardId(self
+        , profile_id
+        , channel_id
+        , reward_id
+    ) :         
+        return self.data.CountProfileRewardByProfileIdByChannelIdByRewardId(
+            profile_id
+            , channel_id
+            , reward_id
+        )
+               
+    def BrowseProfileRewardListByFilter(self, filter_obj) :
+        result = ProfileRewardResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseProfileRewardListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                profile_reward = self.FillProfileReward(row)
+                result.data.append(profile_reward)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetProfileRewardByUuid(self, set_type, obj) :            
+            return self.data.SetProfileRewardByUuid(set_type, obj)
+            
+    def SetProfileRewardByProfileIdByChannelIdByRewardId(self, set_type, obj) :            
+            return self.data.SetProfileRewardByProfileIdByChannelIdByRewardId(set_type, obj)
+            
+    def DelProfileRewardByUuid(self
+        , uuid
+    ) :
+        return self.data.DelProfileRewardByUuid(
+            uuid
+        )
+        
+    def DelProfileRewardByProfileIdByRewardId(self
+        , profile_id
+        , reward_id
+    ) :
+        return self.data.DelProfileRewardByProfileIdByRewardId(
+            profile_id
+            , reward_id
+        )
+        
+    def GetProfileRewardListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward  = self.FillProfileReward(row)
+                results.append(profile_reward)
+            return results        
+        
+    def GetProfileRewardListByProfileId(self
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardListByProfileId(
+            profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward  = self.FillProfileReward(row)
+                results.append(profile_reward)
+            return results        
+        
+    def GetProfileRewardListByRewardId(self
+        , reward_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardListByRewardId(
+            reward_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward  = self.FillProfileReward(row)
+                results.append(profile_reward)
+            return results        
+        
+    def GetProfileRewardListByProfileIdByRewardId(self
+        , profile_id
+        , reward_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardListByProfileIdByRewardId(
+            profile_id
+            , reward_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward  = self.FillProfileReward(row)
+                results.append(profile_reward)
+            return results        
+        
+    def GetProfileRewardListByProfileIdByChannelId(self
+        , profile_id
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardListByProfileIdByChannelId(
+            profile_id
+            , channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward  = self.FillProfileReward(row)
+                results.append(profile_reward)
+            return results        
+        
+    def GetProfileRewardListByProfileIdByChannelIdByRewardId(self
+        , profile_id
+        , channel_id
+        , reward_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardListByProfileIdByChannelIdByRewardId(
+            profile_id
+            , channel_id
+            , reward_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward  = self.FillProfileReward(row)
+                results.append(profile_reward)
+            return results        
+        
+        
+    def FillCoupon(self, row) :
+        obj = Coupon()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['url'] != None) :                 
+            obj.url = row['url'] #dataType.FillData(dr, "url");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['org_id'] != None) :                 
+            obj.org_id = row['org_id'] #dataType.FillData(dr, "org_id");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['usage_count'] != None) :                 
+            obj.usage_count = row['usage_count'] #dataType.FillData(dr, "usage_count");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountCoupon(self
+    ) :         
+        return self.data.CountCoupon(
+        )
+               
+    def CountCouponByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountCouponByUuid(
+            uuid
+        )
+               
+    def CountCouponByCode(self
+        , code
+    ) :         
+        return self.data.CountCouponByCode(
+            code
+        )
+               
+    def CountCouponByName(self
+        , name
+    ) :         
+        return self.data.CountCouponByName(
+            name
+        )
+               
+    def CountCouponByOrgId(self
+        , org_id
+    ) :         
+        return self.data.CountCouponByOrgId(
+            org_id
+        )
+               
+    def BrowseCouponListByFilter(self, filter_obj) :
+        result = CouponResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseCouponListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                coupon = self.FillCoupon(row)
+                result.data.append(coupon)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetCouponByUuid(self, set_type, obj) :            
+            return self.data.SetCouponByUuid(set_type, obj)
+            
+    def DelCouponByUuid(self
+        , uuid
+    ) :
+        return self.data.DelCouponByUuid(
+            uuid
+        )
+        
+    def DelCouponByOrgId(self
+        , org_id
+    ) :
+        return self.data.DelCouponByOrgId(
+            org_id
+        )
+        
+    def GetCouponListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetCouponListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                coupon  = self.FillCoupon(row)
+                results.append(coupon)
+            return results        
+        
+    def GetCouponListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetCouponListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                coupon  = self.FillCoupon(row)
+                results.append(coupon)
+            return results        
+        
+    def GetCouponListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetCouponListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                coupon  = self.FillCoupon(row)
+                results.append(coupon)
+            return results        
+        
+    def GetCouponListByOrgId(self
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetCouponListByOrgId(
+            org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                coupon  = self.FillCoupon(row)
+                results.append(coupon)
+            return results        
+        
+        
+    def FillProfileCoupon(self, row) :
+        obj = ProfileCoupon()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['url'] != None) :                 
+            obj.url = row['url'] #dataType.FillData(dr, "url");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['profile_id'] != None) :                 
+            obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountProfileCoupon(self
+    ) :         
+        return self.data.CountProfileCoupon(
+        )
+               
+    def CountProfileCouponByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountProfileCouponByUuid(
+            uuid
+        )
+               
+    def CountProfileCouponByProfileId(self
+        , profile_id
+    ) :         
+        return self.data.CountProfileCouponByProfileId(
+            profile_id
+        )
+               
+    def BrowseProfileCouponListByFilter(self, filter_obj) :
+        result = ProfileCouponResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseProfileCouponListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                profile_coupon = self.FillProfileCoupon(row)
+                result.data.append(profile_coupon)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetProfileCouponByUuid(self, set_type, obj) :            
+            return self.data.SetProfileCouponByUuid(set_type, obj)
+            
+    def DelProfileCouponByUuid(self
+        , uuid
+    ) :
+        return self.data.DelProfileCouponByUuid(
+            uuid
+        )
+        
+    def DelProfileCouponByProfileId(self
+        , profile_id
+    ) :
+        return self.data.DelProfileCouponByProfileId(
+            profile_id
+        )
+        
+    def GetProfileCouponListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetProfileCouponListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_coupon  = self.FillProfileCoupon(row)
+                results.append(profile_coupon)
+            return results        
+        
+    def GetProfileCouponListByProfileId(self
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileCouponListByProfileId(
+            profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_coupon  = self.FillProfileCoupon(row)
+                results.append(profile_coupon)
+            return results        
+        
+        
+    def FillOrg(self, row) :
+        obj = Org()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountOrg(self
+    ) :         
+        return self.data.CountOrg(
+        )
+               
+    def CountOrgByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountOrgByUuid(
+            uuid
+        )
+               
+    def CountOrgByCode(self
+        , code
+    ) :         
+        return self.data.CountOrgByCode(
+            code
+        )
+               
+    def CountOrgByName(self
+        , name
+    ) :         
+        return self.data.CountOrgByName(
+            name
+        )
+               
+    def BrowseOrgListByFilter(self, filter_obj) :
+        result = OrgResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseOrgListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                org = self.FillOrg(row)
+                result.data.append(org)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetOrgByUuid(self, set_type, obj) :            
+            return self.data.SetOrgByUuid(set_type, obj)
+            
+    def DelOrgByUuid(self
+        , uuid
+    ) :
+        return self.data.DelOrgByUuid(
+            uuid
+        )
+        
+    def GetOrgListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetOrgListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                org  = self.FillOrg(row)
+                results.append(org)
+            return results        
+        
+    def GetOrgListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetOrgListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                org  = self.FillOrg(row)
+                results.append(org)
+            return results        
+        
+    def GetOrgListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetOrgListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                org  = self.FillOrg(row)
+                results.append(org)
+            return results        
+        
+        
+    def FillChannel(self, row) :
+        obj = Channel()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['type_id'] != None) :                 
+            obj.type_id = row['type_id'] #dataType.FillData(dr, "type_id");                
+        if (row['org_id'] != None) :                 
+            obj.org_id = row['org_id'] #dataType.FillData(dr, "org_id");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountChannel(self
+    ) :         
+        return self.data.CountChannel(
+        )
+               
+    def CountChannelByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountChannelByUuid(
+            uuid
+        )
+               
+    def CountChannelByCode(self
+        , code
+    ) :         
+        return self.data.CountChannelByCode(
+            code
+        )
+               
+    def CountChannelByName(self
+        , name
+    ) :         
+        return self.data.CountChannelByName(
+            name
+        )
+               
+    def CountChannelByOrgId(self
+        , org_id
+    ) :         
+        return self.data.CountChannelByOrgId(
+            org_id
+        )
+               
+    def CountChannelByTypeId(self
+        , type_id
+    ) :         
+        return self.data.CountChannelByTypeId(
+            type_id
+        )
+               
+    def CountChannelByOrgIdByTypeId(self
+        , org_id
+        , type_id
+    ) :         
+        return self.data.CountChannelByOrgIdByTypeId(
+            org_id
+            , type_id
+        )
+               
+    def BrowseChannelListByFilter(self, filter_obj) :
+        result = ChannelResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseChannelListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                channel = self.FillChannel(row)
+                result.data.append(channel)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetChannelByUuid(self, set_type, obj) :            
+            return self.data.SetChannelByUuid(set_type, obj)
+            
+    def DelChannelByUuid(self
+        , uuid
+    ) :
+        return self.data.DelChannelByUuid(
+            uuid
+        )
+        
+    def DelChannelByCodeByOrgId(self
+        , code
+        , org_id
+    ) :
+        return self.data.DelChannelByCodeByOrgId(
+            code
+            , org_id
+        )
+        
+    def DelChannelByCodeByOrgIdByTypeId(self
+        , code
+        , org_id
+        , type_id
+    ) :
+        return self.data.DelChannelByCodeByOrgIdByTypeId(
+            code
+            , org_id
+            , type_id
+        )
+        
+    def GetChannelListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetChannelListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                channel  = self.FillChannel(row)
+                results.append(channel)
+            return results        
+        
+    def GetChannelListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetChannelListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                channel  = self.FillChannel(row)
+                results.append(channel)
+            return results        
+        
+    def GetChannelListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetChannelListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                channel  = self.FillChannel(row)
+                results.append(channel)
+            return results        
+        
+    def GetChannelListByOrgId(self
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetChannelListByOrgId(
+            org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                channel  = self.FillChannel(row)
+                results.append(channel)
+            return results        
+        
+    def GetChannelListByTypeId(self
+        , type_id
+    ) :
+
+        results = []
+        rows = self.data.GetChannelListByTypeId(
+            type_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                channel  = self.FillChannel(row)
+                results.append(channel)
+            return results        
+        
+    def GetChannelListByOrgIdByTypeId(self
+        , org_id
+        , type_id
+    ) :
+
+        results = []
+        rows = self.data.GetChannelListByOrgIdByTypeId(
+            org_id
+            , type_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                channel  = self.FillChannel(row)
+                results.append(channel)
+            return results        
+        
+        
+    def FillChannelType(self, row) :
+        obj = ChannelType()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountChannelType(self
+    ) :         
+        return self.data.CountChannelType(
+        )
+               
+    def CountChannelTypeByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountChannelTypeByUuid(
+            uuid
+        )
+               
+    def CountChannelTypeByCode(self
+        , code
+    ) :         
+        return self.data.CountChannelTypeByCode(
+            code
+        )
+               
+    def CountChannelTypeByName(self
+        , name
+    ) :         
+        return self.data.CountChannelTypeByName(
+            name
+        )
+               
+    def BrowseChannelTypeListByFilter(self, filter_obj) :
+        result = ChannelTypeResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseChannelTypeListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                channel_type = self.FillChannelType(row)
+                result.data.append(channel_type)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetChannelTypeByUuid(self, set_type, obj) :            
+            return self.data.SetChannelTypeByUuid(set_type, obj)
+            
+    def DelChannelTypeByUuid(self
+        , uuid
+    ) :
+        return self.data.DelChannelTypeByUuid(
+            uuid
+        )
+        
+    def GetChannelTypeListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetChannelTypeListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                channel_type  = self.FillChannelType(row)
+                results.append(channel_type)
+            return results        
+        
+    def GetChannelTypeListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetChannelTypeListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                channel_type  = self.FillChannelType(row)
+                results.append(channel_type)
+            return results        
+        
+    def GetChannelTypeListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetChannelTypeListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                channel_type  = self.FillChannelType(row)
+                results.append(channel_type)
+            return results        
+        
+        
+    def FillReward(self, row) :
+        obj = Reward()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['type_url'] != None) :                 
+            obj.type_url = row['type_url'] #dataType.FillData(dr, "type_url");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['url'] != None) :                 
+            obj.url = row['url'] #dataType.FillData(dr, "url");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['org_id'] != None) :                 
+            obj.org_id = row['org_id'] #dataType.FillData(dr, "org_id");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['channel_id'] != None) :                 
+            obj.channel_id = row['channel_id'] #dataType.FillData(dr, "channel_id");                
+        if (row['usage_count'] != None) :                 
+            obj.usage_count = row['usage_count'] #dataType.FillData(dr, "usage_count");                
+        if (row['external_id'] != None) :                 
+            obj.external_id = row['external_id'] #dataType.FillData(dr, "external_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountReward(self
+    ) :         
+        return self.data.CountReward(
+        )
+               
+    def CountRewardByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountRewardByUuid(
+            uuid
+        )
+               
+    def CountRewardByCode(self
+        , code
+    ) :         
+        return self.data.CountRewardByCode(
+            code
+        )
+               
+    def CountRewardByName(self
+        , name
+    ) :         
+        return self.data.CountRewardByName(
+            name
+        )
+               
+    def CountRewardByOrgId(self
+        , org_id
+    ) :         
+        return self.data.CountRewardByOrgId(
+            org_id
+        )
+               
+    def CountRewardByChannelId(self
+        , channel_id
+    ) :         
+        return self.data.CountRewardByChannelId(
+            channel_id
+        )
+               
+    def CountRewardByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :         
+        return self.data.CountRewardByOrgIdByChannelId(
+            org_id
+            , channel_id
+        )
+               
+    def BrowseRewardListByFilter(self, filter_obj) :
+        result = RewardResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseRewardListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                reward = self.FillReward(row)
+                result.data.append(reward)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetRewardByUuid(self, set_type, obj) :            
+            return self.data.SetRewardByUuid(set_type, obj)
+            
+    def DelRewardByUuid(self
+        , uuid
+    ) :
+        return self.data.DelRewardByUuid(
+            uuid
+        )
+        
+    def DelRewardByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :
+        return self.data.DelRewardByOrgIdByChannelId(
+            org_id
+            , channel_id
+        )
+        
+    def GetRewardListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetRewardListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward  = self.FillReward(row)
+                results.append(reward)
+            return results        
+        
+    def GetRewardListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetRewardListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward  = self.FillReward(row)
+                results.append(reward)
+            return results        
+        
+    def GetRewardListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetRewardListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward  = self.FillReward(row)
+                results.append(reward)
+            return results        
+        
+    def GetRewardListByOrgId(self
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetRewardListByOrgId(
+            org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward  = self.FillReward(row)
+                results.append(reward)
+            return results        
+        
+    def GetRewardListByChannelId(self
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetRewardListByChannelId(
+            channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward  = self.FillReward(row)
+                results.append(reward)
+            return results        
+        
+    def GetRewardListByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetRewardListByOrgIdByChannelId(
+            org_id
+            , channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward  = self.FillReward(row)
+                results.append(reward)
+            return results        
+        
+        
+    def FillRewardType(self, row) :
+        obj = RewardType()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['type_url'] != None) :                 
+            obj.type_url = row['type_url'] #dataType.FillData(dr, "type_url");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountRewardType(self
+    ) :         
+        return self.data.CountRewardType(
+        )
+               
+    def CountRewardTypeByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountRewardTypeByUuid(
+            uuid
+        )
+               
+    def CountRewardTypeByCode(self
+        , code
+    ) :         
+        return self.data.CountRewardTypeByCode(
+            code
+        )
+               
+    def CountRewardTypeByName(self
+        , name
+    ) :         
+        return self.data.CountRewardTypeByName(
+            name
+        )
+               
+    def CountRewardTypeByType(self
+        , type
+    ) :         
+        return self.data.CountRewardTypeByType(
+            type
+        )
+               
+    def BrowseRewardTypeListByFilter(self, filter_obj) :
+        result = RewardTypeResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseRewardTypeListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                reward_type = self.FillRewardType(row)
+                result.data.append(reward_type)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetRewardTypeByUuid(self, set_type, obj) :            
+            return self.data.SetRewardTypeByUuid(set_type, obj)
+            
+    def DelRewardTypeByUuid(self
+        , uuid
+    ) :
+        return self.data.DelRewardTypeByUuid(
+            uuid
+        )
+        
+    def GetRewardTypeListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetRewardTypeListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_type  = self.FillRewardType(row)
+                results.append(reward_type)
+            return results        
+        
+    def GetRewardTypeListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetRewardTypeListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_type  = self.FillRewardType(row)
+                results.append(reward_type)
+            return results        
+        
+    def GetRewardTypeListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetRewardTypeListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_type  = self.FillRewardType(row)
+                results.append(reward_type)
+            return results        
+        
+    def GetRewardTypeListByType(self
+        , type
+    ) :
+
+        results = []
+        rows = self.data.GetRewardTypeListByType(
+            type
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_type  = self.FillRewardType(row)
+                results.append(reward_type)
+            return results        
+        
+        
+    def FillRewardCondition(self, row) :
+        obj = RewardCondition()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['end_date'] != None) :                 
+            obj.end_date = row['end_date'] #dataType.FillData(dr, "end_date");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['org_id'] != None) :                 
+            obj.org_id = row['org_id'] #dataType.FillData(dr, "org_id");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['channel_id'] != None) :                 
+            obj.channel_id = row['channel_id'] #dataType.FillData(dr, "channel_id");                
+        if (row['amount'] != None) :                 
+            obj.amount = row['amount'] #dataType.FillData(dr, "amount");                
+        if (row['global_reward'] != None) :                 
+            obj.global_reward = row['global_reward'] #dataType.FillData(dr, "global_reward");                
+        if (row['condition'] != None) :                 
+            obj.condition = row['condition'] #dataType.FillData(dr, "condition");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['start_date'] != None) :                 
+            obj.start_date = row['start_date'] #dataType.FillData(dr, "start_date");                
+        if (row['reward_id'] != None) :                 
+            obj.reward_id = row['reward_id'] #dataType.FillData(dr, "reward_id");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountRewardCondition(self
+    ) :         
+        return self.data.CountRewardCondition(
+        )
+               
+    def CountRewardConditionByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountRewardConditionByUuid(
+            uuid
+        )
+               
+    def CountRewardConditionByCode(self
+        , code
+    ) :         
+        return self.data.CountRewardConditionByCode(
+            code
+        )
+               
+    def CountRewardConditionByName(self
+        , name
+    ) :         
+        return self.data.CountRewardConditionByName(
+            name
+        )
+               
+    def CountRewardConditionByOrgId(self
+        , org_id
+    ) :         
+        return self.data.CountRewardConditionByOrgId(
+            org_id
+        )
+               
+    def CountRewardConditionByChannelId(self
+        , channel_id
+    ) :         
+        return self.data.CountRewardConditionByChannelId(
+            channel_id
+        )
+               
+    def CountRewardConditionByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :         
+        return self.data.CountRewardConditionByOrgIdByChannelId(
+            org_id
+            , channel_id
+        )
+               
+    def CountRewardConditionByOrgIdByChannelIdByRewardId(self
+        , org_id
+        , channel_id
+        , reward_id
+    ) :         
+        return self.data.CountRewardConditionByOrgIdByChannelIdByRewardId(
+            org_id
+            , channel_id
+            , reward_id
+        )
+               
+    def CountRewardConditionByRewardId(self
+        , reward_id
+    ) :         
+        return self.data.CountRewardConditionByRewardId(
+            reward_id
+        )
+               
+    def BrowseRewardConditionListByFilter(self, filter_obj) :
+        result = RewardConditionResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseRewardConditionListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                reward_condition = self.FillRewardCondition(row)
+                result.data.append(reward_condition)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetRewardConditionByUuid(self, set_type, obj) :            
+            return self.data.SetRewardConditionByUuid(set_type, obj)
+            
+    def DelRewardConditionByUuid(self
+        , uuid
+    ) :
+        return self.data.DelRewardConditionByUuid(
+            uuid
+        )
+        
+    def DelRewardConditionByOrgIdByChannelIdByRewardId(self
+        , org_id
+        , channel_id
+        , reward_id
+    ) :
+        return self.data.DelRewardConditionByOrgIdByChannelIdByRewardId(
+            org_id
+            , channel_id
+            , reward_id
+        )
+        
+    def GetRewardConditionListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition  = self.FillRewardCondition(row)
+                results.append(reward_condition)
+            return results        
+        
+    def GetRewardConditionListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition  = self.FillRewardCondition(row)
+                results.append(reward_condition)
+            return results        
+        
+    def GetRewardConditionListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition  = self.FillRewardCondition(row)
+                results.append(reward_condition)
+            return results        
+        
+    def GetRewardConditionListByOrgId(self
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionListByOrgId(
+            org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition  = self.FillRewardCondition(row)
+                results.append(reward_condition)
+            return results        
+        
+    def GetRewardConditionListByChannelId(self
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionListByChannelId(
+            channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition  = self.FillRewardCondition(row)
+                results.append(reward_condition)
+            return results        
+        
+    def GetRewardConditionListByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionListByOrgIdByChannelId(
+            org_id
+            , channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition  = self.FillRewardCondition(row)
+                results.append(reward_condition)
+            return results        
+        
+    def GetRewardConditionListByOrgIdByChannelIdByRewardId(self
+        , org_id
+        , channel_id
+        , reward_id
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionListByOrgIdByChannelIdByRewardId(
+            org_id
+            , channel_id
+            , reward_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition  = self.FillRewardCondition(row)
+                results.append(reward_condition)
+            return results        
+        
+    def GetRewardConditionListByRewardId(self
+        , reward_id
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionListByRewardId(
+            reward_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition  = self.FillRewardCondition(row)
+                results.append(reward_condition)
+            return results        
+        
+        
+    def FillRewardConditionType(self, row) :
+        obj = RewardConditionType()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountRewardConditionType(self
+    ) :         
+        return self.data.CountRewardConditionType(
+        )
+               
+    def CountRewardConditionTypeByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountRewardConditionTypeByUuid(
+            uuid
+        )
+               
+    def CountRewardConditionTypeByCode(self
+        , code
+    ) :         
+        return self.data.CountRewardConditionTypeByCode(
+            code
+        )
+               
+    def CountRewardConditionTypeByName(self
+        , name
+    ) :         
+        return self.data.CountRewardConditionTypeByName(
+            name
+        )
+               
+    def CountRewardConditionTypeByType(self
+        , type
+    ) :         
+        return self.data.CountRewardConditionTypeByType(
+            type
+        )
+               
+    def BrowseRewardConditionTypeListByFilter(self, filter_obj) :
+        result = RewardConditionTypeResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseRewardConditionTypeListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                reward_condition_type = self.FillRewardConditionType(row)
+                result.data.append(reward_condition_type)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetRewardConditionTypeByUuid(self, set_type, obj) :            
+            return self.data.SetRewardConditionTypeByUuid(set_type, obj)
+            
+    def DelRewardConditionTypeByUuid(self
+        , uuid
+    ) :
+        return self.data.DelRewardConditionTypeByUuid(
+            uuid
+        )
+        
+    def GetRewardConditionTypeListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionTypeListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition_type  = self.FillRewardConditionType(row)
+                results.append(reward_condition_type)
+            return results        
+        
+    def GetRewardConditionTypeListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionTypeListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition_type  = self.FillRewardConditionType(row)
+                results.append(reward_condition_type)
+            return results        
+        
+    def GetRewardConditionTypeListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionTypeListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition_type  = self.FillRewardConditionType(row)
+                results.append(reward_condition_type)
+            return results        
+        
+    def GetRewardConditionTypeListByType(self
+        , type
+    ) :
+
+        results = []
+        rows = self.data.GetRewardConditionTypeListByType(
+            type
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_condition_type  = self.FillRewardConditionType(row)
+                results.append(reward_condition_type)
+            return results        
+        
+        
+    def FillQuestion(self, row) :
+        obj = Question()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['org_id'] != None) :                 
+            obj.org_id = row['org_id'] #dataType.FillData(dr, "org_id");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['choices'] != None) :                 
+            obj.choices = row['choices'] #dataType.FillData(dr, "choices");                
+        if (row['channel_id'] != None) :                 
+            obj.channel_id = row['channel_id'] #dataType.FillData(dr, "channel_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountQuestion(self
+    ) :         
+        return self.data.CountQuestion(
+        )
+               
+    def CountQuestionByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountQuestionByUuid(
+            uuid
+        )
+               
+    def CountQuestionByCode(self
+        , code
+    ) :         
+        return self.data.CountQuestionByCode(
+            code
+        )
+               
+    def CountQuestionByName(self
+        , name
+    ) :         
+        return self.data.CountQuestionByName(
+            name
+        )
+               
+    def CountQuestionByChannelId(self
+        , channel_id
+    ) :         
+        return self.data.CountQuestionByChannelId(
+            channel_id
+        )
+               
+    def CountQuestionByOrgId(self
+        , org_id
+    ) :         
+        return self.data.CountQuestionByOrgId(
+            org_id
+        )
+               
+    def CountQuestionByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :         
+        return self.data.CountQuestionByChannelIdByOrgId(
+            channel_id
+            , org_id
+        )
+               
+    def CountQuestionByChannelIdByCode(self
+        , channel_id
+        , code
+    ) :         
+        return self.data.CountQuestionByChannelIdByCode(
+            channel_id
+            , code
+        )
+               
+    def BrowseQuestionListByFilter(self, filter_obj) :
+        result = QuestionResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseQuestionListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                question = self.FillQuestion(row)
+                result.data.append(question)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetQuestionByUuid(self, set_type, obj) :            
+            return self.data.SetQuestionByUuid(set_type, obj)
+            
+    def SetQuestionByChannelIdByCode(self, set_type, obj) :            
+            return self.data.SetQuestionByChannelIdByCode(set_type, obj)
+            
+    def DelQuestionByUuid(self
+        , uuid
+    ) :
+        return self.data.DelQuestionByUuid(
+            uuid
+        )
+        
+    def DelQuestionByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+        return self.data.DelQuestionByChannelIdByOrgId(
+            channel_id
+            , org_id
+        )
+        
+    def GetQuestionListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetQuestionListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                question  = self.FillQuestion(row)
+                results.append(question)
+            return results        
+        
+    def GetQuestionListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetQuestionListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                question  = self.FillQuestion(row)
+                results.append(question)
+            return results        
+        
+    def GetQuestionListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetQuestionListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                question  = self.FillQuestion(row)
+                results.append(question)
+            return results        
+        
+    def GetQuestionListByType(self
+        , type
+    ) :
+
+        results = []
+        rows = self.data.GetQuestionListByType(
+            type
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                question  = self.FillQuestion(row)
+                results.append(question)
+            return results        
+        
+    def GetQuestionListByChannelId(self
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetQuestionListByChannelId(
+            channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                question  = self.FillQuestion(row)
+                results.append(question)
+            return results        
+        
+    def GetQuestionListByOrgId(self
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetQuestionListByOrgId(
+            org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                question  = self.FillQuestion(row)
+                results.append(question)
+            return results        
+        
+    def GetQuestionListByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetQuestionListByChannelIdByOrgId(
+            channel_id
+            , org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                question  = self.FillQuestion(row)
+                results.append(question)
+            return results        
+        
+    def GetQuestionListByChannelIdByCode(self
+        , channel_id
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetQuestionListByChannelIdByCode(
+            channel_id
+            , code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                question  = self.FillQuestion(row)
+                results.append(question)
+            return results        
+        
+        
+    def FillProfileQuestion(self, row) :
+        obj = ProfileQuestion()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['profile_id'] != None) :                 
+            obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['org_id'] != None) :                 
+            obj.org_id = row['org_id'] #dataType.FillData(dr, "org_id");                
+        if (row['channel_id'] != None) :                 
+            obj.channel_id = row['channel_id'] #dataType.FillData(dr, "channel_id");                
+        if (row['answer'] != None) :                 
+            obj.answer = row['answer'] #dataType.FillData(dr, "answer");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['question_id'] != None) :                 
+            obj.question_id = row['question_id'] #dataType.FillData(dr, "question_id");                
+
+        return obj
+        
+    def CountProfileQuestion(self
+    ) :         
+        return self.data.CountProfileQuestion(
+        )
+               
+    def CountProfileQuestionByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountProfileQuestionByUuid(
+            uuid
+        )
+               
+    def CountProfileQuestionByChannelId(self
+        , channel_id
+    ) :         
+        return self.data.CountProfileQuestionByChannelId(
+            channel_id
+        )
+               
+    def CountProfileQuestionByOrgId(self
+        , org_id
+    ) :         
+        return self.data.CountProfileQuestionByOrgId(
+            org_id
+        )
+               
+    def CountProfileQuestionByProfileId(self
+        , profile_id
+    ) :         
+        return self.data.CountProfileQuestionByProfileId(
+            profile_id
+        )
+               
+    def CountProfileQuestionByQuestionId(self
+        , question_id
+    ) :         
+        return self.data.CountProfileQuestionByQuestionId(
+            question_id
+        )
+               
+    def CountProfileQuestionByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :         
+        return self.data.CountProfileQuestionByChannelIdByOrgId(
+            channel_id
+            , org_id
+        )
+               
+    def CountProfileQuestionByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :         
+        return self.data.CountProfileQuestionByChannelIdByProfileId(
+            channel_id
+            , profile_id
+        )
+               
+    def CountProfileQuestionByQuestionIdByProfileId(self
+        , question_id
+        , profile_id
+    ) :         
+        return self.data.CountProfileQuestionByQuestionIdByProfileId(
+            question_id
+            , profile_id
+        )
+               
+    def BrowseProfileQuestionListByFilter(self, filter_obj) :
+        result = ProfileQuestionResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseProfileQuestionListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                profile_question = self.FillProfileQuestion(row)
+                result.data.append(profile_question)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetProfileQuestionByUuid(self, set_type, obj) :            
+            return self.data.SetProfileQuestionByUuid(set_type, obj)
+            
+    def SetProfileQuestionByChannelIdByProfileId(self, set_type, obj) :            
+            return self.data.SetProfileQuestionByChannelIdByProfileId(set_type, obj)
+            
+    def SetProfileQuestionByQuestionIdByProfileId(self, set_type, obj) :            
+            return self.data.SetProfileQuestionByQuestionIdByProfileId(set_type, obj)
+            
+    def SetProfileQuestionByChannelIdByQuestionIdByProfileId(self, set_type, obj) :            
+            return self.data.SetProfileQuestionByChannelIdByQuestionIdByProfileId(set_type, obj)
+            
+    def DelProfileQuestionByUuid(self
+        , uuid
+    ) :
+        return self.data.DelProfileQuestionByUuid(
+            uuid
+        )
+        
+    def DelProfileQuestionByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+        return self.data.DelProfileQuestionByChannelIdByOrgId(
+            channel_id
+            , org_id
+        )
+        
+    def GetProfileQuestionListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetProfileQuestionListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_question  = self.FillProfileQuestion(row)
+                results.append(profile_question)
+            return results        
+        
+    def GetProfileQuestionListByChannelId(self
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileQuestionListByChannelId(
+            channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_question  = self.FillProfileQuestion(row)
+                results.append(profile_question)
+            return results        
+        
+    def GetProfileQuestionListByOrgId(self
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileQuestionListByOrgId(
+            org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_question  = self.FillProfileQuestion(row)
+                results.append(profile_question)
+            return results        
+        
+    def GetProfileQuestionListByProfileId(self
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileQuestionListByProfileId(
+            profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_question  = self.FillProfileQuestion(row)
+                results.append(profile_question)
+            return results        
+        
+    def GetProfileQuestionListByQuestionId(self
+        , question_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileQuestionListByQuestionId(
+            question_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_question  = self.FillProfileQuestion(row)
+                results.append(profile_question)
+            return results        
+        
+    def GetProfileQuestionListByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileQuestionListByChannelIdByOrgId(
+            channel_id
+            , org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_question  = self.FillProfileQuestion(row)
+                results.append(profile_question)
+            return results        
+        
+    def GetProfileQuestionListByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileQuestionListByChannelIdByProfileId(
+            channel_id
+            , profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_question  = self.FillProfileQuestion(row)
+                results.append(profile_question)
+            return results        
+        
+    def GetProfileQuestionListByQuestionIdByProfileId(self
+        , question_id
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileQuestionListByQuestionIdByProfileId(
+            question_id
+            , profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_question  = self.FillProfileQuestion(row)
+                results.append(profile_question)
+            return results        
+        
+        
+    def FillProfileChannel(self, row) :
+        obj = ProfileChannel()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['channel_id'] != None) :                 
+            obj.channel_id = row['channel_id'] #dataType.FillData(dr, "channel_id");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['profile_id'] != None) :                 
+            obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+
+        return obj
+        
+    def CountProfileChannel(self
+    ) :         
+        return self.data.CountProfileChannel(
+        )
+               
+    def CountProfileChannelByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountProfileChannelByUuid(
+            uuid
+        )
+               
+    def CountProfileChannelByChannelId(self
+        , channel_id
+    ) :         
+        return self.data.CountProfileChannelByChannelId(
+            channel_id
+        )
+               
+    def CountProfileChannelByProfileId(self
+        , profile_id
+    ) :         
+        return self.data.CountProfileChannelByProfileId(
+            profile_id
+        )
+               
+    def CountProfileChannelByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :         
+        return self.data.CountProfileChannelByChannelIdByProfileId(
+            channel_id
+            , profile_id
+        )
+               
+    def BrowseProfileChannelListByFilter(self, filter_obj) :
+        result = ProfileChannelResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseProfileChannelListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                profile_channel = self.FillProfileChannel(row)
+                result.data.append(profile_channel)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetProfileChannelByUuid(self, set_type, obj) :            
+            return self.data.SetProfileChannelByUuid(set_type, obj)
+            
+    def SetProfileChannelByChannelIdByProfileId(self, set_type, obj) :            
+            return self.data.SetProfileChannelByChannelIdByProfileId(set_type, obj)
+            
+    def DelProfileChannelByUuid(self
+        , uuid
+    ) :
+        return self.data.DelProfileChannelByUuid(
+            uuid
+        )
+        
+    def DelProfileChannelByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+        return self.data.DelProfileChannelByChannelIdByProfileId(
+            channel_id
+            , profile_id
+        )
+        
+    def GetProfileChannelListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetProfileChannelListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_channel  = self.FillProfileChannel(row)
+                results.append(profile_channel)
+            return results        
+        
+    def GetProfileChannelListByChannelId(self
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileChannelListByChannelId(
+            channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_channel  = self.FillProfileChannel(row)
+                results.append(profile_channel)
+            return results        
+        
+    def GetProfileChannelListByProfileId(self
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileChannelListByProfileId(
+            profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_channel  = self.FillProfileChannel(row)
+                results.append(profile_channel)
+            return results        
+        
+    def GetProfileChannelListByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileChannelListByChannelIdByProfileId(
+            channel_id
+            , profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_channel  = self.FillProfileChannel(row)
+                results.append(profile_channel)
+            return results        
+        
+        
+    def FillProfileRewardPoints(self, row) :
+        obj = ProfileRewardPoints()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['profile_id'] != None) :                 
+            obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['org_id'] != None) :                 
+            obj.org_id = row['org_id'] #dataType.FillData(dr, "org_id");                
+        if (row['channel_id'] != None) :                 
+            obj.channel_id = row['channel_id'] #dataType.FillData(dr, "channel_id");                
+        if (row['points'] != None) :                 
+            obj.points = row['points'] #dataType.FillData(dr, "points");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+
+        return obj
+        
+    def CountProfileRewardPoints(self
+    ) :         
+        return self.data.CountProfileRewardPoints(
+        )
+               
+    def CountProfileRewardPointsByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountProfileRewardPointsByUuid(
+            uuid
+        )
+               
+    def CountProfileRewardPointsByChannelId(self
+        , channel_id
+    ) :         
+        return self.data.CountProfileRewardPointsByChannelId(
+            channel_id
+        )
+               
+    def CountProfileRewardPointsByOrgId(self
+        , org_id
+    ) :         
+        return self.data.CountProfileRewardPointsByOrgId(
+            org_id
+        )
+               
+    def CountProfileRewardPointsByProfileId(self
+        , profile_id
+    ) :         
+        return self.data.CountProfileRewardPointsByProfileId(
+            profile_id
+        )
+               
+    def CountProfileRewardPointsByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :         
+        return self.data.CountProfileRewardPointsByChannelIdByOrgId(
+            channel_id
+            , org_id
+        )
+               
+    def CountProfileRewardPointsByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :         
+        return self.data.CountProfileRewardPointsByChannelIdByProfileId(
+            channel_id
+            , profile_id
+        )
+               
+    def BrowseProfileRewardPointsListByFilter(self, filter_obj) :
+        result = ProfileRewardPointsResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseProfileRewardPointsListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                profile_reward_points = self.FillProfileRewardPoints(row)
+                result.data.append(profile_reward_points)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetProfileRewardPointsByUuid(self, set_type, obj) :            
+            return self.data.SetProfileRewardPointsByUuid(set_type, obj)
+            
+    def DelProfileRewardPointsByUuid(self
+        , uuid
+    ) :
+        return self.data.DelProfileRewardPointsByUuid(
+            uuid
+        )
+        
+    def DelProfileRewardPointsByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+        return self.data.DelProfileRewardPointsByChannelIdByOrgId(
+            channel_id
+            , org_id
+        )
+        
+    def GetProfileRewardPointsListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardPointsListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward_points  = self.FillProfileRewardPoints(row)
+                results.append(profile_reward_points)
+            return results        
+        
+    def GetProfileRewardPointsListByChannelId(self
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardPointsListByChannelId(
+            channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward_points  = self.FillProfileRewardPoints(row)
+                results.append(profile_reward_points)
+            return results        
+        
+    def GetProfileRewardPointsListByOrgId(self
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardPointsListByOrgId(
+            org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward_points  = self.FillProfileRewardPoints(row)
+                results.append(profile_reward_points)
+            return results        
+        
+    def GetProfileRewardPointsListByProfileId(self
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardPointsListByProfileId(
+            profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward_points  = self.FillProfileRewardPoints(row)
+                results.append(profile_reward_points)
+            return results        
+        
+    def GetProfileRewardPointsListByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardPointsListByChannelIdByOrgId(
+            channel_id
+            , org_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward_points  = self.FillProfileRewardPoints(row)
+                results.append(profile_reward_points)
+            return results        
+        
+    def GetProfileRewardPointsListByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetProfileRewardPointsListByChannelIdByProfileId(
+            channel_id
+            , profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                profile_reward_points  = self.FillProfileRewardPoints(row)
+                results.append(profile_reward_points)
+            return results        
+        
+        
+    def FillRewardCompetition(self, row) :
+        obj = RewardCompetition()
+
+        if (row['sort'] != None) :                 
+            obj.sort = row['sort'] #dataType.FillData(dr, "sort");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['date_end'] != None) :                 
+            obj.date_end = row['date_end'] #dataType.FillData(dr, "date_end");                
+        if (row['results'] != None) :                 
+            obj.results = row['results'] #dataType.FillData(dr, "results");                
+        if (row['visible'] != None) :                 
+            obj.visible = row['visible'] #dataType.FillData(dr, "visible");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_start'] != None) :                 
+            obj.date_start = row['date_start'] #dataType.FillData(dr, "date_start");                
+        if (row['winners'] != None) :                 
+            obj.winners = row['winners'] #dataType.FillData(dr, "winners");                
+        if (row['template'] != None) :                 
+            obj.template = row['template'] #dataType.FillData(dr, "template");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['trigger_data'] != None) :                 
+            obj.trigger_data = row['trigger_data'] #dataType.FillData(dr, "trigger_data");                
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+        if (row['completed'] != None) :                 
+            obj.completed = row['completed'] #dataType.FillData(dr, "completed");                
+        if (row['template_url'] != None) :                 
+            obj.template_url = row['template_url'] #dataType.FillData(dr, "template_url");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['path'] != None) :                 
+            obj.path = row['path'] #dataType.FillData(dr, "path");                
+        if (row['data'] != None) :                 
+            obj.data = row['data'] #dataType.FillData(dr, "data");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['fulfilled'] != None) :                 
+            obj.fulfilled = row['fulfilled'] #dataType.FillData(dr, "fulfilled");                
+        if (row['channel_id'] != None) :                 
+            obj.channel_id = row['channel_id'] #dataType.FillData(dr, "channel_id");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+
+        return obj
+        
+    def CountRewardCompetitionByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountRewardCompetitionByUuid(
+            uuid
+        )
+               
+    def CountRewardCompetitionByCode(self
+        , code
+    ) :         
+        return self.data.CountRewardCompetitionByCode(
+            code
+        )
+               
+    def CountRewardCompetitionByName(self
+        , name
+    ) :         
+        return self.data.CountRewardCompetitionByName(
+            name
+        )
+               
+    def CountRewardCompetitionByPath(self
+        , path
+    ) :         
+        return self.data.CountRewardCompetitionByPath(
+            path
+        )
+               
+    def CountRewardCompetitionByChannelId(self
+        , channel_id
+    ) :         
+        return self.data.CountRewardCompetitionByChannelId(
+            channel_id
+        )
+               
+    def CountRewardCompetitionByChannelIdByCompleted(self
+        , channel_id
+        , completed
+    ) :         
+        return self.data.CountRewardCompetitionByChannelIdByCompleted(
+            channel_id
+            , completed
+        )
+               
+    def BrowseRewardCompetitionListByFilter(self, filter_obj) :
+        result = RewardCompetitionResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseRewardCompetitionListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                reward_competition = self.FillRewardCompetition(row)
+                result.data.append(reward_competition)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetRewardCompetitionByUuid(self, set_type, obj) :            
+            return self.data.SetRewardCompetitionByUuid(set_type, obj)
+            
+    def DelRewardCompetitionByUuid(self
+        , uuid
+    ) :
+        return self.data.DelRewardCompetitionByUuid(
+            uuid
+        )
+        
+    def DelRewardCompetitionByCode(self
+        , code
+    ) :
+        return self.data.DelRewardCompetitionByCode(
+            code
+        )
+        
+    def DelRewardCompetitionByPathByChannelId(self
+        , path
+        , channel_id
+    ) :
+        return self.data.DelRewardCompetitionByPathByChannelId(
+            path
+            , channel_id
+        )
+        
+    def DelRewardCompetitionByPath(self
+        , path
+    ) :
+        return self.data.DelRewardCompetitionByPath(
+            path
+        )
+        
+    def DelRewardCompetitionByChannelIdByPath(self
+        , channel_id
+        , path
+    ) :
+        return self.data.DelRewardCompetitionByChannelIdByPath(
+            channel_id
+            , path
+        )
+        
+    def GetRewardCompetitionListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetRewardCompetitionListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_competition  = self.FillRewardCompetition(row)
+                results.append(reward_competition)
+            return results        
+        
+    def GetRewardCompetitionListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetRewardCompetitionListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_competition  = self.FillRewardCompetition(row)
+                results.append(reward_competition)
+            return results        
+        
+    def GetRewardCompetitionListByName(self
+        , name
+    ) :
+
+        results = []
+        rows = self.data.GetRewardCompetitionListByName(
+            name
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_competition  = self.FillRewardCompetition(row)
+                results.append(reward_competition)
+            return results        
+        
+    def GetRewardCompetitionListByPath(self
+        , path
+    ) :
+
+        results = []
+        rows = self.data.GetRewardCompetitionListByPath(
+            path
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_competition  = self.FillRewardCompetition(row)
+                results.append(reward_competition)
+            return results        
+        
+    def GetRewardCompetitionListByChannelId(self
+        , channel_id
+    ) :
+
+        results = []
+        rows = self.data.GetRewardCompetitionListByChannelId(
+            channel_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_competition  = self.FillRewardCompetition(row)
+                results.append(reward_competition)
+            return results        
+        
+    def GetRewardCompetitionListByChannelIdByCompleted(self
+        , channel_id
+        , completed
+    ) :
+
+        results = []
+        rows = self.data.GetRewardCompetitionListByChannelIdByCompleted(
+            channel_id
+            , completed
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_competition  = self.FillRewardCompetition(row)
+                results.append(reward_competition)
+            return results        
+        
+    def GetRewardCompetitionListByChannelIdByPath(self
+        , channel_id
+        , path
+    ) :
+
+        results = []
+        rows = self.data.GetRewardCompetitionListByChannelIdByPath(
+            channel_id
+            , path
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                reward_competition  = self.FillRewardCompetition(row)
+                results.append(reward_competition)
             return results        
         
 

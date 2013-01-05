@@ -63,6 +63,7 @@ class EventInfo(BaseMeta):
     super(EventInfo, self).__init__()
     #self.__dict__.update(entries)
     self.url = None
+    self.data = None
     self.org_id = None
     self.usage_count = None
         

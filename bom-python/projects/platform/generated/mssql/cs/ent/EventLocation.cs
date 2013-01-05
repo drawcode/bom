@@ -75,11 +75,15 @@ namespace platform.ent {
         }
     
         public string event_id { get; set; }
+        public string data { get; set; }
 
         public override Dictionary<string, object> ToDictionary(){
             dict = base.ToDictionary();
 	    	if (event_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "event_id", event_id);
+	    	}
+	    	if (data != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "data", data);
 	    	}
             return dict;
         }
@@ -88,6 +92,11 @@ namespace platform.ent {
 	    	if(dict.ContainsKey("event_id")) {
 	    	    if(dict["event_id"] != null) {
 	    	    	event_id = DataType.Instance.FillString(dict["event_id"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("data")) {
+	    	    if(dict["data"] != null) {
+	    	    	data = DataType.Instance.FillString(dict["data"]);
 	    	    }		
 	    	}
         }

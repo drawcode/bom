@@ -42,6 +42,7 @@ class Message extends BaseEntity {
     public $app_id;
     public $profile_to_id;
     public $profile_to_name;
+    public $data;
     public $sent;
     public $subject;
 

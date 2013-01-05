@@ -45,7 +45,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileUuid(
+        public virtual int CountProfileByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -65,7 +65,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileUsernameHash(
+        public virtual int CountProfileByUsernameByHash(
             string username
             , string hash
         )  {
@@ -87,7 +87,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileUsername(
+        public virtual int CountProfileByUsername(
             string username
         )  {
             List<NpgsqlParameter> parameters 
@@ -107,7 +107,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -130,7 +130,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileUuid(string set_type, Profile obj)  {
+        public virtual bool SetProfileByUuid(string set_type, Profile obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -160,7 +160,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileUsername(string set_type, Profile obj)  {
+        public virtual bool SetProfileByUsername(string set_type, Profile obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -190,7 +190,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileUuid(
+        public virtual bool DelProfileByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -211,7 +211,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileUsername(
+        public virtual bool DelProfileByUsername(
             string username
         )  {
             List<NpgsqlParameter> parameters 
@@ -232,7 +232,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileListUuid(
+        public virtual DataSet GetProfileListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -255,7 +255,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileListUsernameHash(
+        public virtual DataSet GetProfileListByUsernameByHash(
             string username
             , string hash
         )  {
@@ -280,7 +280,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileListUsername(
+        public virtual DataSet GetProfileListByUsername(
             string username
         )  {
             List<NpgsqlParameter> parameters 
@@ -321,7 +321,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileTypeUuid(
+        public virtual int CountProfileTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -341,7 +341,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileTypeTypeId(
+        public virtual int CountProfileTypeByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -361,7 +361,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileTypeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -384,7 +384,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileTypeUuid(string set_type, ProfileType obj)  {
+        public virtual bool SetProfileTypeByUuid(string set_type, ProfileType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -413,7 +413,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileTypeUuid(
+        public virtual bool DelProfileTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -434,7 +434,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileTypeListUuid(
+        public virtual DataSet GetProfileTypeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -457,7 +457,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileTypeListCode(
+        public virtual DataSet GetProfileTypeListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -480,7 +480,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileTypeListTypeId(
+        public virtual DataSet GetProfileTypeListByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -521,7 +521,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeUuid(
+        public virtual int CountProfileAttributeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -541,7 +541,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeCode(
+        public virtual int CountProfileAttributeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -561,7 +561,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeType(
+        public virtual int CountProfileAttributeByType(
             int type
         )  {
             List<NpgsqlParameter> parameters 
@@ -581,7 +581,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeGroup(
+        public virtual int CountProfileAttributeByGroup(
             int group
         )  {
             List<NpgsqlParameter> parameters 
@@ -601,7 +601,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeCodeType(
+        public virtual int CountProfileAttributeByCodeByType(
             string code
             , int type
         )  {
@@ -623,7 +623,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileAttributeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileAttributeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -646,7 +646,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeUuid(string set_type, ProfileAttribute obj)  {
+        public virtual bool SetProfileAttributeByUuid(string set_type, ProfileAttribute obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -678,7 +678,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeCode(string set_type, ProfileAttribute obj)  {
+        public virtual bool SetProfileAttributeByCode(string set_type, ProfileAttribute obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -710,7 +710,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeUuid(
+        public virtual bool DelProfileAttributeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -731,7 +731,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeCode(
+        public virtual bool DelProfileAttributeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -752,7 +752,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListUuid(
+        public virtual DataSet GetProfileAttributeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -775,7 +775,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListCode(
+        public virtual DataSet GetProfileAttributeListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -798,7 +798,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListType(
+        public virtual DataSet GetProfileAttributeListByType(
             int type
         )  {
             List<NpgsqlParameter> parameters 
@@ -821,7 +821,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListGroup(
+        public virtual DataSet GetProfileAttributeListByGroup(
             int group
         )  {
             List<NpgsqlParameter> parameters 
@@ -844,7 +844,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeListCodeType(
+        public virtual DataSet GetProfileAttributeListByCodeByType(
             string code
             , int type
         )  {
@@ -887,7 +887,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeTextUuid(
+        public virtual int CountProfileAttributeTextByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -907,7 +907,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeTextProfileId(
+        public virtual int CountProfileAttributeTextByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -927,7 +927,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeTextProfileIdAttributeId(
+        public virtual int CountProfileAttributeTextByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -949,7 +949,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileAttributeTextListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileAttributeTextListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -972,7 +972,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeTextUuid(string set_type, ProfileAttributeText obj)  {
+        public virtual bool SetProfileAttributeTextByUuid(string set_type, ProfileAttributeText obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1003,7 +1003,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeTextProfileId(string set_type, ProfileAttributeText obj)  {
+        public virtual bool SetProfileAttributeTextByProfileId(string set_type, ProfileAttributeText obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1034,7 +1034,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeTextProfileIdAttributeId(string set_type, ProfileAttributeText obj)  {
+        public virtual bool SetProfileAttributeTextByProfileIdByAttributeId(string set_type, ProfileAttributeText obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1065,7 +1065,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeTextUuid(
+        public virtual bool DelProfileAttributeTextByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1086,7 +1086,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeTextProfileId(
+        public virtual bool DelProfileAttributeTextByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1107,7 +1107,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeTextProfileIdAttributeId(
+        public virtual bool DelProfileAttributeTextByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1130,7 +1130,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeTextListUuid(
+        public virtual DataSet GetProfileAttributeTextListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1153,7 +1153,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeTextListProfileId(
+        public virtual DataSet GetProfileAttributeTextListByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1176,7 +1176,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeTextListProfileIdAttributeId(
+        public virtual DataSet GetProfileAttributeTextListByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1219,7 +1219,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeDataUuid(
+        public virtual int CountProfileAttributeDataByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1239,7 +1239,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeDataProfileId(
+        public virtual int CountProfileAttributeDataByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1259,7 +1259,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAttributeDataProfileIdAttributeId(
+        public virtual int CountProfileAttributeDataByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1281,7 +1281,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileAttributeDataListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileAttributeDataListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -1304,7 +1304,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeDataUuid(string set_type, ProfileAttributeData obj)  {
+        public virtual bool SetProfileAttributeDataByUuid(string set_type, ProfileAttributeData obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1335,7 +1335,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeDataProfileId(string set_type, ProfileAttributeData obj)  {
+        public virtual bool SetProfileAttributeDataByProfileId(string set_type, ProfileAttributeData obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1366,7 +1366,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAttributeDataProfileIdAttributeId(string set_type, ProfileAttributeData obj)  {
+        public virtual bool SetProfileAttributeDataByProfileIdByAttributeId(string set_type, ProfileAttributeData obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1397,7 +1397,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeDataUuid(
+        public virtual bool DelProfileAttributeDataByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1418,7 +1418,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeDataProfileId(
+        public virtual bool DelProfileAttributeDataByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1439,7 +1439,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAttributeDataProfileIdAttributeId(
+        public virtual bool DelProfileAttributeDataByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1462,7 +1462,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeDataListUuid(
+        public virtual DataSet GetProfileAttributeDataListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1485,7 +1485,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeDataListProfileId(
+        public virtual DataSet GetProfileAttributeDataListByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1508,7 +1508,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAttributeDataListProfileIdAttributeId(
+        public virtual DataSet GetProfileAttributeDataListByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
@@ -1551,7 +1551,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceUuid(
+        public virtual int CountProfileDeviceByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1571,7 +1571,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceProfileIdDeviceId(
+        public virtual int CountProfileDeviceByProfileIdByDeviceId(
             string profile_id
             , string device_id
         )  {
@@ -1593,7 +1593,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceProfileIdToken(
+        public virtual int CountProfileDeviceByProfileIdByToken(
             string profile_id
             , string token
         )  {
@@ -1615,7 +1615,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceProfileId(
+        public virtual int CountProfileDeviceByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1635,7 +1635,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceDeviceId(
+        public virtual int CountProfileDeviceByDeviceId(
             string device_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1655,7 +1655,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileDeviceToken(
+        public virtual int CountProfileDeviceByToken(
             string token
         )  {
             List<NpgsqlParameter> parameters 
@@ -1675,7 +1675,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileDeviceListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileDeviceListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -1698,7 +1698,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileDeviceUuid(string set_type, ProfileDevice obj)  {
+        public virtual bool SetProfileDeviceByUuid(string set_type, ProfileDevice obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1730,7 +1730,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceUuid(
+        public virtual bool DelProfileDeviceByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1751,7 +1751,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceProfileIdDeviceId(
+        public virtual bool DelProfileDeviceByProfileIdByDeviceId(
             string profile_id
             , string device_id
         )  {
@@ -1774,7 +1774,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceProfileIdToken(
+        public virtual bool DelProfileDeviceByProfileIdByToken(
             string profile_id
             , string token
         )  {
@@ -1797,7 +1797,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileDeviceToken(
+        public virtual bool DelProfileDeviceByToken(
             string token
         )  {
             List<NpgsqlParameter> parameters 
@@ -1818,7 +1818,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListUuid(
+        public virtual DataSet GetProfileDeviceListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1841,7 +1841,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListProfileIdDeviceId(
+        public virtual DataSet GetProfileDeviceListByProfileIdByDeviceId(
             string profile_id
             , string device_id
         )  {
@@ -1866,7 +1866,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListProfileIdToken(
+        public virtual DataSet GetProfileDeviceListByProfileIdByToken(
             string profile_id
             , string token
         )  {
@@ -1891,7 +1891,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListProfileId(
+        public virtual DataSet GetProfileDeviceListByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1914,7 +1914,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListDeviceId(
+        public virtual DataSet GetProfileDeviceListByDeviceId(
             string device_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1937,7 +1937,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileDeviceListToken(
+        public virtual DataSet GetProfileDeviceListByToken(
             string token
         )  {
             List<NpgsqlParameter> parameters 
@@ -1978,7 +1978,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCountryUuid(
+        public virtual int CountCountryByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1998,7 +1998,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCountryCode(
+        public virtual int CountCountryByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2018,7 +2018,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseCountryListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseCountryListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -2041,7 +2041,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCountryUuid(string set_type, Country obj)  {
+        public virtual bool SetCountryByUuid(string set_type, Country obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2069,7 +2069,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCountryCode(string set_type, Country obj)  {
+        public virtual bool SetCountryByCode(string set_type, Country obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2097,7 +2097,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCountryUuid(
+        public virtual bool DelCountryByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2118,7 +2118,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCountryCode(
+        public virtual bool DelCountryByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2160,7 +2160,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetCountryListUuid(
+        public virtual DataSet GetCountryListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2183,7 +2183,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetCountryListCode(
+        public virtual DataSet GetCountryListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2224,7 +2224,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountStateUuid(
+        public virtual int CountStateByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2244,7 +2244,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountStateCode(
+        public virtual int CountStateByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2264,7 +2264,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseStateListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseStateListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -2287,7 +2287,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetStateUuid(string set_type, State obj)  {
+        public virtual bool SetStateByUuid(string set_type, State obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2315,7 +2315,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetStateCode(string set_type, State obj)  {
+        public virtual bool SetStateByCode(string set_type, State obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2343,7 +2343,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelStateUuid(
+        public virtual bool DelStateByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2364,7 +2364,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelStateCode(
+        public virtual bool DelStateByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2406,7 +2406,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetStateListUuid(
+        public virtual DataSet GetStateListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2429,7 +2429,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetStateListCode(
+        public virtual DataSet GetStateListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2470,7 +2470,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCityUuid(
+        public virtual int CountCityByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2490,7 +2490,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountCityCode(
+        public virtual int CountCityByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2510,7 +2510,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseCityListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseCityListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -2533,7 +2533,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCityUuid(string set_type, City obj)  {
+        public virtual bool SetCityByUuid(string set_type, City obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2561,7 +2561,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetCityCode(string set_type, City obj)  {
+        public virtual bool SetCityByCode(string set_type, City obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2589,7 +2589,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCityUuid(
+        public virtual bool DelCityByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2610,7 +2610,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelCityCode(
+        public virtual bool DelCityByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2652,7 +2652,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetCityListUuid(
+        public virtual DataSet GetCityListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2675,7 +2675,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetCityListCode(
+        public virtual DataSet GetCityListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2716,7 +2716,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPostalCodeUuid(
+        public virtual int CountPostalCodeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2736,7 +2736,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPostalCodeCode(
+        public virtual int CountPostalCodeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2756,7 +2756,7 @@ namespace profile {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowsePostalCodeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowsePostalCodeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -2779,7 +2779,7 @@ namespace profile {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPostalCodeUuid(string set_type, PostalCode obj)  {
+        public virtual bool SetPostalCodeByUuid(string set_type, PostalCode obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2807,7 +2807,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPostalCodeCode(string set_type, PostalCode obj)  {
+        public virtual bool SetPostalCodeByCode(string set_type, PostalCode obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2835,7 +2835,7 @@ namespace profile {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPostalCodeUuid(
+        public virtual bool DelPostalCodeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2856,7 +2856,7 @@ namespace profile {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPostalCodeCode(
+        public virtual bool DelPostalCodeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2898,7 +2898,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPostalCodeListUuid(
+        public virtual DataSet GetPostalCodeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2921,7 +2921,7 @@ namespace profile {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPostalCodeListCode(
+        public virtual DataSet GetPostalCodeListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 

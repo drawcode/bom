@@ -27,84 +27,84 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountAppUuid(self
+    def CountAppByUuid(self
         , uuid
     ) :         
-        return self.act.CountAppUuid(
+        return self.act.CountAppByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountAppCode(self
+    def CountAppByCode(self
         , code
     ) :         
-        return self.act.CountAppCode(
+        return self.act.CountAppByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountAppTypeId(self
+    def CountAppByTypeId(self
         , type_id
     ) :         
-        return self.act.CountAppTypeId(
+        return self.act.CountAppByTypeId(
         type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountAppCodeTypeId(self
+    def CountAppByCodeByTypeId(self
         , code
         , type_id
     ) :         
-        return self.act.CountAppCodeTypeId(
+        return self.act.CountAppByCodeByTypeId(
         code
         , type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountAppPlatformTypeId(self
+    def CountAppByPlatformByTypeId(self
         , platform
         , type_id
     ) :         
-        return self.act.CountAppPlatformTypeId(
+        return self.act.CountAppByPlatformByTypeId(
         platform
         , type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountAppPlatform(self
+    def CountAppByPlatform(self
         , platform
     ) :         
-        return self.act.CountAppPlatform(
+        return self.act.CountAppByPlatform(
         platform
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseAppListFilter(self, filter_obj) :
-        return self.act.BrowseAppListFilter(filter_obj)
+    def BrowseAppListByFilter(self, filter_obj) :
+        return self.act.BrowseAppListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetAppUuidType(self, set_type, obj) :
-        return self.act.SetAppUuid(set_type, obj)
+    def SetAppByUuidType(self, set_type, obj) :
+        return self.act.SetAppByUuid(set_type, obj)
                
-    def SetAppUuid(self, obj) :
-        return self.act.SetAppUuid('full', obj)
+    def SetAppByUuid(self, obj) :
+        return self.act.SetAppByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetAppCodeType(self, set_type, obj) :
-        return self.act.SetAppCode(set_type, obj)
+    def SetAppByCodeType(self, set_type, obj) :
+        return self.act.SetAppByCode(set_type, obj)
                
-    def SetAppCode(self, obj) :
-        return self.act.SetAppCode('full', obj)
+    def SetAppByCode(self, obj) :
+        return self.act.SetAppByCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelAppUuid(self
+    def DelAppByUuid(self
         , uuid
     ) :          
-        return self.act.DelAppUuid(
+        return self.act.DelAppByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelAppCode(self
+    def DelAppByCode(self
         , code
     ) :          
-        return self.act.DelAppCode(
+        return self.act.DelAppByCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -155,32 +155,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetAppListUuid(self
+    def GetAppListByUuid(self
         , uuid
         ) :
-            return self.act.GetAppListUuid(
+            return self.act.GetAppListByUuid(
                 uuid
             )
         
-    def GetAppUuid(self
+    def GetAppByUuid(self
         , uuid
     ) :
-        for item in self.GetAppListUuid(
+        for item in self.GetAppListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetAppListUuid(self
+    def CachedGetAppListByUuid(self
         , uuid
     ) :
-        return CachedGetAppListUuid(
+        return CachedGetAppListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetAppListUuid(self
+    def CachedGetAppListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -189,7 +189,7 @@ class BasePlatformAPI(object):
         """
         List<App> objs;
 
-        string method_name = "CachedGetAppListUuid";
+        string method_name = "CachedGetAppListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -205,7 +205,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetAppListUuid(
+            objs = GetAppListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -214,32 +214,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetAppListCode(self
+    def GetAppListByCode(self
         , code
         ) :
-            return self.act.GetAppListCode(
+            return self.act.GetAppListByCode(
                 code
             )
         
-    def GetAppCode(self
+    def GetAppByCode(self
         , code
     ) :
-        for item in self.GetAppListCode(
+        for item in self.GetAppListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetAppListCode(self
+    def CachedGetAppListByCode(self
         , code
     ) :
-        return CachedGetAppListCode(
+        return CachedGetAppListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetAppListCode(self
+    def CachedGetAppListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -248,7 +248,7 @@ class BasePlatformAPI(object):
         """
         List<App> objs;
 
-        string method_name = "CachedGetAppListCode";
+        string method_name = "CachedGetAppListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -264,7 +264,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetAppListCode(
+            objs = GetAppListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -273,32 +273,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetAppListTypeId(self
+    def GetAppListByTypeId(self
         , type_id
         ) :
-            return self.act.GetAppListTypeId(
+            return self.act.GetAppListByTypeId(
                 type_id
             )
         
-    def GetAppTypeId(self
+    def GetAppByTypeId(self
         , type_id
     ) :
-        for item in self.GetAppListTypeId(
+        for item in self.GetAppListByTypeId(
         type_id
         ) :
             return item
         return None
     
-    def CachedGetAppListTypeId(self
+    def CachedGetAppListByTypeId(self
         , type_id
     ) :
-        return CachedGetAppListTypeId(
+        return CachedGetAppListByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , type_id
         )
         
-    def CachedGetAppListTypeId(self
+    def CachedGetAppListByTypeId(self
         , overrideCache
         , cacheHours
         , type_id
@@ -307,7 +307,7 @@ class BasePlatformAPI(object):
         """
         List<App> objs;
 
-        string method_name = "CachedGetAppListTypeId";
+        string method_name = "CachedGetAppListByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -323,7 +323,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetAppListTypeId(
+            objs = GetAppListByTypeId(
                 type_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -332,38 +332,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetAppListCodeTypeId(self
+    def GetAppListByCodeByTypeId(self
         , code
         , type_id
         ) :
-            return self.act.GetAppListCodeTypeId(
+            return self.act.GetAppListByCodeByTypeId(
                 code
                 , type_id
             )
         
-    def GetAppCodeTypeId(self
+    def GetAppByCodeByTypeId(self
         , code
         , type_id
     ) :
-        for item in self.GetAppListCodeTypeId(
+        for item in self.GetAppListByCodeByTypeId(
         code
         , type_id
         ) :
             return item
         return None
     
-    def CachedGetAppListCodeTypeId(self
+    def CachedGetAppListByCodeByTypeId(self
         , code
         , type_id
     ) :
-        return CachedGetAppListCodeTypeId(
+        return CachedGetAppListByCodeByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , type_id
         )
         
-    def CachedGetAppListCodeTypeId(self
+    def CachedGetAppListByCodeByTypeId(self
         , overrideCache
         , cacheHours
         , code
@@ -373,7 +373,7 @@ class BasePlatformAPI(object):
         """
         List<App> objs;
 
-        string method_name = "CachedGetAppListCodeTypeId";
+        string method_name = "CachedGetAppListByCodeByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -393,7 +393,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetAppListCodeTypeId(
+            objs = GetAppListByCodeByTypeId(
                 code
                 , type_id
             );
@@ -403,38 +403,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetAppListPlatformTypeId(self
+    def GetAppListByPlatformByTypeId(self
         , platform
         , type_id
         ) :
-            return self.act.GetAppListPlatformTypeId(
+            return self.act.GetAppListByPlatformByTypeId(
                 platform
                 , type_id
             )
         
-    def GetAppPlatformTypeId(self
+    def GetAppByPlatformByTypeId(self
         , platform
         , type_id
     ) :
-        for item in self.GetAppListPlatformTypeId(
+        for item in self.GetAppListByPlatformByTypeId(
         platform
         , type_id
         ) :
             return item
         return None
     
-    def CachedGetAppListPlatformTypeId(self
+    def CachedGetAppListByPlatformByTypeId(self
         , platform
         , type_id
     ) :
-        return CachedGetAppListPlatformTypeId(
+        return CachedGetAppListByPlatformByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , platform
             , type_id
         )
         
-    def CachedGetAppListPlatformTypeId(self
+    def CachedGetAppListByPlatformByTypeId(self
         , overrideCache
         , cacheHours
         , platform
@@ -444,7 +444,7 @@ class BasePlatformAPI(object):
         """
         List<App> objs;
 
-        string method_name = "CachedGetAppListPlatformTypeId";
+        string method_name = "CachedGetAppListByPlatformByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -464,7 +464,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetAppListPlatformTypeId(
+            objs = GetAppListByPlatformByTypeId(
                 platform
                 , type_id
             );
@@ -474,32 +474,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetAppListPlatform(self
+    def GetAppListByPlatform(self
         , platform
         ) :
-            return self.act.GetAppListPlatform(
+            return self.act.GetAppListByPlatform(
                 platform
             )
         
-    def GetAppPlatform(self
+    def GetAppByPlatform(self
         , platform
     ) :
-        for item in self.GetAppListPlatform(
+        for item in self.GetAppListByPlatform(
         platform
         ) :
             return item
         return None
     
-    def CachedGetAppListPlatform(self
+    def CachedGetAppListByPlatform(self
         , platform
     ) :
-        return CachedGetAppListPlatform(
+        return CachedGetAppListByPlatform(
             false
             , self.CACHE_DEFAULT_HOURS
             , platform
         )
         
-    def CachedGetAppListPlatform(self
+    def CachedGetAppListByPlatform(self
         , overrideCache
         , cacheHours
         , platform
@@ -508,7 +508,7 @@ class BasePlatformAPI(object):
         """
         List<App> objs;
 
-        string method_name = "CachedGetAppListPlatform";
+        string method_name = "CachedGetAppListByPlatform";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -524,7 +524,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetAppListPlatform(
+            objs = GetAppListByPlatform(
                 platform
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -539,48 +539,48 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountAppTypeUuid(self
+    def CountAppTypeByUuid(self
         , uuid
     ) :         
-        return self.act.CountAppTypeUuid(
+        return self.act.CountAppTypeByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountAppTypeCode(self
+    def CountAppTypeByCode(self
         , code
     ) :         
-        return self.act.CountAppTypeCode(
+        return self.act.CountAppTypeByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseAppTypeListFilter(self, filter_obj) :
-        return self.act.BrowseAppTypeListFilter(filter_obj)
+    def BrowseAppTypeListByFilter(self, filter_obj) :
+        return self.act.BrowseAppTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetAppTypeUuidType(self, set_type, obj) :
-        return self.act.SetAppTypeUuid(set_type, obj)
+    def SetAppTypeByUuidType(self, set_type, obj) :
+        return self.act.SetAppTypeByUuid(set_type, obj)
                
-    def SetAppTypeUuid(self, obj) :
-        return self.act.SetAppTypeUuid('full', obj)
+    def SetAppTypeByUuid(self, obj) :
+        return self.act.SetAppTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetAppTypeCodeType(self, set_type, obj) :
-        return self.act.SetAppTypeCode(set_type, obj)
+    def SetAppTypeByCodeType(self, set_type, obj) :
+        return self.act.SetAppTypeByCode(set_type, obj)
                
-    def SetAppTypeCode(self, obj) :
-        return self.act.SetAppTypeCode('full', obj)
+    def SetAppTypeByCode(self, obj) :
+        return self.act.SetAppTypeByCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelAppTypeUuid(self
+    def DelAppTypeByUuid(self
         , uuid
     ) :          
-        return self.act.DelAppTypeUuid(
+        return self.act.DelAppTypeByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelAppTypeCode(self
+    def DelAppTypeByCode(self
         , code
     ) :          
-        return self.act.DelAppTypeCode(
+        return self.act.DelAppTypeByCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -631,32 +631,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetAppTypeListUuid(self
+    def GetAppTypeListByUuid(self
         , uuid
         ) :
-            return self.act.GetAppTypeListUuid(
+            return self.act.GetAppTypeListByUuid(
                 uuid
             )
         
-    def GetAppTypeUuid(self
+    def GetAppTypeByUuid(self
         , uuid
     ) :
-        for item in self.GetAppTypeListUuid(
+        for item in self.GetAppTypeListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetAppTypeListUuid(self
+    def CachedGetAppTypeListByUuid(self
         , uuid
     ) :
-        return CachedGetAppTypeListUuid(
+        return CachedGetAppTypeListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetAppTypeListUuid(self
+    def CachedGetAppTypeListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -665,7 +665,7 @@ class BasePlatformAPI(object):
         """
         List<AppType> objs;
 
-        string method_name = "CachedGetAppTypeListUuid";
+        string method_name = "CachedGetAppTypeListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -681,7 +681,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetAppTypeListUuid(
+            objs = GetAppTypeListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -690,32 +690,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetAppTypeListCode(self
+    def GetAppTypeListByCode(self
         , code
         ) :
-            return self.act.GetAppTypeListCode(
+            return self.act.GetAppTypeListByCode(
                 code
             )
         
-    def GetAppTypeCode(self
+    def GetAppTypeByCode(self
         , code
     ) :
-        for item in self.GetAppTypeListCode(
+        for item in self.GetAppTypeListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetAppTypeListCode(self
+    def CachedGetAppTypeListByCode(self
         , code
     ) :
-        return CachedGetAppTypeListCode(
+        return CachedGetAppTypeListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetAppTypeListCode(self
+    def CachedGetAppTypeListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -724,7 +724,7 @@ class BasePlatformAPI(object):
         """
         List<AppType> objs;
 
-        string method_name = "CachedGetAppTypeListCode";
+        string method_name = "CachedGetAppTypeListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -740,7 +740,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetAppTypeListCode(
+            objs = GetAppTypeListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -755,84 +755,84 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteUuid(self
+    def CountSiteByUuid(self
         , uuid
     ) :         
-        return self.act.CountSiteUuid(
+        return self.act.CountSiteByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteCode(self
+    def CountSiteByCode(self
         , code
     ) :         
-        return self.act.CountSiteCode(
+        return self.act.CountSiteByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteTypeId(self
+    def CountSiteByTypeId(self
         , type_id
     ) :         
-        return self.act.CountSiteTypeId(
+        return self.act.CountSiteByTypeId(
         type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteCodeTypeId(self
+    def CountSiteByCodeByTypeId(self
         , code
         , type_id
     ) :         
-        return self.act.CountSiteCodeTypeId(
+        return self.act.CountSiteByCodeByTypeId(
         code
         , type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteDomainTypeId(self
+    def CountSiteByDomainByTypeId(self
         , domain
         , type_id
     ) :         
-        return self.act.CountSiteDomainTypeId(
+        return self.act.CountSiteByDomainByTypeId(
         domain
         , type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteDomain(self
+    def CountSiteByDomain(self
         , domain
     ) :         
-        return self.act.CountSiteDomain(
+        return self.act.CountSiteByDomain(
         domain
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseSiteListFilter(self, filter_obj) :
-        return self.act.BrowseSiteListFilter(filter_obj)
+    def BrowseSiteListByFilter(self, filter_obj) :
+        return self.act.BrowseSiteListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteUuidType(self, set_type, obj) :
-        return self.act.SetSiteUuid(set_type, obj)
+    def SetSiteByUuidType(self, set_type, obj) :
+        return self.act.SetSiteByUuid(set_type, obj)
                
-    def SetSiteUuid(self, obj) :
-        return self.act.SetSiteUuid('full', obj)
+    def SetSiteByUuid(self, obj) :
+        return self.act.SetSiteByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteCodeType(self, set_type, obj) :
-        return self.act.SetSiteCode(set_type, obj)
+    def SetSiteByCodeType(self, set_type, obj) :
+        return self.act.SetSiteByCode(set_type, obj)
                
-    def SetSiteCode(self, obj) :
-        return self.act.SetSiteCode('full', obj)
+    def SetSiteByCode(self, obj) :
+        return self.act.SetSiteByCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelSiteUuid(self
+    def DelSiteByUuid(self
         , uuid
     ) :          
-        return self.act.DelSiteUuid(
+        return self.act.DelSiteByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelSiteCode(self
+    def DelSiteByCode(self
         , code
     ) :          
-        return self.act.DelSiteCode(
+        return self.act.DelSiteByCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -883,32 +883,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteListUuid(self
+    def GetSiteListByUuid(self
         , uuid
         ) :
-            return self.act.GetSiteListUuid(
+            return self.act.GetSiteListByUuid(
                 uuid
             )
         
-    def GetSiteUuid(self
+    def GetSiteByUuid(self
         , uuid
     ) :
-        for item in self.GetSiteListUuid(
+        for item in self.GetSiteListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetSiteListUuid(self
+    def CachedGetSiteListByUuid(self
         , uuid
     ) :
-        return CachedGetSiteListUuid(
+        return CachedGetSiteListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetSiteListUuid(self
+    def CachedGetSiteListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -917,7 +917,7 @@ class BasePlatformAPI(object):
         """
         List<Site> objs;
 
-        string method_name = "CachedGetSiteListUuid";
+        string method_name = "CachedGetSiteListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -933,7 +933,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteListUuid(
+            objs = GetSiteListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -942,32 +942,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteListCode(self
+    def GetSiteListByCode(self
         , code
         ) :
-            return self.act.GetSiteListCode(
+            return self.act.GetSiteListByCode(
                 code
             )
         
-    def GetSiteCode(self
+    def GetSiteByCode(self
         , code
     ) :
-        for item in self.GetSiteListCode(
+        for item in self.GetSiteListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetSiteListCode(self
+    def CachedGetSiteListByCode(self
         , code
     ) :
-        return CachedGetSiteListCode(
+        return CachedGetSiteListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetSiteListCode(self
+    def CachedGetSiteListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -976,7 +976,7 @@ class BasePlatformAPI(object):
         """
         List<Site> objs;
 
-        string method_name = "CachedGetSiteListCode";
+        string method_name = "CachedGetSiteListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -992,7 +992,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteListCode(
+            objs = GetSiteListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1001,32 +1001,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteListTypeId(self
+    def GetSiteListByTypeId(self
         , type_id
         ) :
-            return self.act.GetSiteListTypeId(
+            return self.act.GetSiteListByTypeId(
                 type_id
             )
         
-    def GetSiteTypeId(self
+    def GetSiteByTypeId(self
         , type_id
     ) :
-        for item in self.GetSiteListTypeId(
+        for item in self.GetSiteListByTypeId(
         type_id
         ) :
             return item
         return None
     
-    def CachedGetSiteListTypeId(self
+    def CachedGetSiteListByTypeId(self
         , type_id
     ) :
-        return CachedGetSiteListTypeId(
+        return CachedGetSiteListByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , type_id
         )
         
-    def CachedGetSiteListTypeId(self
+    def CachedGetSiteListByTypeId(self
         , overrideCache
         , cacheHours
         , type_id
@@ -1035,7 +1035,7 @@ class BasePlatformAPI(object):
         """
         List<Site> objs;
 
-        string method_name = "CachedGetSiteListTypeId";
+        string method_name = "CachedGetSiteListByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1051,7 +1051,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteListTypeId(
+            objs = GetSiteListByTypeId(
                 type_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1060,38 +1060,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteListCodeTypeId(self
+    def GetSiteListByCodeByTypeId(self
         , code
         , type_id
         ) :
-            return self.act.GetSiteListCodeTypeId(
+            return self.act.GetSiteListByCodeByTypeId(
                 code
                 , type_id
             )
         
-    def GetSiteCodeTypeId(self
+    def GetSiteByCodeByTypeId(self
         , code
         , type_id
     ) :
-        for item in self.GetSiteListCodeTypeId(
+        for item in self.GetSiteListByCodeByTypeId(
         code
         , type_id
         ) :
             return item
         return None
     
-    def CachedGetSiteListCodeTypeId(self
+    def CachedGetSiteListByCodeByTypeId(self
         , code
         , type_id
     ) :
-        return CachedGetSiteListCodeTypeId(
+        return CachedGetSiteListByCodeByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
             , type_id
         )
         
-    def CachedGetSiteListCodeTypeId(self
+    def CachedGetSiteListByCodeByTypeId(self
         , overrideCache
         , cacheHours
         , code
@@ -1101,7 +1101,7 @@ class BasePlatformAPI(object):
         """
         List<Site> objs;
 
-        string method_name = "CachedGetSiteListCodeTypeId";
+        string method_name = "CachedGetSiteListByCodeByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1121,7 +1121,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteListCodeTypeId(
+            objs = GetSiteListByCodeByTypeId(
                 code
                 , type_id
             );
@@ -1131,38 +1131,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteListDomainTypeId(self
+    def GetSiteListByDomainByTypeId(self
         , domain
         , type_id
         ) :
-            return self.act.GetSiteListDomainTypeId(
+            return self.act.GetSiteListByDomainByTypeId(
                 domain
                 , type_id
             )
         
-    def GetSiteDomainTypeId(self
+    def GetSiteByDomainByTypeId(self
         , domain
         , type_id
     ) :
-        for item in self.GetSiteListDomainTypeId(
+        for item in self.GetSiteListByDomainByTypeId(
         domain
         , type_id
         ) :
             return item
         return None
     
-    def CachedGetSiteListDomainTypeId(self
+    def CachedGetSiteListByDomainByTypeId(self
         , domain
         , type_id
     ) :
-        return CachedGetSiteListDomainTypeId(
+        return CachedGetSiteListByDomainByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , domain
             , type_id
         )
         
-    def CachedGetSiteListDomainTypeId(self
+    def CachedGetSiteListByDomainByTypeId(self
         , overrideCache
         , cacheHours
         , domain
@@ -1172,7 +1172,7 @@ class BasePlatformAPI(object):
         """
         List<Site> objs;
 
-        string method_name = "CachedGetSiteListDomainTypeId";
+        string method_name = "CachedGetSiteListByDomainByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1192,7 +1192,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteListDomainTypeId(
+            objs = GetSiteListByDomainByTypeId(
                 domain
                 , type_id
             );
@@ -1202,32 +1202,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteListDomain(self
+    def GetSiteListByDomain(self
         , domain
         ) :
-            return self.act.GetSiteListDomain(
+            return self.act.GetSiteListByDomain(
                 domain
             )
         
-    def GetSiteDomain(self
+    def GetSiteByDomain(self
         , domain
     ) :
-        for item in self.GetSiteListDomain(
+        for item in self.GetSiteListByDomain(
         domain
         ) :
             return item
         return None
     
-    def CachedGetSiteListDomain(self
+    def CachedGetSiteListByDomain(self
         , domain
     ) :
-        return CachedGetSiteListDomain(
+        return CachedGetSiteListByDomain(
             false
             , self.CACHE_DEFAULT_HOURS
             , domain
         )
         
-    def CachedGetSiteListDomain(self
+    def CachedGetSiteListByDomain(self
         , overrideCache
         , cacheHours
         , domain
@@ -1236,7 +1236,7 @@ class BasePlatformAPI(object):
         """
         List<Site> objs;
 
-        string method_name = "CachedGetSiteListDomain";
+        string method_name = "CachedGetSiteListByDomain";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1252,7 +1252,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteListDomain(
+            objs = GetSiteListByDomain(
                 domain
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1267,48 +1267,48 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteTypeUuid(self
+    def CountSiteTypeByUuid(self
         , uuid
     ) :         
-        return self.act.CountSiteTypeUuid(
+        return self.act.CountSiteTypeByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteTypeCode(self
+    def CountSiteTypeByCode(self
         , code
     ) :         
-        return self.act.CountSiteTypeCode(
+        return self.act.CountSiteTypeByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseSiteTypeListFilter(self, filter_obj) :
-        return self.act.BrowseSiteTypeListFilter(filter_obj)
+    def BrowseSiteTypeListByFilter(self, filter_obj) :
+        return self.act.BrowseSiteTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteTypeUuidType(self, set_type, obj) :
-        return self.act.SetSiteTypeUuid(set_type, obj)
+    def SetSiteTypeByUuidType(self, set_type, obj) :
+        return self.act.SetSiteTypeByUuid(set_type, obj)
                
-    def SetSiteTypeUuid(self, obj) :
-        return self.act.SetSiteTypeUuid('full', obj)
+    def SetSiteTypeByUuid(self, obj) :
+        return self.act.SetSiteTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteTypeCodeType(self, set_type, obj) :
-        return self.act.SetSiteTypeCode(set_type, obj)
+    def SetSiteTypeByCodeType(self, set_type, obj) :
+        return self.act.SetSiteTypeByCode(set_type, obj)
                
-    def SetSiteTypeCode(self, obj) :
-        return self.act.SetSiteTypeCode('full', obj)
+    def SetSiteTypeByCode(self, obj) :
+        return self.act.SetSiteTypeByCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelSiteTypeUuid(self
+    def DelSiteTypeByUuid(self
         , uuid
     ) :          
-        return self.act.DelSiteTypeUuid(
+        return self.act.DelSiteTypeByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelSiteTypeCode(self
+    def DelSiteTypeByCode(self
         , code
     ) :          
-        return self.act.DelSiteTypeCode(
+        return self.act.DelSiteTypeByCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -1359,32 +1359,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteTypeListUuid(self
+    def GetSiteTypeListByUuid(self
         , uuid
         ) :
-            return self.act.GetSiteTypeListUuid(
+            return self.act.GetSiteTypeListByUuid(
                 uuid
             )
         
-    def GetSiteTypeUuid(self
+    def GetSiteTypeByUuid(self
         , uuid
     ) :
-        for item in self.GetSiteTypeListUuid(
+        for item in self.GetSiteTypeListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetSiteTypeListUuid(self
+    def CachedGetSiteTypeListByUuid(self
         , uuid
     ) :
-        return CachedGetSiteTypeListUuid(
+        return CachedGetSiteTypeListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetSiteTypeListUuid(self
+    def CachedGetSiteTypeListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -1393,7 +1393,7 @@ class BasePlatformAPI(object):
         """
         List<SiteType> objs;
 
-        string method_name = "CachedGetSiteTypeListUuid";
+        string method_name = "CachedGetSiteTypeListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1409,7 +1409,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteTypeListUuid(
+            objs = GetSiteTypeListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1418,32 +1418,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteTypeListCode(self
+    def GetSiteTypeListByCode(self
         , code
         ) :
-            return self.act.GetSiteTypeListCode(
+            return self.act.GetSiteTypeListByCode(
                 code
             )
         
-    def GetSiteTypeCode(self
+    def GetSiteTypeByCode(self
         , code
     ) :
-        for item in self.GetSiteTypeListCode(
+        for item in self.GetSiteTypeListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetSiteTypeListCode(self
+    def CachedGetSiteTypeListByCode(self
         , code
     ) :
-        return CachedGetSiteTypeListCode(
+        return CachedGetSiteTypeListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetSiteTypeListCode(self
+    def CachedGetSiteTypeListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -1452,7 +1452,7 @@ class BasePlatformAPI(object):
         """
         List<SiteType> objs;
 
-        string method_name = "CachedGetSiteTypeListCode";
+        string method_name = "CachedGetSiteTypeListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1468,7 +1468,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteTypeListCode(
+            objs = GetSiteTypeListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1483,43 +1483,43 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOrgUuid(self
+    def CountOrgByUuid(self
         , uuid
     ) :         
-        return self.act.CountOrgUuid(
+        return self.act.CountOrgByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOrgCode(self
+    def CountOrgByCode(self
         , code
     ) :         
-        return self.act.CountOrgCode(
+        return self.act.CountOrgByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOrgName(self
+    def CountOrgByName(self
         , name
     ) :         
-        return self.act.CountOrgName(
+        return self.act.CountOrgByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOrgListFilter(self, filter_obj) :
-        return self.act.BrowseOrgListFilter(filter_obj)
+    def BrowseOrgListByFilter(self, filter_obj) :
+        return self.act.BrowseOrgListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgUuidType(self, set_type, obj) :
-        return self.act.SetOrgUuid(set_type, obj)
+    def SetOrgByUuidType(self, set_type, obj) :
+        return self.act.SetOrgByUuid(set_type, obj)
                
-    def SetOrgUuid(self, obj) :
-        return self.act.SetOrgUuid('full', obj)
+    def SetOrgByUuid(self, obj) :
+        return self.act.SetOrgByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOrgUuid(self
+    def DelOrgByUuid(self
         , uuid
     ) :          
-        return self.act.DelOrgUuid(
+        return self.act.DelOrgByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -1570,32 +1570,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOrgListUuid(self
+    def GetOrgListByUuid(self
         , uuid
         ) :
-            return self.act.GetOrgListUuid(
+            return self.act.GetOrgListByUuid(
                 uuid
             )
         
-    def GetOrgUuid(self
+    def GetOrgByUuid(self
         , uuid
     ) :
-        for item in self.GetOrgListUuid(
+        for item in self.GetOrgListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOrgListUuid(self
+    def CachedGetOrgListByUuid(self
         , uuid
     ) :
-        return CachedGetOrgListUuid(
+        return CachedGetOrgListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOrgListUuid(self
+    def CachedGetOrgListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -1604,7 +1604,7 @@ class BasePlatformAPI(object):
         """
         List<Org> objs;
 
-        string method_name = "CachedGetOrgListUuid";
+        string method_name = "CachedGetOrgListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1620,7 +1620,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOrgListUuid(
+            objs = GetOrgListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1629,32 +1629,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOrgListCode(self
+    def GetOrgListByCode(self
         , code
         ) :
-            return self.act.GetOrgListCode(
+            return self.act.GetOrgListByCode(
                 code
             )
         
-    def GetOrgCode(self
+    def GetOrgByCode(self
         , code
     ) :
-        for item in self.GetOrgListCode(
+        for item in self.GetOrgListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetOrgListCode(self
+    def CachedGetOrgListByCode(self
         , code
     ) :
-        return CachedGetOrgListCode(
+        return CachedGetOrgListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetOrgListCode(self
+    def CachedGetOrgListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -1663,7 +1663,7 @@ class BasePlatformAPI(object):
         """
         List<Org> objs;
 
-        string method_name = "CachedGetOrgListCode";
+        string method_name = "CachedGetOrgListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1679,7 +1679,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOrgListCode(
+            objs = GetOrgListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1688,32 +1688,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOrgListName(self
+    def GetOrgListByName(self
         , name
         ) :
-            return self.act.GetOrgListName(
+            return self.act.GetOrgListByName(
                 name
             )
         
-    def GetOrgName(self
+    def GetOrgByName(self
         , name
     ) :
-        for item in self.GetOrgListName(
+        for item in self.GetOrgListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetOrgListName(self
+    def CachedGetOrgListByName(self
         , name
     ) :
-        return CachedGetOrgListName(
+        return CachedGetOrgListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetOrgListName(self
+    def CachedGetOrgListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -1722,7 +1722,7 @@ class BasePlatformAPI(object):
         """
         List<Org> objs;
 
-        string method_name = "CachedGetOrgListName";
+        string method_name = "CachedGetOrgListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1738,7 +1738,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOrgListName(
+            objs = GetOrgListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1753,48 +1753,48 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOrgTypeUuid(self
+    def CountOrgTypeByUuid(self
         , uuid
     ) :         
-        return self.act.CountOrgTypeUuid(
+        return self.act.CountOrgTypeByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOrgTypeCode(self
+    def CountOrgTypeByCode(self
         , code
     ) :         
-        return self.act.CountOrgTypeCode(
+        return self.act.CountOrgTypeByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOrgTypeListFilter(self, filter_obj) :
-        return self.act.BrowseOrgTypeListFilter(filter_obj)
+    def BrowseOrgTypeListByFilter(self, filter_obj) :
+        return self.act.BrowseOrgTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgTypeUuidType(self, set_type, obj) :
-        return self.act.SetOrgTypeUuid(set_type, obj)
+    def SetOrgTypeByUuidType(self, set_type, obj) :
+        return self.act.SetOrgTypeByUuid(set_type, obj)
                
-    def SetOrgTypeUuid(self, obj) :
-        return self.act.SetOrgTypeUuid('full', obj)
+    def SetOrgTypeByUuid(self, obj) :
+        return self.act.SetOrgTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgTypeCodeType(self, set_type, obj) :
-        return self.act.SetOrgTypeCode(set_type, obj)
+    def SetOrgTypeByCodeType(self, set_type, obj) :
+        return self.act.SetOrgTypeByCode(set_type, obj)
                
-    def SetOrgTypeCode(self, obj) :
-        return self.act.SetOrgTypeCode('full', obj)
+    def SetOrgTypeByCode(self, obj) :
+        return self.act.SetOrgTypeByCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOrgTypeUuid(self
+    def DelOrgTypeByUuid(self
         , uuid
     ) :          
-        return self.act.DelOrgTypeUuid(
+        return self.act.DelOrgTypeByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelOrgTypeCode(self
+    def DelOrgTypeByCode(self
         , code
     ) :          
-        return self.act.DelOrgTypeCode(
+        return self.act.DelOrgTypeByCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -1845,32 +1845,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOrgTypeListUuid(self
+    def GetOrgTypeListByUuid(self
         , uuid
         ) :
-            return self.act.GetOrgTypeListUuid(
+            return self.act.GetOrgTypeListByUuid(
                 uuid
             )
         
-    def GetOrgTypeUuid(self
+    def GetOrgTypeByUuid(self
         , uuid
     ) :
-        for item in self.GetOrgTypeListUuid(
+        for item in self.GetOrgTypeListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOrgTypeListUuid(self
+    def CachedGetOrgTypeListByUuid(self
         , uuid
     ) :
-        return CachedGetOrgTypeListUuid(
+        return CachedGetOrgTypeListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOrgTypeListUuid(self
+    def CachedGetOrgTypeListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -1879,7 +1879,7 @@ class BasePlatformAPI(object):
         """
         List<OrgType> objs;
 
-        string method_name = "CachedGetOrgTypeListUuid";
+        string method_name = "CachedGetOrgTypeListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1895,7 +1895,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOrgTypeListUuid(
+            objs = GetOrgTypeListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1904,32 +1904,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOrgTypeListCode(self
+    def GetOrgTypeListByCode(self
         , code
         ) :
-            return self.act.GetOrgTypeListCode(
+            return self.act.GetOrgTypeListByCode(
                 code
             )
         
-    def GetOrgTypeCode(self
+    def GetOrgTypeByCode(self
         , code
     ) :
-        for item in self.GetOrgTypeListCode(
+        for item in self.GetOrgTypeListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetOrgTypeListCode(self
+    def CachedGetOrgTypeListByCode(self
         , code
     ) :
-        return CachedGetOrgTypeListCode(
+        return CachedGetOrgTypeListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetOrgTypeListCode(self
+    def CachedGetOrgTypeListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -1938,7 +1938,7 @@ class BasePlatformAPI(object):
         """
         List<OrgType> objs;
 
-        string method_name = "CachedGetOrgTypeListCode";
+        string method_name = "CachedGetOrgTypeListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -1954,7 +1954,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOrgTypeListCode(
+            objs = GetOrgTypeListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1969,58 +1969,58 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentItemUuid(self
+    def CountContentItemByUuid(self
         , uuid
     ) :         
-        return self.act.CountContentItemUuid(
+        return self.act.CountContentItemByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentItemCode(self
+    def CountContentItemByCode(self
         , code
     ) :         
-        return self.act.CountContentItemCode(
+        return self.act.CountContentItemByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentItemName(self
+    def CountContentItemByName(self
         , name
     ) :         
-        return self.act.CountContentItemName(
+        return self.act.CountContentItemByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentItemPath(self
+    def CountContentItemByPath(self
         , path
     ) :         
-        return self.act.CountContentItemPath(
+        return self.act.CountContentItemByPath(
         path
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseContentItemListFilter(self, filter_obj) :
-        return self.act.BrowseContentItemListFilter(filter_obj)
+    def BrowseContentItemListByFilter(self, filter_obj) :
+        return self.act.BrowseContentItemListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetContentItemUuidType(self, set_type, obj) :
-        return self.act.SetContentItemUuid(set_type, obj)
+    def SetContentItemByUuidType(self, set_type, obj) :
+        return self.act.SetContentItemByUuid(set_type, obj)
                
-    def SetContentItemUuid(self, obj) :
-        return self.act.SetContentItemUuid('full', obj)
+    def SetContentItemByUuid(self, obj) :
+        return self.act.SetContentItemByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelContentItemUuid(self
+    def DelContentItemByUuid(self
         , uuid
     ) :          
-        return self.act.DelContentItemUuid(
+        return self.act.DelContentItemByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelContentItemPath(self
+    def DelContentItemByPath(self
         , path
     ) :          
-        return self.act.DelContentItemPath(
+        return self.act.DelContentItemByPath(
         path
         )
 #------------------------------------------------------------------------------                    
@@ -2071,32 +2071,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentItemListUuid(self
+    def GetContentItemListByUuid(self
         , uuid
         ) :
-            return self.act.GetContentItemListUuid(
+            return self.act.GetContentItemListByUuid(
                 uuid
             )
         
-    def GetContentItemUuid(self
+    def GetContentItemByUuid(self
         , uuid
     ) :
-        for item in self.GetContentItemListUuid(
+        for item in self.GetContentItemListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetContentItemListUuid(self
+    def CachedGetContentItemListByUuid(self
         , uuid
     ) :
-        return CachedGetContentItemListUuid(
+        return CachedGetContentItemListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetContentItemListUuid(self
+    def CachedGetContentItemListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2105,7 +2105,7 @@ class BasePlatformAPI(object):
         """
         List<ContentItem> objs;
 
-        string method_name = "CachedGetContentItemListUuid";
+        string method_name = "CachedGetContentItemListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2121,7 +2121,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentItemListUuid(
+            objs = GetContentItemListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2130,32 +2130,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentItemListCode(self
+    def GetContentItemListByCode(self
         , code
         ) :
-            return self.act.GetContentItemListCode(
+            return self.act.GetContentItemListByCode(
                 code
             )
         
-    def GetContentItemCode(self
+    def GetContentItemByCode(self
         , code
     ) :
-        for item in self.GetContentItemListCode(
+        for item in self.GetContentItemListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetContentItemListCode(self
+    def CachedGetContentItemListByCode(self
         , code
     ) :
-        return CachedGetContentItemListCode(
+        return CachedGetContentItemListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetContentItemListCode(self
+    def CachedGetContentItemListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -2164,7 +2164,7 @@ class BasePlatformAPI(object):
         """
         List<ContentItem> objs;
 
-        string method_name = "CachedGetContentItemListCode";
+        string method_name = "CachedGetContentItemListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2180,7 +2180,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentItemListCode(
+            objs = GetContentItemListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2189,32 +2189,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentItemListName(self
+    def GetContentItemListByName(self
         , name
         ) :
-            return self.act.GetContentItemListName(
+            return self.act.GetContentItemListByName(
                 name
             )
         
-    def GetContentItemName(self
+    def GetContentItemByName(self
         , name
     ) :
-        for item in self.GetContentItemListName(
+        for item in self.GetContentItemListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetContentItemListName(self
+    def CachedGetContentItemListByName(self
         , name
     ) :
-        return CachedGetContentItemListName(
+        return CachedGetContentItemListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetContentItemListName(self
+    def CachedGetContentItemListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -2223,7 +2223,7 @@ class BasePlatformAPI(object):
         """
         List<ContentItem> objs;
 
-        string method_name = "CachedGetContentItemListName";
+        string method_name = "CachedGetContentItemListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2239,7 +2239,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentItemListName(
+            objs = GetContentItemListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2248,32 +2248,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentItemListPath(self
+    def GetContentItemListByPath(self
         , path
         ) :
-            return self.act.GetContentItemListPath(
+            return self.act.GetContentItemListByPath(
                 path
             )
         
-    def GetContentItemPath(self
+    def GetContentItemByPath(self
         , path
     ) :
-        for item in self.GetContentItemListPath(
+        for item in self.GetContentItemListByPath(
         path
         ) :
             return item
         return None
     
-    def CachedGetContentItemListPath(self
+    def CachedGetContentItemListByPath(self
         , path
     ) :
-        return CachedGetContentItemListPath(
+        return CachedGetContentItemListByPath(
             false
             , self.CACHE_DEFAULT_HOURS
             , path
         )
         
-    def CachedGetContentItemListPath(self
+    def CachedGetContentItemListByPath(self
         , overrideCache
         , cacheHours
         , path
@@ -2282,7 +2282,7 @@ class BasePlatformAPI(object):
         """
         List<ContentItem> objs;
 
-        string method_name = "CachedGetContentItemListPath";
+        string method_name = "CachedGetContentItemListByPath";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2298,7 +2298,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentItemListPath(
+            objs = GetContentItemListByPath(
                 path
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2313,48 +2313,48 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentItemTypeUuid(self
+    def CountContentItemTypeByUuid(self
         , uuid
     ) :         
-        return self.act.CountContentItemTypeUuid(
+        return self.act.CountContentItemTypeByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentItemTypeCode(self
+    def CountContentItemTypeByCode(self
         , code
     ) :         
-        return self.act.CountContentItemTypeCode(
+        return self.act.CountContentItemTypeByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseContentItemTypeListFilter(self, filter_obj) :
-        return self.act.BrowseContentItemTypeListFilter(filter_obj)
+    def BrowseContentItemTypeListByFilter(self, filter_obj) :
+        return self.act.BrowseContentItemTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetContentItemTypeUuidType(self, set_type, obj) :
-        return self.act.SetContentItemTypeUuid(set_type, obj)
+    def SetContentItemTypeByUuidType(self, set_type, obj) :
+        return self.act.SetContentItemTypeByUuid(set_type, obj)
                
-    def SetContentItemTypeUuid(self, obj) :
-        return self.act.SetContentItemTypeUuid('full', obj)
+    def SetContentItemTypeByUuid(self, obj) :
+        return self.act.SetContentItemTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetContentItemTypeCodeType(self, set_type, obj) :
-        return self.act.SetContentItemTypeCode(set_type, obj)
+    def SetContentItemTypeByCodeType(self, set_type, obj) :
+        return self.act.SetContentItemTypeByCode(set_type, obj)
                
-    def SetContentItemTypeCode(self, obj) :
-        return self.act.SetContentItemTypeCode('full', obj)
+    def SetContentItemTypeByCode(self, obj) :
+        return self.act.SetContentItemTypeByCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelContentItemTypeUuid(self
+    def DelContentItemTypeByUuid(self
         , uuid
     ) :          
-        return self.act.DelContentItemTypeUuid(
+        return self.act.DelContentItemTypeByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelContentItemTypeCode(self
+    def DelContentItemTypeByCode(self
         , code
     ) :          
-        return self.act.DelContentItemTypeCode(
+        return self.act.DelContentItemTypeByCode(
         code
         )
 #------------------------------------------------------------------------------                    
@@ -2405,32 +2405,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentItemTypeListUuid(self
+    def GetContentItemTypeListByUuid(self
         , uuid
         ) :
-            return self.act.GetContentItemTypeListUuid(
+            return self.act.GetContentItemTypeListByUuid(
                 uuid
             )
         
-    def GetContentItemTypeUuid(self
+    def GetContentItemTypeByUuid(self
         , uuid
     ) :
-        for item in self.GetContentItemTypeListUuid(
+        for item in self.GetContentItemTypeListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetContentItemTypeListUuid(self
+    def CachedGetContentItemTypeListByUuid(self
         , uuid
     ) :
-        return CachedGetContentItemTypeListUuid(
+        return CachedGetContentItemTypeListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetContentItemTypeListUuid(self
+    def CachedGetContentItemTypeListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2439,7 +2439,7 @@ class BasePlatformAPI(object):
         """
         List<ContentItemType> objs;
 
-        string method_name = "CachedGetContentItemTypeListUuid";
+        string method_name = "CachedGetContentItemTypeListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2455,7 +2455,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentItemTypeListUuid(
+            objs = GetContentItemTypeListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2464,32 +2464,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentItemTypeListCode(self
+    def GetContentItemTypeListByCode(self
         , code
         ) :
-            return self.act.GetContentItemTypeListCode(
+            return self.act.GetContentItemTypeListByCode(
                 code
             )
         
-    def GetContentItemTypeCode(self
+    def GetContentItemTypeByCode(self
         , code
     ) :
-        for item in self.GetContentItemTypeListCode(
+        for item in self.GetContentItemTypeListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetContentItemTypeListCode(self
+    def CachedGetContentItemTypeListByCode(self
         , code
     ) :
-        return CachedGetContentItemTypeListCode(
+        return CachedGetContentItemTypeListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetContentItemTypeListCode(self
+    def CachedGetContentItemTypeListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -2498,7 +2498,7 @@ class BasePlatformAPI(object):
         """
         List<ContentItemType> objs;
 
-        string method_name = "CachedGetContentItemTypeListCode";
+        string method_name = "CachedGetContentItemTypeListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2514,7 +2514,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentItemTypeListCode(
+            objs = GetContentItemTypeListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2529,67 +2529,67 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentPageUuid(self
+    def CountContentPageByUuid(self
         , uuid
     ) :         
-        return self.act.CountContentPageUuid(
+        return self.act.CountContentPageByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentPageCode(self
+    def CountContentPageByCode(self
         , code
     ) :         
-        return self.act.CountContentPageCode(
+        return self.act.CountContentPageByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentPageName(self
+    def CountContentPageByName(self
         , name
     ) :         
-        return self.act.CountContentPageName(
+        return self.act.CountContentPageByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountContentPagePath(self
+    def CountContentPageByPath(self
         , path
     ) :         
-        return self.act.CountContentPagePath(
+        return self.act.CountContentPageByPath(
         path
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseContentPageListFilter(self, filter_obj) :
-        return self.act.BrowseContentPageListFilter(filter_obj)
+    def BrowseContentPageListByFilter(self, filter_obj) :
+        return self.act.BrowseContentPageListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetContentPageUuidType(self, set_type, obj) :
-        return self.act.SetContentPageUuid(set_type, obj)
+    def SetContentPageByUuidType(self, set_type, obj) :
+        return self.act.SetContentPageByUuid(set_type, obj)
                
-    def SetContentPageUuid(self, obj) :
-        return self.act.SetContentPageUuid('full', obj)
+    def SetContentPageByUuid(self, obj) :
+        return self.act.SetContentPageByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelContentPageUuid(self
+    def DelContentPageByUuid(self
         , uuid
     ) :          
-        return self.act.DelContentPageUuid(
+        return self.act.DelContentPageByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelContentPagePathSiteId(self
+    def DelContentPageByPathBySiteId(self
         , path
         , site_id
     ) :          
-        return self.act.DelContentPagePathSiteId(
+        return self.act.DelContentPageByPathBySiteId(
         path
         , site_id
         )
 #------------------------------------------------------------------------------                    
-    def DelContentPagePath(self
+    def DelContentPageByPath(self
         , path
     ) :          
-        return self.act.DelContentPagePath(
+        return self.act.DelContentPageByPath(
         path
         )
 #------------------------------------------------------------------------------                    
@@ -2640,32 +2640,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentPageListUuid(self
+    def GetContentPageListByUuid(self
         , uuid
         ) :
-            return self.act.GetContentPageListUuid(
+            return self.act.GetContentPageListByUuid(
                 uuid
             )
         
-    def GetContentPageUuid(self
+    def GetContentPageByUuid(self
         , uuid
     ) :
-        for item in self.GetContentPageListUuid(
+        for item in self.GetContentPageListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetContentPageListUuid(self
+    def CachedGetContentPageListByUuid(self
         , uuid
     ) :
-        return CachedGetContentPageListUuid(
+        return CachedGetContentPageListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetContentPageListUuid(self
+    def CachedGetContentPageListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -2674,7 +2674,7 @@ class BasePlatformAPI(object):
         """
         List<ContentPage> objs;
 
-        string method_name = "CachedGetContentPageListUuid";
+        string method_name = "CachedGetContentPageListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2690,7 +2690,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentPageListUuid(
+            objs = GetContentPageListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2699,32 +2699,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentPageListCode(self
+    def GetContentPageListByCode(self
         , code
         ) :
-            return self.act.GetContentPageListCode(
+            return self.act.GetContentPageListByCode(
                 code
             )
         
-    def GetContentPageCode(self
+    def GetContentPageByCode(self
         , code
     ) :
-        for item in self.GetContentPageListCode(
+        for item in self.GetContentPageListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetContentPageListCode(self
+    def CachedGetContentPageListByCode(self
         , code
     ) :
-        return CachedGetContentPageListCode(
+        return CachedGetContentPageListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetContentPageListCode(self
+    def CachedGetContentPageListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -2733,7 +2733,7 @@ class BasePlatformAPI(object):
         """
         List<ContentPage> objs;
 
-        string method_name = "CachedGetContentPageListCode";
+        string method_name = "CachedGetContentPageListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2749,7 +2749,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentPageListCode(
+            objs = GetContentPageListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2758,32 +2758,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentPageListName(self
+    def GetContentPageListByName(self
         , name
         ) :
-            return self.act.GetContentPageListName(
+            return self.act.GetContentPageListByName(
                 name
             )
         
-    def GetContentPageName(self
+    def GetContentPageByName(self
         , name
     ) :
-        for item in self.GetContentPageListName(
+        for item in self.GetContentPageListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetContentPageListName(self
+    def CachedGetContentPageListByName(self
         , name
     ) :
-        return CachedGetContentPageListName(
+        return CachedGetContentPageListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetContentPageListName(self
+    def CachedGetContentPageListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -2792,7 +2792,7 @@ class BasePlatformAPI(object):
         """
         List<ContentPage> objs;
 
-        string method_name = "CachedGetContentPageListName";
+        string method_name = "CachedGetContentPageListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2808,7 +2808,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentPageListName(
+            objs = GetContentPageListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2817,32 +2817,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentPageListPath(self
+    def GetContentPageListByPath(self
         , path
         ) :
-            return self.act.GetContentPageListPath(
+            return self.act.GetContentPageListByPath(
                 path
             )
         
-    def GetContentPagePath(self
+    def GetContentPageByPath(self
         , path
     ) :
-        for item in self.GetContentPageListPath(
+        for item in self.GetContentPageListByPath(
         path
         ) :
             return item
         return None
     
-    def CachedGetContentPageListPath(self
+    def CachedGetContentPageListByPath(self
         , path
     ) :
-        return CachedGetContentPageListPath(
+        return CachedGetContentPageListByPath(
             false
             , self.CACHE_DEFAULT_HOURS
             , path
         )
         
-    def CachedGetContentPageListPath(self
+    def CachedGetContentPageListByPath(self
         , overrideCache
         , cacheHours
         , path
@@ -2851,7 +2851,7 @@ class BasePlatformAPI(object):
         """
         List<ContentPage> objs;
 
-        string method_name = "CachedGetContentPageListPath";
+        string method_name = "CachedGetContentPageListByPath";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2867,7 +2867,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentPageListPath(
+            objs = GetContentPageListByPath(
                 path
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2876,32 +2876,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentPageListSiteId(self
+    def GetContentPageListBySiteId(self
         , site_id
         ) :
-            return self.act.GetContentPageListSiteId(
+            return self.act.GetContentPageListBySiteId(
                 site_id
             )
         
-    def GetContentPageSiteId(self
+    def GetContentPageBySiteId(self
         , site_id
     ) :
-        for item in self.GetContentPageListSiteId(
+        for item in self.GetContentPageListBySiteId(
         site_id
         ) :
             return item
         return None
     
-    def CachedGetContentPageListSiteId(self
+    def CachedGetContentPageListBySiteId(self
         , site_id
     ) :
-        return CachedGetContentPageListSiteId(
+        return CachedGetContentPageListBySiteId(
             false
             , self.CACHE_DEFAULT_HOURS
             , site_id
         )
         
-    def CachedGetContentPageListSiteId(self
+    def CachedGetContentPageListBySiteId(self
         , overrideCache
         , cacheHours
         , site_id
@@ -2910,7 +2910,7 @@ class BasePlatformAPI(object):
         """
         List<ContentPage> objs;
 
-        string method_name = "CachedGetContentPageListSiteId";
+        string method_name = "CachedGetContentPageListBySiteId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2926,7 +2926,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentPageListSiteId(
+            objs = GetContentPageListBySiteId(
                 site_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2935,38 +2935,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetContentPageListSiteIdPath(self
+    def GetContentPageListBySiteIdByPath(self
         , site_id
         , path
         ) :
-            return self.act.GetContentPageListSiteIdPath(
+            return self.act.GetContentPageListBySiteIdByPath(
                 site_id
                 , path
             )
         
-    def GetContentPageSiteIdPath(self
+    def GetContentPageBySiteIdByPath(self
         , site_id
         , path
     ) :
-        for item in self.GetContentPageListSiteIdPath(
+        for item in self.GetContentPageListBySiteIdByPath(
         site_id
         , path
         ) :
             return item
         return None
     
-    def CachedGetContentPageListSiteIdPath(self
+    def CachedGetContentPageListBySiteIdByPath(self
         , site_id
         , path
     ) :
-        return CachedGetContentPageListSiteIdPath(
+        return CachedGetContentPageListBySiteIdByPath(
             false
             , self.CACHE_DEFAULT_HOURS
             , site_id
             , path
         )
         
-    def CachedGetContentPageListSiteIdPath(self
+    def CachedGetContentPageListBySiteIdByPath(self
         , overrideCache
         , cacheHours
         , site_id
@@ -2976,7 +2976,7 @@ class BasePlatformAPI(object):
         """
         List<ContentPage> objs;
 
-        string method_name = "CachedGetContentPageListSiteIdPath";
+        string method_name = "CachedGetContentPageListBySiteIdByPath";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -2996,7 +2996,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetContentPageListSiteIdPath(
+            objs = GetContentPageListBySiteIdByPath(
                 site_id
                 , path
             );
@@ -3012,27 +3012,27 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountMessageUuid(self
+    def CountMessageByUuid(self
         , uuid
     ) :         
-        return self.act.CountMessageUuid(
+        return self.act.CountMessageByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseMessageListFilter(self, filter_obj) :
-        return self.act.BrowseMessageListFilter(filter_obj)
+    def BrowseMessageListByFilter(self, filter_obj) :
+        return self.act.BrowseMessageListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetMessageUuidType(self, set_type, obj) :
-        return self.act.SetMessageUuid(set_type, obj)
+    def SetMessageByUuidType(self, set_type, obj) :
+        return self.act.SetMessageByUuid(set_type, obj)
                
-    def SetMessageUuid(self, obj) :
-        return self.act.SetMessageUuid('full', obj)
+    def SetMessageByUuid(self, obj) :
+        return self.act.SetMessageByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelMessageUuid(self
+    def DelMessageByUuid(self
         , uuid
     ) :          
-        return self.act.DelMessageUuid(
+        return self.act.DelMessageByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -3083,32 +3083,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetMessageListUuid(self
+    def GetMessageListByUuid(self
         , uuid
         ) :
-            return self.act.GetMessageListUuid(
+            return self.act.GetMessageListByUuid(
                 uuid
             )
         
-    def GetMessageUuid(self
+    def GetMessageByUuid(self
         , uuid
     ) :
-        for item in self.GetMessageListUuid(
+        for item in self.GetMessageListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetMessageListUuid(self
+    def CachedGetMessageListByUuid(self
         , uuid
     ) :
-        return CachedGetMessageListUuid(
+        return CachedGetMessageListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetMessageListUuid(self
+    def CachedGetMessageListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -3117,7 +3117,7 @@ class BasePlatformAPI(object):
         """
         List<Message> objs;
 
-        string method_name = "CachedGetMessageListUuid";
+        string method_name = "CachedGetMessageListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3133,7 +3133,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetMessageListUuid(
+            objs = GetMessageListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3148,58 +3148,58 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferUuid(self
+    def CountOfferByUuid(self
         , uuid
     ) :         
-        return self.act.CountOfferUuid(
+        return self.act.CountOfferByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCode(self
+    def CountOfferByCode(self
         , code
     ) :         
-        return self.act.CountOfferCode(
+        return self.act.CountOfferByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferName(self
+    def CountOfferByName(self
         , name
     ) :         
-        return self.act.CountOfferName(
+        return self.act.CountOfferByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferOrgId(self
+    def CountOfferByOrgId(self
         , org_id
     ) :         
-        return self.act.CountOfferOrgId(
+        return self.act.CountOfferByOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOfferListFilter(self, filter_obj) :
-        return self.act.BrowseOfferListFilter(filter_obj)
+    def BrowseOfferListByFilter(self, filter_obj) :
+        return self.act.BrowseOfferListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferUuidType(self, set_type, obj) :
-        return self.act.SetOfferUuid(set_type, obj)
+    def SetOfferByUuidType(self, set_type, obj) :
+        return self.act.SetOfferByUuid(set_type, obj)
                
-    def SetOfferUuid(self, obj) :
-        return self.act.SetOfferUuid('full', obj)
+    def SetOfferByUuid(self, obj) :
+        return self.act.SetOfferByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOfferUuid(self
+    def DelOfferByUuid(self
         , uuid
     ) :          
-        return self.act.DelOfferUuid(
+        return self.act.DelOfferByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelOfferOrgId(self
+    def DelOfferByOrgId(self
         , org_id
     ) :          
-        return self.act.DelOfferOrgId(
+        return self.act.DelOfferByOrgId(
         org_id
         )
 #------------------------------------------------------------------------------                    
@@ -3250,32 +3250,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferListUuid(self
+    def GetOfferListByUuid(self
         , uuid
         ) :
-            return self.act.GetOfferListUuid(
+            return self.act.GetOfferListByUuid(
                 uuid
             )
         
-    def GetOfferUuid(self
+    def GetOfferByUuid(self
         , uuid
     ) :
-        for item in self.GetOfferListUuid(
+        for item in self.GetOfferListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOfferListUuid(self
+    def CachedGetOfferListByUuid(self
         , uuid
     ) :
-        return CachedGetOfferListUuid(
+        return CachedGetOfferListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOfferListUuid(self
+    def CachedGetOfferListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -3284,7 +3284,7 @@ class BasePlatformAPI(object):
         """
         List<Offer> objs;
 
-        string method_name = "CachedGetOfferListUuid";
+        string method_name = "CachedGetOfferListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3300,7 +3300,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferListUuid(
+            objs = GetOfferListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3309,32 +3309,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferListCode(self
+    def GetOfferListByCode(self
         , code
         ) :
-            return self.act.GetOfferListCode(
+            return self.act.GetOfferListByCode(
                 code
             )
         
-    def GetOfferCode(self
+    def GetOfferByCode(self
         , code
     ) :
-        for item in self.GetOfferListCode(
+        for item in self.GetOfferListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetOfferListCode(self
+    def CachedGetOfferListByCode(self
         , code
     ) :
-        return CachedGetOfferListCode(
+        return CachedGetOfferListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetOfferListCode(self
+    def CachedGetOfferListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -3343,7 +3343,7 @@ class BasePlatformAPI(object):
         """
         List<Offer> objs;
 
-        string method_name = "CachedGetOfferListCode";
+        string method_name = "CachedGetOfferListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3359,7 +3359,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferListCode(
+            objs = GetOfferListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3368,32 +3368,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferListName(self
+    def GetOfferListByName(self
         , name
         ) :
-            return self.act.GetOfferListName(
+            return self.act.GetOfferListByName(
                 name
             )
         
-    def GetOfferName(self
+    def GetOfferByName(self
         , name
     ) :
-        for item in self.GetOfferListName(
+        for item in self.GetOfferListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetOfferListName(self
+    def CachedGetOfferListByName(self
         , name
     ) :
-        return CachedGetOfferListName(
+        return CachedGetOfferListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetOfferListName(self
+    def CachedGetOfferListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -3402,7 +3402,7 @@ class BasePlatformAPI(object):
         """
         List<Offer> objs;
 
-        string method_name = "CachedGetOfferListName";
+        string method_name = "CachedGetOfferListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3418,7 +3418,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferListName(
+            objs = GetOfferListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3427,32 +3427,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferListOrgId(self
+    def GetOfferListByOrgId(self
         , org_id
         ) :
-            return self.act.GetOfferListOrgId(
+            return self.act.GetOfferListByOrgId(
                 org_id
             )
         
-    def GetOfferOrgId(self
+    def GetOfferByOrgId(self
         , org_id
     ) :
-        for item in self.GetOfferListOrgId(
+        for item in self.GetOfferListByOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetOfferListOrgId(self
+    def CachedGetOfferListByOrgId(self
         , org_id
     ) :
-        return CachedGetOfferListOrgId(
+        return CachedGetOfferListByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetOfferListOrgId(self
+    def CachedGetOfferListByOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -3461,7 +3461,7 @@ class BasePlatformAPI(object):
         """
         List<Offer> objs;
 
-        string method_name = "CachedGetOfferListOrgId";
+        string method_name = "CachedGetOfferListByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3477,7 +3477,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferListOrgId(
+            objs = GetOfferListByOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3492,43 +3492,43 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferTypeUuid(self
+    def CountOfferTypeByUuid(self
         , uuid
     ) :         
-        return self.act.CountOfferTypeUuid(
+        return self.act.CountOfferTypeByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferTypeCode(self
+    def CountOfferTypeByCode(self
         , code
     ) :         
-        return self.act.CountOfferTypeCode(
+        return self.act.CountOfferTypeByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferTypeName(self
+    def CountOfferTypeByName(self
         , name
     ) :         
-        return self.act.CountOfferTypeName(
+        return self.act.CountOfferTypeByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOfferTypeListFilter(self, filter_obj) :
-        return self.act.BrowseOfferTypeListFilter(filter_obj)
+    def BrowseOfferTypeListByFilter(self, filter_obj) :
+        return self.act.BrowseOfferTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferTypeUuidType(self, set_type, obj) :
-        return self.act.SetOfferTypeUuid(set_type, obj)
+    def SetOfferTypeByUuidType(self, set_type, obj) :
+        return self.act.SetOfferTypeByUuid(set_type, obj)
                
-    def SetOfferTypeUuid(self, obj) :
-        return self.act.SetOfferTypeUuid('full', obj)
+    def SetOfferTypeByUuid(self, obj) :
+        return self.act.SetOfferTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOfferTypeUuid(self
+    def DelOfferTypeByUuid(self
         , uuid
     ) :          
-        return self.act.DelOfferTypeUuid(
+        return self.act.DelOfferTypeByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -3579,32 +3579,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferTypeListUuid(self
+    def GetOfferTypeListByUuid(self
         , uuid
         ) :
-            return self.act.GetOfferTypeListUuid(
+            return self.act.GetOfferTypeListByUuid(
                 uuid
             )
         
-    def GetOfferTypeUuid(self
+    def GetOfferTypeByUuid(self
         , uuid
     ) :
-        for item in self.GetOfferTypeListUuid(
+        for item in self.GetOfferTypeListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOfferTypeListUuid(self
+    def CachedGetOfferTypeListByUuid(self
         , uuid
     ) :
-        return CachedGetOfferTypeListUuid(
+        return CachedGetOfferTypeListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOfferTypeListUuid(self
+    def CachedGetOfferTypeListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -3613,7 +3613,7 @@ class BasePlatformAPI(object):
         """
         List<OfferType> objs;
 
-        string method_name = "CachedGetOfferTypeListUuid";
+        string method_name = "CachedGetOfferTypeListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3629,7 +3629,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferTypeListUuid(
+            objs = GetOfferTypeListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3638,32 +3638,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferTypeListCode(self
+    def GetOfferTypeListByCode(self
         , code
         ) :
-            return self.act.GetOfferTypeListCode(
+            return self.act.GetOfferTypeListByCode(
                 code
             )
         
-    def GetOfferTypeCode(self
+    def GetOfferTypeByCode(self
         , code
     ) :
-        for item in self.GetOfferTypeListCode(
+        for item in self.GetOfferTypeListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetOfferTypeListCode(self
+    def CachedGetOfferTypeListByCode(self
         , code
     ) :
-        return CachedGetOfferTypeListCode(
+        return CachedGetOfferTypeListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetOfferTypeListCode(self
+    def CachedGetOfferTypeListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -3672,7 +3672,7 @@ class BasePlatformAPI(object):
         """
         List<OfferType> objs;
 
-        string method_name = "CachedGetOfferTypeListCode";
+        string method_name = "CachedGetOfferTypeListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3688,7 +3688,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferTypeListCode(
+            objs = GetOfferTypeListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3697,32 +3697,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferTypeListName(self
+    def GetOfferTypeListByName(self
         , name
         ) :
-            return self.act.GetOfferTypeListName(
+            return self.act.GetOfferTypeListByName(
                 name
             )
         
-    def GetOfferTypeName(self
+    def GetOfferTypeByName(self
         , name
     ) :
-        for item in self.GetOfferTypeListName(
+        for item in self.GetOfferTypeListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetOfferTypeListName(self
+    def CachedGetOfferTypeListByName(self
         , name
     ) :
-        return CachedGetOfferTypeListName(
+        return CachedGetOfferTypeListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetOfferTypeListName(self
+    def CachedGetOfferTypeListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -3731,7 +3731,7 @@ class BasePlatformAPI(object):
         """
         List<OfferType> objs;
 
-        string method_name = "CachedGetOfferTypeListName";
+        string method_name = "CachedGetOfferTypeListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3747,7 +3747,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferTypeListName(
+            objs = GetOfferTypeListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3762,59 +3762,59 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferLocationUuid(self
+    def CountOfferLocationByUuid(self
         , uuid
     ) :         
-        return self.act.CountOfferLocationUuid(
+        return self.act.CountOfferLocationByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferLocationOfferId(self
+    def CountOfferLocationByOfferId(self
         , offer_id
     ) :         
-        return self.act.CountOfferLocationOfferId(
+        return self.act.CountOfferLocationByOfferId(
         offer_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferLocationCity(self
+    def CountOfferLocationByCity(self
         , city
     ) :         
-        return self.act.CountOfferLocationCity(
+        return self.act.CountOfferLocationByCity(
         city
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferLocationCountryCode(self
+    def CountOfferLocationByCountryCode(self
         , country_code
     ) :         
-        return self.act.CountOfferLocationCountryCode(
+        return self.act.CountOfferLocationByCountryCode(
         country_code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferLocationPostalCode(self
+    def CountOfferLocationByPostalCode(self
         , postal_code
     ) :         
-        return self.act.CountOfferLocationPostalCode(
+        return self.act.CountOfferLocationByPostalCode(
         postal_code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOfferLocationListFilter(self, filter_obj) :
-        return self.act.BrowseOfferLocationListFilter(filter_obj)
+    def BrowseOfferLocationListByFilter(self, filter_obj) :
+        return self.act.BrowseOfferLocationListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferLocationUuidType(self, set_type, obj) :
-        return self.act.SetOfferLocationUuid(set_type, obj)
+    def SetOfferLocationByUuidType(self, set_type, obj) :
+        return self.act.SetOfferLocationByUuid(set_type, obj)
                
-    def SetOfferLocationUuid(self, obj) :
-        return self.act.SetOfferLocationUuid('full', obj)
+    def SetOfferLocationByUuid(self, obj) :
+        return self.act.SetOfferLocationByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOfferLocationUuid(self
+    def DelOfferLocationByUuid(self
         , uuid
     ) :          
-        return self.act.DelOfferLocationUuid(
+        return self.act.DelOfferLocationByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -3865,32 +3865,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferLocationListUuid(self
+    def GetOfferLocationListByUuid(self
         , uuid
         ) :
-            return self.act.GetOfferLocationListUuid(
+            return self.act.GetOfferLocationListByUuid(
                 uuid
             )
         
-    def GetOfferLocationUuid(self
+    def GetOfferLocationByUuid(self
         , uuid
     ) :
-        for item in self.GetOfferLocationListUuid(
+        for item in self.GetOfferLocationListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOfferLocationListUuid(self
+    def CachedGetOfferLocationListByUuid(self
         , uuid
     ) :
-        return CachedGetOfferLocationListUuid(
+        return CachedGetOfferLocationListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOfferLocationListUuid(self
+    def CachedGetOfferLocationListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -3899,7 +3899,7 @@ class BasePlatformAPI(object):
         """
         List<OfferLocation> objs;
 
-        string method_name = "CachedGetOfferLocationListUuid";
+        string method_name = "CachedGetOfferLocationListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3915,7 +3915,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferLocationListUuid(
+            objs = GetOfferLocationListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3924,32 +3924,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferLocationListOfferId(self
+    def GetOfferLocationListByOfferId(self
         , offer_id
         ) :
-            return self.act.GetOfferLocationListOfferId(
+            return self.act.GetOfferLocationListByOfferId(
                 offer_id
             )
         
-    def GetOfferLocationOfferId(self
+    def GetOfferLocationByOfferId(self
         , offer_id
     ) :
-        for item in self.GetOfferLocationListOfferId(
+        for item in self.GetOfferLocationListByOfferId(
         offer_id
         ) :
             return item
         return None
     
-    def CachedGetOfferLocationListOfferId(self
+    def CachedGetOfferLocationListByOfferId(self
         , offer_id
     ) :
-        return CachedGetOfferLocationListOfferId(
+        return CachedGetOfferLocationListByOfferId(
             false
             , self.CACHE_DEFAULT_HOURS
             , offer_id
         )
         
-    def CachedGetOfferLocationListOfferId(self
+    def CachedGetOfferLocationListByOfferId(self
         , overrideCache
         , cacheHours
         , offer_id
@@ -3958,7 +3958,7 @@ class BasePlatformAPI(object):
         """
         List<OfferLocation> objs;
 
-        string method_name = "CachedGetOfferLocationListOfferId";
+        string method_name = "CachedGetOfferLocationListByOfferId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -3974,7 +3974,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferLocationListOfferId(
+            objs = GetOfferLocationListByOfferId(
                 offer_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3983,32 +3983,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferLocationListCity(self
+    def GetOfferLocationListByCity(self
         , city
         ) :
-            return self.act.GetOfferLocationListCity(
+            return self.act.GetOfferLocationListByCity(
                 city
             )
         
-    def GetOfferLocationCity(self
+    def GetOfferLocationByCity(self
         , city
     ) :
-        for item in self.GetOfferLocationListCity(
+        for item in self.GetOfferLocationListByCity(
         city
         ) :
             return item
         return None
     
-    def CachedGetOfferLocationListCity(self
+    def CachedGetOfferLocationListByCity(self
         , city
     ) :
-        return CachedGetOfferLocationListCity(
+        return CachedGetOfferLocationListByCity(
             false
             , self.CACHE_DEFAULT_HOURS
             , city
         )
         
-    def CachedGetOfferLocationListCity(self
+    def CachedGetOfferLocationListByCity(self
         , overrideCache
         , cacheHours
         , city
@@ -4017,7 +4017,7 @@ class BasePlatformAPI(object):
         """
         List<OfferLocation> objs;
 
-        string method_name = "CachedGetOfferLocationListCity";
+        string method_name = "CachedGetOfferLocationListByCity";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4033,7 +4033,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferLocationListCity(
+            objs = GetOfferLocationListByCity(
                 city
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4042,32 +4042,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferLocationListCountryCode(self
+    def GetOfferLocationListByCountryCode(self
         , country_code
         ) :
-            return self.act.GetOfferLocationListCountryCode(
+            return self.act.GetOfferLocationListByCountryCode(
                 country_code
             )
         
-    def GetOfferLocationCountryCode(self
+    def GetOfferLocationByCountryCode(self
         , country_code
     ) :
-        for item in self.GetOfferLocationListCountryCode(
+        for item in self.GetOfferLocationListByCountryCode(
         country_code
         ) :
             return item
         return None
     
-    def CachedGetOfferLocationListCountryCode(self
+    def CachedGetOfferLocationListByCountryCode(self
         , country_code
     ) :
-        return CachedGetOfferLocationListCountryCode(
+        return CachedGetOfferLocationListByCountryCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , country_code
         )
         
-    def CachedGetOfferLocationListCountryCode(self
+    def CachedGetOfferLocationListByCountryCode(self
         , overrideCache
         , cacheHours
         , country_code
@@ -4076,7 +4076,7 @@ class BasePlatformAPI(object):
         """
         List<OfferLocation> objs;
 
-        string method_name = "CachedGetOfferLocationListCountryCode";
+        string method_name = "CachedGetOfferLocationListByCountryCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4092,7 +4092,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferLocationListCountryCode(
+            objs = GetOfferLocationListByCountryCode(
                 country_code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4101,32 +4101,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferLocationListPostalCode(self
+    def GetOfferLocationListByPostalCode(self
         , postal_code
         ) :
-            return self.act.GetOfferLocationListPostalCode(
+            return self.act.GetOfferLocationListByPostalCode(
                 postal_code
             )
         
-    def GetOfferLocationPostalCode(self
+    def GetOfferLocationByPostalCode(self
         , postal_code
     ) :
-        for item in self.GetOfferLocationListPostalCode(
+        for item in self.GetOfferLocationListByPostalCode(
         postal_code
         ) :
             return item
         return None
     
-    def CachedGetOfferLocationListPostalCode(self
+    def CachedGetOfferLocationListByPostalCode(self
         , postal_code
     ) :
-        return CachedGetOfferLocationListPostalCode(
+        return CachedGetOfferLocationListByPostalCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , postal_code
         )
         
-    def CachedGetOfferLocationListPostalCode(self
+    def CachedGetOfferLocationListByPostalCode(self
         , overrideCache
         , cacheHours
         , postal_code
@@ -4135,7 +4135,7 @@ class BasePlatformAPI(object):
         """
         List<OfferLocation> objs;
 
-        string method_name = "CachedGetOfferLocationListPostalCode";
+        string method_name = "CachedGetOfferLocationListByPostalCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4151,7 +4151,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferLocationListPostalCode(
+            objs = GetOfferLocationListByPostalCode(
                 postal_code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4166,87 +4166,87 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryUuid(self
+    def CountOfferCategoryByUuid(self
         , uuid
     ) :         
-        return self.act.CountOfferCategoryUuid(
+        return self.act.CountOfferCategoryByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryCode(self
+    def CountOfferCategoryByCode(self
         , code
     ) :         
-        return self.act.CountOfferCategoryCode(
+        return self.act.CountOfferCategoryByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryName(self
+    def CountOfferCategoryByName(self
         , name
     ) :         
-        return self.act.CountOfferCategoryName(
+        return self.act.CountOfferCategoryByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryOrgId(self
+    def CountOfferCategoryByOrgId(self
         , org_id
     ) :         
-        return self.act.CountOfferCategoryOrgId(
+        return self.act.CountOfferCategoryByOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryTypeId(self
+    def CountOfferCategoryByTypeId(self
         , type_id
     ) :         
-        return self.act.CountOfferCategoryTypeId(
+        return self.act.CountOfferCategoryByTypeId(
         type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryOrgIdTypeId(self
+    def CountOfferCategoryByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :         
-        return self.act.CountOfferCategoryOrgIdTypeId(
+        return self.act.CountOfferCategoryByOrgIdByTypeId(
         org_id
         , type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOfferCategoryListFilter(self, filter_obj) :
-        return self.act.BrowseOfferCategoryListFilter(filter_obj)
+    def BrowseOfferCategoryListByFilter(self, filter_obj) :
+        return self.act.BrowseOfferCategoryListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferCategoryUuidType(self, set_type, obj) :
-        return self.act.SetOfferCategoryUuid(set_type, obj)
+    def SetOfferCategoryByUuidType(self, set_type, obj) :
+        return self.act.SetOfferCategoryByUuid(set_type, obj)
                
-    def SetOfferCategoryUuid(self, obj) :
-        return self.act.SetOfferCategoryUuid('full', obj)
+    def SetOfferCategoryByUuid(self, obj) :
+        return self.act.SetOfferCategoryByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOfferCategoryUuid(self
+    def DelOfferCategoryByUuid(self
         , uuid
     ) :          
-        return self.act.DelOfferCategoryUuid(
+        return self.act.DelOfferCategoryByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelOfferCategoryCodeOrgId(self
+    def DelOfferCategoryByCodeByOrgId(self
         , code
         , org_id
     ) :          
-        return self.act.DelOfferCategoryCodeOrgId(
+        return self.act.DelOfferCategoryByCodeByOrgId(
         code
         , org_id
         )
 #------------------------------------------------------------------------------                    
-    def DelOfferCategoryCodeOrgIdTypeId(self
+    def DelOfferCategoryByCodeByOrgIdByTypeId(self
         , code
         , org_id
         , type_id
     ) :          
-        return self.act.DelOfferCategoryCodeOrgIdTypeId(
+        return self.act.DelOfferCategoryByCodeByOrgIdByTypeId(
         code
         , org_id
         , type_id
@@ -4299,32 +4299,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryListUuid(self
+    def GetOfferCategoryListByUuid(self
         , uuid
         ) :
-            return self.act.GetOfferCategoryListUuid(
+            return self.act.GetOfferCategoryListByUuid(
                 uuid
             )
         
-    def GetOfferCategoryUuid(self
+    def GetOfferCategoryByUuid(self
         , uuid
     ) :
-        for item in self.GetOfferCategoryListUuid(
+        for item in self.GetOfferCategoryListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryListUuid(self
+    def CachedGetOfferCategoryListByUuid(self
         , uuid
     ) :
-        return CachedGetOfferCategoryListUuid(
+        return CachedGetOfferCategoryListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOfferCategoryListUuid(self
+    def CachedGetOfferCategoryListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -4333,7 +4333,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategory> objs;
 
-        string method_name = "CachedGetOfferCategoryListUuid";
+        string method_name = "CachedGetOfferCategoryListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4349,7 +4349,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryListUuid(
+            objs = GetOfferCategoryListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4358,32 +4358,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryListCode(self
+    def GetOfferCategoryListByCode(self
         , code
         ) :
-            return self.act.GetOfferCategoryListCode(
+            return self.act.GetOfferCategoryListByCode(
                 code
             )
         
-    def GetOfferCategoryCode(self
+    def GetOfferCategoryByCode(self
         , code
     ) :
-        for item in self.GetOfferCategoryListCode(
+        for item in self.GetOfferCategoryListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryListCode(self
+    def CachedGetOfferCategoryListByCode(self
         , code
     ) :
-        return CachedGetOfferCategoryListCode(
+        return CachedGetOfferCategoryListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetOfferCategoryListCode(self
+    def CachedGetOfferCategoryListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -4392,7 +4392,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategory> objs;
 
-        string method_name = "CachedGetOfferCategoryListCode";
+        string method_name = "CachedGetOfferCategoryListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4408,7 +4408,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryListCode(
+            objs = GetOfferCategoryListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4417,32 +4417,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryListName(self
+    def GetOfferCategoryListByName(self
         , name
         ) :
-            return self.act.GetOfferCategoryListName(
+            return self.act.GetOfferCategoryListByName(
                 name
             )
         
-    def GetOfferCategoryName(self
+    def GetOfferCategoryByName(self
         , name
     ) :
-        for item in self.GetOfferCategoryListName(
+        for item in self.GetOfferCategoryListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryListName(self
+    def CachedGetOfferCategoryListByName(self
         , name
     ) :
-        return CachedGetOfferCategoryListName(
+        return CachedGetOfferCategoryListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetOfferCategoryListName(self
+    def CachedGetOfferCategoryListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -4451,7 +4451,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategory> objs;
 
-        string method_name = "CachedGetOfferCategoryListName";
+        string method_name = "CachedGetOfferCategoryListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4467,7 +4467,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryListName(
+            objs = GetOfferCategoryListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4476,32 +4476,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryListOrgId(self
+    def GetOfferCategoryListByOrgId(self
         , org_id
         ) :
-            return self.act.GetOfferCategoryListOrgId(
+            return self.act.GetOfferCategoryListByOrgId(
                 org_id
             )
         
-    def GetOfferCategoryOrgId(self
+    def GetOfferCategoryByOrgId(self
         , org_id
     ) :
-        for item in self.GetOfferCategoryListOrgId(
+        for item in self.GetOfferCategoryListByOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryListOrgId(self
+    def CachedGetOfferCategoryListByOrgId(self
         , org_id
     ) :
-        return CachedGetOfferCategoryListOrgId(
+        return CachedGetOfferCategoryListByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetOfferCategoryListOrgId(self
+    def CachedGetOfferCategoryListByOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -4510,7 +4510,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategory> objs;
 
-        string method_name = "CachedGetOfferCategoryListOrgId";
+        string method_name = "CachedGetOfferCategoryListByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4526,7 +4526,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryListOrgId(
+            objs = GetOfferCategoryListByOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4535,32 +4535,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryListTypeId(self
+    def GetOfferCategoryListByTypeId(self
         , type_id
         ) :
-            return self.act.GetOfferCategoryListTypeId(
+            return self.act.GetOfferCategoryListByTypeId(
                 type_id
             )
         
-    def GetOfferCategoryTypeId(self
+    def GetOfferCategoryByTypeId(self
         , type_id
     ) :
-        for item in self.GetOfferCategoryListTypeId(
+        for item in self.GetOfferCategoryListByTypeId(
         type_id
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryListTypeId(self
+    def CachedGetOfferCategoryListByTypeId(self
         , type_id
     ) :
-        return CachedGetOfferCategoryListTypeId(
+        return CachedGetOfferCategoryListByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , type_id
         )
         
-    def CachedGetOfferCategoryListTypeId(self
+    def CachedGetOfferCategoryListByTypeId(self
         , overrideCache
         , cacheHours
         , type_id
@@ -4569,7 +4569,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategory> objs;
 
-        string method_name = "CachedGetOfferCategoryListTypeId";
+        string method_name = "CachedGetOfferCategoryListByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4585,7 +4585,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryListTypeId(
+            objs = GetOfferCategoryListByTypeId(
                 type_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4594,38 +4594,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryListOrgIdTypeId(self
+    def GetOfferCategoryListByOrgIdByTypeId(self
         , org_id
         , type_id
         ) :
-            return self.act.GetOfferCategoryListOrgIdTypeId(
+            return self.act.GetOfferCategoryListByOrgIdByTypeId(
                 org_id
                 , type_id
             )
         
-    def GetOfferCategoryOrgIdTypeId(self
+    def GetOfferCategoryByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :
-        for item in self.GetOfferCategoryListOrgIdTypeId(
+        for item in self.GetOfferCategoryListByOrgIdByTypeId(
         org_id
         , type_id
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryListOrgIdTypeId(self
+    def CachedGetOfferCategoryListByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :
-        return CachedGetOfferCategoryListOrgIdTypeId(
+        return CachedGetOfferCategoryListByOrgIdByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
             , type_id
         )
         
-    def CachedGetOfferCategoryListOrgIdTypeId(self
+    def CachedGetOfferCategoryListByOrgIdByTypeId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -4635,7 +4635,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategory> objs;
 
-        string method_name = "CachedGetOfferCategoryListOrgIdTypeId";
+        string method_name = "CachedGetOfferCategoryListByOrgIdByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4655,7 +4655,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryListOrgIdTypeId(
+            objs = GetOfferCategoryListByOrgIdByTypeId(
                 org_id
                 , type_id
             );
@@ -4671,75 +4671,75 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryTreeUuid(self
+    def CountOfferCategoryTreeByUuid(self
         , uuid
     ) :         
-        return self.act.CountOfferCategoryTreeUuid(
+        return self.act.CountOfferCategoryTreeByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryTreeParentId(self
+    def CountOfferCategoryTreeByParentId(self
         , parent_id
     ) :         
-        return self.act.CountOfferCategoryTreeParentId(
+        return self.act.CountOfferCategoryTreeByParentId(
         parent_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryTreeCategoryId(self
+    def CountOfferCategoryTreeByCategoryId(self
         , category_id
     ) :         
-        return self.act.CountOfferCategoryTreeCategoryId(
+        return self.act.CountOfferCategoryTreeByCategoryId(
         category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryTreeParentIdCategoryId(self
+    def CountOfferCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :         
-        return self.act.CountOfferCategoryTreeParentIdCategoryId(
+        return self.act.CountOfferCategoryTreeByParentIdByCategoryId(
         parent_id
         , category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOfferCategoryTreeListFilter(self, filter_obj) :
-        return self.act.BrowseOfferCategoryTreeListFilter(filter_obj)
+    def BrowseOfferCategoryTreeListByFilter(self, filter_obj) :
+        return self.act.BrowseOfferCategoryTreeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferCategoryTreeUuidType(self, set_type, obj) :
-        return self.act.SetOfferCategoryTreeUuid(set_type, obj)
+    def SetOfferCategoryTreeByUuidType(self, set_type, obj) :
+        return self.act.SetOfferCategoryTreeByUuid(set_type, obj)
                
-    def SetOfferCategoryTreeUuid(self, obj) :
-        return self.act.SetOfferCategoryTreeUuid('full', obj)
+    def SetOfferCategoryTreeByUuid(self, obj) :
+        return self.act.SetOfferCategoryTreeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOfferCategoryTreeUuid(self
+    def DelOfferCategoryTreeByUuid(self
         , uuid
     ) :          
-        return self.act.DelOfferCategoryTreeUuid(
+        return self.act.DelOfferCategoryTreeByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelOfferCategoryTreeParentId(self
+    def DelOfferCategoryTreeByParentId(self
         , parent_id
     ) :          
-        return self.act.DelOfferCategoryTreeParentId(
+        return self.act.DelOfferCategoryTreeByParentId(
         parent_id
         )
 #------------------------------------------------------------------------------                    
-    def DelOfferCategoryTreeCategoryId(self
+    def DelOfferCategoryTreeByCategoryId(self
         , category_id
     ) :          
-        return self.act.DelOfferCategoryTreeCategoryId(
+        return self.act.DelOfferCategoryTreeByCategoryId(
         category_id
         )
 #------------------------------------------------------------------------------                    
-    def DelOfferCategoryTreeParentIdCategoryId(self
+    def DelOfferCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :          
-        return self.act.DelOfferCategoryTreeParentIdCategoryId(
+        return self.act.DelOfferCategoryTreeByParentIdByCategoryId(
         parent_id
         , category_id
         )
@@ -4791,32 +4791,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryTreeListUuid(self
+    def GetOfferCategoryTreeListByUuid(self
         , uuid
         ) :
-            return self.act.GetOfferCategoryTreeListUuid(
+            return self.act.GetOfferCategoryTreeListByUuid(
                 uuid
             )
         
-    def GetOfferCategoryTreeUuid(self
+    def GetOfferCategoryTreeByUuid(self
         , uuid
     ) :
-        for item in self.GetOfferCategoryTreeListUuid(
+        for item in self.GetOfferCategoryTreeListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryTreeListUuid(self
+    def CachedGetOfferCategoryTreeListByUuid(self
         , uuid
     ) :
-        return CachedGetOfferCategoryTreeListUuid(
+        return CachedGetOfferCategoryTreeListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOfferCategoryTreeListUuid(self
+    def CachedGetOfferCategoryTreeListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -4825,7 +4825,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategoryTree> objs;
 
-        string method_name = "CachedGetOfferCategoryTreeListUuid";
+        string method_name = "CachedGetOfferCategoryTreeListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4841,7 +4841,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryTreeListUuid(
+            objs = GetOfferCategoryTreeListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4850,32 +4850,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryTreeListParentId(self
+    def GetOfferCategoryTreeListByParentId(self
         , parent_id
         ) :
-            return self.act.GetOfferCategoryTreeListParentId(
+            return self.act.GetOfferCategoryTreeListByParentId(
                 parent_id
             )
         
-    def GetOfferCategoryTreeParentId(self
+    def GetOfferCategoryTreeByParentId(self
         , parent_id
     ) :
-        for item in self.GetOfferCategoryTreeListParentId(
+        for item in self.GetOfferCategoryTreeListByParentId(
         parent_id
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryTreeListParentId(self
+    def CachedGetOfferCategoryTreeListByParentId(self
         , parent_id
     ) :
-        return CachedGetOfferCategoryTreeListParentId(
+        return CachedGetOfferCategoryTreeListByParentId(
             false
             , self.CACHE_DEFAULT_HOURS
             , parent_id
         )
         
-    def CachedGetOfferCategoryTreeListParentId(self
+    def CachedGetOfferCategoryTreeListByParentId(self
         , overrideCache
         , cacheHours
         , parent_id
@@ -4884,7 +4884,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategoryTree> objs;
 
-        string method_name = "CachedGetOfferCategoryTreeListParentId";
+        string method_name = "CachedGetOfferCategoryTreeListByParentId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4900,7 +4900,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryTreeListParentId(
+            objs = GetOfferCategoryTreeListByParentId(
                 parent_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4909,32 +4909,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryTreeListCategoryId(self
+    def GetOfferCategoryTreeListByCategoryId(self
         , category_id
         ) :
-            return self.act.GetOfferCategoryTreeListCategoryId(
+            return self.act.GetOfferCategoryTreeListByCategoryId(
                 category_id
             )
         
-    def GetOfferCategoryTreeCategoryId(self
+    def GetOfferCategoryTreeByCategoryId(self
         , category_id
     ) :
-        for item in self.GetOfferCategoryTreeListCategoryId(
+        for item in self.GetOfferCategoryTreeListByCategoryId(
         category_id
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryTreeListCategoryId(self
+    def CachedGetOfferCategoryTreeListByCategoryId(self
         , category_id
     ) :
-        return CachedGetOfferCategoryTreeListCategoryId(
+        return CachedGetOfferCategoryTreeListByCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , category_id
         )
         
-    def CachedGetOfferCategoryTreeListCategoryId(self
+    def CachedGetOfferCategoryTreeListByCategoryId(self
         , overrideCache
         , cacheHours
         , category_id
@@ -4943,7 +4943,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategoryTree> objs;
 
-        string method_name = "CachedGetOfferCategoryTreeListCategoryId";
+        string method_name = "CachedGetOfferCategoryTreeListByCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -4959,7 +4959,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryTreeListCategoryId(
+            objs = GetOfferCategoryTreeListByCategoryId(
                 category_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4968,38 +4968,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryTreeListParentIdCategoryId(self
+    def GetOfferCategoryTreeListByParentIdByCategoryId(self
         , parent_id
         , category_id
         ) :
-            return self.act.GetOfferCategoryTreeListParentIdCategoryId(
+            return self.act.GetOfferCategoryTreeListByParentIdByCategoryId(
                 parent_id
                 , category_id
             )
         
-    def GetOfferCategoryTreeParentIdCategoryId(self
+    def GetOfferCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :
-        for item in self.GetOfferCategoryTreeListParentIdCategoryId(
+        for item in self.GetOfferCategoryTreeListByParentIdByCategoryId(
         parent_id
         , category_id
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryTreeListParentIdCategoryId(self
+    def CachedGetOfferCategoryTreeListByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :
-        return CachedGetOfferCategoryTreeListParentIdCategoryId(
+        return CachedGetOfferCategoryTreeListByParentIdByCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , parent_id
             , category_id
         )
         
-    def CachedGetOfferCategoryTreeListParentIdCategoryId(self
+    def CachedGetOfferCategoryTreeListByParentIdByCategoryId(self
         , overrideCache
         , cacheHours
         , parent_id
@@ -5009,7 +5009,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategoryTree> objs;
 
-        string method_name = "CachedGetOfferCategoryTreeListParentIdCategoryId";
+        string method_name = "CachedGetOfferCategoryTreeListByParentIdByCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5029,7 +5029,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryTreeListParentIdCategoryId(
+            objs = GetOfferCategoryTreeListByParentIdByCategoryId(
                 parent_id
                 , category_id
             );
@@ -5045,53 +5045,53 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryAssocUuid(self
+    def CountOfferCategoryAssocByUuid(self
         , uuid
     ) :         
-        return self.act.CountOfferCategoryAssocUuid(
+        return self.act.CountOfferCategoryAssocByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryAssocOfferId(self
+    def CountOfferCategoryAssocByOfferId(self
         , offer_id
     ) :         
-        return self.act.CountOfferCategoryAssocOfferId(
+        return self.act.CountOfferCategoryAssocByOfferId(
         offer_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryAssocCategoryId(self
+    def CountOfferCategoryAssocByCategoryId(self
         , category_id
     ) :         
-        return self.act.CountOfferCategoryAssocCategoryId(
+        return self.act.CountOfferCategoryAssocByCategoryId(
         category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferCategoryAssocOfferIdCategoryId(self
+    def CountOfferCategoryAssocByOfferIdByCategoryId(self
         , offer_id
         , category_id
     ) :         
-        return self.act.CountOfferCategoryAssocOfferIdCategoryId(
+        return self.act.CountOfferCategoryAssocByOfferIdByCategoryId(
         offer_id
         , category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOfferCategoryAssocListFilter(self, filter_obj) :
-        return self.act.BrowseOfferCategoryAssocListFilter(filter_obj)
+    def BrowseOfferCategoryAssocListByFilter(self, filter_obj) :
+        return self.act.BrowseOfferCategoryAssocListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferCategoryAssocUuidType(self, set_type, obj) :
-        return self.act.SetOfferCategoryAssocUuid(set_type, obj)
+    def SetOfferCategoryAssocByUuidType(self, set_type, obj) :
+        return self.act.SetOfferCategoryAssocByUuid(set_type, obj)
                
-    def SetOfferCategoryAssocUuid(self, obj) :
-        return self.act.SetOfferCategoryAssocUuid('full', obj)
+    def SetOfferCategoryAssocByUuid(self, obj) :
+        return self.act.SetOfferCategoryAssocByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOfferCategoryAssocUuid(self
+    def DelOfferCategoryAssocByUuid(self
         , uuid
     ) :          
-        return self.act.DelOfferCategoryAssocUuid(
+        return self.act.DelOfferCategoryAssocByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -5142,32 +5142,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryAssocListUuid(self
+    def GetOfferCategoryAssocListByUuid(self
         , uuid
         ) :
-            return self.act.GetOfferCategoryAssocListUuid(
+            return self.act.GetOfferCategoryAssocListByUuid(
                 uuid
             )
         
-    def GetOfferCategoryAssocUuid(self
+    def GetOfferCategoryAssocByUuid(self
         , uuid
     ) :
-        for item in self.GetOfferCategoryAssocListUuid(
+        for item in self.GetOfferCategoryAssocListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryAssocListUuid(self
+    def CachedGetOfferCategoryAssocListByUuid(self
         , uuid
     ) :
-        return CachedGetOfferCategoryAssocListUuid(
+        return CachedGetOfferCategoryAssocListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOfferCategoryAssocListUuid(self
+    def CachedGetOfferCategoryAssocListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -5176,7 +5176,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategoryAssoc> objs;
 
-        string method_name = "CachedGetOfferCategoryAssocListUuid";
+        string method_name = "CachedGetOfferCategoryAssocListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5192,7 +5192,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryAssocListUuid(
+            objs = GetOfferCategoryAssocListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5201,32 +5201,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryAssocListOfferId(self
+    def GetOfferCategoryAssocListByOfferId(self
         , offer_id
         ) :
-            return self.act.GetOfferCategoryAssocListOfferId(
+            return self.act.GetOfferCategoryAssocListByOfferId(
                 offer_id
             )
         
-    def GetOfferCategoryAssocOfferId(self
+    def GetOfferCategoryAssocByOfferId(self
         , offer_id
     ) :
-        for item in self.GetOfferCategoryAssocListOfferId(
+        for item in self.GetOfferCategoryAssocListByOfferId(
         offer_id
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryAssocListOfferId(self
+    def CachedGetOfferCategoryAssocListByOfferId(self
         , offer_id
     ) :
-        return CachedGetOfferCategoryAssocListOfferId(
+        return CachedGetOfferCategoryAssocListByOfferId(
             false
             , self.CACHE_DEFAULT_HOURS
             , offer_id
         )
         
-    def CachedGetOfferCategoryAssocListOfferId(self
+    def CachedGetOfferCategoryAssocListByOfferId(self
         , overrideCache
         , cacheHours
         , offer_id
@@ -5235,7 +5235,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategoryAssoc> objs;
 
-        string method_name = "CachedGetOfferCategoryAssocListOfferId";
+        string method_name = "CachedGetOfferCategoryAssocListByOfferId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5251,7 +5251,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryAssocListOfferId(
+            objs = GetOfferCategoryAssocListByOfferId(
                 offer_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5260,32 +5260,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryAssocListCategoryId(self
+    def GetOfferCategoryAssocListByCategoryId(self
         , category_id
         ) :
-            return self.act.GetOfferCategoryAssocListCategoryId(
+            return self.act.GetOfferCategoryAssocListByCategoryId(
                 category_id
             )
         
-    def GetOfferCategoryAssocCategoryId(self
+    def GetOfferCategoryAssocByCategoryId(self
         , category_id
     ) :
-        for item in self.GetOfferCategoryAssocListCategoryId(
+        for item in self.GetOfferCategoryAssocListByCategoryId(
         category_id
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryAssocListCategoryId(self
+    def CachedGetOfferCategoryAssocListByCategoryId(self
         , category_id
     ) :
-        return CachedGetOfferCategoryAssocListCategoryId(
+        return CachedGetOfferCategoryAssocListByCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , category_id
         )
         
-    def CachedGetOfferCategoryAssocListCategoryId(self
+    def CachedGetOfferCategoryAssocListByCategoryId(self
         , overrideCache
         , cacheHours
         , category_id
@@ -5294,7 +5294,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategoryAssoc> objs;
 
-        string method_name = "CachedGetOfferCategoryAssocListCategoryId";
+        string method_name = "CachedGetOfferCategoryAssocListByCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5310,7 +5310,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryAssocListCategoryId(
+            objs = GetOfferCategoryAssocListByCategoryId(
                 category_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5319,38 +5319,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferCategoryAssocListOfferIdCategoryId(self
+    def GetOfferCategoryAssocListByOfferIdByCategoryId(self
         , offer_id
         , category_id
         ) :
-            return self.act.GetOfferCategoryAssocListOfferIdCategoryId(
+            return self.act.GetOfferCategoryAssocListByOfferIdByCategoryId(
                 offer_id
                 , category_id
             )
         
-    def GetOfferCategoryAssocOfferIdCategoryId(self
+    def GetOfferCategoryAssocByOfferIdByCategoryId(self
         , offer_id
         , category_id
     ) :
-        for item in self.GetOfferCategoryAssocListOfferIdCategoryId(
+        for item in self.GetOfferCategoryAssocListByOfferIdByCategoryId(
         offer_id
         , category_id
         ) :
             return item
         return None
     
-    def CachedGetOfferCategoryAssocListOfferIdCategoryId(self
+    def CachedGetOfferCategoryAssocListByOfferIdByCategoryId(self
         , offer_id
         , category_id
     ) :
-        return CachedGetOfferCategoryAssocListOfferIdCategoryId(
+        return CachedGetOfferCategoryAssocListByOfferIdByCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , offer_id
             , category_id
         )
         
-    def CachedGetOfferCategoryAssocListOfferIdCategoryId(self
+    def CachedGetOfferCategoryAssocListByOfferIdByCategoryId(self
         , overrideCache
         , cacheHours
         , offer_id
@@ -5360,7 +5360,7 @@ class BasePlatformAPI(object):
         """
         List<OfferCategoryAssoc> objs;
 
-        string method_name = "CachedGetOfferCategoryAssocListOfferIdCategoryId";
+        string method_name = "CachedGetOfferCategoryAssocListByOfferIdByCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5380,7 +5380,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferCategoryAssocListOfferIdCategoryId(
+            objs = GetOfferCategoryAssocListByOfferIdByCategoryId(
                 offer_id
                 , category_id
             );
@@ -5396,53 +5396,53 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferGameLocationUuid(self
+    def CountOfferGameLocationByUuid(self
         , uuid
     ) :         
-        return self.act.CountOfferGameLocationUuid(
+        return self.act.CountOfferGameLocationByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferGameLocationGameLocationId(self
+    def CountOfferGameLocationByGameLocationId(self
         , game_location_id
     ) :         
-        return self.act.CountOfferGameLocationGameLocationId(
+        return self.act.CountOfferGameLocationByGameLocationId(
         game_location_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferGameLocationOfferId(self
+    def CountOfferGameLocationByOfferId(self
         , offer_id
     ) :         
-        return self.act.CountOfferGameLocationOfferId(
+        return self.act.CountOfferGameLocationByOfferId(
         offer_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOfferGameLocationOfferIdGameLocationId(self
+    def CountOfferGameLocationByOfferIdByGameLocationId(self
         , offer_id
         , game_location_id
     ) :         
-        return self.act.CountOfferGameLocationOfferIdGameLocationId(
+        return self.act.CountOfferGameLocationByOfferIdByGameLocationId(
         offer_id
         , game_location_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOfferGameLocationListFilter(self, filter_obj) :
-        return self.act.BrowseOfferGameLocationListFilter(filter_obj)
+    def BrowseOfferGameLocationListByFilter(self, filter_obj) :
+        return self.act.BrowseOfferGameLocationListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOfferGameLocationUuidType(self, set_type, obj) :
-        return self.act.SetOfferGameLocationUuid(set_type, obj)
+    def SetOfferGameLocationByUuidType(self, set_type, obj) :
+        return self.act.SetOfferGameLocationByUuid(set_type, obj)
                
-    def SetOfferGameLocationUuid(self, obj) :
-        return self.act.SetOfferGameLocationUuid('full', obj)
+    def SetOfferGameLocationByUuid(self, obj) :
+        return self.act.SetOfferGameLocationByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOfferGameLocationUuid(self
+    def DelOfferGameLocationByUuid(self
         , uuid
     ) :          
-        return self.act.DelOfferGameLocationUuid(
+        return self.act.DelOfferGameLocationByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -5493,32 +5493,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferGameLocationListUuid(self
+    def GetOfferGameLocationListByUuid(self
         , uuid
         ) :
-            return self.act.GetOfferGameLocationListUuid(
+            return self.act.GetOfferGameLocationListByUuid(
                 uuid
             )
         
-    def GetOfferGameLocationUuid(self
+    def GetOfferGameLocationByUuid(self
         , uuid
     ) :
-        for item in self.GetOfferGameLocationListUuid(
+        for item in self.GetOfferGameLocationListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOfferGameLocationListUuid(self
+    def CachedGetOfferGameLocationListByUuid(self
         , uuid
     ) :
-        return CachedGetOfferGameLocationListUuid(
+        return CachedGetOfferGameLocationListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOfferGameLocationListUuid(self
+    def CachedGetOfferGameLocationListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -5527,7 +5527,7 @@ class BasePlatformAPI(object):
         """
         List<OfferGameLocation> objs;
 
-        string method_name = "CachedGetOfferGameLocationListUuid";
+        string method_name = "CachedGetOfferGameLocationListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5543,7 +5543,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferGameLocationListUuid(
+            objs = GetOfferGameLocationListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5552,32 +5552,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferGameLocationListGameLocationId(self
+    def GetOfferGameLocationListByGameLocationId(self
         , game_location_id
         ) :
-            return self.act.GetOfferGameLocationListGameLocationId(
+            return self.act.GetOfferGameLocationListByGameLocationId(
                 game_location_id
             )
         
-    def GetOfferGameLocationGameLocationId(self
+    def GetOfferGameLocationByGameLocationId(self
         , game_location_id
     ) :
-        for item in self.GetOfferGameLocationListGameLocationId(
+        for item in self.GetOfferGameLocationListByGameLocationId(
         game_location_id
         ) :
             return item
         return None
     
-    def CachedGetOfferGameLocationListGameLocationId(self
+    def CachedGetOfferGameLocationListByGameLocationId(self
         , game_location_id
     ) :
-        return CachedGetOfferGameLocationListGameLocationId(
+        return CachedGetOfferGameLocationListByGameLocationId(
             false
             , self.CACHE_DEFAULT_HOURS
             , game_location_id
         )
         
-    def CachedGetOfferGameLocationListGameLocationId(self
+    def CachedGetOfferGameLocationListByGameLocationId(self
         , overrideCache
         , cacheHours
         , game_location_id
@@ -5586,7 +5586,7 @@ class BasePlatformAPI(object):
         """
         List<OfferGameLocation> objs;
 
-        string method_name = "CachedGetOfferGameLocationListGameLocationId";
+        string method_name = "CachedGetOfferGameLocationListByGameLocationId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5602,7 +5602,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferGameLocationListGameLocationId(
+            objs = GetOfferGameLocationListByGameLocationId(
                 game_location_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5611,32 +5611,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferGameLocationListOfferId(self
+    def GetOfferGameLocationListByOfferId(self
         , offer_id
         ) :
-            return self.act.GetOfferGameLocationListOfferId(
+            return self.act.GetOfferGameLocationListByOfferId(
                 offer_id
             )
         
-    def GetOfferGameLocationOfferId(self
+    def GetOfferGameLocationByOfferId(self
         , offer_id
     ) :
-        for item in self.GetOfferGameLocationListOfferId(
+        for item in self.GetOfferGameLocationListByOfferId(
         offer_id
         ) :
             return item
         return None
     
-    def CachedGetOfferGameLocationListOfferId(self
+    def CachedGetOfferGameLocationListByOfferId(self
         , offer_id
     ) :
-        return CachedGetOfferGameLocationListOfferId(
+        return CachedGetOfferGameLocationListByOfferId(
             false
             , self.CACHE_DEFAULT_HOURS
             , offer_id
         )
         
-    def CachedGetOfferGameLocationListOfferId(self
+    def CachedGetOfferGameLocationListByOfferId(self
         , overrideCache
         , cacheHours
         , offer_id
@@ -5645,7 +5645,7 @@ class BasePlatformAPI(object):
         """
         List<OfferGameLocation> objs;
 
-        string method_name = "CachedGetOfferGameLocationListOfferId";
+        string method_name = "CachedGetOfferGameLocationListByOfferId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5661,7 +5661,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferGameLocationListOfferId(
+            objs = GetOfferGameLocationListByOfferId(
                 offer_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5670,38 +5670,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOfferGameLocationListOfferIdGameLocationId(self
+    def GetOfferGameLocationListByOfferIdByGameLocationId(self
         , offer_id
         , game_location_id
         ) :
-            return self.act.GetOfferGameLocationListOfferIdGameLocationId(
+            return self.act.GetOfferGameLocationListByOfferIdByGameLocationId(
                 offer_id
                 , game_location_id
             )
         
-    def GetOfferGameLocationOfferIdGameLocationId(self
+    def GetOfferGameLocationByOfferIdByGameLocationId(self
         , offer_id
         , game_location_id
     ) :
-        for item in self.GetOfferGameLocationListOfferIdGameLocationId(
+        for item in self.GetOfferGameLocationListByOfferIdByGameLocationId(
         offer_id
         , game_location_id
         ) :
             return item
         return None
     
-    def CachedGetOfferGameLocationListOfferIdGameLocationId(self
+    def CachedGetOfferGameLocationListByOfferIdByGameLocationId(self
         , offer_id
         , game_location_id
     ) :
-        return CachedGetOfferGameLocationListOfferIdGameLocationId(
+        return CachedGetOfferGameLocationListByOfferIdByGameLocationId(
             false
             , self.CACHE_DEFAULT_HOURS
             , offer_id
             , game_location_id
         )
         
-    def CachedGetOfferGameLocationListOfferIdGameLocationId(self
+    def CachedGetOfferGameLocationListByOfferIdByGameLocationId(self
         , overrideCache
         , cacheHours
         , offer_id
@@ -5711,7 +5711,7 @@ class BasePlatformAPI(object):
         """
         List<OfferGameLocation> objs;
 
-        string method_name = "CachedGetOfferGameLocationListOfferIdGameLocationId";
+        string method_name = "CachedGetOfferGameLocationListByOfferIdByGameLocationId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5731,7 +5731,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOfferGameLocationListOfferIdGameLocationId(
+            objs = GetOfferGameLocationListByOfferIdByGameLocationId(
                 offer_id
                 , game_location_id
             );
@@ -5747,58 +5747,58 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventInfoUuid(self
+    def CountEventInfoByUuid(self
         , uuid
     ) :         
-        return self.act.CountEventInfoUuid(
+        return self.act.CountEventInfoByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventInfoCode(self
+    def CountEventInfoByCode(self
         , code
     ) :         
-        return self.act.CountEventInfoCode(
+        return self.act.CountEventInfoByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventInfoName(self
+    def CountEventInfoByName(self
         , name
     ) :         
-        return self.act.CountEventInfoName(
+        return self.act.CountEventInfoByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventInfoOrgId(self
+    def CountEventInfoByOrgId(self
         , org_id
     ) :         
-        return self.act.CountEventInfoOrgId(
+        return self.act.CountEventInfoByOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseEventInfoListFilter(self, filter_obj) :
-        return self.act.BrowseEventInfoListFilter(filter_obj)
+    def BrowseEventInfoListByFilter(self, filter_obj) :
+        return self.act.BrowseEventInfoListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventInfoUuidType(self, set_type, obj) :
-        return self.act.SetEventInfoUuid(set_type, obj)
+    def SetEventInfoByUuidType(self, set_type, obj) :
+        return self.act.SetEventInfoByUuid(set_type, obj)
                
-    def SetEventInfoUuid(self, obj) :
-        return self.act.SetEventInfoUuid('full', obj)
+    def SetEventInfoByUuid(self, obj) :
+        return self.act.SetEventInfoByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelEventInfoUuid(self
+    def DelEventInfoByUuid(self
         , uuid
     ) :          
-        return self.act.DelEventInfoUuid(
+        return self.act.DelEventInfoByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelEventInfoOrgId(self
+    def DelEventInfoByOrgId(self
         , org_id
     ) :          
-        return self.act.DelEventInfoOrgId(
+        return self.act.DelEventInfoByOrgId(
         org_id
         )
 #------------------------------------------------------------------------------                    
@@ -5849,32 +5849,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventInfoListUuid(self
+    def GetEventInfoListByUuid(self
         , uuid
         ) :
-            return self.act.GetEventInfoListUuid(
+            return self.act.GetEventInfoListByUuid(
                 uuid
             )
         
-    def GetEventInfoUuid(self
+    def GetEventInfoByUuid(self
         , uuid
     ) :
-        for item in self.GetEventInfoListUuid(
+        for item in self.GetEventInfoListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetEventInfoListUuid(self
+    def CachedGetEventInfoListByUuid(self
         , uuid
     ) :
-        return CachedGetEventInfoListUuid(
+        return CachedGetEventInfoListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetEventInfoListUuid(self
+    def CachedGetEventInfoListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -5883,7 +5883,7 @@ class BasePlatformAPI(object):
         """
         List<EventInfo> objs;
 
-        string method_name = "CachedGetEventInfoListUuid";
+        string method_name = "CachedGetEventInfoListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5899,7 +5899,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventInfoListUuid(
+            objs = GetEventInfoListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5908,32 +5908,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventInfoListCode(self
+    def GetEventInfoListByCode(self
         , code
         ) :
-            return self.act.GetEventInfoListCode(
+            return self.act.GetEventInfoListByCode(
                 code
             )
         
-    def GetEventInfoCode(self
+    def GetEventInfoByCode(self
         , code
     ) :
-        for item in self.GetEventInfoListCode(
+        for item in self.GetEventInfoListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetEventInfoListCode(self
+    def CachedGetEventInfoListByCode(self
         , code
     ) :
-        return CachedGetEventInfoListCode(
+        return CachedGetEventInfoListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetEventInfoListCode(self
+    def CachedGetEventInfoListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -5942,7 +5942,7 @@ class BasePlatformAPI(object):
         """
         List<EventInfo> objs;
 
-        string method_name = "CachedGetEventInfoListCode";
+        string method_name = "CachedGetEventInfoListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -5958,7 +5958,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventInfoListCode(
+            objs = GetEventInfoListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5967,32 +5967,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventInfoListName(self
+    def GetEventInfoListByName(self
         , name
         ) :
-            return self.act.GetEventInfoListName(
+            return self.act.GetEventInfoListByName(
                 name
             )
         
-    def GetEventInfoName(self
+    def GetEventInfoByName(self
         , name
     ) :
-        for item in self.GetEventInfoListName(
+        for item in self.GetEventInfoListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetEventInfoListName(self
+    def CachedGetEventInfoListByName(self
         , name
     ) :
-        return CachedGetEventInfoListName(
+        return CachedGetEventInfoListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetEventInfoListName(self
+    def CachedGetEventInfoListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -6001,7 +6001,7 @@ class BasePlatformAPI(object):
         """
         List<EventInfo> objs;
 
-        string method_name = "CachedGetEventInfoListName";
+        string method_name = "CachedGetEventInfoListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6017,7 +6017,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventInfoListName(
+            objs = GetEventInfoListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6026,32 +6026,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventInfoListOrgId(self
+    def GetEventInfoListByOrgId(self
         , org_id
         ) :
-            return self.act.GetEventInfoListOrgId(
+            return self.act.GetEventInfoListByOrgId(
                 org_id
             )
         
-    def GetEventInfoOrgId(self
+    def GetEventInfoByOrgId(self
         , org_id
     ) :
-        for item in self.GetEventInfoListOrgId(
+        for item in self.GetEventInfoListByOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetEventInfoListOrgId(self
+    def CachedGetEventInfoListByOrgId(self
         , org_id
     ) :
-        return CachedGetEventInfoListOrgId(
+        return CachedGetEventInfoListByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetEventInfoListOrgId(self
+    def CachedGetEventInfoListByOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -6060,7 +6060,7 @@ class BasePlatformAPI(object):
         """
         List<EventInfo> objs;
 
-        string method_name = "CachedGetEventInfoListOrgId";
+        string method_name = "CachedGetEventInfoListByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6076,7 +6076,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventInfoListOrgId(
+            objs = GetEventInfoListByOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6091,59 +6091,59 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventLocationUuid(self
+    def CountEventLocationByUuid(self
         , uuid
     ) :         
-        return self.act.CountEventLocationUuid(
+        return self.act.CountEventLocationByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventLocationEventId(self
+    def CountEventLocationByEventId(self
         , event_id
     ) :         
-        return self.act.CountEventLocationEventId(
+        return self.act.CountEventLocationByEventId(
         event_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventLocationCity(self
+    def CountEventLocationByCity(self
         , city
     ) :         
-        return self.act.CountEventLocationCity(
+        return self.act.CountEventLocationByCity(
         city
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventLocationCountryCode(self
+    def CountEventLocationByCountryCode(self
         , country_code
     ) :         
-        return self.act.CountEventLocationCountryCode(
+        return self.act.CountEventLocationByCountryCode(
         country_code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventLocationPostalCode(self
+    def CountEventLocationByPostalCode(self
         , postal_code
     ) :         
-        return self.act.CountEventLocationPostalCode(
+        return self.act.CountEventLocationByPostalCode(
         postal_code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseEventLocationListFilter(self, filter_obj) :
-        return self.act.BrowseEventLocationListFilter(filter_obj)
+    def BrowseEventLocationListByFilter(self, filter_obj) :
+        return self.act.BrowseEventLocationListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventLocationUuidType(self, set_type, obj) :
-        return self.act.SetEventLocationUuid(set_type, obj)
+    def SetEventLocationByUuidType(self, set_type, obj) :
+        return self.act.SetEventLocationByUuid(set_type, obj)
                
-    def SetEventLocationUuid(self, obj) :
-        return self.act.SetEventLocationUuid('full', obj)
+    def SetEventLocationByUuid(self, obj) :
+        return self.act.SetEventLocationByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelEventLocationUuid(self
+    def DelEventLocationByUuid(self
         , uuid
     ) :          
-        return self.act.DelEventLocationUuid(
+        return self.act.DelEventLocationByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -6194,32 +6194,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventLocationListUuid(self
+    def GetEventLocationListByUuid(self
         , uuid
         ) :
-            return self.act.GetEventLocationListUuid(
+            return self.act.GetEventLocationListByUuid(
                 uuid
             )
         
-    def GetEventLocationUuid(self
+    def GetEventLocationByUuid(self
         , uuid
     ) :
-        for item in self.GetEventLocationListUuid(
+        for item in self.GetEventLocationListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetEventLocationListUuid(self
+    def CachedGetEventLocationListByUuid(self
         , uuid
     ) :
-        return CachedGetEventLocationListUuid(
+        return CachedGetEventLocationListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetEventLocationListUuid(self
+    def CachedGetEventLocationListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -6228,7 +6228,7 @@ class BasePlatformAPI(object):
         """
         List<EventLocation> objs;
 
-        string method_name = "CachedGetEventLocationListUuid";
+        string method_name = "CachedGetEventLocationListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6244,7 +6244,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventLocationListUuid(
+            objs = GetEventLocationListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6253,32 +6253,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventLocationListEventId(self
+    def GetEventLocationListByEventId(self
         , event_id
         ) :
-            return self.act.GetEventLocationListEventId(
+            return self.act.GetEventLocationListByEventId(
                 event_id
             )
         
-    def GetEventLocationEventId(self
+    def GetEventLocationByEventId(self
         , event_id
     ) :
-        for item in self.GetEventLocationListEventId(
+        for item in self.GetEventLocationListByEventId(
         event_id
         ) :
             return item
         return None
     
-    def CachedGetEventLocationListEventId(self
+    def CachedGetEventLocationListByEventId(self
         , event_id
     ) :
-        return CachedGetEventLocationListEventId(
+        return CachedGetEventLocationListByEventId(
             false
             , self.CACHE_DEFAULT_HOURS
             , event_id
         )
         
-    def CachedGetEventLocationListEventId(self
+    def CachedGetEventLocationListByEventId(self
         , overrideCache
         , cacheHours
         , event_id
@@ -6287,7 +6287,7 @@ class BasePlatformAPI(object):
         """
         List<EventLocation> objs;
 
-        string method_name = "CachedGetEventLocationListEventId";
+        string method_name = "CachedGetEventLocationListByEventId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6303,7 +6303,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventLocationListEventId(
+            objs = GetEventLocationListByEventId(
                 event_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6312,32 +6312,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventLocationListCity(self
+    def GetEventLocationListByCity(self
         , city
         ) :
-            return self.act.GetEventLocationListCity(
+            return self.act.GetEventLocationListByCity(
                 city
             )
         
-    def GetEventLocationCity(self
+    def GetEventLocationByCity(self
         , city
     ) :
-        for item in self.GetEventLocationListCity(
+        for item in self.GetEventLocationListByCity(
         city
         ) :
             return item
         return None
     
-    def CachedGetEventLocationListCity(self
+    def CachedGetEventLocationListByCity(self
         , city
     ) :
-        return CachedGetEventLocationListCity(
+        return CachedGetEventLocationListByCity(
             false
             , self.CACHE_DEFAULT_HOURS
             , city
         )
         
-    def CachedGetEventLocationListCity(self
+    def CachedGetEventLocationListByCity(self
         , overrideCache
         , cacheHours
         , city
@@ -6346,7 +6346,7 @@ class BasePlatformAPI(object):
         """
         List<EventLocation> objs;
 
-        string method_name = "CachedGetEventLocationListCity";
+        string method_name = "CachedGetEventLocationListByCity";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6362,7 +6362,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventLocationListCity(
+            objs = GetEventLocationListByCity(
                 city
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6371,32 +6371,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventLocationListCountryCode(self
+    def GetEventLocationListByCountryCode(self
         , country_code
         ) :
-            return self.act.GetEventLocationListCountryCode(
+            return self.act.GetEventLocationListByCountryCode(
                 country_code
             )
         
-    def GetEventLocationCountryCode(self
+    def GetEventLocationByCountryCode(self
         , country_code
     ) :
-        for item in self.GetEventLocationListCountryCode(
+        for item in self.GetEventLocationListByCountryCode(
         country_code
         ) :
             return item
         return None
     
-    def CachedGetEventLocationListCountryCode(self
+    def CachedGetEventLocationListByCountryCode(self
         , country_code
     ) :
-        return CachedGetEventLocationListCountryCode(
+        return CachedGetEventLocationListByCountryCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , country_code
         )
         
-    def CachedGetEventLocationListCountryCode(self
+    def CachedGetEventLocationListByCountryCode(self
         , overrideCache
         , cacheHours
         , country_code
@@ -6405,7 +6405,7 @@ class BasePlatformAPI(object):
         """
         List<EventLocation> objs;
 
-        string method_name = "CachedGetEventLocationListCountryCode";
+        string method_name = "CachedGetEventLocationListByCountryCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6421,7 +6421,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventLocationListCountryCode(
+            objs = GetEventLocationListByCountryCode(
                 country_code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6430,32 +6430,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventLocationListPostalCode(self
+    def GetEventLocationListByPostalCode(self
         , postal_code
         ) :
-            return self.act.GetEventLocationListPostalCode(
+            return self.act.GetEventLocationListByPostalCode(
                 postal_code
             )
         
-    def GetEventLocationPostalCode(self
+    def GetEventLocationByPostalCode(self
         , postal_code
     ) :
-        for item in self.GetEventLocationListPostalCode(
+        for item in self.GetEventLocationListByPostalCode(
         postal_code
         ) :
             return item
         return None
     
-    def CachedGetEventLocationListPostalCode(self
+    def CachedGetEventLocationListByPostalCode(self
         , postal_code
     ) :
-        return CachedGetEventLocationListPostalCode(
+        return CachedGetEventLocationListByPostalCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , postal_code
         )
         
-    def CachedGetEventLocationListPostalCode(self
+    def CachedGetEventLocationListByPostalCode(self
         , overrideCache
         , cacheHours
         , postal_code
@@ -6464,7 +6464,7 @@ class BasePlatformAPI(object):
         """
         List<EventLocation> objs;
 
-        string method_name = "CachedGetEventLocationListPostalCode";
+        string method_name = "CachedGetEventLocationListByPostalCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6480,7 +6480,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventLocationListPostalCode(
+            objs = GetEventLocationListByPostalCode(
                 postal_code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6495,87 +6495,87 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryUuid(self
+    def CountEventCategoryByUuid(self
         , uuid
     ) :         
-        return self.act.CountEventCategoryUuid(
+        return self.act.CountEventCategoryByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryCode(self
+    def CountEventCategoryByCode(self
         , code
     ) :         
-        return self.act.CountEventCategoryCode(
+        return self.act.CountEventCategoryByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryName(self
+    def CountEventCategoryByName(self
         , name
     ) :         
-        return self.act.CountEventCategoryName(
+        return self.act.CountEventCategoryByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryOrgId(self
+    def CountEventCategoryByOrgId(self
         , org_id
     ) :         
-        return self.act.CountEventCategoryOrgId(
+        return self.act.CountEventCategoryByOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryTypeId(self
+    def CountEventCategoryByTypeId(self
         , type_id
     ) :         
-        return self.act.CountEventCategoryTypeId(
+        return self.act.CountEventCategoryByTypeId(
         type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryOrgIdTypeId(self
+    def CountEventCategoryByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :         
-        return self.act.CountEventCategoryOrgIdTypeId(
+        return self.act.CountEventCategoryByOrgIdByTypeId(
         org_id
         , type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseEventCategoryListFilter(self, filter_obj) :
-        return self.act.BrowseEventCategoryListFilter(filter_obj)
+    def BrowseEventCategoryListByFilter(self, filter_obj) :
+        return self.act.BrowseEventCategoryListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventCategoryUuidType(self, set_type, obj) :
-        return self.act.SetEventCategoryUuid(set_type, obj)
+    def SetEventCategoryByUuidType(self, set_type, obj) :
+        return self.act.SetEventCategoryByUuid(set_type, obj)
                
-    def SetEventCategoryUuid(self, obj) :
-        return self.act.SetEventCategoryUuid('full', obj)
+    def SetEventCategoryByUuid(self, obj) :
+        return self.act.SetEventCategoryByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelEventCategoryUuid(self
+    def DelEventCategoryByUuid(self
         , uuid
     ) :          
-        return self.act.DelEventCategoryUuid(
+        return self.act.DelEventCategoryByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelEventCategoryCodeOrgId(self
+    def DelEventCategoryByCodeByOrgId(self
         , code
         , org_id
     ) :          
-        return self.act.DelEventCategoryCodeOrgId(
+        return self.act.DelEventCategoryByCodeByOrgId(
         code
         , org_id
         )
 #------------------------------------------------------------------------------                    
-    def DelEventCategoryCodeOrgIdTypeId(self
+    def DelEventCategoryByCodeByOrgIdByTypeId(self
         , code
         , org_id
         , type_id
     ) :          
-        return self.act.DelEventCategoryCodeOrgIdTypeId(
+        return self.act.DelEventCategoryByCodeByOrgIdByTypeId(
         code
         , org_id
         , type_id
@@ -6628,32 +6628,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryListUuid(self
+    def GetEventCategoryListByUuid(self
         , uuid
         ) :
-            return self.act.GetEventCategoryListUuid(
+            return self.act.GetEventCategoryListByUuid(
                 uuid
             )
         
-    def GetEventCategoryUuid(self
+    def GetEventCategoryByUuid(self
         , uuid
     ) :
-        for item in self.GetEventCategoryListUuid(
+        for item in self.GetEventCategoryListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryListUuid(self
+    def CachedGetEventCategoryListByUuid(self
         , uuid
     ) :
-        return CachedGetEventCategoryListUuid(
+        return CachedGetEventCategoryListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetEventCategoryListUuid(self
+    def CachedGetEventCategoryListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -6662,7 +6662,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategory> objs;
 
-        string method_name = "CachedGetEventCategoryListUuid";
+        string method_name = "CachedGetEventCategoryListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6678,7 +6678,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryListUuid(
+            objs = GetEventCategoryListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6687,32 +6687,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryListCode(self
+    def GetEventCategoryListByCode(self
         , code
         ) :
-            return self.act.GetEventCategoryListCode(
+            return self.act.GetEventCategoryListByCode(
                 code
             )
         
-    def GetEventCategoryCode(self
+    def GetEventCategoryByCode(self
         , code
     ) :
-        for item in self.GetEventCategoryListCode(
+        for item in self.GetEventCategoryListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryListCode(self
+    def CachedGetEventCategoryListByCode(self
         , code
     ) :
-        return CachedGetEventCategoryListCode(
+        return CachedGetEventCategoryListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetEventCategoryListCode(self
+    def CachedGetEventCategoryListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -6721,7 +6721,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategory> objs;
 
-        string method_name = "CachedGetEventCategoryListCode";
+        string method_name = "CachedGetEventCategoryListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6737,7 +6737,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryListCode(
+            objs = GetEventCategoryListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6746,32 +6746,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryListName(self
+    def GetEventCategoryListByName(self
         , name
         ) :
-            return self.act.GetEventCategoryListName(
+            return self.act.GetEventCategoryListByName(
                 name
             )
         
-    def GetEventCategoryName(self
+    def GetEventCategoryByName(self
         , name
     ) :
-        for item in self.GetEventCategoryListName(
+        for item in self.GetEventCategoryListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryListName(self
+    def CachedGetEventCategoryListByName(self
         , name
     ) :
-        return CachedGetEventCategoryListName(
+        return CachedGetEventCategoryListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetEventCategoryListName(self
+    def CachedGetEventCategoryListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -6780,7 +6780,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategory> objs;
 
-        string method_name = "CachedGetEventCategoryListName";
+        string method_name = "CachedGetEventCategoryListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6796,7 +6796,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryListName(
+            objs = GetEventCategoryListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6805,32 +6805,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryListOrgId(self
+    def GetEventCategoryListByOrgId(self
         , org_id
         ) :
-            return self.act.GetEventCategoryListOrgId(
+            return self.act.GetEventCategoryListByOrgId(
                 org_id
             )
         
-    def GetEventCategoryOrgId(self
+    def GetEventCategoryByOrgId(self
         , org_id
     ) :
-        for item in self.GetEventCategoryListOrgId(
+        for item in self.GetEventCategoryListByOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryListOrgId(self
+    def CachedGetEventCategoryListByOrgId(self
         , org_id
     ) :
-        return CachedGetEventCategoryListOrgId(
+        return CachedGetEventCategoryListByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetEventCategoryListOrgId(self
+    def CachedGetEventCategoryListByOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -6839,7 +6839,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategory> objs;
 
-        string method_name = "CachedGetEventCategoryListOrgId";
+        string method_name = "CachedGetEventCategoryListByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6855,7 +6855,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryListOrgId(
+            objs = GetEventCategoryListByOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6864,32 +6864,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryListTypeId(self
+    def GetEventCategoryListByTypeId(self
         , type_id
         ) :
-            return self.act.GetEventCategoryListTypeId(
+            return self.act.GetEventCategoryListByTypeId(
                 type_id
             )
         
-    def GetEventCategoryTypeId(self
+    def GetEventCategoryByTypeId(self
         , type_id
     ) :
-        for item in self.GetEventCategoryListTypeId(
+        for item in self.GetEventCategoryListByTypeId(
         type_id
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryListTypeId(self
+    def CachedGetEventCategoryListByTypeId(self
         , type_id
     ) :
-        return CachedGetEventCategoryListTypeId(
+        return CachedGetEventCategoryListByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , type_id
         )
         
-    def CachedGetEventCategoryListTypeId(self
+    def CachedGetEventCategoryListByTypeId(self
         , overrideCache
         , cacheHours
         , type_id
@@ -6898,7 +6898,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategory> objs;
 
-        string method_name = "CachedGetEventCategoryListTypeId";
+        string method_name = "CachedGetEventCategoryListByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6914,7 +6914,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryListTypeId(
+            objs = GetEventCategoryListByTypeId(
                 type_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6923,38 +6923,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryListOrgIdTypeId(self
+    def GetEventCategoryListByOrgIdByTypeId(self
         , org_id
         , type_id
         ) :
-            return self.act.GetEventCategoryListOrgIdTypeId(
+            return self.act.GetEventCategoryListByOrgIdByTypeId(
                 org_id
                 , type_id
             )
         
-    def GetEventCategoryOrgIdTypeId(self
+    def GetEventCategoryByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :
-        for item in self.GetEventCategoryListOrgIdTypeId(
+        for item in self.GetEventCategoryListByOrgIdByTypeId(
         org_id
         , type_id
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryListOrgIdTypeId(self
+    def CachedGetEventCategoryListByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :
-        return CachedGetEventCategoryListOrgIdTypeId(
+        return CachedGetEventCategoryListByOrgIdByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
             , type_id
         )
         
-    def CachedGetEventCategoryListOrgIdTypeId(self
+    def CachedGetEventCategoryListByOrgIdByTypeId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -6964,7 +6964,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategory> objs;
 
-        string method_name = "CachedGetEventCategoryListOrgIdTypeId";
+        string method_name = "CachedGetEventCategoryListByOrgIdByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -6984,7 +6984,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryListOrgIdTypeId(
+            objs = GetEventCategoryListByOrgIdByTypeId(
                 org_id
                 , type_id
             );
@@ -7000,75 +7000,75 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryTreeUuid(self
+    def CountEventCategoryTreeByUuid(self
         , uuid
     ) :         
-        return self.act.CountEventCategoryTreeUuid(
+        return self.act.CountEventCategoryTreeByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryTreeParentId(self
+    def CountEventCategoryTreeByParentId(self
         , parent_id
     ) :         
-        return self.act.CountEventCategoryTreeParentId(
+        return self.act.CountEventCategoryTreeByParentId(
         parent_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryTreeCategoryId(self
+    def CountEventCategoryTreeByCategoryId(self
         , category_id
     ) :         
-        return self.act.CountEventCategoryTreeCategoryId(
+        return self.act.CountEventCategoryTreeByCategoryId(
         category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryTreeParentIdCategoryId(self
+    def CountEventCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :         
-        return self.act.CountEventCategoryTreeParentIdCategoryId(
+        return self.act.CountEventCategoryTreeByParentIdByCategoryId(
         parent_id
         , category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseEventCategoryTreeListFilter(self, filter_obj) :
-        return self.act.BrowseEventCategoryTreeListFilter(filter_obj)
+    def BrowseEventCategoryTreeListByFilter(self, filter_obj) :
+        return self.act.BrowseEventCategoryTreeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventCategoryTreeUuidType(self, set_type, obj) :
-        return self.act.SetEventCategoryTreeUuid(set_type, obj)
+    def SetEventCategoryTreeByUuidType(self, set_type, obj) :
+        return self.act.SetEventCategoryTreeByUuid(set_type, obj)
                
-    def SetEventCategoryTreeUuid(self, obj) :
-        return self.act.SetEventCategoryTreeUuid('full', obj)
+    def SetEventCategoryTreeByUuid(self, obj) :
+        return self.act.SetEventCategoryTreeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelEventCategoryTreeUuid(self
+    def DelEventCategoryTreeByUuid(self
         , uuid
     ) :          
-        return self.act.DelEventCategoryTreeUuid(
+        return self.act.DelEventCategoryTreeByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelEventCategoryTreeParentId(self
+    def DelEventCategoryTreeByParentId(self
         , parent_id
     ) :          
-        return self.act.DelEventCategoryTreeParentId(
+        return self.act.DelEventCategoryTreeByParentId(
         parent_id
         )
 #------------------------------------------------------------------------------                    
-    def DelEventCategoryTreeCategoryId(self
+    def DelEventCategoryTreeByCategoryId(self
         , category_id
     ) :          
-        return self.act.DelEventCategoryTreeCategoryId(
+        return self.act.DelEventCategoryTreeByCategoryId(
         category_id
         )
 #------------------------------------------------------------------------------                    
-    def DelEventCategoryTreeParentIdCategoryId(self
+    def DelEventCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :          
-        return self.act.DelEventCategoryTreeParentIdCategoryId(
+        return self.act.DelEventCategoryTreeByParentIdByCategoryId(
         parent_id
         , category_id
         )
@@ -7120,32 +7120,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryTreeListUuid(self
+    def GetEventCategoryTreeListByUuid(self
         , uuid
         ) :
-            return self.act.GetEventCategoryTreeListUuid(
+            return self.act.GetEventCategoryTreeListByUuid(
                 uuid
             )
         
-    def GetEventCategoryTreeUuid(self
+    def GetEventCategoryTreeByUuid(self
         , uuid
     ) :
-        for item in self.GetEventCategoryTreeListUuid(
+        for item in self.GetEventCategoryTreeListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryTreeListUuid(self
+    def CachedGetEventCategoryTreeListByUuid(self
         , uuid
     ) :
-        return CachedGetEventCategoryTreeListUuid(
+        return CachedGetEventCategoryTreeListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetEventCategoryTreeListUuid(self
+    def CachedGetEventCategoryTreeListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -7154,7 +7154,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategoryTree> objs;
 
-        string method_name = "CachedGetEventCategoryTreeListUuid";
+        string method_name = "CachedGetEventCategoryTreeListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7170,7 +7170,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryTreeListUuid(
+            objs = GetEventCategoryTreeListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7179,32 +7179,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryTreeListParentId(self
+    def GetEventCategoryTreeListByParentId(self
         , parent_id
         ) :
-            return self.act.GetEventCategoryTreeListParentId(
+            return self.act.GetEventCategoryTreeListByParentId(
                 parent_id
             )
         
-    def GetEventCategoryTreeParentId(self
+    def GetEventCategoryTreeByParentId(self
         , parent_id
     ) :
-        for item in self.GetEventCategoryTreeListParentId(
+        for item in self.GetEventCategoryTreeListByParentId(
         parent_id
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryTreeListParentId(self
+    def CachedGetEventCategoryTreeListByParentId(self
         , parent_id
     ) :
-        return CachedGetEventCategoryTreeListParentId(
+        return CachedGetEventCategoryTreeListByParentId(
             false
             , self.CACHE_DEFAULT_HOURS
             , parent_id
         )
         
-    def CachedGetEventCategoryTreeListParentId(self
+    def CachedGetEventCategoryTreeListByParentId(self
         , overrideCache
         , cacheHours
         , parent_id
@@ -7213,7 +7213,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategoryTree> objs;
 
-        string method_name = "CachedGetEventCategoryTreeListParentId";
+        string method_name = "CachedGetEventCategoryTreeListByParentId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7229,7 +7229,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryTreeListParentId(
+            objs = GetEventCategoryTreeListByParentId(
                 parent_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7238,32 +7238,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryTreeListCategoryId(self
+    def GetEventCategoryTreeListByCategoryId(self
         , category_id
         ) :
-            return self.act.GetEventCategoryTreeListCategoryId(
+            return self.act.GetEventCategoryTreeListByCategoryId(
                 category_id
             )
         
-    def GetEventCategoryTreeCategoryId(self
+    def GetEventCategoryTreeByCategoryId(self
         , category_id
     ) :
-        for item in self.GetEventCategoryTreeListCategoryId(
+        for item in self.GetEventCategoryTreeListByCategoryId(
         category_id
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryTreeListCategoryId(self
+    def CachedGetEventCategoryTreeListByCategoryId(self
         , category_id
     ) :
-        return CachedGetEventCategoryTreeListCategoryId(
+        return CachedGetEventCategoryTreeListByCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , category_id
         )
         
-    def CachedGetEventCategoryTreeListCategoryId(self
+    def CachedGetEventCategoryTreeListByCategoryId(self
         , overrideCache
         , cacheHours
         , category_id
@@ -7272,7 +7272,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategoryTree> objs;
 
-        string method_name = "CachedGetEventCategoryTreeListCategoryId";
+        string method_name = "CachedGetEventCategoryTreeListByCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7288,7 +7288,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryTreeListCategoryId(
+            objs = GetEventCategoryTreeListByCategoryId(
                 category_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7297,38 +7297,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryTreeListParentIdCategoryId(self
+    def GetEventCategoryTreeListByParentIdByCategoryId(self
         , parent_id
         , category_id
         ) :
-            return self.act.GetEventCategoryTreeListParentIdCategoryId(
+            return self.act.GetEventCategoryTreeListByParentIdByCategoryId(
                 parent_id
                 , category_id
             )
         
-    def GetEventCategoryTreeParentIdCategoryId(self
+    def GetEventCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :
-        for item in self.GetEventCategoryTreeListParentIdCategoryId(
+        for item in self.GetEventCategoryTreeListByParentIdByCategoryId(
         parent_id
         , category_id
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryTreeListParentIdCategoryId(self
+    def CachedGetEventCategoryTreeListByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :
-        return CachedGetEventCategoryTreeListParentIdCategoryId(
+        return CachedGetEventCategoryTreeListByParentIdByCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , parent_id
             , category_id
         )
         
-    def CachedGetEventCategoryTreeListParentIdCategoryId(self
+    def CachedGetEventCategoryTreeListByParentIdByCategoryId(self
         , overrideCache
         , cacheHours
         , parent_id
@@ -7338,7 +7338,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategoryTree> objs;
 
-        string method_name = "CachedGetEventCategoryTreeListParentIdCategoryId";
+        string method_name = "CachedGetEventCategoryTreeListByParentIdByCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7358,7 +7358,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryTreeListParentIdCategoryId(
+            objs = GetEventCategoryTreeListByParentIdByCategoryId(
                 parent_id
                 , category_id
             );
@@ -7374,53 +7374,53 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryAssocUuid(self
+    def CountEventCategoryAssocByUuid(self
         , uuid
     ) :         
-        return self.act.CountEventCategoryAssocUuid(
+        return self.act.CountEventCategoryAssocByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryAssocEventId(self
+    def CountEventCategoryAssocByEventId(self
         , event_id
     ) :         
-        return self.act.CountEventCategoryAssocEventId(
+        return self.act.CountEventCategoryAssocByEventId(
         event_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryAssocCategoryId(self
+    def CountEventCategoryAssocByCategoryId(self
         , category_id
     ) :         
-        return self.act.CountEventCategoryAssocCategoryId(
+        return self.act.CountEventCategoryAssocByCategoryId(
         category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountEventCategoryAssocEventIdCategoryId(self
+    def CountEventCategoryAssocByEventIdByCategoryId(self
         , event_id
         , category_id
     ) :         
-        return self.act.CountEventCategoryAssocEventIdCategoryId(
+        return self.act.CountEventCategoryAssocByEventIdByCategoryId(
         event_id
         , category_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseEventCategoryAssocListFilter(self, filter_obj) :
-        return self.act.BrowseEventCategoryAssocListFilter(filter_obj)
+    def BrowseEventCategoryAssocListByFilter(self, filter_obj) :
+        return self.act.BrowseEventCategoryAssocListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetEventCategoryAssocUuidType(self, set_type, obj) :
-        return self.act.SetEventCategoryAssocUuid(set_type, obj)
+    def SetEventCategoryAssocByUuidType(self, set_type, obj) :
+        return self.act.SetEventCategoryAssocByUuid(set_type, obj)
                
-    def SetEventCategoryAssocUuid(self, obj) :
-        return self.act.SetEventCategoryAssocUuid('full', obj)
+    def SetEventCategoryAssocByUuid(self, obj) :
+        return self.act.SetEventCategoryAssocByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelEventCategoryAssocUuid(self
+    def DelEventCategoryAssocByUuid(self
         , uuid
     ) :          
-        return self.act.DelEventCategoryAssocUuid(
+        return self.act.DelEventCategoryAssocByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -7471,32 +7471,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryAssocListUuid(self
+    def GetEventCategoryAssocListByUuid(self
         , uuid
         ) :
-            return self.act.GetEventCategoryAssocListUuid(
+            return self.act.GetEventCategoryAssocListByUuid(
                 uuid
             )
         
-    def GetEventCategoryAssocUuid(self
+    def GetEventCategoryAssocByUuid(self
         , uuid
     ) :
-        for item in self.GetEventCategoryAssocListUuid(
+        for item in self.GetEventCategoryAssocListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryAssocListUuid(self
+    def CachedGetEventCategoryAssocListByUuid(self
         , uuid
     ) :
-        return CachedGetEventCategoryAssocListUuid(
+        return CachedGetEventCategoryAssocListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetEventCategoryAssocListUuid(self
+    def CachedGetEventCategoryAssocListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -7505,7 +7505,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategoryAssoc> objs;
 
-        string method_name = "CachedGetEventCategoryAssocListUuid";
+        string method_name = "CachedGetEventCategoryAssocListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7521,7 +7521,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryAssocListUuid(
+            objs = GetEventCategoryAssocListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7530,32 +7530,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryAssocListEventId(self
+    def GetEventCategoryAssocListByEventId(self
         , event_id
         ) :
-            return self.act.GetEventCategoryAssocListEventId(
+            return self.act.GetEventCategoryAssocListByEventId(
                 event_id
             )
         
-    def GetEventCategoryAssocEventId(self
+    def GetEventCategoryAssocByEventId(self
         , event_id
     ) :
-        for item in self.GetEventCategoryAssocListEventId(
+        for item in self.GetEventCategoryAssocListByEventId(
         event_id
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryAssocListEventId(self
+    def CachedGetEventCategoryAssocListByEventId(self
         , event_id
     ) :
-        return CachedGetEventCategoryAssocListEventId(
+        return CachedGetEventCategoryAssocListByEventId(
             false
             , self.CACHE_DEFAULT_HOURS
             , event_id
         )
         
-    def CachedGetEventCategoryAssocListEventId(self
+    def CachedGetEventCategoryAssocListByEventId(self
         , overrideCache
         , cacheHours
         , event_id
@@ -7564,7 +7564,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategoryAssoc> objs;
 
-        string method_name = "CachedGetEventCategoryAssocListEventId";
+        string method_name = "CachedGetEventCategoryAssocListByEventId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7580,7 +7580,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryAssocListEventId(
+            objs = GetEventCategoryAssocListByEventId(
                 event_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7589,32 +7589,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryAssocListCategoryId(self
+    def GetEventCategoryAssocListByCategoryId(self
         , category_id
         ) :
-            return self.act.GetEventCategoryAssocListCategoryId(
+            return self.act.GetEventCategoryAssocListByCategoryId(
                 category_id
             )
         
-    def GetEventCategoryAssocCategoryId(self
+    def GetEventCategoryAssocByCategoryId(self
         , category_id
     ) :
-        for item in self.GetEventCategoryAssocListCategoryId(
+        for item in self.GetEventCategoryAssocListByCategoryId(
         category_id
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryAssocListCategoryId(self
+    def CachedGetEventCategoryAssocListByCategoryId(self
         , category_id
     ) :
-        return CachedGetEventCategoryAssocListCategoryId(
+        return CachedGetEventCategoryAssocListByCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , category_id
         )
         
-    def CachedGetEventCategoryAssocListCategoryId(self
+    def CachedGetEventCategoryAssocListByCategoryId(self
         , overrideCache
         , cacheHours
         , category_id
@@ -7623,7 +7623,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategoryAssoc> objs;
 
-        string method_name = "CachedGetEventCategoryAssocListCategoryId";
+        string method_name = "CachedGetEventCategoryAssocListByCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7639,7 +7639,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryAssocListCategoryId(
+            objs = GetEventCategoryAssocListByCategoryId(
                 category_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7648,38 +7648,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetEventCategoryAssocListEventIdCategoryId(self
+    def GetEventCategoryAssocListByEventIdByCategoryId(self
         , event_id
         , category_id
         ) :
-            return self.act.GetEventCategoryAssocListEventIdCategoryId(
+            return self.act.GetEventCategoryAssocListByEventIdByCategoryId(
                 event_id
                 , category_id
             )
         
-    def GetEventCategoryAssocEventIdCategoryId(self
+    def GetEventCategoryAssocByEventIdByCategoryId(self
         , event_id
         , category_id
     ) :
-        for item in self.GetEventCategoryAssocListEventIdCategoryId(
+        for item in self.GetEventCategoryAssocListByEventIdByCategoryId(
         event_id
         , category_id
         ) :
             return item
         return None
     
-    def CachedGetEventCategoryAssocListEventIdCategoryId(self
+    def CachedGetEventCategoryAssocListByEventIdByCategoryId(self
         , event_id
         , category_id
     ) :
-        return CachedGetEventCategoryAssocListEventIdCategoryId(
+        return CachedGetEventCategoryAssocListByEventIdByCategoryId(
             false
             , self.CACHE_DEFAULT_HOURS
             , event_id
             , category_id
         )
         
-    def CachedGetEventCategoryAssocListEventIdCategoryId(self
+    def CachedGetEventCategoryAssocListByEventIdByCategoryId(self
         , overrideCache
         , cacheHours
         , event_id
@@ -7689,7 +7689,7 @@ class BasePlatformAPI(object):
         """
         List<EventCategoryAssoc> objs;
 
-        string method_name = "CachedGetEventCategoryAssocListEventIdCategoryId";
+        string method_name = "CachedGetEventCategoryAssocListByEventIdByCategoryId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7709,7 +7709,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetEventCategoryAssocListEventIdCategoryId(
+            objs = GetEventCategoryAssocListByEventIdByCategoryId(
                 event_id
                 , category_id
             );
@@ -7725,87 +7725,87 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountChannelUuid(self
+    def CountChannelByUuid(self
         , uuid
     ) :         
-        return self.act.CountChannelUuid(
+        return self.act.CountChannelByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountChannelCode(self
+    def CountChannelByCode(self
         , code
     ) :         
-        return self.act.CountChannelCode(
+        return self.act.CountChannelByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountChannelName(self
+    def CountChannelByName(self
         , name
     ) :         
-        return self.act.CountChannelName(
+        return self.act.CountChannelByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountChannelOrgId(self
+    def CountChannelByOrgId(self
         , org_id
     ) :         
-        return self.act.CountChannelOrgId(
+        return self.act.CountChannelByOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountChannelTypeId(self
+    def CountChannelByTypeId(self
         , type_id
     ) :         
-        return self.act.CountChannelTypeId(
+        return self.act.CountChannelByTypeId(
         type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountChannelOrgIdTypeId(self
+    def CountChannelByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :         
-        return self.act.CountChannelOrgIdTypeId(
+        return self.act.CountChannelByOrgIdByTypeId(
         org_id
         , type_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseChannelListFilter(self, filter_obj) :
-        return self.act.BrowseChannelListFilter(filter_obj)
+    def BrowseChannelListByFilter(self, filter_obj) :
+        return self.act.BrowseChannelListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetChannelUuidType(self, set_type, obj) :
-        return self.act.SetChannelUuid(set_type, obj)
+    def SetChannelByUuidType(self, set_type, obj) :
+        return self.act.SetChannelByUuid(set_type, obj)
                
-    def SetChannelUuid(self, obj) :
-        return self.act.SetChannelUuid('full', obj)
+    def SetChannelByUuid(self, obj) :
+        return self.act.SetChannelByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelChannelUuid(self
+    def DelChannelByUuid(self
         , uuid
     ) :          
-        return self.act.DelChannelUuid(
+        return self.act.DelChannelByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelChannelCodeOrgId(self
+    def DelChannelByCodeByOrgId(self
         , code
         , org_id
     ) :          
-        return self.act.DelChannelCodeOrgId(
+        return self.act.DelChannelByCodeByOrgId(
         code
         , org_id
         )
 #------------------------------------------------------------------------------                    
-    def DelChannelCodeOrgIdTypeId(self
+    def DelChannelByCodeByOrgIdByTypeId(self
         , code
         , org_id
         , type_id
     ) :          
-        return self.act.DelChannelCodeOrgIdTypeId(
+        return self.act.DelChannelByCodeByOrgIdByTypeId(
         code
         , org_id
         , type_id
@@ -7858,32 +7858,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetChannelListUuid(self
+    def GetChannelListByUuid(self
         , uuid
         ) :
-            return self.act.GetChannelListUuid(
+            return self.act.GetChannelListByUuid(
                 uuid
             )
         
-    def GetChannelUuid(self
+    def GetChannelByUuid(self
         , uuid
     ) :
-        for item in self.GetChannelListUuid(
+        for item in self.GetChannelListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetChannelListUuid(self
+    def CachedGetChannelListByUuid(self
         , uuid
     ) :
-        return CachedGetChannelListUuid(
+        return CachedGetChannelListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetChannelListUuid(self
+    def CachedGetChannelListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -7892,7 +7892,7 @@ class BasePlatformAPI(object):
         """
         List<Channel> objs;
 
-        string method_name = "CachedGetChannelListUuid";
+        string method_name = "CachedGetChannelListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7908,7 +7908,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetChannelListUuid(
+            objs = GetChannelListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7917,32 +7917,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetChannelListCode(self
+    def GetChannelListByCode(self
         , code
         ) :
-            return self.act.GetChannelListCode(
+            return self.act.GetChannelListByCode(
                 code
             )
         
-    def GetChannelCode(self
+    def GetChannelByCode(self
         , code
     ) :
-        for item in self.GetChannelListCode(
+        for item in self.GetChannelListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetChannelListCode(self
+    def CachedGetChannelListByCode(self
         , code
     ) :
-        return CachedGetChannelListCode(
+        return CachedGetChannelListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetChannelListCode(self
+    def CachedGetChannelListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -7951,7 +7951,7 @@ class BasePlatformAPI(object):
         """
         List<Channel> objs;
 
-        string method_name = "CachedGetChannelListCode";
+        string method_name = "CachedGetChannelListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -7967,7 +7967,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetChannelListCode(
+            objs = GetChannelListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7976,32 +7976,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetChannelListName(self
+    def GetChannelListByName(self
         , name
         ) :
-            return self.act.GetChannelListName(
+            return self.act.GetChannelListByName(
                 name
             )
         
-    def GetChannelName(self
+    def GetChannelByName(self
         , name
     ) :
-        for item in self.GetChannelListName(
+        for item in self.GetChannelListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetChannelListName(self
+    def CachedGetChannelListByName(self
         , name
     ) :
-        return CachedGetChannelListName(
+        return CachedGetChannelListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetChannelListName(self
+    def CachedGetChannelListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -8010,7 +8010,7 @@ class BasePlatformAPI(object):
         """
         List<Channel> objs;
 
-        string method_name = "CachedGetChannelListName";
+        string method_name = "CachedGetChannelListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8026,7 +8026,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetChannelListName(
+            objs = GetChannelListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8035,32 +8035,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetChannelListOrgId(self
+    def GetChannelListByOrgId(self
         , org_id
         ) :
-            return self.act.GetChannelListOrgId(
+            return self.act.GetChannelListByOrgId(
                 org_id
             )
         
-    def GetChannelOrgId(self
+    def GetChannelByOrgId(self
         , org_id
     ) :
-        for item in self.GetChannelListOrgId(
+        for item in self.GetChannelListByOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetChannelListOrgId(self
+    def CachedGetChannelListByOrgId(self
         , org_id
     ) :
-        return CachedGetChannelListOrgId(
+        return CachedGetChannelListByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetChannelListOrgId(self
+    def CachedGetChannelListByOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -8069,7 +8069,7 @@ class BasePlatformAPI(object):
         """
         List<Channel> objs;
 
-        string method_name = "CachedGetChannelListOrgId";
+        string method_name = "CachedGetChannelListByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8085,7 +8085,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetChannelListOrgId(
+            objs = GetChannelListByOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8094,32 +8094,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetChannelListTypeId(self
+    def GetChannelListByTypeId(self
         , type_id
         ) :
-            return self.act.GetChannelListTypeId(
+            return self.act.GetChannelListByTypeId(
                 type_id
             )
         
-    def GetChannelTypeId(self
+    def GetChannelByTypeId(self
         , type_id
     ) :
-        for item in self.GetChannelListTypeId(
+        for item in self.GetChannelListByTypeId(
         type_id
         ) :
             return item
         return None
     
-    def CachedGetChannelListTypeId(self
+    def CachedGetChannelListByTypeId(self
         , type_id
     ) :
-        return CachedGetChannelListTypeId(
+        return CachedGetChannelListByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , type_id
         )
         
-    def CachedGetChannelListTypeId(self
+    def CachedGetChannelListByTypeId(self
         , overrideCache
         , cacheHours
         , type_id
@@ -8128,7 +8128,7 @@ class BasePlatformAPI(object):
         """
         List<Channel> objs;
 
-        string method_name = "CachedGetChannelListTypeId";
+        string method_name = "CachedGetChannelListByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8144,7 +8144,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetChannelListTypeId(
+            objs = GetChannelListByTypeId(
                 type_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8153,38 +8153,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetChannelListOrgIdTypeId(self
+    def GetChannelListByOrgIdByTypeId(self
         , org_id
         , type_id
         ) :
-            return self.act.GetChannelListOrgIdTypeId(
+            return self.act.GetChannelListByOrgIdByTypeId(
                 org_id
                 , type_id
             )
         
-    def GetChannelOrgIdTypeId(self
+    def GetChannelByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :
-        for item in self.GetChannelListOrgIdTypeId(
+        for item in self.GetChannelListByOrgIdByTypeId(
         org_id
         , type_id
         ) :
             return item
         return None
     
-    def CachedGetChannelListOrgIdTypeId(self
+    def CachedGetChannelListByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :
-        return CachedGetChannelListOrgIdTypeId(
+        return CachedGetChannelListByOrgIdByTypeId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
             , type_id
         )
         
-    def CachedGetChannelListOrgIdTypeId(self
+    def CachedGetChannelListByOrgIdByTypeId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -8194,7 +8194,7 @@ class BasePlatformAPI(object):
         """
         List<Channel> objs;
 
-        string method_name = "CachedGetChannelListOrgIdTypeId";
+        string method_name = "CachedGetChannelListByOrgIdByTypeId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8214,7 +8214,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetChannelListOrgIdTypeId(
+            objs = GetChannelListByOrgIdByTypeId(
                 org_id
                 , type_id
             );
@@ -8230,43 +8230,43 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountChannelTypeUuid(self
+    def CountChannelTypeByUuid(self
         , uuid
     ) :         
-        return self.act.CountChannelTypeUuid(
+        return self.act.CountChannelTypeByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountChannelTypeCode(self
+    def CountChannelTypeByCode(self
         , code
     ) :         
-        return self.act.CountChannelTypeCode(
+        return self.act.CountChannelTypeByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountChannelTypeName(self
+    def CountChannelTypeByName(self
         , name
     ) :         
-        return self.act.CountChannelTypeName(
+        return self.act.CountChannelTypeByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseChannelTypeListFilter(self, filter_obj) :
-        return self.act.BrowseChannelTypeListFilter(filter_obj)
+    def BrowseChannelTypeListByFilter(self, filter_obj) :
+        return self.act.BrowseChannelTypeListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetChannelTypeUuidType(self, set_type, obj) :
-        return self.act.SetChannelTypeUuid(set_type, obj)
+    def SetChannelTypeByUuidType(self, set_type, obj) :
+        return self.act.SetChannelTypeByUuid(set_type, obj)
                
-    def SetChannelTypeUuid(self, obj) :
-        return self.act.SetChannelTypeUuid('full', obj)
+    def SetChannelTypeByUuid(self, obj) :
+        return self.act.SetChannelTypeByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelChannelTypeUuid(self
+    def DelChannelTypeByUuid(self
         , uuid
     ) :          
-        return self.act.DelChannelTypeUuid(
+        return self.act.DelChannelTypeByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -8317,32 +8317,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetChannelTypeListUuid(self
+    def GetChannelTypeListByUuid(self
         , uuid
         ) :
-            return self.act.GetChannelTypeListUuid(
+            return self.act.GetChannelTypeListByUuid(
                 uuid
             )
         
-    def GetChannelTypeUuid(self
+    def GetChannelTypeByUuid(self
         , uuid
     ) :
-        for item in self.GetChannelTypeListUuid(
+        for item in self.GetChannelTypeListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetChannelTypeListUuid(self
+    def CachedGetChannelTypeListByUuid(self
         , uuid
     ) :
-        return CachedGetChannelTypeListUuid(
+        return CachedGetChannelTypeListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetChannelTypeListUuid(self
+    def CachedGetChannelTypeListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -8351,7 +8351,7 @@ class BasePlatformAPI(object):
         """
         List<ChannelType> objs;
 
-        string method_name = "CachedGetChannelTypeListUuid";
+        string method_name = "CachedGetChannelTypeListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8367,7 +8367,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetChannelTypeListUuid(
+            objs = GetChannelTypeListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8376,32 +8376,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetChannelTypeListCode(self
+    def GetChannelTypeListByCode(self
         , code
         ) :
-            return self.act.GetChannelTypeListCode(
+            return self.act.GetChannelTypeListByCode(
                 code
             )
         
-    def GetChannelTypeCode(self
+    def GetChannelTypeByCode(self
         , code
     ) :
-        for item in self.GetChannelTypeListCode(
+        for item in self.GetChannelTypeListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetChannelTypeListCode(self
+    def CachedGetChannelTypeListByCode(self
         , code
     ) :
-        return CachedGetChannelTypeListCode(
+        return CachedGetChannelTypeListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetChannelTypeListCode(self
+    def CachedGetChannelTypeListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -8410,7 +8410,7 @@ class BasePlatformAPI(object):
         """
         List<ChannelType> objs;
 
-        string method_name = "CachedGetChannelTypeListCode";
+        string method_name = "CachedGetChannelTypeListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8426,7 +8426,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetChannelTypeListCode(
+            objs = GetChannelTypeListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8435,32 +8435,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetChannelTypeListName(self
+    def GetChannelTypeListByName(self
         , name
         ) :
-            return self.act.GetChannelTypeListName(
+            return self.act.GetChannelTypeListByName(
                 name
             )
         
-    def GetChannelTypeName(self
+    def GetChannelTypeByName(self
         , name
     ) :
-        for item in self.GetChannelTypeListName(
+        for item in self.GetChannelTypeListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetChannelTypeListName(self
+    def CachedGetChannelTypeListByName(self
         , name
     ) :
-        return CachedGetChannelTypeListName(
+        return CachedGetChannelTypeListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetChannelTypeListName(self
+    def CachedGetChannelTypeListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -8469,7 +8469,7 @@ class BasePlatformAPI(object):
         """
         List<ChannelType> objs;
 
-        string method_name = "CachedGetChannelTypeListName";
+        string method_name = "CachedGetChannelTypeListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8485,7 +8485,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetChannelTypeListName(
+            objs = GetChannelTypeListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8500,93 +8500,93 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountQuestionUuid(self
+    def CountQuestionByUuid(self
         , uuid
     ) :         
-        return self.act.CountQuestionUuid(
+        return self.act.CountQuestionByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountQuestionCode(self
+    def CountQuestionByCode(self
         , code
     ) :         
-        return self.act.CountQuestionCode(
+        return self.act.CountQuestionByCode(
         code
         )
         
 #------------------------------------------------------------------------------                    
-    def CountQuestionName(self
+    def CountQuestionByName(self
         , name
     ) :         
-        return self.act.CountQuestionName(
+        return self.act.CountQuestionByName(
         name
         )
         
 #------------------------------------------------------------------------------                    
-    def CountQuestionChannelId(self
+    def CountQuestionByChannelId(self
         , channel_id
     ) :         
-        return self.act.CountQuestionChannelId(
+        return self.act.CountQuestionByChannelId(
         channel_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountQuestionOrgId(self
+    def CountQuestionByOrgId(self
         , org_id
     ) :         
-        return self.act.CountQuestionOrgId(
+        return self.act.CountQuestionByOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountQuestionChannelIdOrgId(self
+    def CountQuestionByChannelIdByOrgId(self
         , channel_id
         , org_id
     ) :         
-        return self.act.CountQuestionChannelIdOrgId(
+        return self.act.CountQuestionByChannelIdByOrgId(
         channel_id
         , org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountQuestionChannelIdCode(self
+    def CountQuestionByChannelIdByCode(self
         , channel_id
         , code
     ) :         
-        return self.act.CountQuestionChannelIdCode(
+        return self.act.CountQuestionByChannelIdByCode(
         channel_id
         , code
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseQuestionListFilter(self, filter_obj) :
-        return self.act.BrowseQuestionListFilter(filter_obj)
+    def BrowseQuestionListByFilter(self, filter_obj) :
+        return self.act.BrowseQuestionListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetQuestionUuidType(self, set_type, obj) :
-        return self.act.SetQuestionUuid(set_type, obj)
+    def SetQuestionByUuidType(self, set_type, obj) :
+        return self.act.SetQuestionByUuid(set_type, obj)
                
-    def SetQuestionUuid(self, obj) :
-        return self.act.SetQuestionUuid('full', obj)
+    def SetQuestionByUuid(self, obj) :
+        return self.act.SetQuestionByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetQuestionChannelIdCodeType(self, set_type, obj) :
-        return self.act.SetQuestionChannelIdCode(set_type, obj)
+    def SetQuestionByChannelIdByCodeType(self, set_type, obj) :
+        return self.act.SetQuestionByChannelIdByCode(set_type, obj)
                
-    def SetQuestionChannelIdCode(self, obj) :
-        return self.act.SetQuestionChannelIdCode('full', obj)
+    def SetQuestionByChannelIdByCode(self, obj) :
+        return self.act.SetQuestionByChannelIdByCode('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelQuestionUuid(self
+    def DelQuestionByUuid(self
         , uuid
     ) :          
-        return self.act.DelQuestionUuid(
+        return self.act.DelQuestionByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelQuestionChannelIdOrgId(self
+    def DelQuestionByChannelIdByOrgId(self
         , channel_id
         , org_id
     ) :          
-        return self.act.DelQuestionChannelIdOrgId(
+        return self.act.DelQuestionByChannelIdByOrgId(
         channel_id
         , org_id
         )
@@ -8638,32 +8638,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetQuestionListUuid(self
+    def GetQuestionListByUuid(self
         , uuid
         ) :
-            return self.act.GetQuestionListUuid(
+            return self.act.GetQuestionListByUuid(
                 uuid
             )
         
-    def GetQuestionUuid(self
+    def GetQuestionByUuid(self
         , uuid
     ) :
-        for item in self.GetQuestionListUuid(
+        for item in self.GetQuestionListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetQuestionListUuid(self
+    def CachedGetQuestionListByUuid(self
         , uuid
     ) :
-        return CachedGetQuestionListUuid(
+        return CachedGetQuestionListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetQuestionListUuid(self
+    def CachedGetQuestionListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -8672,7 +8672,7 @@ class BasePlatformAPI(object):
         """
         List<Question> objs;
 
-        string method_name = "CachedGetQuestionListUuid";
+        string method_name = "CachedGetQuestionListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8688,7 +8688,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetQuestionListUuid(
+            objs = GetQuestionListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8697,32 +8697,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetQuestionListCode(self
+    def GetQuestionListByCode(self
         , code
         ) :
-            return self.act.GetQuestionListCode(
+            return self.act.GetQuestionListByCode(
                 code
             )
         
-    def GetQuestionCode(self
+    def GetQuestionByCode(self
         , code
     ) :
-        for item in self.GetQuestionListCode(
+        for item in self.GetQuestionListByCode(
         code
         ) :
             return item
         return None
     
-    def CachedGetQuestionListCode(self
+    def CachedGetQuestionListByCode(self
         , code
     ) :
-        return CachedGetQuestionListCode(
+        return CachedGetQuestionListByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , code
         )
         
-    def CachedGetQuestionListCode(self
+    def CachedGetQuestionListByCode(self
         , overrideCache
         , cacheHours
         , code
@@ -8731,7 +8731,7 @@ class BasePlatformAPI(object):
         """
         List<Question> objs;
 
-        string method_name = "CachedGetQuestionListCode";
+        string method_name = "CachedGetQuestionListByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8747,7 +8747,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetQuestionListCode(
+            objs = GetQuestionListByCode(
                 code
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8756,32 +8756,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetQuestionListName(self
+    def GetQuestionListByName(self
         , name
         ) :
-            return self.act.GetQuestionListName(
+            return self.act.GetQuestionListByName(
                 name
             )
         
-    def GetQuestionName(self
+    def GetQuestionByName(self
         , name
     ) :
-        for item in self.GetQuestionListName(
+        for item in self.GetQuestionListByName(
         name
         ) :
             return item
         return None
     
-    def CachedGetQuestionListName(self
+    def CachedGetQuestionListByName(self
         , name
     ) :
-        return CachedGetQuestionListName(
+        return CachedGetQuestionListByName(
             false
             , self.CACHE_DEFAULT_HOURS
             , name
         )
         
-    def CachedGetQuestionListName(self
+    def CachedGetQuestionListByName(self
         , overrideCache
         , cacheHours
         , name
@@ -8790,7 +8790,7 @@ class BasePlatformAPI(object):
         """
         List<Question> objs;
 
-        string method_name = "CachedGetQuestionListName";
+        string method_name = "CachedGetQuestionListByName";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8806,7 +8806,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetQuestionListName(
+            objs = GetQuestionListByName(
                 name
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8815,32 +8815,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetQuestionListType(self
+    def GetQuestionListByType(self
         , type
         ) :
-            return self.act.GetQuestionListType(
+            return self.act.GetQuestionListByType(
                 type
             )
         
-    def GetQuestionType(self
+    def GetQuestionByType(self
         , type
     ) :
-        for item in self.GetQuestionListType(
+        for item in self.GetQuestionListByType(
         type
         ) :
             return item
         return None
     
-    def CachedGetQuestionListType(self
+    def CachedGetQuestionListByType(self
         , type
     ) :
-        return CachedGetQuestionListType(
+        return CachedGetQuestionListByType(
             false
             , self.CACHE_DEFAULT_HOURS
             , type
         )
         
-    def CachedGetQuestionListType(self
+    def CachedGetQuestionListByType(self
         , overrideCache
         , cacheHours
         , type
@@ -8849,7 +8849,7 @@ class BasePlatformAPI(object):
         """
         List<Question> objs;
 
-        string method_name = "CachedGetQuestionListType";
+        string method_name = "CachedGetQuestionListByType";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8865,7 +8865,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetQuestionListType(
+            objs = GetQuestionListByType(
                 type
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8874,32 +8874,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetQuestionListChannelId(self
+    def GetQuestionListByChannelId(self
         , channel_id
         ) :
-            return self.act.GetQuestionListChannelId(
+            return self.act.GetQuestionListByChannelId(
                 channel_id
             )
         
-    def GetQuestionChannelId(self
+    def GetQuestionByChannelId(self
         , channel_id
     ) :
-        for item in self.GetQuestionListChannelId(
+        for item in self.GetQuestionListByChannelId(
         channel_id
         ) :
             return item
         return None
     
-    def CachedGetQuestionListChannelId(self
+    def CachedGetQuestionListByChannelId(self
         , channel_id
     ) :
-        return CachedGetQuestionListChannelId(
+        return CachedGetQuestionListByChannelId(
             false
             , self.CACHE_DEFAULT_HOURS
             , channel_id
         )
         
-    def CachedGetQuestionListChannelId(self
+    def CachedGetQuestionListByChannelId(self
         , overrideCache
         , cacheHours
         , channel_id
@@ -8908,7 +8908,7 @@ class BasePlatformAPI(object):
         """
         List<Question> objs;
 
-        string method_name = "CachedGetQuestionListChannelId";
+        string method_name = "CachedGetQuestionListByChannelId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8924,7 +8924,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetQuestionListChannelId(
+            objs = GetQuestionListByChannelId(
                 channel_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8933,32 +8933,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetQuestionListOrgId(self
+    def GetQuestionListByOrgId(self
         , org_id
         ) :
-            return self.act.GetQuestionListOrgId(
+            return self.act.GetQuestionListByOrgId(
                 org_id
             )
         
-    def GetQuestionOrgId(self
+    def GetQuestionByOrgId(self
         , org_id
     ) :
-        for item in self.GetQuestionListOrgId(
+        for item in self.GetQuestionListByOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetQuestionListOrgId(self
+    def CachedGetQuestionListByOrgId(self
         , org_id
     ) :
-        return CachedGetQuestionListOrgId(
+        return CachedGetQuestionListByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetQuestionListOrgId(self
+    def CachedGetQuestionListByOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -8967,7 +8967,7 @@ class BasePlatformAPI(object):
         """
         List<Question> objs;
 
-        string method_name = "CachedGetQuestionListOrgId";
+        string method_name = "CachedGetQuestionListByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -8983,7 +8983,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetQuestionListOrgId(
+            objs = GetQuestionListByOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8992,38 +8992,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetQuestionListChannelIdOrgId(self
+    def GetQuestionListByChannelIdByOrgId(self
         , channel_id
         , org_id
         ) :
-            return self.act.GetQuestionListChannelIdOrgId(
+            return self.act.GetQuestionListByChannelIdByOrgId(
                 channel_id
                 , org_id
             )
         
-    def GetQuestionChannelIdOrgId(self
+    def GetQuestionByChannelIdByOrgId(self
         , channel_id
         , org_id
     ) :
-        for item in self.GetQuestionListChannelIdOrgId(
+        for item in self.GetQuestionListByChannelIdByOrgId(
         channel_id
         , org_id
         ) :
             return item
         return None
     
-    def CachedGetQuestionListChannelIdOrgId(self
+    def CachedGetQuestionListByChannelIdByOrgId(self
         , channel_id
         , org_id
     ) :
-        return CachedGetQuestionListChannelIdOrgId(
+        return CachedGetQuestionListByChannelIdByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , channel_id
             , org_id
         )
         
-    def CachedGetQuestionListChannelIdOrgId(self
+    def CachedGetQuestionListByChannelIdByOrgId(self
         , overrideCache
         , cacheHours
         , channel_id
@@ -9033,7 +9033,7 @@ class BasePlatformAPI(object):
         """
         List<Question> objs;
 
-        string method_name = "CachedGetQuestionListChannelIdOrgId";
+        string method_name = "CachedGetQuestionListByChannelIdByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9053,7 +9053,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetQuestionListChannelIdOrgId(
+            objs = GetQuestionListByChannelIdByOrgId(
                 channel_id
                 , org_id
             );
@@ -9063,38 +9063,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetQuestionListChannelIdCode(self
+    def GetQuestionListByChannelIdByCode(self
         , channel_id
         , code
         ) :
-            return self.act.GetQuestionListChannelIdCode(
+            return self.act.GetQuestionListByChannelIdByCode(
                 channel_id
                 , code
             )
         
-    def GetQuestionChannelIdCode(self
+    def GetQuestionByChannelIdByCode(self
         , channel_id
         , code
     ) :
-        for item in self.GetQuestionListChannelIdCode(
+        for item in self.GetQuestionListByChannelIdByCode(
         channel_id
         , code
         ) :
             return item
         return None
     
-    def CachedGetQuestionListChannelIdCode(self
+    def CachedGetQuestionListByChannelIdByCode(self
         , channel_id
         , code
     ) :
-        return CachedGetQuestionListChannelIdCode(
+        return CachedGetQuestionListByChannelIdByCode(
             false
             , self.CACHE_DEFAULT_HOURS
             , channel_id
             , code
         )
         
-    def CachedGetQuestionListChannelIdCode(self
+    def CachedGetQuestionListByChannelIdByCode(self
         , overrideCache
         , cacheHours
         , channel_id
@@ -9104,7 +9104,7 @@ class BasePlatformAPI(object):
         """
         List<Question> objs;
 
-        string method_name = "CachedGetQuestionListChannelIdCode";
+        string method_name = "CachedGetQuestionListByChannelIdByCode";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9124,7 +9124,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetQuestionListChannelIdCode(
+            objs = GetQuestionListByChannelIdByCode(
                 channel_id
                 , code
             );
@@ -9140,42 +9140,42 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileOfferUuid(self
+    def CountProfileOfferByUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileOfferUuid(
+        return self.act.CountProfileOfferByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileOfferProfileId(self
+    def CountProfileOfferByProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileOfferProfileId(
+        return self.act.CountProfileOfferByProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileOfferListFilter(self, filter_obj) :
-        return self.act.BrowseProfileOfferListFilter(filter_obj)
+    def BrowseProfileOfferListByFilter(self, filter_obj) :
+        return self.act.BrowseProfileOfferListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileOfferUuidType(self, set_type, obj) :
-        return self.act.SetProfileOfferUuid(set_type, obj)
+    def SetProfileOfferByUuidType(self, set_type, obj) :
+        return self.act.SetProfileOfferByUuid(set_type, obj)
                
-    def SetProfileOfferUuid(self, obj) :
-        return self.act.SetProfileOfferUuid('full', obj)
+    def SetProfileOfferByUuid(self, obj) :
+        return self.act.SetProfileOfferByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileOfferUuid(self
+    def DelProfileOfferByUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileOfferUuid(
+        return self.act.DelProfileOfferByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileOfferProfileId(self
+    def DelProfileOfferByProfileId(self
         , profile_id
     ) :          
-        return self.act.DelProfileOfferProfileId(
+        return self.act.DelProfileOfferByProfileId(
         profile_id
         )
 #------------------------------------------------------------------------------                    
@@ -9226,32 +9226,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileOfferListUuid(self
+    def GetProfileOfferListByUuid(self
         , uuid
         ) :
-            return self.act.GetProfileOfferListUuid(
+            return self.act.GetProfileOfferListByUuid(
                 uuid
             )
         
-    def GetProfileOfferUuid(self
+    def GetProfileOfferByUuid(self
         , uuid
     ) :
-        for item in self.GetProfileOfferListUuid(
+        for item in self.GetProfileOfferListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileOfferListUuid(self
+    def CachedGetProfileOfferListByUuid(self
         , uuid
     ) :
-        return CachedGetProfileOfferListUuid(
+        return CachedGetProfileOfferListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileOfferListUuid(self
+    def CachedGetProfileOfferListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -9260,7 +9260,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileOffer> objs;
 
-        string method_name = "CachedGetProfileOfferListUuid";
+        string method_name = "CachedGetProfileOfferListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9276,7 +9276,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileOfferListUuid(
+            objs = GetProfileOfferListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9285,32 +9285,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileOfferListProfileId(self
+    def GetProfileOfferListByProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileOfferListProfileId(
+            return self.act.GetProfileOfferListByProfileId(
                 profile_id
             )
         
-    def GetProfileOfferProfileId(self
+    def GetProfileOfferByProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileOfferListProfileId(
+        for item in self.GetProfileOfferListByProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileOfferListProfileId(self
+    def CachedGetProfileOfferListByProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileOfferListProfileId(
+        return CachedGetProfileOfferListByProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileOfferListProfileId(self
+    def CachedGetProfileOfferListByProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -9319,7 +9319,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileOffer> objs;
 
-        string method_name = "CachedGetProfileOfferListProfileId";
+        string method_name = "CachedGetProfileOfferListByProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9335,7 +9335,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileOfferListProfileId(
+            objs = GetProfileOfferListByProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9350,51 +9350,51 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAppUuid(self
+    def CountProfileAppByUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileAppUuid(
+        return self.act.CountProfileAppByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileAppProfileIdAppId(self
+    def CountProfileAppByProfileIdByAppId(self
         , profile_id
         , app_id
     ) :         
-        return self.act.CountProfileAppProfileIdAppId(
+        return self.act.CountProfileAppByProfileIdByAppId(
         profile_id
         , app_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileAppListFilter(self, filter_obj) :
-        return self.act.BrowseProfileAppListFilter(filter_obj)
+    def BrowseProfileAppListByFilter(self, filter_obj) :
+        return self.act.BrowseProfileAppListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAppUuidType(self, set_type, obj) :
-        return self.act.SetProfileAppUuid(set_type, obj)
+    def SetProfileAppByUuidType(self, set_type, obj) :
+        return self.act.SetProfileAppByUuid(set_type, obj)
                
-    def SetProfileAppUuid(self, obj) :
-        return self.act.SetProfileAppUuid('full', obj)
+    def SetProfileAppByUuid(self, obj) :
+        return self.act.SetProfileAppByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileAppProfileIdAppIdType(self, set_type, obj) :
-        return self.act.SetProfileAppProfileIdAppId(set_type, obj)
+    def SetProfileAppByProfileIdByAppIdType(self, set_type, obj) :
+        return self.act.SetProfileAppByProfileIdByAppId(set_type, obj)
                
-    def SetProfileAppProfileIdAppId(self, obj) :
-        return self.act.SetProfileAppProfileIdAppId('full', obj)
+    def SetProfileAppByProfileIdByAppId(self, obj) :
+        return self.act.SetProfileAppByProfileIdByAppId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileAppUuid(self
+    def DelProfileAppByUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileAppUuid(
+        return self.act.DelProfileAppByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileAppProfileIdAppId(self
+    def DelProfileAppByProfileIdByAppId(self
         , profile_id
         , app_id
     ) :          
-        return self.act.DelProfileAppProfileIdAppId(
+        return self.act.DelProfileAppByProfileIdByAppId(
         profile_id
         , app_id
         )
@@ -9446,32 +9446,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAppListUuid(self
+    def GetProfileAppListByUuid(self
         , uuid
         ) :
-            return self.act.GetProfileAppListUuid(
+            return self.act.GetProfileAppListByUuid(
                 uuid
             )
         
-    def GetProfileAppUuid(self
+    def GetProfileAppByUuid(self
         , uuid
     ) :
-        for item in self.GetProfileAppListUuid(
+        for item in self.GetProfileAppListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileAppListUuid(self
+    def CachedGetProfileAppListByUuid(self
         , uuid
     ) :
-        return CachedGetProfileAppListUuid(
+        return CachedGetProfileAppListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileAppListUuid(self
+    def CachedGetProfileAppListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -9480,7 +9480,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileApp> objs;
 
-        string method_name = "CachedGetProfileAppListUuid";
+        string method_name = "CachedGetProfileAppListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9496,7 +9496,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAppListUuid(
+            objs = GetProfileAppListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9505,32 +9505,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAppListAppId(self
+    def GetProfileAppListByAppId(self
         , app_id
         ) :
-            return self.act.GetProfileAppListAppId(
+            return self.act.GetProfileAppListByAppId(
                 app_id
             )
         
-    def GetProfileAppAppId(self
+    def GetProfileAppByAppId(self
         , app_id
     ) :
-        for item in self.GetProfileAppListAppId(
+        for item in self.GetProfileAppListByAppId(
         app_id
         ) :
             return item
         return None
     
-    def CachedGetProfileAppListAppId(self
+    def CachedGetProfileAppListByAppId(self
         , app_id
     ) :
-        return CachedGetProfileAppListAppId(
+        return CachedGetProfileAppListByAppId(
             false
             , self.CACHE_DEFAULT_HOURS
             , app_id
         )
         
-    def CachedGetProfileAppListAppId(self
+    def CachedGetProfileAppListByAppId(self
         , overrideCache
         , cacheHours
         , app_id
@@ -9539,7 +9539,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileApp> objs;
 
-        string method_name = "CachedGetProfileAppListAppId";
+        string method_name = "CachedGetProfileAppListByAppId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9555,7 +9555,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAppListAppId(
+            objs = GetProfileAppListByAppId(
                 app_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9564,32 +9564,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAppListProfileId(self
+    def GetProfileAppListByProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileAppListProfileId(
+            return self.act.GetProfileAppListByProfileId(
                 profile_id
             )
         
-    def GetProfileAppProfileId(self
+    def GetProfileAppByProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileAppListProfileId(
+        for item in self.GetProfileAppListByProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileAppListProfileId(self
+    def CachedGetProfileAppListByProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileAppListProfileId(
+        return CachedGetProfileAppListByProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileAppListProfileId(self
+    def CachedGetProfileAppListByProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -9598,7 +9598,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileApp> objs;
 
-        string method_name = "CachedGetProfileAppListProfileId";
+        string method_name = "CachedGetProfileAppListByProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9614,7 +9614,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAppListProfileId(
+            objs = GetProfileAppListByProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9623,38 +9623,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileAppListProfileIdAppId(self
+    def GetProfileAppListByProfileIdByAppId(self
         , profile_id
         , app_id
         ) :
-            return self.act.GetProfileAppListProfileIdAppId(
+            return self.act.GetProfileAppListByProfileIdByAppId(
                 profile_id
                 , app_id
             )
         
-    def GetProfileAppProfileIdAppId(self
+    def GetProfileAppByProfileIdByAppId(self
         , profile_id
         , app_id
     ) :
-        for item in self.GetProfileAppListProfileIdAppId(
+        for item in self.GetProfileAppListByProfileIdByAppId(
         profile_id
         , app_id
         ) :
             return item
         return None
     
-    def CachedGetProfileAppListProfileIdAppId(self
+    def CachedGetProfileAppListByProfileIdByAppId(self
         , profile_id
         , app_id
     ) :
-        return CachedGetProfileAppListProfileIdAppId(
+        return CachedGetProfileAppListByProfileIdByAppId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
             , app_id
         )
         
-    def CachedGetProfileAppListProfileIdAppId(self
+    def CachedGetProfileAppListByProfileIdByAppId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -9664,7 +9664,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileApp> objs;
 
-        string method_name = "CachedGetProfileAppListProfileIdAppId";
+        string method_name = "CachedGetProfileAppListByProfileIdByAppId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9684,7 +9684,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileAppListProfileIdAppId(
+            objs = GetProfileAppListByProfileIdByAppId(
                 profile_id
                 , app_id
             );
@@ -9700,43 +9700,43 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileOrgUuid(self
+    def CountProfileOrgByUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileOrgUuid(
+        return self.act.CountProfileOrgByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileOrgOrgId(self
+    def CountProfileOrgByOrgId(self
         , org_id
     ) :         
-        return self.act.CountProfileOrgOrgId(
+        return self.act.CountProfileOrgByOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileOrgProfileId(self
+    def CountProfileOrgByProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileOrgProfileId(
+        return self.act.CountProfileOrgByProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileOrgListFilter(self, filter_obj) :
-        return self.act.BrowseProfileOrgListFilter(filter_obj)
+    def BrowseProfileOrgListByFilter(self, filter_obj) :
+        return self.act.BrowseProfileOrgListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileOrgUuidType(self, set_type, obj) :
-        return self.act.SetProfileOrgUuid(set_type, obj)
+    def SetProfileOrgByUuidType(self, set_type, obj) :
+        return self.act.SetProfileOrgByUuid(set_type, obj)
                
-    def SetProfileOrgUuid(self, obj) :
-        return self.act.SetProfileOrgUuid('full', obj)
+    def SetProfileOrgByUuid(self, obj) :
+        return self.act.SetProfileOrgByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileOrgUuid(self
+    def DelProfileOrgByUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileOrgUuid(
+        return self.act.DelProfileOrgByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
@@ -9787,32 +9787,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileOrgListUuid(self
+    def GetProfileOrgListByUuid(self
         , uuid
         ) :
-            return self.act.GetProfileOrgListUuid(
+            return self.act.GetProfileOrgListByUuid(
                 uuid
             )
         
-    def GetProfileOrgUuid(self
+    def GetProfileOrgByUuid(self
         , uuid
     ) :
-        for item in self.GetProfileOrgListUuid(
+        for item in self.GetProfileOrgListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileOrgListUuid(self
+    def CachedGetProfileOrgListByUuid(self
         , uuid
     ) :
-        return CachedGetProfileOrgListUuid(
+        return CachedGetProfileOrgListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileOrgListUuid(self
+    def CachedGetProfileOrgListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -9821,7 +9821,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileOrg> objs;
 
-        string method_name = "CachedGetProfileOrgListUuid";
+        string method_name = "CachedGetProfileOrgListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9837,7 +9837,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileOrgListUuid(
+            objs = GetProfileOrgListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9846,32 +9846,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileOrgListOrgId(self
+    def GetProfileOrgListByOrgId(self
         , org_id
         ) :
-            return self.act.GetProfileOrgListOrgId(
+            return self.act.GetProfileOrgListByOrgId(
                 org_id
             )
         
-    def GetProfileOrgOrgId(self
+    def GetProfileOrgByOrgId(self
         , org_id
     ) :
-        for item in self.GetProfileOrgListOrgId(
+        for item in self.GetProfileOrgListByOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetProfileOrgListOrgId(self
+    def CachedGetProfileOrgListByOrgId(self
         , org_id
     ) :
-        return CachedGetProfileOrgListOrgId(
+        return CachedGetProfileOrgListByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetProfileOrgListOrgId(self
+    def CachedGetProfileOrgListByOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -9880,7 +9880,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileOrg> objs;
 
-        string method_name = "CachedGetProfileOrgListOrgId";
+        string method_name = "CachedGetProfileOrgListByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9896,7 +9896,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileOrgListOrgId(
+            objs = GetProfileOrgListByOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9905,32 +9905,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileOrgListProfileId(self
+    def GetProfileOrgListByProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileOrgListProfileId(
+            return self.act.GetProfileOrgListByProfileId(
                 profile_id
             )
         
-    def GetProfileOrgProfileId(self
+    def GetProfileOrgByProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileOrgListProfileId(
+        for item in self.GetProfileOrgListByProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileOrgListProfileId(self
+    def CachedGetProfileOrgListByProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileOrgListProfileId(
+        return CachedGetProfileOrgListByProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileOrgListProfileId(self
+    def CachedGetProfileOrgListByProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -9939,7 +9939,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileOrg> objs;
 
-        string method_name = "CachedGetProfileOrgListProfileId";
+        string method_name = "CachedGetProfileOrgListByProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -9955,7 +9955,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileOrgListProfileId(
+            objs = GetProfileOrgListByProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9970,115 +9970,115 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileQuestionUuid(self
+    def CountProfileQuestionByUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileQuestionUuid(
+        return self.act.CountProfileQuestionByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileQuestionChannelId(self
+    def CountProfileQuestionByChannelId(self
         , channel_id
     ) :         
-        return self.act.CountProfileQuestionChannelId(
+        return self.act.CountProfileQuestionByChannelId(
         channel_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileQuestionOrgId(self
+    def CountProfileQuestionByOrgId(self
         , org_id
     ) :         
-        return self.act.CountProfileQuestionOrgId(
+        return self.act.CountProfileQuestionByOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileQuestionProfileId(self
+    def CountProfileQuestionByProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileQuestionProfileId(
+        return self.act.CountProfileQuestionByProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileQuestionQuestionId(self
+    def CountProfileQuestionByQuestionId(self
         , question_id
     ) :         
-        return self.act.CountProfileQuestionQuestionId(
+        return self.act.CountProfileQuestionByQuestionId(
         question_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileQuestionChannelIdOrgId(self
+    def CountProfileQuestionByChannelIdByOrgId(self
         , channel_id
         , org_id
     ) :         
-        return self.act.CountProfileQuestionChannelIdOrgId(
+        return self.act.CountProfileQuestionByChannelIdByOrgId(
         channel_id
         , org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileQuestionChannelIdProfileId(self
+    def CountProfileQuestionByChannelIdByProfileId(self
         , channel_id
         , profile_id
     ) :         
-        return self.act.CountProfileQuestionChannelIdProfileId(
+        return self.act.CountProfileQuestionByChannelIdByProfileId(
         channel_id
         , profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileQuestionQuestionIdProfileId(self
+    def CountProfileQuestionByQuestionIdByProfileId(self
         , question_id
         , profile_id
     ) :         
-        return self.act.CountProfileQuestionQuestionIdProfileId(
+        return self.act.CountProfileQuestionByQuestionIdByProfileId(
         question_id
         , profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileQuestionListFilter(self, filter_obj) :
-        return self.act.BrowseProfileQuestionListFilter(filter_obj)
+    def BrowseProfileQuestionListByFilter(self, filter_obj) :
+        return self.act.BrowseProfileQuestionListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileQuestionUuidType(self, set_type, obj) :
-        return self.act.SetProfileQuestionUuid(set_type, obj)
+    def SetProfileQuestionByUuidType(self, set_type, obj) :
+        return self.act.SetProfileQuestionByUuid(set_type, obj)
                
-    def SetProfileQuestionUuid(self, obj) :
-        return self.act.SetProfileQuestionUuid('full', obj)
+    def SetProfileQuestionByUuid(self, obj) :
+        return self.act.SetProfileQuestionByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileQuestionChannelIdProfileIdType(self, set_type, obj) :
-        return self.act.SetProfileQuestionChannelIdProfileId(set_type, obj)
+    def SetProfileQuestionByChannelIdByProfileIdType(self, set_type, obj) :
+        return self.act.SetProfileQuestionByChannelIdByProfileId(set_type, obj)
                
-    def SetProfileQuestionChannelIdProfileId(self, obj) :
-        return self.act.SetProfileQuestionChannelIdProfileId('full', obj)
+    def SetProfileQuestionByChannelIdByProfileId(self, obj) :
+        return self.act.SetProfileQuestionByChannelIdByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileQuestionQuestionIdProfileIdType(self, set_type, obj) :
-        return self.act.SetProfileQuestionQuestionIdProfileId(set_type, obj)
+    def SetProfileQuestionByQuestionIdByProfileIdType(self, set_type, obj) :
+        return self.act.SetProfileQuestionByQuestionIdByProfileId(set_type, obj)
                
-    def SetProfileQuestionQuestionIdProfileId(self, obj) :
-        return self.act.SetProfileQuestionQuestionIdProfileId('full', obj)
+    def SetProfileQuestionByQuestionIdByProfileId(self, obj) :
+        return self.act.SetProfileQuestionByQuestionIdByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileQuestionChannelIdQuestionIdProfileIdType(self, set_type, obj) :
-        return self.act.SetProfileQuestionChannelIdQuestionIdProfileId(set_type, obj)
+    def SetProfileQuestionByChannelIdByQuestionIdByProfileIdType(self, set_type, obj) :
+        return self.act.SetProfileQuestionByChannelIdByQuestionIdByProfileId(set_type, obj)
                
-    def SetProfileQuestionChannelIdQuestionIdProfileId(self, obj) :
-        return self.act.SetProfileQuestionChannelIdQuestionIdProfileId('full', obj)
+    def SetProfileQuestionByChannelIdByQuestionIdByProfileId(self, obj) :
+        return self.act.SetProfileQuestionByChannelIdByQuestionIdByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileQuestionUuid(self
+    def DelProfileQuestionByUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileQuestionUuid(
+        return self.act.DelProfileQuestionByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileQuestionChannelIdOrgId(self
+    def DelProfileQuestionByChannelIdByOrgId(self
         , channel_id
         , org_id
     ) :          
-        return self.act.DelProfileQuestionChannelIdOrgId(
+        return self.act.DelProfileQuestionByChannelIdByOrgId(
         channel_id
         , org_id
         )
@@ -10130,32 +10130,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileQuestionListUuid(self
+    def GetProfileQuestionListByUuid(self
         , uuid
         ) :
-            return self.act.GetProfileQuestionListUuid(
+            return self.act.GetProfileQuestionListByUuid(
                 uuid
             )
         
-    def GetProfileQuestionUuid(self
+    def GetProfileQuestionByUuid(self
         , uuid
     ) :
-        for item in self.GetProfileQuestionListUuid(
+        for item in self.GetProfileQuestionListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileQuestionListUuid(self
+    def CachedGetProfileQuestionListByUuid(self
         , uuid
     ) :
-        return CachedGetProfileQuestionListUuid(
+        return CachedGetProfileQuestionListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileQuestionListUuid(self
+    def CachedGetProfileQuestionListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -10164,7 +10164,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileQuestion> objs;
 
-        string method_name = "CachedGetProfileQuestionListUuid";
+        string method_name = "CachedGetProfileQuestionListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10180,7 +10180,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileQuestionListUuid(
+            objs = GetProfileQuestionListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10189,32 +10189,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileQuestionListChannelId(self
+    def GetProfileQuestionListByChannelId(self
         , channel_id
         ) :
-            return self.act.GetProfileQuestionListChannelId(
+            return self.act.GetProfileQuestionListByChannelId(
                 channel_id
             )
         
-    def GetProfileQuestionChannelId(self
+    def GetProfileQuestionByChannelId(self
         , channel_id
     ) :
-        for item in self.GetProfileQuestionListChannelId(
+        for item in self.GetProfileQuestionListByChannelId(
         channel_id
         ) :
             return item
         return None
     
-    def CachedGetProfileQuestionListChannelId(self
+    def CachedGetProfileQuestionListByChannelId(self
         , channel_id
     ) :
-        return CachedGetProfileQuestionListChannelId(
+        return CachedGetProfileQuestionListByChannelId(
             false
             , self.CACHE_DEFAULT_HOURS
             , channel_id
         )
         
-    def CachedGetProfileQuestionListChannelId(self
+    def CachedGetProfileQuestionListByChannelId(self
         , overrideCache
         , cacheHours
         , channel_id
@@ -10223,7 +10223,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileQuestion> objs;
 
-        string method_name = "CachedGetProfileQuestionListChannelId";
+        string method_name = "CachedGetProfileQuestionListByChannelId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10239,7 +10239,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileQuestionListChannelId(
+            objs = GetProfileQuestionListByChannelId(
                 channel_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10248,32 +10248,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileQuestionListOrgId(self
+    def GetProfileQuestionListByOrgId(self
         , org_id
         ) :
-            return self.act.GetProfileQuestionListOrgId(
+            return self.act.GetProfileQuestionListByOrgId(
                 org_id
             )
         
-    def GetProfileQuestionOrgId(self
+    def GetProfileQuestionByOrgId(self
         , org_id
     ) :
-        for item in self.GetProfileQuestionListOrgId(
+        for item in self.GetProfileQuestionListByOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetProfileQuestionListOrgId(self
+    def CachedGetProfileQuestionListByOrgId(self
         , org_id
     ) :
-        return CachedGetProfileQuestionListOrgId(
+        return CachedGetProfileQuestionListByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetProfileQuestionListOrgId(self
+    def CachedGetProfileQuestionListByOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -10282,7 +10282,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileQuestion> objs;
 
-        string method_name = "CachedGetProfileQuestionListOrgId";
+        string method_name = "CachedGetProfileQuestionListByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10298,7 +10298,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileQuestionListOrgId(
+            objs = GetProfileQuestionListByOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10307,32 +10307,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileQuestionListProfileId(self
+    def GetProfileQuestionListByProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileQuestionListProfileId(
+            return self.act.GetProfileQuestionListByProfileId(
                 profile_id
             )
         
-    def GetProfileQuestionProfileId(self
+    def GetProfileQuestionByProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileQuestionListProfileId(
+        for item in self.GetProfileQuestionListByProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileQuestionListProfileId(self
+    def CachedGetProfileQuestionListByProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileQuestionListProfileId(
+        return CachedGetProfileQuestionListByProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileQuestionListProfileId(self
+    def CachedGetProfileQuestionListByProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -10341,7 +10341,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileQuestion> objs;
 
-        string method_name = "CachedGetProfileQuestionListProfileId";
+        string method_name = "CachedGetProfileQuestionListByProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10357,7 +10357,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileQuestionListProfileId(
+            objs = GetProfileQuestionListByProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10366,32 +10366,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileQuestionListQuestionId(self
+    def GetProfileQuestionListByQuestionId(self
         , question_id
         ) :
-            return self.act.GetProfileQuestionListQuestionId(
+            return self.act.GetProfileQuestionListByQuestionId(
                 question_id
             )
         
-    def GetProfileQuestionQuestionId(self
+    def GetProfileQuestionByQuestionId(self
         , question_id
     ) :
-        for item in self.GetProfileQuestionListQuestionId(
+        for item in self.GetProfileQuestionListByQuestionId(
         question_id
         ) :
             return item
         return None
     
-    def CachedGetProfileQuestionListQuestionId(self
+    def CachedGetProfileQuestionListByQuestionId(self
         , question_id
     ) :
-        return CachedGetProfileQuestionListQuestionId(
+        return CachedGetProfileQuestionListByQuestionId(
             false
             , self.CACHE_DEFAULT_HOURS
             , question_id
         )
         
-    def CachedGetProfileQuestionListQuestionId(self
+    def CachedGetProfileQuestionListByQuestionId(self
         , overrideCache
         , cacheHours
         , question_id
@@ -10400,7 +10400,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileQuestion> objs;
 
-        string method_name = "CachedGetProfileQuestionListQuestionId";
+        string method_name = "CachedGetProfileQuestionListByQuestionId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10416,7 +10416,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileQuestionListQuestionId(
+            objs = GetProfileQuestionListByQuestionId(
                 question_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10425,38 +10425,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileQuestionListChannelIdOrgId(self
+    def GetProfileQuestionListByChannelIdByOrgId(self
         , channel_id
         , org_id
         ) :
-            return self.act.GetProfileQuestionListChannelIdOrgId(
+            return self.act.GetProfileQuestionListByChannelIdByOrgId(
                 channel_id
                 , org_id
             )
         
-    def GetProfileQuestionChannelIdOrgId(self
+    def GetProfileQuestionByChannelIdByOrgId(self
         , channel_id
         , org_id
     ) :
-        for item in self.GetProfileQuestionListChannelIdOrgId(
+        for item in self.GetProfileQuestionListByChannelIdByOrgId(
         channel_id
         , org_id
         ) :
             return item
         return None
     
-    def CachedGetProfileQuestionListChannelIdOrgId(self
+    def CachedGetProfileQuestionListByChannelIdByOrgId(self
         , channel_id
         , org_id
     ) :
-        return CachedGetProfileQuestionListChannelIdOrgId(
+        return CachedGetProfileQuestionListByChannelIdByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , channel_id
             , org_id
         )
         
-    def CachedGetProfileQuestionListChannelIdOrgId(self
+    def CachedGetProfileQuestionListByChannelIdByOrgId(self
         , overrideCache
         , cacheHours
         , channel_id
@@ -10466,7 +10466,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileQuestion> objs;
 
-        string method_name = "CachedGetProfileQuestionListChannelIdOrgId";
+        string method_name = "CachedGetProfileQuestionListByChannelIdByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10486,7 +10486,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileQuestionListChannelIdOrgId(
+            objs = GetProfileQuestionListByChannelIdByOrgId(
                 channel_id
                 , org_id
             );
@@ -10496,38 +10496,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileQuestionListChannelIdProfileId(self
+    def GetProfileQuestionListByChannelIdByProfileId(self
         , channel_id
         , profile_id
         ) :
-            return self.act.GetProfileQuestionListChannelIdProfileId(
+            return self.act.GetProfileQuestionListByChannelIdByProfileId(
                 channel_id
                 , profile_id
             )
         
-    def GetProfileQuestionChannelIdProfileId(self
+    def GetProfileQuestionByChannelIdByProfileId(self
         , channel_id
         , profile_id
     ) :
-        for item in self.GetProfileQuestionListChannelIdProfileId(
+        for item in self.GetProfileQuestionListByChannelIdByProfileId(
         channel_id
         , profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileQuestionListChannelIdProfileId(self
+    def CachedGetProfileQuestionListByChannelIdByProfileId(self
         , channel_id
         , profile_id
     ) :
-        return CachedGetProfileQuestionListChannelIdProfileId(
+        return CachedGetProfileQuestionListByChannelIdByProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , channel_id
             , profile_id
         )
         
-    def CachedGetProfileQuestionListChannelIdProfileId(self
+    def CachedGetProfileQuestionListByChannelIdByProfileId(self
         , overrideCache
         , cacheHours
         , channel_id
@@ -10537,7 +10537,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileQuestion> objs;
 
-        string method_name = "CachedGetProfileQuestionListChannelIdProfileId";
+        string method_name = "CachedGetProfileQuestionListByChannelIdByProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10557,7 +10557,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileQuestionListChannelIdProfileId(
+            objs = GetProfileQuestionListByChannelIdByProfileId(
                 channel_id
                 , profile_id
             );
@@ -10567,38 +10567,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileQuestionListQuestionIdProfileId(self
+    def GetProfileQuestionListByQuestionIdByProfileId(self
         , question_id
         , profile_id
         ) :
-            return self.act.GetProfileQuestionListQuestionIdProfileId(
+            return self.act.GetProfileQuestionListByQuestionIdByProfileId(
                 question_id
                 , profile_id
             )
         
-    def GetProfileQuestionQuestionIdProfileId(self
+    def GetProfileQuestionByQuestionIdByProfileId(self
         , question_id
         , profile_id
     ) :
-        for item in self.GetProfileQuestionListQuestionIdProfileId(
+        for item in self.GetProfileQuestionListByQuestionIdByProfileId(
         question_id
         , profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileQuestionListQuestionIdProfileId(self
+    def CachedGetProfileQuestionListByQuestionIdByProfileId(self
         , question_id
         , profile_id
     ) :
-        return CachedGetProfileQuestionListQuestionIdProfileId(
+        return CachedGetProfileQuestionListByQuestionIdByProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , question_id
             , profile_id
         )
         
-    def CachedGetProfileQuestionListQuestionIdProfileId(self
+    def CachedGetProfileQuestionListByQuestionIdByProfileId(self
         , overrideCache
         , cacheHours
         , question_id
@@ -10608,7 +10608,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileQuestion> objs;
 
-        string method_name = "CachedGetProfileQuestionListQuestionIdProfileId";
+        string method_name = "CachedGetProfileQuestionListByQuestionIdByProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10628,7 +10628,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileQuestionListQuestionIdProfileId(
+            objs = GetProfileQuestionListByQuestionIdByProfileId(
                 question_id
                 , profile_id
             );
@@ -10644,67 +10644,67 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileChannelUuid(self
+    def CountProfileChannelByUuid(self
         , uuid
     ) :         
-        return self.act.CountProfileChannelUuid(
+        return self.act.CountProfileChannelByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileChannelChannelId(self
+    def CountProfileChannelByChannelId(self
         , channel_id
     ) :         
-        return self.act.CountProfileChannelChannelId(
+        return self.act.CountProfileChannelByChannelId(
         channel_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileChannelProfileId(self
+    def CountProfileChannelByProfileId(self
         , profile_id
     ) :         
-        return self.act.CountProfileChannelProfileId(
+        return self.act.CountProfileChannelByProfileId(
         profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountProfileChannelChannelIdProfileId(self
+    def CountProfileChannelByChannelIdByProfileId(self
         , channel_id
         , profile_id
     ) :         
-        return self.act.CountProfileChannelChannelIdProfileId(
+        return self.act.CountProfileChannelByChannelIdByProfileId(
         channel_id
         , profile_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseProfileChannelListFilter(self, filter_obj) :
-        return self.act.BrowseProfileChannelListFilter(filter_obj)
+    def BrowseProfileChannelListByFilter(self, filter_obj) :
+        return self.act.BrowseProfileChannelListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileChannelUuidType(self, set_type, obj) :
-        return self.act.SetProfileChannelUuid(set_type, obj)
+    def SetProfileChannelByUuidType(self, set_type, obj) :
+        return self.act.SetProfileChannelByUuid(set_type, obj)
                
-    def SetProfileChannelUuid(self, obj) :
-        return self.act.SetProfileChannelUuid('full', obj)
+    def SetProfileChannelByUuid(self, obj) :
+        return self.act.SetProfileChannelByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetProfileChannelChannelIdProfileIdType(self, set_type, obj) :
-        return self.act.SetProfileChannelChannelIdProfileId(set_type, obj)
+    def SetProfileChannelByChannelIdByProfileIdType(self, set_type, obj) :
+        return self.act.SetProfileChannelByChannelIdByProfileId(set_type, obj)
                
-    def SetProfileChannelChannelIdProfileId(self, obj) :
-        return self.act.SetProfileChannelChannelIdProfileId('full', obj)
+    def SetProfileChannelByChannelIdByProfileId(self, obj) :
+        return self.act.SetProfileChannelByChannelIdByProfileId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelProfileChannelUuid(self
+    def DelProfileChannelByUuid(self
         , uuid
     ) :          
-        return self.act.DelProfileChannelUuid(
+        return self.act.DelProfileChannelByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelProfileChannelChannelIdProfileId(self
+    def DelProfileChannelByChannelIdByProfileId(self
         , channel_id
         , profile_id
     ) :          
-        return self.act.DelProfileChannelChannelIdProfileId(
+        return self.act.DelProfileChannelByChannelIdByProfileId(
         channel_id
         , profile_id
         )
@@ -10756,32 +10756,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileChannelListUuid(self
+    def GetProfileChannelListByUuid(self
         , uuid
         ) :
-            return self.act.GetProfileChannelListUuid(
+            return self.act.GetProfileChannelListByUuid(
                 uuid
             )
         
-    def GetProfileChannelUuid(self
+    def GetProfileChannelByUuid(self
         , uuid
     ) :
-        for item in self.GetProfileChannelListUuid(
+        for item in self.GetProfileChannelListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetProfileChannelListUuid(self
+    def CachedGetProfileChannelListByUuid(self
         , uuid
     ) :
-        return CachedGetProfileChannelListUuid(
+        return CachedGetProfileChannelListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetProfileChannelListUuid(self
+    def CachedGetProfileChannelListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -10790,7 +10790,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileChannel> objs;
 
-        string method_name = "CachedGetProfileChannelListUuid";
+        string method_name = "CachedGetProfileChannelListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10806,7 +10806,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileChannelListUuid(
+            objs = GetProfileChannelListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10815,32 +10815,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileChannelListChannelId(self
+    def GetProfileChannelListByChannelId(self
         , channel_id
         ) :
-            return self.act.GetProfileChannelListChannelId(
+            return self.act.GetProfileChannelListByChannelId(
                 channel_id
             )
         
-    def GetProfileChannelChannelId(self
+    def GetProfileChannelByChannelId(self
         , channel_id
     ) :
-        for item in self.GetProfileChannelListChannelId(
+        for item in self.GetProfileChannelListByChannelId(
         channel_id
         ) :
             return item
         return None
     
-    def CachedGetProfileChannelListChannelId(self
+    def CachedGetProfileChannelListByChannelId(self
         , channel_id
     ) :
-        return CachedGetProfileChannelListChannelId(
+        return CachedGetProfileChannelListByChannelId(
             false
             , self.CACHE_DEFAULT_HOURS
             , channel_id
         )
         
-    def CachedGetProfileChannelListChannelId(self
+    def CachedGetProfileChannelListByChannelId(self
         , overrideCache
         , cacheHours
         , channel_id
@@ -10849,7 +10849,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileChannel> objs;
 
-        string method_name = "CachedGetProfileChannelListChannelId";
+        string method_name = "CachedGetProfileChannelListByChannelId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10865,7 +10865,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileChannelListChannelId(
+            objs = GetProfileChannelListByChannelId(
                 channel_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10874,32 +10874,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileChannelListProfileId(self
+    def GetProfileChannelListByProfileId(self
         , profile_id
         ) :
-            return self.act.GetProfileChannelListProfileId(
+            return self.act.GetProfileChannelListByProfileId(
                 profile_id
             )
         
-    def GetProfileChannelProfileId(self
+    def GetProfileChannelByProfileId(self
         , profile_id
     ) :
-        for item in self.GetProfileChannelListProfileId(
+        for item in self.GetProfileChannelListByProfileId(
         profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileChannelListProfileId(self
+    def CachedGetProfileChannelListByProfileId(self
         , profile_id
     ) :
-        return CachedGetProfileChannelListProfileId(
+        return CachedGetProfileChannelListByProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , profile_id
         )
         
-    def CachedGetProfileChannelListProfileId(self
+    def CachedGetProfileChannelListByProfileId(self
         , overrideCache
         , cacheHours
         , profile_id
@@ -10908,7 +10908,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileChannel> objs;
 
-        string method_name = "CachedGetProfileChannelListProfileId";
+        string method_name = "CachedGetProfileChannelListByProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10924,7 +10924,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileChannelListProfileId(
+            objs = GetProfileChannelListByProfileId(
                 profile_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10933,38 +10933,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetProfileChannelListChannelIdProfileId(self
+    def GetProfileChannelListByChannelIdByProfileId(self
         , channel_id
         , profile_id
         ) :
-            return self.act.GetProfileChannelListChannelIdProfileId(
+            return self.act.GetProfileChannelListByChannelIdByProfileId(
                 channel_id
                 , profile_id
             )
         
-    def GetProfileChannelChannelIdProfileId(self
+    def GetProfileChannelByChannelIdByProfileId(self
         , channel_id
         , profile_id
     ) :
-        for item in self.GetProfileChannelListChannelIdProfileId(
+        for item in self.GetProfileChannelListByChannelIdByProfileId(
         channel_id
         , profile_id
         ) :
             return item
         return None
     
-    def CachedGetProfileChannelListChannelIdProfileId(self
+    def CachedGetProfileChannelListByChannelIdByProfileId(self
         , channel_id
         , profile_id
     ) :
-        return CachedGetProfileChannelListChannelIdProfileId(
+        return CachedGetProfileChannelListByChannelIdByProfileId(
             false
             , self.CACHE_DEFAULT_HOURS
             , channel_id
             , profile_id
         )
         
-    def CachedGetProfileChannelListChannelIdProfileId(self
+    def CachedGetProfileChannelListByChannelIdByProfileId(self
         , overrideCache
         , cacheHours
         , channel_id
@@ -10974,7 +10974,7 @@ class BasePlatformAPI(object):
         """
         List<ProfileChannel> objs;
 
-        string method_name = "CachedGetProfileChannelListChannelIdProfileId";
+        string method_name = "CachedGetProfileChannelListByChannelIdByProfileId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -10994,7 +10994,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetProfileChannelListChannelIdProfileId(
+            objs = GetProfileChannelListByChannelIdByProfileId(
                 channel_id
                 , profile_id
             );
@@ -11010,67 +11010,67 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOrgSiteUuid(self
+    def CountOrgSiteByUuid(self
         , uuid
     ) :         
-        return self.act.CountOrgSiteUuid(
+        return self.act.CountOrgSiteByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOrgSiteOrgId(self
+    def CountOrgSiteByOrgId(self
         , org_id
     ) :         
-        return self.act.CountOrgSiteOrgId(
+        return self.act.CountOrgSiteByOrgId(
         org_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOrgSiteSiteId(self
+    def CountOrgSiteBySiteId(self
         , site_id
     ) :         
-        return self.act.CountOrgSiteSiteId(
+        return self.act.CountOrgSiteBySiteId(
         site_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountOrgSiteOrgIdSiteId(self
+    def CountOrgSiteByOrgIdBySiteId(self
         , org_id
         , site_id
     ) :         
-        return self.act.CountOrgSiteOrgIdSiteId(
+        return self.act.CountOrgSiteByOrgIdBySiteId(
         org_id
         , site_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseOrgSiteListFilter(self, filter_obj) :
-        return self.act.BrowseOrgSiteListFilter(filter_obj)
+    def BrowseOrgSiteListByFilter(self, filter_obj) :
+        return self.act.BrowseOrgSiteListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgSiteUuidType(self, set_type, obj) :
-        return self.act.SetOrgSiteUuid(set_type, obj)
+    def SetOrgSiteByUuidType(self, set_type, obj) :
+        return self.act.SetOrgSiteByUuid(set_type, obj)
                
-    def SetOrgSiteUuid(self, obj) :
-        return self.act.SetOrgSiteUuid('full', obj)
+    def SetOrgSiteByUuid(self, obj) :
+        return self.act.SetOrgSiteByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetOrgSiteOrgIdSiteIdType(self, set_type, obj) :
-        return self.act.SetOrgSiteOrgIdSiteId(set_type, obj)
+    def SetOrgSiteByOrgIdBySiteIdType(self, set_type, obj) :
+        return self.act.SetOrgSiteByOrgIdBySiteId(set_type, obj)
                
-    def SetOrgSiteOrgIdSiteId(self, obj) :
-        return self.act.SetOrgSiteOrgIdSiteId('full', obj)
+    def SetOrgSiteByOrgIdBySiteId(self, obj) :
+        return self.act.SetOrgSiteByOrgIdBySiteId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelOrgSiteUuid(self
+    def DelOrgSiteByUuid(self
         , uuid
     ) :          
-        return self.act.DelOrgSiteUuid(
+        return self.act.DelOrgSiteByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelOrgSiteOrgIdSiteId(self
+    def DelOrgSiteByOrgIdBySiteId(self
         , org_id
         , site_id
     ) :          
-        return self.act.DelOrgSiteOrgIdSiteId(
+        return self.act.DelOrgSiteByOrgIdBySiteId(
         org_id
         , site_id
         )
@@ -11122,32 +11122,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOrgSiteListUuid(self
+    def GetOrgSiteListByUuid(self
         , uuid
         ) :
-            return self.act.GetOrgSiteListUuid(
+            return self.act.GetOrgSiteListByUuid(
                 uuid
             )
         
-    def GetOrgSiteUuid(self
+    def GetOrgSiteByUuid(self
         , uuid
     ) :
-        for item in self.GetOrgSiteListUuid(
+        for item in self.GetOrgSiteListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetOrgSiteListUuid(self
+    def CachedGetOrgSiteListByUuid(self
         , uuid
     ) :
-        return CachedGetOrgSiteListUuid(
+        return CachedGetOrgSiteListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetOrgSiteListUuid(self
+    def CachedGetOrgSiteListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -11156,7 +11156,7 @@ class BasePlatformAPI(object):
         """
         List<OrgSite> objs;
 
-        string method_name = "CachedGetOrgSiteListUuid";
+        string method_name = "CachedGetOrgSiteListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11172,7 +11172,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOrgSiteListUuid(
+            objs = GetOrgSiteListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11181,32 +11181,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOrgSiteListOrgId(self
+    def GetOrgSiteListByOrgId(self
         , org_id
         ) :
-            return self.act.GetOrgSiteListOrgId(
+            return self.act.GetOrgSiteListByOrgId(
                 org_id
             )
         
-    def GetOrgSiteOrgId(self
+    def GetOrgSiteByOrgId(self
         , org_id
     ) :
-        for item in self.GetOrgSiteListOrgId(
+        for item in self.GetOrgSiteListByOrgId(
         org_id
         ) :
             return item
         return None
     
-    def CachedGetOrgSiteListOrgId(self
+    def CachedGetOrgSiteListByOrgId(self
         , org_id
     ) :
-        return CachedGetOrgSiteListOrgId(
+        return CachedGetOrgSiteListByOrgId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
         )
         
-    def CachedGetOrgSiteListOrgId(self
+    def CachedGetOrgSiteListByOrgId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -11215,7 +11215,7 @@ class BasePlatformAPI(object):
         """
         List<OrgSite> objs;
 
-        string method_name = "CachedGetOrgSiteListOrgId";
+        string method_name = "CachedGetOrgSiteListByOrgId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11231,7 +11231,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOrgSiteListOrgId(
+            objs = GetOrgSiteListByOrgId(
                 org_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11240,32 +11240,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOrgSiteListSiteId(self
+    def GetOrgSiteListBySiteId(self
         , site_id
         ) :
-            return self.act.GetOrgSiteListSiteId(
+            return self.act.GetOrgSiteListBySiteId(
                 site_id
             )
         
-    def GetOrgSiteSiteId(self
+    def GetOrgSiteBySiteId(self
         , site_id
     ) :
-        for item in self.GetOrgSiteListSiteId(
+        for item in self.GetOrgSiteListBySiteId(
         site_id
         ) :
             return item
         return None
     
-    def CachedGetOrgSiteListSiteId(self
+    def CachedGetOrgSiteListBySiteId(self
         , site_id
     ) :
-        return CachedGetOrgSiteListSiteId(
+        return CachedGetOrgSiteListBySiteId(
             false
             , self.CACHE_DEFAULT_HOURS
             , site_id
         )
         
-    def CachedGetOrgSiteListSiteId(self
+    def CachedGetOrgSiteListBySiteId(self
         , overrideCache
         , cacheHours
         , site_id
@@ -11274,7 +11274,7 @@ class BasePlatformAPI(object):
         """
         List<OrgSite> objs;
 
-        string method_name = "CachedGetOrgSiteListSiteId";
+        string method_name = "CachedGetOrgSiteListBySiteId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11290,7 +11290,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOrgSiteListSiteId(
+            objs = GetOrgSiteListBySiteId(
                 site_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11299,38 +11299,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetOrgSiteListOrgIdSiteId(self
+    def GetOrgSiteListByOrgIdBySiteId(self
         , org_id
         , site_id
         ) :
-            return self.act.GetOrgSiteListOrgIdSiteId(
+            return self.act.GetOrgSiteListByOrgIdBySiteId(
                 org_id
                 , site_id
             )
         
-    def GetOrgSiteOrgIdSiteId(self
+    def GetOrgSiteByOrgIdBySiteId(self
         , org_id
         , site_id
     ) :
-        for item in self.GetOrgSiteListOrgIdSiteId(
+        for item in self.GetOrgSiteListByOrgIdBySiteId(
         org_id
         , site_id
         ) :
             return item
         return None
     
-    def CachedGetOrgSiteListOrgIdSiteId(self
+    def CachedGetOrgSiteListByOrgIdBySiteId(self
         , org_id
         , site_id
     ) :
-        return CachedGetOrgSiteListOrgIdSiteId(
+        return CachedGetOrgSiteListByOrgIdBySiteId(
             false
             , self.CACHE_DEFAULT_HOURS
             , org_id
             , site_id
         )
         
-    def CachedGetOrgSiteListOrgIdSiteId(self
+    def CachedGetOrgSiteListByOrgIdBySiteId(self
         , overrideCache
         , cacheHours
         , org_id
@@ -11340,7 +11340,7 @@ class BasePlatformAPI(object):
         """
         List<OrgSite> objs;
 
-        string method_name = "CachedGetOrgSiteListOrgIdSiteId";
+        string method_name = "CachedGetOrgSiteListByOrgIdBySiteId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11360,7 +11360,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetOrgSiteListOrgIdSiteId(
+            objs = GetOrgSiteListByOrgIdBySiteId(
                 org_id
                 , site_id
             );
@@ -11376,67 +11376,67 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteAppUuid(self
+    def CountSiteAppByUuid(self
         , uuid
     ) :         
-        return self.act.CountSiteAppUuid(
+        return self.act.CountSiteAppByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteAppAppId(self
+    def CountSiteAppByAppId(self
         , app_id
     ) :         
-        return self.act.CountSiteAppAppId(
+        return self.act.CountSiteAppByAppId(
         app_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteAppSiteId(self
+    def CountSiteAppBySiteId(self
         , site_id
     ) :         
-        return self.act.CountSiteAppSiteId(
+        return self.act.CountSiteAppBySiteId(
         site_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountSiteAppAppIdSiteId(self
+    def CountSiteAppByAppIdBySiteId(self
         , app_id
         , site_id
     ) :         
-        return self.act.CountSiteAppAppIdSiteId(
+        return self.act.CountSiteAppByAppIdBySiteId(
         app_id
         , site_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseSiteAppListFilter(self, filter_obj) :
-        return self.act.BrowseSiteAppListFilter(filter_obj)
+    def BrowseSiteAppListByFilter(self, filter_obj) :
+        return self.act.BrowseSiteAppListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteAppUuidType(self, set_type, obj) :
-        return self.act.SetSiteAppUuid(set_type, obj)
+    def SetSiteAppByUuidType(self, set_type, obj) :
+        return self.act.SetSiteAppByUuid(set_type, obj)
                
-    def SetSiteAppUuid(self, obj) :
-        return self.act.SetSiteAppUuid('full', obj)
+    def SetSiteAppByUuid(self, obj) :
+        return self.act.SetSiteAppByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetSiteAppAppIdSiteIdType(self, set_type, obj) :
-        return self.act.SetSiteAppAppIdSiteId(set_type, obj)
+    def SetSiteAppByAppIdBySiteIdType(self, set_type, obj) :
+        return self.act.SetSiteAppByAppIdBySiteId(set_type, obj)
                
-    def SetSiteAppAppIdSiteId(self, obj) :
-        return self.act.SetSiteAppAppIdSiteId('full', obj)
+    def SetSiteAppByAppIdBySiteId(self, obj) :
+        return self.act.SetSiteAppByAppIdBySiteId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelSiteAppUuid(self
+    def DelSiteAppByUuid(self
         , uuid
     ) :          
-        return self.act.DelSiteAppUuid(
+        return self.act.DelSiteAppByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelSiteAppAppIdSiteId(self
+    def DelSiteAppByAppIdBySiteId(self
         , app_id
         , site_id
     ) :          
-        return self.act.DelSiteAppAppIdSiteId(
+        return self.act.DelSiteAppByAppIdBySiteId(
         app_id
         , site_id
         )
@@ -11488,32 +11488,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteAppListUuid(self
+    def GetSiteAppListByUuid(self
         , uuid
         ) :
-            return self.act.GetSiteAppListUuid(
+            return self.act.GetSiteAppListByUuid(
                 uuid
             )
         
-    def GetSiteAppUuid(self
+    def GetSiteAppByUuid(self
         , uuid
     ) :
-        for item in self.GetSiteAppListUuid(
+        for item in self.GetSiteAppListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetSiteAppListUuid(self
+    def CachedGetSiteAppListByUuid(self
         , uuid
     ) :
-        return CachedGetSiteAppListUuid(
+        return CachedGetSiteAppListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetSiteAppListUuid(self
+    def CachedGetSiteAppListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -11522,7 +11522,7 @@ class BasePlatformAPI(object):
         """
         List<SiteApp> objs;
 
-        string method_name = "CachedGetSiteAppListUuid";
+        string method_name = "CachedGetSiteAppListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11538,7 +11538,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteAppListUuid(
+            objs = GetSiteAppListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11547,32 +11547,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteAppListAppId(self
+    def GetSiteAppListByAppId(self
         , app_id
         ) :
-            return self.act.GetSiteAppListAppId(
+            return self.act.GetSiteAppListByAppId(
                 app_id
             )
         
-    def GetSiteAppAppId(self
+    def GetSiteAppByAppId(self
         , app_id
     ) :
-        for item in self.GetSiteAppListAppId(
+        for item in self.GetSiteAppListByAppId(
         app_id
         ) :
             return item
         return None
     
-    def CachedGetSiteAppListAppId(self
+    def CachedGetSiteAppListByAppId(self
         , app_id
     ) :
-        return CachedGetSiteAppListAppId(
+        return CachedGetSiteAppListByAppId(
             false
             , self.CACHE_DEFAULT_HOURS
             , app_id
         )
         
-    def CachedGetSiteAppListAppId(self
+    def CachedGetSiteAppListByAppId(self
         , overrideCache
         , cacheHours
         , app_id
@@ -11581,7 +11581,7 @@ class BasePlatformAPI(object):
         """
         List<SiteApp> objs;
 
-        string method_name = "CachedGetSiteAppListAppId";
+        string method_name = "CachedGetSiteAppListByAppId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11597,7 +11597,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteAppListAppId(
+            objs = GetSiteAppListByAppId(
                 app_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11606,32 +11606,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteAppListSiteId(self
+    def GetSiteAppListBySiteId(self
         , site_id
         ) :
-            return self.act.GetSiteAppListSiteId(
+            return self.act.GetSiteAppListBySiteId(
                 site_id
             )
         
-    def GetSiteAppSiteId(self
+    def GetSiteAppBySiteId(self
         , site_id
     ) :
-        for item in self.GetSiteAppListSiteId(
+        for item in self.GetSiteAppListBySiteId(
         site_id
         ) :
             return item
         return None
     
-    def CachedGetSiteAppListSiteId(self
+    def CachedGetSiteAppListBySiteId(self
         , site_id
     ) :
-        return CachedGetSiteAppListSiteId(
+        return CachedGetSiteAppListBySiteId(
             false
             , self.CACHE_DEFAULT_HOURS
             , site_id
         )
         
-    def CachedGetSiteAppListSiteId(self
+    def CachedGetSiteAppListBySiteId(self
         , overrideCache
         , cacheHours
         , site_id
@@ -11640,7 +11640,7 @@ class BasePlatformAPI(object):
         """
         List<SiteApp> objs;
 
-        string method_name = "CachedGetSiteAppListSiteId";
+        string method_name = "CachedGetSiteAppListBySiteId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11656,7 +11656,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteAppListSiteId(
+            objs = GetSiteAppListBySiteId(
                 site_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11665,38 +11665,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetSiteAppListAppIdSiteId(self
+    def GetSiteAppListByAppIdBySiteId(self
         , app_id
         , site_id
         ) :
-            return self.act.GetSiteAppListAppIdSiteId(
+            return self.act.GetSiteAppListByAppIdBySiteId(
                 app_id
                 , site_id
             )
         
-    def GetSiteAppAppIdSiteId(self
+    def GetSiteAppByAppIdBySiteId(self
         , app_id
         , site_id
     ) :
-        for item in self.GetSiteAppListAppIdSiteId(
+        for item in self.GetSiteAppListByAppIdBySiteId(
         app_id
         , site_id
         ) :
             return item
         return None
     
-    def CachedGetSiteAppListAppIdSiteId(self
+    def CachedGetSiteAppListByAppIdBySiteId(self
         , app_id
         , site_id
     ) :
-        return CachedGetSiteAppListAppIdSiteId(
+        return CachedGetSiteAppListByAppIdBySiteId(
             false
             , self.CACHE_DEFAULT_HOURS
             , app_id
             , site_id
         )
         
-    def CachedGetSiteAppListAppIdSiteId(self
+    def CachedGetSiteAppListByAppIdBySiteId(self
         , overrideCache
         , cacheHours
         , app_id
@@ -11706,7 +11706,7 @@ class BasePlatformAPI(object):
         """
         List<SiteApp> objs;
 
-        string method_name = "CachedGetSiteAppListAppIdSiteId";
+        string method_name = "CachedGetSiteAppListByAppIdBySiteId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11726,7 +11726,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetSiteAppListAppIdSiteId(
+            objs = GetSiteAppListByAppIdBySiteId(
                 app_id
                 , site_id
             );
@@ -11742,118 +11742,118 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountPhotoUuid(self
+    def CountPhotoByUuid(self
         , uuid
     ) :         
-        return self.act.CountPhotoUuid(
+        return self.act.CountPhotoByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountPhotoExternalId(self
+    def CountPhotoByExternalId(self
         , external_id
     ) :         
-        return self.act.CountPhotoExternalId(
+        return self.act.CountPhotoByExternalId(
         external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountPhotoUrl(self
+    def CountPhotoByUrl(self
         , url
     ) :         
-        return self.act.CountPhotoUrl(
+        return self.act.CountPhotoByUrl(
         url
         )
         
 #------------------------------------------------------------------------------                    
-    def CountPhotoUrlExternalId(self
+    def CountPhotoByUrlByExternalId(self
         , url
         , external_id
     ) :         
-        return self.act.CountPhotoUrlExternalId(
+        return self.act.CountPhotoByUrlByExternalId(
         url
         , external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountPhotoUuidExternalId(self
+    def CountPhotoByUuidByExternalId(self
         , uuid
         , external_id
     ) :         
-        return self.act.CountPhotoUuidExternalId(
+        return self.act.CountPhotoByUuidByExternalId(
         uuid
         , external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowsePhotoListFilter(self, filter_obj) :
-        return self.act.BrowsePhotoListFilter(filter_obj)
+    def BrowsePhotoListByFilter(self, filter_obj) :
+        return self.act.BrowsePhotoListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoUuidType(self, set_type, obj) :
-        return self.act.SetPhotoUuid(set_type, obj)
+    def SetPhotoByUuidType(self, set_type, obj) :
+        return self.act.SetPhotoByUuid(set_type, obj)
                
-    def SetPhotoUuid(self, obj) :
-        return self.act.SetPhotoUuid('full', obj)
+    def SetPhotoByUuid(self, obj) :
+        return self.act.SetPhotoByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoExternalIdType(self, set_type, obj) :
-        return self.act.SetPhotoExternalId(set_type, obj)
+    def SetPhotoByExternalIdType(self, set_type, obj) :
+        return self.act.SetPhotoByExternalId(set_type, obj)
                
-    def SetPhotoExternalId(self, obj) :
-        return self.act.SetPhotoExternalId('full', obj)
+    def SetPhotoByExternalId(self, obj) :
+        return self.act.SetPhotoByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoUrlType(self, set_type, obj) :
-        return self.act.SetPhotoUrl(set_type, obj)
+    def SetPhotoByUrlType(self, set_type, obj) :
+        return self.act.SetPhotoByUrl(set_type, obj)
                
-    def SetPhotoUrl(self, obj) :
-        return self.act.SetPhotoUrl('full', obj)
+    def SetPhotoByUrl(self, obj) :
+        return self.act.SetPhotoByUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoUrlExternalIdType(self, set_type, obj) :
-        return self.act.SetPhotoUrlExternalId(set_type, obj)
+    def SetPhotoByUrlByExternalIdType(self, set_type, obj) :
+        return self.act.SetPhotoByUrlByExternalId(set_type, obj)
                
-    def SetPhotoUrlExternalId(self, obj) :
-        return self.act.SetPhotoUrlExternalId('full', obj)
+    def SetPhotoByUrlByExternalId(self, obj) :
+        return self.act.SetPhotoByUrlByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetPhotoUuidExternalIdType(self, set_type, obj) :
-        return self.act.SetPhotoUuidExternalId(set_type, obj)
+    def SetPhotoByUuidByExternalIdType(self, set_type, obj) :
+        return self.act.SetPhotoByUuidByExternalId(set_type, obj)
                
-    def SetPhotoUuidExternalId(self, obj) :
-        return self.act.SetPhotoUuidExternalId('full', obj)
+    def SetPhotoByUuidByExternalId(self, obj) :
+        return self.act.SetPhotoByUuidByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelPhotoUuid(self
+    def DelPhotoByUuid(self
         , uuid
     ) :          
-        return self.act.DelPhotoUuid(
+        return self.act.DelPhotoByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelPhotoExternalId(self
+    def DelPhotoByExternalId(self
         , external_id
     ) :          
-        return self.act.DelPhotoExternalId(
+        return self.act.DelPhotoByExternalId(
         external_id
         )
 #------------------------------------------------------------------------------                    
-    def DelPhotoUrl(self
+    def DelPhotoByUrl(self
         , url
     ) :          
-        return self.act.DelPhotoUrl(
+        return self.act.DelPhotoByUrl(
         url
         )
 #------------------------------------------------------------------------------                    
-    def DelPhotoUrlExternalId(self
+    def DelPhotoByUrlByExternalId(self
         , url
         , external_id
     ) :          
-        return self.act.DelPhotoUrlExternalId(
+        return self.act.DelPhotoByUrlByExternalId(
         url
         , external_id
         )
 #------------------------------------------------------------------------------                    
-    def DelPhotoUuidExternalId(self
+    def DelPhotoByUuidByExternalId(self
         , uuid
         , external_id
     ) :          
-        return self.act.DelPhotoUuidExternalId(
+        return self.act.DelPhotoByUuidByExternalId(
         uuid
         , external_id
         )
@@ -11905,32 +11905,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetPhotoListUuid(self
+    def GetPhotoListByUuid(self
         , uuid
         ) :
-            return self.act.GetPhotoListUuid(
+            return self.act.GetPhotoListByUuid(
                 uuid
             )
         
-    def GetPhotoUuid(self
+    def GetPhotoByUuid(self
         , uuid
     ) :
-        for item in self.GetPhotoListUuid(
+        for item in self.GetPhotoListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetPhotoListUuid(self
+    def CachedGetPhotoListByUuid(self
         , uuid
     ) :
-        return CachedGetPhotoListUuid(
+        return CachedGetPhotoListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetPhotoListUuid(self
+    def CachedGetPhotoListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -11939,7 +11939,7 @@ class BasePlatformAPI(object):
         """
         List<Photo> objs;
 
-        string method_name = "CachedGetPhotoListUuid";
+        string method_name = "CachedGetPhotoListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -11955,7 +11955,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetPhotoListUuid(
+            objs = GetPhotoListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11964,32 +11964,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetPhotoListExternalId(self
+    def GetPhotoListByExternalId(self
         , external_id
         ) :
-            return self.act.GetPhotoListExternalId(
+            return self.act.GetPhotoListByExternalId(
                 external_id
             )
         
-    def GetPhotoExternalId(self
+    def GetPhotoByExternalId(self
         , external_id
     ) :
-        for item in self.GetPhotoListExternalId(
+        for item in self.GetPhotoListByExternalId(
         external_id
         ) :
             return item
         return None
     
-    def CachedGetPhotoListExternalId(self
+    def CachedGetPhotoListByExternalId(self
         , external_id
     ) :
-        return CachedGetPhotoListExternalId(
+        return CachedGetPhotoListByExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , external_id
         )
         
-    def CachedGetPhotoListExternalId(self
+    def CachedGetPhotoListByExternalId(self
         , overrideCache
         , cacheHours
         , external_id
@@ -11998,7 +11998,7 @@ class BasePlatformAPI(object):
         """
         List<Photo> objs;
 
-        string method_name = "CachedGetPhotoListExternalId";
+        string method_name = "CachedGetPhotoListByExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12014,7 +12014,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetPhotoListExternalId(
+            objs = GetPhotoListByExternalId(
                 external_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12023,32 +12023,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetPhotoListUrl(self
+    def GetPhotoListByUrl(self
         , url
         ) :
-            return self.act.GetPhotoListUrl(
+            return self.act.GetPhotoListByUrl(
                 url
             )
         
-    def GetPhotoUrl(self
+    def GetPhotoByUrl(self
         , url
     ) :
-        for item in self.GetPhotoListUrl(
+        for item in self.GetPhotoListByUrl(
         url
         ) :
             return item
         return None
     
-    def CachedGetPhotoListUrl(self
+    def CachedGetPhotoListByUrl(self
         , url
     ) :
-        return CachedGetPhotoListUrl(
+        return CachedGetPhotoListByUrl(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
         )
         
-    def CachedGetPhotoListUrl(self
+    def CachedGetPhotoListByUrl(self
         , overrideCache
         , cacheHours
         , url
@@ -12057,7 +12057,7 @@ class BasePlatformAPI(object):
         """
         List<Photo> objs;
 
-        string method_name = "CachedGetPhotoListUrl";
+        string method_name = "CachedGetPhotoListByUrl";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12073,7 +12073,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetPhotoListUrl(
+            objs = GetPhotoListByUrl(
                 url
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12082,38 +12082,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetPhotoListUrlExternalId(self
+    def GetPhotoListByUrlByExternalId(self
         , url
         , external_id
         ) :
-            return self.act.GetPhotoListUrlExternalId(
+            return self.act.GetPhotoListByUrlByExternalId(
                 url
                 , external_id
             )
         
-    def GetPhotoUrlExternalId(self
+    def GetPhotoByUrlByExternalId(self
         , url
         , external_id
     ) :
-        for item in self.GetPhotoListUrlExternalId(
+        for item in self.GetPhotoListByUrlByExternalId(
         url
         , external_id
         ) :
             return item
         return None
     
-    def CachedGetPhotoListUrlExternalId(self
+    def CachedGetPhotoListByUrlByExternalId(self
         , url
         , external_id
     ) :
-        return CachedGetPhotoListUrlExternalId(
+        return CachedGetPhotoListByUrlByExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
             , external_id
         )
         
-    def CachedGetPhotoListUrlExternalId(self
+    def CachedGetPhotoListByUrlByExternalId(self
         , overrideCache
         , cacheHours
         , url
@@ -12123,7 +12123,7 @@ class BasePlatformAPI(object):
         """
         List<Photo> objs;
 
-        string method_name = "CachedGetPhotoListUrlExternalId";
+        string method_name = "CachedGetPhotoListByUrlByExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12143,7 +12143,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetPhotoListUrlExternalId(
+            objs = GetPhotoListByUrlByExternalId(
                 url
                 , external_id
             );
@@ -12153,38 +12153,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetPhotoListUuidExternalId(self
+    def GetPhotoListByUuidByExternalId(self
         , uuid
         , external_id
         ) :
-            return self.act.GetPhotoListUuidExternalId(
+            return self.act.GetPhotoListByUuidByExternalId(
                 uuid
                 , external_id
             )
         
-    def GetPhotoUuidExternalId(self
+    def GetPhotoByUuidByExternalId(self
         , uuid
         , external_id
     ) :
-        for item in self.GetPhotoListUuidExternalId(
+        for item in self.GetPhotoListByUuidByExternalId(
         uuid
         , external_id
         ) :
             return item
         return None
     
-    def CachedGetPhotoListUuidExternalId(self
+    def CachedGetPhotoListByUuidByExternalId(self
         , uuid
         , external_id
     ) :
-        return CachedGetPhotoListUuidExternalId(
+        return CachedGetPhotoListByUuidByExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
             , external_id
         )
         
-    def CachedGetPhotoListUuidExternalId(self
+    def CachedGetPhotoListByUuidByExternalId(self
         , overrideCache
         , cacheHours
         , uuid
@@ -12194,7 +12194,7 @@ class BasePlatformAPI(object):
         """
         List<Photo> objs;
 
-        string method_name = "CachedGetPhotoListUuidExternalId";
+        string method_name = "CachedGetPhotoListByUuidByExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12214,7 +12214,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetPhotoListUuidExternalId(
+            objs = GetPhotoListByUuidByExternalId(
                 uuid
                 , external_id
             );
@@ -12230,118 +12230,118 @@ class BasePlatformAPI(object):
         )
         
 #------------------------------------------------------------------------------                    
-    def CountVideoUuid(self
+    def CountVideoByUuid(self
         , uuid
     ) :         
-        return self.act.CountVideoUuid(
+        return self.act.CountVideoByUuid(
         uuid
         )
         
 #------------------------------------------------------------------------------                    
-    def CountVideoExternalId(self
+    def CountVideoByExternalId(self
         , external_id
     ) :         
-        return self.act.CountVideoExternalId(
+        return self.act.CountVideoByExternalId(
         external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountVideoUrl(self
+    def CountVideoByUrl(self
         , url
     ) :         
-        return self.act.CountVideoUrl(
+        return self.act.CountVideoByUrl(
         url
         )
         
 #------------------------------------------------------------------------------                    
-    def CountVideoUrlExternalId(self
+    def CountVideoByUrlByExternalId(self
         , url
         , external_id
     ) :         
-        return self.act.CountVideoUrlExternalId(
+        return self.act.CountVideoByUrlByExternalId(
         url
         , external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def CountVideoUuidExternalId(self
+    def CountVideoByUuidByExternalId(self
         , uuid
         , external_id
     ) :         
-        return self.act.CountVideoUuidExternalId(
+        return self.act.CountVideoByUuidByExternalId(
         uuid
         , external_id
         )
         
 #------------------------------------------------------------------------------                    
-    def BrowseVideoListFilter(self, filter_obj) :
-        return self.act.BrowseVideoListFilter(filter_obj)
+    def BrowseVideoListByFilter(self, filter_obj) :
+        return self.act.BrowseVideoListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoUuidType(self, set_type, obj) :
-        return self.act.SetVideoUuid(set_type, obj)
+    def SetVideoByUuidType(self, set_type, obj) :
+        return self.act.SetVideoByUuid(set_type, obj)
                
-    def SetVideoUuid(self, obj) :
-        return self.act.SetVideoUuid('full', obj)
+    def SetVideoByUuid(self, obj) :
+        return self.act.SetVideoByUuid('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoExternalIdType(self, set_type, obj) :
-        return self.act.SetVideoExternalId(set_type, obj)
+    def SetVideoByExternalIdType(self, set_type, obj) :
+        return self.act.SetVideoByExternalId(set_type, obj)
                
-    def SetVideoExternalId(self, obj) :
-        return self.act.SetVideoExternalId('full', obj)
+    def SetVideoByExternalId(self, obj) :
+        return self.act.SetVideoByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoUrlType(self, set_type, obj) :
-        return self.act.SetVideoUrl(set_type, obj)
+    def SetVideoByUrlType(self, set_type, obj) :
+        return self.act.SetVideoByUrl(set_type, obj)
                
-    def SetVideoUrl(self, obj) :
-        return self.act.SetVideoUrl('full', obj)
+    def SetVideoByUrl(self, obj) :
+        return self.act.SetVideoByUrl('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoUrlExternalIdType(self, set_type, obj) :
-        return self.act.SetVideoUrlExternalId(set_type, obj)
+    def SetVideoByUrlByExternalIdType(self, set_type, obj) :
+        return self.act.SetVideoByUrlByExternalId(set_type, obj)
                
-    def SetVideoUrlExternalId(self, obj) :
-        return self.act.SetVideoUrlExternalId('full', obj)
+    def SetVideoByUrlByExternalId(self, obj) :
+        return self.act.SetVideoByUrlByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def SetVideoUuidExternalIdType(self, set_type, obj) :
-        return self.act.SetVideoUuidExternalId(set_type, obj)
+    def SetVideoByUuidByExternalIdType(self, set_type, obj) :
+        return self.act.SetVideoByUuidByExternalId(set_type, obj)
                
-    def SetVideoUuidExternalId(self, obj) :
-        return self.act.SetVideoUuidExternalId('full', obj)
+    def SetVideoByUuidByExternalId(self, obj) :
+        return self.act.SetVideoByUuidByExternalId('full', obj)
 #------------------------------------------------------------------------------                    
-    def DelVideoUuid(self
+    def DelVideoByUuid(self
         , uuid
     ) :          
-        return self.act.DelVideoUuid(
+        return self.act.DelVideoByUuid(
         uuid
         )
 #------------------------------------------------------------------------------                    
-    def DelVideoExternalId(self
+    def DelVideoByExternalId(self
         , external_id
     ) :          
-        return self.act.DelVideoExternalId(
+        return self.act.DelVideoByExternalId(
         external_id
         )
 #------------------------------------------------------------------------------                    
-    def DelVideoUrl(self
+    def DelVideoByUrl(self
         , url
     ) :          
-        return self.act.DelVideoUrl(
+        return self.act.DelVideoByUrl(
         url
         )
 #------------------------------------------------------------------------------                    
-    def DelVideoUrlExternalId(self
+    def DelVideoByUrlByExternalId(self
         , url
         , external_id
     ) :          
-        return self.act.DelVideoUrlExternalId(
+        return self.act.DelVideoByUrlByExternalId(
         url
         , external_id
         )
 #------------------------------------------------------------------------------                    
-    def DelVideoUuidExternalId(self
+    def DelVideoByUuidByExternalId(self
         , uuid
         , external_id
     ) :          
-        return self.act.DelVideoUuidExternalId(
+        return self.act.DelVideoByUuidByExternalId(
         uuid
         , external_id
         )
@@ -12393,32 +12393,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetVideoListUuid(self
+    def GetVideoListByUuid(self
         , uuid
         ) :
-            return self.act.GetVideoListUuid(
+            return self.act.GetVideoListByUuid(
                 uuid
             )
         
-    def GetVideoUuid(self
+    def GetVideoByUuid(self
         , uuid
     ) :
-        for item in self.GetVideoListUuid(
+        for item in self.GetVideoListByUuid(
         uuid
         ) :
             return item
         return None
     
-    def CachedGetVideoListUuid(self
+    def CachedGetVideoListByUuid(self
         , uuid
     ) :
-        return CachedGetVideoListUuid(
+        return CachedGetVideoListByUuid(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
         )
         
-    def CachedGetVideoListUuid(self
+    def CachedGetVideoListByUuid(self
         , overrideCache
         , cacheHours
         , uuid
@@ -12427,7 +12427,7 @@ class BasePlatformAPI(object):
         """
         List<Video> objs;
 
-        string method_name = "CachedGetVideoListUuid";
+        string method_name = "CachedGetVideoListByUuid";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12443,7 +12443,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetVideoListUuid(
+            objs = GetVideoListByUuid(
                 uuid
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12452,32 +12452,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetVideoListExternalId(self
+    def GetVideoListByExternalId(self
         , external_id
         ) :
-            return self.act.GetVideoListExternalId(
+            return self.act.GetVideoListByExternalId(
                 external_id
             )
         
-    def GetVideoExternalId(self
+    def GetVideoByExternalId(self
         , external_id
     ) :
-        for item in self.GetVideoListExternalId(
+        for item in self.GetVideoListByExternalId(
         external_id
         ) :
             return item
         return None
     
-    def CachedGetVideoListExternalId(self
+    def CachedGetVideoListByExternalId(self
         , external_id
     ) :
-        return CachedGetVideoListExternalId(
+        return CachedGetVideoListByExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , external_id
         )
         
-    def CachedGetVideoListExternalId(self
+    def CachedGetVideoListByExternalId(self
         , overrideCache
         , cacheHours
         , external_id
@@ -12486,7 +12486,7 @@ class BasePlatformAPI(object):
         """
         List<Video> objs;
 
-        string method_name = "CachedGetVideoListExternalId";
+        string method_name = "CachedGetVideoListByExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12502,7 +12502,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetVideoListExternalId(
+            objs = GetVideoListByExternalId(
                 external_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12511,32 +12511,32 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetVideoListUrl(self
+    def GetVideoListByUrl(self
         , url
         ) :
-            return self.act.GetVideoListUrl(
+            return self.act.GetVideoListByUrl(
                 url
             )
         
-    def GetVideoUrl(self
+    def GetVideoByUrl(self
         , url
     ) :
-        for item in self.GetVideoListUrl(
+        for item in self.GetVideoListByUrl(
         url
         ) :
             return item
         return None
     
-    def CachedGetVideoListUrl(self
+    def CachedGetVideoListByUrl(self
         , url
     ) :
-        return CachedGetVideoListUrl(
+        return CachedGetVideoListByUrl(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
         )
         
-    def CachedGetVideoListUrl(self
+    def CachedGetVideoListByUrl(self
         , overrideCache
         , cacheHours
         , url
@@ -12545,7 +12545,7 @@ class BasePlatformAPI(object):
         """
         List<Video> objs;
 
-        string method_name = "CachedGetVideoListUrl";
+        string method_name = "CachedGetVideoListByUrl";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12561,7 +12561,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetVideoListUrl(
+            objs = GetVideoListByUrl(
                 url
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12570,38 +12570,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetVideoListUrlExternalId(self
+    def GetVideoListByUrlByExternalId(self
         , url
         , external_id
         ) :
-            return self.act.GetVideoListUrlExternalId(
+            return self.act.GetVideoListByUrlByExternalId(
                 url
                 , external_id
             )
         
-    def GetVideoUrlExternalId(self
+    def GetVideoByUrlByExternalId(self
         , url
         , external_id
     ) :
-        for item in self.GetVideoListUrlExternalId(
+        for item in self.GetVideoListByUrlByExternalId(
         url
         , external_id
         ) :
             return item
         return None
     
-    def CachedGetVideoListUrlExternalId(self
+    def CachedGetVideoListByUrlByExternalId(self
         , url
         , external_id
     ) :
-        return CachedGetVideoListUrlExternalId(
+        return CachedGetVideoListByUrlByExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , url
             , external_id
         )
         
-    def CachedGetVideoListUrlExternalId(self
+    def CachedGetVideoListByUrlByExternalId(self
         , overrideCache
         , cacheHours
         , url
@@ -12611,7 +12611,7 @@ class BasePlatformAPI(object):
         """
         List<Video> objs;
 
-        string method_name = "CachedGetVideoListUrlExternalId";
+        string method_name = "CachedGetVideoListByUrlByExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12631,7 +12631,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetVideoListUrlExternalId(
+            objs = GetVideoListByUrlByExternalId(
                 url
                 , external_id
             );
@@ -12641,38 +12641,38 @@ class BasePlatformAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
-    def GetVideoListUuidExternalId(self
+    def GetVideoListByUuidByExternalId(self
         , uuid
         , external_id
         ) :
-            return self.act.GetVideoListUuidExternalId(
+            return self.act.GetVideoListByUuidByExternalId(
                 uuid
                 , external_id
             )
         
-    def GetVideoUuidExternalId(self
+    def GetVideoByUuidByExternalId(self
         , uuid
         , external_id
     ) :
-        for item in self.GetVideoListUuidExternalId(
+        for item in self.GetVideoListByUuidByExternalId(
         uuid
         , external_id
         ) :
             return item
         return None
     
-    def CachedGetVideoListUuidExternalId(self
+    def CachedGetVideoListByUuidByExternalId(self
         , uuid
         , external_id
     ) :
-        return CachedGetVideoListUuidExternalId(
+        return CachedGetVideoListByUuidByExternalId(
             false
             , self.CACHE_DEFAULT_HOURS
             , uuid
             , external_id
         )
         
-    def CachedGetVideoListUuidExternalId(self
+    def CachedGetVideoListByUuidByExternalId(self
         , overrideCache
         , cacheHours
         , uuid
@@ -12682,7 +12682,7 @@ class BasePlatformAPI(object):
         """
         List<Video> objs;
 
-        string method_name = "CachedGetVideoListUuidExternalId";
+        string method_name = "CachedGetVideoListByUuidByExternalId";
 
         StringBuilder sb = new StringBuilder();
         sb.Length = 0;
@@ -12702,7 +12702,7 @@ class BasePlatformAPI(object):
 
         if (objs == None || overrideCache) // if object not cached, get and cache
         {
-            objs = GetVideoListUuidExternalId(
+            objs = GetVideoListByUuidByExternalId(
                 uuid
                 , external_id
             );

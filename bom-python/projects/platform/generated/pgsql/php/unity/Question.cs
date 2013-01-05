@@ -53,6 +53,7 @@ public class Question : BaseMeta {
     public string channel_id { get; set; }
     public string type { get; set; }
     public string org_id { get; set; }
+    public string data { get; set; }
     public string choices { get; set; }
 
     public Question() {
@@ -74,6 +75,9 @@ public class Question : BaseMeta {
 	if (org_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "org_id", org_id);
 	}
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
 	if (choices != null) {
 	    dict = DataUtil.SetDictValue(dict, "choices", choices);
 	}
@@ -94,6 +98,11 @@ public class Question : BaseMeta {
 	if(dict.ContainsKey("org_id")) {
 	    if(dict["org_id"] != null) {
 	    	org_id = DataType.Instance.FillString(dict["org_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.FillString(dict["data"]);
 	    }		
 	}
 	if(dict.ContainsKey("choices")) {

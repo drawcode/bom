@@ -35,6 +35,7 @@ class Channel extends BaseMeta {
     
     }
     
+    public $data;
     public $org_id;
     public $type_id;
 

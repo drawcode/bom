@@ -35,11 +35,12 @@ class ProfileOffer extends BaseEntity {
     
     }
     
-    public $redeem_code;
-    public $url;
-    public $offer_id;
     public $profile_id;
     public $redeemed;
+    public $url;
+    public $offer_id;
+    public $redeem_code;
+    public $data;
 
     public function __construct() {
         

@@ -867,7 +867,7 @@ class BaseResponse :
     
 //------------------------------------------------------------------------------
         
-    public class BaseResponseGameStatisticLeaderboard {
+    public class BaseResponseGameLeaderboard {
         public string message = "Success";
         public int error = 0;
         public Dictionary<string, object> info
@@ -875,38 +875,38 @@ class BaseResponse :
         public string action = "";
     }        
 
-    public class ResponseGameStatisticLeaderboardString : BaseResponseGameStatisticLeaderboard {
+    public class ResponseGameLeaderboardString : BaseResponseGameLeaderboard {
         public string data = "";
     }
     
-    public class ResponseGameStatisticLeaderboardBool : BaseResponseGameStatisticLeaderboard {
+    public class ResponseGameLeaderboardBool : BaseResponseGameLeaderboard {
         public bool data;
     }
     
-    public class ResponseGameStatisticLeaderboardInt : BaseResponseGameStatisticLeaderboard {
+    public class ResponseGameLeaderboardInt : BaseResponseGameLeaderboard {
         public int data;
     }
     
-    public class ResponseGameStatisticLeaderboardObject : BaseResponseGameStatisticLeaderboard {
-        public GameStatisticLeaderboard data = new GameStatisticLeaderboard();
+    public class ResponseGameLeaderboardObject : BaseResponseGameLeaderboard {
+        public GameLeaderboard data = new GameLeaderboard();
     }
     
-    public class ResponseGameStatisticLeaderboardResult : BaseResponseGameStatisticLeaderboard {
-        public GameStatisticLeaderboardResult data = new GameStatisticLeaderboardResult();
+    public class ResponseGameLeaderboardResult : BaseResponseGameLeaderboard {
+        public GameLeaderboardResult data = new GameLeaderboardResult();
     }
     
-    public class ResponseGameStatisticLeaderboardList : BaseResponseGameStatisticLeaderboard {
-        public List<GameStatisticLeaderboard> data = new List<GameStatisticLeaderboard>();
+    public class ResponseGameLeaderboardList : BaseResponseGameLeaderboard {
+        public List<GameLeaderboard> data = new List<GameLeaderboard>();
     }
     
-    public class ResponseGameStatisticLeaderboardDict : BaseResponseGameStatisticLeaderboard {
-        public Dictionary<string, GameStatisticLeaderboard> data
-            = new Dictionary<string, GameStatisticLeaderboard>();
+    public class ResponseGameLeaderboardDict : BaseResponseGameLeaderboard {
+        public Dictionary<string, GameLeaderboard> data
+            = new Dictionary<string, GameLeaderboard>();
     }
     
 //------------------------------------------------------------------------------
         
-    public class BaseResponseGameStatisticLeaderboardItem {
+    public class BaseResponseGameLeaderboardItem {
         public string message = "Success";
         public int error = 0;
         public Dictionary<string, object> info
@@ -914,38 +914,38 @@ class BaseResponse :
         public string action = "";
     }        
 
-    public class ResponseGameStatisticLeaderboardItemString : BaseResponseGameStatisticLeaderboardItem {
+    public class ResponseGameLeaderboardItemString : BaseResponseGameLeaderboardItem {
         public string data = "";
     }
     
-    public class ResponseGameStatisticLeaderboardItemBool : BaseResponseGameStatisticLeaderboardItem {
+    public class ResponseGameLeaderboardItemBool : BaseResponseGameLeaderboardItem {
         public bool data;
     }
     
-    public class ResponseGameStatisticLeaderboardItemInt : BaseResponseGameStatisticLeaderboardItem {
+    public class ResponseGameLeaderboardItemInt : BaseResponseGameLeaderboardItem {
         public int data;
     }
     
-    public class ResponseGameStatisticLeaderboardItemObject : BaseResponseGameStatisticLeaderboardItem {
-        public GameStatisticLeaderboardItem data = new GameStatisticLeaderboardItem();
+    public class ResponseGameLeaderboardItemObject : BaseResponseGameLeaderboardItem {
+        public GameLeaderboardItem data = new GameLeaderboardItem();
     }
     
-    public class ResponseGameStatisticLeaderboardItemResult : BaseResponseGameStatisticLeaderboardItem {
-        public GameStatisticLeaderboardItemResult data = new GameStatisticLeaderboardItemResult();
+    public class ResponseGameLeaderboardItemResult : BaseResponseGameLeaderboardItem {
+        public GameLeaderboardItemResult data = new GameLeaderboardItemResult();
     }
     
-    public class ResponseGameStatisticLeaderboardItemList : BaseResponseGameStatisticLeaderboardItem {
-        public List<GameStatisticLeaderboardItem> data = new List<GameStatisticLeaderboardItem>();
+    public class ResponseGameLeaderboardItemList : BaseResponseGameLeaderboardItem {
+        public List<GameLeaderboardItem> data = new List<GameLeaderboardItem>();
     }
     
-    public class ResponseGameStatisticLeaderboardItemDict : BaseResponseGameStatisticLeaderboardItem {
-        public Dictionary<string, GameStatisticLeaderboardItem> data
-            = new Dictionary<string, GameStatisticLeaderboardItem>();
+    public class ResponseGameLeaderboardItemDict : BaseResponseGameLeaderboardItem {
+        public Dictionary<string, GameLeaderboardItem> data
+            = new Dictionary<string, GameLeaderboardItem>();
     }
     
 //------------------------------------------------------------------------------
         
-    public class BaseResponseGameStatisticLeaderboardRollup {
+    public class BaseResponseGameLeaderboardRollup {
         public string message = "Success";
         public int error = 0;
         public Dictionary<string, object> info
@@ -953,33 +953,33 @@ class BaseResponse :
         public string action = "";
     }        
 
-    public class ResponseGameStatisticLeaderboardRollupString : BaseResponseGameStatisticLeaderboardRollup {
+    public class ResponseGameLeaderboardRollupString : BaseResponseGameLeaderboardRollup {
         public string data = "";
     }
     
-    public class ResponseGameStatisticLeaderboardRollupBool : BaseResponseGameStatisticLeaderboardRollup {
+    public class ResponseGameLeaderboardRollupBool : BaseResponseGameLeaderboardRollup {
         public bool data;
     }
     
-    public class ResponseGameStatisticLeaderboardRollupInt : BaseResponseGameStatisticLeaderboardRollup {
+    public class ResponseGameLeaderboardRollupInt : BaseResponseGameLeaderboardRollup {
         public int data;
     }
     
-    public class ResponseGameStatisticLeaderboardRollupObject : BaseResponseGameStatisticLeaderboardRollup {
-        public GameStatisticLeaderboardRollup data = new GameStatisticLeaderboardRollup();
+    public class ResponseGameLeaderboardRollupObject : BaseResponseGameLeaderboardRollup {
+        public GameLeaderboardRollup data = new GameLeaderboardRollup();
     }
     
-    public class ResponseGameStatisticLeaderboardRollupResult : BaseResponseGameStatisticLeaderboardRollup {
-        public GameStatisticLeaderboardRollupResult data = new GameStatisticLeaderboardRollupResult();
+    public class ResponseGameLeaderboardRollupResult : BaseResponseGameLeaderboardRollup {
+        public GameLeaderboardRollupResult data = new GameLeaderboardRollupResult();
     }
     
-    public class ResponseGameStatisticLeaderboardRollupList : BaseResponseGameStatisticLeaderboardRollup {
-        public List<GameStatisticLeaderboardRollup> data = new List<GameStatisticLeaderboardRollup>();
+    public class ResponseGameLeaderboardRollupList : BaseResponseGameLeaderboardRollup {
+        public List<GameLeaderboardRollup> data = new List<GameLeaderboardRollup>();
     }
     
-    public class ResponseGameStatisticLeaderboardRollupDict : BaseResponseGameStatisticLeaderboardRollup {
-        public Dictionary<string, GameStatisticLeaderboardRollup> data
-            = new Dictionary<string, GameStatisticLeaderboardRollup>();
+    public class ResponseGameLeaderboardRollupDict : BaseResponseGameLeaderboardRollup {
+        public Dictionary<string, GameLeaderboardRollup> data
+            = new Dictionary<string, GameLeaderboardRollup>();
     }
     
 //------------------------------------------------------------------------------
@@ -1331,6 +1331,591 @@ class BaseResponse :
     public class ResponseGameAchievementMetaDict : BaseResponseGameAchievementMeta {
         public Dictionary<string, GameAchievementMeta> data
             = new Dictionary<string, GameAchievementMeta>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseProfileReward {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseProfileRewardString : BaseResponseProfileReward {
+        public string data = "";
+    }
+    
+    public class ResponseProfileRewardBool : BaseResponseProfileReward {
+        public bool data;
+    }
+    
+    public class ResponseProfileRewardInt : BaseResponseProfileReward {
+        public int data;
+    }
+    
+    public class ResponseProfileRewardObject : BaseResponseProfileReward {
+        public ProfileReward data = new ProfileReward();
+    }
+    
+    public class ResponseProfileRewardResult : BaseResponseProfileReward {
+        public ProfileRewardResult data = new ProfileRewardResult();
+    }
+    
+    public class ResponseProfileRewardList : BaseResponseProfileReward {
+        public List<ProfileReward> data = new List<ProfileReward>();
+    }
+    
+    public class ResponseProfileRewardDict : BaseResponseProfileReward {
+        public Dictionary<string, ProfileReward> data
+            = new Dictionary<string, ProfileReward>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseCoupon {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseCouponString : BaseResponseCoupon {
+        public string data = "";
+    }
+    
+    public class ResponseCouponBool : BaseResponseCoupon {
+        public bool data;
+    }
+    
+    public class ResponseCouponInt : BaseResponseCoupon {
+        public int data;
+    }
+    
+    public class ResponseCouponObject : BaseResponseCoupon {
+        public Coupon data = new Coupon();
+    }
+    
+    public class ResponseCouponResult : BaseResponseCoupon {
+        public CouponResult data = new CouponResult();
+    }
+    
+    public class ResponseCouponList : BaseResponseCoupon {
+        public List<Coupon> data = new List<Coupon>();
+    }
+    
+    public class ResponseCouponDict : BaseResponseCoupon {
+        public Dictionary<string, Coupon> data
+            = new Dictionary<string, Coupon>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseProfileCoupon {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseProfileCouponString : BaseResponseProfileCoupon {
+        public string data = "";
+    }
+    
+    public class ResponseProfileCouponBool : BaseResponseProfileCoupon {
+        public bool data;
+    }
+    
+    public class ResponseProfileCouponInt : BaseResponseProfileCoupon {
+        public int data;
+    }
+    
+    public class ResponseProfileCouponObject : BaseResponseProfileCoupon {
+        public ProfileCoupon data = new ProfileCoupon();
+    }
+    
+    public class ResponseProfileCouponResult : BaseResponseProfileCoupon {
+        public ProfileCouponResult data = new ProfileCouponResult();
+    }
+    
+    public class ResponseProfileCouponList : BaseResponseProfileCoupon {
+        public List<ProfileCoupon> data = new List<ProfileCoupon>();
+    }
+    
+    public class ResponseProfileCouponDict : BaseResponseProfileCoupon {
+        public Dictionary<string, ProfileCoupon> data
+            = new Dictionary<string, ProfileCoupon>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseOrg {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseOrgString : BaseResponseOrg {
+        public string data = "";
+    }
+    
+    public class ResponseOrgBool : BaseResponseOrg {
+        public bool data;
+    }
+    
+    public class ResponseOrgInt : BaseResponseOrg {
+        public int data;
+    }
+    
+    public class ResponseOrgObject : BaseResponseOrg {
+        public Org data = new Org();
+    }
+    
+    public class ResponseOrgResult : BaseResponseOrg {
+        public OrgResult data = new OrgResult();
+    }
+    
+    public class ResponseOrgList : BaseResponseOrg {
+        public List<Org> data = new List<Org>();
+    }
+    
+    public class ResponseOrgDict : BaseResponseOrg {
+        public Dictionary<string, Org> data
+            = new Dictionary<string, Org>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseChannel {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseChannelString : BaseResponseChannel {
+        public string data = "";
+    }
+    
+    public class ResponseChannelBool : BaseResponseChannel {
+        public bool data;
+    }
+    
+    public class ResponseChannelInt : BaseResponseChannel {
+        public int data;
+    }
+    
+    public class ResponseChannelObject : BaseResponseChannel {
+        public Channel data = new Channel();
+    }
+    
+    public class ResponseChannelResult : BaseResponseChannel {
+        public ChannelResult data = new ChannelResult();
+    }
+    
+    public class ResponseChannelList : BaseResponseChannel {
+        public List<Channel> data = new List<Channel>();
+    }
+    
+    public class ResponseChannelDict : BaseResponseChannel {
+        public Dictionary<string, Channel> data
+            = new Dictionary<string, Channel>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseChannelType {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseChannelTypeString : BaseResponseChannelType {
+        public string data = "";
+    }
+    
+    public class ResponseChannelTypeBool : BaseResponseChannelType {
+        public bool data;
+    }
+    
+    public class ResponseChannelTypeInt : BaseResponseChannelType {
+        public int data;
+    }
+    
+    public class ResponseChannelTypeObject : BaseResponseChannelType {
+        public ChannelType data = new ChannelType();
+    }
+    
+    public class ResponseChannelTypeResult : BaseResponseChannelType {
+        public ChannelTypeResult data = new ChannelTypeResult();
+    }
+    
+    public class ResponseChannelTypeList : BaseResponseChannelType {
+        public List<ChannelType> data = new List<ChannelType>();
+    }
+    
+    public class ResponseChannelTypeDict : BaseResponseChannelType {
+        public Dictionary<string, ChannelType> data
+            = new Dictionary<string, ChannelType>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseReward {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseRewardString : BaseResponseReward {
+        public string data = "";
+    }
+    
+    public class ResponseRewardBool : BaseResponseReward {
+        public bool data;
+    }
+    
+    public class ResponseRewardInt : BaseResponseReward {
+        public int data;
+    }
+    
+    public class ResponseRewardObject : BaseResponseReward {
+        public Reward data = new Reward();
+    }
+    
+    public class ResponseRewardResult : BaseResponseReward {
+        public RewardResult data = new RewardResult();
+    }
+    
+    public class ResponseRewardList : BaseResponseReward {
+        public List<Reward> data = new List<Reward>();
+    }
+    
+    public class ResponseRewardDict : BaseResponseReward {
+        public Dictionary<string, Reward> data
+            = new Dictionary<string, Reward>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseRewardType {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseRewardTypeString : BaseResponseRewardType {
+        public string data = "";
+    }
+    
+    public class ResponseRewardTypeBool : BaseResponseRewardType {
+        public bool data;
+    }
+    
+    public class ResponseRewardTypeInt : BaseResponseRewardType {
+        public int data;
+    }
+    
+    public class ResponseRewardTypeObject : BaseResponseRewardType {
+        public RewardType data = new RewardType();
+    }
+    
+    public class ResponseRewardTypeResult : BaseResponseRewardType {
+        public RewardTypeResult data = new RewardTypeResult();
+    }
+    
+    public class ResponseRewardTypeList : BaseResponseRewardType {
+        public List<RewardType> data = new List<RewardType>();
+    }
+    
+    public class ResponseRewardTypeDict : BaseResponseRewardType {
+        public Dictionary<string, RewardType> data
+            = new Dictionary<string, RewardType>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseRewardCondition {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseRewardConditionString : BaseResponseRewardCondition {
+        public string data = "";
+    }
+    
+    public class ResponseRewardConditionBool : BaseResponseRewardCondition {
+        public bool data;
+    }
+    
+    public class ResponseRewardConditionInt : BaseResponseRewardCondition {
+        public int data;
+    }
+    
+    public class ResponseRewardConditionObject : BaseResponseRewardCondition {
+        public RewardCondition data = new RewardCondition();
+    }
+    
+    public class ResponseRewardConditionResult : BaseResponseRewardCondition {
+        public RewardConditionResult data = new RewardConditionResult();
+    }
+    
+    public class ResponseRewardConditionList : BaseResponseRewardCondition {
+        public List<RewardCondition> data = new List<RewardCondition>();
+    }
+    
+    public class ResponseRewardConditionDict : BaseResponseRewardCondition {
+        public Dictionary<string, RewardCondition> data
+            = new Dictionary<string, RewardCondition>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseRewardConditionType {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseRewardConditionTypeString : BaseResponseRewardConditionType {
+        public string data = "";
+    }
+    
+    public class ResponseRewardConditionTypeBool : BaseResponseRewardConditionType {
+        public bool data;
+    }
+    
+    public class ResponseRewardConditionTypeInt : BaseResponseRewardConditionType {
+        public int data;
+    }
+    
+    public class ResponseRewardConditionTypeObject : BaseResponseRewardConditionType {
+        public RewardConditionType data = new RewardConditionType();
+    }
+    
+    public class ResponseRewardConditionTypeResult : BaseResponseRewardConditionType {
+        public RewardConditionTypeResult data = new RewardConditionTypeResult();
+    }
+    
+    public class ResponseRewardConditionTypeList : BaseResponseRewardConditionType {
+        public List<RewardConditionType> data = new List<RewardConditionType>();
+    }
+    
+    public class ResponseRewardConditionTypeDict : BaseResponseRewardConditionType {
+        public Dictionary<string, RewardConditionType> data
+            = new Dictionary<string, RewardConditionType>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseQuestion {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseQuestionString : BaseResponseQuestion {
+        public string data = "";
+    }
+    
+    public class ResponseQuestionBool : BaseResponseQuestion {
+        public bool data;
+    }
+    
+    public class ResponseQuestionInt : BaseResponseQuestion {
+        public int data;
+    }
+    
+    public class ResponseQuestionObject : BaseResponseQuestion {
+        public Question data = new Question();
+    }
+    
+    public class ResponseQuestionResult : BaseResponseQuestion {
+        public QuestionResult data = new QuestionResult();
+    }
+    
+    public class ResponseQuestionList : BaseResponseQuestion {
+        public List<Question> data = new List<Question>();
+    }
+    
+    public class ResponseQuestionDict : BaseResponseQuestion {
+        public Dictionary<string, Question> data
+            = new Dictionary<string, Question>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseProfileQuestion {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseProfileQuestionString : BaseResponseProfileQuestion {
+        public string data = "";
+    }
+    
+    public class ResponseProfileQuestionBool : BaseResponseProfileQuestion {
+        public bool data;
+    }
+    
+    public class ResponseProfileQuestionInt : BaseResponseProfileQuestion {
+        public int data;
+    }
+    
+    public class ResponseProfileQuestionObject : BaseResponseProfileQuestion {
+        public ProfileQuestion data = new ProfileQuestion();
+    }
+    
+    public class ResponseProfileQuestionResult : BaseResponseProfileQuestion {
+        public ProfileQuestionResult data = new ProfileQuestionResult();
+    }
+    
+    public class ResponseProfileQuestionList : BaseResponseProfileQuestion {
+        public List<ProfileQuestion> data = new List<ProfileQuestion>();
+    }
+    
+    public class ResponseProfileQuestionDict : BaseResponseProfileQuestion {
+        public Dictionary<string, ProfileQuestion> data
+            = new Dictionary<string, ProfileQuestion>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseProfileChannel {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseProfileChannelString : BaseResponseProfileChannel {
+        public string data = "";
+    }
+    
+    public class ResponseProfileChannelBool : BaseResponseProfileChannel {
+        public bool data;
+    }
+    
+    public class ResponseProfileChannelInt : BaseResponseProfileChannel {
+        public int data;
+    }
+    
+    public class ResponseProfileChannelObject : BaseResponseProfileChannel {
+        public ProfileChannel data = new ProfileChannel();
+    }
+    
+    public class ResponseProfileChannelResult : BaseResponseProfileChannel {
+        public ProfileChannelResult data = new ProfileChannelResult();
+    }
+    
+    public class ResponseProfileChannelList : BaseResponseProfileChannel {
+        public List<ProfileChannel> data = new List<ProfileChannel>();
+    }
+    
+    public class ResponseProfileChannelDict : BaseResponseProfileChannel {
+        public Dictionary<string, ProfileChannel> data
+            = new Dictionary<string, ProfileChannel>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseProfileRewardPoints {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseProfileRewardPointsString : BaseResponseProfileRewardPoints {
+        public string data = "";
+    }
+    
+    public class ResponseProfileRewardPointsBool : BaseResponseProfileRewardPoints {
+        public bool data;
+    }
+    
+    public class ResponseProfileRewardPointsInt : BaseResponseProfileRewardPoints {
+        public int data;
+    }
+    
+    public class ResponseProfileRewardPointsObject : BaseResponseProfileRewardPoints {
+        public ProfileRewardPoints data = new ProfileRewardPoints();
+    }
+    
+    public class ResponseProfileRewardPointsResult : BaseResponseProfileRewardPoints {
+        public ProfileRewardPointsResult data = new ProfileRewardPointsResult();
+    }
+    
+    public class ResponseProfileRewardPointsList : BaseResponseProfileRewardPoints {
+        public List<ProfileRewardPoints> data = new List<ProfileRewardPoints>();
+    }
+    
+    public class ResponseProfileRewardPointsDict : BaseResponseProfileRewardPoints {
+        public Dictionary<string, ProfileRewardPoints> data
+            = new Dictionary<string, ProfileRewardPoints>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseRewardCompetition {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseRewardCompetitionString : BaseResponseRewardCompetition {
+        public string data = "";
+    }
+    
+    public class ResponseRewardCompetitionBool : BaseResponseRewardCompetition {
+        public bool data;
+    }
+    
+    public class ResponseRewardCompetitionInt : BaseResponseRewardCompetition {
+        public int data;
+    }
+    
+    public class ResponseRewardCompetitionObject : BaseResponseRewardCompetition {
+        public RewardCompetition data = new RewardCompetition();
+    }
+    
+    public class ResponseRewardCompetitionResult : BaseResponseRewardCompetition {
+        public RewardCompetitionResult data = new RewardCompetitionResult();
+    }
+    
+    public class ResponseRewardCompetitionList : BaseResponseRewardCompetition {
+        public List<RewardCompetition> data = new List<RewardCompetition>();
+    }
+    
+    public class ResponseRewardCompetitionDict : BaseResponseRewardCompetition {
+        public Dictionary<string, RewardCompetition> data
+            = new Dictionary<string, RewardCompetition>();
     }
     
 }

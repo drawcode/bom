@@ -57,6 +57,7 @@ public class Message : BaseEntity {
     public  app_id { get; set; }
     public  profile_to_id { get; set; }
     public  profile_to_name { get; set; }
+    public  data { get; set; }
     public  sent { get; set; }
     public  subject { get; set; }
 
@@ -88,6 +89,9 @@ public class Message : BaseEntity {
 	}
 	if (profile_to_name != null) {
 	    dict = DataUtil.SetDictValue(dict, "profile_to_name", profile_to_name);
+	}
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
 	}
 	dict = DataUtil.SetDictValue(dict, "sent", sent);
 	if (subject != null) {
@@ -130,6 +134,11 @@ public class Message : BaseEntity {
 	if(dict.ContainsKey("profile_to_name")) {
 	    if(dict["profile_to_name"] != null) {
 	    	profile_to_name = DataType.Instance.Fill(dict["profile_to_name"]);
+	    }		
+	}
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.Fill(dict["data"]);
 	    }		
 	}
 	if(dict.ContainsKey("sent")) {

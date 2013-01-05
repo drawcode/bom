@@ -398,7 +398,8 @@
                 "path":{"type":"string", "maximum":500, "required":false},
                 "template":{"type":"data", "required":false },
                 "date_start":{"type":"datetime", "required":false },
-                "date_end":{"type":"datetime", "required":false }
+                "date_end":{"type":"datetime", "required":false },
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -452,7 +453,8 @@
                 "profile_to_token":{"type":"string", "maximum":500, "required":false},
                 "subject":{"type":"string", "maximum":500, "required":false},
                 "read":{"type":"bool", "required":false},
-                "sent":{"type":"bool", "required":false}
+                "sent":{"type":"bool", "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -490,7 +492,8 @@
                 "org_id":{"type":"uuid", "maximum":50, "required":true},
                 "url":{"type":"string", "maximum":500, "required":false},
                 "usage_count":{"type":"int", "required":false},
-                "type_id":{"type":"uuid", "maximum":50, "required":true}
+                "type_id":{"type":"uuid", "maximum":50, "required":true},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -564,7 +567,8 @@
             "type":"object",
             "generate":["code","data"],
             "properties":{
-                "offer_id":{"type":"uuid",  "required":false}
+                "offer_id":{"type":"uuid",  "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -608,7 +612,8 @@
             "generate":["code","data"],
             "properties":{
                 "org_id":{"type":"uuid", "maximum":50, "required":true},
-                "type_id":{"type":"uuid", "maximum":50, "required":true}
+                "type_id":{"type":"uuid", "maximum":50, "required":true},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -735,7 +740,8 @@
             "properties":{                
                 "game_location_id":{"type":"uuid",  "required":false},
                 "offer_id":{"type":"uuid",  "required":false},
-                "type_id":{"type":"uuid",  "required":false}
+                "type_id":{"type":"uuid",  "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -778,7 +784,8 @@
             "properties":{
                 "org_id":{"type":"uuid", "maximum":50, "required":true},
                 "url":{"type":"string", "maximum":500, "required":false},
-                "usage_count":{"type":"int", "required":false}
+                "usage_count":{"type":"int", "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -817,7 +824,8 @@
             "type":"object",
             "generate":["code","data"],
             "properties":{
-                "event_id":{"type":"uuid",  "required":false}
+                "event_id":{"type":"uuid",  "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -861,7 +869,8 @@
             "generate":["code","data"],
             "properties":{
                 "org_id":{"type":"uuid", "maximum":50, "required":true},
-                "type_id":{"type":"uuid", "maximum":50, "required":true}
+                "type_id":{"type":"uuid", "maximum":50, "required":true},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -987,7 +996,8 @@
             "generate":["code","data"],
             "properties":{
                 "org_id":{"type":"uuid", "maximum":50, "required":true},
-                "type_id":{"type":"uuid", "maximum":50, "required":true}
+                "type_id":{"type":"uuid", "maximum":50, "required":true},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -1031,7 +1041,8 @@
             "type":"object",
             "generate":["code","data"],
             "properties":{
-                "type":{"type":"string", "maximum":50, "required":true}
+                "type":{"type":"string", "maximum":50, "required":true},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -1070,7 +1081,8 @@
                 "type":{"type":"string", "maximum":50, "required":true},
                 "choices":{"type":"data", "required":false},
                 "channel_id":{"type":"uuid", "maximum":50, "required":true},
-                "org_id":{"type":"uuid", "maximum":50, "required":true}
+                "org_id":{"type":"uuid", "maximum":50, "required":true},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -1121,7 +1133,8 @@
                 "offer_id":{"type":"uuid", "maximum":50, "required":true},
                 "redeemed":{"type":"string", "maximum":50, "required":true},
                 "redeem_code":{"type":"string", "maximum":128, "required":true},
-                "url":{"type":"string", "maximum":50, "required":false}
+                "url":{"type":"string", "maximum":50, "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -1157,7 +1170,8 @@
             "generate":["code","data"],
             "properties":{                
                 "app_id":{"type":"uuid",  "required":false},
-                "profile_id":{"type":"uuid",  "required":false}
+                "profile_id":{"type":"uuid",  "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -1200,7 +1214,8 @@
             "properties":{                
                 "org_id":{"type":"uuid",  "required":false},
                 "profile_id":{"type":"uuid",  "required":false},
-                "type_id":{"type":"uuid",  "required":false}
+                "type_id":{"type":"uuid",  "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -1244,7 +1259,8 @@
                 "org_id":{"type":"uuid", "maximum":50, "required":true},
                 "question_id":{"type":"uuid", "maximum":50, "required":true},
                 "answer":{"type":"string", "maximum":1000, "required":true},
-                "data":{"type":"data", "required":true}
+                "data":{"type":"data", "required":true},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -1425,7 +1441,8 @@
                 "third_party_id":{"type":"string", "maximum":500, "required":false},
                 "third_party_url":{"type":"string", "maximum":500, "required":false},
                 "third_party_data":{"type":"string", "maximum":500, "required":false},
-                "third_party_oembed":{"type":"string", "maximum":500, "required":false}
+                "third_party_oembed":{"type":"string", "maximum":500, "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}
@@ -1480,7 +1497,8 @@
                 "third_party_id":{"type":"string", "maximum":500, "required":false},
                 "third_party_url":{"type":"string", "maximum":500, "required":false},
                 "third_party_data":{"type":"string", "maximum":500, "required":false},
-                "third_party_oembed":{"type":"string", "maximum":500, "required":false}
+                "third_party_oembed":{"type":"string", "maximum":500, "required":false},
+                "data":{"type":"data", "required":false }
             },
             "relation":[
                 {"table":"", "field":""}

@@ -1176,7 +1176,7 @@
         }
     },
     {
-        "id":"game_statistic_leaderboard",
+        "id":"game_leaderboard",
         "extends": "base_entity",
         "description":"",
         "type":"object",
@@ -1264,7 +1264,7 @@
         }
     },
     {
-        "id":"game_statistic_leaderboard_item",
+        "id":"game_leaderboard_item",
         "extends": "base_entity",
         "description":"",
         "type":"object",
@@ -1352,7 +1352,7 @@
         }
     },
     {
-        "id":"game_statistic_leaderboard_rollup",
+        "id":"game_leaderboard_rollup",
         "extends": "base_entity",
         "description":"",
         "type":"object",
@@ -2008,6 +2008,686 @@
             ]
         }
     }
+    ,
+    {
+        "id":"profile_reward",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "profile_id":{"type":"uuid", "required":true},
+            "reward_id":{"type":"uuid", "required":true},
+            "channel_id":{"type":"uuid", "required":false},
+            "downloaded":{"type":"bool", "required":true},
+            "viewed":{"type":"bool", "required":true},
+            "usage_count":{"type":"int", "required":false},                
+            "blurb":{"type":"string", "maximum":2000, "required":false},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["profile_id"]},
+                {"params":["reward_id"]},
+                {"params":["profile_id", "reward_id"]},
+                {"params":["profile_id", "channel_id"]},
+                {"params":["profile_id", "channel_id", "reward_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["profile_id", "channel_id", "reward_id"]}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["profile_id", "reward_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["profile_id"]},
+                {"params":["reward_id"]},
+                {"params":["profile_id", "reward_id"]},
+                {"params":["profile_id", "channel_id"]},
+                {"params":["profile_id", "channel_id", "reward_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"coupon",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "org_id":{"type":"uuid", "required":true},
+            "url":{"type":"string", "maximum":500, "required":false},
+            "usage_count":{"type":"int", "required":false},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["org_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["org_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["org_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    }
+    ,
+    {
+        "id":"profile_coupon",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "profile_id":{"type":"uuid", "required":true},
+            "url":{"type":"string", "maximum":50, "required":false},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["profile_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["profile_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["profile_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"org",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"channel",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "org_id":{"type":"uuid", "required":true},
+            "type_id":{"type":"uuid", "required":true},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["org_id"]},
+                {"params":["type_id"]},
+                {"params":["org_id", "type_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code", "org_id"]},
+                {"params":["code", "org_id", "type_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["org_id"]},
+                {"params":["type_id"]},
+                {"params":["org_id", "type_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"channel_type",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "type":{"type":"string", "maximum":50, "required":true},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"reward",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "org_id":{"type":"uuid", "required":true},
+            "channel_id":{"type":"uuid", "required":true},
+            "external_id":{"type":"string", "maximum":50, "required":true},
+            "type":{"type":"string", "maximum":50, "required":true},
+            "type_url":{"type":"string", "maximum":50, "required":false},
+            "url":{"type":"string", "maximum":500, "required":false},
+            "usage_count":{"type":"int", "required":false},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["org_id"]},
+                {"params":["channel_id"]},
+                {"params":["org_id", "channel_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["org_id", "channel_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["org_id"]},
+                {"params":["channel_id"]},
+                {"params":["org_id", "channel_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"reward_type",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "type":{"type":"string", "maximum":50, "required":true},
+            "type_url":{"type":"string", "maximum":50, "required":true},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["type"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["type"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"reward_condition",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "org_id":{"type":"uuid", "required":false},
+            "channel_id":{"type":"uuid", "required":false},
+            "reward_id":{"type":"uuid", "required":false},
+            "type":{"type":"string", "maximum":50, "required":false},
+            "condition":{"type":"string", "maximum":50, "required":false},
+            "amount":{"type":"int", "required":false},
+            "start_date":{"type":"datetime", "required":false},
+            "end_date":{"type":"datetime", "required":false},
+            "global_reward":{"type":"bool", "required":false},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["org_id"]},
+                {"params":["channel_id"]},
+                {"params":["org_id", "channel_id"]},
+                {"params":["org_id", "channel_id", "reward_id"]},
+                {"params":["reward_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["org_id", "channel_id", "reward_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["org_id"]},
+                {"params":["channel_id"]},
+                {"params":["org_id", "channel_id"]},
+                {"params":["org_id", "channel_id", "reward_id"]},
+                {"params":["reward_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"reward_condition_type",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "type":{"type":"string", "maximum":50, "required":true},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["type"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["type"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"question",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "type":{"type":"string", "maximum":50, "required":true},
+            "choices":{"type":"data", "required":false},
+            "channel_id":{"type":"uuid", "required":true},
+            "org_id":{"type":"uuid", "required":true},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["type"]},
+                {"params":["channel_id"]},
+                {"params":["org_id"]},
+                {"params":["channel_id", "org_id"]},
+                {"params":["channel_id", "code"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id", "code"]}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id", "org_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["channel_id"]},
+                {"params":["org_id"]},
+                {"params":["channel_id", "org_id"]},
+                {"params":["channel_id", "code"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    }
+    ,
+    {
+        "id":"profile_question",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "profile_id":{"type":"uuid", "required":true},
+            "channel_id":{"type":"uuid", "required":true},
+            "org_id":{"type":"uuid", "required":true},
+            "question_id":{"type":"uuid", "required":true},
+            "answer":{"type":"string", "maximum":1000, "required":true},
+            "data":{"type":"data", "required":true}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id"]},
+                {"params":["org_id"]},
+                {"params":["profile_id"]},
+                {"params":["question_id"]},
+                {"params":["channel_id", "org_id"]},
+                {"params":["channel_id", "profile_id"]},
+                {"params":["question_id", "profile_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id", "profile_id"]},
+                {"params":["question_id", "profile_id"]},
+                {"params":["channel_id", "question_id", "profile_id"]}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id", "org_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id"]},
+                {"params":["org_id"]},
+                {"params":["profile_id"]},
+                {"params":["question_id"]},
+                {"params":["channel_id", "org_id"]},
+                {"params":["channel_id", "profile_id"]},
+                {"params":["question_id", "profile_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"profile_channel",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "profile_id":{"type":"uuid", "required":true},
+            "channel_id":{"type":"uuid", "required":true},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id"]},
+                {"params":["profile_id"]},
+                {"params":["channel_id", "profile_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id", "profile_id"]}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id", "profile_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id"]},
+                {"params":["profile_id"]},
+                {"params":["channel_id", "profile_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"profile_reward_points",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "profile_id":{"type":"uuid", "required":true},
+            "channel_id":{"type":"uuid", "required":true},
+            "org_id":{"type":"uuid", "required":true},
+            "points":{"type":"int", "required":true},
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id"]},
+                {"params":["org_id"]},
+                {"params":["profile_id"]},
+                {"params":["channel_id", "org_id"]},
+                {"params":["channel_id", "profile_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id", "org_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["channel_id"]},
+                {"params":["org_id"]},
+                {"params":["profile_id"]},
+                {"params":["channel_id", "org_id"]},
+                {"params":["channel_id", "profile_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"reward_competition",
+        "extends": "base_meta",
+        "description":"reward_competition",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "channel_id":{"type":"uuid", "required":false},
+            "path":{"type":"string", "maximum":500, "required":false},
+            "date_start":{"type":"datetime", "required":false},
+            "date_end":{"type":"datetime", "required":false},
+            "trigger_data":{"type":"data", "required":false},
+            "template":{"type":"data", "required":false },
+            "template_url":{"type":"string",  "maximum":500, "required":false },
+            "results":{"type":"data", "required":false },
+            "fulfilled":{"type":"bool", "required":false },
+            "completed":{"type":"bool", "required":false },
+            "winners":{"type":"data", "required":false },
+            "sort":{"type":"int", "required":false},
+            "visible":{"type":"bool", "required":false },
+            "data":{"type":"data", "required":false }
+        },
+        "relation":[
+            {"table":"channel", "field":"channel_id"}
+        ],
+        "indexes":[
+            {"fields":["path"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["channel_id"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["path"]},
+                {"params":["channel_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["channel_id","completed"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["channel_id", "path"]}
+            ],
+            "set":[               
+                {"params":["uuid"], "inherited":"base_entity"}
+            ],
+            "del":[                    
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["path", "channel_id"]},
+                {"params":["path"]},
+                {"params":["channel_id", "path"]}
+            ],
+            "count":[
+                {"params":["uuid"], "inherited":"base_entity"},
+                {"params":["code"], "inherited":"base_meta"},
+                {"params":["name"], "inherited":"base_meta"},
+                {"params":["path"]},
+                {"params":["channel_id"]},
+                {"params":["channel_id","completed"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    }    
   ]
 }
 

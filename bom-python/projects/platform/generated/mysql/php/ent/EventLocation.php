@@ -36,6 +36,7 @@ class EventLocation extends BaseLocation {
     }
     
     public $event_id;
+    public $data;
 
     public function __construct() {
         

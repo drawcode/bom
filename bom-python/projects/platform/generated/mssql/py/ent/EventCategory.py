@@ -62,6 +62,7 @@ class EventCategory(BaseMeta):
   def __init__(self):
     super(EventCategory, self).__init__()
     #self.__dict__.update(entries)
+    self.data = None
     self.org_id = None
     self.type_id = None
         

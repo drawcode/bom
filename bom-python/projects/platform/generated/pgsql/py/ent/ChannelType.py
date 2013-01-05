@@ -62,6 +62,7 @@ class ChannelType(BaseMeta):
   def __init__(self):
     super(ChannelType, self).__init__()
     #self.__dict__.update(entries)
+    self.data = None
     self.type = None
         
   def to_dict_obj(self):

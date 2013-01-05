@@ -50,6 +50,7 @@ public class ProfileOrgs<T> : DataObjects<T> where T : new() {
 public class ProfileOrg : BaseEntity {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
+    public string data { get; set; }
     public string profile_id { get; set; }
     public string org_id { get; set; }
     public string type_id { get; set; }
@@ -64,6 +65,9 @@ public class ProfileOrg : BaseEntity {
 
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
 	if (profile_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
 	}
@@ -77,6 +81,11 @@ public class ProfileOrg : BaseEntity {
     }
 
     public override void FillFromDictionary(Dictionary<string, object> dict){
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.FillString(dict["data"]);
+	    }		
+	}
 	if(dict.ContainsKey("profile_id")) {
 	    if(dict["profile_id"] != null) {
 	    	profile_id = DataType.Instance.FillString(dict["profile_id"]);

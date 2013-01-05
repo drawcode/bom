@@ -40,12 +40,12 @@ import GameRpgItemSkill
 from GameRpgItemSkill import *
 import GameProduct
 from GameProduct import *
-import GameStatisticLeaderboard
-from GameStatisticLeaderboard import *
-import GameStatisticLeaderboardItem
-from GameStatisticLeaderboardItem import *
-import GameStatisticLeaderboardRollup
-from GameStatisticLeaderboardRollup import *
+import GameLeaderboard
+from GameLeaderboard import *
+import GameLeaderboardItem
+from GameLeaderboardItem import *
+import GameLeaderboardRollup
+from GameLeaderboardRollup import *
 import GameLiveQueue
 from GameLiveQueue import *
 import GameLiveRecentQueue
@@ -64,6 +64,36 @@ import GameProfileAchievement
 from GameProfileAchievement import *
 import GameAchievementMeta
 from GameAchievementMeta import *
+import ProfileReward
+from ProfileReward import *
+import Coupon
+from Coupon import *
+import ProfileCoupon
+from ProfileCoupon import *
+import Org
+from Org import *
+import Channel
+from Channel import *
+import ChannelType
+from ChannelType import *
+import Reward
+from Reward import *
+import RewardType
+from RewardType import *
+import RewardCondition
+from RewardCondition import *
+import RewardConditionType
+from RewardConditionType import *
+import Question
+from Question import *
+import ProfileQuestion
+from ProfileQuestion import *
+import ProfileChannel
+from ProfileChannel import *
+import ProfileRewardPoints
+from ProfileRewardPoints import *
+import RewardCompetition
+from RewardCompetition import *
 __all__ = [
     "Game"
     , "GameResult"
@@ -107,12 +137,12 @@ __all__ = [
     , "GameRpgItemSkillResult"
     , "GameProduct"
     , "GameProductResult"
-    , "GameStatisticLeaderboard"
-    , "GameStatisticLeaderboardResult"
-    , "GameStatisticLeaderboardItem"
-    , "GameStatisticLeaderboardItemResult"
-    , "GameStatisticLeaderboardRollup"
-    , "GameStatisticLeaderboardRollupResult"
+    , "GameLeaderboard"
+    , "GameLeaderboardResult"
+    , "GameLeaderboardItem"
+    , "GameLeaderboardItemResult"
+    , "GameLeaderboardRollup"
+    , "GameLeaderboardRollupResult"
     , "GameLiveQueue"
     , "GameLiveQueueResult"
     , "GameLiveRecentQueue"
@@ -131,4 +161,34 @@ __all__ = [
     , "GameProfileAchievementResult"
     , "GameAchievementMeta"
     , "GameAchievementMetaResult"
+    , "ProfileReward"
+    , "ProfileRewardResult"
+    , "Coupon"
+    , "CouponResult"
+    , "ProfileCoupon"
+    , "ProfileCouponResult"
+    , "Org"
+    , "OrgResult"
+    , "Channel"
+    , "ChannelResult"
+    , "ChannelType"
+    , "ChannelTypeResult"
+    , "Reward"
+    , "RewardResult"
+    , "RewardType"
+    , "RewardTypeResult"
+    , "RewardCondition"
+    , "RewardConditionResult"
+    , "RewardConditionType"
+    , "RewardConditionTypeResult"
+    , "Question"
+    , "QuestionResult"
+    , "ProfileQuestion"
+    , "ProfileQuestionResult"
+    , "ProfileChannel"
+    , "ProfileChannelResult"
+    , "ProfileRewardPoints"
+    , "ProfileRewardPointsResult"
+    , "RewardCompetition"
+    , "RewardCompetitionResult"
 ]

@@ -65,6 +65,7 @@ class Question(BaseMeta):
     self.channel_id = None
     self.type = None
     self.org_id = None
+    self.data = None
     self.choices = None
         
   def to_dict_obj(self):

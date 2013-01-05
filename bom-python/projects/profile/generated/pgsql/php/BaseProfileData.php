@@ -47,7 +47,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileUuid(self
+    def CountProfileByUuid(self
         , uuid
     ) :
         parameters = []
@@ -66,7 +66,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileUsernameHash(self
+    def CountProfileByUsernameByHash(self
         , username
         , hash
     ) :
@@ -87,7 +87,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileUsername(self
+    def CountProfileByUsername(self
         , username
     ) :
         parameters = []
@@ -106,7 +106,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowseProfileListFilter(self, filter_obj) :
+    def BrowseProfileListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -126,7 +126,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetProfileUuid(self, set_type, obj) :
+    def SetProfileByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -155,7 +155,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetProfileUsername(self, set_type, obj) :
+    def SetProfileByUsername(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -184,7 +184,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelProfileUuid(self
+    def DelProfileByUuid(self
         , uuid
     ) :
         parameters = []
@@ -203,7 +203,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelProfileUsername(self
+    def DelProfileByUsername(self
         , username
     ) :
         parameters = []
@@ -222,7 +222,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def GetProfileListUuid(self
+    def GetProfileListByUuid(self
         , uuid
     ) :
             
@@ -243,7 +243,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileListUsernameHash(self
+    def GetProfileListByUsernameByHash(self
         , username
         , hash
     ) :
@@ -266,7 +266,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileListUsername(self
+    def GetProfileListByUsername(self
         , username
     ) :
             
@@ -304,7 +304,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileTypeUuid(self
+    def CountProfileTypeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -323,7 +323,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileTypeTypeId(self
+    def CountProfileTypeByTypeId(self
         , type_id
     ) :
         parameters = []
@@ -342,7 +342,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowseProfileTypeListFilter(self, filter_obj) :
+    def BrowseProfileTypeListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -362,7 +362,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetProfileTypeUuid(self, set_type, obj) :
+    def SetProfileTypeByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -390,7 +390,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelProfileTypeUuid(self
+    def DelProfileTypeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -409,7 +409,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def GetProfileTypeListUuid(self
+    def GetProfileTypeListByUuid(self
         , uuid
     ) :
             
@@ -430,7 +430,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileTypeListCode(self
+    def GetProfileTypeListByCode(self
         , code
     ) :
             
@@ -451,7 +451,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileTypeListTypeId(self
+    def GetProfileTypeListByTypeId(self
         , type_id
     ) :
             
@@ -489,7 +489,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeUuid(self
+    def CountProfileAttributeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -508,7 +508,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeCode(self
+    def CountProfileAttributeByCode(self
         , code
     ) :
         parameters = []
@@ -527,7 +527,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeType(self
+    def CountProfileAttributeByType(self
         , type
     ) :
         parameters = []
@@ -546,7 +546,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeGroup(self
+    def CountProfileAttributeByGroup(self
         , group
     ) :
         parameters = []
@@ -565,7 +565,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeCodeType(self
+    def CountProfileAttributeByCodeByType(self
         , code
         , type
     ) :
@@ -586,7 +586,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowseProfileAttributeListFilter(self, filter_obj) :
+    def BrowseProfileAttributeListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -606,7 +606,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetProfileAttributeUuid(self, set_type, obj) :
+    def SetProfileAttributeByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -637,7 +637,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetProfileAttributeCode(self, set_type, obj) :
+    def SetProfileAttributeByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -668,7 +668,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelProfileAttributeUuid(self
+    def DelProfileAttributeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -687,7 +687,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelProfileAttributeCode(self
+    def DelProfileAttributeByCode(self
         , code
     ) :
         parameters = []
@@ -706,7 +706,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def GetProfileAttributeListUuid(self
+    def GetProfileAttributeListByUuid(self
         , uuid
     ) :
             
@@ -727,7 +727,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileAttributeListCode(self
+    def GetProfileAttributeListByCode(self
         , code
     ) :
             
@@ -748,7 +748,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileAttributeListType(self
+    def GetProfileAttributeListByType(self
         , type
     ) :
             
@@ -769,7 +769,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileAttributeListGroup(self
+    def GetProfileAttributeListByGroup(self
         , group
     ) :
             
@@ -790,7 +790,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileAttributeListCodeType(self
+    def GetProfileAttributeListByCodeByType(self
         , code
         , type
     ) :
@@ -830,7 +830,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeTextUuid(self
+    def CountProfileAttributeTextByUuid(self
         , uuid
     ) :
         parameters = []
@@ -849,7 +849,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeTextProfileId(self
+    def CountProfileAttributeTextByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -868,7 +868,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeTextProfileIdAttributeId(self
+    def CountProfileAttributeTextByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
@@ -889,7 +889,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowseProfileAttributeTextListFilter(self, filter_obj) :
+    def BrowseProfileAttributeTextListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -909,7 +909,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetProfileAttributeTextUuid(self, set_type, obj) :
+    def SetProfileAttributeTextByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -939,7 +939,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetProfileAttributeTextProfileId(self, set_type, obj) :
+    def SetProfileAttributeTextByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -969,7 +969,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetProfileAttributeTextProfileIdAttributeId(self, set_type, obj) :
+    def SetProfileAttributeTextByProfileIdByAttributeId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -999,7 +999,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelProfileAttributeTextUuid(self
+    def DelProfileAttributeTextByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1018,7 +1018,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelProfileAttributeTextProfileId(self
+    def DelProfileAttributeTextByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -1037,7 +1037,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelProfileAttributeTextProfileIdAttributeId(self
+    def DelProfileAttributeTextByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
@@ -1058,7 +1058,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def GetProfileAttributeTextListUuid(self
+    def GetProfileAttributeTextListByUuid(self
         , uuid
     ) :
             
@@ -1079,7 +1079,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileAttributeTextListProfileId(self
+    def GetProfileAttributeTextListByProfileId(self
         , profile_id
     ) :
             
@@ -1100,7 +1100,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileAttributeTextListProfileIdAttributeId(self
+    def GetProfileAttributeTextListByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
@@ -1140,7 +1140,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeDataUuid(self
+    def CountProfileAttributeDataByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1159,7 +1159,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeDataProfileId(self
+    def CountProfileAttributeDataByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -1178,7 +1178,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileAttributeDataProfileIdAttributeId(self
+    def CountProfileAttributeDataByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
@@ -1199,7 +1199,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowseProfileAttributeDataListFilter(self, filter_obj) :
+    def BrowseProfileAttributeDataListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1219,7 +1219,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetProfileAttributeDataUuid(self, set_type, obj) :
+    def SetProfileAttributeDataByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1249,7 +1249,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetProfileAttributeDataProfileId(self, set_type, obj) :
+    def SetProfileAttributeDataByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1279,7 +1279,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetProfileAttributeDataProfileIdAttributeId(self, set_type, obj) :
+    def SetProfileAttributeDataByProfileIdByAttributeId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1309,7 +1309,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelProfileAttributeDataUuid(self
+    def DelProfileAttributeDataByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1328,7 +1328,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelProfileAttributeDataProfileId(self
+    def DelProfileAttributeDataByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -1347,7 +1347,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelProfileAttributeDataProfileIdAttributeId(self
+    def DelProfileAttributeDataByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
@@ -1368,7 +1368,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def GetProfileAttributeDataListUuid(self
+    def GetProfileAttributeDataListByUuid(self
         , uuid
     ) :
             
@@ -1389,7 +1389,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileAttributeDataListProfileId(self
+    def GetProfileAttributeDataListByProfileId(self
         , profile_id
     ) :
             
@@ -1410,7 +1410,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileAttributeDataListProfileIdAttributeId(self
+    def GetProfileAttributeDataListByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
@@ -1450,7 +1450,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileDeviceUuid(self
+    def CountProfileDeviceByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1469,7 +1469,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileDeviceProfileIdDeviceId(self
+    def CountProfileDeviceByProfileIdByDeviceId(self
         , profile_id
         , device_id
     ) :
@@ -1490,7 +1490,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileDeviceProfileIdToken(self
+    def CountProfileDeviceByProfileIdByToken(self
         , profile_id
         , token
     ) :
@@ -1511,7 +1511,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileDeviceProfileId(self
+    def CountProfileDeviceByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -1530,7 +1530,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileDeviceDeviceId(self
+    def CountProfileDeviceByDeviceId(self
         , device_id
     ) :
         parameters = []
@@ -1549,7 +1549,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountProfileDeviceToken(self
+    def CountProfileDeviceByToken(self
         , token
     ) :
         parameters = []
@@ -1568,7 +1568,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowseProfileDeviceListFilter(self, filter_obj) :
+    def BrowseProfileDeviceListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1588,7 +1588,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetProfileDeviceUuid(self, set_type, obj) :
+    def SetProfileDeviceByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1619,7 +1619,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelProfileDeviceUuid(self
+    def DelProfileDeviceByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1638,7 +1638,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelProfileDeviceProfileIdDeviceId(self
+    def DelProfileDeviceByProfileIdByDeviceId(self
         , profile_id
         , device_id
     ) :
@@ -1659,7 +1659,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelProfileDeviceProfileIdToken(self
+    def DelProfileDeviceByProfileIdByToken(self
         , profile_id
         , token
     ) :
@@ -1680,7 +1680,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelProfileDeviceToken(self
+    def DelProfileDeviceByToken(self
         , token
     ) :
         parameters = []
@@ -1699,7 +1699,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def GetProfileDeviceListUuid(self
+    def GetProfileDeviceListByUuid(self
         , uuid
     ) :
             
@@ -1720,7 +1720,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileDeviceListProfileIdDeviceId(self
+    def GetProfileDeviceListByProfileIdByDeviceId(self
         , profile_id
         , device_id
     ) :
@@ -1743,7 +1743,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileDeviceListProfileIdToken(self
+    def GetProfileDeviceListByProfileIdByToken(self
         , profile_id
         , token
     ) :
@@ -1766,7 +1766,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileDeviceListProfileId(self
+    def GetProfileDeviceListByProfileId(self
         , profile_id
     ) :
             
@@ -1787,7 +1787,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileDeviceListDeviceId(self
+    def GetProfileDeviceListByDeviceId(self
         , device_id
     ) :
             
@@ -1808,7 +1808,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetProfileDeviceListToken(self
+    def GetProfileDeviceListByToken(self
         , token
     ) :
             
@@ -1846,7 +1846,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountCountryUuid(self
+    def CountCountryByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1865,7 +1865,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountCountryCode(self
+    def CountCountryByCode(self
         , code
     ) :
         parameters = []
@@ -1884,7 +1884,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowseCountryListFilter(self, filter_obj) :
+    def BrowseCountryListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1904,7 +1904,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetCountryUuid(self, set_type, obj) :
+    def SetCountryByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1931,7 +1931,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetCountryCode(self, set_type, obj) :
+    def SetCountryByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1958,7 +1958,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelCountryUuid(self
+    def DelCountryByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1977,7 +1977,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelCountryCode(self
+    def DelCountryByCode(self
         , code
     ) :
         parameters = []
@@ -2015,7 +2015,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetCountryListUuid(self
+    def GetCountryListByUuid(self
         , uuid
     ) :
             
@@ -2036,7 +2036,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetCountryListCode(self
+    def GetCountryListByCode(self
         , code
     ) :
             
@@ -2074,7 +2074,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountStateUuid(self
+    def CountStateByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2093,7 +2093,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountStateCode(self
+    def CountStateByCode(self
         , code
     ) :
         parameters = []
@@ -2112,7 +2112,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowseStateListFilter(self, filter_obj) :
+    def BrowseStateListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2132,7 +2132,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetStateUuid(self, set_type, obj) :
+    def SetStateByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2159,7 +2159,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetStateCode(self, set_type, obj) :
+    def SetStateByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2186,7 +2186,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelStateUuid(self
+    def DelStateByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2205,7 +2205,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelStateCode(self
+    def DelStateByCode(self
         , code
     ) :
         parameters = []
@@ -2243,7 +2243,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetStateListUuid(self
+    def GetStateListByUuid(self
         , uuid
     ) :
             
@@ -2264,7 +2264,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetStateListCode(self
+    def GetStateListByCode(self
         , code
     ) :
             
@@ -2302,7 +2302,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountCityUuid(self
+    def CountCityByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2321,7 +2321,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountCityCode(self
+    def CountCityByCode(self
         , code
     ) :
         parameters = []
@@ -2340,7 +2340,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowseCityListFilter(self, filter_obj) :
+    def BrowseCityListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2360,7 +2360,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetCityUuid(self, set_type, obj) :
+    def SetCityByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2387,7 +2387,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetCityCode(self, set_type, obj) :
+    def SetCityByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2414,7 +2414,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelCityUuid(self
+    def DelCityByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2433,7 +2433,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelCityCode(self
+    def DelCityByCode(self
         , code
     ) :
         parameters = []
@@ -2471,7 +2471,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetCityListUuid(self
+    def GetCityListByUuid(self
         , uuid
     ) :
             
@@ -2492,7 +2492,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetCityListCode(self
+    def GetCityListByCode(self
         , code
     ) :
             
@@ -2530,7 +2530,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountPostalCodeUuid(self
+    def CountPostalCodeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2549,7 +2549,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def CountPostalCodeCode(self
+    def CountPostalCodeByCode(self
         , code
     ) :
         parameters = []
@@ -2568,7 +2568,7 @@ class BaseProfileData(object):
         finally :
             pass
             
-    def BrowsePostalCodeListFilter(self, filter_obj) :
+    def BrowsePostalCodeListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2588,7 +2588,7 @@ class BaseProfileData(object):
         finally :
             pass
 
-    def SetPostalCodeUuid(self, set_type, obj) :
+    def SetPostalCodeByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2615,7 +2615,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def SetPostalCodeCode(self, set_type, obj) :
+    def SetPostalCodeByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2642,7 +2642,7 @@ class BaseProfileData(object):
                 
         return False
 
-    def DelPostalCodeUuid(self
+    def DelPostalCodeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2661,7 +2661,7 @@ class BaseProfileData(object):
         finally :
             pass
              
-    def DelPostalCodeCode(self
+    def DelPostalCodeByCode(self
         , code
     ) :
         parameters = []
@@ -2699,7 +2699,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetPostalCodeListUuid(self
+    def GetPostalCodeListByUuid(self
         , uuid
     ) :
             
@@ -2720,7 +2720,7 @@ class BaseProfileData(object):
                 
         return None
 
-    def GetPostalCodeListCode(self
+    def GetPostalCodeListByCode(self
         , code
     ) :
             

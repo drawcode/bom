@@ -45,7 +45,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppUuid(
+        public virtual int CountAppByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -65,7 +65,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppCode(
+        public virtual int CountAppByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -85,7 +85,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppTypeId(
+        public virtual int CountAppByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -105,7 +105,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppCodeTypeId(
+        public virtual int CountAppByCodeByTypeId(
             string code
             , string type_id
         )  {
@@ -127,7 +127,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppPlatformTypeId(
+        public virtual int CountAppByPlatformByTypeId(
             string platform
             , string type_id
         )  {
@@ -149,7 +149,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppPlatform(
+        public virtual int CountAppByPlatform(
             string platform
         )  {
             List<NpgsqlParameter> parameters 
@@ -169,7 +169,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseAppListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseAppListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -192,7 +192,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppUuid(string set_type, App obj)  {
+        public virtual bool SetAppByUuid(string set_type, App obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -223,7 +223,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppCode(string set_type, App obj)  {
+        public virtual bool SetAppByCode(string set_type, App obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -254,7 +254,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppUuid(
+        public virtual bool DelAppByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -275,7 +275,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppCode(
+        public virtual bool DelAppByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -317,7 +317,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListUuid(
+        public virtual DataSet GetAppListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -340,7 +340,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListCode(
+        public virtual DataSet GetAppListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -363,7 +363,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListTypeId(
+        public virtual DataSet GetAppListByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -386,7 +386,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListCodeTypeId(
+        public virtual DataSet GetAppListByCodeByTypeId(
             string code
             , string type_id
         )  {
@@ -411,7 +411,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListPlatformTypeId(
+        public virtual DataSet GetAppListByPlatformByTypeId(
             string platform
             , string type_id
         )  {
@@ -436,7 +436,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListPlatform(
+        public virtual DataSet GetAppListByPlatform(
             string platform
         )  {
             List<NpgsqlParameter> parameters 
@@ -477,7 +477,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppTypeUuid(
+        public virtual int CountAppTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -497,7 +497,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppTypeCode(
+        public virtual int CountAppTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -517,7 +517,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseAppTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseAppTypeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -540,7 +540,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppTypeUuid(string set_type, AppType obj)  {
+        public virtual bool SetAppTypeByUuid(string set_type, AppType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -569,7 +569,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppTypeCode(string set_type, AppType obj)  {
+        public virtual bool SetAppTypeByCode(string set_type, AppType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -598,7 +598,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppTypeUuid(
+        public virtual bool DelAppTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -619,7 +619,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppTypeCode(
+        public virtual bool DelAppTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -661,7 +661,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppTypeListUuid(
+        public virtual DataSet GetAppTypeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -684,7 +684,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppTypeListCode(
+        public virtual DataSet GetAppTypeListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -725,7 +725,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteUuid(
+        public virtual int CountSiteByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -745,7 +745,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteCode(
+        public virtual int CountSiteByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -765,7 +765,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteTypeId(
+        public virtual int CountSiteByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -785,7 +785,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteCodeTypeId(
+        public virtual int CountSiteByCodeByTypeId(
             string code
             , string type_id
         )  {
@@ -807,7 +807,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteDomainTypeId(
+        public virtual int CountSiteByDomainByTypeId(
             string domain
             , string type_id
         )  {
@@ -829,7 +829,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteDomain(
+        public virtual int CountSiteByDomain(
             string domain
         )  {
             List<NpgsqlParameter> parameters 
@@ -849,7 +849,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseSiteListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseSiteListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -872,7 +872,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteUuid(string set_type, Site obj)  {
+        public virtual bool SetSiteByUuid(string set_type, Site obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -903,7 +903,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteCode(string set_type, Site obj)  {
+        public virtual bool SetSiteByCode(string set_type, Site obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -934,7 +934,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteUuid(
+        public virtual bool DelSiteByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -955,7 +955,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteCode(
+        public virtual bool DelSiteByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -997,7 +997,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListUuid(
+        public virtual DataSet GetSiteListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1020,7 +1020,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListCode(
+        public virtual DataSet GetSiteListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1043,7 +1043,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListTypeId(
+        public virtual DataSet GetSiteListByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -1066,7 +1066,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListCodeTypeId(
+        public virtual DataSet GetSiteListByCodeByTypeId(
             string code
             , string type_id
         )  {
@@ -1091,7 +1091,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListDomainTypeId(
+        public virtual DataSet GetSiteListByDomainByTypeId(
             string domain
             , string type_id
         )  {
@@ -1116,7 +1116,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListDomain(
+        public virtual DataSet GetSiteListByDomain(
             string domain
         )  {
             List<NpgsqlParameter> parameters 
@@ -1157,7 +1157,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteTypeUuid(
+        public virtual int CountSiteTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1177,7 +1177,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteTypeCode(
+        public virtual int CountSiteTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1197,7 +1197,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseSiteTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseSiteTypeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -1220,7 +1220,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteTypeUuid(string set_type, SiteType obj)  {
+        public virtual bool SetSiteTypeByUuid(string set_type, SiteType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1249,7 +1249,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteTypeCode(string set_type, SiteType obj)  {
+        public virtual bool SetSiteTypeByCode(string set_type, SiteType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1278,7 +1278,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteTypeUuid(
+        public virtual bool DelSiteTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1299,7 +1299,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteTypeCode(
+        public virtual bool DelSiteTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1341,7 +1341,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteTypeListUuid(
+        public virtual DataSet GetSiteTypeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1364,7 +1364,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteTypeListCode(
+        public virtual DataSet GetSiteTypeListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1405,7 +1405,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgUuid(
+        public virtual int CountOrgByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1425,7 +1425,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgCode(
+        public virtual int CountOrgByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1445,7 +1445,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgName(
+        public virtual int CountOrgByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -1465,7 +1465,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOrgListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOrgListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -1488,7 +1488,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgUuid(string set_type, Org obj)  {
+        public virtual bool SetOrgByUuid(string set_type, Org obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1518,7 +1518,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgUuid(
+        public virtual bool DelOrgByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1560,7 +1560,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgListUuid(
+        public virtual DataSet GetOrgListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1583,7 +1583,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgListCode(
+        public virtual DataSet GetOrgListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1606,7 +1606,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgListName(
+        public virtual DataSet GetOrgListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -1647,7 +1647,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgTypeUuid(
+        public virtual int CountOrgTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1667,7 +1667,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgTypeCode(
+        public virtual int CountOrgTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1687,7 +1687,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOrgTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOrgTypeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -1710,7 +1710,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgTypeUuid(string set_type, OrgType obj)  {
+        public virtual bool SetOrgTypeByUuid(string set_type, OrgType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1739,7 +1739,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgTypeCode(string set_type, OrgType obj)  {
+        public virtual bool SetOrgTypeByCode(string set_type, OrgType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -1768,7 +1768,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgTypeUuid(
+        public virtual bool DelOrgTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1789,7 +1789,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgTypeCode(
+        public virtual bool DelOrgTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1831,7 +1831,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgTypeListUuid(
+        public virtual DataSet GetOrgTypeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1854,7 +1854,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgTypeListCode(
+        public virtual DataSet GetOrgTypeListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1895,7 +1895,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemUuid(
+        public virtual int CountContentItemByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -1915,7 +1915,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemCode(
+        public virtual int CountContentItemByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -1935,7 +1935,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemName(
+        public virtual int CountContentItemByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -1955,7 +1955,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemPath(
+        public virtual int CountContentItemByPath(
             string path
         )  {
             List<NpgsqlParameter> parameters 
@@ -1975,7 +1975,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseContentItemListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseContentItemListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -1998,7 +1998,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentItemUuid(string set_type, ContentItem obj)  {
+        public virtual bool SetContentItemByUuid(string set_type, ContentItem obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2032,7 +2032,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemUuid(
+        public virtual bool DelContentItemByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2053,7 +2053,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemPath(
+        public virtual bool DelContentItemByPath(
             string path
         )  {
             List<NpgsqlParameter> parameters 
@@ -2095,7 +2095,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemListUuid(
+        public virtual DataSet GetContentItemListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2118,7 +2118,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemListCode(
+        public virtual DataSet GetContentItemListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2141,7 +2141,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemListName(
+        public virtual DataSet GetContentItemListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -2164,7 +2164,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemListPath(
+        public virtual DataSet GetContentItemListByPath(
             string path
         )  {
             List<NpgsqlParameter> parameters 
@@ -2205,7 +2205,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemTypeUuid(
+        public virtual int CountContentItemTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2225,7 +2225,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemTypeCode(
+        public virtual int CountContentItemTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2245,7 +2245,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseContentItemTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseContentItemTypeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -2268,7 +2268,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentItemTypeUuid(string set_type, ContentItemType obj)  {
+        public virtual bool SetContentItemTypeByUuid(string set_type, ContentItemType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2297,7 +2297,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentItemTypeCode(string set_type, ContentItemType obj)  {
+        public virtual bool SetContentItemTypeByCode(string set_type, ContentItemType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2326,7 +2326,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemTypeUuid(
+        public virtual bool DelContentItemTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2347,7 +2347,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemTypeCode(
+        public virtual bool DelContentItemTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2389,7 +2389,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemTypeListUuid(
+        public virtual DataSet GetContentItemTypeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2412,7 +2412,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemTypeListCode(
+        public virtual DataSet GetContentItemTypeListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2453,7 +2453,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageUuid(
+        public virtual int CountContentPageByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2473,7 +2473,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageCode(
+        public virtual int CountContentPageByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2493,7 +2493,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageName(
+        public virtual int CountContentPageByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -2513,7 +2513,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPagePath(
+        public virtual int CountContentPageByPath(
             string path
         )  {
             List<NpgsqlParameter> parameters 
@@ -2533,7 +2533,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseContentPageListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseContentPageListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -2556,7 +2556,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentPageUuid(string set_type, ContentPage obj)  {
+        public virtual bool SetContentPageByUuid(string set_type, ContentPage obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2565,6 +2565,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
             parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_date_end", obj.date_end));
             parameters.Add(new NpgsqlParameter("in_date_start", obj.date_start));
             parameters.Add(new NpgsqlParameter("in_site_id", obj.site_id));
@@ -2590,7 +2591,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentPageUuid(
+        public virtual bool DelContentPageByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2611,7 +2612,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentPagePathSiteId(
+        public virtual bool DelContentPageByPathBySiteId(
             string path
             , string site_id
         )  {
@@ -2634,7 +2635,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentPagePath(
+        public virtual bool DelContentPageByPath(
             string path
         )  {
             List<NpgsqlParameter> parameters 
@@ -2676,7 +2677,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListUuid(
+        public virtual DataSet GetContentPageListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2699,7 +2700,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListCode(
+        public virtual DataSet GetContentPageListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -2722,7 +2723,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListName(
+        public virtual DataSet GetContentPageListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -2745,7 +2746,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListPath(
+        public virtual DataSet GetContentPageListByPath(
             string path
         )  {
             List<NpgsqlParameter> parameters 
@@ -2768,7 +2769,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListSiteId(
+        public virtual DataSet GetContentPageListBySiteId(
             string site_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -2791,7 +2792,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListSiteIdPath(
+        public virtual DataSet GetContentPageListBySiteIdByPath(
             string site_id
             , string path
         )  {
@@ -2834,7 +2835,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountMessageUuid(
+        public virtual int CountMessageByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2854,7 +2855,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseMessageListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseMessageListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -2877,7 +2878,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetMessageUuid(string set_type, Message obj)  {
+        public virtual bool SetMessageByUuid(string set_type, Message obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -2888,6 +2889,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_profile_to_token", obj.profile_to_token));
             parameters.Add(new NpgsqlParameter("in_app_id", obj.app_id));
             parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_subject", obj.subject));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
@@ -2911,7 +2913,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelMessageUuid(
+        public virtual bool DelMessageByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2953,7 +2955,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetMessageListUuid(
+        public virtual DataSet GetMessageListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -2994,7 +2996,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferUuid(
+        public virtual int CountOfferByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3014,7 +3016,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCode(
+        public virtual int CountOfferByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -3034,7 +3036,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferName(
+        public virtual int CountOfferByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -3054,7 +3056,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferOrgId(
+        public virtual int CountOfferByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -3074,7 +3076,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -3097,7 +3099,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferUuid(string set_type, Offer obj)  {
+        public virtual bool SetOfferByUuid(string set_type, Offer obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -3107,6 +3109,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_type_id", obj.type_id));
             parameters.Add(new NpgsqlParameter("in_org_id", obj.org_id));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
@@ -3130,7 +3133,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferUuid(
+        public virtual bool DelOfferByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3151,7 +3154,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferOrgId(
+        public virtual bool DelOfferByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -3193,7 +3196,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferListUuid(
+        public virtual DataSet GetOfferListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3216,7 +3219,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferListCode(
+        public virtual DataSet GetOfferListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -3239,7 +3242,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferListName(
+        public virtual DataSet GetOfferListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -3262,7 +3265,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferListOrgId(
+        public virtual DataSet GetOfferListByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -3303,7 +3306,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferTypeUuid(
+        public virtual int CountOfferTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3323,7 +3326,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferTypeCode(
+        public virtual int CountOfferTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -3343,7 +3346,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferTypeName(
+        public virtual int CountOfferTypeByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -3363,7 +3366,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferTypeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -3386,7 +3389,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferTypeUuid(string set_type, OfferType obj)  {
+        public virtual bool SetOfferTypeByUuid(string set_type, OfferType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -3415,7 +3418,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferTypeUuid(
+        public virtual bool DelOfferTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3457,7 +3460,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferTypeListUuid(
+        public virtual DataSet GetOfferTypeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3480,7 +3483,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferTypeListCode(
+        public virtual DataSet GetOfferTypeListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -3503,7 +3506,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferTypeListName(
+        public virtual DataSet GetOfferTypeListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -3544,7 +3547,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationUuid(
+        public virtual int CountOfferLocationByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3564,7 +3567,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationOfferId(
+        public virtual int CountOfferLocationByOfferId(
             string offer_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -3584,7 +3587,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationCity(
+        public virtual int CountOfferLocationByCity(
             string city
         )  {
             List<NpgsqlParameter> parameters 
@@ -3604,7 +3607,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationCountryCode(
+        public virtual int CountOfferLocationByCountryCode(
             string country_code
         )  {
             List<NpgsqlParameter> parameters 
@@ -3624,7 +3627,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationPostalCode(
+        public virtual int CountOfferLocationByPostalCode(
             string postal_code
         )  {
             List<NpgsqlParameter> parameters 
@@ -3644,7 +3647,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferLocationListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferLocationListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -3667,7 +3670,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferLocationUuid(string set_type, OfferLocation obj)  {
+        public virtual bool SetOfferLocationByUuid(string set_type, OfferLocation obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -3683,6 +3686,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_country_code", obj.country_code));
             parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
             parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_state_province", obj.state_province));
             parameters.Add(new NpgsqlParameter("in_city", obj.city));
@@ -3713,7 +3717,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferLocationUuid(
+        public virtual bool DelOfferLocationByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3755,7 +3759,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListUuid(
+        public virtual DataSet GetOfferLocationListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3778,7 +3782,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListOfferId(
+        public virtual DataSet GetOfferLocationListByOfferId(
             string offer_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -3801,7 +3805,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListCity(
+        public virtual DataSet GetOfferLocationListByCity(
             string city
         )  {
             List<NpgsqlParameter> parameters 
@@ -3824,7 +3828,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListCountryCode(
+        public virtual DataSet GetOfferLocationListByCountryCode(
             string country_code
         )  {
             List<NpgsqlParameter> parameters 
@@ -3847,7 +3851,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListPostalCode(
+        public virtual DataSet GetOfferLocationListByPostalCode(
             string postal_code
         )  {
             List<NpgsqlParameter> parameters 
@@ -3888,7 +3892,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryUuid(
+        public virtual int CountOfferCategoryByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -3908,7 +3912,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryCode(
+        public virtual int CountOfferCategoryByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -3928,7 +3932,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryName(
+        public virtual int CountOfferCategoryByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -3948,7 +3952,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryOrgId(
+        public virtual int CountOfferCategoryByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -3968,7 +3972,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTypeId(
+        public virtual int CountOfferCategoryByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -3988,7 +3992,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryOrgIdTypeId(
+        public virtual int CountOfferCategoryByOrgIdByTypeId(
             string org_id
             , string type_id
         )  {
@@ -4010,7 +4014,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferCategoryListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferCategoryListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -4033,7 +4037,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferCategoryUuid(string set_type, OfferCategory obj)  {
+        public virtual bool SetOfferCategoryByUuid(string set_type, OfferCategory obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -4042,6 +4046,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
             parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_type_id", obj.type_id));
             parameters.Add(new NpgsqlParameter("in_org_id", obj.org_id));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
@@ -4064,7 +4069,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryUuid(
+        public virtual bool DelOfferCategoryByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -4085,7 +4090,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryCodeOrgId(
+        public virtual bool DelOfferCategoryByCodeByOrgId(
             string code
             , string org_id
         )  {
@@ -4108,7 +4113,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryCodeOrgIdTypeId(
+        public virtual bool DelOfferCategoryByCodeByOrgIdByTypeId(
             string code
             , string org_id
             , string type_id
@@ -4154,7 +4159,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListUuid(
+        public virtual DataSet GetOfferCategoryListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -4177,7 +4182,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListCode(
+        public virtual DataSet GetOfferCategoryListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -4200,7 +4205,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListName(
+        public virtual DataSet GetOfferCategoryListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -4223,7 +4228,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListOrgId(
+        public virtual DataSet GetOfferCategoryListByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4246,7 +4251,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListTypeId(
+        public virtual DataSet GetOfferCategoryListByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4269,7 +4274,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListOrgIdTypeId(
+        public virtual DataSet GetOfferCategoryListByOrgIdByTypeId(
             string org_id
             , string type_id
         )  {
@@ -4312,7 +4317,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeUuid(
+        public virtual int CountOfferCategoryTreeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -4332,7 +4337,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeParentId(
+        public virtual int CountOfferCategoryTreeByParentId(
             string parent_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4352,7 +4357,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeCategoryId(
+        public virtual int CountOfferCategoryTreeByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4372,7 +4377,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeParentIdCategoryId(
+        public virtual int CountOfferCategoryTreeByParentIdByCategoryId(
             string parent_id
             , string category_id
         )  {
@@ -4394,7 +4399,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferCategoryTreeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferCategoryTreeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -4417,7 +4422,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferCategoryTreeUuid(string set_type, OfferCategoryTree obj)  {
+        public virtual bool SetOfferCategoryTreeByUuid(string set_type, OfferCategoryTree obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -4444,7 +4449,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeUuid(
+        public virtual bool DelOfferCategoryTreeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -4465,7 +4470,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeParentId(
+        public virtual bool DelOfferCategoryTreeByParentId(
             string parent_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4486,7 +4491,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeCategoryId(
+        public virtual bool DelOfferCategoryTreeByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4507,7 +4512,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeParentIdCategoryId(
+        public virtual bool DelOfferCategoryTreeByParentIdByCategoryId(
             string parent_id
             , string category_id
         )  {
@@ -4551,7 +4556,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryTreeListUuid(
+        public virtual DataSet GetOfferCategoryTreeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -4574,7 +4579,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryTreeListParentId(
+        public virtual DataSet GetOfferCategoryTreeListByParentId(
             string parent_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4597,7 +4602,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryTreeListCategoryId(
+        public virtual DataSet GetOfferCategoryTreeListByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4620,7 +4625,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryTreeListParentIdCategoryId(
+        public virtual DataSet GetOfferCategoryTreeListByParentIdByCategoryId(
             string parent_id
             , string category_id
         )  {
@@ -4663,7 +4668,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocUuid(
+        public virtual int CountOfferCategoryAssocByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -4683,7 +4688,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocOfferId(
+        public virtual int CountOfferCategoryAssocByOfferId(
             string offer_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4703,7 +4708,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocCategoryId(
+        public virtual int CountOfferCategoryAssocByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4723,7 +4728,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocOfferIdCategoryId(
+        public virtual int CountOfferCategoryAssocByOfferIdByCategoryId(
             string offer_id
             , string category_id
         )  {
@@ -4745,7 +4750,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferCategoryAssocListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferCategoryAssocListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -4768,7 +4773,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferCategoryAssocUuid(string set_type, OfferCategoryAssoc obj)  {
+        public virtual bool SetOfferCategoryAssocByUuid(string set_type, OfferCategoryAssoc obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -4795,7 +4800,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryAssocUuid(
+        public virtual bool DelOfferCategoryAssocByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -4837,7 +4842,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryAssocListUuid(
+        public virtual DataSet GetOfferCategoryAssocListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -4860,7 +4865,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryAssocListOfferId(
+        public virtual DataSet GetOfferCategoryAssocListByOfferId(
             string offer_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4883,7 +4888,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryAssocListCategoryId(
+        public virtual DataSet GetOfferCategoryAssocListByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4906,7 +4911,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryAssocListOfferIdCategoryId(
+        public virtual DataSet GetOfferCategoryAssocListByOfferIdByCategoryId(
             string offer_id
             , string category_id
         )  {
@@ -4949,7 +4954,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationUuid(
+        public virtual int CountOfferGameLocationByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -4969,7 +4974,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationGameLocationId(
+        public virtual int CountOfferGameLocationByGameLocationId(
             string game_location_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -4989,7 +4994,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationOfferId(
+        public virtual int CountOfferGameLocationByOfferId(
             string offer_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5009,7 +5014,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationOfferIdGameLocationId(
+        public virtual int CountOfferGameLocationByOfferIdByGameLocationId(
             string offer_id
             , string game_location_id
         )  {
@@ -5031,7 +5036,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferGameLocationListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferGameLocationListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -5054,7 +5059,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferGameLocationUuid(string set_type, OfferGameLocation obj)  {
+        public virtual bool SetOfferGameLocationByUuid(string set_type, OfferGameLocation obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -5067,6 +5072,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_offer_id", obj.offer_id));
             parameters.Add(new NpgsqlParameter("in_type_id", obj.type_id));
             parameters.Add(new NpgsqlParameter("in_type", obj.type));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(
@@ -5082,7 +5088,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferGameLocationUuid(
+        public virtual bool DelOfferGameLocationByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -5124,7 +5130,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferGameLocationListUuid(
+        public virtual DataSet GetOfferGameLocationListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -5147,7 +5153,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferGameLocationListGameLocationId(
+        public virtual DataSet GetOfferGameLocationListByGameLocationId(
             string game_location_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5170,7 +5176,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferGameLocationListOfferId(
+        public virtual DataSet GetOfferGameLocationListByOfferId(
             string offer_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5193,7 +5199,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferGameLocationListOfferIdGameLocationId(
+        public virtual DataSet GetOfferGameLocationListByOfferIdByGameLocationId(
             string offer_id
             , string game_location_id
         )  {
@@ -5236,7 +5242,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoUuid(
+        public virtual int CountEventInfoByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -5256,7 +5262,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoCode(
+        public virtual int CountEventInfoByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -5276,7 +5282,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoName(
+        public virtual int CountEventInfoByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -5296,7 +5302,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoOrgId(
+        public virtual int CountEventInfoByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5316,7 +5322,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventInfoListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventInfoListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -5339,7 +5345,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventInfoUuid(string set_type, EventInfo obj)  {
+        public virtual bool SetEventInfoByUuid(string set_type, EventInfo obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -5349,6 +5355,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_org_id", obj.org_id));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_usage_count", obj.usage_count));
@@ -5371,7 +5378,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventInfoUuid(
+        public virtual bool DelEventInfoByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -5392,7 +5399,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventInfoOrgId(
+        public virtual bool DelEventInfoByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5434,7 +5441,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventInfoListUuid(
+        public virtual DataSet GetEventInfoListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -5457,7 +5464,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventInfoListCode(
+        public virtual DataSet GetEventInfoListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -5480,7 +5487,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventInfoListName(
+        public virtual DataSet GetEventInfoListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -5503,7 +5510,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventInfoListOrgId(
+        public virtual DataSet GetEventInfoListByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5544,7 +5551,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationUuid(
+        public virtual int CountEventLocationByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -5564,7 +5571,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationEventId(
+        public virtual int CountEventLocationByEventId(
             string event_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5584,7 +5591,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationCity(
+        public virtual int CountEventLocationByCity(
             string city
         )  {
             List<NpgsqlParameter> parameters 
@@ -5604,7 +5611,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationCountryCode(
+        public virtual int CountEventLocationByCountryCode(
             string country_code
         )  {
             List<NpgsqlParameter> parameters 
@@ -5624,7 +5631,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationPostalCode(
+        public virtual int CountEventLocationByPostalCode(
             string postal_code
         )  {
             List<NpgsqlParameter> parameters 
@@ -5644,7 +5651,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventLocationListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventLocationListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -5667,7 +5674,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventLocationUuid(string set_type, EventLocation obj)  {
+        public virtual bool SetEventLocationByUuid(string set_type, EventLocation obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -5682,6 +5689,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_country_code", obj.country_code));
             parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
             parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_state_province", obj.state_province));
             parameters.Add(new NpgsqlParameter("in_city", obj.city));
@@ -5713,7 +5721,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventLocationUuid(
+        public virtual bool DelEventLocationByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -5755,7 +5763,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListUuid(
+        public virtual DataSet GetEventLocationListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -5778,7 +5786,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListEventId(
+        public virtual DataSet GetEventLocationListByEventId(
             string event_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5801,7 +5809,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListCity(
+        public virtual DataSet GetEventLocationListByCity(
             string city
         )  {
             List<NpgsqlParameter> parameters 
@@ -5824,7 +5832,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListCountryCode(
+        public virtual DataSet GetEventLocationListByCountryCode(
             string country_code
         )  {
             List<NpgsqlParameter> parameters 
@@ -5847,7 +5855,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListPostalCode(
+        public virtual DataSet GetEventLocationListByPostalCode(
             string postal_code
         )  {
             List<NpgsqlParameter> parameters 
@@ -5888,7 +5896,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryUuid(
+        public virtual int CountEventCategoryByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -5908,7 +5916,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryCode(
+        public virtual int CountEventCategoryByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -5928,7 +5936,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryName(
+        public virtual int CountEventCategoryByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -5948,7 +5956,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryOrgId(
+        public virtual int CountEventCategoryByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5968,7 +5976,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTypeId(
+        public virtual int CountEventCategoryByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -5988,7 +5996,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryOrgIdTypeId(
+        public virtual int CountEventCategoryByOrgIdByTypeId(
             string org_id
             , string type_id
         )  {
@@ -6010,7 +6018,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventCategoryListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventCategoryListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -6033,7 +6041,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventCategoryUuid(string set_type, EventCategory obj)  {
+        public virtual bool SetEventCategoryByUuid(string set_type, EventCategory obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -6042,6 +6050,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
             parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_type_id", obj.type_id));
             parameters.Add(new NpgsqlParameter("in_org_id", obj.org_id));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
@@ -6064,7 +6073,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryUuid(
+        public virtual bool DelEventCategoryByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -6085,7 +6094,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryCodeOrgId(
+        public virtual bool DelEventCategoryByCodeByOrgId(
             string code
             , string org_id
         )  {
@@ -6108,7 +6117,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryCodeOrgIdTypeId(
+        public virtual bool DelEventCategoryByCodeByOrgIdByTypeId(
             string code
             , string org_id
             , string type_id
@@ -6154,7 +6163,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListUuid(
+        public virtual DataSet GetEventCategoryListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -6177,7 +6186,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListCode(
+        public virtual DataSet GetEventCategoryListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -6200,7 +6209,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListName(
+        public virtual DataSet GetEventCategoryListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -6223,7 +6232,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListOrgId(
+        public virtual DataSet GetEventCategoryListByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6246,7 +6255,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListTypeId(
+        public virtual DataSet GetEventCategoryListByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6269,7 +6278,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListOrgIdTypeId(
+        public virtual DataSet GetEventCategoryListByOrgIdByTypeId(
             string org_id
             , string type_id
         )  {
@@ -6312,7 +6321,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeUuid(
+        public virtual int CountEventCategoryTreeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -6332,7 +6341,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeParentId(
+        public virtual int CountEventCategoryTreeByParentId(
             string parent_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6352,7 +6361,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeCategoryId(
+        public virtual int CountEventCategoryTreeByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6372,7 +6381,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeParentIdCategoryId(
+        public virtual int CountEventCategoryTreeByParentIdByCategoryId(
             string parent_id
             , string category_id
         )  {
@@ -6394,7 +6403,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventCategoryTreeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventCategoryTreeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -6417,7 +6426,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventCategoryTreeUuid(string set_type, EventCategoryTree obj)  {
+        public virtual bool SetEventCategoryTreeByUuid(string set_type, EventCategoryTree obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -6444,7 +6453,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeUuid(
+        public virtual bool DelEventCategoryTreeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -6465,7 +6474,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeParentId(
+        public virtual bool DelEventCategoryTreeByParentId(
             string parent_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6486,7 +6495,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeCategoryId(
+        public virtual bool DelEventCategoryTreeByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6507,7 +6516,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeParentIdCategoryId(
+        public virtual bool DelEventCategoryTreeByParentIdByCategoryId(
             string parent_id
             , string category_id
         )  {
@@ -6551,7 +6560,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryTreeListUuid(
+        public virtual DataSet GetEventCategoryTreeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -6574,7 +6583,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryTreeListParentId(
+        public virtual DataSet GetEventCategoryTreeListByParentId(
             string parent_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6597,7 +6606,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryTreeListCategoryId(
+        public virtual DataSet GetEventCategoryTreeListByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6620,7 +6629,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryTreeListParentIdCategoryId(
+        public virtual DataSet GetEventCategoryTreeListByParentIdByCategoryId(
             string parent_id
             , string category_id
         )  {
@@ -6663,7 +6672,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocUuid(
+        public virtual int CountEventCategoryAssocByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -6683,7 +6692,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocEventId(
+        public virtual int CountEventCategoryAssocByEventId(
             string event_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6703,7 +6712,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocCategoryId(
+        public virtual int CountEventCategoryAssocByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6723,7 +6732,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocEventIdCategoryId(
+        public virtual int CountEventCategoryAssocByEventIdByCategoryId(
             string event_id
             , string category_id
         )  {
@@ -6745,7 +6754,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventCategoryAssocListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventCategoryAssocListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -6768,7 +6777,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventCategoryAssocUuid(string set_type, EventCategoryAssoc obj)  {
+        public virtual bool SetEventCategoryAssocByUuid(string set_type, EventCategoryAssoc obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -6795,7 +6804,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryAssocUuid(
+        public virtual bool DelEventCategoryAssocByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -6837,7 +6846,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryAssocListUuid(
+        public virtual DataSet GetEventCategoryAssocListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -6860,7 +6869,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryAssocListEventId(
+        public virtual DataSet GetEventCategoryAssocListByEventId(
             string event_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6883,7 +6892,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryAssocListCategoryId(
+        public virtual DataSet GetEventCategoryAssocListByCategoryId(
             string category_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -6906,7 +6915,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryAssocListEventIdCategoryId(
+        public virtual DataSet GetEventCategoryAssocListByEventIdByCategoryId(
             string event_id
             , string category_id
         )  {
@@ -6949,7 +6958,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelUuid(
+        public virtual int CountChannelByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -6969,7 +6978,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelCode(
+        public virtual int CountChannelByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -6989,7 +6998,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelName(
+        public virtual int CountChannelByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -7009,7 +7018,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelOrgId(
+        public virtual int CountChannelByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -7029,7 +7038,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeId(
+        public virtual int CountChannelByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -7049,7 +7058,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelOrgIdTypeId(
+        public virtual int CountChannelByOrgIdByTypeId(
             string org_id
             , string type_id
         )  {
@@ -7071,7 +7080,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseChannelListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseChannelListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -7094,7 +7103,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetChannelUuid(string set_type, Channel obj)  {
+        public virtual bool SetChannelByUuid(string set_type, Channel obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -7103,6 +7112,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
             parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_type_id", obj.type_id));
             parameters.Add(new NpgsqlParameter("in_org_id", obj.org_id));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
@@ -7125,7 +7135,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelUuid(
+        public virtual bool DelChannelByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -7146,7 +7156,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelCodeOrgId(
+        public virtual bool DelChannelByCodeByOrgId(
             string code
             , string org_id
         )  {
@@ -7169,7 +7179,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelCodeOrgIdTypeId(
+        public virtual bool DelChannelByCodeByOrgIdByTypeId(
             string code
             , string org_id
             , string type_id
@@ -7215,7 +7225,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListUuid(
+        public virtual DataSet GetChannelListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -7238,7 +7248,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListCode(
+        public virtual DataSet GetChannelListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -7261,7 +7271,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListName(
+        public virtual DataSet GetChannelListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -7284,7 +7294,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListOrgId(
+        public virtual DataSet GetChannelListByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -7307,7 +7317,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListTypeId(
+        public virtual DataSet GetChannelListByTypeId(
             string type_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -7330,7 +7340,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListOrgIdTypeId(
+        public virtual DataSet GetChannelListByOrgIdByTypeId(
             string org_id
             , string type_id
         )  {
@@ -7373,7 +7383,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeUuid(
+        public virtual int CountChannelTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -7393,7 +7403,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeCode(
+        public virtual int CountChannelTypeByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -7413,7 +7423,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeName(
+        public virtual int CountChannelTypeByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -7433,7 +7443,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseChannelTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseChannelTypeListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -7456,7 +7466,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetChannelTypeUuid(string set_type, ChannelType obj)  {
+        public virtual bool SetChannelTypeByUuid(string set_type, ChannelType obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -7465,6 +7475,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
             parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_active", obj.active));
             parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
@@ -7485,7 +7496,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelTypeUuid(
+        public virtual bool DelChannelTypeByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -7527,7 +7538,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelTypeListUuid(
+        public virtual DataSet GetChannelTypeListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -7550,7 +7561,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelTypeListCode(
+        public virtual DataSet GetChannelTypeListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -7573,7 +7584,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelTypeListName(
+        public virtual DataSet GetChannelTypeListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -7614,7 +7625,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionUuid(
+        public virtual int CountQuestionByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -7634,7 +7645,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionCode(
+        public virtual int CountQuestionByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -7654,7 +7665,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionName(
+        public virtual int CountQuestionByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -7674,7 +7685,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionChannelId(
+        public virtual int CountQuestionByChannelId(
             string channel_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -7694,7 +7705,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionOrgId(
+        public virtual int CountQuestionByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -7714,7 +7725,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionChannelIdOrgId(
+        public virtual int CountQuestionByChannelIdByOrgId(
             string channel_id
             , string org_id
         )  {
@@ -7736,7 +7747,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionChannelIdCode(
+        public virtual int CountQuestionByChannelIdByCode(
             string channel_id
             , string code
         )  {
@@ -7758,7 +7769,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseQuestionListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseQuestionListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -7781,7 +7792,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetQuestionUuid(string set_type, Question obj)  {
+        public virtual bool SetQuestionByUuid(string set_type, Question obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -7790,6 +7801,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
             parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_org_id", obj.org_id));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_choices", obj.choices));
@@ -7813,7 +7825,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetQuestionChannelIdCode(string set_type, Question obj)  {
+        public virtual bool SetQuestionByChannelIdByCode(string set_type, Question obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -7822,6 +7834,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_display_name", obj.display_name));
             parameters.Add(new NpgsqlParameter("in_name", obj.name));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_org_id", obj.org_id));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_choices", obj.choices));
@@ -7845,7 +7858,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelQuestionUuid(
+        public virtual bool DelQuestionByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -7866,7 +7879,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelQuestionChannelIdOrgId(
+        public virtual bool DelQuestionByChannelIdByOrgId(
             string channel_id
             , string org_id
         )  {
@@ -7910,7 +7923,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListUuid(
+        public virtual DataSet GetQuestionListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -7933,7 +7946,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListCode(
+        public virtual DataSet GetQuestionListByCode(
             string code
         )  {
             List<NpgsqlParameter> parameters 
@@ -7956,7 +7969,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListName(
+        public virtual DataSet GetQuestionListByName(
             string name
         )  {
             List<NpgsqlParameter> parameters 
@@ -7979,7 +7992,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListType(
+        public virtual DataSet GetQuestionListByType(
             string type
         )  {
             List<NpgsqlParameter> parameters 
@@ -8002,7 +8015,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListChannelId(
+        public virtual DataSet GetQuestionListByChannelId(
             string channel_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8025,7 +8038,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListOrgId(
+        public virtual DataSet GetQuestionListByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8048,7 +8061,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListChannelIdOrgId(
+        public virtual DataSet GetQuestionListByChannelIdByOrgId(
             string channel_id
             , string org_id
         )  {
@@ -8073,7 +8086,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListChannelIdCode(
+        public virtual DataSet GetQuestionListByChannelIdByCode(
             string channel_id
             , string code
         )  {
@@ -8116,7 +8129,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOfferUuid(
+        public virtual int CountProfileOfferByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8136,7 +8149,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOfferProfileId(
+        public virtual int CountProfileOfferByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8156,7 +8169,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileOfferListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileOfferListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -8179,7 +8192,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileOfferUuid(string set_type, ProfileOffer obj)  {
+        public virtual bool SetProfileOfferByUuid(string set_type, ProfileOffer obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -8188,6 +8201,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_offer_id", obj.offer_id));
             parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
             parameters.Add(new NpgsqlParameter("in_active", obj.active));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_redeemed", obj.redeemed));
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
@@ -8209,7 +8223,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileOfferUuid(
+        public virtual bool DelProfileOfferByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8230,7 +8244,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileOfferProfileId(
+        public virtual bool DelProfileOfferByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8272,7 +8286,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOfferListUuid(
+        public virtual DataSet GetProfileOfferListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8295,7 +8309,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOfferListProfileId(
+        public virtual DataSet GetProfileOfferListByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8336,7 +8350,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAppUuid(
+        public virtual int CountProfileAppByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8356,7 +8370,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAppProfileIdAppId(
+        public virtual int CountProfileAppByProfileIdByAppId(
             string profile_id
             , string app_id
         )  {
@@ -8378,7 +8392,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileAppListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileAppListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -8401,7 +8415,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAppUuid(string set_type, ProfileApp obj)  {
+        public virtual bool SetProfileAppByUuid(string set_type, ProfileApp obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -8413,6 +8427,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
             parameters.Add(new NpgsqlParameter("in_type", obj.type));
             parameters.Add(new NpgsqlParameter("in_app_id", obj.app_id));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(
@@ -8428,7 +8443,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAppProfileIdAppId(string set_type, ProfileApp obj)  {
+        public virtual bool SetProfileAppByProfileIdByAppId(string set_type, ProfileApp obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -8440,6 +8455,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
             parameters.Add(new NpgsqlParameter("in_type", obj.type));
             parameters.Add(new NpgsqlParameter("in_app_id", obj.app_id));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(
@@ -8455,7 +8471,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAppUuid(
+        public virtual bool DelProfileAppByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8476,7 +8492,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAppProfileIdAppId(
+        public virtual bool DelProfileAppByProfileIdByAppId(
             string profile_id
             , string app_id
         )  {
@@ -8520,7 +8536,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAppListUuid(
+        public virtual DataSet GetProfileAppListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8543,7 +8559,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAppListAppId(
+        public virtual DataSet GetProfileAppListByAppId(
             string app_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8566,7 +8582,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAppListProfileId(
+        public virtual DataSet GetProfileAppListByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8589,7 +8605,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAppListProfileIdAppId(
+        public virtual DataSet GetProfileAppListByProfileIdByAppId(
             string profile_id
             , string app_id
         )  {
@@ -8632,7 +8648,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOrgUuid(
+        public virtual int CountProfileOrgByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8652,7 +8668,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOrgOrgId(
+        public virtual int CountProfileOrgByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8672,7 +8688,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOrgProfileId(
+        public virtual int CountProfileOrgByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8692,7 +8708,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileOrgListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileOrgListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -8715,7 +8731,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileOrgUuid(string set_type, ProfileOrg obj)  {
+        public virtual bool SetProfileOrgByUuid(string set_type, ProfileOrg obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -8728,6 +8744,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
             parameters.Add(new NpgsqlParameter("in_type", obj.type));
             parameters.Add(new NpgsqlParameter("in_org_id", obj.org_id));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(
@@ -8743,7 +8760,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileOrgUuid(
+        public virtual bool DelProfileOrgByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8785,7 +8802,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOrgListUuid(
+        public virtual DataSet GetProfileOrgListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8808,7 +8825,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOrgListOrgId(
+        public virtual DataSet GetProfileOrgListByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8831,7 +8848,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOrgListProfileId(
+        public virtual DataSet GetProfileOrgListByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8872,7 +8889,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionUuid(
+        public virtual int CountProfileQuestionByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -8892,7 +8909,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionChannelId(
+        public virtual int CountProfileQuestionByChannelId(
             string channel_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8912,7 +8929,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionOrgId(
+        public virtual int CountProfileQuestionByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8932,7 +8949,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionProfileId(
+        public virtual int CountProfileQuestionByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8952,7 +8969,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionQuestionId(
+        public virtual int CountProfileQuestionByQuestionId(
             string question_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -8972,7 +8989,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionChannelIdOrgId(
+        public virtual int CountProfileQuestionByChannelIdByOrgId(
             string channel_id
             , string org_id
         )  {
@@ -8994,7 +9011,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionChannelIdProfileId(
+        public virtual int CountProfileQuestionByChannelIdByProfileId(
             string channel_id
             , string profile_id
         )  {
@@ -9016,7 +9033,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionQuestionIdProfileId(
+        public virtual int CountProfileQuestionByQuestionIdByProfileId(
             string question_id
             , string profile_id
         )  {
@@ -9038,7 +9055,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileQuestionListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileQuestionListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -9061,7 +9078,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionUuid(string set_type, ProfileQuestion obj)  {
+        public virtual bool SetProfileQuestionByUuid(string set_type, ProfileQuestion obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -9092,7 +9109,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionChannelIdProfileId(string set_type, ProfileQuestion obj)  {
+        public virtual bool SetProfileQuestionByChannelIdByProfileId(string set_type, ProfileQuestion obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -9123,7 +9140,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionQuestionIdProfileId(string set_type, ProfileQuestion obj)  {
+        public virtual bool SetProfileQuestionByQuestionIdByProfileId(string set_type, ProfileQuestion obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -9154,7 +9171,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionChannelIdQuestionIdProfileId(string set_type, ProfileQuestion obj)  {
+        public virtual bool SetProfileQuestionByChannelIdByQuestionIdByProfileId(string set_type, ProfileQuestion obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -9185,7 +9202,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileQuestionUuid(
+        public virtual bool DelProfileQuestionByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -9206,7 +9223,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileQuestionChannelIdOrgId(
+        public virtual bool DelProfileQuestionByChannelIdByOrgId(
             string channel_id
             , string org_id
         )  {
@@ -9250,7 +9267,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListUuid(
+        public virtual DataSet GetProfileQuestionListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -9273,7 +9290,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListChannelId(
+        public virtual DataSet GetProfileQuestionListByChannelId(
             string channel_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9296,7 +9313,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListOrgId(
+        public virtual DataSet GetProfileQuestionListByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9319,7 +9336,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListProfileId(
+        public virtual DataSet GetProfileQuestionListByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9342,7 +9359,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListQuestionId(
+        public virtual DataSet GetProfileQuestionListByQuestionId(
             string question_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9365,7 +9382,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListChannelIdOrgId(
+        public virtual DataSet GetProfileQuestionListByChannelIdByOrgId(
             string channel_id
             , string org_id
         )  {
@@ -9390,7 +9407,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListChannelIdProfileId(
+        public virtual DataSet GetProfileQuestionListByChannelIdByProfileId(
             string channel_id
             , string profile_id
         )  {
@@ -9415,7 +9432,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListQuestionIdProfileId(
+        public virtual DataSet GetProfileQuestionListByQuestionIdByProfileId(
             string question_id
             , string profile_id
         )  {
@@ -9458,7 +9475,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelUuid(
+        public virtual int CountProfileChannelByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -9478,7 +9495,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelChannelId(
+        public virtual int CountProfileChannelByChannelId(
             string channel_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9498,7 +9515,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelProfileId(
+        public virtual int CountProfileChannelByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9518,7 +9535,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelChannelIdProfileId(
+        public virtual int CountProfileChannelByChannelIdByProfileId(
             string channel_id
             , string profile_id
         )  {
@@ -9540,7 +9557,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileChannelListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileChannelListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -9563,7 +9580,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileChannelUuid(string set_type, ProfileChannel obj)  {
+        public virtual bool SetProfileChannelByUuid(string set_type, ProfileChannel obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -9590,7 +9607,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileChannelChannelIdProfileId(string set_type, ProfileChannel obj)  {
+        public virtual bool SetProfileChannelByChannelIdByProfileId(string set_type, ProfileChannel obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -9617,7 +9634,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileChannelUuid(
+        public virtual bool DelProfileChannelByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -9638,7 +9655,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileChannelChannelIdProfileId(
+        public virtual bool DelProfileChannelByChannelIdByProfileId(
             string channel_id
             , string profile_id
         )  {
@@ -9682,7 +9699,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileChannelListUuid(
+        public virtual DataSet GetProfileChannelListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -9705,7 +9722,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileChannelListChannelId(
+        public virtual DataSet GetProfileChannelListByChannelId(
             string channel_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9728,7 +9745,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileChannelListProfileId(
+        public virtual DataSet GetProfileChannelListByProfileId(
             string profile_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9751,7 +9768,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileChannelListChannelIdProfileId(
+        public virtual DataSet GetProfileChannelListByChannelIdByProfileId(
             string channel_id
             , string profile_id
         )  {
@@ -9794,7 +9811,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteUuid(
+        public virtual int CountOrgSiteByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -9814,7 +9831,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteOrgId(
+        public virtual int CountOrgSiteByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9834,7 +9851,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteSiteId(
+        public virtual int CountOrgSiteBySiteId(
             string site_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -9854,7 +9871,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteOrgIdSiteId(
+        public virtual int CountOrgSiteByOrgIdBySiteId(
             string org_id
             , string site_id
         )  {
@@ -9876,7 +9893,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOrgSiteListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOrgSiteListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -9899,7 +9916,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgSiteUuid(string set_type, OrgSite obj)  {
+        public virtual bool SetOrgSiteByUuid(string set_type, OrgSite obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -9926,7 +9943,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgSiteOrgIdSiteId(string set_type, OrgSite obj)  {
+        public virtual bool SetOrgSiteByOrgIdBySiteId(string set_type, OrgSite obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -9953,7 +9970,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgSiteUuid(
+        public virtual bool DelOrgSiteByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -9974,7 +9991,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgSiteOrgIdSiteId(
+        public virtual bool DelOrgSiteByOrgIdBySiteId(
             string org_id
             , string site_id
         )  {
@@ -10018,7 +10035,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgSiteListUuid(
+        public virtual DataSet GetOrgSiteListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -10041,7 +10058,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgSiteListOrgId(
+        public virtual DataSet GetOrgSiteListByOrgId(
             string org_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -10064,7 +10081,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgSiteListSiteId(
+        public virtual DataSet GetOrgSiteListBySiteId(
             string site_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -10087,7 +10104,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgSiteListOrgIdSiteId(
+        public virtual DataSet GetOrgSiteListByOrgIdBySiteId(
             string org_id
             , string site_id
         )  {
@@ -10130,7 +10147,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppUuid(
+        public virtual int CountSiteAppByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -10150,7 +10167,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppAppId(
+        public virtual int CountSiteAppByAppId(
             string app_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -10170,7 +10187,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppSiteId(
+        public virtual int CountSiteAppBySiteId(
             string site_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -10190,7 +10207,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppAppIdSiteId(
+        public virtual int CountSiteAppByAppIdBySiteId(
             string app_id
             , string site_id
         )  {
@@ -10212,7 +10229,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseSiteAppListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseSiteAppListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -10235,7 +10252,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteAppUuid(string set_type, SiteApp obj)  {
+        public virtual bool SetSiteAppByUuid(string set_type, SiteApp obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -10262,7 +10279,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteAppAppIdSiteId(string set_type, SiteApp obj)  {
+        public virtual bool SetSiteAppByAppIdBySiteId(string set_type, SiteApp obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -10289,7 +10306,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteAppUuid(
+        public virtual bool DelSiteAppByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -10310,7 +10327,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteAppAppIdSiteId(
+        public virtual bool DelSiteAppByAppIdBySiteId(
             string app_id
             , string site_id
         )  {
@@ -10354,7 +10371,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteAppListUuid(
+        public virtual DataSet GetSiteAppListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -10377,7 +10394,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteAppListAppId(
+        public virtual DataSet GetSiteAppListByAppId(
             string app_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -10400,7 +10417,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteAppListSiteId(
+        public virtual DataSet GetSiteAppListBySiteId(
             string site_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -10423,7 +10440,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteAppListAppIdSiteId(
+        public virtual DataSet GetSiteAppListByAppIdBySiteId(
             string app_id
             , string site_id
         )  {
@@ -10466,7 +10483,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoUuid(
+        public virtual int CountPhotoByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -10486,7 +10503,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoExternalId(
+        public virtual int CountPhotoByExternalId(
             string external_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -10506,7 +10523,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoUrl(
+        public virtual int CountPhotoByUrl(
             string url
         )  {
             List<NpgsqlParameter> parameters 
@@ -10526,7 +10543,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoUrlExternalId(
+        public virtual int CountPhotoByUrlByExternalId(
             string url
             , string external_id
         )  {
@@ -10548,7 +10565,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoUuidExternalId(
+        public virtual int CountPhotoByUuidByExternalId(
             string uuid
             , string external_id
         )  {
@@ -10570,7 +10587,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowsePhotoListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowsePhotoListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -10593,7 +10610,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoUuid(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByUuid(string set_type, Photo obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -10606,6 +10623,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -10629,7 +10647,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoExternalId(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByExternalId(string set_type, Photo obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -10642,6 +10660,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -10665,7 +10684,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoUrl(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByUrl(string set_type, Photo obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -10678,6 +10697,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -10701,7 +10721,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoUrlExternalId(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByUrlByExternalId(string set_type, Photo obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -10714,6 +10734,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -10737,7 +10758,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoUuidExternalId(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByUuidByExternalId(string set_type, Photo obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -10750,6 +10771,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -10773,7 +10795,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoUuid(
+        public virtual bool DelPhotoByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -10794,7 +10816,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoExternalId(
+        public virtual bool DelPhotoByExternalId(
             string external_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -10815,7 +10837,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoUrl(
+        public virtual bool DelPhotoByUrl(
             string url
         )  {
             List<NpgsqlParameter> parameters 
@@ -10836,7 +10858,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoUrlExternalId(
+        public virtual bool DelPhotoByUrlByExternalId(
             string url
             , string external_id
         )  {
@@ -10859,7 +10881,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoUuidExternalId(
+        public virtual bool DelPhotoByUuidByExternalId(
             string uuid
             , string external_id
         )  {
@@ -10903,7 +10925,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListUuid(
+        public virtual DataSet GetPhotoListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -10926,7 +10948,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListExternalId(
+        public virtual DataSet GetPhotoListByExternalId(
             string external_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -10949,7 +10971,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListUrl(
+        public virtual DataSet GetPhotoListByUrl(
             string url
         )  {
             List<NpgsqlParameter> parameters 
@@ -10972,7 +10994,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListUrlExternalId(
+        public virtual DataSet GetPhotoListByUrlByExternalId(
             string url
             , string external_id
         )  {
@@ -10997,7 +11019,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListUuidExternalId(
+        public virtual DataSet GetPhotoListByUuidByExternalId(
             string uuid
             , string external_id
         )  {
@@ -11040,7 +11062,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoUuid(
+        public virtual int CountVideoByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -11060,7 +11082,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoExternalId(
+        public virtual int CountVideoByExternalId(
             string external_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -11080,7 +11102,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoUrl(
+        public virtual int CountVideoByUrl(
             string url
         )  {
             List<NpgsqlParameter> parameters 
@@ -11100,7 +11122,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoUrlExternalId(
+        public virtual int CountVideoByUrlByExternalId(
             string url
             , string external_id
         )  {
@@ -11122,7 +11144,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoUuidExternalId(
+        public virtual int CountVideoByUuidByExternalId(
             string uuid
             , string external_id
         )  {
@@ -11144,7 +11166,7 @@ namespace platform {
             }
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseVideoListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseVideoListByFilter(SearchFilter obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_page", obj.page));
@@ -11167,7 +11189,7 @@ namespace platform {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoUuid(string set_type, Video obj)  {
+        public virtual bool SetVideoByUuid(string set_type, Video obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -11180,6 +11202,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -11203,7 +11226,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoExternalId(string set_type, Video obj)  {
+        public virtual bool SetVideoByExternalId(string set_type, Video obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -11216,6 +11239,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -11239,7 +11263,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoUrl(string set_type, Video obj)  {
+        public virtual bool SetVideoByUrl(string set_type, Video obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -11252,6 +11276,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -11275,7 +11300,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoUrlExternalId(string set_type, Video obj)  {
+        public virtual bool SetVideoByUrlByExternalId(string set_type, Video obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -11288,6 +11313,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -11311,7 +11337,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoUuidExternalId(string set_type, Video obj)  {
+        public virtual bool SetVideoByUuidByExternalId(string set_type, Video obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
@@ -11324,6 +11350,7 @@ namespace platform {
             parameters.Add(new NpgsqlParameter("in_url", obj.url));
             parameters.Add(new NpgsqlParameter("in_third_party_data", obj.third_party_data));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
+            parameters.Add(new NpgsqlParameter("in_data", obj.data));
             parameters.Add(new NpgsqlParameter("in_third_party_url", obj.third_party_url));
             parameters.Add(new NpgsqlParameter("in_third_party_id", obj.third_party_id));
             parameters.Add(new NpgsqlParameter("in_content_type", obj.content_type));
@@ -11347,7 +11374,7 @@ namespace platform {
             }    
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoUuid(
+        public virtual bool DelVideoByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -11368,7 +11395,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoExternalId(
+        public virtual bool DelVideoByExternalId(
             string external_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -11389,7 +11416,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoUrl(
+        public virtual bool DelVideoByUrl(
             string url
         )  {
             List<NpgsqlParameter> parameters 
@@ -11410,7 +11437,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoUrlExternalId(
+        public virtual bool DelVideoByUrlByExternalId(
             string url
             , string external_id
         )  {
@@ -11433,7 +11460,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoUuidExternalId(
+        public virtual bool DelVideoByUuidByExternalId(
             string uuid
             , string external_id
         )  {
@@ -11477,7 +11504,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListUuid(
+        public virtual DataSet GetVideoListByUuid(
             string uuid
         )  {
             List<NpgsqlParameter> parameters 
@@ -11500,7 +11527,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListExternalId(
+        public virtual DataSet GetVideoListByExternalId(
             string external_id
         )  {
             List<NpgsqlParameter> parameters 
@@ -11523,7 +11550,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListUrl(
+        public virtual DataSet GetVideoListByUrl(
             string url
         )  {
             List<NpgsqlParameter> parameters 
@@ -11546,7 +11573,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListUrlExternalId(
+        public virtual DataSet GetVideoListByUrlByExternalId(
             string url
             , string external_id
         )  {
@@ -11571,7 +11598,7 @@ namespace platform {
             
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListUuidExternalId(
+        public virtual DataSet GetVideoListByUuidByExternalId(
             string uuid
             , string external_id
         )  {

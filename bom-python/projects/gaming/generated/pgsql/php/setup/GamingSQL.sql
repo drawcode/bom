@@ -68,13 +68,13 @@ DROP TABLE IF EXISTS "game_rpg_item_skill" CASCADE;
 DROP TABLE IF EXISTS "game_product" CASCADE;
     
         
-DROP TABLE IF EXISTS "game_statistic_leaderboard" CASCADE;
+DROP TABLE IF EXISTS "game_leaderboard" CASCADE;
     
         
-DROP TABLE IF EXISTS "game_statistic_leaderboard_item" CASCADE;
+DROP TABLE IF EXISTS "game_leaderboard_item" CASCADE;
     
         
-DROP TABLE IF EXISTS "game_statistic_leaderboard_rollup" CASCADE;
+DROP TABLE IF EXISTS "game_leaderboard_rollup" CASCADE;
     
         
 DROP TABLE IF EXISTS "game_live_queue" CASCADE;
@@ -102,6 +102,51 @@ DROP TABLE IF EXISTS "game_profile_achievement" CASCADE;
     
         
 DROP TABLE IF EXISTS "game_achievement_meta" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "profile_reward" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "coupon" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "profile_coupon" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "org" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "channel" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "channel_type" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "reward" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "reward_type" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "reward_condition" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "reward_condition_type" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "question" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "profile_question" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "profile_channel" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "profile_reward_points" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "reward_competition" CASCADE;
     
 */
 
@@ -641,7 +686,7 @@ CREATE TABLE "game_product"
 ALTER TABLE "game_product" ADD PRIMARY KEY ("uuid");
     
         
-CREATE TABLE "game_statistic_leaderboard" 
+CREATE TABLE "game_leaderboard" 
 (
     "status" varchar (255)
     , "username" varchar (500)
@@ -652,7 +697,7 @@ CREATE TABLE "game_statistic_leaderboard"
     , "rank_change" INTEGER
     , "game_id" uuid
     , "active" boolean
-                --CONSTRAINT DF_game_statistic_leaderboard_active_bool DEFAULT 1
+                --CONSTRAINT DF_game_leaderboard_active_bool DEFAULT 1
     , "rank_total_count" INTEGER
     , "absolute_value" decimal
     , "data" varchar
@@ -660,18 +705,18 @@ CREATE TABLE "game_statistic_leaderboard"
     , "network" varchar (500)
     , "uuid" uuid NOT NULL
     , "date_modified" TIMESTAMP
-                --CONSTRAINT DF_game_statistic_leaderboard_date_modified DEFAULT GETDATE()
+                --CONSTRAINT DF_game_leaderboard_date_modified DEFAULT GETDATE()
     , "level" varchar (500)
     , "stat_value_formatted" varchar (500)
     , "date_created" TIMESTAMP
-                --CONSTRAINT DF_game_statistic_leaderboard_date_created DEFAULT GETDATE()
+                --CONSTRAINT DF_game_leaderboard_date_created DEFAULT GETDATE()
     , "type" varchar (500)
 );
 
-ALTER TABLE "game_statistic_leaderboard" ADD PRIMARY KEY ("uuid");
+ALTER TABLE "game_leaderboard" ADD PRIMARY KEY ("uuid");
     
         
-CREATE TABLE "game_statistic_leaderboard_item" 
+CREATE TABLE "game_leaderboard_item" 
 (
     "status" varchar (255)
     , "username" varchar (500)
@@ -682,7 +727,7 @@ CREATE TABLE "game_statistic_leaderboard_item"
     , "rank_change" INTEGER
     , "game_id" uuid
     , "active" boolean
-                --CONSTRAINT DF_game_statistic_leaderboard_item_active_bool DEFAULT 1
+                --CONSTRAINT DF_game_leaderboard_item_active_bool DEFAULT 1
     , "rank_total_count" INTEGER
     , "absolute_value" decimal
     , "data" varchar
@@ -690,18 +735,18 @@ CREATE TABLE "game_statistic_leaderboard_item"
     , "network" varchar (500)
     , "uuid" uuid NOT NULL
     , "date_modified" TIMESTAMP
-                --CONSTRAINT DF_game_statistic_leaderboard_item_date_modified DEFAULT GETDATE()
+                --CONSTRAINT DF_game_leaderboard_item_date_modified DEFAULT GETDATE()
     , "level" varchar (500)
     , "stat_value_formatted" varchar (500)
     , "date_created" TIMESTAMP
-                --CONSTRAINT DF_game_statistic_leaderboard_item_date_created DEFAULT GETDATE()
+                --CONSTRAINT DF_game_leaderboard_item_date_created DEFAULT GETDATE()
     , "type" varchar (500)
 );
 
-ALTER TABLE "game_statistic_leaderboard_item" ADD PRIMARY KEY ("uuid");
+ALTER TABLE "game_leaderboard_item" ADD PRIMARY KEY ("uuid");
     
         
-CREATE TABLE "game_statistic_leaderboard_rollup" 
+CREATE TABLE "game_leaderboard_rollup" 
 (
     "status" varchar (255)
     , "username" varchar (500)
@@ -712,7 +757,7 @@ CREATE TABLE "game_statistic_leaderboard_rollup"
     , "rank_change" INTEGER
     , "game_id" uuid
     , "active" boolean
-                --CONSTRAINT DF_game_statistic_leaderboard_rollup_active_bool DEFAULT 1
+                --CONSTRAINT DF_game_leaderboard_rollup_active_bool DEFAULT 1
     , "rank_total_count" INTEGER
     , "absolute_value" decimal
     , "data" varchar
@@ -720,15 +765,15 @@ CREATE TABLE "game_statistic_leaderboard_rollup"
     , "network" varchar (500)
     , "uuid" uuid NOT NULL
     , "date_modified" TIMESTAMP
-                --CONSTRAINT DF_game_statistic_leaderboard_rollup_date_modified DEFAULT GETDATE()
+                --CONSTRAINT DF_game_leaderboard_rollup_date_modified DEFAULT GETDATE()
     , "level" varchar (500)
     , "stat_value_formatted" varchar (500)
     , "date_created" TIMESTAMP
-                --CONSTRAINT DF_game_statistic_leaderboard_rollup_date_created DEFAULT GETDATE()
+                --CONSTRAINT DF_game_leaderboard_rollup_date_created DEFAULT GETDATE()
     , "type" varchar (500)
 );
 
-ALTER TABLE "game_statistic_leaderboard_rollup" ADD PRIMARY KEY ("uuid");
+ALTER TABLE "game_leaderboard_rollup" ADD PRIMARY KEY ("uuid");
     
         
 CREATE TABLE "game_live_queue" 
@@ -962,6 +1007,375 @@ CREATE TABLE "game_achievement_meta"
 
 ALTER TABLE "game_achievement_meta" ADD PRIMARY KEY ("uuid");
     
+        
+CREATE TABLE "profile_reward" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "viewed" boolean NOT NULL
+                --CONSTRAINT DF_profile_reward_viewed_bool DEFAULT 1
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_profile_reward_date_modified DEFAULT GETDATE()
+    , "data" varchar
+    , "profile_id" uuid NOT NULL
+    , "uuid" uuid NOT NULL
+    , "downloaded" boolean NOT NULL
+                --CONSTRAINT DF_profile_reward_downloaded_bool DEFAULT 1
+    , "channel_id" uuid
+    , "reward_id" uuid NOT NULL
+    , "usage_count" INTEGER
+    , "active" boolean
+                --CONSTRAINT DF_profile_reward_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_profile_reward_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+    , "blurb" varchar (2000)
+    , "description" varchar (255)
+);
+
+ALTER TABLE "profile_reward" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "coupon" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_coupon_date_modified DEFAULT GETDATE()
+    , "url" varchar (500)
+    , "data" varchar
+    , "org_id" uuid NOT NULL
+    , "uuid" uuid NOT NULL
+    , "usage_count" INTEGER
+    , "active" boolean
+                --CONSTRAINT DF_coupon_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_coupon_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+    , "description" varchar (255)
+);
+
+ALTER TABLE "coupon" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "profile_coupon" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_profile_coupon_date_modified DEFAULT GETDATE()
+    , "url" varchar (50)
+    , "data" varchar
+    , "profile_id" uuid NOT NULL
+    , "uuid" uuid NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_profile_coupon_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_profile_coupon_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+    , "description" varchar (255)
+);
+
+ALTER TABLE "profile_coupon" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "org" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_org_date_modified DEFAULT GETDATE()
+    , "data" varchar
+    , "uuid" uuid NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_org_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_org_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+    , "description" varchar (255)
+);
+
+ALTER TABLE "org" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "channel" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_channel_date_modified DEFAULT GETDATE()
+    , "data" varchar
+    , "type_id" uuid NOT NULL
+    , "org_id" uuid NOT NULL
+    , "uuid" uuid NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_channel_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_channel_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+    , "description" varchar (255)
+);
+
+ALTER TABLE "channel" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "channel_type" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_channel_type_date_modified DEFAULT GETDATE()
+    , "data" varchar
+    , "uuid" uuid NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_channel_type_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_channel_type_date_created DEFAULT GETDATE()
+    , "type" varchar (50) NOT NULL
+    , "description" varchar (255)
+);
+
+ALTER TABLE "channel_type" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "reward" 
+(
+    "status" varchar (255)
+    , "type_url" varchar (50)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_reward_date_modified DEFAULT GETDATE()
+    , "url" varchar (500)
+    , "data" varchar
+    , "org_id" uuid NOT NULL
+    , "uuid" uuid NOT NULL
+    , "channel_id" uuid NOT NULL
+    , "usage_count" INTEGER
+    , "external_id" varchar (50) NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_reward_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_reward_date_created DEFAULT GETDATE()
+    , "type" varchar (50) NOT NULL
+    , "description" varchar (255)
+);
+
+ALTER TABLE "reward" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "reward_type" 
+(
+    "status" varchar (255)
+    , "type_url" varchar (50) NOT NULL
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_reward_type_date_modified DEFAULT GETDATE()
+    , "data" varchar
+    , "uuid" uuid NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_reward_type_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_reward_type_date_created DEFAULT GETDATE()
+    , "type" varchar (50) NOT NULL
+    , "description" varchar (255)
+);
+
+ALTER TABLE "reward_type" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "reward_condition" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "end_date" TIMESTAMP
+                --CONSTRAINT DF_reward_condition_end_date DEFAULT GETDATE()
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_reward_condition_date_modified DEFAULT GETDATE()
+    , "data" varchar
+    , "org_id" uuid
+    , "uuid" uuid NOT NULL
+    , "channel_id" uuid
+    , "amount" INTEGER
+    , "global_reward" boolean
+                --CONSTRAINT DF_reward_condition_global_reward_bool DEFAULT 1
+    , "condition" varchar (50)
+    , "active" boolean
+                --CONSTRAINT DF_reward_condition_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_reward_condition_date_created DEFAULT GETDATE()
+    , "type" varchar (50)
+    , "start_date" TIMESTAMP
+                --CONSTRAINT DF_reward_condition_start_date DEFAULT GETDATE()
+    , "reward_id" uuid
+    , "description" varchar (255)
+);
+
+ALTER TABLE "reward_condition" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "reward_condition_type" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_reward_condition_type_date_modified DEFAULT GETDATE()
+    , "data" varchar
+    , "uuid" uuid NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_reward_condition_type_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_reward_condition_type_date_created DEFAULT GETDATE()
+    , "type" varchar (50) NOT NULL
+    , "description" varchar (255)
+);
+
+ALTER TABLE "reward_condition_type" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "question" 
+(
+    "status" varchar (255)
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_question_date_modified DEFAULT GETDATE()
+    , "data" varchar
+    , "org_id" uuid NOT NULL
+    , "uuid" uuid NOT NULL
+    , "choices" varchar
+    , "channel_id" uuid NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_question_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_question_date_created DEFAULT GETDATE()
+    , "type" varchar (50) NOT NULL
+    , "description" varchar (255)
+);
+
+ALTER TABLE "question" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "profile_question" 
+(
+    "status" varchar (255)
+    , "profile_id" uuid NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_profile_question_active_bool DEFAULT 1
+    , "data" varchar NOT NULL
+    , "uuid" uuid NOT NULL
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_profile_question_date_modified DEFAULT GETDATE()
+    , "org_id" uuid NOT NULL
+    , "channel_id" uuid NOT NULL
+    , "answer" varchar (1000) NOT NULL
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_profile_question_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+    , "question_id" uuid NOT NULL
+);
+
+ALTER TABLE "profile_question" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "profile_channel" 
+(
+    "status" varchar (255)
+    , "channel_id" uuid NOT NULL
+    , "uuid" uuid NOT NULL
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_profile_channel_date_modified DEFAULT GETDATE()
+    , "active" boolean
+                --CONSTRAINT DF_profile_channel_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_profile_channel_date_created DEFAULT GETDATE()
+    , "profile_id" uuid NOT NULL
+    , "type" varchar (500)
+    , "data" varchar
+);
+
+ALTER TABLE "profile_channel" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "profile_reward_points" 
+(
+    "status" varchar (255)
+    , "profile_id" uuid NOT NULL
+    , "active" boolean
+                --CONSTRAINT DF_profile_reward_points_active_bool DEFAULT 1
+    , "data" varchar
+    , "uuid" uuid NOT NULL
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_profile_reward_points_date_modified DEFAULT GETDATE()
+    , "org_id" uuid NOT NULL
+    , "channel_id" uuid NOT NULL
+    , "points" INTEGER NOT NULL
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_profile_reward_points_date_created DEFAULT GETDATE()
+    , "type" varchar (500)
+);
+
+ALTER TABLE "profile_reward_points" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "reward_competition" 
+(
+    "sort" INTEGER
+    , "code" varchar (255)
+    , "date_end" TIMESTAMP
+                --CONSTRAINT DF_reward_competition_date_end DEFAULT GETDATE()
+    , "results" varchar
+    , "visible" boolean
+                --CONSTRAINT DF_reward_competition_visible_bool DEFAULT 1
+    , "display_name" varchar (255)
+    , "uuid" uuid NOT NULL
+    , "date_start" TIMESTAMP
+                --CONSTRAINT DF_reward_competition_date_start DEFAULT GETDATE()
+    , "winners" varchar
+    , "template" varchar
+    , "type" varchar (500)
+    , "trigger_data" varchar
+    , "status" varchar (255)
+    , "description" varchar (255)
+    , "completed" boolean
+                --CONSTRAINT DF_reward_competition_completed_bool DEFAULT 1
+    , "template_url" varchar (500)
+    , "active" boolean
+                --CONSTRAINT DF_reward_competition_active_bool DEFAULT 1
+    , "path" varchar (500)
+    , "data" varchar
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_reward_competition_date_modified DEFAULT GETDATE()
+    , "fulfilled" boolean
+                --CONSTRAINT DF_reward_competition_fulfilled_bool DEFAULT 1
+    , "channel_id" uuid
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_reward_competition_date_created DEFAULT GETDATE()
+);
+
+ALTER TABLE "reward_competition" ADD PRIMARY KEY ("uuid");
+    
 
 
 -- result / return types
@@ -1030,13 +1444,13 @@ DROP type IF EXISTS "game_rpg_item_skill_result" CASCADE;
 DROP type IF EXISTS "game_product_result" CASCADE;
     
         
-DROP type IF EXISTS "game_statistic_leaderboard_result" CASCADE;
+DROP type IF EXISTS "game_leaderboard_result" CASCADE;
     
         
-DROP type IF EXISTS "game_statistic_leaderboard_item_result" CASCADE;
+DROP type IF EXISTS "game_leaderboard_item_result" CASCADE;
     
         
-DROP type IF EXISTS "game_statistic_leaderboard_rollup_result" CASCADE;
+DROP type IF EXISTS "game_leaderboard_rollup_result" CASCADE;
     
         
 DROP type IF EXISTS "game_live_queue_result" CASCADE;
@@ -1064,6 +1478,51 @@ DROP type IF EXISTS "game_profile_achievement_result" CASCADE;
     
         
 DROP type IF EXISTS "game_achievement_meta_result" CASCADE;
+    
+        
+DROP type IF EXISTS "profile_reward_result" CASCADE;
+    
+        
+DROP type IF EXISTS "coupon_result" CASCADE;
+    
+        
+DROP type IF EXISTS "profile_coupon_result" CASCADE;
+    
+        
+DROP type IF EXISTS "org_result" CASCADE;
+    
+        
+DROP type IF EXISTS "channel_result" CASCADE;
+    
+        
+DROP type IF EXISTS "channel_type_result" CASCADE;
+    
+        
+DROP type IF EXISTS "reward_result" CASCADE;
+    
+        
+DROP type IF EXISTS "reward_type_result" CASCADE;
+    
+        
+DROP type IF EXISTS "reward_condition_result" CASCADE;
+    
+        
+DROP type IF EXISTS "reward_condition_type_result" CASCADE;
+    
+        
+DROP type IF EXISTS "question_result" CASCADE;
+    
+        
+DROP type IF EXISTS "profile_question_result" CASCADE;
+    
+        
+DROP type IF EXISTS "profile_channel_result" CASCADE;
+    
+        
+DROP type IF EXISTS "profile_reward_points_result" CASCADE;
+    
+        
+DROP type IF EXISTS "reward_competition_result" CASCADE;
     
 
 CREATE TYPE "game_result" as
@@ -1474,7 +1933,7 @@ CREATE TYPE "game_product_result" as
     , "type" varchar
     , "description" varchar
 );    
-CREATE TYPE "game_statistic_leaderboard_result" as
+CREATE TYPE "game_leaderboard_result" as
 (
     total_rows bigint
     , "status" varchar
@@ -1498,7 +1957,7 @@ CREATE TYPE "game_statistic_leaderboard_result" as
     , "date_created" TIMESTAMP
     , "type" varchar
 );    
-CREATE TYPE "game_statistic_leaderboard_item_result" as
+CREATE TYPE "game_leaderboard_item_result" as
 (
     total_rows bigint
     , "status" varchar
@@ -1522,7 +1981,7 @@ CREATE TYPE "game_statistic_leaderboard_item_result" as
     , "date_created" TIMESTAMP
     , "type" varchar
 );    
-CREATE TYPE "game_statistic_leaderboard_rollup_result" as
+CREATE TYPE "game_leaderboard_rollup_result" as
 (
     total_rows bigint
     , "status" varchar
@@ -1721,6 +2180,275 @@ CREATE TYPE "game_achievement_meta_result" as
     , "leaderboard" boolean
     , "description" varchar
 );    
+CREATE TYPE "profile_reward_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "viewed" boolean
+    , "date_modified" TIMESTAMP
+    , "data" varchar
+    , "profile_id" uuid
+    , "uuid" uuid
+    , "downloaded" boolean
+    , "channel_id" uuid
+    , "reward_id" uuid
+    , "usage_count" INTEGER
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "blurb" varchar
+    , "description" varchar
+);    
+CREATE TYPE "coupon_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "url" varchar
+    , "data" varchar
+    , "org_id" uuid
+    , "uuid" uuid
+    , "usage_count" INTEGER
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "profile_coupon_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "url" varchar
+    , "data" varchar
+    , "profile_id" uuid
+    , "uuid" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "org_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "data" varchar
+    , "uuid" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "channel_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "data" varchar
+    , "type_id" uuid
+    , "org_id" uuid
+    , "uuid" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "channel_type_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "data" varchar
+    , "uuid" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "reward_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "type_url" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "url" varchar
+    , "data" varchar
+    , "org_id" uuid
+    , "uuid" uuid
+    , "channel_id" uuid
+    , "usage_count" INTEGER
+    , "external_id" varchar
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "reward_type_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "type_url" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "data" varchar
+    , "uuid" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "reward_condition_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "end_date" TIMESTAMP
+    , "date_modified" TIMESTAMP
+    , "data" varchar
+    , "org_id" uuid
+    , "uuid" uuid
+    , "channel_id" uuid
+    , "amount" INTEGER
+    , "global_reward" boolean
+    , "condition" varchar
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "start_date" TIMESTAMP
+    , "reward_id" uuid
+    , "description" varchar
+);    
+CREATE TYPE "reward_condition_type_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "data" varchar
+    , "uuid" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "question_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "data" varchar
+    , "org_id" uuid
+    , "uuid" uuid
+    , "choices" varchar
+    , "channel_id" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "description" varchar
+);    
+CREATE TYPE "profile_question_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "profile_id" uuid
+    , "active" boolean
+    , "data" varchar
+    , "uuid" uuid
+    , "date_modified" TIMESTAMP
+    , "org_id" uuid
+    , "channel_id" uuid
+    , "answer" varchar
+    , "date_created" TIMESTAMP
+    , "type" varchar
+    , "question_id" uuid
+);    
+CREATE TYPE "profile_channel_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "channel_id" uuid
+    , "uuid" uuid
+    , "date_modified" TIMESTAMP
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "profile_id" uuid
+    , "type" varchar
+    , "data" varchar
+);    
+CREATE TYPE "profile_reward_points_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "profile_id" uuid
+    , "active" boolean
+    , "data" varchar
+    , "uuid" uuid
+    , "date_modified" TIMESTAMP
+    , "org_id" uuid
+    , "channel_id" uuid
+    , "points" INTEGER
+    , "date_created" TIMESTAMP
+    , "type" varchar
+);    
+CREATE TYPE "reward_competition_result" as
+(
+    total_rows bigint
+    , "sort" INTEGER
+    , "code" varchar
+    , "date_end" TIMESTAMP
+    , "results" varchar
+    , "visible" boolean
+    , "display_name" varchar
+    , "uuid" uuid
+    , "date_start" TIMESTAMP
+    , "winners" varchar
+    , "template" varchar
+    , "type" varchar
+    , "trigger_data" varchar
+    , "status" varchar
+    , "description" varchar
+    , "completed" boolean
+    , "template_url" varchar
+    , "active" boolean
+    , "path" varchar
+    , "data" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "fulfilled" boolean
+    , "channel_id" uuid
+    , "date_created" TIMESTAMP
+);    
 
         
 -- INDEX CREATES
@@ -1807,41 +2535,41 @@ CREATE INDEX IX_profile_game_data_attribute_profile_id_game_id_code ON profile_g
 -- INDEX CREATES
 
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code ON game_leaderboard 
 (
                     
     "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_profile_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_profile_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_profile_id ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_profile_id ON game_leaderboard 
 (
                     
     "profile_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_username";
+DROP INDEX IF EXISTS "IX_game_leaderboard_username";
                 
-CREATE INDEX IX_game_statistic_leaderboard_username ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_username ON game_leaderboard 
 (
                     
     "username" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_game_id ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_game_id ON game_leaderboard 
 (
                     
     "game_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_game_id_level";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_game_id_level";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_game_id_level ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_game_id_level ON game_leaderboard 
 (
                     
     "game_id" ASC
@@ -1851,9 +2579,9 @@ CREATE INDEX IX_game_statistic_leaderboard_code_game_id_level ON game_statistic_
     , "level" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_profile_id_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_profile_id_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_profile_id_game_id ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_profile_id_game_id ON game_leaderboard 
 (
                     
     "game_id" ASC
@@ -1861,9 +2589,9 @@ CREATE INDEX IX_game_statistic_leaderboard_profile_id_game_id ON game_statistic_
     , "profile_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_username_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_username_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_username_game_id ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_username_game_id ON game_leaderboard 
 (
                     
     "username" ASC
@@ -1871,9 +2599,9 @@ CREATE INDEX IX_game_statistic_leaderboard_username_game_id ON game_statistic_le
     , "game_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_username";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_username";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_username ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_username ON game_leaderboard 
 (
                     
     "username" ASC
@@ -1881,9 +2609,9 @@ CREATE INDEX IX_game_statistic_leaderboard_code_username ON game_statistic_leade
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_username_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_username_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_username_game_id ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_username_game_id ON game_leaderboard 
 (
                     
     "username" ASC
@@ -1893,9 +2621,9 @@ CREATE INDEX IX_game_statistic_leaderboard_code_username_game_id ON game_statist
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_username_game_id_type";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_username_game_id_type";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_username_game_id_type ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_username_game_id_type ON game_leaderboard 
 (
                     
     "username" ASC
@@ -1907,9 +2635,9 @@ CREATE INDEX IX_game_statistic_leaderboard_code_username_game_id_type ON game_st
     , "type" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_profile_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_profile_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_profile_id ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_profile_id ON game_leaderboard 
 (
                     
     "profile_id" ASC
@@ -1917,9 +2645,9 @@ CREATE INDEX IX_game_statistic_leaderboard_code_profile_id ON game_statistic_lea
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_profile_id_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_profile_id_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_profile_id_game_id ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_profile_id_game_id ON game_leaderboard 
 (
                     
     "profile_id" ASC
@@ -1929,9 +2657,9 @@ CREATE INDEX IX_game_statistic_leaderboard_code_profile_id_game_id ON game_stati
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_profile_id_game_id_type";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_profile_id_game_id_type";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_profile_id_game_id_type ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_profile_id_game_id_type ON game_leaderboard 
 (
                     
     "profile_id" ASC
@@ -1943,9 +2671,9 @@ CREATE INDEX IX_game_statistic_leaderboard_code_profile_id_game_id_type ON game_
     , "type" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_game_id ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_game_id ON game_leaderboard 
 (
                     
     "game_id" ASC
@@ -1953,9 +2681,9 @@ CREATE INDEX IX_game_statistic_leaderboard_code_game_id ON game_statistic_leader
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_game_id_profile_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_game_id_profile_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_game_id_profile_id ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_game_id_profile_id ON game_leaderboard 
 (
                     
     "profile_id" ASC
@@ -1965,9 +2693,9 @@ CREATE INDEX IX_game_statistic_leaderboard_code_game_id_profile_id ON game_stati
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_code_game_id_type";
+DROP INDEX IF EXISTS "IX_game_leaderboard_code_game_id_type";
                 
-CREATE INDEX IX_game_statistic_leaderboard_code_game_id_type ON game_statistic_leaderboard 
+CREATE INDEX IX_game_leaderboard_code_game_id_type ON game_leaderboard 
 (
                     
     "game_id" ASC
@@ -1980,41 +2708,41 @@ CREATE INDEX IX_game_statistic_leaderboard_code_game_id_type ON game_statistic_l
 -- INDEX CREATES
 
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code ON game_leaderboard_item 
 (
                     
     "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_profile_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_profile_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_profile_id ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_profile_id ON game_leaderboard_item 
 (
                     
     "profile_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_username";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_username";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_username ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_username ON game_leaderboard_item 
 (
                     
     "username" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_game_id ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_game_id ON game_leaderboard_item 
 (
                     
     "game_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_game_id_level";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_game_id_level";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id_level ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_game_id_level ON game_leaderboard_item 
 (
                     
     "game_id" ASC
@@ -2024,9 +2752,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id_level ON game_stati
     , "level" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_profile_id_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_profile_id_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_profile_id_game_id ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_profile_id_game_id ON game_leaderboard_item 
 (
                     
     "game_id" ASC
@@ -2034,9 +2762,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_profile_id_game_id ON game_stati
     , "profile_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_username_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_username_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_username_game_id ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_username_game_id ON game_leaderboard_item 
 (
                     
     "username" ASC
@@ -2044,9 +2772,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_username_game_id ON game_statist
     , "game_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_username";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_username";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_username ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_username ON game_leaderboard_item 
 (
                     
     "username" ASC
@@ -2054,9 +2782,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_username ON game_statistic_
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_username_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_username_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_username_game_id ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_username_game_id ON game_leaderboard_item 
 (
                     
     "username" ASC
@@ -2066,9 +2794,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_username_game_id ON game_st
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_username_game_id_type";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_username_game_id_type";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_username_game_id_type ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_username_game_id_type ON game_leaderboard_item 
 (
                     
     "username" ASC
@@ -2080,9 +2808,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_username_game_id_type ON ga
     , "type" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_profile_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_profile_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_profile_id ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_profile_id ON game_leaderboard_item 
 (
                     
     "profile_id" ASC
@@ -2090,9 +2818,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_profile_id ON game_statisti
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_profile_id_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_profile_id_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_profile_id_game_id ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_profile_id_game_id ON game_leaderboard_item 
 (
                     
     "profile_id" ASC
@@ -2102,9 +2830,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_profile_id_game_id ON game_
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_profile_id_game_id_type";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_profile_id_game_id_type";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_profile_id_game_id_type ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_profile_id_game_id_type ON game_leaderboard_item 
 (
                     
     "profile_id" ASC
@@ -2116,9 +2844,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_profile_id_game_id_type ON 
     , "type" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_game_id ON game_leaderboard_item 
 (
                     
     "game_id" ASC
@@ -2126,9 +2854,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id ON game_statistic_l
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_game_id_profile_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_game_id_profile_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id_profile_id ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_game_id_profile_id ON game_leaderboard_item 
 (
                     
     "profile_id" ASC
@@ -2138,9 +2866,9 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id_profile_id ON game_
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_item_code_game_id_type";
+DROP INDEX IF EXISTS "IX_game_leaderboard_item_code_game_id_type";
                 
-CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id_type ON game_statistic_leaderboard_item 
+CREATE INDEX IX_game_leaderboard_item_code_game_id_type ON game_leaderboard_item 
 (
                     
     "game_id" ASC
@@ -2153,41 +2881,41 @@ CREATE INDEX IX_game_statistic_leaderboard_item_code_game_id_type ON game_statis
 -- INDEX CREATES
 
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code ON game_leaderboard_rollup 
 (
                     
     "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_profile_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_profile_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_profile_id ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_profile_id ON game_leaderboard_rollup 
 (
                     
     "profile_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_username";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_username";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_username ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_username ON game_leaderboard_rollup 
 (
                     
     "username" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_game_id ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_game_id ON game_leaderboard_rollup 
 (
                     
     "game_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_game_id_level";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_game_id_level";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_game_id_level ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_game_id_level ON game_leaderboard_rollup 
 (
                     
     "game_id" ASC
@@ -2197,9 +2925,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_code_game_id_level ON game_sta
     , "level" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_profile_id_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_profile_id_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_profile_id_game_id ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_profile_id_game_id ON game_leaderboard_rollup 
 (
                     
     "game_id" ASC
@@ -2207,9 +2935,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_profile_id_game_id ON game_sta
     , "profile_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_username_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_username_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_username_game_id ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_username_game_id ON game_leaderboard_rollup 
 (
                     
     "username" ASC
@@ -2217,9 +2945,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_username_game_id ON game_stati
     , "game_id" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_username";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_username";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_username ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_username ON game_leaderboard_rollup 
 (
                     
     "username" ASC
@@ -2227,9 +2955,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_code_username ON game_statisti
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_username_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_username_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_username_game_id ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_username_game_id ON game_leaderboard_rollup 
 (
                     
     "username" ASC
@@ -2239,9 +2967,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_code_username_game_id ON game_
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_username_game_id_type";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_username_game_id_type";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_username_game_id_type ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_username_game_id_type ON game_leaderboard_rollup 
 (
                     
     "username" ASC
@@ -2253,9 +2981,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_code_username_game_id_type ON 
     , "type" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_profile_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_profile_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_profile_id ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_profile_id ON game_leaderboard_rollup 
 (
                     
     "profile_id" ASC
@@ -2263,9 +2991,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_code_profile_id ON game_statis
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_profile_id_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_profile_id_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_profile_id_game_id ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_profile_id_game_id ON game_leaderboard_rollup 
 (
                     
     "profile_id" ASC
@@ -2275,9 +3003,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_code_profile_id_game_id ON gam
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_profile_id_game_id_type";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_profile_id_game_id_type ON game_leaderboard_rollup 
 (
                     
     "profile_id" ASC
@@ -2289,9 +3017,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type O
     , "type" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_game_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_game_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_game_id ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_game_id ON game_leaderboard_rollup 
 (
                     
     "game_id" ASC
@@ -2299,9 +3027,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_code_game_id ON game_statistic
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_game_id_profile_id";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_game_id_profile_id";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_game_id_profile_id ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_game_id_profile_id ON game_leaderboard_rollup 
 (
                     
     "profile_id" ASC
@@ -2311,9 +3039,9 @@ CREATE INDEX IX_game_statistic_leaderboard_rollup_code_game_id_profile_id ON gam
     , "code" ASC
 );
                 
-DROP INDEX IF EXISTS "IX_game_statistic_leaderboard_rollup_code_game_id_type";
+DROP INDEX IF EXISTS "IX_game_leaderboard_rollup_code_game_id_type";
                 
-CREATE INDEX IX_game_statistic_leaderboard_rollup_code_game_id_type ON game_statistic_leaderboard_rollup 
+CREATE INDEX IX_game_leaderboard_rollup_code_game_id_type ON game_leaderboard_rollup 
 (
                     
     "game_id" ASC
@@ -3176,6 +3904,39 @@ CREATE INDEX IX_game_achievement_meta_code_game_id_type ON game_achievement_meta
     , "code" ASC
                     
     , "type" ASC
+);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+-- INDEX CREATES
+
+                
+DROP INDEX IF EXISTS "IX_reward_competition_path";
+                
+CREATE INDEX IX_reward_competition_path ON reward_competition 
+(
+                    
+    "path" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_reward_competition_channel_id";
+                
+CREATE INDEX IX_reward_competition_channel_id ON reward_competition 
+(
+                    
+    "channel_id" ASC
 );
 
 -- -----------------------------------------------------------------------------
@@ -31161,7 +31922,7 @@ $$ LANGUAGE plpgsql;
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -31171,7 +31932,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count
+DROP FUNCTION IF EXISTS usp_game_leaderboard_count
 (
     varchar
     , varchar
@@ -31195,7 +31956,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_count
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_count
 (          
     OUT out_count int                                                  
 )                        
@@ -31205,14 +31966,14 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_count_uuid
 (
     varchar
     , varchar
@@ -31236,7 +31997,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_count_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_count_uuid
 (
     in_uuid uuid = NULL
     , OUT out_count int
@@ -31247,7 +32008,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND "uuid" = in_uuid
     ;
@@ -31255,7 +32016,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_count_game_id
 (
     varchar
     , varchar
@@ -31279,7 +32040,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_count_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_count_game_id
 (
     in_game_id uuid = NULL
     , OUT out_count int
@@ -31290,7 +32051,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND "game_id" = in_game_id
     ;
@@ -31298,7 +32059,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_count_code
 (
     varchar
     , varchar
@@ -31322,7 +32083,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_count_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_count_code
 (
     in_code varchar (500) = NULL
     , OUT out_count int
@@ -31333,7 +32094,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     ;
@@ -31341,7 +32102,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_count_code_game_id
 (
     varchar
     , varchar
@@ -31365,7 +32126,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_count_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_count_code_game_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -31377,7 +32138,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -31386,7 +32147,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_count_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -31410,7 +32171,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_code_game_id_profil
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_count_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_count_code_game_id_profile_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -31423,7 +32184,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -31433,7 +32194,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_code_game_id_profile_id_ti
+DROP FUNCTION IF EXISTS usp_game_leaderboard_count_code_game_id_profile_id_timestamp
 (
     varchar
     , varchar
@@ -31457,7 +32218,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_code_game_id_profil
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_count_code_game_id_profile_id_ti
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_count_code_game_id_profile_id_timestamp
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -31471,7 +32232,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -31482,7 +32243,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_profile_id_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_count_profile_id_game_id
 (
     varchar
     , varchar
@@ -31506,7 +32267,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_count_profile_id_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_count_profile_id_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_count_profile_id_game_id
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
@@ -31518,7 +32279,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -31531,7 +32292,7 @@ $$ LANGUAGE plpgsql;
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -31541,7 +32302,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_browse_filter
+DROP FUNCTION IF EXISTS usp_game_leaderboard_browse_filter
 (
     varchar
     , varchar
@@ -31565,7 +32326,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_browse_filter
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_browse_filter
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_browse_filter
 (
     in_page int = 1,
     in_page_size int = 10,
@@ -31573,7 +32334,7 @@ CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_browse_filter
     in_filter VARCHAR(4000) = NULL
     
 )
-RETURNS setof "game_statistic_leaderboard_result"
+RETURNS setof "game_leaderboard_result"
 AS $$
 DECLARE
     _sql VARCHAR(4000);
@@ -31607,7 +32368,7 @@ BEGIN
     || ', "stat_value_formatted"'
     || ', "date_created"'
     || ', "type"'
-    || ' FROM "game_statistic_leaderboard" WHERE 1=1 ';
+    || ' FROM "game_leaderboard" WHERE 1=1 ';
     
     BEGIN
         IF in_filter IS NOT NULL AND in_filter != '' THEN
@@ -31656,7 +32417,7 @@ $$ LANGUAGE plpgsql;
 -- SET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -31666,7 +32427,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_set_uuid
 (
     varchar
     , varchar
@@ -31690,7 +32451,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_set_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_set_uuid
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -31738,7 +32499,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard"  
+                    FROM  "game_leaderboard"  
                     WHERE 1=1
                     AND "uuid" = in_uuid
                     ;
@@ -31751,185 +32512,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard" 
-                    SET
-                        "status" = in_status
-                        , "username" = in_username
-                        , "code" = in_code
-                        , "timestamp" = in_timestamp
-                        , "profile_id" = in_profile_id
-                        , "rank" = in_rank
-                        , "rank_change" = in_rank_change
-                        , "game_id" = in_game_id
-                        , "active" = in_active
-                        , "rank_total_count" = in_rank_total_count
-                        , "absolute_value" = in_absolute_value
-                        , "data" = in_data
-                        , "stat_value" = in_stat_value
-                        , "network" = in_network
-                        , "uuid" = in_uuid
-                        , "date_modified" = in_date_modified
-                        , "level" = in_level
-                        , "stat_value_formatted" = in_stat_value_formatted
-                        , "date_created" = in_date_created
-                        , "type" = in_type
-                    WHERE 1=1
-                    AND "uuid" = in_uuid
-                    ;
-                    _id := 1;
-                END;
-            END IF;
-        END;
-        BEGIN
-            --INSERT
-            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
-                BEGIN			
-                    INSERT INTO "game_statistic_leaderboard"
-                    (
-                        "status"
-                        , "username"
-                        , "code"
-                        , "timestamp"
-                        , "profile_id"
-                        , "rank"
-                        , "rank_change"
-                        , "game_id"
-                        , "active"
-                        , "rank_total_count"
-                        , "absolute_value"
-                        , "data"
-                        , "stat_value"
-                        , "network"
-                        , "uuid"
-                        , "date_modified"
-                        , "level"
-                        , "stat_value_formatted"
-                        , "date_created"
-                        , "type"
-                    )
-                    VALUES
-                    (
-                        in_status
-                        , in_username
-                        , in_code
-                        , in_timestamp
-                        , in_profile_id
-                        , in_rank
-                        , in_rank_change
-                        , in_game_id
-                        , in_active
-                        , in_rank_total_count
-                        , in_absolute_value
-                        , in_data
-                        , in_stat_value
-                        , in_network
-                        , in_uuid
-                        , in_date_modified
-                        , in_level
-                        , in_stat_value_formatted
-                        , in_date_created
-                        , in_type
-                    )
-                    ;
-                    _id := 1;                  
-                END;
-            END IF;
-        END;     
-        SELECT _id INTO out_id;
-    END;
-    RETURN;
-END;
-$$ LANGUAGE plpgsql;
-
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_time
-(
-    varchar
-    , varchar
-    , varchar
-    , decimal
-    , uuid
-    , INTEGER
-    , INTEGER
-    , uuid
-    , boolean
-    , INTEGER
-    , decimal
-    , varchar
-    , decimal
-    , varchar
-    , uuid
-    , TIMESTAMP
-    , varchar
-    , varchar
-    , TIMESTAMP
-    , varchar
-);
-
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_time
-(
-    in_set_type varchar (50) = 'full'                        
-    , in_status varchar (255) = NULL
-    , in_username varchar (500) = NULL
-    , in_code varchar (500) = NULL
-    , in_timestamp decimal = NULL
-    , in_profile_id uuid = NULL
-    , in_rank INTEGER = NULL
-    , in_rank_change INTEGER = NULL
-    , in_game_id uuid = NULL
-    , in_active boolean = NULL
-    , in_rank_total_count INTEGER = NULL
-    , in_absolute_value decimal = NULL
-    , in_data varchar = NULL
-    , in_stat_value decimal = NULL
-    , in_network varchar (500) = NULL
-    , in_uuid uuid = NULL
-    , in_date_modified TIMESTAMP = now()
-    , in_level varchar (500) = NULL
-    , in_stat_value_formatted varchar (500) = NULL
-    , in_date_created TIMESTAMP = now()
-    , in_type varchar (500) = NULL
-    , OUT out_id int                        
-)
-RETURNS int
-AS $$
-DECLARE
-    _countItems int;
-    _id int;
-BEGIN
-    BEGIN
-        _countItems := 0;
-        _id := 0;
-        
-        BEGIN
-            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
-                in_set_type := 'full';
-            END IF;
-        END;
-
-	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	-- GET COUNT TO CHECK
-	BEGIN
-	    IF (in_set_type = 'full') THEN
-                BEGIN
-                    -- CHECK COUNT
-                    SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard"  
-                    WHERE 1=1
-                    AND "uuid" = in_uuid
-                    AND "profile_id" = in_profile_id
-                    AND "game_id" = in_game_id
-                    AND "timestamp" = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            -- UPDATE
-            IF (_countItems > 0 AND in_set_type != 'insertonly')
-                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE "game_statistic_leaderboard" 
+                    UPDATE "game_leaderboard" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -31953,6 +32536,184 @@ BEGIN
                         , "type" = in_type
                     WHERE 1=1
                     AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_leaderboard"
+                    (
+                        "status"
+                        , "username"
+                        , "code"
+                        , "timestamp"
+                        , "profile_id"
+                        , "rank"
+                        , "rank_change"
+                        , "game_id"
+                        , "active"
+                        , "rank_total_count"
+                        , "absolute_value"
+                        , "data"
+                        , "stat_value"
+                        , "network"
+                        , "uuid"
+                        , "date_modified"
+                        , "level"
+                        , "stat_value_formatted"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_leaderboard_set_uuid_profile_id_game_id_timestamp
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_set_uuid_profile_id_game_id_timestamp
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_username varchar (500) = NULL
+    , in_code varchar (500) = NULL
+    , in_timestamp decimal = NULL
+    , in_profile_id uuid = NULL
+    , in_rank INTEGER = NULL
+    , in_rank_change INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_rank_total_count INTEGER = NULL
+    , in_absolute_value decimal = NULL
+    , in_data varchar = NULL
+    , in_stat_value decimal = NULL
+    , in_network varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_level varchar (500) = NULL
+    , in_stat_value_formatted varchar (500) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_leaderboard"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    AND "profile_id" = in_profile_id
+                    AND "game_id" = in_game_id
+                    AND "timestamp" = in_timestamp
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_leaderboard" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
                     AND "profile_id" = in_profile_id
                     AND "game_id" = in_game_id
                     AND "timestamp" = in_timestamp
@@ -31965,7 +32726,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard"
+                    INSERT INTO "game_leaderboard"
                     (
                         "status"
                         , "username"
@@ -32022,7 +32783,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_set_code
 (
     varchar
     , varchar
@@ -32046,7 +32807,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_set_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_set_code
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -32094,7 +32855,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard"  
+                    FROM  "game_leaderboard"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     ;
@@ -32107,7 +32868,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard" 
+                    UPDATE "game_leaderboard" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -32140,7 +32901,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard"
+                    INSERT INTO "game_leaderboard"
                     (
                         "status"
                         , "username"
@@ -32197,7 +32958,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_set_code_game_id
 (
     varchar
     , varchar
@@ -32221,7 +32982,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_set_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_set_code_game_id
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -32269,7 +33030,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard"  
+                    FROM  "game_leaderboard"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     AND "game_id" = in_game_id
@@ -32283,7 +33044,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard" 
+                    UPDATE "game_leaderboard" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -32317,7 +33078,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard"
+                    INSERT INTO "game_leaderboard"
                     (
                         "status"
                         , "username"
@@ -32374,7 +33135,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_set_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -32398,7 +33159,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_code_game_id_profile_
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_set_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_set_code_game_id_profile_id
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -32446,7 +33207,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard"  
+                    FROM  "game_leaderboard"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     AND "game_id" = in_game_id
@@ -32461,7 +33222,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard" 
+                    UPDATE "game_leaderboard" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -32496,7 +33257,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard"
+                    INSERT INTO "game_leaderboard"
                     (
                         "status"
                         , "username"
@@ -32553,7 +33314,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_code_game_id_profile_id_time
+DROP FUNCTION IF EXISTS usp_game_leaderboard_set_code_game_id_profile_id_timestamp
 (
     varchar
     , varchar
@@ -32577,7 +33338,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_set_code_game_id_profile_
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_set_code_game_id_profile_id_time
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_set_code_game_id_profile_id_timestamp
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -32625,50 +33386,50 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard"  
-                    WHERE 1=1
-                    AND lower("code") = lower(in_code)
-                    AND "game_id" = in_game_id
-                    AND "profile_id" = in_profile_id
-                    AND "timestamp" = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            -- UPDATE
-            IF (_countItems > 0 AND in_set_type != 'insertonly')
-                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE "game_statistic_leaderboard" 
-                    SET
-                        "status" = in_status
-                        , "username" = in_username
-                        , "code" = in_code
-                        , "timestamp" = in_timestamp
-                        , "profile_id" = in_profile_id
-                        , "rank" = in_rank
-                        , "rank_change" = in_rank_change
-                        , "game_id" = in_game_id
-                        , "active" = in_active
-                        , "rank_total_count" = in_rank_total_count
-                        , "absolute_value" = in_absolute_value
-                        , "data" = in_data
-                        , "stat_value" = in_stat_value
-                        , "network" = in_network
-                        , "uuid" = in_uuid
-                        , "date_modified" = in_date_modified
-                        , "level" = in_level
-                        , "stat_value_formatted" = in_stat_value_formatted
-                        , "date_created" = in_date_created
-                        , "type" = in_type
+                    FROM  "game_leaderboard"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     AND "game_id" = in_game_id
                     AND "profile_id" = in_profile_id
                     AND "timestamp" = in_timestamp
                     ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_leaderboard" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    AND "timestamp" = in_timestamp
+                    ;
                     _id := 1;
                 END;
             END IF;
@@ -32677,7 +33438,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard"
+                    INSERT INTO "game_leaderboard"
                     (
                         "status"
                         , "username"
@@ -32738,7 +33499,7 @@ $$ LANGUAGE plpgsql;
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -32748,7 +33509,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_del_uuid
 (
     varchar
     , varchar
@@ -32772,7 +33533,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_del_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_del_uuid
 (
     in_uuid uuid = NULL
 )
@@ -32782,14 +33543,14 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1                        
     AND "uuid" = in_uuid
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_del_code
 (
     varchar
     , varchar
@@ -32813,7 +33574,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_del_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_del_code
 (
     in_code varchar (500) = NULL
 )
@@ -32823,14 +33584,14 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_del_code_game_id
 (
     varchar
     , varchar
@@ -32854,7 +33615,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_del_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_del_code_game_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -32865,7 +33626,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -32873,7 +33634,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_del_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -32897,7 +33658,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_code_game_id_profile_
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_del_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_del_code_game_id_profile_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -32909,7 +33670,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -32918,7 +33679,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_code_game_id_profile_id_time
+DROP FUNCTION IF EXISTS usp_game_leaderboard_del_code_game_id_profile_id_timestamp
 (
     varchar
     , varchar
@@ -32942,7 +33703,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_code_game_id_profile_
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_del_code_game_id_profile_id_time
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_del_code_game_id_profile_id_timestamp
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -32955,7 +33716,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -32965,7 +33726,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_profile_id_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_del_profile_id_game_id
 (
     varchar
     , varchar
@@ -32989,7 +33750,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_del_profile_id_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_del_profile_id_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_del_profile_id_game_id
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
@@ -33000,7 +33761,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1                        
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -33012,7 +33773,7 @@ $$ LANGUAGE plpgsql;
 -- GET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -33022,7 +33783,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get
+DROP FUNCTION IF EXISTS usp_game_leaderboard_get
 (
     varchar
     , varchar
@@ -33046,10 +33807,10 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_get
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_get
 (
 )                        
-RETURNS setof "game_statistic_leaderboard"
+RETURNS setof "game_leaderboard"
 AS $$
 DECLARE
 BEGIN
@@ -33074,14 +33835,14 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_get_uuid
 (
     varchar
     , varchar
@@ -33105,11 +33866,11 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_get_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_get_uuid
 (
     in_uuid uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard"
+RETURNS setof "game_leaderboard"
 AS $$
 DECLARE
 BEGIN
@@ -33134,7 +33895,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND "uuid" = in_uuid
     ;
@@ -33142,7 +33903,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_get_game_id
 (
     varchar
     , varchar
@@ -33166,11 +33927,11 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_get_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_get_game_id
 (
     in_game_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard"
+RETURNS setof "game_leaderboard"
 AS $$
 DECLARE
 BEGIN
@@ -33195,7 +33956,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND "game_id" = in_game_id
     ;
@@ -33203,7 +33964,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_get_code
 (
     varchar
     , varchar
@@ -33227,11 +33988,11 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_get_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_get_code
 (
     in_code varchar (500) = NULL
 )
-RETURNS setof "game_statistic_leaderboard"
+RETURNS setof "game_leaderboard"
 AS $$
 DECLARE
 BEGIN
@@ -33256,7 +34017,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     ;
@@ -33264,7 +34025,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_get_code_game_id
 (
     varchar
     , varchar
@@ -33288,12 +34049,12 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_get_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_get_code_game_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard"
+RETURNS setof "game_leaderboard"
 AS $$
 DECLARE
 BEGIN
@@ -33318,7 +34079,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -33327,7 +34088,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_get_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -33351,13 +34112,13 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_code_game_id_profile_
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_get_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_get_code_game_id_profile_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
     , in_profile_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard"
+RETURNS setof "game_leaderboard"
 AS $$
 DECLARE
 BEGIN
@@ -33382,7 +34143,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -33392,7 +34153,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_code_game_id_profile_id_time
+DROP FUNCTION IF EXISTS usp_game_leaderboard_get_code_game_id_profile_id_timestamp
 (
     varchar
     , varchar
@@ -33416,14 +34177,14 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_code_game_id_profile_
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_get_code_game_id_profile_id_time
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_get_code_game_id_profile_id_timestamp
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
     , in_profile_id uuid = NULL
     , in_timestamp decimal = NULL
 )
-RETURNS setof "game_statistic_leaderboard"
+RETURNS setof "game_leaderboard"
 AS $$
 DECLARE
 BEGIN
@@ -33448,7 +34209,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -33459,7 +34220,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_profile_id_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_get_profile_id_game_id
 (
     varchar
     , varchar
@@ -33483,12 +34244,12 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_profile_id_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_get_profile_id_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_get_profile_id_game_id
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard"
+RETURNS setof "game_leaderboard"
 AS $$
 DECLARE
 BEGIN
@@ -33513,7 +34274,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -33522,7 +34283,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp
+DROP FUNCTION IF EXISTS usp_game_leaderboard_get_profile_id_game_id_timestamp
 (
     varchar
     , varchar
@@ -33546,13 +34307,13 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_get_profile_id_game_id_ti
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_get_profile_id_game_id_timestamp
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
     , in_timestamp decimal = NULL
 )
-RETURNS setof "game_statistic_leaderboard"
+RETURNS setof "game_leaderboard"
 AS $$
 DECLARE
 BEGIN
@@ -33577,7 +34338,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard"
+    FROM "game_leaderboard"
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -33594,7 +34355,7 @@ $$ LANGUAGE plpgsql;
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -33604,7 +34365,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_count
 (
     varchar
     , varchar
@@ -33628,7 +34389,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_count
 (          
     OUT out_count int                                                  
 )                        
@@ -33638,14 +34399,14 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_count_uuid
 (
     varchar
     , varchar
@@ -33669,7 +34430,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_count_uuid
 (
     in_uuid uuid = NULL
     , OUT out_count int
@@ -33680,7 +34441,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND "uuid" = in_uuid
     ;
@@ -33688,7 +34449,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_count_game_id
 (
     varchar
     , varchar
@@ -33712,7 +34473,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_count_game_id
 (
     in_game_id uuid = NULL
     , OUT out_count int
@@ -33723,7 +34484,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND "game_id" = in_game_id
     ;
@@ -33731,7 +34492,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_count_code
 (
     varchar
     , varchar
@@ -33755,7 +34516,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_count_code
 (
     in_code varchar (500) = NULL
     , OUT out_count int
@@ -33766,7 +34527,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     ;
@@ -33774,7 +34535,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_count_code_game_id
 (
     varchar
     , varchar
@@ -33798,7 +34559,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_count_code_game_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -33810,7 +34571,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -33819,7 +34580,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code_game_id_profile_
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_count_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -33843,7 +34604,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code_game_id_p
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_code_game_id_profile_
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_count_code_game_id_profile_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -33856,7 +34617,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -33866,7 +34627,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code_game_id_profile_
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_count_code_game_id_profile_id_timesta
 (
     varchar
     , varchar
@@ -33890,7 +34651,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_code_game_id_p
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_code_game_id_profile_
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_count_code_game_id_profile_id_timesta
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -33904,7 +34665,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -33915,7 +34676,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_profile_id_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_count_profile_id_game_id
 (
     varchar
     , varchar
@@ -33939,7 +34700,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_count_profile_id_gam
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_count_profile_id_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_count_profile_id_game_id
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
@@ -33951,7 +34712,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -33964,7 +34725,7 @@ $$ LANGUAGE plpgsql;
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -33974,7 +34735,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_browse_filter
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_browse_filter
 (
     varchar
     , varchar
@@ -33998,7 +34759,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_browse_filter
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_browse_filter
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_browse_filter
 (
     in_page int = 1,
     in_page_size int = 10,
@@ -34006,7 +34767,7 @@ CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_browse_filter
     in_filter VARCHAR(4000) = NULL
     
 )
-RETURNS setof "game_statistic_leaderboard_item_result"
+RETURNS setof "game_leaderboard_item_result"
 AS $$
 DECLARE
     _sql VARCHAR(4000);
@@ -34040,7 +34801,7 @@ BEGIN
     || ', "stat_value_formatted"'
     || ', "date_created"'
     || ', "type"'
-    || ' FROM "game_statistic_leaderboard_item" WHERE 1=1 ';
+    || ' FROM "game_leaderboard_item" WHERE 1=1 ';
     
     BEGIN
         IF in_filter IS NOT NULL AND in_filter != '' THEN
@@ -34089,7 +34850,7 @@ $$ LANGUAGE plpgsql;
 -- SET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -34099,7 +34860,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_set_uuid
 (
     varchar
     , varchar
@@ -34123,7 +34884,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_set_uuid
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -34171,7 +34932,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_item"  
+                    FROM  "game_leaderboard_item"  
                     WHERE 1=1
                     AND "uuid" = in_uuid
                     ;
@@ -34184,185 +34945,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard_item" 
-                    SET
-                        "status" = in_status
-                        , "username" = in_username
-                        , "code" = in_code
-                        , "timestamp" = in_timestamp
-                        , "profile_id" = in_profile_id
-                        , "rank" = in_rank
-                        , "rank_change" = in_rank_change
-                        , "game_id" = in_game_id
-                        , "active" = in_active
-                        , "rank_total_count" = in_rank_total_count
-                        , "absolute_value" = in_absolute_value
-                        , "data" = in_data
-                        , "stat_value" = in_stat_value
-                        , "network" = in_network
-                        , "uuid" = in_uuid
-                        , "date_modified" = in_date_modified
-                        , "level" = in_level
-                        , "stat_value_formatted" = in_stat_value_formatted
-                        , "date_created" = in_date_created
-                        , "type" = in_type
-                    WHERE 1=1
-                    AND "uuid" = in_uuid
-                    ;
-                    _id := 1;
-                END;
-            END IF;
-        END;
-        BEGIN
-            --INSERT
-            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
-                BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_item"
-                    (
-                        "status"
-                        , "username"
-                        , "code"
-                        , "timestamp"
-                        , "profile_id"
-                        , "rank"
-                        , "rank_change"
-                        , "game_id"
-                        , "active"
-                        , "rank_total_count"
-                        , "absolute_value"
-                        , "data"
-                        , "stat_value"
-                        , "network"
-                        , "uuid"
-                        , "date_modified"
-                        , "level"
-                        , "stat_value_formatted"
-                        , "date_created"
-                        , "type"
-                    )
-                    VALUES
-                    (
-                        in_status
-                        , in_username
-                        , in_code
-                        , in_timestamp
-                        , in_profile_id
-                        , in_rank
-                        , in_rank_change
-                        , in_game_id
-                        , in_active
-                        , in_rank_total_count
-                        , in_absolute_value
-                        , in_data
-                        , in_stat_value
-                        , in_network
-                        , in_uuid
-                        , in_date_modified
-                        , in_level
-                        , in_stat_value_formatted
-                        , in_date_created
-                        , in_type
-                    )
-                    ;
-                    _id := 1;                  
-                END;
-            END IF;
-        END;     
-        SELECT _id INTO out_id;
-    END;
-    RETURN;
-END;
-$$ LANGUAGE plpgsql;
-
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id
-(
-    varchar
-    , varchar
-    , varchar
-    , decimal
-    , uuid
-    , INTEGER
-    , INTEGER
-    , uuid
-    , boolean
-    , INTEGER
-    , decimal
-    , varchar
-    , decimal
-    , varchar
-    , uuid
-    , TIMESTAMP
-    , varchar
-    , varchar
-    , TIMESTAMP
-    , varchar
-);
-
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id
-(
-    in_set_type varchar (50) = 'full'                        
-    , in_status varchar (255) = NULL
-    , in_username varchar (500) = NULL
-    , in_code varchar (500) = NULL
-    , in_timestamp decimal = NULL
-    , in_profile_id uuid = NULL
-    , in_rank INTEGER = NULL
-    , in_rank_change INTEGER = NULL
-    , in_game_id uuid = NULL
-    , in_active boolean = NULL
-    , in_rank_total_count INTEGER = NULL
-    , in_absolute_value decimal = NULL
-    , in_data varchar = NULL
-    , in_stat_value decimal = NULL
-    , in_network varchar (500) = NULL
-    , in_uuid uuid = NULL
-    , in_date_modified TIMESTAMP = now()
-    , in_level varchar (500) = NULL
-    , in_stat_value_formatted varchar (500) = NULL
-    , in_date_created TIMESTAMP = now()
-    , in_type varchar (500) = NULL
-    , OUT out_id int                        
-)
-RETURNS int
-AS $$
-DECLARE
-    _countItems int;
-    _id int;
-BEGIN
-    BEGIN
-        _countItems := 0;
-        _id := 0;
-        
-        BEGIN
-            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
-                in_set_type := 'full';
-            END IF;
-        END;
-
-	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	-- GET COUNT TO CHECK
-	BEGIN
-	    IF (in_set_type = 'full') THEN
-                BEGIN
-                    -- CHECK COUNT
-                    SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_item"  
-                    WHERE 1=1
-                    AND "uuid" = in_uuid
-                    AND "profile_id" = in_profile_id
-                    AND "game_id" = in_game_id
-                    AND "timestamp" = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            -- UPDATE
-            IF (_countItems > 0 AND in_set_type != 'insertonly')
-                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE "game_statistic_leaderboard_item" 
+                    UPDATE "game_leaderboard_item" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -34386,6 +34969,184 @@ BEGIN
                         , "type" = in_type
                     WHERE 1=1
                     AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_leaderboard_item"
+                    (
+                        "status"
+                        , "username"
+                        , "code"
+                        , "timestamp"
+                        , "profile_id"
+                        , "rank"
+                        , "rank_change"
+                        , "game_id"
+                        , "active"
+                        , "rank_total_count"
+                        , "absolute_value"
+                        , "data"
+                        , "stat_value"
+                        , "network"
+                        , "uuid"
+                        , "date_modified"
+                        , "level"
+                        , "stat_value_formatted"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_set_uuid_profile_id_game_id_timestamp
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_set_uuid_profile_id_game_id_timestamp
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_username varchar (500) = NULL
+    , in_code varchar (500) = NULL
+    , in_timestamp decimal = NULL
+    , in_profile_id uuid = NULL
+    , in_rank INTEGER = NULL
+    , in_rank_change INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_rank_total_count INTEGER = NULL
+    , in_absolute_value decimal = NULL
+    , in_data varchar = NULL
+    , in_stat_value decimal = NULL
+    , in_network varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_level varchar (500) = NULL
+    , in_stat_value_formatted varchar (500) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_leaderboard_item"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    AND "profile_id" = in_profile_id
+                    AND "game_id" = in_game_id
+                    AND "timestamp" = in_timestamp
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_leaderboard_item" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
                     AND "profile_id" = in_profile_id
                     AND "game_id" = in_game_id
                     AND "timestamp" = in_timestamp
@@ -34398,7 +35159,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_item"
+                    INSERT INTO "game_leaderboard_item"
                     (
                         "status"
                         , "username"
@@ -34455,7 +35216,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_set_code
 (
     varchar
     , varchar
@@ -34479,7 +35240,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_set_code
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -34527,7 +35288,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_item"  
+                    FROM  "game_leaderboard_item"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     ;
@@ -34540,7 +35301,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard_item" 
+                    UPDATE "game_leaderboard_item" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -34573,7 +35334,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_item"
+                    INSERT INTO "game_leaderboard_item"
                     (
                         "status"
                         , "username"
@@ -34630,7 +35391,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_set_code_game_id
 (
     varchar
     , varchar
@@ -34654,7 +35415,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_set_code_game_id
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -34702,7 +35463,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_item"  
+                    FROM  "game_leaderboard_item"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     AND "game_id" = in_game_id
@@ -34716,7 +35477,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard_item" 
+                    UPDATE "game_leaderboard_item" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -34750,7 +35511,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_item"
+                    INSERT INTO "game_leaderboard_item"
                     (
                         "status"
                         , "username"
@@ -34807,7 +35568,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_set_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -34831,7 +35592,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code_game_id_pro
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_set_code_game_id_profile_id
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -34879,7 +35640,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_item"  
+                    FROM  "game_leaderboard_item"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     AND "game_id" = in_game_id
@@ -34894,7 +35655,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard_item" 
+                    UPDATE "game_leaderboard_item" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -34929,7 +35690,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_item"
+                    INSERT INTO "game_leaderboard_item"
                     (
                         "status"
                         , "username"
@@ -34986,7 +35747,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_set_code_game_id_profile_id_timestamp
 (
     varchar
     , varchar
@@ -35010,7 +35771,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_set_code_game_id_pro
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_set_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_set_code_game_id_profile_id_timestamp
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -35058,50 +35819,50 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_item"  
-                    WHERE 1=1
-                    AND lower("code") = lower(in_code)
-                    AND "game_id" = in_game_id
-                    AND "profile_id" = in_profile_id
-                    AND "timestamp" = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            -- UPDATE
-            IF (_countItems > 0 AND in_set_type != 'insertonly')
-                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE "game_statistic_leaderboard_item" 
-                    SET
-                        "status" = in_status
-                        , "username" = in_username
-                        , "code" = in_code
-                        , "timestamp" = in_timestamp
-                        , "profile_id" = in_profile_id
-                        , "rank" = in_rank
-                        , "rank_change" = in_rank_change
-                        , "game_id" = in_game_id
-                        , "active" = in_active
-                        , "rank_total_count" = in_rank_total_count
-                        , "absolute_value" = in_absolute_value
-                        , "data" = in_data
-                        , "stat_value" = in_stat_value
-                        , "network" = in_network
-                        , "uuid" = in_uuid
-                        , "date_modified" = in_date_modified
-                        , "level" = in_level
-                        , "stat_value_formatted" = in_stat_value_formatted
-                        , "date_created" = in_date_created
-                        , "type" = in_type
+                    FROM  "game_leaderboard_item"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     AND "game_id" = in_game_id
                     AND "profile_id" = in_profile_id
                     AND "timestamp" = in_timestamp
                     ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_leaderboard_item" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    AND "timestamp" = in_timestamp
+                    ;
                     _id := 1;
                 END;
             END IF;
@@ -35110,7 +35871,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_item"
+                    INSERT INTO "game_leaderboard_item"
                     (
                         "status"
                         , "username"
@@ -35171,7 +35932,7 @@ $$ LANGUAGE plpgsql;
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -35181,7 +35942,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_del_uuid
 (
     varchar
     , varchar
@@ -35205,7 +35966,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_del_uuid
 (
     in_uuid uuid = NULL
 )
@@ -35215,14 +35976,14 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1                        
     AND "uuid" = in_uuid
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_del_code
 (
     varchar
     , varchar
@@ -35246,7 +36007,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_del_code
 (
     in_code varchar (500) = NULL
 )
@@ -35256,14 +36017,14 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_del_code_game_id
 (
     varchar
     , varchar
@@ -35287,7 +36048,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_del_code_game_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -35298,7 +36059,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -35306,7 +36067,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_del_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -35330,7 +36091,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code_game_id_pro
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_del_code_game_id_profile_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -35342,7 +36103,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -35351,7 +36112,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_del_code_game_id_profile_id_timestamp
 (
     varchar
     , varchar
@@ -35375,7 +36136,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_code_game_id_pro
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_del_code_game_id_profile_id_timestamp
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -35388,7 +36149,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -35398,7 +36159,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_profile_id_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_del_profile_id_game_id
 (
     varchar
     , varchar
@@ -35422,7 +36183,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_del_profile_id_game_
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_del_profile_id_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_del_profile_id_game_id
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
@@ -35433,7 +36194,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1                        
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -35445,7 +36206,7 @@ $$ LANGUAGE plpgsql;
 -- GET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -35455,7 +36216,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_get
 (
     varchar
     , varchar
@@ -35479,10 +36240,10 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_get
 (
 )                        
-RETURNS setof "game_statistic_leaderboard_item"
+RETURNS setof "game_leaderboard_item"
 AS $$
 DECLARE
 BEGIN
@@ -35507,14 +36268,14 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_get_uuid
 (
     varchar
     , varchar
@@ -35538,11 +36299,11 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_get_uuid
 (
     in_uuid uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_item"
+RETURNS setof "game_leaderboard_item"
 AS $$
 DECLARE
 BEGIN
@@ -35567,7 +36328,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND "uuid" = in_uuid
     ;
@@ -35575,7 +36336,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_get_game_id
 (
     varchar
     , varchar
@@ -35599,11 +36360,11 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_get_game_id
 (
     in_game_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_item"
+RETURNS setof "game_leaderboard_item"
 AS $$
 DECLARE
 BEGIN
@@ -35628,7 +36389,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND "game_id" = in_game_id
     ;
@@ -35636,7 +36397,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_get_code
 (
     varchar
     , varchar
@@ -35660,11 +36421,11 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_get_code
 (
     in_code varchar (500) = NULL
 )
-RETURNS setof "game_statistic_leaderboard_item"
+RETURNS setof "game_leaderboard_item"
 AS $$
 DECLARE
 BEGIN
@@ -35689,7 +36450,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     ;
@@ -35697,7 +36458,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_get_code_game_id
 (
     varchar
     , varchar
@@ -35721,12 +36482,12 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_get_code_game_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_item"
+RETURNS setof "game_leaderboard_item"
 AS $$
 DECLARE
 BEGIN
@@ -35751,7 +36512,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -35760,7 +36521,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_get_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -35784,13 +36545,13 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code_game_id_pro
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_get_code_game_id_profile_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
     , in_profile_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_item"
+RETURNS setof "game_leaderboard_item"
 AS $$
 DECLARE
 BEGIN
@@ -35815,7 +36576,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -35825,7 +36586,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code_game_id_profile_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_get_code_game_id_profile_id_timestamp
 (
     varchar
     , varchar
@@ -35849,14 +36610,14 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_code_game_id_pro
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_code_game_id_profile_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_get_code_game_id_profile_id_timestamp
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
     , in_profile_id uuid = NULL
     , in_timestamp decimal = NULL
 )
-RETURNS setof "game_statistic_leaderboard_item"
+RETURNS setof "game_leaderboard_item"
 AS $$
 DECLARE
 BEGIN
@@ -35881,7 +36642,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -35892,7 +36653,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_profile_id_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_get_profile_id_game_id
 (
     varchar
     , varchar
@@ -35916,12 +36677,12 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_profile_id_game_
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_profile_id_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_get_profile_id_game_id
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_item"
+RETURNS setof "game_leaderboard_item"
 AS $$
 DECLARE
 BEGIN
@@ -35946,7 +36707,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -35955,7 +36716,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_profile_id_game_id_time
+DROP FUNCTION IF EXISTS usp_game_leaderboard_item_get_profile_id_game_id_timestamp
 (
     varchar
     , varchar
@@ -35979,13 +36740,13 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_item_get_profile_id_game_
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_item_get_profile_id_game_id_time
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_item_get_profile_id_game_id_timestamp
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
     , in_timestamp decimal = NULL
 )
-RETURNS setof "game_statistic_leaderboard_item"
+RETURNS setof "game_leaderboard_item"
 AS $$
 DECLARE
 BEGIN
@@ -36010,7 +36771,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_item"
+    FROM "game_leaderboard_item"
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -36027,7 +36788,7 @@ $$ LANGUAGE plpgsql;
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -36037,7 +36798,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_count
 (
     varchar
     , varchar
@@ -36061,7 +36822,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_count
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_count
 (          
     OUT out_count int                                                  
 )                        
@@ -36071,14 +36832,14 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_count_uuid
 (
     varchar
     , varchar
@@ -36102,7 +36863,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_count_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_count_uuid
 (
     in_uuid uuid = NULL
     , OUT out_count int
@@ -36113,7 +36874,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND "uuid" = in_uuid
     ;
@@ -36121,7 +36882,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_count_game_id
 (
     varchar
     , varchar
@@ -36145,7 +36906,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_count_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_count_game_id
 (
     in_game_id uuid = NULL
     , OUT out_count int
@@ -36156,7 +36917,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND "game_id" = in_game_id
     ;
@@ -36164,7 +36925,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_count_code
 (
     varchar
     , varchar
@@ -36188,7 +36949,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_count_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_count_code
 (
     in_code varchar (500) = NULL
     , OUT out_count int
@@ -36199,7 +36960,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     ;
@@ -36207,7 +36968,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_count_code_game_id
 (
     varchar
     , varchar
@@ -36231,7 +36992,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_count_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_count_code_game_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -36243,7 +37004,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -36252,7 +37013,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_code_game_id_profil
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_count_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -36276,7 +37037,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_count_code_game_id_profil
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_count_code_game_id_profile_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -36289,7 +37050,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -36299,7 +37060,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_code_game_id_profil
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_count_code_game_id_profile_id_times
 (
     varchar
     , varchar
@@ -36323,7 +37084,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_count_code_game_id_profil
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_count_code_game_id_profile_id_times
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -36337,7 +37098,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -36348,7 +37109,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_profile_id_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_count_profile_id_game_id
 (
     varchar
     , varchar
@@ -36372,7 +37133,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_count_profile_id_g
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_count_profile_id_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_count_profile_id_game_id
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
@@ -36384,7 +37145,7 @@ DECLARE
 BEGIN
     SELECT
         COUNT(*) INTO out_count
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -36397,7 +37158,7 @@ $$ LANGUAGE plpgsql;
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -36407,7 +37168,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_browse_filter
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_browse_filter
 (
     varchar
     , varchar
@@ -36431,7 +37192,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_browse_filter
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_browse_filter
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_browse_filter
 (
     in_page int = 1,
     in_page_size int = 10,
@@ -36439,7 +37200,7 @@ CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_browse_filter
     in_filter VARCHAR(4000) = NULL
     
 )
-RETURNS setof "game_statistic_leaderboard_rollup_result"
+RETURNS setof "game_leaderboard_rollup_result"
 AS $$
 DECLARE
     _sql VARCHAR(4000);
@@ -36473,7 +37234,7 @@ BEGIN
     || ', "stat_value_formatted"'
     || ', "date_created"'
     || ', "type"'
-    || ' FROM "game_statistic_leaderboard_rollup" WHERE 1=1 ';
+    || ' FROM "game_leaderboard_rollup" WHERE 1=1 ';
     
     BEGIN
         IF in_filter IS NOT NULL AND in_filter != '' THEN
@@ -36522,7 +37283,7 @@ $$ LANGUAGE plpgsql;
 -- SET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -36532,7 +37293,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_set_uuid
 (
     varchar
     , varchar
@@ -36556,7 +37317,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_set_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_set_uuid
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -36604,7 +37365,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_rollup"  
+                    FROM  "game_leaderboard_rollup"  
                     WHERE 1=1
                     AND "uuid" = in_uuid
                     ;
@@ -36617,185 +37378,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard_rollup" 
-                    SET
-                        "status" = in_status
-                        , "username" = in_username
-                        , "code" = in_code
-                        , "timestamp" = in_timestamp
-                        , "profile_id" = in_profile_id
-                        , "rank" = in_rank
-                        , "rank_change" = in_rank_change
-                        , "game_id" = in_game_id
-                        , "active" = in_active
-                        , "rank_total_count" = in_rank_total_count
-                        , "absolute_value" = in_absolute_value
-                        , "data" = in_data
-                        , "stat_value" = in_stat_value
-                        , "network" = in_network
-                        , "uuid" = in_uuid
-                        , "date_modified" = in_date_modified
-                        , "level" = in_level
-                        , "stat_value_formatted" = in_stat_value_formatted
-                        , "date_created" = in_date_created
-                        , "type" = in_type
-                    WHERE 1=1
-                    AND "uuid" = in_uuid
-                    ;
-                    _id := 1;
-                END;
-            END IF;
-        END;
-        BEGIN
-            --INSERT
-            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
-                BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_rollup"
-                    (
-                        "status"
-                        , "username"
-                        , "code"
-                        , "timestamp"
-                        , "profile_id"
-                        , "rank"
-                        , "rank_change"
-                        , "game_id"
-                        , "active"
-                        , "rank_total_count"
-                        , "absolute_value"
-                        , "data"
-                        , "stat_value"
-                        , "network"
-                        , "uuid"
-                        , "date_modified"
-                        , "level"
-                        , "stat_value_formatted"
-                        , "date_created"
-                        , "type"
-                    )
-                    VALUES
-                    (
-                        in_status
-                        , in_username
-                        , in_code
-                        , in_timestamp
-                        , in_profile_id
-                        , in_rank
-                        , in_rank_change
-                        , in_game_id
-                        , in_active
-                        , in_rank_total_count
-                        , in_absolute_value
-                        , in_data
-                        , in_stat_value
-                        , in_network
-                        , in_uuid
-                        , in_date_modified
-                        , in_level
-                        , in_stat_value_formatted
-                        , in_date_created
-                        , in_type
-                    )
-                    ;
-                    _id := 1;                  
-                END;
-            END IF;
-        END;     
-        SELECT _id INTO out_id;
-    END;
-    RETURN;
-END;
-$$ LANGUAGE plpgsql;
-
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_
-(
-    varchar
-    , varchar
-    , varchar
-    , decimal
-    , uuid
-    , INTEGER
-    , INTEGER
-    , uuid
-    , boolean
-    , INTEGER
-    , decimal
-    , varchar
-    , decimal
-    , varchar
-    , uuid
-    , TIMESTAMP
-    , varchar
-    , varchar
-    , TIMESTAMP
-    , varchar
-);
-
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_
-(
-    in_set_type varchar (50) = 'full'                        
-    , in_status varchar (255) = NULL
-    , in_username varchar (500) = NULL
-    , in_code varchar (500) = NULL
-    , in_timestamp decimal = NULL
-    , in_profile_id uuid = NULL
-    , in_rank INTEGER = NULL
-    , in_rank_change INTEGER = NULL
-    , in_game_id uuid = NULL
-    , in_active boolean = NULL
-    , in_rank_total_count INTEGER = NULL
-    , in_absolute_value decimal = NULL
-    , in_data varchar = NULL
-    , in_stat_value decimal = NULL
-    , in_network varchar (500) = NULL
-    , in_uuid uuid = NULL
-    , in_date_modified TIMESTAMP = now()
-    , in_level varchar (500) = NULL
-    , in_stat_value_formatted varchar (500) = NULL
-    , in_date_created TIMESTAMP = now()
-    , in_type varchar (500) = NULL
-    , OUT out_id int                        
-)
-RETURNS int
-AS $$
-DECLARE
-    _countItems int;
-    _id int;
-BEGIN
-    BEGIN
-        _countItems := 0;
-        _id := 0;
-        
-        BEGIN
-            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
-                in_set_type := 'full';
-            END IF;
-        END;
-
-	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	-- GET COUNT TO CHECK
-	BEGIN
-	    IF (in_set_type = 'full') THEN
-                BEGIN
-                    -- CHECK COUNT
-                    SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_rollup"  
-                    WHERE 1=1
-                    AND "uuid" = in_uuid
-                    AND "profile_id" = in_profile_id
-                    AND "game_id" = in_game_id
-                    AND "timestamp" = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            -- UPDATE
-            IF (_countItems > 0 AND in_set_type != 'insertonly')
-                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE "game_statistic_leaderboard_rollup" 
+                    UPDATE "game_leaderboard_rollup" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -36819,6 +37402,184 @@ BEGIN
                         , "type" = in_type
                     WHERE 1=1
                     AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_leaderboard_rollup"
+                    (
+                        "status"
+                        , "username"
+                        , "code"
+                        , "timestamp"
+                        , "profile_id"
+                        , "rank"
+                        , "rank_change"
+                        , "game_id"
+                        , "active"
+                        , "rank_total_count"
+                        , "absolute_value"
+                        , "data"
+                        , "stat_value"
+                        , "network"
+                        , "uuid"
+                        , "date_modified"
+                        , "level"
+                        , "stat_value_formatted"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_set_uuid_profile_id_game_id_timesta
+(
+    varchar
+    , varchar
+    , varchar
+    , decimal
+    , uuid
+    , INTEGER
+    , INTEGER
+    , uuid
+    , boolean
+    , INTEGER
+    , decimal
+    , varchar
+    , decimal
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_set_uuid_profile_id_game_id_timesta
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_username varchar (500) = NULL
+    , in_code varchar (500) = NULL
+    , in_timestamp decimal = NULL
+    , in_profile_id uuid = NULL
+    , in_rank INTEGER = NULL
+    , in_rank_change INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_rank_total_count INTEGER = NULL
+    , in_absolute_value decimal = NULL
+    , in_data varchar = NULL
+    , in_stat_value decimal = NULL
+    , in_network varchar (500) = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_level varchar (500) = NULL
+    , in_stat_value_formatted varchar (500) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_leaderboard_rollup"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    AND "profile_id" = in_profile_id
+                    AND "game_id" = in_game_id
+                    AND "timestamp" = in_timestamp
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_leaderboard_rollup" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
                     AND "profile_id" = in_profile_id
                     AND "game_id" = in_game_id
                     AND "timestamp" = in_timestamp
@@ -36831,7 +37592,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_rollup"
+                    INSERT INTO "game_leaderboard_rollup"
                     (
                         "status"
                         , "username"
@@ -36888,7 +37649,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_set_code
 (
     varchar
     , varchar
@@ -36912,7 +37673,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_set_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_set_code
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -36960,7 +37721,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_rollup"  
+                    FROM  "game_leaderboard_rollup"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     ;
@@ -36973,7 +37734,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard_rollup" 
+                    UPDATE "game_leaderboard_rollup" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -37006,7 +37767,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_rollup"
+                    INSERT INTO "game_leaderboard_rollup"
                     (
                         "status"
                         , "username"
@@ -37063,7 +37824,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_set_code_game_id
 (
     varchar
     , varchar
@@ -37087,7 +37848,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_set_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_set_code_game_id
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -37135,7 +37896,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_rollup"  
+                    FROM  "game_leaderboard_rollup"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     AND "game_id" = in_game_id
@@ -37149,7 +37910,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard_rollup" 
+                    UPDATE "game_leaderboard_rollup" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -37183,7 +37944,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_rollup"
+                    INSERT INTO "game_leaderboard_rollup"
                     (
                         "status"
                         , "username"
@@ -37240,7 +38001,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_set_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -37264,7 +38025,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_code_game_id_p
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_set_code_game_id_profile_id
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -37312,7 +38073,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_rollup"  
+                    FROM  "game_leaderboard_rollup"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     AND "game_id" = in_game_id
@@ -37327,7 +38088,7 @@ BEGIN
             IF (_countItems > 0 AND in_set_type != 'insertonly')
                 OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE "game_statistic_leaderboard_rollup" 
+                    UPDATE "game_leaderboard_rollup" 
                     SET
                         "status" = in_status
                         , "username" = in_username
@@ -37362,7 +38123,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_rollup"
+                    INSERT INTO "game_leaderboard_rollup"
                     (
                         "status"
                         , "username"
@@ -37419,7 +38180,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_set_code_game_id_profile_id_timesta
 (
     varchar
     , varchar
@@ -37443,7 +38204,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_set_code_game_id_p
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_set_code_game_id_profile_id_timesta
 (
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
@@ -37491,50 +38252,50 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO _countItems
-                    FROM  "game_statistic_leaderboard_rollup"  
-                    WHERE 1=1
-                    AND lower("code") = lower(in_code)
-                    AND "game_id" = in_game_id
-                    AND "profile_id" = in_profile_id
-                    AND "timestamp" = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            -- UPDATE
-            IF (_countItems > 0 AND in_set_type != 'insertonly')
-                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE "game_statistic_leaderboard_rollup" 
-                    SET
-                        "status" = in_status
-                        , "username" = in_username
-                        , "code" = in_code
-                        , "timestamp" = in_timestamp
-                        , "profile_id" = in_profile_id
-                        , "rank" = in_rank
-                        , "rank_change" = in_rank_change
-                        , "game_id" = in_game_id
-                        , "active" = in_active
-                        , "rank_total_count" = in_rank_total_count
-                        , "absolute_value" = in_absolute_value
-                        , "data" = in_data
-                        , "stat_value" = in_stat_value
-                        , "network" = in_network
-                        , "uuid" = in_uuid
-                        , "date_modified" = in_date_modified
-                        , "level" = in_level
-                        , "stat_value_formatted" = in_stat_value_formatted
-                        , "date_created" = in_date_created
-                        , "type" = in_type
+                    FROM  "game_leaderboard_rollup"  
                     WHERE 1=1
                     AND lower("code") = lower(in_code)
                     AND "game_id" = in_game_id
                     AND "profile_id" = in_profile_id
                     AND "timestamp" = in_timestamp
                     ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_leaderboard_rollup" 
+                    SET
+                        "status" = in_status
+                        , "username" = in_username
+                        , "code" = in_code
+                        , "timestamp" = in_timestamp
+                        , "profile_id" = in_profile_id
+                        , "rank" = in_rank
+                        , "rank_change" = in_rank_change
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "rank_total_count" = in_rank_total_count
+                        , "absolute_value" = in_absolute_value
+                        , "data" = in_data
+                        , "stat_value" = in_stat_value
+                        , "network" = in_network
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "level" = in_level
+                        , "stat_value_formatted" = in_stat_value_formatted
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    AND "timestamp" = in_timestamp
+                    ;
                     _id := 1;
                 END;
             END IF;
@@ -37543,7 +38304,7 @@ BEGIN
             --INSERT
             IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO "game_statistic_leaderboard_rollup"
+                    INSERT INTO "game_leaderboard_rollup"
                     (
                         "status"
                         , "username"
@@ -37604,7 +38365,7 @@ $$ LANGUAGE plpgsql;
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -37614,7 +38375,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_del_uuid
 (
     varchar
     , varchar
@@ -37638,7 +38399,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_del_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_del_uuid
 (
     in_uuid uuid = NULL
 )
@@ -37648,14 +38409,14 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1                        
     AND "uuid" = in_uuid
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_del_code
 (
     varchar
     , varchar
@@ -37679,7 +38440,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_del_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_del_code
 (
     in_code varchar (500) = NULL
 )
@@ -37689,14 +38450,14 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_del_code_game_id
 (
     varchar
     , varchar
@@ -37720,7 +38481,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_del_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_del_code_game_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -37731,7 +38492,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -37739,7 +38500,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_del_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -37763,7 +38524,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_code_game_id_p
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_del_code_game_id_profile_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -37775,7 +38536,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -37784,7 +38545,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_del_code_game_id_profile_id_timesta
 (
     varchar
     , varchar
@@ -37808,7 +38569,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_code_game_id_p
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_del_code_game_id_profile_id_timesta
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
@@ -37821,7 +38582,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -37831,7 +38592,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_profile_id_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_del_profile_id_game_id
 (
     varchar
     , varchar
@@ -37855,7 +38616,7 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_del_profile_id_gam
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_del_profile_id_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_del_profile_id_game_id
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
@@ -37866,7 +38627,7 @@ AS $$
 DECLARE
 BEGIN
     DELETE 
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1                        
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -37878,7 +38639,7 @@ $$ LANGUAGE plpgsql;
 -- GET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
 /*
 CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
@@ -37888,7 +38649,7 @@ LANGUAGE sql;
 
 */
                        
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_get
 (
     varchar
     , varchar
@@ -37912,10 +38673,10 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_get
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_get
 (
 )                        
-RETURNS setof "game_statistic_leaderboard_rollup"
+RETURNS setof "game_leaderboard_rollup"
 AS $$
 DECLARE
 BEGIN
@@ -37940,14 +38701,14 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     ;
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_uuid
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_get_uuid
 (
     varchar
     , varchar
@@ -37971,11 +38732,11 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_uuid
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_get_uuid
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_get_uuid
 (
     in_uuid uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_rollup"
+RETURNS setof "game_leaderboard_rollup"
 AS $$
 DECLARE
 BEGIN
@@ -38000,7 +38761,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND "uuid" = in_uuid
     ;
@@ -38008,7 +38769,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_get_game_id
 (
     varchar
     , varchar
@@ -38032,11 +38793,11 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_get_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_get_game_id
 (
     in_game_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_rollup"
+RETURNS setof "game_leaderboard_rollup"
 AS $$
 DECLARE
 BEGIN
@@ -38061,7 +38822,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND "game_id" = in_game_id
     ;
@@ -38069,7 +38830,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_code
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_get_code
 (
     varchar
     , varchar
@@ -38093,11 +38854,11 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_code
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_get_code
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_get_code
 (
     in_code varchar (500) = NULL
 )
-RETURNS setof "game_statistic_leaderboard_rollup"
+RETURNS setof "game_leaderboard_rollup"
 AS $$
 DECLARE
 BEGIN
@@ -38122,7 +38883,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     ;
@@ -38130,7 +38891,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_code_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_get_code_game_id
 (
     varchar
     , varchar
@@ -38154,12 +38915,12 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_code_game_id
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_get_code_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_get_code_game_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_rollup"
+RETURNS setof "game_leaderboard_rollup"
 AS $$
 DECLARE
 BEGIN
@@ -38184,7 +38945,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -38193,7 +38954,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_get_code_game_id_profile_id
 (
     varchar
     , varchar
@@ -38217,13 +38978,13 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_code_game_id_p
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_get_code_game_id_profile_id
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
     , in_profile_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_rollup"
+RETURNS setof "game_leaderboard_rollup"
 AS $$
 DECLARE
 BEGIN
@@ -38248,7 +39009,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -38258,7 +39019,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_get_code_game_id_profile_id_timesta
 (
     varchar
     , varchar
@@ -38282,14 +39043,14 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_code_game_id_p
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_get_code_game_id_profile_id_timesta
 (
     in_code varchar (500) = NULL
     , in_game_id uuid = NULL
     , in_profile_id uuid = NULL
     , in_timestamp decimal = NULL
 )
-RETURNS setof "game_statistic_leaderboard_rollup"
+RETURNS setof "game_leaderboard_rollup"
 AS $$
 DECLARE
 BEGIN
@@ -38314,7 +39075,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -38325,7 +39086,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_profile_id_game_id
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_get_profile_id_game_id
 (
     varchar
     , varchar
@@ -38349,12 +39110,12 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_profile_id_gam
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_get_profile_id_game_id
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_get_profile_id_game_id
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
 )
-RETURNS setof "game_statistic_leaderboard_rollup"
+RETURNS setof "game_leaderboard_rollup"
 AS $$
 DECLARE
 BEGIN
@@ -38379,7 +39140,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -38388,7 +39149,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_ti
+DROP FUNCTION IF EXISTS usp_game_leaderboard_rollup_get_profile_id_game_id_timestamp
 (
     varchar
     , varchar
@@ -38412,13 +39173,13 @@ DROP FUNCTION IF EXISTS usp_game_statistic_leaderboard_rollup_get_profile_id_gam
     , varchar
 );
 
-CREATE OR REPLACE FUNCTION usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_ti
+CREATE OR REPLACE FUNCTION usp_game_leaderboard_rollup_get_profile_id_game_id_timestamp
 (
     in_profile_id uuid = NULL
     , in_game_id uuid = NULL
     , in_timestamp decimal = NULL
 )
-RETURNS setof "game_statistic_leaderboard_rollup"
+RETURNS setof "game_leaderboard_rollup"
 AS $$
 DECLARE
 BEGIN
@@ -38443,7 +39204,7 @@ BEGIN
         , "stat_value_formatted"
         , "date_created"
         , "type"
-    FROM "game_statistic_leaderboard_rollup"
+    FROM "game_leaderboard_rollup"
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -50941,6 +51702,14047 @@ BEGIN
     FROM "game_achievement_meta"
     WHERE 1=1
     AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_count_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_count_profile_id
+(
+    in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_count_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_count_reward_id
+(
+    in_reward_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_count_profile_id_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_count_profile_id_reward_id
+(
+    in_profile_id uuid = NULL
+    , in_reward_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_count_profile_id_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_count_profile_id_channel_id
+(
+    in_profile_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_count_profile_id_channel_id_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_count_profile_id_channel_id_reward_id
+(
+    in_profile_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_reward_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "channel_id" = in_channel_id
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "profile_reward_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "viewed"'
+    || ', "date_modified"'
+    || ', "data"'
+    || ', "profile_id"'
+    || ', "uuid"'
+    || ', "downloaded"'
+    || ', "channel_id"'
+    || ', "reward_id"'
+    || ', "usage_count"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "blurb"'
+    || ', "description"'
+    || ' FROM "profile_reward" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "viewed" '
+    || ', "date_modified" '
+    || ', "data" '
+    || ', "profile_id" '
+    || ', "uuid" '
+    || ', "downloaded" '
+    || ', "channel_id" '
+    || ', "reward_id" '
+    || ', "usage_count" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "blurb" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_viewed boolean = true
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_profile_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_downloaded boolean = true
+    , in_channel_id uuid = NULL
+    , in_reward_id uuid = NULL
+    , in_usage_count INTEGER = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_blurb varchar (2000) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_reward"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_reward" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "viewed" = in_viewed
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "profile_id" = in_profile_id
+                        , "uuid" = in_uuid
+                        , "downloaded" = in_downloaded
+                        , "channel_id" = in_channel_id
+                        , "reward_id" = in_reward_id
+                        , "usage_count" = in_usage_count
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "blurb" = in_blurb
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_reward"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "viewed"
+                        , "date_modified"
+                        , "data"
+                        , "profile_id"
+                        , "uuid"
+                        , "downloaded"
+                        , "channel_id"
+                        , "reward_id"
+                        , "usage_count"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "blurb"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_viewed
+                        , in_date_modified
+                        , in_data
+                        , in_profile_id
+                        , in_uuid
+                        , in_downloaded
+                        , in_channel_id
+                        , in_reward_id
+                        , in_usage_count
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_blurb
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_set_profile_id_channel_id_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_set_profile_id_channel_id_reward_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_viewed boolean = true
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_profile_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_downloaded boolean = true
+    , in_channel_id uuid = NULL
+    , in_reward_id uuid = NULL
+    , in_usage_count INTEGER = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_blurb varchar (2000) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_reward"  
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    AND "channel_id" = in_channel_id
+                    AND "reward_id" = in_reward_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_reward" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "viewed" = in_viewed
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "profile_id" = in_profile_id
+                        , "uuid" = in_uuid
+                        , "downloaded" = in_downloaded
+                        , "channel_id" = in_channel_id
+                        , "reward_id" = in_reward_id
+                        , "usage_count" = in_usage_count
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "blurb" = in_blurb
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    AND "channel_id" = in_channel_id
+                    AND "reward_id" = in_reward_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_reward"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "viewed"
+                        , "date_modified"
+                        , "data"
+                        , "profile_id"
+                        , "uuid"
+                        , "downloaded"
+                        , "channel_id"
+                        , "reward_id"
+                        , "usage_count"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "blurb"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_viewed
+                        , in_date_modified
+                        , in_data
+                        , in_profile_id
+                        , in_uuid
+                        , in_downloaded
+                        , in_channel_id
+                        , in_reward_id
+                        , in_usage_count
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_blurb
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_reward"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_profile_reward_del_profile_id_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_del_profile_id_reward_id
+(
+    in_profile_id uuid = NULL
+    , in_reward_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_reward"
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "profile_reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "viewed"
+        , "date_modified"
+        , "data"
+        , "profile_id"
+        , "uuid"
+        , "downloaded"
+        , "channel_id"
+        , "reward_id"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "blurb"
+        , "description"
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_get_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_get_profile_id
+(
+    in_profile_id uuid = NULL
+)
+RETURNS setof "profile_reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "viewed"
+        , "date_modified"
+        , "data"
+        , "profile_id"
+        , "uuid"
+        , "downloaded"
+        , "channel_id"
+        , "reward_id"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "blurb"
+        , "description"
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_get_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_get_reward_id
+(
+    in_reward_id uuid = NULL
+)
+RETURNS setof "profile_reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "viewed"
+        , "date_modified"
+        , "data"
+        , "profile_id"
+        , "uuid"
+        , "downloaded"
+        , "channel_id"
+        , "reward_id"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "blurb"
+        , "description"
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_get_profile_id_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_get_profile_id_reward_id
+(
+    in_profile_id uuid = NULL
+    , in_reward_id uuid = NULL
+)
+RETURNS setof "profile_reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "viewed"
+        , "date_modified"
+        , "data"
+        , "profile_id"
+        , "uuid"
+        , "downloaded"
+        , "channel_id"
+        , "reward_id"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "blurb"
+        , "description"
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_get_profile_id_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_get_profile_id_channel_id
+(
+    in_profile_id uuid = NULL
+    , in_channel_id uuid = NULL
+)
+RETURNS setof "profile_reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "viewed"
+        , "date_modified"
+        , "data"
+        , "profile_id"
+        , "uuid"
+        , "downloaded"
+        , "channel_id"
+        , "reward_id"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "blurb"
+        , "description"
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_get_profile_id_channel_id_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_get_profile_id_channel_id_reward_id
+(
+    in_profile_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_reward_id uuid = NULL
+)
+RETURNS setof "profile_reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "viewed"
+        , "date_modified"
+        , "data"
+        , "profile_id"
+        , "uuid"
+        , "downloaded"
+        , "channel_id"
+        , "reward_id"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "blurb"
+        , "description"
+    FROM "profile_reward"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "channel_id" = in_channel_id
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_coupon_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "coupon"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_coupon_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "coupon"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_coupon_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "coupon"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_coupon_count_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "coupon"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_coupon_count_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_count_org_id
+(
+    in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "coupon"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_coupon_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "coupon_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "url"'
+    || ', "data"'
+    || ', "org_id"'
+    || ', "uuid"'
+    || ', "usage_count"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "coupon" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "url" '
+    || ', "data" '
+    || ', "org_id" '
+    || ', "uuid" '
+    || ', "usage_count" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_coupon_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_url varchar (500) = NULL
+    , in_data varchar = NULL
+    , in_org_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_usage_count INTEGER = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "coupon"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "coupon" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "url" = in_url
+                        , "data" = in_data
+                        , "org_id" = in_org_id
+                        , "uuid" = in_uuid
+                        , "usage_count" = in_usage_count
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "coupon"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "url"
+                        , "data"
+                        , "org_id"
+                        , "uuid"
+                        , "usage_count"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_usage_count
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_coupon_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "coupon"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_coupon_del_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_del_org_id
+(
+    in_org_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "coupon"
+    WHERE 1=1                        
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_coupon_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "coupon"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "coupon"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_coupon_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "coupon"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "coupon"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_coupon_get_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "coupon"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "coupon"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_coupon_get_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_coupon_get_org_id
+(
+    in_org_id uuid = NULL
+)
+RETURNS setof "coupon"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "usage_count"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "coupon"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_coupon_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_coupon_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_coupon"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_coupon_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_coupon_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_coupon"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_coupon_count_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_coupon_count_profile_id
+(
+    in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_coupon"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_coupon_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_coupon_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "profile_coupon_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "url"'
+    || ', "data"'
+    || ', "profile_id"'
+    || ', "uuid"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "profile_coupon" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "url" '
+    || ', "data" '
+    || ', "profile_id" '
+    || ', "uuid" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_coupon_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_coupon_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_url varchar (50) = NULL
+    , in_data varchar = NULL
+    , in_profile_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_coupon"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_coupon" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "url" = in_url
+                        , "data" = in_data
+                        , "profile_id" = in_profile_id
+                        , "uuid" = in_uuid
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_coupon"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "url"
+                        , "data"
+                        , "profile_id"
+                        , "uuid"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_profile_id
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_coupon_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_coupon_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_coupon"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_profile_coupon_del_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_coupon_del_profile_id
+(
+    in_profile_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_coupon"
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_coupon_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_coupon_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "profile_coupon"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "profile_id"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "profile_coupon"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_coupon_get_profile_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_coupon_get_profile_id
+(
+    in_profile_id uuid = NULL
+)
+RETURNS setof "profile_coupon"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "profile_id"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "profile_coupon"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_org_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "org"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_org_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "org"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_org_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "org"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_org_count_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "org"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_org_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "org_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "data"'
+    || ', "uuid"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "org" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "data" '
+    || ', "uuid" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_org_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "org"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "org" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "org"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "uuid"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_org_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "org"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_org_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "org"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "org"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_org_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "org"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "org"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_org_get_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_org_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "org"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "org"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_count_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_count_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_count_org_id
+(
+    in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_count_type_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_count_type_id
+(
+    in_type_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel"
+    WHERE 1=1
+    AND "type_id" = in_type_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_count_org_id_type_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_count_org_id_type_id
+(
+    in_org_id uuid = NULL
+    , in_type_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    AND "type_id" = in_type_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "channel_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "data"'
+    || ', "type_id"'
+    || ', "org_id"'
+    || ', "uuid"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "channel" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "data" '
+    || ', "type_id" '
+    || ', "org_id" '
+    || ', "uuid" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_type_id uuid = NULL
+    , in_org_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "channel"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "channel" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "type_id" = in_type_id
+                        , "org_id" = in_org_id
+                        , "uuid" = in_uuid
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "channel"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "type_id"
+                        , "org_id"
+                        , "uuid"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_type_id
+                        , in_org_id
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "channel"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_channel_del_code_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_del_code_org_id
+(
+    in_code varchar (255) = NULL
+    , in_org_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "channel"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_channel_del_code_org_id_type_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_del_code_org_id_type_id
+(
+    in_code varchar (255) = NULL
+    , in_org_id uuid = NULL
+    , in_type_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "channel"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "org_id" = in_org_id
+    AND "type_id" = in_type_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "type_id"
+        , "org_id"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "channel"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "type_id"
+        , "org_id"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "channel"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_get_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "type_id"
+        , "org_id"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "channel"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_get_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_get_org_id
+(
+    in_org_id uuid = NULL
+)
+RETURNS setof "channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "type_id"
+        , "org_id"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "channel"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_get_type_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_get_type_id
+(
+    in_type_id uuid = NULL
+)
+RETURNS setof "channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "type_id"
+        , "org_id"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "channel"
+    WHERE 1=1
+    AND "type_id" = in_type_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_get_org_id_type_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_get_org_id_type_id
+(
+    in_org_id uuid = NULL
+    , in_type_id uuid = NULL
+)
+RETURNS setof "channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "type_id"
+        , "org_id"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "channel"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    AND "type_id" = in_type_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_type_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel_type"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_type_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel_type"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_type_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel_type"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_type_count_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "channel_type"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_type_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "channel_type_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "data"'
+    || ', "uuid"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "channel_type" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "data" '
+    || ', "uuid" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_type_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (50) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "channel_type"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "channel_type" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "channel_type"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "uuid"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_type_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "channel_type"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_channel_type_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "channel_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "channel_type"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_type_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "channel_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "channel_type"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_channel_type_get_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_channel_type_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "channel_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "channel_type"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_count_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_count_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_count_org_id
+(
+    in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_count_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_count_channel_id
+(
+    in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_count_org_id_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_count_org_id_channel_id
+(
+    in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "reward_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "type_url"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "url"'
+    || ', "data"'
+    || ', "org_id"'
+    || ', "uuid"'
+    || ', "channel_id"'
+    || ', "usage_count"'
+    || ', "external_id"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "reward" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "type_url" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "url" '
+    || ', "data" '
+    || ', "org_id" '
+    || ', "uuid" '
+    || ', "channel_id" '
+    || ', "usage_count" '
+    || ', "external_id" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_type_url varchar (50) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_url varchar (500) = NULL
+    , in_data varchar = NULL
+    , in_org_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_usage_count INTEGER = NULL
+    , in_external_id varchar (50) = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (50) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "reward"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "reward" 
+                    SET
+                        "status" = in_status
+                        , "type_url" = in_type_url
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "url" = in_url
+                        , "data" = in_data
+                        , "org_id" = in_org_id
+                        , "uuid" = in_uuid
+                        , "channel_id" = in_channel_id
+                        , "usage_count" = in_usage_count
+                        , "external_id" = in_external_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "reward"
+                    (
+                        "status"
+                        , "type_url"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "url"
+                        , "data"
+                        , "org_id"
+                        , "uuid"
+                        , "channel_id"
+                        , "usage_count"
+                        , "external_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_type_url
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_channel_id
+                        , in_usage_count
+                        , in_external_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_reward_del_org_id_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_del_org_id_channel_id
+(
+    in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward"
+    WHERE 1=1                        
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "usage_count"
+        , "external_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "usage_count"
+        , "external_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_get_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "usage_count"
+        , "external_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_get_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_get_org_id
+(
+    in_org_id uuid = NULL
+)
+RETURNS setof "reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "usage_count"
+        , "external_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_get_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_get_channel_id
+(
+    in_channel_id uuid = NULL
+)
+RETURNS setof "reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "usage_count"
+        , "external_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_get_org_id_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_get_org_id_channel_id
+(
+    in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+)
+RETURNS setof "reward"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "url"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "usage_count"
+        , "external_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_type_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_type"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_type_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_type"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_type_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_type"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_type_count_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_type"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_type_count_type
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_count_type
+(
+    in_type varchar (50) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_type"
+    WHERE 1=1
+    AND lower("type") = lower(in_type)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_type_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "reward_type_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "type_url"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "data"'
+    || ', "uuid"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "reward_type" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "type_url" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "data" '
+    || ', "uuid" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_type_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_type_url varchar (50) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (50) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "reward_type"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "reward_type" 
+                    SET
+                        "status" = in_status
+                        , "type_url" = in_type_url
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "reward_type"
+                    (
+                        "status"
+                        , "type_url"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "uuid"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_type_url
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_type_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward_type"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_type_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "reward_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward_type"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_type_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "reward_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward_type"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_type_get_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "reward_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward_type"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_type_get_type
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_type_get_type
+(
+    in_type varchar (50) = NULL
+)
+RETURNS setof "reward_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "type_url"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward_type"
+    WHERE 1=1
+    AND lower("type") = lower(in_type)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_count_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_count_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_count_org_id
+(
+    in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_count_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_count_channel_id
+(
+    in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_count_org_id_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_count_org_id_channel_id
+(
+    in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_count_org_id_channel_id_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_count_org_id_channel_id_reward_id
+(
+    in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_reward_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_count_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_count_reward_id
+(
+    in_reward_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "reward_condition_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "end_date"'
+    || ', "date_modified"'
+    || ', "data"'
+    || ', "org_id"'
+    || ', "uuid"'
+    || ', "channel_id"'
+    || ', "amount"'
+    || ', "global_reward"'
+    || ', "condition"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "start_date"'
+    || ', "reward_id"'
+    || ', "description"'
+    || ' FROM "reward_condition" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "end_date" '
+    || ', "date_modified" '
+    || ', "data" '
+    || ', "org_id" '
+    || ', "uuid" '
+    || ', "channel_id" '
+    || ', "amount" '
+    || ', "global_reward" '
+    || ', "condition" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "start_date" '
+    || ', "reward_id" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_end_date TIMESTAMP = now()
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_org_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_amount INTEGER = NULL
+    , in_global_reward boolean = true
+    , in_condition varchar (50) = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (50) = NULL
+    , in_start_date TIMESTAMP = now()
+    , in_reward_id uuid = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "reward_condition"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "reward_condition" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "end_date" = in_end_date
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "org_id" = in_org_id
+                        , "uuid" = in_uuid
+                        , "channel_id" = in_channel_id
+                        , "amount" = in_amount
+                        , "global_reward" = in_global_reward
+                        , "condition" = in_condition
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "start_date" = in_start_date
+                        , "reward_id" = in_reward_id
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "reward_condition"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "end_date"
+                        , "date_modified"
+                        , "data"
+                        , "org_id"
+                        , "uuid"
+                        , "channel_id"
+                        , "amount"
+                        , "global_reward"
+                        , "condition"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "start_date"
+                        , "reward_id"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_end_date
+                        , in_date_modified
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_channel_id
+                        , in_amount
+                        , in_global_reward
+                        , in_condition
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_start_date
+                        , in_reward_id
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward_condition"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_reward_condition_del_org_id_channel_id_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_del_org_id_channel_id_reward_id
+(
+    in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_reward_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward_condition"
+    WHERE 1=1                        
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "reward_condition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "end_date"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "amount"
+        , "global_reward"
+        , "condition"
+        , "active"
+        , "date_created"
+        , "type"
+        , "start_date"
+        , "reward_id"
+        , "description"
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "reward_condition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "end_date"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "amount"
+        , "global_reward"
+        , "condition"
+        , "active"
+        , "date_created"
+        , "type"
+        , "start_date"
+        , "reward_id"
+        , "description"
+    FROM "reward_condition"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_get_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "reward_condition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "end_date"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "amount"
+        , "global_reward"
+        , "condition"
+        , "active"
+        , "date_created"
+        , "type"
+        , "start_date"
+        , "reward_id"
+        , "description"
+    FROM "reward_condition"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_get_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_get_org_id
+(
+    in_org_id uuid = NULL
+)
+RETURNS setof "reward_condition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "end_date"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "amount"
+        , "global_reward"
+        , "condition"
+        , "active"
+        , "date_created"
+        , "type"
+        , "start_date"
+        , "reward_id"
+        , "description"
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_get_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_get_channel_id
+(
+    in_channel_id uuid = NULL
+)
+RETURNS setof "reward_condition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "end_date"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "amount"
+        , "global_reward"
+        , "condition"
+        , "active"
+        , "date_created"
+        , "type"
+        , "start_date"
+        , "reward_id"
+        , "description"
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_get_org_id_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_get_org_id_channel_id
+(
+    in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+)
+RETURNS setof "reward_condition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "end_date"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "amount"
+        , "global_reward"
+        , "condition"
+        , "active"
+        , "date_created"
+        , "type"
+        , "start_date"
+        , "reward_id"
+        , "description"
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_get_org_id_channel_id_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_get_org_id_channel_id_reward_id
+(
+    in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_reward_id uuid = NULL
+)
+RETURNS setof "reward_condition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "end_date"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "amount"
+        , "global_reward"
+        , "condition"
+        , "active"
+        , "date_created"
+        , "type"
+        , "start_date"
+        , "reward_id"
+        , "description"
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_get_reward_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , uuid
+    , INTEGER
+    , boolean
+    , varchar
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_get_reward_id
+(
+    in_reward_id uuid = NULL
+)
+RETURNS setof "reward_condition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "end_date"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "channel_id"
+        , "amount"
+        , "global_reward"
+        , "condition"
+        , "active"
+        , "date_created"
+        , "type"
+        , "start_date"
+        , "reward_id"
+        , "description"
+    FROM "reward_condition"
+    WHERE 1=1
+    AND "reward_id" = in_reward_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_type_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition_type"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_type_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition_type"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_type_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition_type"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_type_count_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition_type"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_type_count_type
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_count_type
+(
+    in_type varchar (50) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_condition_type"
+    WHERE 1=1
+    AND lower("type") = lower(in_type)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_type_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "reward_condition_type_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "data"'
+    || ', "uuid"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "reward_condition_type" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "data" '
+    || ', "uuid" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_type_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (50) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "reward_condition_type"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "reward_condition_type" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "reward_condition_type"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "uuid"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_type_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward_condition_type"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_condition_type_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "reward_condition_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward_condition_type"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_type_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "reward_condition_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward_condition_type"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_type_get_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "reward_condition_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward_condition_type"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_condition_type_get_type
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_condition_type_get_type
+(
+    in_type varchar (50) = NULL
+)
+RETURNS setof "reward_condition_type"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "uuid"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "reward_condition_type"
+    WHERE 1=1
+    AND lower("type") = lower(in_type)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_question_count
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "question"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_count_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "question"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_count_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "question"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_count_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "question"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_count_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_count_channel_id
+(
+    in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_count_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_count_org_id
+(
+    in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "question"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_count_channel_id_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_count_channel_id_org_id
+(
+    in_channel_id uuid = NULL
+    , in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_count_channel_id_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_count_channel_id_code
+(
+    in_channel_id uuid = NULL
+    , in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_question_browse_filter
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "question_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "data"'
+    || ', "org_id"'
+    || ', "uuid"'
+    || ', "choices"'
+    || ', "channel_id"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "description"'
+    || ' FROM "question" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "data" '
+    || ', "org_id" '
+    || ', "uuid" '
+    || ', "choices" '
+    || ', "channel_id" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_question_set_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_org_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_choices varchar = NULL
+    , in_channel_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (50) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "question"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "question" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "org_id" = in_org_id
+                        , "uuid" = in_uuid
+                        , "choices" = in_choices
+                        , "channel_id" = in_channel_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "question"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "org_id"
+                        , "uuid"
+                        , "choices"
+                        , "channel_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_choices
+                        , in_channel_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_set_channel_id_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_set_channel_id_code
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_data varchar = NULL
+    , in_org_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_choices varchar = NULL
+    , in_channel_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (50) = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "question"  
+                    WHERE 1=1
+                    AND "channel_id" = in_channel_id
+                    AND lower("code") = lower(in_code)
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "question" 
+                    SET
+                        "status" = in_status
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "data" = in_data
+                        , "org_id" = in_org_id
+                        , "uuid" = in_uuid
+                        , "choices" = in_choices
+                        , "channel_id" = in_channel_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "channel_id" = in_channel_id
+                    AND lower("code") = lower(in_code)
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "question"
+                    (
+                        "status"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "data"
+                        , "org_id"
+                        , "uuid"
+                        , "choices"
+                        , "channel_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_choices
+                        , in_channel_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_question_del_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "question"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_question_del_channel_id_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_del_channel_id_org_id
+(
+    in_channel_id uuid = NULL
+    , in_org_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "question"
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_question_get_uuid
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "choices"
+        , "channel_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "question"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_get_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "choices"
+        , "channel_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "question"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_get_name
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "choices"
+        , "channel_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "question"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_get_type
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_get_type
+(
+    in_type varchar (50) = NULL
+)
+RETURNS setof "question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "choices"
+        , "channel_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "question"
+    WHERE 1=1
+    AND lower("type") = lower(in_type)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_get_channel_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_get_channel_id
+(
+    in_channel_id uuid = NULL
+)
+RETURNS setof "question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "choices"
+        , "channel_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_get_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_get_org_id
+(
+    in_org_id uuid = NULL
+)
+RETURNS setof "question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "choices"
+        , "channel_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "question"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_get_channel_id_org_id
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_get_channel_id_org_id
+(
+    in_channel_id uuid = NULL
+    , in_org_id uuid = NULL
+)
+RETURNS setof "question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "choices"
+        , "channel_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_question_get_channel_id_code
+(
+    varchar
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+    , uuid
+    , varchar
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_question_get_channel_id_code
+(
+    in_channel_id uuid = NULL
+    , in_code varchar (255) = NULL
+)
+RETURNS setof "question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "data"
+        , "org_id"
+        , "uuid"
+        , "choices"
+        , "channel_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "description"
+    FROM "question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_question_count
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_question"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_count_uuid
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_question"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_count_channel_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_count_channel_id
+(
+    in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_count_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_count_org_id
+(
+    in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_question"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_count_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_count_profile_id
+(
+    in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_question"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_count_question_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_count_question_id
+(
+    in_question_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_question"
+    WHERE 1=1
+    AND "question_id" = in_question_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_count_channel_id_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_count_channel_id_org_id
+(
+    in_channel_id uuid = NULL
+    , in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_count_channel_id_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_count_channel_id_profile_id
+(
+    in_channel_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_count_question_id_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_count_question_id_profile_id
+(
+    in_question_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_question"
+    WHERE 1=1
+    AND "question_id" = in_question_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_question_browse_filter
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "profile_question_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "profile_id"'
+    || ', "active"'
+    || ', "data"'
+    || ', "uuid"'
+    || ', "date_modified"'
+    || ', "org_id"'
+    || ', "channel_id"'
+    || ', "answer"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "question_id"'
+    || ' FROM "profile_question" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "profile_id" '
+    || ', "active" '
+    || ', "data" '
+    || ', "uuid" '
+    || ', "date_modified" '
+    || ', "org_id" '
+    || ', "channel_id" '
+    || ', "answer" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "question_id" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_question_set_uuid
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_profile_id uuid = NULL
+    , in_active boolean = NULL
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_answer varchar (1000) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_question_id uuid = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_question"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_question" 
+                    SET
+                        "status" = in_status
+                        , "profile_id" = in_profile_id
+                        , "active" = in_active
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "org_id" = in_org_id
+                        , "channel_id" = in_channel_id
+                        , "answer" = in_answer
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "question_id" = in_question_id
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_question"
+                    (
+                        "status"
+                        , "profile_id"
+                        , "active"
+                        , "data"
+                        , "uuid"
+                        , "date_modified"
+                        , "org_id"
+                        , "channel_id"
+                        , "answer"
+                        , "date_created"
+                        , "type"
+                        , "question_id"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_answer
+                        , in_date_created
+                        , in_type
+                        , in_question_id
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_set_channel_id_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_set_channel_id_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_profile_id uuid = NULL
+    , in_active boolean = NULL
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_answer varchar (1000) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_question_id uuid = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_question"  
+                    WHERE 1=1
+                    AND "channel_id" = in_channel_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_question" 
+                    SET
+                        "status" = in_status
+                        , "profile_id" = in_profile_id
+                        , "active" = in_active
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "org_id" = in_org_id
+                        , "channel_id" = in_channel_id
+                        , "answer" = in_answer
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "question_id" = in_question_id
+                    WHERE 1=1
+                    AND "channel_id" = in_channel_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_question"
+                    (
+                        "status"
+                        , "profile_id"
+                        , "active"
+                        , "data"
+                        , "uuid"
+                        , "date_modified"
+                        , "org_id"
+                        , "channel_id"
+                        , "answer"
+                        , "date_created"
+                        , "type"
+                        , "question_id"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_answer
+                        , in_date_created
+                        , in_type
+                        , in_question_id
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_set_question_id_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_set_question_id_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_profile_id uuid = NULL
+    , in_active boolean = NULL
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_answer varchar (1000) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_question_id uuid = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_question"  
+                    WHERE 1=1
+                    AND "question_id" = in_question_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_question" 
+                    SET
+                        "status" = in_status
+                        , "profile_id" = in_profile_id
+                        , "active" = in_active
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "org_id" = in_org_id
+                        , "channel_id" = in_channel_id
+                        , "answer" = in_answer
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "question_id" = in_question_id
+                    WHERE 1=1
+                    AND "question_id" = in_question_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_question"
+                    (
+                        "status"
+                        , "profile_id"
+                        , "active"
+                        , "data"
+                        , "uuid"
+                        , "date_modified"
+                        , "org_id"
+                        , "channel_id"
+                        , "answer"
+                        , "date_created"
+                        , "type"
+                        , "question_id"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_answer
+                        , in_date_created
+                        , in_type
+                        , in_question_id
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_set_channel_id_question_id_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_set_channel_id_question_id_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_profile_id uuid = NULL
+    , in_active boolean = NULL
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_answer varchar (1000) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , in_question_id uuid = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_question"  
+                    WHERE 1=1
+                    AND "channel_id" = in_channel_id
+                    AND "question_id" = in_question_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_question" 
+                    SET
+                        "status" = in_status
+                        , "profile_id" = in_profile_id
+                        , "active" = in_active
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "org_id" = in_org_id
+                        , "channel_id" = in_channel_id
+                        , "answer" = in_answer
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "question_id" = in_question_id
+                    WHERE 1=1
+                    AND "channel_id" = in_channel_id
+                    AND "question_id" = in_question_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_question"
+                    (
+                        "status"
+                        , "profile_id"
+                        , "active"
+                        , "data"
+                        , "uuid"
+                        , "date_modified"
+                        , "org_id"
+                        , "channel_id"
+                        , "answer"
+                        , "date_created"
+                        , "type"
+                        , "question_id"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_answer
+                        , in_date_created
+                        , in_type
+                        , in_question_id
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_question_del_uuid
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_question"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_profile_question_del_channel_id_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_del_channel_id_org_id
+(
+    in_channel_id uuid = NULL
+    , in_org_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_question"
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_question_get_uuid
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "profile_question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "answer"
+        , "date_created"
+        , "type"
+        , "question_id"
+    FROM "profile_question"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_get_channel_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_get_channel_id
+(
+    in_channel_id uuid = NULL
+)
+RETURNS setof "profile_question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "answer"
+        , "date_created"
+        , "type"
+        , "question_id"
+    FROM "profile_question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_get_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_get_org_id
+(
+    in_org_id uuid = NULL
+)
+RETURNS setof "profile_question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "answer"
+        , "date_created"
+        , "type"
+        , "question_id"
+    FROM "profile_question"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_get_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_get_profile_id
+(
+    in_profile_id uuid = NULL
+)
+RETURNS setof "profile_question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "answer"
+        , "date_created"
+        , "type"
+        , "question_id"
+    FROM "profile_question"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_get_question_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_get_question_id
+(
+    in_question_id uuid = NULL
+)
+RETURNS setof "profile_question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "answer"
+        , "date_created"
+        , "type"
+        , "question_id"
+    FROM "profile_question"
+    WHERE 1=1
+    AND "question_id" = in_question_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_get_channel_id_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_get_channel_id_org_id
+(
+    in_channel_id uuid = NULL
+    , in_org_id uuid = NULL
+)
+RETURNS setof "profile_question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "answer"
+        , "date_created"
+        , "type"
+        , "question_id"
+    FROM "profile_question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_get_channel_id_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_get_channel_id_profile_id
+(
+    in_channel_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+RETURNS setof "profile_question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "answer"
+        , "date_created"
+        , "type"
+        , "question_id"
+    FROM "profile_question"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_question_get_question_id_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , uuid
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_question_get_question_id_profile_id
+(
+    in_question_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+RETURNS setof "profile_question"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "answer"
+        , "date_created"
+        , "type"
+        , "question_id"
+    FROM "profile_question"
+    WHERE 1=1
+    AND "question_id" = in_question_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_channel_count
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_channel"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_channel_count_uuid
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_channel"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_channel_count_channel_id
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_count_channel_id
+(
+    in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_channel"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_channel_count_profile_id
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_count_profile_id
+(
+    in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_channel"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_channel_count_channel_id_profile_id
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_count_channel_id_profile_id
+(
+    in_channel_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_channel"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_channel_browse_filter
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "profile_channel_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "channel_id"'
+    || ', "uuid"'
+    || ', "date_modified"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "profile_id"'
+    || ', "type"'
+    || ', "data"'
+    || ' FROM "profile_channel" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "channel_id" '
+    || ', "uuid" '
+    || ', "date_modified" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "profile_id" '
+    || ', "type" '
+    || ', "data" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_channel_set_uuid
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_channel_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_profile_id uuid = NULL
+    , in_type varchar (500) = NULL
+    , in_data varchar = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_channel"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_channel" 
+                    SET
+                        "status" = in_status
+                        , "channel_id" = in_channel_id
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "profile_id" = in_profile_id
+                        , "type" = in_type
+                        , "data" = in_data
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_channel"
+                    (
+                        "status"
+                        , "channel_id"
+                        , "uuid"
+                        , "date_modified"
+                        , "active"
+                        , "date_created"
+                        , "profile_id"
+                        , "type"
+                        , "data"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_channel_id
+                        , in_uuid
+                        , in_date_modified
+                        , in_active
+                        , in_date_created
+                        , in_profile_id
+                        , in_type
+                        , in_data
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_channel_set_channel_id_profile_id
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_set_channel_id_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_channel_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_profile_id uuid = NULL
+    , in_type varchar (500) = NULL
+    , in_data varchar = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_channel"  
+                    WHERE 1=1
+                    AND "channel_id" = in_channel_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_channel" 
+                    SET
+                        "status" = in_status
+                        , "channel_id" = in_channel_id
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "profile_id" = in_profile_id
+                        , "type" = in_type
+                        , "data" = in_data
+                    WHERE 1=1
+                    AND "channel_id" = in_channel_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_channel"
+                    (
+                        "status"
+                        , "channel_id"
+                        , "uuid"
+                        , "date_modified"
+                        , "active"
+                        , "date_created"
+                        , "profile_id"
+                        , "type"
+                        , "data"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_channel_id
+                        , in_uuid
+                        , in_date_modified
+                        , in_active
+                        , in_date_created
+                        , in_profile_id
+                        , in_type
+                        , in_data
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_channel_del_uuid
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_channel"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_profile_channel_del_channel_id_profile_id
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_del_channel_id_profile_id
+(
+    in_channel_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_channel"
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_channel_get_uuid
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "profile_channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "channel_id"
+        , "uuid"
+        , "date_modified"
+        , "active"
+        , "date_created"
+        , "profile_id"
+        , "type"
+        , "data"
+    FROM "profile_channel"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_channel_get_channel_id
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_get_channel_id
+(
+    in_channel_id uuid = NULL
+)
+RETURNS setof "profile_channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "channel_id"
+        , "uuid"
+        , "date_modified"
+        , "active"
+        , "date_created"
+        , "profile_id"
+        , "type"
+        , "data"
+    FROM "profile_channel"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_channel_get_profile_id
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_get_profile_id
+(
+    in_profile_id uuid = NULL
+)
+RETURNS setof "profile_channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "channel_id"
+        , "uuid"
+        , "date_modified"
+        , "active"
+        , "date_created"
+        , "profile_id"
+        , "type"
+        , "data"
+    FROM "profile_channel"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_channel_get_channel_id_profile_id
+(
+    varchar
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , boolean
+    , TIMESTAMP
+    , uuid
+    , varchar
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_channel_get_channel_id_profile_id
+(
+    in_channel_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+RETURNS setof "profile_channel"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "channel_id"
+        , "uuid"
+        , "date_modified"
+        , "active"
+        , "date_created"
+        , "profile_id"
+        , "type"
+        , "data"
+    FROM "profile_channel"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_points_count
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward_points"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_count_uuid
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_count_channel_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_count_channel_id
+(
+    in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_count_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_count_org_id
+(
+    in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_count_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_count_profile_id
+(
+    in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_count_channel_id_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_count_channel_id_org_id
+(
+    in_channel_id uuid = NULL
+    , in_org_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_count_channel_id_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_count_channel_id_profile_id
+(
+    in_channel_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_points_browse_filter
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "profile_reward_points_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "profile_id"'
+    || ', "active"'
+    || ', "data"'
+    || ', "uuid"'
+    || ', "date_modified"'
+    || ', "org_id"'
+    || ', "channel_id"'
+    || ', "points"'
+    || ', "date_created"'
+    || ', "type"'
+    || ' FROM "profile_reward_points" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "profile_id" '
+    || ', "active" '
+    || ', "data" '
+    || ', "uuid" '
+    || ', "date_modified" '
+    || ', "org_id" '
+    || ', "channel_id" '
+    || ', "points" '
+    || ', "date_created" '
+    || ', "type" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_points_set_uuid
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_profile_id uuid = NULL
+    , in_active boolean = NULL
+    , in_data varchar = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_org_id uuid = NULL
+    , in_channel_id uuid = NULL
+    , in_points INTEGER = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_reward_points"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_reward_points" 
+                    SET
+                        "status" = in_status
+                        , "profile_id" = in_profile_id
+                        , "active" = in_active
+                        , "data" = in_data
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "org_id" = in_org_id
+                        , "channel_id" = in_channel_id
+                        , "points" = in_points
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_reward_points"
+                    (
+                        "status"
+                        , "profile_id"
+                        , "active"
+                        , "data"
+                        , "uuid"
+                        , "date_modified"
+                        , "org_id"
+                        , "channel_id"
+                        , "points"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_points
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_points_del_uuid
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_reward_points"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_profile_reward_points_del_channel_id_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_del_channel_id_org_id
+(
+    in_channel_id uuid = NULL
+    , in_org_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_reward_points"
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_profile_reward_points_get_uuid
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "profile_reward_points"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "points"
+        , "date_created"
+        , "type"
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_get_channel_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_get_channel_id
+(
+    in_channel_id uuid = NULL
+)
+RETURNS setof "profile_reward_points"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "points"
+        , "date_created"
+        , "type"
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_get_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_get_org_id
+(
+    in_org_id uuid = NULL
+)
+RETURNS setof "profile_reward_points"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "points"
+        , "date_created"
+        , "type"
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_get_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_get_profile_id
+(
+    in_profile_id uuid = NULL
+)
+RETURNS setof "profile_reward_points"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "points"
+        , "date_created"
+        , "type"
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_get_channel_id_org_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_get_channel_id_org_id
+(
+    in_channel_id uuid = NULL
+    , in_org_id uuid = NULL
+)
+RETURNS setof "profile_reward_points"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "points"
+        , "date_created"
+        , "type"
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_reward_points_get_channel_id_profile_id
+(
+    varchar
+    , uuid
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , uuid
+    , INTEGER
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_reward_points_get_channel_id_profile_id
+(
+    in_channel_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+RETURNS setof "profile_reward_points"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "profile_id"
+        , "active"
+        , "data"
+        , "uuid"
+        , "date_modified"
+        , "org_id"
+        , "channel_id"
+        , "points"
+        , "date_created"
+        , "type"
+    FROM "profile_reward_points"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_competition_count_uuid
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_competition"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_count_code
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_competition"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_count_name
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_count_name
+(
+    in_name varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_competition"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_count_path
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_count_path
+(
+    in_path varchar (500) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_competition"
+    WHERE 1=1
+    AND lower("path") = lower(in_path)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_count_channel_id
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_count_channel_id
+(
+    in_channel_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_competition"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_count_channel_id_completed
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_count_channel_id_completed
+(
+    in_channel_id uuid = NULL
+    , in_completed boolean = true
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "reward_competition"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "completed" = in_completed
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_competition_browse_filter
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "reward_competition_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "sort"'
+    || ', "code"'
+    || ', "date_end"'
+    || ', "results"'
+    || ', "visible"'
+    || ', "display_name"'
+    || ', "uuid"'
+    || ', "date_start"'
+    || ', "winners"'
+    || ', "template"'
+    || ', "type"'
+    || ', "trigger_data"'
+    || ', "status"'
+    || ', "description"'
+    || ', "completed"'
+    || ', "template_url"'
+    || ', "active"'
+    || ', "path"'
+    || ', "data"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "fulfilled"'
+    || ', "channel_id"'
+    || ', "date_created"'
+    || ' FROM "reward_competition" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"sort" '
+    || ', "code" '
+    || ', "date_end" '
+    || ', "results" '
+    || ', "visible" '
+    || ', "display_name" '
+    || ', "uuid" '
+    || ', "date_start" '
+    || ', "winners" '
+    || ', "template" '
+    || ', "type" '
+    || ', "trigger_data" '
+    || ', "status" '
+    || ', "description" '
+    || ', "completed" '
+    || ', "template_url" '
+    || ', "active" '
+    || ', "path" '
+    || ', "data" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "fulfilled" '
+    || ', "channel_id" '
+    || ', "date_created" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_competition_set_uuid
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_date_end TIMESTAMP = now()
+    , in_results varchar = NULL
+    , in_visible boolean = true
+    , in_display_name varchar (255) = NULL
+    , in_uuid uuid = NULL
+    , in_date_start TIMESTAMP = now()
+    , in_winners varchar = NULL
+    , in_template varchar = NULL
+    , in_type varchar (500) = NULL
+    , in_trigger_data varchar = NULL
+    , in_status varchar (255) = NULL
+    , in_description varchar (255) = NULL
+    , in_completed boolean = true
+    , in_template_url varchar (500) = NULL
+    , in_active boolean = NULL
+    , in_path varchar (500) = NULL
+    , in_data varchar = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_fulfilled boolean = true
+    , in_channel_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "reward_competition"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "reward_competition" 
+                    SET
+                        "sort" = in_sort
+                        , "code" = in_code
+                        , "date_end" = in_date_end
+                        , "results" = in_results
+                        , "visible" = in_visible
+                        , "display_name" = in_display_name
+                        , "uuid" = in_uuid
+                        , "date_start" = in_date_start
+                        , "winners" = in_winners
+                        , "template" = in_template
+                        , "type" = in_type
+                        , "trigger_data" = in_trigger_data
+                        , "status" = in_status
+                        , "description" = in_description
+                        , "completed" = in_completed
+                        , "template_url" = in_template_url
+                        , "active" = in_active
+                        , "path" = in_path
+                        , "data" = in_data
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "fulfilled" = in_fulfilled
+                        , "channel_id" = in_channel_id
+                        , "date_created" = in_date_created
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "reward_competition"
+                    (
+                        "sort"
+                        , "code"
+                        , "date_end"
+                        , "results"
+                        , "visible"
+                        , "display_name"
+                        , "uuid"
+                        , "date_start"
+                        , "winners"
+                        , "template"
+                        , "type"
+                        , "trigger_data"
+                        , "status"
+                        , "description"
+                        , "completed"
+                        , "template_url"
+                        , "active"
+                        , "path"
+                        , "data"
+                        , "name"
+                        , "date_modified"
+                        , "fulfilled"
+                        , "channel_id"
+                        , "date_created"
+                    )
+                    VALUES
+                    (
+                        in_sort
+                        , in_code
+                        , in_date_end
+                        , in_results
+                        , in_visible
+                        , in_display_name
+                        , in_uuid
+                        , in_date_start
+                        , in_winners
+                        , in_template
+                        , in_type
+                        , in_trigger_data
+                        , in_status
+                        , in_description
+                        , in_completed
+                        , in_template_url
+                        , in_active
+                        , in_path
+                        , in_data
+                        , in_name
+                        , in_date_modified
+                        , in_fulfilled
+                        , in_channel_id
+                        , in_date_created
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_competition_del_uuid
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward_competition"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_reward_competition_del_code
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_del_code
+(
+    in_code varchar (255) = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward_competition"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_reward_competition_del_path_channel_id
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_del_path_channel_id
+(
+    in_path varchar (500) = NULL
+    , in_channel_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward_competition"
+    WHERE 1=1                        
+    AND lower("path") = lower(in_path)
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_reward_competition_del_path
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_del_path
+(
+    in_path varchar (500) = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward_competition"
+    WHERE 1=1                        
+    AND lower("path") = lower(in_path)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_reward_competition_del_channel_id_path
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_del_channel_id_path
+(
+    in_channel_id uuid = NULL
+    , in_path varchar (500) = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "reward_competition"
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND lower("path") = lower(in_path)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_reward_competition_get_uuid
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "reward_competition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "sort"
+        , "code"
+        , "date_end"
+        , "results"
+        , "visible"
+        , "display_name"
+        , "uuid"
+        , "date_start"
+        , "winners"
+        , "template"
+        , "type"
+        , "trigger_data"
+        , "status"
+        , "description"
+        , "completed"
+        , "template_url"
+        , "active"
+        , "path"
+        , "data"
+        , "name"
+        , "date_modified"
+        , "fulfilled"
+        , "channel_id"
+        , "date_created"
+    FROM "reward_competition"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_get_code
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "reward_competition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "sort"
+        , "code"
+        , "date_end"
+        , "results"
+        , "visible"
+        , "display_name"
+        , "uuid"
+        , "date_start"
+        , "winners"
+        , "template"
+        , "type"
+        , "trigger_data"
+        , "status"
+        , "description"
+        , "completed"
+        , "template_url"
+        , "active"
+        , "path"
+        , "data"
+        , "name"
+        , "date_modified"
+        , "fulfilled"
+        , "channel_id"
+        , "date_created"
+    FROM "reward_competition"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_get_name
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_get_name
+(
+    in_name varchar (255) = NULL
+)
+RETURNS setof "reward_competition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "sort"
+        , "code"
+        , "date_end"
+        , "results"
+        , "visible"
+        , "display_name"
+        , "uuid"
+        , "date_start"
+        , "winners"
+        , "template"
+        , "type"
+        , "trigger_data"
+        , "status"
+        , "description"
+        , "completed"
+        , "template_url"
+        , "active"
+        , "path"
+        , "data"
+        , "name"
+        , "date_modified"
+        , "fulfilled"
+        , "channel_id"
+        , "date_created"
+    FROM "reward_competition"
+    WHERE 1=1
+    AND lower("name") = lower(in_name)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_get_path
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_get_path
+(
+    in_path varchar (500) = NULL
+)
+RETURNS setof "reward_competition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "sort"
+        , "code"
+        , "date_end"
+        , "results"
+        , "visible"
+        , "display_name"
+        , "uuid"
+        , "date_start"
+        , "winners"
+        , "template"
+        , "type"
+        , "trigger_data"
+        , "status"
+        , "description"
+        , "completed"
+        , "template_url"
+        , "active"
+        , "path"
+        , "data"
+        , "name"
+        , "date_modified"
+        , "fulfilled"
+        , "channel_id"
+        , "date_created"
+    FROM "reward_competition"
+    WHERE 1=1
+    AND lower("path") = lower(in_path)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_get_channel_id
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_get_channel_id
+(
+    in_channel_id uuid = NULL
+)
+RETURNS setof "reward_competition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "sort"
+        , "code"
+        , "date_end"
+        , "results"
+        , "visible"
+        , "display_name"
+        , "uuid"
+        , "date_start"
+        , "winners"
+        , "template"
+        , "type"
+        , "trigger_data"
+        , "status"
+        , "description"
+        , "completed"
+        , "template_url"
+        , "active"
+        , "path"
+        , "data"
+        , "name"
+        , "date_modified"
+        , "fulfilled"
+        , "channel_id"
+        , "date_created"
+    FROM "reward_competition"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_get_channel_id_completed
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_get_channel_id_completed
+(
+    in_channel_id uuid = NULL
+    , in_completed boolean = true
+)
+RETURNS setof "reward_competition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "sort"
+        , "code"
+        , "date_end"
+        , "results"
+        , "visible"
+        , "display_name"
+        , "uuid"
+        , "date_start"
+        , "winners"
+        , "template"
+        , "type"
+        , "trigger_data"
+        , "status"
+        , "description"
+        , "completed"
+        , "template_url"
+        , "active"
+        , "path"
+        , "data"
+        , "name"
+        , "date_modified"
+        , "fulfilled"
+        , "channel_id"
+        , "date_created"
+    FROM "reward_competition"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND "completed" = in_completed
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_reward_competition_get_channel_id_path
+(
+    INTEGER
+    , varchar
+    , TIMESTAMP
+    , varchar
+    , boolean
+    , varchar
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , varchar
+    , boolean
+    , varchar
+    , boolean
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , boolean
+    , uuid
+    , TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION usp_reward_competition_get_channel_id_path
+(
+    in_channel_id uuid = NULL
+    , in_path varchar (500) = NULL
+)
+RETURNS setof "reward_competition"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "sort"
+        , "code"
+        , "date_end"
+        , "results"
+        , "visible"
+        , "display_name"
+        , "uuid"
+        , "date_start"
+        , "winners"
+        , "template"
+        , "type"
+        , "trigger_data"
+        , "status"
+        , "description"
+        , "completed"
+        , "template_url"
+        , "active"
+        , "path"
+        , "data"
+        , "name"
+        , "date_modified"
+        , "fulfilled"
+        , "channel_id"
+        , "date_created"
+    FROM "reward_competition"
+    WHERE 1=1
+    AND "channel_id" = in_channel_id
+    AND lower("path") = lower(in_path)
     ;
     RETURN;
 END;

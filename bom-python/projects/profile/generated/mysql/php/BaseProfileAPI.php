@@ -33,83 +33,83 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileUuid(
+    public function CountProfileByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileUuid(
+        return $this->act->CountProfileByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileUsernameHash(
+    public function CountProfileByUsernameByHash(
         $username
         , $hash
     ) {      
-        return $this->act->CountProfileUsernameHash(
+        return $this->act->CountProfileByUsernameByHash(
         $username
         , $hash
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileUsername(
+    public function CountProfileByUsername(
         $username
     ) {      
-        return $this->act->CountProfileUsername(
+        return $this->act->CountProfileByUsername(
         $username
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileListFilter($filter_obj) {
-        return $this->act->BrowseProfileListFilter($filter_obj);
+    public function BrowseProfileListByFilter($filter_obj) {
+        return $this->act->BrowseProfileListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileUuid($set_type, $obj) {
-        return $this->act->SetProfileUuid($set_type, $obj);
+    public function SetProfileByUuid($set_type, $obj) {
+        return $this->act->SetProfileByUuid($set_type, $obj);
     }
                
-    public function SetProfileUuidFull($obj) {
-        return $this->act->SetProfileUuid('full', $obj);
+    public function SetProfileByUuidFull($obj) {
+        return $this->act->SetProfileByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileUsername($set_type, $obj) {
-        return $this->act->SetProfileUsername($set_type, $obj);
+    public function SetProfileByUsername($set_type, $obj) {
+        return $this->act->SetProfileByUsername($set_type, $obj);
     }
                
-    public function SetProfileUsernameFull($obj) {
-        return $this->act->SetProfileUsername('full', $obj);
+    public function SetProfileByUsernameFull($obj) {
+        return $this->act->SetProfileByUsername('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileUuid(
+    public function DelProfileByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileUuid(
+        return $this->act->DelProfileByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileUsername(
+    public function DelProfileByUsername(
         $username
     ) {         
-        return $this->act->DelProfileUsername(
+        return $this->act->DelProfileByUsername(
         $username
         );
     }
 #------------------------------------------------------------------------------                    
-    public function GetProfileListUuid(
+    public function GetProfileListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileListUuid(
+            return $this->act->GetProfileListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileUuid(
+    public function GetProfileByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileListUuid(
+        foreach($this->act->GetProfileListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -118,10 +118,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileListUuid(
+    public function CachedGetProfileListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileListUuid(
+        return $this->CachedGetProfileListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -129,7 +129,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileListUuid(
+    public function CachedGetProfileListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -137,7 +137,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileListUuid";
+        $method_name = "CachedGetProfileListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -152,7 +152,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileListUuid(
+            $objs = $this->GetProfileListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -161,21 +161,21 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileListUsernameHash(
+    public function GetProfileListByUsernameByHash(
         $username
         , $hash
         ) {
-            return $this->act->GetProfileListUsernameHash(
+            return $this->act->GetProfileListByUsernameByHash(
                 $username
                 , $hash
             );
         }
         
-    public function GetProfileUsernameHash(
+    public function GetProfileByUsernameByHash(
         $username
         , $hash
     ) {
-        foreach($this->act->GetProfileListUsernameHash(
+        foreach($this->act->GetProfileListByUsernameByHash(
         $username
         , $hash
         ) as $item) {
@@ -185,11 +185,11 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileListUsernameHash(
+    public function CachedGetProfileListByUsernameByHash(
         $username
         , $hash
     ) {
-        return $this->CachedGetProfileListUsernameHash(
+        return $this->CachedGetProfileListByUsernameByHash(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $username
@@ -198,7 +198,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileListUsernameHash(
+    public function CachedGetProfileListByUsernameByHash(
         $overrideCache
         , $cacheHours
         , $username
@@ -207,7 +207,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileListUsernameHash";
+        $method_name = "CachedGetProfileListByUsernameByHash";
 
         $sb = "";
         $sb += $method_name;
@@ -226,7 +226,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileListUsernameHash(
+            $objs = $this->GetProfileListByUsernameByHash(
                 $username
                 , $hash
             );
@@ -236,18 +236,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileListUsername(
+    public function GetProfileListByUsername(
         $username
         ) {
-            return $this->act->GetProfileListUsername(
+            return $this->act->GetProfileListByUsername(
                 $username
             );
         }
         
-    public function GetProfileUsername(
+    public function GetProfileByUsername(
         $username
     ) {
-        foreach($this->act->GetProfileListUsername(
+        foreach($this->act->GetProfileListByUsername(
         $username
         ) as $item) {
             return $item;
@@ -256,10 +256,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileListUsername(
+    public function CachedGetProfileListByUsername(
         $username
     ) {
-        return $this->CachedGetProfileListUsername(
+        return $this->CachedGetProfileListByUsername(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $username
@@ -267,7 +267,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileListUsername(
+    public function CachedGetProfileListByUsername(
         $overrideCache
         , $cacheHours
         , $username
@@ -275,7 +275,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileListUsername";
+        $method_name = "CachedGetProfileListByUsername";
 
         $sb = "";
         $sb += $method_name;
@@ -290,7 +290,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileListUsername(
+            $objs = $this->GetProfileListByUsername(
                 $username
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -306,56 +306,56 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileTypeUuid(
+    public function CountProfileTypeByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileTypeUuid(
+        return $this->act->CountProfileTypeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileTypeTypeId(
+    public function CountProfileTypeByTypeId(
         $type_id
     ) {      
-        return $this->act->CountProfileTypeTypeId(
+        return $this->act->CountProfileTypeByTypeId(
         $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileTypeListFilter($filter_obj) {
-        return $this->act->BrowseProfileTypeListFilter($filter_obj);
+    public function BrowseProfileTypeListByFilter($filter_obj) {
+        return $this->act->BrowseProfileTypeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileTypeUuid($set_type, $obj) {
-        return $this->act->SetProfileTypeUuid($set_type, $obj);
+    public function SetProfileTypeByUuid($set_type, $obj) {
+        return $this->act->SetProfileTypeByUuid($set_type, $obj);
     }
                
-    public function SetProfileTypeUuidFull($obj) {
-        return $this->act->SetProfileTypeUuid('full', $obj);
+    public function SetProfileTypeByUuidFull($obj) {
+        return $this->act->SetProfileTypeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileTypeUuid(
+    public function DelProfileTypeByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileTypeUuid(
+        return $this->act->DelProfileTypeByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function GetProfileTypeListUuid(
+    public function GetProfileTypeListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileTypeListUuid(
+            return $this->act->GetProfileTypeListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileTypeUuid(
+    public function GetProfileTypeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileTypeListUuid(
+        foreach($this->act->GetProfileTypeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -364,10 +364,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileTypeListUuid(
+    public function CachedGetProfileTypeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileTypeListUuid(
+        return $this->CachedGetProfileTypeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -375,7 +375,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileTypeListUuid(
+    public function CachedGetProfileTypeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -383,7 +383,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileTypeListUuid";
+        $method_name = "CachedGetProfileTypeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -398,7 +398,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileTypeListUuid(
+            $objs = $this->GetProfileTypeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -407,18 +407,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileTypeListCode(
+    public function GetProfileTypeListByCode(
         $code
         ) {
-            return $this->act->GetProfileTypeListCode(
+            return $this->act->GetProfileTypeListByCode(
                 $code
             );
         }
         
-    public function GetProfileTypeCode(
+    public function GetProfileTypeByCode(
         $code
     ) {
-        foreach($this->act->GetProfileTypeListCode(
+        foreach($this->act->GetProfileTypeListByCode(
         $code
         ) as $item) {
             return $item;
@@ -427,10 +427,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileTypeListCode(
+    public function CachedGetProfileTypeListByCode(
         $code
     ) {
-        return $this->CachedGetProfileTypeListCode(
+        return $this->CachedGetProfileTypeListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -438,7 +438,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileTypeListCode(
+    public function CachedGetProfileTypeListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -446,7 +446,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileTypeListCode";
+        $method_name = "CachedGetProfileTypeListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -461,7 +461,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileTypeListCode(
+            $objs = $this->GetProfileTypeListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -470,18 +470,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileTypeListTypeId(
+    public function GetProfileTypeListByTypeId(
         $type_id
         ) {
-            return $this->act->GetProfileTypeListTypeId(
+            return $this->act->GetProfileTypeListByTypeId(
                 $type_id
             );
         }
         
-    public function GetProfileTypeTypeId(
+    public function GetProfileTypeByTypeId(
         $type_id
     ) {
-        foreach($this->act->GetProfileTypeListTypeId(
+        foreach($this->act->GetProfileTypeListByTypeId(
         $type_id
         ) as $item) {
             return $item;
@@ -490,10 +490,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileTypeListTypeId(
+    public function CachedGetProfileTypeListByTypeId(
         $type_id
     ) {
-        return $this->CachedGetProfileTypeListTypeId(
+        return $this->CachedGetProfileTypeListByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $type_id
@@ -501,7 +501,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileTypeListTypeId(
+    public function CachedGetProfileTypeListByTypeId(
         $overrideCache
         , $cacheHours
         , $type_id
@@ -509,7 +509,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileTypeListTypeId";
+        $method_name = "CachedGetProfileTypeListByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -524,7 +524,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileTypeListTypeId(
+            $objs = $this->GetProfileTypeListByTypeId(
                 $type_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -540,101 +540,101 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeUuid(
+    public function CountProfileAttributeByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileAttributeUuid(
+        return $this->act->CountProfileAttributeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeCode(
+    public function CountProfileAttributeByCode(
         $code
     ) {      
-        return $this->act->CountProfileAttributeCode(
+        return $this->act->CountProfileAttributeByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeType(
+    public function CountProfileAttributeByType(
         $type
     ) {      
-        return $this->act->CountProfileAttributeType(
+        return $this->act->CountProfileAttributeByType(
         $type
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeGroup(
+    public function CountProfileAttributeByGroup(
         $group
     ) {      
-        return $this->act->CountProfileAttributeGroup(
+        return $this->act->CountProfileAttributeByGroup(
         $group
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeCodeType(
+    public function CountProfileAttributeByCodeByType(
         $code
         , $type
     ) {      
-        return $this->act->CountProfileAttributeCodeType(
+        return $this->act->CountProfileAttributeByCodeByType(
         $code
         , $type
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileAttributeListFilter($filter_obj) {
-        return $this->act->BrowseProfileAttributeListFilter($filter_obj);
+    public function BrowseProfileAttributeListByFilter($filter_obj) {
+        return $this->act->BrowseProfileAttributeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAttributeUuid($set_type, $obj) {
-        return $this->act->SetProfileAttributeUuid($set_type, $obj);
+    public function SetProfileAttributeByUuid($set_type, $obj) {
+        return $this->act->SetProfileAttributeByUuid($set_type, $obj);
     }
                
-    public function SetProfileAttributeUuidFull($obj) {
-        return $this->act->SetProfileAttributeUuid('full', $obj);
+    public function SetProfileAttributeByUuidFull($obj) {
+        return $this->act->SetProfileAttributeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAttributeCode($set_type, $obj) {
-        return $this->act->SetProfileAttributeCode($set_type, $obj);
+    public function SetProfileAttributeByCode($set_type, $obj) {
+        return $this->act->SetProfileAttributeByCode($set_type, $obj);
     }
                
-    public function SetProfileAttributeCodeFull($obj) {
-        return $this->act->SetProfileAttributeCode('full', $obj);
+    public function SetProfileAttributeByCodeFull($obj) {
+        return $this->act->SetProfileAttributeByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAttributeUuid(
+    public function DelProfileAttributeByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileAttributeUuid(
+        return $this->act->DelProfileAttributeByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAttributeCode(
+    public function DelProfileAttributeByCode(
         $code
     ) {         
-        return $this->act->DelProfileAttributeCode(
+        return $this->act->DelProfileAttributeByCode(
         $code
         );
     }
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeListUuid(
+    public function GetProfileAttributeListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileAttributeListUuid(
+            return $this->act->GetProfileAttributeListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileAttributeUuid(
+    public function GetProfileAttributeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileAttributeListUuid(
+        foreach($this->act->GetProfileAttributeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -643,10 +643,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeListUuid(
+    public function CachedGetProfileAttributeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileAttributeListUuid(
+        return $this->CachedGetProfileAttributeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -654,7 +654,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeListUuid(
+    public function CachedGetProfileAttributeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -662,7 +662,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeListUuid";
+        $method_name = "CachedGetProfileAttributeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -677,7 +677,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeListUuid(
+            $objs = $this->GetProfileAttributeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -686,18 +686,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeListCode(
+    public function GetProfileAttributeListByCode(
         $code
         ) {
-            return $this->act->GetProfileAttributeListCode(
+            return $this->act->GetProfileAttributeListByCode(
                 $code
             );
         }
         
-    public function GetProfileAttributeCode(
+    public function GetProfileAttributeByCode(
         $code
     ) {
-        foreach($this->act->GetProfileAttributeListCode(
+        foreach($this->act->GetProfileAttributeListByCode(
         $code
         ) as $item) {
             return $item;
@@ -706,10 +706,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeListCode(
+    public function CachedGetProfileAttributeListByCode(
         $code
     ) {
-        return $this->CachedGetProfileAttributeListCode(
+        return $this->CachedGetProfileAttributeListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -717,7 +717,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeListCode(
+    public function CachedGetProfileAttributeListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -725,7 +725,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeListCode";
+        $method_name = "CachedGetProfileAttributeListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -740,7 +740,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeListCode(
+            $objs = $this->GetProfileAttributeListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -749,18 +749,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeListType(
+    public function GetProfileAttributeListByType(
         $type
         ) {
-            return $this->act->GetProfileAttributeListType(
+            return $this->act->GetProfileAttributeListByType(
                 $type
             );
         }
         
-    public function GetProfileAttributeType(
+    public function GetProfileAttributeByType(
         $type
     ) {
-        foreach($this->act->GetProfileAttributeListType(
+        foreach($this->act->GetProfileAttributeListByType(
         $type
         ) as $item) {
             return $item;
@@ -769,10 +769,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeListType(
+    public function CachedGetProfileAttributeListByType(
         $type
     ) {
-        return $this->CachedGetProfileAttributeListType(
+        return $this->CachedGetProfileAttributeListByType(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $type
@@ -780,7 +780,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeListType(
+    public function CachedGetProfileAttributeListByType(
         $overrideCache
         , $cacheHours
         , $type
@@ -788,7 +788,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeListType";
+        $method_name = "CachedGetProfileAttributeListByType";
 
         $sb = "";
         $sb += $method_name;
@@ -803,7 +803,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeListType(
+            $objs = $this->GetProfileAttributeListByType(
                 $type
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -812,18 +812,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeListGroup(
+    public function GetProfileAttributeListByGroup(
         $group
         ) {
-            return $this->act->GetProfileAttributeListGroup(
+            return $this->act->GetProfileAttributeListByGroup(
                 $group
             );
         }
         
-    public function GetProfileAttributeGroup(
+    public function GetProfileAttributeByGroup(
         $group
     ) {
-        foreach($this->act->GetProfileAttributeListGroup(
+        foreach($this->act->GetProfileAttributeListByGroup(
         $group
         ) as $item) {
             return $item;
@@ -832,10 +832,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeListGroup(
+    public function CachedGetProfileAttributeListByGroup(
         $group
     ) {
-        return $this->CachedGetProfileAttributeListGroup(
+        return $this->CachedGetProfileAttributeListByGroup(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $group
@@ -843,7 +843,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeListGroup(
+    public function CachedGetProfileAttributeListByGroup(
         $overrideCache
         , $cacheHours
         , $group
@@ -851,7 +851,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeListGroup";
+        $method_name = "CachedGetProfileAttributeListByGroup";
 
         $sb = "";
         $sb += $method_name;
@@ -866,7 +866,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeListGroup(
+            $objs = $this->GetProfileAttributeListByGroup(
                 $group
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -875,21 +875,21 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeListCodeType(
+    public function GetProfileAttributeListByCodeByType(
         $code
         , $type
         ) {
-            return $this->act->GetProfileAttributeListCodeType(
+            return $this->act->GetProfileAttributeListByCodeByType(
                 $code
                 , $type
             );
         }
         
-    public function GetProfileAttributeCodeType(
+    public function GetProfileAttributeByCodeByType(
         $code
         , $type
     ) {
-        foreach($this->act->GetProfileAttributeListCodeType(
+        foreach($this->act->GetProfileAttributeListByCodeByType(
         $code
         , $type
         ) as $item) {
@@ -899,11 +899,11 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeListCodeType(
+    public function CachedGetProfileAttributeListByCodeByType(
         $code
         , $type
     ) {
-        return $this->CachedGetProfileAttributeListCodeType(
+        return $this->CachedGetProfileAttributeListByCodeByType(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -912,7 +912,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeListCodeType(
+    public function CachedGetProfileAttributeListByCodeByType(
         $overrideCache
         , $cacheHours
         , $code
@@ -921,7 +921,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeListCodeType";
+        $method_name = "CachedGetProfileAttributeListByCodeByType";
 
         $sb = "";
         $sb += $method_name;
@@ -940,7 +940,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeListCodeType(
+            $objs = $this->GetProfileAttributeListByCodeByType(
                 $code
                 , $type
             );
@@ -957,101 +957,101 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeTextUuid(
+    public function CountProfileAttributeTextByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileAttributeTextUuid(
+        return $this->act->CountProfileAttributeTextByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeTextProfileId(
+    public function CountProfileAttributeTextByProfileId(
         $profile_id
     ) {      
-        return $this->act->CountProfileAttributeTextProfileId(
+        return $this->act->CountProfileAttributeTextByProfileId(
         $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeTextProfileIdAttributeId(
+    public function CountProfileAttributeTextByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {      
-        return $this->act->CountProfileAttributeTextProfileIdAttributeId(
+        return $this->act->CountProfileAttributeTextByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileAttributeTextListFilter($filter_obj) {
-        return $this->act->BrowseProfileAttributeTextListFilter($filter_obj);
+    public function BrowseProfileAttributeTextListByFilter($filter_obj) {
+        return $this->act->BrowseProfileAttributeTextListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAttributeTextUuid($set_type, $obj) {
-        return $this->act->SetProfileAttributeTextUuid($set_type, $obj);
+    public function SetProfileAttributeTextByUuid($set_type, $obj) {
+        return $this->act->SetProfileAttributeTextByUuid($set_type, $obj);
     }
                
-    public function SetProfileAttributeTextUuidFull($obj) {
-        return $this->act->SetProfileAttributeTextUuid('full', $obj);
+    public function SetProfileAttributeTextByUuidFull($obj) {
+        return $this->act->SetProfileAttributeTextByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAttributeTextProfileId($set_type, $obj) {
-        return $this->act->SetProfileAttributeTextProfileId($set_type, $obj);
+    public function SetProfileAttributeTextByProfileId($set_type, $obj) {
+        return $this->act->SetProfileAttributeTextByProfileId($set_type, $obj);
     }
                
-    public function SetProfileAttributeTextProfileIdFull($obj) {
-        return $this->act->SetProfileAttributeTextProfileId('full', $obj);
+    public function SetProfileAttributeTextByProfileIdFull($obj) {
+        return $this->act->SetProfileAttributeTextByProfileId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAttributeTextProfileIdAttributeId($set_type, $obj) {
-        return $this->act->SetProfileAttributeTextProfileIdAttributeId($set_type, $obj);
+    public function SetProfileAttributeTextByProfileIdByAttributeId($set_type, $obj) {
+        return $this->act->SetProfileAttributeTextByProfileIdByAttributeId($set_type, $obj);
     }
                
-    public function SetProfileAttributeTextProfileIdAttributeIdFull($obj) {
-        return $this->act->SetProfileAttributeTextProfileIdAttributeId('full', $obj);
+    public function SetProfileAttributeTextByProfileIdByAttributeIdFull($obj) {
+        return $this->act->SetProfileAttributeTextByProfileIdByAttributeId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAttributeTextUuid(
+    public function DelProfileAttributeTextByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileAttributeTextUuid(
+        return $this->act->DelProfileAttributeTextByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAttributeTextProfileId(
+    public function DelProfileAttributeTextByProfileId(
         $profile_id
     ) {         
-        return $this->act->DelProfileAttributeTextProfileId(
+        return $this->act->DelProfileAttributeTextByProfileId(
         $profile_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAttributeTextProfileIdAttributeId(
+    public function DelProfileAttributeTextByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {         
-        return $this->act->DelProfileAttributeTextProfileIdAttributeId(
+        return $this->act->DelProfileAttributeTextByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeTextListUuid(
+    public function GetProfileAttributeTextListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileAttributeTextListUuid(
+            return $this->act->GetProfileAttributeTextListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileAttributeTextUuid(
+    public function GetProfileAttributeTextByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileAttributeTextListUuid(
+        foreach($this->act->GetProfileAttributeTextListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -1060,10 +1060,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeTextListUuid(
+    public function CachedGetProfileAttributeTextListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileAttributeTextListUuid(
+        return $this->CachedGetProfileAttributeTextListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -1071,7 +1071,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeTextListUuid(
+    public function CachedGetProfileAttributeTextListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -1079,7 +1079,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeTextListUuid";
+        $method_name = "CachedGetProfileAttributeTextListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -1094,7 +1094,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeTextListUuid(
+            $objs = $this->GetProfileAttributeTextListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1103,18 +1103,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeTextListProfileId(
+    public function GetProfileAttributeTextListByProfileId(
         $profile_id
         ) {
-            return $this->act->GetProfileAttributeTextListProfileId(
+            return $this->act->GetProfileAttributeTextListByProfileId(
                 $profile_id
             );
         }
         
-    public function GetProfileAttributeTextProfileId(
+    public function GetProfileAttributeTextByProfileId(
         $profile_id
     ) {
-        foreach($this->act->GetProfileAttributeTextListProfileId(
+        foreach($this->act->GetProfileAttributeTextListByProfileId(
         $profile_id
         ) as $item) {
             return $item;
@@ -1123,10 +1123,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeTextListProfileId(
+    public function CachedGetProfileAttributeTextListByProfileId(
         $profile_id
     ) {
-        return $this->CachedGetProfileAttributeTextListProfileId(
+        return $this->CachedGetProfileAttributeTextListByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -1134,7 +1134,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeTextListProfileId(
+    public function CachedGetProfileAttributeTextListByProfileId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -1142,7 +1142,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeTextListProfileId";
+        $method_name = "CachedGetProfileAttributeTextListByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -1157,7 +1157,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeTextListProfileId(
+            $objs = $this->GetProfileAttributeTextListByProfileId(
                 $profile_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1166,21 +1166,21 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeTextListProfileIdAttributeId(
+    public function GetProfileAttributeTextListByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
         ) {
-            return $this->act->GetProfileAttributeTextListProfileIdAttributeId(
+            return $this->act->GetProfileAttributeTextListByProfileIdByAttributeId(
                 $profile_id
                 , $attribute_id
             );
         }
         
-    public function GetProfileAttributeTextProfileIdAttributeId(
+    public function GetProfileAttributeTextByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
-        foreach($this->act->GetProfileAttributeTextListProfileIdAttributeId(
+        foreach($this->act->GetProfileAttributeTextListByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
         ) as $item) {
@@ -1190,11 +1190,11 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeTextListProfileIdAttributeId(
+    public function CachedGetProfileAttributeTextListByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
-        return $this->CachedGetProfileAttributeTextListProfileIdAttributeId(
+        return $this->CachedGetProfileAttributeTextListByProfileIdByAttributeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -1203,7 +1203,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeTextListProfileIdAttributeId(
+    public function CachedGetProfileAttributeTextListByProfileIdByAttributeId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -1212,7 +1212,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeTextListProfileIdAttributeId";
+        $method_name = "CachedGetProfileAttributeTextListByProfileIdByAttributeId";
 
         $sb = "";
         $sb += $method_name;
@@ -1231,7 +1231,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeTextListProfileIdAttributeId(
+            $objs = $this->GetProfileAttributeTextListByProfileIdByAttributeId(
                 $profile_id
                 , $attribute_id
             );
@@ -1248,101 +1248,101 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeDataUuid(
+    public function CountProfileAttributeDataByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileAttributeDataUuid(
+        return $this->act->CountProfileAttributeDataByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeDataProfileId(
+    public function CountProfileAttributeDataByProfileId(
         $profile_id
     ) {      
-        return $this->act->CountProfileAttributeDataProfileId(
+        return $this->act->CountProfileAttributeDataByProfileId(
         $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAttributeDataProfileIdAttributeId(
+    public function CountProfileAttributeDataByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {      
-        return $this->act->CountProfileAttributeDataProfileIdAttributeId(
+        return $this->act->CountProfileAttributeDataByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileAttributeDataListFilter($filter_obj) {
-        return $this->act->BrowseProfileAttributeDataListFilter($filter_obj);
+    public function BrowseProfileAttributeDataListByFilter($filter_obj) {
+        return $this->act->BrowseProfileAttributeDataListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAttributeDataUuid($set_type, $obj) {
-        return $this->act->SetProfileAttributeDataUuid($set_type, $obj);
+    public function SetProfileAttributeDataByUuid($set_type, $obj) {
+        return $this->act->SetProfileAttributeDataByUuid($set_type, $obj);
     }
                
-    public function SetProfileAttributeDataUuidFull($obj) {
-        return $this->act->SetProfileAttributeDataUuid('full', $obj);
+    public function SetProfileAttributeDataByUuidFull($obj) {
+        return $this->act->SetProfileAttributeDataByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAttributeDataProfileId($set_type, $obj) {
-        return $this->act->SetProfileAttributeDataProfileId($set_type, $obj);
+    public function SetProfileAttributeDataByProfileId($set_type, $obj) {
+        return $this->act->SetProfileAttributeDataByProfileId($set_type, $obj);
     }
                
-    public function SetProfileAttributeDataProfileIdFull($obj) {
-        return $this->act->SetProfileAttributeDataProfileId('full', $obj);
+    public function SetProfileAttributeDataByProfileIdFull($obj) {
+        return $this->act->SetProfileAttributeDataByProfileId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAttributeDataProfileIdAttributeId($set_type, $obj) {
-        return $this->act->SetProfileAttributeDataProfileIdAttributeId($set_type, $obj);
+    public function SetProfileAttributeDataByProfileIdByAttributeId($set_type, $obj) {
+        return $this->act->SetProfileAttributeDataByProfileIdByAttributeId($set_type, $obj);
     }
                
-    public function SetProfileAttributeDataProfileIdAttributeIdFull($obj) {
-        return $this->act->SetProfileAttributeDataProfileIdAttributeId('full', $obj);
+    public function SetProfileAttributeDataByProfileIdByAttributeIdFull($obj) {
+        return $this->act->SetProfileAttributeDataByProfileIdByAttributeId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAttributeDataUuid(
+    public function DelProfileAttributeDataByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileAttributeDataUuid(
+        return $this->act->DelProfileAttributeDataByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAttributeDataProfileId(
+    public function DelProfileAttributeDataByProfileId(
         $profile_id
     ) {         
-        return $this->act->DelProfileAttributeDataProfileId(
+        return $this->act->DelProfileAttributeDataByProfileId(
         $profile_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAttributeDataProfileIdAttributeId(
+    public function DelProfileAttributeDataByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {         
-        return $this->act->DelProfileAttributeDataProfileIdAttributeId(
+        return $this->act->DelProfileAttributeDataByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeDataListUuid(
+    public function GetProfileAttributeDataListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileAttributeDataListUuid(
+            return $this->act->GetProfileAttributeDataListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileAttributeDataUuid(
+    public function GetProfileAttributeDataByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileAttributeDataListUuid(
+        foreach($this->act->GetProfileAttributeDataListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -1351,10 +1351,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeDataListUuid(
+    public function CachedGetProfileAttributeDataListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileAttributeDataListUuid(
+        return $this->CachedGetProfileAttributeDataListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -1362,7 +1362,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeDataListUuid(
+    public function CachedGetProfileAttributeDataListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -1370,7 +1370,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeDataListUuid";
+        $method_name = "CachedGetProfileAttributeDataListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -1385,7 +1385,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeDataListUuid(
+            $objs = $this->GetProfileAttributeDataListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1394,18 +1394,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeDataListProfileId(
+    public function GetProfileAttributeDataListByProfileId(
         $profile_id
         ) {
-            return $this->act->GetProfileAttributeDataListProfileId(
+            return $this->act->GetProfileAttributeDataListByProfileId(
                 $profile_id
             );
         }
         
-    public function GetProfileAttributeDataProfileId(
+    public function GetProfileAttributeDataByProfileId(
         $profile_id
     ) {
-        foreach($this->act->GetProfileAttributeDataListProfileId(
+        foreach($this->act->GetProfileAttributeDataListByProfileId(
         $profile_id
         ) as $item) {
             return $item;
@@ -1414,10 +1414,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeDataListProfileId(
+    public function CachedGetProfileAttributeDataListByProfileId(
         $profile_id
     ) {
-        return $this->CachedGetProfileAttributeDataListProfileId(
+        return $this->CachedGetProfileAttributeDataListByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -1425,7 +1425,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeDataListProfileId(
+    public function CachedGetProfileAttributeDataListByProfileId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -1433,7 +1433,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeDataListProfileId";
+        $method_name = "CachedGetProfileAttributeDataListByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -1448,7 +1448,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeDataListProfileId(
+            $objs = $this->GetProfileAttributeDataListByProfileId(
                 $profile_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1457,21 +1457,21 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAttributeDataListProfileIdAttributeId(
+    public function GetProfileAttributeDataListByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
         ) {
-            return $this->act->GetProfileAttributeDataListProfileIdAttributeId(
+            return $this->act->GetProfileAttributeDataListByProfileIdByAttributeId(
                 $profile_id
                 , $attribute_id
             );
         }
         
-    public function GetProfileAttributeDataProfileIdAttributeId(
+    public function GetProfileAttributeDataByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
-        foreach($this->act->GetProfileAttributeDataListProfileIdAttributeId(
+        foreach($this->act->GetProfileAttributeDataListByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
         ) as $item) {
@@ -1481,11 +1481,11 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileAttributeDataListProfileIdAttributeId(
+    public function CachedGetProfileAttributeDataListByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
-        return $this->CachedGetProfileAttributeDataListProfileIdAttributeId(
+        return $this->CachedGetProfileAttributeDataListByProfileIdByAttributeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -1494,7 +1494,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileAttributeDataListProfileIdAttributeId(
+    public function CachedGetProfileAttributeDataListByProfileIdByAttributeId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -1503,7 +1503,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAttributeDataListProfileIdAttributeId";
+        $method_name = "CachedGetProfileAttributeDataListByProfileIdByAttributeId";
 
         $sb = "";
         $sb += $method_name;
@@ -1522,7 +1522,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAttributeDataListProfileIdAttributeId(
+            $objs = $this->GetProfileAttributeDataListByProfileIdByAttributeId(
                 $profile_id
                 , $attribute_id
             );
@@ -1539,124 +1539,124 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileDeviceUuid(
+    public function CountProfileDeviceByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileDeviceUuid(
+        return $this->act->CountProfileDeviceByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileDeviceProfileIdDeviceId(
+    public function CountProfileDeviceByProfileIdByDeviceId(
         $profile_id
         , $device_id
     ) {      
-        return $this->act->CountProfileDeviceProfileIdDeviceId(
+        return $this->act->CountProfileDeviceByProfileIdByDeviceId(
         $profile_id
         , $device_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileDeviceProfileIdToken(
+    public function CountProfileDeviceByProfileIdByToken(
         $profile_id
         , $token
     ) {      
-        return $this->act->CountProfileDeviceProfileIdToken(
+        return $this->act->CountProfileDeviceByProfileIdByToken(
         $profile_id
         , $token
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileDeviceProfileId(
+    public function CountProfileDeviceByProfileId(
         $profile_id
     ) {      
-        return $this->act->CountProfileDeviceProfileId(
+        return $this->act->CountProfileDeviceByProfileId(
         $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileDeviceDeviceId(
+    public function CountProfileDeviceByDeviceId(
         $device_id
     ) {      
-        return $this->act->CountProfileDeviceDeviceId(
+        return $this->act->CountProfileDeviceByDeviceId(
         $device_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileDeviceToken(
+    public function CountProfileDeviceByToken(
         $token
     ) {      
-        return $this->act->CountProfileDeviceToken(
+        return $this->act->CountProfileDeviceByToken(
         $token
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileDeviceListFilter($filter_obj) {
-        return $this->act->BrowseProfileDeviceListFilter($filter_obj);
+    public function BrowseProfileDeviceListByFilter($filter_obj) {
+        return $this->act->BrowseProfileDeviceListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileDeviceUuid($set_type, $obj) {
-        return $this->act->SetProfileDeviceUuid($set_type, $obj);
+    public function SetProfileDeviceByUuid($set_type, $obj) {
+        return $this->act->SetProfileDeviceByUuid($set_type, $obj);
     }
                
-    public function SetProfileDeviceUuidFull($obj) {
-        return $this->act->SetProfileDeviceUuid('full', $obj);
+    public function SetProfileDeviceByUuidFull($obj) {
+        return $this->act->SetProfileDeviceByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileDeviceUuid(
+    public function DelProfileDeviceByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileDeviceUuid(
+        return $this->act->DelProfileDeviceByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileDeviceProfileIdDeviceId(
+    public function DelProfileDeviceByProfileIdByDeviceId(
         $profile_id
         , $device_id
     ) {         
-        return $this->act->DelProfileDeviceProfileIdDeviceId(
+        return $this->act->DelProfileDeviceByProfileIdByDeviceId(
         $profile_id
         , $device_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileDeviceProfileIdToken(
+    public function DelProfileDeviceByProfileIdByToken(
         $profile_id
         , $token
     ) {         
-        return $this->act->DelProfileDeviceProfileIdToken(
+        return $this->act->DelProfileDeviceByProfileIdByToken(
         $profile_id
         , $token
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileDeviceToken(
+    public function DelProfileDeviceByToken(
         $token
     ) {         
-        return $this->act->DelProfileDeviceToken(
+        return $this->act->DelProfileDeviceByToken(
         $token
         );
     }
 #------------------------------------------------------------------------------                    
-    public function GetProfileDeviceListUuid(
+    public function GetProfileDeviceListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileDeviceListUuid(
+            return $this->act->GetProfileDeviceListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileDeviceUuid(
+    public function GetProfileDeviceByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileDeviceListUuid(
+        foreach($this->act->GetProfileDeviceListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -1665,10 +1665,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileDeviceListUuid(
+    public function CachedGetProfileDeviceListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileDeviceListUuid(
+        return $this->CachedGetProfileDeviceListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -1676,7 +1676,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileDeviceListUuid(
+    public function CachedGetProfileDeviceListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -1684,7 +1684,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileDeviceListUuid";
+        $method_name = "CachedGetProfileDeviceListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -1699,7 +1699,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileDeviceListUuid(
+            $objs = $this->GetProfileDeviceListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1708,21 +1708,21 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileDeviceListProfileIdDeviceId(
+    public function GetProfileDeviceListByProfileIdByDeviceId(
         $profile_id
         , $device_id
         ) {
-            return $this->act->GetProfileDeviceListProfileIdDeviceId(
+            return $this->act->GetProfileDeviceListByProfileIdByDeviceId(
                 $profile_id
                 , $device_id
             );
         }
         
-    public function GetProfileDeviceProfileIdDeviceId(
+    public function GetProfileDeviceByProfileIdByDeviceId(
         $profile_id
         , $device_id
     ) {
-        foreach($this->act->GetProfileDeviceListProfileIdDeviceId(
+        foreach($this->act->GetProfileDeviceListByProfileIdByDeviceId(
         $profile_id
         , $device_id
         ) as $item) {
@@ -1732,11 +1732,11 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileDeviceListProfileIdDeviceId(
+    public function CachedGetProfileDeviceListByProfileIdByDeviceId(
         $profile_id
         , $device_id
     ) {
-        return $this->CachedGetProfileDeviceListProfileIdDeviceId(
+        return $this->CachedGetProfileDeviceListByProfileIdByDeviceId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -1745,7 +1745,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileDeviceListProfileIdDeviceId(
+    public function CachedGetProfileDeviceListByProfileIdByDeviceId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -1754,7 +1754,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileDeviceListProfileIdDeviceId";
+        $method_name = "CachedGetProfileDeviceListByProfileIdByDeviceId";
 
         $sb = "";
         $sb += $method_name;
@@ -1773,7 +1773,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileDeviceListProfileIdDeviceId(
+            $objs = $this->GetProfileDeviceListByProfileIdByDeviceId(
                 $profile_id
                 , $device_id
             );
@@ -1783,21 +1783,21 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileDeviceListProfileIdToken(
+    public function GetProfileDeviceListByProfileIdByToken(
         $profile_id
         , $token
         ) {
-            return $this->act->GetProfileDeviceListProfileIdToken(
+            return $this->act->GetProfileDeviceListByProfileIdByToken(
                 $profile_id
                 , $token
             );
         }
         
-    public function GetProfileDeviceProfileIdToken(
+    public function GetProfileDeviceByProfileIdByToken(
         $profile_id
         , $token
     ) {
-        foreach($this->act->GetProfileDeviceListProfileIdToken(
+        foreach($this->act->GetProfileDeviceListByProfileIdByToken(
         $profile_id
         , $token
         ) as $item) {
@@ -1807,11 +1807,11 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileDeviceListProfileIdToken(
+    public function CachedGetProfileDeviceListByProfileIdByToken(
         $profile_id
         , $token
     ) {
-        return $this->CachedGetProfileDeviceListProfileIdToken(
+        return $this->CachedGetProfileDeviceListByProfileIdByToken(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -1820,7 +1820,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileDeviceListProfileIdToken(
+    public function CachedGetProfileDeviceListByProfileIdByToken(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -1829,7 +1829,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileDeviceListProfileIdToken";
+        $method_name = "CachedGetProfileDeviceListByProfileIdByToken";
 
         $sb = "";
         $sb += $method_name;
@@ -1848,7 +1848,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileDeviceListProfileIdToken(
+            $objs = $this->GetProfileDeviceListByProfileIdByToken(
                 $profile_id
                 , $token
             );
@@ -1858,18 +1858,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileDeviceListProfileId(
+    public function GetProfileDeviceListByProfileId(
         $profile_id
         ) {
-            return $this->act->GetProfileDeviceListProfileId(
+            return $this->act->GetProfileDeviceListByProfileId(
                 $profile_id
             );
         }
         
-    public function GetProfileDeviceProfileId(
+    public function GetProfileDeviceByProfileId(
         $profile_id
     ) {
-        foreach($this->act->GetProfileDeviceListProfileId(
+        foreach($this->act->GetProfileDeviceListByProfileId(
         $profile_id
         ) as $item) {
             return $item;
@@ -1878,10 +1878,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileDeviceListProfileId(
+    public function CachedGetProfileDeviceListByProfileId(
         $profile_id
     ) {
-        return $this->CachedGetProfileDeviceListProfileId(
+        return $this->CachedGetProfileDeviceListByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -1889,7 +1889,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileDeviceListProfileId(
+    public function CachedGetProfileDeviceListByProfileId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -1897,7 +1897,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileDeviceListProfileId";
+        $method_name = "CachedGetProfileDeviceListByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -1912,7 +1912,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileDeviceListProfileId(
+            $objs = $this->GetProfileDeviceListByProfileId(
                 $profile_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1921,18 +1921,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileDeviceListDeviceId(
+    public function GetProfileDeviceListByDeviceId(
         $device_id
         ) {
-            return $this->act->GetProfileDeviceListDeviceId(
+            return $this->act->GetProfileDeviceListByDeviceId(
                 $device_id
             );
         }
         
-    public function GetProfileDeviceDeviceId(
+    public function GetProfileDeviceByDeviceId(
         $device_id
     ) {
-        foreach($this->act->GetProfileDeviceListDeviceId(
+        foreach($this->act->GetProfileDeviceListByDeviceId(
         $device_id
         ) as $item) {
             return $item;
@@ -1941,10 +1941,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileDeviceListDeviceId(
+    public function CachedGetProfileDeviceListByDeviceId(
         $device_id
     ) {
-        return $this->CachedGetProfileDeviceListDeviceId(
+        return $this->CachedGetProfileDeviceListByDeviceId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $device_id
@@ -1952,7 +1952,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileDeviceListDeviceId(
+    public function CachedGetProfileDeviceListByDeviceId(
         $overrideCache
         , $cacheHours
         , $device_id
@@ -1960,7 +1960,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileDeviceListDeviceId";
+        $method_name = "CachedGetProfileDeviceListByDeviceId";
 
         $sb = "";
         $sb += $method_name;
@@ -1975,7 +1975,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileDeviceListDeviceId(
+            $objs = $this->GetProfileDeviceListByDeviceId(
                 $device_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1984,18 +1984,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileDeviceListToken(
+    public function GetProfileDeviceListByToken(
         $token
         ) {
-            return $this->act->GetProfileDeviceListToken(
+            return $this->act->GetProfileDeviceListByToken(
                 $token
             );
         }
         
-    public function GetProfileDeviceToken(
+    public function GetProfileDeviceByToken(
         $token
     ) {
-        foreach($this->act->GetProfileDeviceListToken(
+        foreach($this->act->GetProfileDeviceListByToken(
         $token
         ) as $item) {
             return $item;
@@ -2004,10 +2004,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetProfileDeviceListToken(
+    public function CachedGetProfileDeviceListByToken(
         $token
     ) {
-        return $this->CachedGetProfileDeviceListToken(
+        return $this->CachedGetProfileDeviceListByToken(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $token
@@ -2015,7 +2015,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetProfileDeviceListToken(
+    public function CachedGetProfileDeviceListByToken(
         $overrideCache
         , $cacheHours
         , $token
@@ -2023,7 +2023,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileDeviceListToken";
+        $method_name = "CachedGetProfileDeviceListByToken";
 
         $sb = "";
         $sb += $method_name;
@@ -2038,7 +2038,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileDeviceListToken(
+            $objs = $this->GetProfileDeviceListByToken(
                 $token
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2054,56 +2054,56 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountCountryUuid(
+    public function CountCountryByUuid(
         $uuid
     ) {      
-        return $this->act->CountCountryUuid(
+        return $this->act->CountCountryByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountCountryCode(
+    public function CountCountryByCode(
         $code
     ) {      
-        return $this->act->CountCountryCode(
+        return $this->act->CountCountryByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseCountryListFilter($filter_obj) {
-        return $this->act->BrowseCountryListFilter($filter_obj);
+    public function BrowseCountryListByFilter($filter_obj) {
+        return $this->act->BrowseCountryListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetCountryUuid($set_type, $obj) {
-        return $this->act->SetCountryUuid($set_type, $obj);
+    public function SetCountryByUuid($set_type, $obj) {
+        return $this->act->SetCountryByUuid($set_type, $obj);
     }
                
-    public function SetCountryUuidFull($obj) {
-        return $this->act->SetCountryUuid('full', $obj);
+    public function SetCountryByUuidFull($obj) {
+        return $this->act->SetCountryByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetCountryCode($set_type, $obj) {
-        return $this->act->SetCountryCode($set_type, $obj);
+    public function SetCountryByCode($set_type, $obj) {
+        return $this->act->SetCountryByCode($set_type, $obj);
     }
                
-    public function SetCountryCodeFull($obj) {
-        return $this->act->SetCountryCode('full', $obj);
+    public function SetCountryByCodeFull($obj) {
+        return $this->act->SetCountryByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelCountryUuid(
+    public function DelCountryByUuid(
         $uuid
     ) {         
-        return $this->act->DelCountryUuid(
+        return $this->act->DelCountryByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelCountryCode(
+    public function DelCountryByCode(
         $code
     ) {         
-        return $this->act->DelCountryCode(
+        return $this->act->DelCountryByCode(
         $code
         );
     }
@@ -2159,18 +2159,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetCountryListUuid(
+    public function GetCountryListByUuid(
         $uuid
         ) {
-            return $this->act->GetCountryListUuid(
+            return $this->act->GetCountryListByUuid(
                 $uuid
             );
         }
         
-    public function GetCountryUuid(
+    public function GetCountryByUuid(
         $uuid
     ) {
-        foreach($this->act->GetCountryListUuid(
+        foreach($this->act->GetCountryListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -2179,10 +2179,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetCountryListUuid(
+    public function CachedGetCountryListByUuid(
         $uuid
     ) {
-        return $this->CachedGetCountryListUuid(
+        return $this->CachedGetCountryListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -2190,7 +2190,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetCountryListUuid(
+    public function CachedGetCountryListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -2198,7 +2198,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetCountryListUuid";
+        $method_name = "CachedGetCountryListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -2213,7 +2213,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetCountryListUuid(
+            $objs = $this->GetCountryListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2222,18 +2222,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetCountryListCode(
+    public function GetCountryListByCode(
         $code
         ) {
-            return $this->act->GetCountryListCode(
+            return $this->act->GetCountryListByCode(
                 $code
             );
         }
         
-    public function GetCountryCode(
+    public function GetCountryByCode(
         $code
     ) {
-        foreach($this->act->GetCountryListCode(
+        foreach($this->act->GetCountryListByCode(
         $code
         ) as $item) {
             return $item;
@@ -2242,10 +2242,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetCountryListCode(
+    public function CachedGetCountryListByCode(
         $code
     ) {
-        return $this->CachedGetCountryListCode(
+        return $this->CachedGetCountryListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -2253,7 +2253,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetCountryListCode(
+    public function CachedGetCountryListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -2261,7 +2261,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetCountryListCode";
+        $method_name = "CachedGetCountryListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -2276,7 +2276,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetCountryListCode(
+            $objs = $this->GetCountryListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2292,56 +2292,56 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountStateUuid(
+    public function CountStateByUuid(
         $uuid
     ) {      
-        return $this->act->CountStateUuid(
+        return $this->act->CountStateByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountStateCode(
+    public function CountStateByCode(
         $code
     ) {      
-        return $this->act->CountStateCode(
+        return $this->act->CountStateByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseStateListFilter($filter_obj) {
-        return $this->act->BrowseStateListFilter($filter_obj);
+    public function BrowseStateListByFilter($filter_obj) {
+        return $this->act->BrowseStateListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetStateUuid($set_type, $obj) {
-        return $this->act->SetStateUuid($set_type, $obj);
+    public function SetStateByUuid($set_type, $obj) {
+        return $this->act->SetStateByUuid($set_type, $obj);
     }
                
-    public function SetStateUuidFull($obj) {
-        return $this->act->SetStateUuid('full', $obj);
+    public function SetStateByUuidFull($obj) {
+        return $this->act->SetStateByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetStateCode($set_type, $obj) {
-        return $this->act->SetStateCode($set_type, $obj);
+    public function SetStateByCode($set_type, $obj) {
+        return $this->act->SetStateByCode($set_type, $obj);
     }
                
-    public function SetStateCodeFull($obj) {
-        return $this->act->SetStateCode('full', $obj);
+    public function SetStateByCodeFull($obj) {
+        return $this->act->SetStateByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelStateUuid(
+    public function DelStateByUuid(
         $uuid
     ) {         
-        return $this->act->DelStateUuid(
+        return $this->act->DelStateByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelStateCode(
+    public function DelStateByCode(
         $code
     ) {         
-        return $this->act->DelStateCode(
+        return $this->act->DelStateByCode(
         $code
         );
     }
@@ -2397,18 +2397,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetStateListUuid(
+    public function GetStateListByUuid(
         $uuid
         ) {
-            return $this->act->GetStateListUuid(
+            return $this->act->GetStateListByUuid(
                 $uuid
             );
         }
         
-    public function GetStateUuid(
+    public function GetStateByUuid(
         $uuid
     ) {
-        foreach($this->act->GetStateListUuid(
+        foreach($this->act->GetStateListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -2417,10 +2417,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetStateListUuid(
+    public function CachedGetStateListByUuid(
         $uuid
     ) {
-        return $this->CachedGetStateListUuid(
+        return $this->CachedGetStateListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -2428,7 +2428,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetStateListUuid(
+    public function CachedGetStateListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -2436,7 +2436,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetStateListUuid";
+        $method_name = "CachedGetStateListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -2451,7 +2451,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetStateListUuid(
+            $objs = $this->GetStateListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2460,18 +2460,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetStateListCode(
+    public function GetStateListByCode(
         $code
         ) {
-            return $this->act->GetStateListCode(
+            return $this->act->GetStateListByCode(
                 $code
             );
         }
         
-    public function GetStateCode(
+    public function GetStateByCode(
         $code
     ) {
-        foreach($this->act->GetStateListCode(
+        foreach($this->act->GetStateListByCode(
         $code
         ) as $item) {
             return $item;
@@ -2480,10 +2480,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetStateListCode(
+    public function CachedGetStateListByCode(
         $code
     ) {
-        return $this->CachedGetStateListCode(
+        return $this->CachedGetStateListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -2491,7 +2491,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetStateListCode(
+    public function CachedGetStateListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -2499,7 +2499,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetStateListCode";
+        $method_name = "CachedGetStateListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -2514,7 +2514,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetStateListCode(
+            $objs = $this->GetStateListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2530,56 +2530,56 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountCityUuid(
+    public function CountCityByUuid(
         $uuid
     ) {      
-        return $this->act->CountCityUuid(
+        return $this->act->CountCityByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountCityCode(
+    public function CountCityByCode(
         $code
     ) {      
-        return $this->act->CountCityCode(
+        return $this->act->CountCityByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseCityListFilter($filter_obj) {
-        return $this->act->BrowseCityListFilter($filter_obj);
+    public function BrowseCityListByFilter($filter_obj) {
+        return $this->act->BrowseCityListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetCityUuid($set_type, $obj) {
-        return $this->act->SetCityUuid($set_type, $obj);
+    public function SetCityByUuid($set_type, $obj) {
+        return $this->act->SetCityByUuid($set_type, $obj);
     }
                
-    public function SetCityUuidFull($obj) {
-        return $this->act->SetCityUuid('full', $obj);
+    public function SetCityByUuidFull($obj) {
+        return $this->act->SetCityByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetCityCode($set_type, $obj) {
-        return $this->act->SetCityCode($set_type, $obj);
+    public function SetCityByCode($set_type, $obj) {
+        return $this->act->SetCityByCode($set_type, $obj);
     }
                
-    public function SetCityCodeFull($obj) {
-        return $this->act->SetCityCode('full', $obj);
+    public function SetCityByCodeFull($obj) {
+        return $this->act->SetCityByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelCityUuid(
+    public function DelCityByUuid(
         $uuid
     ) {         
-        return $this->act->DelCityUuid(
+        return $this->act->DelCityByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelCityCode(
+    public function DelCityByCode(
         $code
     ) {         
-        return $this->act->DelCityCode(
+        return $this->act->DelCityByCode(
         $code
         );
     }
@@ -2635,18 +2635,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetCityListUuid(
+    public function GetCityListByUuid(
         $uuid
         ) {
-            return $this->act->GetCityListUuid(
+            return $this->act->GetCityListByUuid(
                 $uuid
             );
         }
         
-    public function GetCityUuid(
+    public function GetCityByUuid(
         $uuid
     ) {
-        foreach($this->act->GetCityListUuid(
+        foreach($this->act->GetCityListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -2655,10 +2655,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetCityListUuid(
+    public function CachedGetCityListByUuid(
         $uuid
     ) {
-        return $this->CachedGetCityListUuid(
+        return $this->CachedGetCityListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -2666,7 +2666,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetCityListUuid(
+    public function CachedGetCityListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -2674,7 +2674,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetCityListUuid";
+        $method_name = "CachedGetCityListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -2689,7 +2689,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetCityListUuid(
+            $objs = $this->GetCityListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2698,18 +2698,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetCityListCode(
+    public function GetCityListByCode(
         $code
         ) {
-            return $this->act->GetCityListCode(
+            return $this->act->GetCityListByCode(
                 $code
             );
         }
         
-    public function GetCityCode(
+    public function GetCityByCode(
         $code
     ) {
-        foreach($this->act->GetCityListCode(
+        foreach($this->act->GetCityListByCode(
         $code
         ) as $item) {
             return $item;
@@ -2718,10 +2718,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetCityListCode(
+    public function CachedGetCityListByCode(
         $code
     ) {
-        return $this->CachedGetCityListCode(
+        return $this->CachedGetCityListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -2729,7 +2729,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetCityListCode(
+    public function CachedGetCityListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -2737,7 +2737,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetCityListCode";
+        $method_name = "CachedGetCityListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -2752,7 +2752,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetCityListCode(
+            $objs = $this->GetCityListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2768,56 +2768,56 @@ class BaseProfileAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountPostalCodeUuid(
+    public function CountPostalCodeByUuid(
         $uuid
     ) {      
-        return $this->act->CountPostalCodeUuid(
+        return $this->act->CountPostalCodeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountPostalCodeCode(
+    public function CountPostalCodeByCode(
         $code
     ) {      
-        return $this->act->CountPostalCodeCode(
+        return $this->act->CountPostalCodeByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowsePostalCodeListFilter($filter_obj) {
-        return $this->act->BrowsePostalCodeListFilter($filter_obj);
+    public function BrowsePostalCodeListByFilter($filter_obj) {
+        return $this->act->BrowsePostalCodeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetPostalCodeUuid($set_type, $obj) {
-        return $this->act->SetPostalCodeUuid($set_type, $obj);
+    public function SetPostalCodeByUuid($set_type, $obj) {
+        return $this->act->SetPostalCodeByUuid($set_type, $obj);
     }
                
-    public function SetPostalCodeUuidFull($obj) {
-        return $this->act->SetPostalCodeUuid('full', $obj);
+    public function SetPostalCodeByUuidFull($obj) {
+        return $this->act->SetPostalCodeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetPostalCodeCode($set_type, $obj) {
-        return $this->act->SetPostalCodeCode($set_type, $obj);
+    public function SetPostalCodeByCode($set_type, $obj) {
+        return $this->act->SetPostalCodeByCode($set_type, $obj);
     }
                
-    public function SetPostalCodeCodeFull($obj) {
-        return $this->act->SetPostalCodeCode('full', $obj);
+    public function SetPostalCodeByCodeFull($obj) {
+        return $this->act->SetPostalCodeByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelPostalCodeUuid(
+    public function DelPostalCodeByUuid(
         $uuid
     ) {         
-        return $this->act->DelPostalCodeUuid(
+        return $this->act->DelPostalCodeByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelPostalCodeCode(
+    public function DelPostalCodeByCode(
         $code
     ) {         
-        return $this->act->DelPostalCodeCode(
+        return $this->act->DelPostalCodeByCode(
         $code
         );
     }
@@ -2873,18 +2873,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetPostalCodeListUuid(
+    public function GetPostalCodeListByUuid(
         $uuid
         ) {
-            return $this->act->GetPostalCodeListUuid(
+            return $this->act->GetPostalCodeListByUuid(
                 $uuid
             );
         }
         
-    public function GetPostalCodeUuid(
+    public function GetPostalCodeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetPostalCodeListUuid(
+        foreach($this->act->GetPostalCodeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -2893,10 +2893,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetPostalCodeListUuid(
+    public function CachedGetPostalCodeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetPostalCodeListUuid(
+        return $this->CachedGetPostalCodeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -2904,7 +2904,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetPostalCodeListUuid(
+    public function CachedGetPostalCodeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -2912,7 +2912,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetPostalCodeListUuid";
+        $method_name = "CachedGetPostalCodeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -2927,7 +2927,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetPostalCodeListUuid(
+            $objs = $this->GetPostalCodeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2936,18 +2936,18 @@ class BaseProfileAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetPostalCodeListCode(
+    public function GetPostalCodeListByCode(
         $code
         ) {
-            return $this->act->GetPostalCodeListCode(
+            return $this->act->GetPostalCodeListByCode(
                 $code
             );
         }
         
-    public function GetPostalCodeCode(
+    public function GetPostalCodeByCode(
         $code
     ) {
-        foreach($this->act->GetPostalCodeListCode(
+        foreach($this->act->GetPostalCodeListByCode(
         $code
         ) as $item) {
             return $item;
@@ -2956,10 +2956,10 @@ class BaseProfileAPI {
     }
     
     /*
-    public function CachedGetPostalCodeListCode(
+    public function CachedGetPostalCodeListByCode(
         $code
     ) {
-        return $this->CachedGetPostalCodeListCode(
+        return $this->CachedGetPostalCodeListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -2967,7 +2967,7 @@ class BaseProfileAPI {
     }
     */
         
-    public function CachedGetPostalCodeListCode(
+    public function CachedGetPostalCodeListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -2975,7 +2975,7 @@ class BaseProfileAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetPostalCodeListCode";
+        $method_name = "CachedGetPostalCodeListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -2990,7 +2990,7 @@ class BaseProfileAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetPostalCodeListCode(
+            $objs = $this->GetPostalCodeListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);

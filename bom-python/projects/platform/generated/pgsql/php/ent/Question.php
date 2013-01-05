@@ -38,6 +38,7 @@ class Question extends BaseMeta {
     public $channel_id;
     public $type;
     public $org_id;
+    public $data;
     public $choices;
 
     public function __construct() {

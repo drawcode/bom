@@ -35,6 +35,7 @@ class ProfileOrg extends BaseEntity {
     
     }
     
+    public $data;
     public $profile_id;
     public $org_id;
     public $type_id;

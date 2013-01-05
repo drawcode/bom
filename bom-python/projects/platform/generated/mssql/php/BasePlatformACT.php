@@ -99,66 +99,66 @@ class BasePlatformACT {
         );
     }
                
-    public function CountAppUuid(
+    public function CountAppByUuid(
         $uuid
     ) {       
-        return $this->data->CountAppUuid(
+        return $this->data->CountAppByUuid(
             $uuid
         );
     }
                
-    public function CountAppCode(
+    public function CountAppByCode(
         $code
     ) {       
-        return $this->data->CountAppCode(
+        return $this->data->CountAppByCode(
             $code
         );
     }
                
-    public function CountAppTypeId(
+    public function CountAppByTypeId(
         $type_id
     ) {       
-        return $this->data->CountAppTypeId(
+        return $this->data->CountAppByTypeId(
             $type_id
         );
     }
                
-    public function CountAppCodeTypeId(
+    public function CountAppByCodeByTypeId(
         $code
         , $type_id
     ) {       
-        return $this->data->CountAppCodeTypeId(
+        return $this->data->CountAppByCodeByTypeId(
             $code
             , $type_id
         );
     }
                
-    public function CountAppPlatformTypeId(
+    public function CountAppByPlatformByTypeId(
         $platform
         , $type_id
     ) {       
-        return $this->data->CountAppPlatformTypeId(
+        return $this->data->CountAppByPlatformByTypeId(
             $platform
             , $type_id
         );
     }
                
-    public function CountAppPlatform(
+    public function CountAppByPlatform(
         $platform
     ) {       
-        return $this->data->CountAppPlatform(
+        return $this->data->CountAppByPlatform(
             $platform
         );
     }
                
-    public function BrowseAppListFilter($filter_obj) {
+    public function BrowseAppListByFilter($filter_obj) {
         $result = new AppResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseAppListFilter(filter_obj);
+        $rows = $this->data->BrowseAppListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $app = $this->FillApp($row);
@@ -172,26 +172,26 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetAppUuid($set_type, $obj) {           
-        return $this->data->SetAppUuid($set_type, $obj);
+    public function SetAppByUuid($set_type, $obj) {           
+        return $this->data->SetAppByUuid($set_type, $obj);
     }
             
-    public function SetAppCode($set_type, $obj) {           
-        return $this->data->SetAppCode($set_type, $obj);
+    public function SetAppByCode($set_type, $obj) {           
+        return $this->data->SetAppByCode($set_type, $obj);
     }
             
-    public function DelAppUuid(
+    public function DelAppByUuid(
         $uuid
     ) {
-        return $this->data->DelAppUuid(
+        return $this->data->DelAppByUuid(
             $uuid
         );
     }
         
-    public function DelAppCode(
+    public function DelAppByCode(
         $code
     ) {
-        return $this->data->DelAppCode(
+        return $this->data->DelAppByCode(
             $code
         );
     }
@@ -213,12 +213,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetAppListUuid(
+    public function GetAppListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetAppListUuid(
+        $rows = $this->data->GetAppListByUuid(
             $uuid
         );
         
@@ -232,12 +232,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetAppListCode(
+    public function GetAppListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetAppListCode(
+        $rows = $this->data->GetAppListByCode(
             $code
         );
         
@@ -251,12 +251,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetAppListTypeId(
+    public function GetAppListByTypeId(
         $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetAppListTypeId(
+        $rows = $this->data->GetAppListByTypeId(
             $type_id
         );
         
@@ -270,13 +270,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetAppListCodeTypeId(
+    public function GetAppListByCodeByTypeId(
         $code
         , $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetAppListCodeTypeId(
+        $rows = $this->data->GetAppListByCodeByTypeId(
             $code
             , $type_id
         );
@@ -291,13 +291,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetAppListPlatformTypeId(
+    public function GetAppListByPlatformByTypeId(
         $platform
         , $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetAppListPlatformTypeId(
+        $rows = $this->data->GetAppListByPlatformByTypeId(
             $platform
             , $type_id
         );
@@ -312,12 +312,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetAppListPlatform(
+    public function GetAppListByPlatform(
         $platform
     ) {
 
         $results = array();
-        $rows = $this->data->GetAppListPlatform(
+        $rows = $this->data->GetAppListByPlatform(
             $platform
         );
         
@@ -375,30 +375,30 @@ class BasePlatformACT {
         );
     }
                
-    public function CountAppTypeUuid(
+    public function CountAppTypeByUuid(
         $uuid
     ) {       
-        return $this->data->CountAppTypeUuid(
+        return $this->data->CountAppTypeByUuid(
             $uuid
         );
     }
                
-    public function CountAppTypeCode(
+    public function CountAppTypeByCode(
         $code
     ) {       
-        return $this->data->CountAppTypeCode(
+        return $this->data->CountAppTypeByCode(
             $code
         );
     }
                
-    public function BrowseAppTypeListFilter($filter_obj) {
+    public function BrowseAppTypeListByFilter($filter_obj) {
         $result = new AppTypeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseAppTypeListFilter(filter_obj);
+        $rows = $this->data->BrowseAppTypeListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $app_type = $this->FillAppType($row);
@@ -412,26 +412,26 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetAppTypeUuid($set_type, $obj) {           
-        return $this->data->SetAppTypeUuid($set_type, $obj);
+    public function SetAppTypeByUuid($set_type, $obj) {           
+        return $this->data->SetAppTypeByUuid($set_type, $obj);
     }
             
-    public function SetAppTypeCode($set_type, $obj) {           
-        return $this->data->SetAppTypeCode($set_type, $obj);
+    public function SetAppTypeByCode($set_type, $obj) {           
+        return $this->data->SetAppTypeByCode($set_type, $obj);
     }
             
-    public function DelAppTypeUuid(
+    public function DelAppTypeByUuid(
         $uuid
     ) {
-        return $this->data->DelAppTypeUuid(
+        return $this->data->DelAppTypeByUuid(
             $uuid
         );
     }
         
-    public function DelAppTypeCode(
+    public function DelAppTypeByCode(
         $code
     ) {
-        return $this->data->DelAppTypeCode(
+        return $this->data->DelAppTypeByCode(
             $code
         );
     }
@@ -453,12 +453,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetAppTypeListUuid(
+    public function GetAppTypeListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetAppTypeListUuid(
+        $rows = $this->data->GetAppTypeListByUuid(
             $uuid
         );
         
@@ -472,12 +472,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetAppTypeListCode(
+    public function GetAppTypeListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetAppTypeListCode(
+        $rows = $this->data->GetAppTypeListByCode(
             $code
         );
         
@@ -541,66 +541,66 @@ class BasePlatformACT {
         );
     }
                
-    public function CountSiteUuid(
+    public function CountSiteByUuid(
         $uuid
     ) {       
-        return $this->data->CountSiteUuid(
+        return $this->data->CountSiteByUuid(
             $uuid
         );
     }
                
-    public function CountSiteCode(
+    public function CountSiteByCode(
         $code
     ) {       
-        return $this->data->CountSiteCode(
+        return $this->data->CountSiteByCode(
             $code
         );
     }
                
-    public function CountSiteTypeId(
+    public function CountSiteByTypeId(
         $type_id
     ) {       
-        return $this->data->CountSiteTypeId(
+        return $this->data->CountSiteByTypeId(
             $type_id
         );
     }
                
-    public function CountSiteCodeTypeId(
+    public function CountSiteByCodeByTypeId(
         $code
         , $type_id
     ) {       
-        return $this->data->CountSiteCodeTypeId(
+        return $this->data->CountSiteByCodeByTypeId(
             $code
             , $type_id
         );
     }
                
-    public function CountSiteDomainTypeId(
+    public function CountSiteByDomainByTypeId(
         $domain
         , $type_id
     ) {       
-        return $this->data->CountSiteDomainTypeId(
+        return $this->data->CountSiteByDomainByTypeId(
             $domain
             , $type_id
         );
     }
                
-    public function CountSiteDomain(
+    public function CountSiteByDomain(
         $domain
     ) {       
-        return $this->data->CountSiteDomain(
+        return $this->data->CountSiteByDomain(
             $domain
         );
     }
                
-    public function BrowseSiteListFilter($filter_obj) {
+    public function BrowseSiteListByFilter($filter_obj) {
         $result = new SiteResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseSiteListFilter(filter_obj);
+        $rows = $this->data->BrowseSiteListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $site = $this->FillSite($row);
@@ -614,26 +614,26 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetSiteUuid($set_type, $obj) {           
-        return $this->data->SetSiteUuid($set_type, $obj);
+    public function SetSiteByUuid($set_type, $obj) {           
+        return $this->data->SetSiteByUuid($set_type, $obj);
     }
             
-    public function SetSiteCode($set_type, $obj) {           
-        return $this->data->SetSiteCode($set_type, $obj);
+    public function SetSiteByCode($set_type, $obj) {           
+        return $this->data->SetSiteByCode($set_type, $obj);
     }
             
-    public function DelSiteUuid(
+    public function DelSiteByUuid(
         $uuid
     ) {
-        return $this->data->DelSiteUuid(
+        return $this->data->DelSiteByUuid(
             $uuid
         );
     }
         
-    public function DelSiteCode(
+    public function DelSiteByCode(
         $code
     ) {
-        return $this->data->DelSiteCode(
+        return $this->data->DelSiteByCode(
             $code
         );
     }
@@ -655,12 +655,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteListUuid(
+    public function GetSiteListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteListUuid(
+        $rows = $this->data->GetSiteListByUuid(
             $uuid
         );
         
@@ -674,12 +674,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteListCode(
+    public function GetSiteListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteListCode(
+        $rows = $this->data->GetSiteListByCode(
             $code
         );
         
@@ -693,12 +693,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteListTypeId(
+    public function GetSiteListByTypeId(
         $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteListTypeId(
+        $rows = $this->data->GetSiteListByTypeId(
             $type_id
         );
         
@@ -712,13 +712,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteListCodeTypeId(
+    public function GetSiteListByCodeByTypeId(
         $code
         , $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteListCodeTypeId(
+        $rows = $this->data->GetSiteListByCodeByTypeId(
             $code
             , $type_id
         );
@@ -733,13 +733,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteListDomainTypeId(
+    public function GetSiteListByDomainByTypeId(
         $domain
         , $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteListDomainTypeId(
+        $rows = $this->data->GetSiteListByDomainByTypeId(
             $domain
             , $type_id
         );
@@ -754,12 +754,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteListDomain(
+    public function GetSiteListByDomain(
         $domain
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteListDomain(
+        $rows = $this->data->GetSiteListByDomain(
             $domain
         );
         
@@ -817,30 +817,30 @@ class BasePlatformACT {
         );
     }
                
-    public function CountSiteTypeUuid(
+    public function CountSiteTypeByUuid(
         $uuid
     ) {       
-        return $this->data->CountSiteTypeUuid(
+        return $this->data->CountSiteTypeByUuid(
             $uuid
         );
     }
                
-    public function CountSiteTypeCode(
+    public function CountSiteTypeByCode(
         $code
     ) {       
-        return $this->data->CountSiteTypeCode(
+        return $this->data->CountSiteTypeByCode(
             $code
         );
     }
                
-    public function BrowseSiteTypeListFilter($filter_obj) {
+    public function BrowseSiteTypeListByFilter($filter_obj) {
         $result = new SiteTypeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseSiteTypeListFilter(filter_obj);
+        $rows = $this->data->BrowseSiteTypeListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $site_type = $this->FillSiteType($row);
@@ -854,26 +854,26 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetSiteTypeUuid($set_type, $obj) {           
-        return $this->data->SetSiteTypeUuid($set_type, $obj);
+    public function SetSiteTypeByUuid($set_type, $obj) {           
+        return $this->data->SetSiteTypeByUuid($set_type, $obj);
     }
             
-    public function SetSiteTypeCode($set_type, $obj) {           
-        return $this->data->SetSiteTypeCode($set_type, $obj);
+    public function SetSiteTypeByCode($set_type, $obj) {           
+        return $this->data->SetSiteTypeByCode($set_type, $obj);
     }
             
-    public function DelSiteTypeUuid(
+    public function DelSiteTypeByUuid(
         $uuid
     ) {
-        return $this->data->DelSiteTypeUuid(
+        return $this->data->DelSiteTypeByUuid(
             $uuid
         );
     }
         
-    public function DelSiteTypeCode(
+    public function DelSiteTypeByCode(
         $code
     ) {
-        return $this->data->DelSiteTypeCode(
+        return $this->data->DelSiteTypeByCode(
             $code
         );
     }
@@ -895,12 +895,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteTypeListUuid(
+    public function GetSiteTypeListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteTypeListUuid(
+        $rows = $this->data->GetSiteTypeListByUuid(
             $uuid
         );
         
@@ -914,12 +914,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteTypeListCode(
+    public function GetSiteTypeListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteTypeListCode(
+        $rows = $this->data->GetSiteTypeListByCode(
             $code
         );
         
@@ -980,38 +980,38 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOrgUuid(
+    public function CountOrgByUuid(
         $uuid
     ) {       
-        return $this->data->CountOrgUuid(
+        return $this->data->CountOrgByUuid(
             $uuid
         );
     }
                
-    public function CountOrgCode(
+    public function CountOrgByCode(
         $code
     ) {       
-        return $this->data->CountOrgCode(
+        return $this->data->CountOrgByCode(
             $code
         );
     }
                
-    public function CountOrgName(
+    public function CountOrgByName(
         $name
     ) {       
-        return $this->data->CountOrgName(
+        return $this->data->CountOrgByName(
             $name
         );
     }
                
-    public function BrowseOrgListFilter($filter_obj) {
+    public function BrowseOrgListByFilter($filter_obj) {
         $result = new OrgResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOrgListFilter(filter_obj);
+        $rows = $this->data->BrowseOrgListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $org = $this->FillOrg($row);
@@ -1025,14 +1025,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOrgUuid($set_type, $obj) {           
-        return $this->data->SetOrgUuid($set_type, $obj);
+    public function SetOrgByUuid($set_type, $obj) {           
+        return $this->data->SetOrgByUuid($set_type, $obj);
     }
             
-    public function DelOrgUuid(
+    public function DelOrgByUuid(
         $uuid
     ) {
-        return $this->data->DelOrgUuid(
+        return $this->data->DelOrgByUuid(
             $uuid
         );
     }
@@ -1054,12 +1054,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOrgListUuid(
+    public function GetOrgListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOrgListUuid(
+        $rows = $this->data->GetOrgListByUuid(
             $uuid
         );
         
@@ -1073,12 +1073,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOrgListCode(
+    public function GetOrgListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetOrgListCode(
+        $rows = $this->data->GetOrgListByCode(
             $code
         );
         
@@ -1092,12 +1092,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOrgListName(
+    public function GetOrgListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetOrgListName(
+        $rows = $this->data->GetOrgListByName(
             $name
         );
         
@@ -1155,30 +1155,30 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOrgTypeUuid(
+    public function CountOrgTypeByUuid(
         $uuid
     ) {       
-        return $this->data->CountOrgTypeUuid(
+        return $this->data->CountOrgTypeByUuid(
             $uuid
         );
     }
                
-    public function CountOrgTypeCode(
+    public function CountOrgTypeByCode(
         $code
     ) {       
-        return $this->data->CountOrgTypeCode(
+        return $this->data->CountOrgTypeByCode(
             $code
         );
     }
                
-    public function BrowseOrgTypeListFilter($filter_obj) {
+    public function BrowseOrgTypeListByFilter($filter_obj) {
         $result = new OrgTypeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOrgTypeListFilter(filter_obj);
+        $rows = $this->data->BrowseOrgTypeListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $org_type = $this->FillOrgType($row);
@@ -1192,26 +1192,26 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOrgTypeUuid($set_type, $obj) {           
-        return $this->data->SetOrgTypeUuid($set_type, $obj);
+    public function SetOrgTypeByUuid($set_type, $obj) {           
+        return $this->data->SetOrgTypeByUuid($set_type, $obj);
     }
             
-    public function SetOrgTypeCode($set_type, $obj) {           
-        return $this->data->SetOrgTypeCode($set_type, $obj);
+    public function SetOrgTypeByCode($set_type, $obj) {           
+        return $this->data->SetOrgTypeByCode($set_type, $obj);
     }
             
-    public function DelOrgTypeUuid(
+    public function DelOrgTypeByUuid(
         $uuid
     ) {
-        return $this->data->DelOrgTypeUuid(
+        return $this->data->DelOrgTypeByUuid(
             $uuid
         );
     }
         
-    public function DelOrgTypeCode(
+    public function DelOrgTypeByCode(
         $code
     ) {
-        return $this->data->DelOrgTypeCode(
+        return $this->data->DelOrgTypeByCode(
             $code
         );
     }
@@ -1233,12 +1233,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOrgTypeListUuid(
+    public function GetOrgTypeListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOrgTypeListUuid(
+        $rows = $this->data->GetOrgTypeListByUuid(
             $uuid
         );
         
@@ -1252,12 +1252,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOrgTypeListCode(
+    public function GetOrgTypeListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetOrgTypeListCode(
+        $rows = $this->data->GetOrgTypeListByCode(
             $code
         );
         
@@ -1330,46 +1330,46 @@ class BasePlatformACT {
         );
     }
                
-    public function CountContentItemUuid(
+    public function CountContentItemByUuid(
         $uuid
     ) {       
-        return $this->data->CountContentItemUuid(
+        return $this->data->CountContentItemByUuid(
             $uuid
         );
     }
                
-    public function CountContentItemCode(
+    public function CountContentItemByCode(
         $code
     ) {       
-        return $this->data->CountContentItemCode(
+        return $this->data->CountContentItemByCode(
             $code
         );
     }
                
-    public function CountContentItemName(
+    public function CountContentItemByName(
         $name
     ) {       
-        return $this->data->CountContentItemName(
+        return $this->data->CountContentItemByName(
             $name
         );
     }
                
-    public function CountContentItemPath(
+    public function CountContentItemByPath(
         $path
     ) {       
-        return $this->data->CountContentItemPath(
+        return $this->data->CountContentItemByPath(
             $path
         );
     }
                
-    public function BrowseContentItemListFilter($filter_obj) {
+    public function BrowseContentItemListByFilter($filter_obj) {
         $result = new ContentItemResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseContentItemListFilter(filter_obj);
+        $rows = $this->data->BrowseContentItemListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $content_item = $this->FillContentItem($row);
@@ -1383,22 +1383,22 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetContentItemUuid($set_type, $obj) {           
-        return $this->data->SetContentItemUuid($set_type, $obj);
+    public function SetContentItemByUuid($set_type, $obj) {           
+        return $this->data->SetContentItemByUuid($set_type, $obj);
     }
             
-    public function DelContentItemUuid(
+    public function DelContentItemByUuid(
         $uuid
     ) {
-        return $this->data->DelContentItemUuid(
+        return $this->data->DelContentItemByUuid(
             $uuid
         );
     }
         
-    public function DelContentItemPath(
+    public function DelContentItemByPath(
         $path
     ) {
-        return $this->data->DelContentItemPath(
+        return $this->data->DelContentItemByPath(
             $path
         );
     }
@@ -1420,12 +1420,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentItemListUuid(
+    public function GetContentItemListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentItemListUuid(
+        $rows = $this->data->GetContentItemListByUuid(
             $uuid
         );
         
@@ -1439,12 +1439,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentItemListCode(
+    public function GetContentItemListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentItemListCode(
+        $rows = $this->data->GetContentItemListByCode(
             $code
         );
         
@@ -1458,12 +1458,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentItemListName(
+    public function GetContentItemListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentItemListName(
+        $rows = $this->data->GetContentItemListByName(
             $name
         );
         
@@ -1477,12 +1477,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentItemListPath(
+    public function GetContentItemListByPath(
         $path
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentItemListPath(
+        $rows = $this->data->GetContentItemListByPath(
             $path
         );
         
@@ -1540,30 +1540,30 @@ class BasePlatformACT {
         );
     }
                
-    public function CountContentItemTypeUuid(
+    public function CountContentItemTypeByUuid(
         $uuid
     ) {       
-        return $this->data->CountContentItemTypeUuid(
+        return $this->data->CountContentItemTypeByUuid(
             $uuid
         );
     }
                
-    public function CountContentItemTypeCode(
+    public function CountContentItemTypeByCode(
         $code
     ) {       
-        return $this->data->CountContentItemTypeCode(
+        return $this->data->CountContentItemTypeByCode(
             $code
         );
     }
                
-    public function BrowseContentItemTypeListFilter($filter_obj) {
+    public function BrowseContentItemTypeListByFilter($filter_obj) {
         $result = new ContentItemTypeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseContentItemTypeListFilter(filter_obj);
+        $rows = $this->data->BrowseContentItemTypeListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $content_item_type = $this->FillContentItemType($row);
@@ -1577,26 +1577,26 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetContentItemTypeUuid($set_type, $obj) {           
-        return $this->data->SetContentItemTypeUuid($set_type, $obj);
+    public function SetContentItemTypeByUuid($set_type, $obj) {           
+        return $this->data->SetContentItemTypeByUuid($set_type, $obj);
     }
             
-    public function SetContentItemTypeCode($set_type, $obj) {           
-        return $this->data->SetContentItemTypeCode($set_type, $obj);
+    public function SetContentItemTypeByCode($set_type, $obj) {           
+        return $this->data->SetContentItemTypeByCode($set_type, $obj);
     }
             
-    public function DelContentItemTypeUuid(
+    public function DelContentItemTypeByUuid(
         $uuid
     ) {
-        return $this->data->DelContentItemTypeUuid(
+        return $this->data->DelContentItemTypeByUuid(
             $uuid
         );
     }
         
-    public function DelContentItemTypeCode(
+    public function DelContentItemTypeByCode(
         $code
     ) {
-        return $this->data->DelContentItemTypeCode(
+        return $this->data->DelContentItemTypeByCode(
             $code
         );
     }
@@ -1618,12 +1618,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentItemTypeListUuid(
+    public function GetContentItemTypeListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentItemTypeListUuid(
+        $rows = $this->data->GetContentItemTypeListByUuid(
             $uuid
         );
         
@@ -1637,12 +1637,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentItemTypeListCode(
+    public function GetContentItemTypeListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentItemTypeListCode(
+        $rows = $this->data->GetContentItemTypeListByCode(
             $code
         );
         
@@ -1674,6 +1674,9 @@ class BasePlatformACT {
         }
         if ($row['date_modified'] != NULL) {                
             $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
         }
         if ($row['date_end'] != NULL) {                
             $obj->date_end = $row['date_end'];#dataType.FillDataDate(dr, "date_end");
@@ -1715,46 +1718,46 @@ class BasePlatformACT {
         );
     }
                
-    public function CountContentPageUuid(
+    public function CountContentPageByUuid(
         $uuid
     ) {       
-        return $this->data->CountContentPageUuid(
+        return $this->data->CountContentPageByUuid(
             $uuid
         );
     }
                
-    public function CountContentPageCode(
+    public function CountContentPageByCode(
         $code
     ) {       
-        return $this->data->CountContentPageCode(
+        return $this->data->CountContentPageByCode(
             $code
         );
     }
                
-    public function CountContentPageName(
+    public function CountContentPageByName(
         $name
     ) {       
-        return $this->data->CountContentPageName(
+        return $this->data->CountContentPageByName(
             $name
         );
     }
                
-    public function CountContentPagePath(
+    public function CountContentPageByPath(
         $path
     ) {       
-        return $this->data->CountContentPagePath(
+        return $this->data->CountContentPageByPath(
             $path
         );
     }
                
-    public function BrowseContentPageListFilter($filter_obj) {
+    public function BrowseContentPageListByFilter($filter_obj) {
         $result = new ContentPageResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseContentPageListFilter(filter_obj);
+        $rows = $this->data->BrowseContentPageListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $content_page = $this->FillContentPage($row);
@@ -1768,32 +1771,32 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetContentPageUuid($set_type, $obj) {           
-        return $this->data->SetContentPageUuid($set_type, $obj);
+    public function SetContentPageByUuid($set_type, $obj) {           
+        return $this->data->SetContentPageByUuid($set_type, $obj);
     }
             
-    public function DelContentPageUuid(
+    public function DelContentPageByUuid(
         $uuid
     ) {
-        return $this->data->DelContentPageUuid(
+        return $this->data->DelContentPageByUuid(
             $uuid
         );
     }
         
-    public function DelContentPagePathSiteId(
+    public function DelContentPageByPathBySiteId(
         $path
         , $site_id
     ) {
-        return $this->data->DelContentPagePathSiteId(
+        return $this->data->DelContentPageByPathBySiteId(
             $path
             , $site_id
         );
     }
         
-    public function DelContentPagePath(
+    public function DelContentPageByPath(
         $path
     ) {
-        return $this->data->DelContentPagePath(
+        return $this->data->DelContentPageByPath(
             $path
         );
     }
@@ -1815,12 +1818,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentPageListUuid(
+    public function GetContentPageListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentPageListUuid(
+        $rows = $this->data->GetContentPageListByUuid(
             $uuid
         );
         
@@ -1834,12 +1837,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentPageListCode(
+    public function GetContentPageListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentPageListCode(
+        $rows = $this->data->GetContentPageListByCode(
             $code
         );
         
@@ -1853,12 +1856,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentPageListName(
+    public function GetContentPageListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentPageListName(
+        $rows = $this->data->GetContentPageListByName(
             $name
         );
         
@@ -1872,12 +1875,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentPageListPath(
+    public function GetContentPageListByPath(
         $path
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentPageListPath(
+        $rows = $this->data->GetContentPageListByPath(
             $path
         );
         
@@ -1891,12 +1894,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentPageListSiteId(
+    public function GetContentPageListBySiteId(
         $site_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentPageListSiteId(
+        $rows = $this->data->GetContentPageListBySiteId(
             $site_id
         );
         
@@ -1910,13 +1913,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetContentPageListSiteIdPath(
+    public function GetContentPageListBySiteIdByPath(
         $site_id
         , $path
     ) {
 
         $results = array();
-        $rows = $this->data->GetContentPageListSiteIdPath(
+        $rows = $this->data->GetContentPageListBySiteIdByPath(
             $site_id
             , $path
         );
@@ -1956,6 +1959,9 @@ class BasePlatformACT {
         if ($row['active'] != NULL) {                
             $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['subject'] != NULL) {                
             $obj->subject = $row['subject'];#dataType.FillDataString(dr, "subject");
         }
@@ -1990,22 +1996,22 @@ class BasePlatformACT {
         );
     }
                
-    public function CountMessageUuid(
+    public function CountMessageByUuid(
         $uuid
     ) {       
-        return $this->data->CountMessageUuid(
+        return $this->data->CountMessageByUuid(
             $uuid
         );
     }
                
-    public function BrowseMessageListFilter($filter_obj) {
+    public function BrowseMessageListByFilter($filter_obj) {
         $result = new MessageResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseMessageListFilter(filter_obj);
+        $rows = $this->data->BrowseMessageListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $message = $this->FillMessage($row);
@@ -2019,14 +2025,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetMessageUuid($set_type, $obj) {           
-        return $this->data->SetMessageUuid($set_type, $obj);
+    public function SetMessageByUuid($set_type, $obj) {           
+        return $this->data->SetMessageByUuid($set_type, $obj);
     }
             
-    public function DelMessageUuid(
+    public function DelMessageByUuid(
         $uuid
     ) {
-        return $this->data->DelMessageUuid(
+        return $this->data->DelMessageByUuid(
             $uuid
         );
     }
@@ -2048,12 +2054,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetMessageListUuid(
+    public function GetMessageListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetMessageListUuid(
+        $rows = $this->data->GetMessageListByUuid(
             $uuid
         );
         
@@ -2089,6 +2095,9 @@ class BasePlatformACT {
         if ($row['url'] != NULL) {                
             $obj->url = $row['url'];#dataType.FillDataString(dr, "url");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['type_id'] != NULL) {                
             $obj->type_id = $row['type_id'];#dataType.FillDataString(dr, "type_id");
         }
@@ -2123,46 +2132,46 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOfferUuid(
+    public function CountOfferByUuid(
         $uuid
     ) {       
-        return $this->data->CountOfferUuid(
+        return $this->data->CountOfferByUuid(
             $uuid
         );
     }
                
-    public function CountOfferCode(
+    public function CountOfferByCode(
         $code
     ) {       
-        return $this->data->CountOfferCode(
+        return $this->data->CountOfferByCode(
             $code
         );
     }
                
-    public function CountOfferName(
+    public function CountOfferByName(
         $name
     ) {       
-        return $this->data->CountOfferName(
+        return $this->data->CountOfferByName(
             $name
         );
     }
                
-    public function CountOfferOrgId(
+    public function CountOfferByOrgId(
         $org_id
     ) {       
-        return $this->data->CountOfferOrgId(
+        return $this->data->CountOfferByOrgId(
             $org_id
         );
     }
                
-    public function BrowseOfferListFilter($filter_obj) {
+    public function BrowseOfferListByFilter($filter_obj) {
         $result = new OfferResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOfferListFilter(filter_obj);
+        $rows = $this->data->BrowseOfferListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $offer = $this->FillOffer($row);
@@ -2176,22 +2185,22 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOfferUuid($set_type, $obj) {           
-        return $this->data->SetOfferUuid($set_type, $obj);
+    public function SetOfferByUuid($set_type, $obj) {           
+        return $this->data->SetOfferByUuid($set_type, $obj);
     }
             
-    public function DelOfferUuid(
+    public function DelOfferByUuid(
         $uuid
     ) {
-        return $this->data->DelOfferUuid(
+        return $this->data->DelOfferByUuid(
             $uuid
         );
     }
         
-    public function DelOfferOrgId(
+    public function DelOfferByOrgId(
         $org_id
     ) {
-        return $this->data->DelOfferOrgId(
+        return $this->data->DelOfferByOrgId(
             $org_id
         );
     }
@@ -2213,12 +2222,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferListUuid(
+    public function GetOfferListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferListUuid(
+        $rows = $this->data->GetOfferListByUuid(
             $uuid
         );
         
@@ -2232,12 +2241,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferListCode(
+    public function GetOfferListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferListCode(
+        $rows = $this->data->GetOfferListByCode(
             $code
         );
         
@@ -2251,12 +2260,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferListName(
+    public function GetOfferListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferListName(
+        $rows = $this->data->GetOfferListByName(
             $name
         );
         
@@ -2270,12 +2279,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferListOrgId(
+    public function GetOfferListByOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferListOrgId(
+        $rows = $this->data->GetOfferListByOrgId(
             $org_id
         );
         
@@ -2333,38 +2342,38 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOfferTypeUuid(
+    public function CountOfferTypeByUuid(
         $uuid
     ) {       
-        return $this->data->CountOfferTypeUuid(
+        return $this->data->CountOfferTypeByUuid(
             $uuid
         );
     }
                
-    public function CountOfferTypeCode(
+    public function CountOfferTypeByCode(
         $code
     ) {       
-        return $this->data->CountOfferTypeCode(
+        return $this->data->CountOfferTypeByCode(
             $code
         );
     }
                
-    public function CountOfferTypeName(
+    public function CountOfferTypeByName(
         $name
     ) {       
-        return $this->data->CountOfferTypeName(
+        return $this->data->CountOfferTypeByName(
             $name
         );
     }
                
-    public function BrowseOfferTypeListFilter($filter_obj) {
+    public function BrowseOfferTypeListByFilter($filter_obj) {
         $result = new OfferTypeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOfferTypeListFilter(filter_obj);
+        $rows = $this->data->BrowseOfferTypeListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $offer_type = $this->FillOfferType($row);
@@ -2378,14 +2387,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOfferTypeUuid($set_type, $obj) {           
-        return $this->data->SetOfferTypeUuid($set_type, $obj);
+    public function SetOfferTypeByUuid($set_type, $obj) {           
+        return $this->data->SetOfferTypeByUuid($set_type, $obj);
     }
             
-    public function DelOfferTypeUuid(
+    public function DelOfferTypeByUuid(
         $uuid
     ) {
-        return $this->data->DelOfferTypeUuid(
+        return $this->data->DelOfferTypeByUuid(
             $uuid
         );
     }
@@ -2407,12 +2416,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferTypeListUuid(
+    public function GetOfferTypeListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferTypeListUuid(
+        $rows = $this->data->GetOfferTypeListByUuid(
             $uuid
         );
         
@@ -2426,12 +2435,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferTypeListCode(
+    public function GetOfferTypeListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferTypeListCode(
+        $rows = $this->data->GetOfferTypeListByCode(
             $code
         );
         
@@ -2445,12 +2454,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferTypeListName(
+    public function GetOfferTypeListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferTypeListName(
+        $rows = $this->data->GetOfferTypeListByName(
             $name
         );
         
@@ -2503,6 +2512,9 @@ class BasePlatformACT {
         }
         if ($row['active'] != NULL) {                
             $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
         }
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
@@ -2559,54 +2571,54 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOfferLocationUuid(
+    public function CountOfferLocationByUuid(
         $uuid
     ) {       
-        return $this->data->CountOfferLocationUuid(
+        return $this->data->CountOfferLocationByUuid(
             $uuid
         );
     }
                
-    public function CountOfferLocationOfferId(
+    public function CountOfferLocationByOfferId(
         $offer_id
     ) {       
-        return $this->data->CountOfferLocationOfferId(
+        return $this->data->CountOfferLocationByOfferId(
             $offer_id
         );
     }
                
-    public function CountOfferLocationCity(
+    public function CountOfferLocationByCity(
         $city
     ) {       
-        return $this->data->CountOfferLocationCity(
+        return $this->data->CountOfferLocationByCity(
             $city
         );
     }
                
-    public function CountOfferLocationCountryCode(
+    public function CountOfferLocationByCountryCode(
         $country_code
     ) {       
-        return $this->data->CountOfferLocationCountryCode(
+        return $this->data->CountOfferLocationByCountryCode(
             $country_code
         );
     }
                
-    public function CountOfferLocationPostalCode(
+    public function CountOfferLocationByPostalCode(
         $postal_code
     ) {       
-        return $this->data->CountOfferLocationPostalCode(
+        return $this->data->CountOfferLocationByPostalCode(
             $postal_code
         );
     }
                
-    public function BrowseOfferLocationListFilter($filter_obj) {
+    public function BrowseOfferLocationListByFilter($filter_obj) {
         $result = new OfferLocationResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOfferLocationListFilter(filter_obj);
+        $rows = $this->data->BrowseOfferLocationListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $offer_location = $this->FillOfferLocation($row);
@@ -2620,14 +2632,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOfferLocationUuid($set_type, $obj) {           
-        return $this->data->SetOfferLocationUuid($set_type, $obj);
+    public function SetOfferLocationByUuid($set_type, $obj) {           
+        return $this->data->SetOfferLocationByUuid($set_type, $obj);
     }
             
-    public function DelOfferLocationUuid(
+    public function DelOfferLocationByUuid(
         $uuid
     ) {
-        return $this->data->DelOfferLocationUuid(
+        return $this->data->DelOfferLocationByUuid(
             $uuid
         );
     }
@@ -2649,12 +2661,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferLocationListUuid(
+    public function GetOfferLocationListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferLocationListUuid(
+        $rows = $this->data->GetOfferLocationListByUuid(
             $uuid
         );
         
@@ -2668,12 +2680,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferLocationListOfferId(
+    public function GetOfferLocationListByOfferId(
         $offer_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferLocationListOfferId(
+        $rows = $this->data->GetOfferLocationListByOfferId(
             $offer_id
         );
         
@@ -2687,12 +2699,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferLocationListCity(
+    public function GetOfferLocationListByCity(
         $city
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferLocationListCity(
+        $rows = $this->data->GetOfferLocationListByCity(
             $city
         );
         
@@ -2706,12 +2718,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferLocationListCountryCode(
+    public function GetOfferLocationListByCountryCode(
         $country_code
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferLocationListCountryCode(
+        $rows = $this->data->GetOfferLocationListByCountryCode(
             $country_code
         );
         
@@ -2725,12 +2737,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferLocationListPostalCode(
+    public function GetOfferLocationListByPostalCode(
         $postal_code
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferLocationListPostalCode(
+        $rows = $this->data->GetOfferLocationListByPostalCode(
             $postal_code
         );
         
@@ -2763,6 +2775,9 @@ class BasePlatformACT {
         if ($row['date_modified'] != NULL) {                
             $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['type_id'] != NULL) {                
             $obj->type_id = $row['type_id'];#dataType.FillDataString(dr, "type_id");
         }
@@ -2794,64 +2809,64 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOfferCategoryUuid(
+    public function CountOfferCategoryByUuid(
         $uuid
     ) {       
-        return $this->data->CountOfferCategoryUuid(
+        return $this->data->CountOfferCategoryByUuid(
             $uuid
         );
     }
                
-    public function CountOfferCategoryCode(
+    public function CountOfferCategoryByCode(
         $code
     ) {       
-        return $this->data->CountOfferCategoryCode(
+        return $this->data->CountOfferCategoryByCode(
             $code
         );
     }
                
-    public function CountOfferCategoryName(
+    public function CountOfferCategoryByName(
         $name
     ) {       
-        return $this->data->CountOfferCategoryName(
+        return $this->data->CountOfferCategoryByName(
             $name
         );
     }
                
-    public function CountOfferCategoryOrgId(
+    public function CountOfferCategoryByOrgId(
         $org_id
     ) {       
-        return $this->data->CountOfferCategoryOrgId(
+        return $this->data->CountOfferCategoryByOrgId(
             $org_id
         );
     }
                
-    public function CountOfferCategoryTypeId(
+    public function CountOfferCategoryByTypeId(
         $type_id
     ) {       
-        return $this->data->CountOfferCategoryTypeId(
+        return $this->data->CountOfferCategoryByTypeId(
             $type_id
         );
     }
                
-    public function CountOfferCategoryOrgIdTypeId(
+    public function CountOfferCategoryByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {       
-        return $this->data->CountOfferCategoryOrgIdTypeId(
+        return $this->data->CountOfferCategoryByOrgIdByTypeId(
             $org_id
             , $type_id
         );
     }
                
-    public function BrowseOfferCategoryListFilter($filter_obj) {
+    public function BrowseOfferCategoryListByFilter($filter_obj) {
         $result = new OfferCategoryResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOfferCategoryListFilter(filter_obj);
+        $rows = $this->data->BrowseOfferCategoryListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $offer_category = $this->FillOfferCategory($row);
@@ -2865,34 +2880,34 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOfferCategoryUuid($set_type, $obj) {           
-        return $this->data->SetOfferCategoryUuid($set_type, $obj);
+    public function SetOfferCategoryByUuid($set_type, $obj) {           
+        return $this->data->SetOfferCategoryByUuid($set_type, $obj);
     }
             
-    public function DelOfferCategoryUuid(
+    public function DelOfferCategoryByUuid(
         $uuid
     ) {
-        return $this->data->DelOfferCategoryUuid(
+        return $this->data->DelOfferCategoryByUuid(
             $uuid
         );
     }
         
-    public function DelOfferCategoryCodeOrgId(
+    public function DelOfferCategoryByCodeByOrgId(
         $code
         , $org_id
     ) {
-        return $this->data->DelOfferCategoryCodeOrgId(
+        return $this->data->DelOfferCategoryByCodeByOrgId(
             $code
             , $org_id
         );
     }
         
-    public function DelOfferCategoryCodeOrgIdTypeId(
+    public function DelOfferCategoryByCodeByOrgIdByTypeId(
         $code
         , $org_id
         , $type_id
     ) {
-        return $this->data->DelOfferCategoryCodeOrgIdTypeId(
+        return $this->data->DelOfferCategoryByCodeByOrgIdByTypeId(
             $code
             , $org_id
             , $type_id
@@ -2916,12 +2931,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryListUuid(
+    public function GetOfferCategoryListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryListUuid(
+        $rows = $this->data->GetOfferCategoryListByUuid(
             $uuid
         );
         
@@ -2935,12 +2950,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryListCode(
+    public function GetOfferCategoryListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryListCode(
+        $rows = $this->data->GetOfferCategoryListByCode(
             $code
         );
         
@@ -2954,12 +2969,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryListName(
+    public function GetOfferCategoryListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryListName(
+        $rows = $this->data->GetOfferCategoryListByName(
             $name
         );
         
@@ -2973,12 +2988,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryListOrgId(
+    public function GetOfferCategoryListByOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryListOrgId(
+        $rows = $this->data->GetOfferCategoryListByOrgId(
             $org_id
         );
         
@@ -2992,12 +3007,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryListTypeId(
+    public function GetOfferCategoryListByTypeId(
         $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryListTypeId(
+        $rows = $this->data->GetOfferCategoryListByTypeId(
             $type_id
         );
         
@@ -3011,13 +3026,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryListOrgIdTypeId(
+    public function GetOfferCategoryListByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryListOrgIdTypeId(
+        $rows = $this->data->GetOfferCategoryListByOrgIdByTypeId(
             $org_id
             , $type_id
         );
@@ -3070,48 +3085,48 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOfferCategoryTreeUuid(
+    public function CountOfferCategoryTreeByUuid(
         $uuid
     ) {       
-        return $this->data->CountOfferCategoryTreeUuid(
+        return $this->data->CountOfferCategoryTreeByUuid(
             $uuid
         );
     }
                
-    public function CountOfferCategoryTreeParentId(
+    public function CountOfferCategoryTreeByParentId(
         $parent_id
     ) {       
-        return $this->data->CountOfferCategoryTreeParentId(
+        return $this->data->CountOfferCategoryTreeByParentId(
             $parent_id
         );
     }
                
-    public function CountOfferCategoryTreeCategoryId(
+    public function CountOfferCategoryTreeByCategoryId(
         $category_id
     ) {       
-        return $this->data->CountOfferCategoryTreeCategoryId(
+        return $this->data->CountOfferCategoryTreeByCategoryId(
             $category_id
         );
     }
                
-    public function CountOfferCategoryTreeParentIdCategoryId(
+    public function CountOfferCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {       
-        return $this->data->CountOfferCategoryTreeParentIdCategoryId(
+        return $this->data->CountOfferCategoryTreeByParentIdByCategoryId(
             $parent_id
             , $category_id
         );
     }
                
-    public function BrowseOfferCategoryTreeListFilter($filter_obj) {
+    public function BrowseOfferCategoryTreeListByFilter($filter_obj) {
         $result = new OfferCategoryTreeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOfferCategoryTreeListFilter(filter_obj);
+        $rows = $this->data->BrowseOfferCategoryTreeListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $offer_category_tree = $this->FillOfferCategoryTree($row);
@@ -3125,39 +3140,39 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOfferCategoryTreeUuid($set_type, $obj) {           
-        return $this->data->SetOfferCategoryTreeUuid($set_type, $obj);
+    public function SetOfferCategoryTreeByUuid($set_type, $obj) {           
+        return $this->data->SetOfferCategoryTreeByUuid($set_type, $obj);
     }
             
-    public function DelOfferCategoryTreeUuid(
+    public function DelOfferCategoryTreeByUuid(
         $uuid
     ) {
-        return $this->data->DelOfferCategoryTreeUuid(
+        return $this->data->DelOfferCategoryTreeByUuid(
             $uuid
         );
     }
         
-    public function DelOfferCategoryTreeParentId(
+    public function DelOfferCategoryTreeByParentId(
         $parent_id
     ) {
-        return $this->data->DelOfferCategoryTreeParentId(
+        return $this->data->DelOfferCategoryTreeByParentId(
             $parent_id
         );
     }
         
-    public function DelOfferCategoryTreeCategoryId(
+    public function DelOfferCategoryTreeByCategoryId(
         $category_id
     ) {
-        return $this->data->DelOfferCategoryTreeCategoryId(
+        return $this->data->DelOfferCategoryTreeByCategoryId(
             $category_id
         );
     }
         
-    public function DelOfferCategoryTreeParentIdCategoryId(
+    public function DelOfferCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {
-        return $this->data->DelOfferCategoryTreeParentIdCategoryId(
+        return $this->data->DelOfferCategoryTreeByParentIdByCategoryId(
             $parent_id
             , $category_id
         );
@@ -3180,12 +3195,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryTreeListUuid(
+    public function GetOfferCategoryTreeListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryTreeListUuid(
+        $rows = $this->data->GetOfferCategoryTreeListByUuid(
             $uuid
         );
         
@@ -3199,12 +3214,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryTreeListParentId(
+    public function GetOfferCategoryTreeListByParentId(
         $parent_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryTreeListParentId(
+        $rows = $this->data->GetOfferCategoryTreeListByParentId(
             $parent_id
         );
         
@@ -3218,12 +3233,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryTreeListCategoryId(
+    public function GetOfferCategoryTreeListByCategoryId(
         $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryTreeListCategoryId(
+        $rows = $this->data->GetOfferCategoryTreeListByCategoryId(
             $category_id
         );
         
@@ -3237,13 +3252,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryTreeListParentIdCategoryId(
+    public function GetOfferCategoryTreeListByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryTreeListParentIdCategoryId(
+        $rows = $this->data->GetOfferCategoryTreeListByParentIdByCategoryId(
             $parent_id
             , $category_id
         );
@@ -3296,48 +3311,48 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOfferCategoryAssocUuid(
+    public function CountOfferCategoryAssocByUuid(
         $uuid
     ) {       
-        return $this->data->CountOfferCategoryAssocUuid(
+        return $this->data->CountOfferCategoryAssocByUuid(
             $uuid
         );
     }
                
-    public function CountOfferCategoryAssocOfferId(
+    public function CountOfferCategoryAssocByOfferId(
         $offer_id
     ) {       
-        return $this->data->CountOfferCategoryAssocOfferId(
+        return $this->data->CountOfferCategoryAssocByOfferId(
             $offer_id
         );
     }
                
-    public function CountOfferCategoryAssocCategoryId(
+    public function CountOfferCategoryAssocByCategoryId(
         $category_id
     ) {       
-        return $this->data->CountOfferCategoryAssocCategoryId(
+        return $this->data->CountOfferCategoryAssocByCategoryId(
             $category_id
         );
     }
                
-    public function CountOfferCategoryAssocOfferIdCategoryId(
+    public function CountOfferCategoryAssocByOfferIdByCategoryId(
         $offer_id
         , $category_id
     ) {       
-        return $this->data->CountOfferCategoryAssocOfferIdCategoryId(
+        return $this->data->CountOfferCategoryAssocByOfferIdByCategoryId(
             $offer_id
             , $category_id
         );
     }
                
-    public function BrowseOfferCategoryAssocListFilter($filter_obj) {
+    public function BrowseOfferCategoryAssocListByFilter($filter_obj) {
         $result = new OfferCategoryAssocResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOfferCategoryAssocListFilter(filter_obj);
+        $rows = $this->data->BrowseOfferCategoryAssocListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $offer_category_assoc = $this->FillOfferCategoryAssoc($row);
@@ -3351,14 +3366,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOfferCategoryAssocUuid($set_type, $obj) {           
-        return $this->data->SetOfferCategoryAssocUuid($set_type, $obj);
+    public function SetOfferCategoryAssocByUuid($set_type, $obj) {           
+        return $this->data->SetOfferCategoryAssocByUuid($set_type, $obj);
     }
             
-    public function DelOfferCategoryAssocUuid(
+    public function DelOfferCategoryAssocByUuid(
         $uuid
     ) {
-        return $this->data->DelOfferCategoryAssocUuid(
+        return $this->data->DelOfferCategoryAssocByUuid(
             $uuid
         );
     }
@@ -3380,12 +3395,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryAssocListUuid(
+    public function GetOfferCategoryAssocListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryAssocListUuid(
+        $rows = $this->data->GetOfferCategoryAssocListByUuid(
             $uuid
         );
         
@@ -3399,12 +3414,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryAssocListOfferId(
+    public function GetOfferCategoryAssocListByOfferId(
         $offer_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryAssocListOfferId(
+        $rows = $this->data->GetOfferCategoryAssocListByOfferId(
             $offer_id
         );
         
@@ -3418,12 +3433,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryAssocListCategoryId(
+    public function GetOfferCategoryAssocListByCategoryId(
         $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryAssocListCategoryId(
+        $rows = $this->data->GetOfferCategoryAssocListByCategoryId(
             $category_id
         );
         
@@ -3437,13 +3452,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferCategoryAssocListOfferIdCategoryId(
+    public function GetOfferCategoryAssocListByOfferIdByCategoryId(
         $offer_id
         , $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferCategoryAssocListOfferIdCategoryId(
+        $rows = $this->data->GetOfferCategoryAssocListByOfferIdByCategoryId(
             $offer_id
             , $category_id
         );
@@ -3489,6 +3504,9 @@ class BasePlatformACT {
         if ($row['type'] != NULL) {                
             $obj->type = $row['type'];#dataType.FillDataString(dr, "type");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
 
         return $obj;
     }
@@ -3499,48 +3517,48 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOfferGameLocationUuid(
+    public function CountOfferGameLocationByUuid(
         $uuid
     ) {       
-        return $this->data->CountOfferGameLocationUuid(
+        return $this->data->CountOfferGameLocationByUuid(
             $uuid
         );
     }
                
-    public function CountOfferGameLocationGameLocationId(
+    public function CountOfferGameLocationByGameLocationId(
         $game_location_id
     ) {       
-        return $this->data->CountOfferGameLocationGameLocationId(
+        return $this->data->CountOfferGameLocationByGameLocationId(
             $game_location_id
         );
     }
                
-    public function CountOfferGameLocationOfferId(
+    public function CountOfferGameLocationByOfferId(
         $offer_id
     ) {       
-        return $this->data->CountOfferGameLocationOfferId(
+        return $this->data->CountOfferGameLocationByOfferId(
             $offer_id
         );
     }
                
-    public function CountOfferGameLocationOfferIdGameLocationId(
+    public function CountOfferGameLocationByOfferIdByGameLocationId(
         $offer_id
         , $game_location_id
     ) {       
-        return $this->data->CountOfferGameLocationOfferIdGameLocationId(
+        return $this->data->CountOfferGameLocationByOfferIdByGameLocationId(
             $offer_id
             , $game_location_id
         );
     }
                
-    public function BrowseOfferGameLocationListFilter($filter_obj) {
+    public function BrowseOfferGameLocationListByFilter($filter_obj) {
         $result = new OfferGameLocationResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOfferGameLocationListFilter(filter_obj);
+        $rows = $this->data->BrowseOfferGameLocationListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $offer_game_location = $this->FillOfferGameLocation($row);
@@ -3554,14 +3572,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOfferGameLocationUuid($set_type, $obj) {           
-        return $this->data->SetOfferGameLocationUuid($set_type, $obj);
+    public function SetOfferGameLocationByUuid($set_type, $obj) {           
+        return $this->data->SetOfferGameLocationByUuid($set_type, $obj);
     }
             
-    public function DelOfferGameLocationUuid(
+    public function DelOfferGameLocationByUuid(
         $uuid
     ) {
-        return $this->data->DelOfferGameLocationUuid(
+        return $this->data->DelOfferGameLocationByUuid(
             $uuid
         );
     }
@@ -3583,12 +3601,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferGameLocationListUuid(
+    public function GetOfferGameLocationListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferGameLocationListUuid(
+        $rows = $this->data->GetOfferGameLocationListByUuid(
             $uuid
         );
         
@@ -3602,12 +3620,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferGameLocationListGameLocationId(
+    public function GetOfferGameLocationListByGameLocationId(
         $game_location_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferGameLocationListGameLocationId(
+        $rows = $this->data->GetOfferGameLocationListByGameLocationId(
             $game_location_id
         );
         
@@ -3621,12 +3639,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferGameLocationListOfferId(
+    public function GetOfferGameLocationListByOfferId(
         $offer_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferGameLocationListOfferId(
+        $rows = $this->data->GetOfferGameLocationListByOfferId(
             $offer_id
         );
         
@@ -3640,13 +3658,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOfferGameLocationListOfferIdGameLocationId(
+    public function GetOfferGameLocationListByOfferIdByGameLocationId(
         $offer_id
         , $game_location_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOfferGameLocationListOfferIdGameLocationId(
+        $rows = $this->data->GetOfferGameLocationListByOfferIdByGameLocationId(
             $offer_id
             , $game_location_id
         );
@@ -3683,6 +3701,9 @@ class BasePlatformACT {
         if ($row['url'] != NULL) {                
             $obj->url = $row['url'];#dataType.FillDataString(dr, "url");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['org_id'] != NULL) {                
             $obj->org_id = $row['org_id'];#dataType.FillDataString(dr, "org_id");
         }
@@ -3714,46 +3735,46 @@ class BasePlatformACT {
         );
     }
                
-    public function CountEventInfoUuid(
+    public function CountEventInfoByUuid(
         $uuid
     ) {       
-        return $this->data->CountEventInfoUuid(
+        return $this->data->CountEventInfoByUuid(
             $uuid
         );
     }
                
-    public function CountEventInfoCode(
+    public function CountEventInfoByCode(
         $code
     ) {       
-        return $this->data->CountEventInfoCode(
+        return $this->data->CountEventInfoByCode(
             $code
         );
     }
                
-    public function CountEventInfoName(
+    public function CountEventInfoByName(
         $name
     ) {       
-        return $this->data->CountEventInfoName(
+        return $this->data->CountEventInfoByName(
             $name
         );
     }
                
-    public function CountEventInfoOrgId(
+    public function CountEventInfoByOrgId(
         $org_id
     ) {       
-        return $this->data->CountEventInfoOrgId(
+        return $this->data->CountEventInfoByOrgId(
             $org_id
         );
     }
                
-    public function BrowseEventInfoListFilter($filter_obj) {
+    public function BrowseEventInfoListByFilter($filter_obj) {
         $result = new EventInfoResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseEventInfoListFilter(filter_obj);
+        $rows = $this->data->BrowseEventInfoListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $event_info = $this->FillEventInfo($row);
@@ -3767,22 +3788,22 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetEventInfoUuid($set_type, $obj) {           
-        return $this->data->SetEventInfoUuid($set_type, $obj);
+    public function SetEventInfoByUuid($set_type, $obj) {           
+        return $this->data->SetEventInfoByUuid($set_type, $obj);
     }
             
-    public function DelEventInfoUuid(
+    public function DelEventInfoByUuid(
         $uuid
     ) {
-        return $this->data->DelEventInfoUuid(
+        return $this->data->DelEventInfoByUuid(
             $uuid
         );
     }
         
-    public function DelEventInfoOrgId(
+    public function DelEventInfoByOrgId(
         $org_id
     ) {
-        return $this->data->DelEventInfoOrgId(
+        return $this->data->DelEventInfoByOrgId(
             $org_id
         );
     }
@@ -3804,12 +3825,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventInfoListUuid(
+    public function GetEventInfoListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventInfoListUuid(
+        $rows = $this->data->GetEventInfoListByUuid(
             $uuid
         );
         
@@ -3823,12 +3844,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventInfoListCode(
+    public function GetEventInfoListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventInfoListCode(
+        $rows = $this->data->GetEventInfoListByCode(
             $code
         );
         
@@ -3842,12 +3863,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventInfoListName(
+    public function GetEventInfoListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventInfoListName(
+        $rows = $this->data->GetEventInfoListByName(
             $name
         );
         
@@ -3861,12 +3882,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventInfoListOrgId(
+    public function GetEventInfoListByOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventInfoListOrgId(
+        $rows = $this->data->GetEventInfoListByOrgId(
             $org_id
         );
         
@@ -3916,6 +3937,9 @@ class BasePlatformACT {
         }
         if ($row['active'] != NULL) {                
             $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
         }
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
@@ -3975,54 +3999,54 @@ class BasePlatformACT {
         );
     }
                
-    public function CountEventLocationUuid(
+    public function CountEventLocationByUuid(
         $uuid
     ) {       
-        return $this->data->CountEventLocationUuid(
+        return $this->data->CountEventLocationByUuid(
             $uuid
         );
     }
                
-    public function CountEventLocationEventId(
+    public function CountEventLocationByEventId(
         $event_id
     ) {       
-        return $this->data->CountEventLocationEventId(
+        return $this->data->CountEventLocationByEventId(
             $event_id
         );
     }
                
-    public function CountEventLocationCity(
+    public function CountEventLocationByCity(
         $city
     ) {       
-        return $this->data->CountEventLocationCity(
+        return $this->data->CountEventLocationByCity(
             $city
         );
     }
                
-    public function CountEventLocationCountryCode(
+    public function CountEventLocationByCountryCode(
         $country_code
     ) {       
-        return $this->data->CountEventLocationCountryCode(
+        return $this->data->CountEventLocationByCountryCode(
             $country_code
         );
     }
                
-    public function CountEventLocationPostalCode(
+    public function CountEventLocationByPostalCode(
         $postal_code
     ) {       
-        return $this->data->CountEventLocationPostalCode(
+        return $this->data->CountEventLocationByPostalCode(
             $postal_code
         );
     }
                
-    public function BrowseEventLocationListFilter($filter_obj) {
+    public function BrowseEventLocationListByFilter($filter_obj) {
         $result = new EventLocationResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseEventLocationListFilter(filter_obj);
+        $rows = $this->data->BrowseEventLocationListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $event_location = $this->FillEventLocation($row);
@@ -4036,14 +4060,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetEventLocationUuid($set_type, $obj) {           
-        return $this->data->SetEventLocationUuid($set_type, $obj);
+    public function SetEventLocationByUuid($set_type, $obj) {           
+        return $this->data->SetEventLocationByUuid($set_type, $obj);
     }
             
-    public function DelEventLocationUuid(
+    public function DelEventLocationByUuid(
         $uuid
     ) {
-        return $this->data->DelEventLocationUuid(
+        return $this->data->DelEventLocationByUuid(
             $uuid
         );
     }
@@ -4065,12 +4089,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventLocationListUuid(
+    public function GetEventLocationListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventLocationListUuid(
+        $rows = $this->data->GetEventLocationListByUuid(
             $uuid
         );
         
@@ -4084,12 +4108,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventLocationListEventId(
+    public function GetEventLocationListByEventId(
         $event_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventLocationListEventId(
+        $rows = $this->data->GetEventLocationListByEventId(
             $event_id
         );
         
@@ -4103,12 +4127,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventLocationListCity(
+    public function GetEventLocationListByCity(
         $city
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventLocationListCity(
+        $rows = $this->data->GetEventLocationListByCity(
             $city
         );
         
@@ -4122,12 +4146,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventLocationListCountryCode(
+    public function GetEventLocationListByCountryCode(
         $country_code
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventLocationListCountryCode(
+        $rows = $this->data->GetEventLocationListByCountryCode(
             $country_code
         );
         
@@ -4141,12 +4165,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventLocationListPostalCode(
+    public function GetEventLocationListByPostalCode(
         $postal_code
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventLocationListPostalCode(
+        $rows = $this->data->GetEventLocationListByPostalCode(
             $postal_code
         );
         
@@ -4179,6 +4203,9 @@ class BasePlatformACT {
         if ($row['date_modified'] != NULL) {                
             $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['type_id'] != NULL) {                
             $obj->type_id = $row['type_id'];#dataType.FillDataString(dr, "type_id");
         }
@@ -4210,64 +4237,64 @@ class BasePlatformACT {
         );
     }
                
-    public function CountEventCategoryUuid(
+    public function CountEventCategoryByUuid(
         $uuid
     ) {       
-        return $this->data->CountEventCategoryUuid(
+        return $this->data->CountEventCategoryByUuid(
             $uuid
         );
     }
                
-    public function CountEventCategoryCode(
+    public function CountEventCategoryByCode(
         $code
     ) {       
-        return $this->data->CountEventCategoryCode(
+        return $this->data->CountEventCategoryByCode(
             $code
         );
     }
                
-    public function CountEventCategoryName(
+    public function CountEventCategoryByName(
         $name
     ) {       
-        return $this->data->CountEventCategoryName(
+        return $this->data->CountEventCategoryByName(
             $name
         );
     }
                
-    public function CountEventCategoryOrgId(
+    public function CountEventCategoryByOrgId(
         $org_id
     ) {       
-        return $this->data->CountEventCategoryOrgId(
+        return $this->data->CountEventCategoryByOrgId(
             $org_id
         );
     }
                
-    public function CountEventCategoryTypeId(
+    public function CountEventCategoryByTypeId(
         $type_id
     ) {       
-        return $this->data->CountEventCategoryTypeId(
+        return $this->data->CountEventCategoryByTypeId(
             $type_id
         );
     }
                
-    public function CountEventCategoryOrgIdTypeId(
+    public function CountEventCategoryByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {       
-        return $this->data->CountEventCategoryOrgIdTypeId(
+        return $this->data->CountEventCategoryByOrgIdByTypeId(
             $org_id
             , $type_id
         );
     }
                
-    public function BrowseEventCategoryListFilter($filter_obj) {
+    public function BrowseEventCategoryListByFilter($filter_obj) {
         $result = new EventCategoryResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseEventCategoryListFilter(filter_obj);
+        $rows = $this->data->BrowseEventCategoryListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $event_category = $this->FillEventCategory($row);
@@ -4281,34 +4308,34 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetEventCategoryUuid($set_type, $obj) {           
-        return $this->data->SetEventCategoryUuid($set_type, $obj);
+    public function SetEventCategoryByUuid($set_type, $obj) {           
+        return $this->data->SetEventCategoryByUuid($set_type, $obj);
     }
             
-    public function DelEventCategoryUuid(
+    public function DelEventCategoryByUuid(
         $uuid
     ) {
-        return $this->data->DelEventCategoryUuid(
+        return $this->data->DelEventCategoryByUuid(
             $uuid
         );
     }
         
-    public function DelEventCategoryCodeOrgId(
+    public function DelEventCategoryByCodeByOrgId(
         $code
         , $org_id
     ) {
-        return $this->data->DelEventCategoryCodeOrgId(
+        return $this->data->DelEventCategoryByCodeByOrgId(
             $code
             , $org_id
         );
     }
         
-    public function DelEventCategoryCodeOrgIdTypeId(
+    public function DelEventCategoryByCodeByOrgIdByTypeId(
         $code
         , $org_id
         , $type_id
     ) {
-        return $this->data->DelEventCategoryCodeOrgIdTypeId(
+        return $this->data->DelEventCategoryByCodeByOrgIdByTypeId(
             $code
             , $org_id
             , $type_id
@@ -4332,12 +4359,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryListUuid(
+    public function GetEventCategoryListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryListUuid(
+        $rows = $this->data->GetEventCategoryListByUuid(
             $uuid
         );
         
@@ -4351,12 +4378,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryListCode(
+    public function GetEventCategoryListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryListCode(
+        $rows = $this->data->GetEventCategoryListByCode(
             $code
         );
         
@@ -4370,12 +4397,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryListName(
+    public function GetEventCategoryListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryListName(
+        $rows = $this->data->GetEventCategoryListByName(
             $name
         );
         
@@ -4389,12 +4416,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryListOrgId(
+    public function GetEventCategoryListByOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryListOrgId(
+        $rows = $this->data->GetEventCategoryListByOrgId(
             $org_id
         );
         
@@ -4408,12 +4435,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryListTypeId(
+    public function GetEventCategoryListByTypeId(
         $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryListTypeId(
+        $rows = $this->data->GetEventCategoryListByTypeId(
             $type_id
         );
         
@@ -4427,13 +4454,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryListOrgIdTypeId(
+    public function GetEventCategoryListByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryListOrgIdTypeId(
+        $rows = $this->data->GetEventCategoryListByOrgIdByTypeId(
             $org_id
             , $type_id
         );
@@ -4486,48 +4513,48 @@ class BasePlatformACT {
         );
     }
                
-    public function CountEventCategoryTreeUuid(
+    public function CountEventCategoryTreeByUuid(
         $uuid
     ) {       
-        return $this->data->CountEventCategoryTreeUuid(
+        return $this->data->CountEventCategoryTreeByUuid(
             $uuid
         );
     }
                
-    public function CountEventCategoryTreeParentId(
+    public function CountEventCategoryTreeByParentId(
         $parent_id
     ) {       
-        return $this->data->CountEventCategoryTreeParentId(
+        return $this->data->CountEventCategoryTreeByParentId(
             $parent_id
         );
     }
                
-    public function CountEventCategoryTreeCategoryId(
+    public function CountEventCategoryTreeByCategoryId(
         $category_id
     ) {       
-        return $this->data->CountEventCategoryTreeCategoryId(
+        return $this->data->CountEventCategoryTreeByCategoryId(
             $category_id
         );
     }
                
-    public function CountEventCategoryTreeParentIdCategoryId(
+    public function CountEventCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {       
-        return $this->data->CountEventCategoryTreeParentIdCategoryId(
+        return $this->data->CountEventCategoryTreeByParentIdByCategoryId(
             $parent_id
             , $category_id
         );
     }
                
-    public function BrowseEventCategoryTreeListFilter($filter_obj) {
+    public function BrowseEventCategoryTreeListByFilter($filter_obj) {
         $result = new EventCategoryTreeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseEventCategoryTreeListFilter(filter_obj);
+        $rows = $this->data->BrowseEventCategoryTreeListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $event_category_tree = $this->FillEventCategoryTree($row);
@@ -4541,39 +4568,39 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetEventCategoryTreeUuid($set_type, $obj) {           
-        return $this->data->SetEventCategoryTreeUuid($set_type, $obj);
+    public function SetEventCategoryTreeByUuid($set_type, $obj) {           
+        return $this->data->SetEventCategoryTreeByUuid($set_type, $obj);
     }
             
-    public function DelEventCategoryTreeUuid(
+    public function DelEventCategoryTreeByUuid(
         $uuid
     ) {
-        return $this->data->DelEventCategoryTreeUuid(
+        return $this->data->DelEventCategoryTreeByUuid(
             $uuid
         );
     }
         
-    public function DelEventCategoryTreeParentId(
+    public function DelEventCategoryTreeByParentId(
         $parent_id
     ) {
-        return $this->data->DelEventCategoryTreeParentId(
+        return $this->data->DelEventCategoryTreeByParentId(
             $parent_id
         );
     }
         
-    public function DelEventCategoryTreeCategoryId(
+    public function DelEventCategoryTreeByCategoryId(
         $category_id
     ) {
-        return $this->data->DelEventCategoryTreeCategoryId(
+        return $this->data->DelEventCategoryTreeByCategoryId(
             $category_id
         );
     }
         
-    public function DelEventCategoryTreeParentIdCategoryId(
+    public function DelEventCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {
-        return $this->data->DelEventCategoryTreeParentIdCategoryId(
+        return $this->data->DelEventCategoryTreeByParentIdByCategoryId(
             $parent_id
             , $category_id
         );
@@ -4596,12 +4623,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryTreeListUuid(
+    public function GetEventCategoryTreeListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryTreeListUuid(
+        $rows = $this->data->GetEventCategoryTreeListByUuid(
             $uuid
         );
         
@@ -4615,12 +4642,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryTreeListParentId(
+    public function GetEventCategoryTreeListByParentId(
         $parent_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryTreeListParentId(
+        $rows = $this->data->GetEventCategoryTreeListByParentId(
             $parent_id
         );
         
@@ -4634,12 +4661,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryTreeListCategoryId(
+    public function GetEventCategoryTreeListByCategoryId(
         $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryTreeListCategoryId(
+        $rows = $this->data->GetEventCategoryTreeListByCategoryId(
             $category_id
         );
         
@@ -4653,13 +4680,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryTreeListParentIdCategoryId(
+    public function GetEventCategoryTreeListByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryTreeListParentIdCategoryId(
+        $rows = $this->data->GetEventCategoryTreeListByParentIdByCategoryId(
             $parent_id
             , $category_id
         );
@@ -4712,48 +4739,48 @@ class BasePlatformACT {
         );
     }
                
-    public function CountEventCategoryAssocUuid(
+    public function CountEventCategoryAssocByUuid(
         $uuid
     ) {       
-        return $this->data->CountEventCategoryAssocUuid(
+        return $this->data->CountEventCategoryAssocByUuid(
             $uuid
         );
     }
                
-    public function CountEventCategoryAssocEventId(
+    public function CountEventCategoryAssocByEventId(
         $event_id
     ) {       
-        return $this->data->CountEventCategoryAssocEventId(
+        return $this->data->CountEventCategoryAssocByEventId(
             $event_id
         );
     }
                
-    public function CountEventCategoryAssocCategoryId(
+    public function CountEventCategoryAssocByCategoryId(
         $category_id
     ) {       
-        return $this->data->CountEventCategoryAssocCategoryId(
+        return $this->data->CountEventCategoryAssocByCategoryId(
             $category_id
         );
     }
                
-    public function CountEventCategoryAssocEventIdCategoryId(
+    public function CountEventCategoryAssocByEventIdByCategoryId(
         $event_id
         , $category_id
     ) {       
-        return $this->data->CountEventCategoryAssocEventIdCategoryId(
+        return $this->data->CountEventCategoryAssocByEventIdByCategoryId(
             $event_id
             , $category_id
         );
     }
                
-    public function BrowseEventCategoryAssocListFilter($filter_obj) {
+    public function BrowseEventCategoryAssocListByFilter($filter_obj) {
         $result = new EventCategoryAssocResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseEventCategoryAssocListFilter(filter_obj);
+        $rows = $this->data->BrowseEventCategoryAssocListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $event_category_assoc = $this->FillEventCategoryAssoc($row);
@@ -4767,14 +4794,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetEventCategoryAssocUuid($set_type, $obj) {           
-        return $this->data->SetEventCategoryAssocUuid($set_type, $obj);
+    public function SetEventCategoryAssocByUuid($set_type, $obj) {           
+        return $this->data->SetEventCategoryAssocByUuid($set_type, $obj);
     }
             
-    public function DelEventCategoryAssocUuid(
+    public function DelEventCategoryAssocByUuid(
         $uuid
     ) {
-        return $this->data->DelEventCategoryAssocUuid(
+        return $this->data->DelEventCategoryAssocByUuid(
             $uuid
         );
     }
@@ -4796,12 +4823,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryAssocListUuid(
+    public function GetEventCategoryAssocListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryAssocListUuid(
+        $rows = $this->data->GetEventCategoryAssocListByUuid(
             $uuid
         );
         
@@ -4815,12 +4842,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryAssocListEventId(
+    public function GetEventCategoryAssocListByEventId(
         $event_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryAssocListEventId(
+        $rows = $this->data->GetEventCategoryAssocListByEventId(
             $event_id
         );
         
@@ -4834,12 +4861,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryAssocListCategoryId(
+    public function GetEventCategoryAssocListByCategoryId(
         $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryAssocListCategoryId(
+        $rows = $this->data->GetEventCategoryAssocListByCategoryId(
             $category_id
         );
         
@@ -4853,13 +4880,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetEventCategoryAssocListEventIdCategoryId(
+    public function GetEventCategoryAssocListByEventIdByCategoryId(
         $event_id
         , $category_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetEventCategoryAssocListEventIdCategoryId(
+        $rows = $this->data->GetEventCategoryAssocListByEventIdByCategoryId(
             $event_id
             , $category_id
         );
@@ -4893,6 +4920,9 @@ class BasePlatformACT {
         if ($row['date_modified'] != NULL) {                
             $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['type_id'] != NULL) {                
             $obj->type_id = $row['type_id'];#dataType.FillDataString(dr, "type_id");
         }
@@ -4924,64 +4954,64 @@ class BasePlatformACT {
         );
     }
                
-    public function CountChannelUuid(
+    public function CountChannelByUuid(
         $uuid
     ) {       
-        return $this->data->CountChannelUuid(
+        return $this->data->CountChannelByUuid(
             $uuid
         );
     }
                
-    public function CountChannelCode(
+    public function CountChannelByCode(
         $code
     ) {       
-        return $this->data->CountChannelCode(
+        return $this->data->CountChannelByCode(
             $code
         );
     }
                
-    public function CountChannelName(
+    public function CountChannelByName(
         $name
     ) {       
-        return $this->data->CountChannelName(
+        return $this->data->CountChannelByName(
             $name
         );
     }
                
-    public function CountChannelOrgId(
+    public function CountChannelByOrgId(
         $org_id
     ) {       
-        return $this->data->CountChannelOrgId(
+        return $this->data->CountChannelByOrgId(
             $org_id
         );
     }
                
-    public function CountChannelTypeId(
+    public function CountChannelByTypeId(
         $type_id
     ) {       
-        return $this->data->CountChannelTypeId(
+        return $this->data->CountChannelByTypeId(
             $type_id
         );
     }
                
-    public function CountChannelOrgIdTypeId(
+    public function CountChannelByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {       
-        return $this->data->CountChannelOrgIdTypeId(
+        return $this->data->CountChannelByOrgIdByTypeId(
             $org_id
             , $type_id
         );
     }
                
-    public function BrowseChannelListFilter($filter_obj) {
+    public function BrowseChannelListByFilter($filter_obj) {
         $result = new ChannelResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseChannelListFilter(filter_obj);
+        $rows = $this->data->BrowseChannelListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $channel = $this->FillChannel($row);
@@ -4995,34 +5025,34 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetChannelUuid($set_type, $obj) {           
-        return $this->data->SetChannelUuid($set_type, $obj);
+    public function SetChannelByUuid($set_type, $obj) {           
+        return $this->data->SetChannelByUuid($set_type, $obj);
     }
             
-    public function DelChannelUuid(
+    public function DelChannelByUuid(
         $uuid
     ) {
-        return $this->data->DelChannelUuid(
+        return $this->data->DelChannelByUuid(
             $uuid
         );
     }
         
-    public function DelChannelCodeOrgId(
+    public function DelChannelByCodeByOrgId(
         $code
         , $org_id
     ) {
-        return $this->data->DelChannelCodeOrgId(
+        return $this->data->DelChannelByCodeByOrgId(
             $code
             , $org_id
         );
     }
         
-    public function DelChannelCodeOrgIdTypeId(
+    public function DelChannelByCodeByOrgIdByTypeId(
         $code
         , $org_id
         , $type_id
     ) {
-        return $this->data->DelChannelCodeOrgIdTypeId(
+        return $this->data->DelChannelByCodeByOrgIdByTypeId(
             $code
             , $org_id
             , $type_id
@@ -5046,12 +5076,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetChannelListUuid(
+    public function GetChannelListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetChannelListUuid(
+        $rows = $this->data->GetChannelListByUuid(
             $uuid
         );
         
@@ -5065,12 +5095,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetChannelListCode(
+    public function GetChannelListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetChannelListCode(
+        $rows = $this->data->GetChannelListByCode(
             $code
         );
         
@@ -5084,12 +5114,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetChannelListName(
+    public function GetChannelListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetChannelListName(
+        $rows = $this->data->GetChannelListByName(
             $name
         );
         
@@ -5103,12 +5133,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetChannelListOrgId(
+    public function GetChannelListByOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetChannelListOrgId(
+        $rows = $this->data->GetChannelListByOrgId(
             $org_id
         );
         
@@ -5122,12 +5152,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetChannelListTypeId(
+    public function GetChannelListByTypeId(
         $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetChannelListTypeId(
+        $rows = $this->data->GetChannelListByTypeId(
             $type_id
         );
         
@@ -5141,13 +5171,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetChannelListOrgIdTypeId(
+    public function GetChannelListByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetChannelListOrgIdTypeId(
+        $rows = $this->data->GetChannelListByOrgIdByTypeId(
             $org_id
             , $type_id
         );
@@ -5181,6 +5211,9 @@ class BasePlatformACT {
         if ($row['date_modified'] != NULL) {                
             $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
         }
@@ -5206,38 +5239,38 @@ class BasePlatformACT {
         );
     }
                
-    public function CountChannelTypeUuid(
+    public function CountChannelTypeByUuid(
         $uuid
     ) {       
-        return $this->data->CountChannelTypeUuid(
+        return $this->data->CountChannelTypeByUuid(
             $uuid
         );
     }
                
-    public function CountChannelTypeCode(
+    public function CountChannelTypeByCode(
         $code
     ) {       
-        return $this->data->CountChannelTypeCode(
+        return $this->data->CountChannelTypeByCode(
             $code
         );
     }
                
-    public function CountChannelTypeName(
+    public function CountChannelTypeByName(
         $name
     ) {       
-        return $this->data->CountChannelTypeName(
+        return $this->data->CountChannelTypeByName(
             $name
         );
     }
                
-    public function BrowseChannelTypeListFilter($filter_obj) {
+    public function BrowseChannelTypeListByFilter($filter_obj) {
         $result = new ChannelTypeResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseChannelTypeListFilter(filter_obj);
+        $rows = $this->data->BrowseChannelTypeListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $channel_type = $this->FillChannelType($row);
@@ -5251,14 +5284,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetChannelTypeUuid($set_type, $obj) {           
-        return $this->data->SetChannelTypeUuid($set_type, $obj);
+    public function SetChannelTypeByUuid($set_type, $obj) {           
+        return $this->data->SetChannelTypeByUuid($set_type, $obj);
     }
             
-    public function DelChannelTypeUuid(
+    public function DelChannelTypeByUuid(
         $uuid
     ) {
-        return $this->data->DelChannelTypeUuid(
+        return $this->data->DelChannelTypeByUuid(
             $uuid
         );
     }
@@ -5280,12 +5313,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetChannelTypeListUuid(
+    public function GetChannelTypeListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetChannelTypeListUuid(
+        $rows = $this->data->GetChannelTypeListByUuid(
             $uuid
         );
         
@@ -5299,12 +5332,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetChannelTypeListCode(
+    public function GetChannelTypeListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetChannelTypeListCode(
+        $rows = $this->data->GetChannelTypeListByCode(
             $code
         );
         
@@ -5318,12 +5351,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetChannelTypeListName(
+    public function GetChannelTypeListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetChannelTypeListName(
+        $rows = $this->data->GetChannelTypeListByName(
             $name
         );
         
@@ -5355,6 +5388,9 @@ class BasePlatformACT {
         }
         if ($row['date_modified'] != NULL) {                
             $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
         }
         if ($row['org_id'] != NULL) {                
             $obj->org_id = $row['org_id'];#dataType.FillDataString(dr, "org_id");
@@ -5390,74 +5426,74 @@ class BasePlatformACT {
         );
     }
                
-    public function CountQuestionUuid(
+    public function CountQuestionByUuid(
         $uuid
     ) {       
-        return $this->data->CountQuestionUuid(
+        return $this->data->CountQuestionByUuid(
             $uuid
         );
     }
                
-    public function CountQuestionCode(
+    public function CountQuestionByCode(
         $code
     ) {       
-        return $this->data->CountQuestionCode(
+        return $this->data->CountQuestionByCode(
             $code
         );
     }
                
-    public function CountQuestionName(
+    public function CountQuestionByName(
         $name
     ) {       
-        return $this->data->CountQuestionName(
+        return $this->data->CountQuestionByName(
             $name
         );
     }
                
-    public function CountQuestionChannelId(
+    public function CountQuestionByChannelId(
         $channel_id
     ) {       
-        return $this->data->CountQuestionChannelId(
+        return $this->data->CountQuestionByChannelId(
             $channel_id
         );
     }
                
-    public function CountQuestionOrgId(
+    public function CountQuestionByOrgId(
         $org_id
     ) {       
-        return $this->data->CountQuestionOrgId(
+        return $this->data->CountQuestionByOrgId(
             $org_id
         );
     }
                
-    public function CountQuestionChannelIdOrgId(
+    public function CountQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {       
-        return $this->data->CountQuestionChannelIdOrgId(
+        return $this->data->CountQuestionByChannelIdByOrgId(
             $channel_id
             , $org_id
         );
     }
                
-    public function CountQuestionChannelIdCode(
+    public function CountQuestionByChannelIdByCode(
         $channel_id
         , $code
     ) {       
-        return $this->data->CountQuestionChannelIdCode(
+        return $this->data->CountQuestionByChannelIdByCode(
             $channel_id
             , $code
         );
     }
                
-    public function BrowseQuestionListFilter($filter_obj) {
+    public function BrowseQuestionListByFilter($filter_obj) {
         $result = new QuestionResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseQuestionListFilter(filter_obj);
+        $rows = $this->data->BrowseQuestionListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $question = $this->FillQuestion($row);
@@ -5471,27 +5507,27 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetQuestionUuid($set_type, $obj) {           
-        return $this->data->SetQuestionUuid($set_type, $obj);
+    public function SetQuestionByUuid($set_type, $obj) {           
+        return $this->data->SetQuestionByUuid($set_type, $obj);
     }
             
-    public function SetQuestionChannelIdCode($set_type, $obj) {           
-        return $this->data->SetQuestionChannelIdCode($set_type, $obj);
+    public function SetQuestionByChannelIdByCode($set_type, $obj) {           
+        return $this->data->SetQuestionByChannelIdByCode($set_type, $obj);
     }
             
-    public function DelQuestionUuid(
+    public function DelQuestionByUuid(
         $uuid
     ) {
-        return $this->data->DelQuestionUuid(
+        return $this->data->DelQuestionByUuid(
             $uuid
         );
     }
         
-    public function DelQuestionChannelIdOrgId(
+    public function DelQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {
-        return $this->data->DelQuestionChannelIdOrgId(
+        return $this->data->DelQuestionByChannelIdByOrgId(
             $channel_id
             , $org_id
         );
@@ -5514,12 +5550,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetQuestionListUuid(
+    public function GetQuestionListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetQuestionListUuid(
+        $rows = $this->data->GetQuestionListByUuid(
             $uuid
         );
         
@@ -5533,12 +5569,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetQuestionListCode(
+    public function GetQuestionListByCode(
         $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetQuestionListCode(
+        $rows = $this->data->GetQuestionListByCode(
             $code
         );
         
@@ -5552,12 +5588,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetQuestionListName(
+    public function GetQuestionListByName(
         $name
     ) {
 
         $results = array();
-        $rows = $this->data->GetQuestionListName(
+        $rows = $this->data->GetQuestionListByName(
             $name
         );
         
@@ -5571,12 +5607,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetQuestionListType(
+    public function GetQuestionListByType(
         $type
     ) {
 
         $results = array();
-        $rows = $this->data->GetQuestionListType(
+        $rows = $this->data->GetQuestionListByType(
             $type
         );
         
@@ -5590,12 +5626,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetQuestionListChannelId(
+    public function GetQuestionListByChannelId(
         $channel_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetQuestionListChannelId(
+        $rows = $this->data->GetQuestionListByChannelId(
             $channel_id
         );
         
@@ -5609,12 +5645,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetQuestionListOrgId(
+    public function GetQuestionListByOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetQuestionListOrgId(
+        $rows = $this->data->GetQuestionListByOrgId(
             $org_id
         );
         
@@ -5628,13 +5664,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetQuestionListChannelIdOrgId(
+    public function GetQuestionListByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetQuestionListChannelIdOrgId(
+        $rows = $this->data->GetQuestionListByChannelIdByOrgId(
             $channel_id
             , $org_id
         );
@@ -5649,13 +5685,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetQuestionListChannelIdCode(
+    public function GetQuestionListByChannelIdByCode(
         $channel_id
         , $code
     ) {
 
         $results = array();
-        $rows = $this->data->GetQuestionListChannelIdCode(
+        $rows = $this->data->GetQuestionListByChannelIdByCode(
             $channel_id
             , $code
         );
@@ -5689,6 +5725,9 @@ class BasePlatformACT {
         if ($row['active'] != NULL) {                
             $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
         }
@@ -5717,30 +5756,30 @@ class BasePlatformACT {
         );
     }
                
-    public function CountProfileOfferUuid(
+    public function CountProfileOfferByUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileOfferUuid(
+        return $this->data->CountProfileOfferByUuid(
             $uuid
         );
     }
                
-    public function CountProfileOfferProfileId(
+    public function CountProfileOfferByProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileOfferProfileId(
+        return $this->data->CountProfileOfferByProfileId(
             $profile_id
         );
     }
                
-    public function BrowseProfileOfferListFilter($filter_obj) {
+    public function BrowseProfileOfferListByFilter($filter_obj) {
         $result = new ProfileOfferResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileOfferListFilter(filter_obj);
+        $rows = $this->data->BrowseProfileOfferListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_offer = $this->FillProfileOffer($row);
@@ -5754,22 +5793,22 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetProfileOfferUuid($set_type, $obj) {           
-        return $this->data->SetProfileOfferUuid($set_type, $obj);
+    public function SetProfileOfferByUuid($set_type, $obj) {           
+        return $this->data->SetProfileOfferByUuid($set_type, $obj);
     }
             
-    public function DelProfileOfferUuid(
+    public function DelProfileOfferByUuid(
         $uuid
     ) {
-        return $this->data->DelProfileOfferUuid(
+        return $this->data->DelProfileOfferByUuid(
             $uuid
         );
     }
         
-    public function DelProfileOfferProfileId(
+    public function DelProfileOfferByProfileId(
         $profile_id
     ) {
-        return $this->data->DelProfileOfferProfileId(
+        return $this->data->DelProfileOfferByProfileId(
             $profile_id
         );
     }
@@ -5791,12 +5830,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileOfferListUuid(
+    public function GetProfileOfferListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileOfferListUuid(
+        $rows = $this->data->GetProfileOfferListByUuid(
             $uuid
         );
         
@@ -5810,12 +5849,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileOfferListProfileId(
+    public function GetProfileOfferListByProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileOfferListProfileId(
+        $rows = $this->data->GetProfileOfferListByProfileId(
             $profile_id
         );
         
@@ -5857,6 +5896,9 @@ class BasePlatformACT {
         if ($row['app_id'] != NULL) {                
             $obj->app_id = $row['app_id'];#dataType.FillDataString(dr, "app_id");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
 
         return $obj;
     }
@@ -5867,32 +5909,32 @@ class BasePlatformACT {
         );
     }
                
-    public function CountProfileAppUuid(
+    public function CountProfileAppByUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileAppUuid(
+        return $this->data->CountProfileAppByUuid(
             $uuid
         );
     }
                
-    public function CountProfileAppProfileIdAppId(
+    public function CountProfileAppByProfileIdByAppId(
         $profile_id
         , $app_id
     ) {       
-        return $this->data->CountProfileAppProfileIdAppId(
+        return $this->data->CountProfileAppByProfileIdByAppId(
             $profile_id
             , $app_id
         );
     }
                
-    public function BrowseProfileAppListFilter($filter_obj) {
+    public function BrowseProfileAppListByFilter($filter_obj) {
         $result = new ProfileAppResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileAppListFilter(filter_obj);
+        $rows = $this->data->BrowseProfileAppListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_app = $this->FillProfileApp($row);
@@ -5906,27 +5948,27 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetProfileAppUuid($set_type, $obj) {           
-        return $this->data->SetProfileAppUuid($set_type, $obj);
+    public function SetProfileAppByUuid($set_type, $obj) {           
+        return $this->data->SetProfileAppByUuid($set_type, $obj);
     }
             
-    public function SetProfileAppProfileIdAppId($set_type, $obj) {           
-        return $this->data->SetProfileAppProfileIdAppId($set_type, $obj);
+    public function SetProfileAppByProfileIdByAppId($set_type, $obj) {           
+        return $this->data->SetProfileAppByProfileIdByAppId($set_type, $obj);
     }
             
-    public function DelProfileAppUuid(
+    public function DelProfileAppByUuid(
         $uuid
     ) {
-        return $this->data->DelProfileAppUuid(
+        return $this->data->DelProfileAppByUuid(
             $uuid
         );
     }
         
-    public function DelProfileAppProfileIdAppId(
+    public function DelProfileAppByProfileIdByAppId(
         $profile_id
         , $app_id
     ) {
-        return $this->data->DelProfileAppProfileIdAppId(
+        return $this->data->DelProfileAppByProfileIdByAppId(
             $profile_id
             , $app_id
         );
@@ -5949,12 +5991,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileAppListUuid(
+    public function GetProfileAppListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAppListUuid(
+        $rows = $this->data->GetProfileAppListByUuid(
             $uuid
         );
         
@@ -5968,12 +6010,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileAppListAppId(
+    public function GetProfileAppListByAppId(
         $app_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAppListAppId(
+        $rows = $this->data->GetProfileAppListByAppId(
             $app_id
         );
         
@@ -5987,12 +6029,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileAppListProfileId(
+    public function GetProfileAppListByProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAppListProfileId(
+        $rows = $this->data->GetProfileAppListByProfileId(
             $profile_id
         );
         
@@ -6006,13 +6048,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileAppListProfileIdAppId(
+    public function GetProfileAppListByProfileIdByAppId(
         $profile_id
         , $app_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileAppListProfileIdAppId(
+        $rows = $this->data->GetProfileAppListByProfileIdByAppId(
             $profile_id
             , $app_id
         );
@@ -6058,6 +6100,9 @@ class BasePlatformACT {
         if ($row['org_id'] != NULL) {                
             $obj->org_id = $row['org_id'];#dataType.FillDataString(dr, "org_id");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
 
         return $obj;
     }
@@ -6068,38 +6113,38 @@ class BasePlatformACT {
         );
     }
                
-    public function CountProfileOrgUuid(
+    public function CountProfileOrgByUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileOrgUuid(
+        return $this->data->CountProfileOrgByUuid(
             $uuid
         );
     }
                
-    public function CountProfileOrgOrgId(
+    public function CountProfileOrgByOrgId(
         $org_id
     ) {       
-        return $this->data->CountProfileOrgOrgId(
+        return $this->data->CountProfileOrgByOrgId(
             $org_id
         );
     }
                
-    public function CountProfileOrgProfileId(
+    public function CountProfileOrgByProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileOrgProfileId(
+        return $this->data->CountProfileOrgByProfileId(
             $profile_id
         );
     }
                
-    public function BrowseProfileOrgListFilter($filter_obj) {
+    public function BrowseProfileOrgListByFilter($filter_obj) {
         $result = new ProfileOrgResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileOrgListFilter(filter_obj);
+        $rows = $this->data->BrowseProfileOrgListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_org = $this->FillProfileOrg($row);
@@ -6113,14 +6158,14 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetProfileOrgUuid($set_type, $obj) {           
-        return $this->data->SetProfileOrgUuid($set_type, $obj);
+    public function SetProfileOrgByUuid($set_type, $obj) {           
+        return $this->data->SetProfileOrgByUuid($set_type, $obj);
     }
             
-    public function DelProfileOrgUuid(
+    public function DelProfileOrgByUuid(
         $uuid
     ) {
-        return $this->data->DelProfileOrgUuid(
+        return $this->data->DelProfileOrgByUuid(
             $uuid
         );
     }
@@ -6142,12 +6187,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileOrgListUuid(
+    public function GetProfileOrgListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileOrgListUuid(
+        $rows = $this->data->GetProfileOrgListByUuid(
             $uuid
         );
         
@@ -6161,12 +6206,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileOrgListOrgId(
+    public function GetProfileOrgListByOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileOrgListOrgId(
+        $rows = $this->data->GetProfileOrgListByOrgId(
             $org_id
         );
         
@@ -6180,12 +6225,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileOrgListProfileId(
+    public function GetProfileOrgListByProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileOrgListProfileId(
+        $rows = $this->data->GetProfileOrgListByProfileId(
             $profile_id
         );
         
@@ -6249,84 +6294,84 @@ class BasePlatformACT {
         );
     }
                
-    public function CountProfileQuestionUuid(
+    public function CountProfileQuestionByUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileQuestionUuid(
+        return $this->data->CountProfileQuestionByUuid(
             $uuid
         );
     }
                
-    public function CountProfileQuestionChannelId(
+    public function CountProfileQuestionByChannelId(
         $channel_id
     ) {       
-        return $this->data->CountProfileQuestionChannelId(
+        return $this->data->CountProfileQuestionByChannelId(
             $channel_id
         );
     }
                
-    public function CountProfileQuestionOrgId(
+    public function CountProfileQuestionByOrgId(
         $org_id
     ) {       
-        return $this->data->CountProfileQuestionOrgId(
+        return $this->data->CountProfileQuestionByOrgId(
             $org_id
         );
     }
                
-    public function CountProfileQuestionProfileId(
+    public function CountProfileQuestionByProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileQuestionProfileId(
+        return $this->data->CountProfileQuestionByProfileId(
             $profile_id
         );
     }
                
-    public function CountProfileQuestionQuestionId(
+    public function CountProfileQuestionByQuestionId(
         $question_id
     ) {       
-        return $this->data->CountProfileQuestionQuestionId(
+        return $this->data->CountProfileQuestionByQuestionId(
             $question_id
         );
     }
                
-    public function CountProfileQuestionChannelIdOrgId(
+    public function CountProfileQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {       
-        return $this->data->CountProfileQuestionChannelIdOrgId(
+        return $this->data->CountProfileQuestionByChannelIdByOrgId(
             $channel_id
             , $org_id
         );
     }
                
-    public function CountProfileQuestionChannelIdProfileId(
+    public function CountProfileQuestionByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {       
-        return $this->data->CountProfileQuestionChannelIdProfileId(
+        return $this->data->CountProfileQuestionByChannelIdByProfileId(
             $channel_id
             , $profile_id
         );
     }
                
-    public function CountProfileQuestionQuestionIdProfileId(
+    public function CountProfileQuestionByQuestionIdByProfileId(
         $question_id
         , $profile_id
     ) {       
-        return $this->data->CountProfileQuestionQuestionIdProfileId(
+        return $this->data->CountProfileQuestionByQuestionIdByProfileId(
             $question_id
             , $profile_id
         );
     }
                
-    public function BrowseProfileQuestionListFilter($filter_obj) {
+    public function BrowseProfileQuestionListByFilter($filter_obj) {
         $result = new ProfileQuestionResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileQuestionListFilter(filter_obj);
+        $rows = $this->data->BrowseProfileQuestionListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_question = $this->FillProfileQuestion($row);
@@ -6340,35 +6385,35 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetProfileQuestionUuid($set_type, $obj) {           
-        return $this->data->SetProfileQuestionUuid($set_type, $obj);
+    public function SetProfileQuestionByUuid($set_type, $obj) {           
+        return $this->data->SetProfileQuestionByUuid($set_type, $obj);
     }
             
-    public function SetProfileQuestionChannelIdProfileId($set_type, $obj) {           
-        return $this->data->SetProfileQuestionChannelIdProfileId($set_type, $obj);
+    public function SetProfileQuestionByChannelIdByProfileId($set_type, $obj) {           
+        return $this->data->SetProfileQuestionByChannelIdByProfileId($set_type, $obj);
     }
             
-    public function SetProfileQuestionQuestionIdProfileId($set_type, $obj) {           
-        return $this->data->SetProfileQuestionQuestionIdProfileId($set_type, $obj);
+    public function SetProfileQuestionByQuestionIdByProfileId($set_type, $obj) {           
+        return $this->data->SetProfileQuestionByQuestionIdByProfileId($set_type, $obj);
     }
             
-    public function SetProfileQuestionChannelIdQuestionIdProfileId($set_type, $obj) {           
-        return $this->data->SetProfileQuestionChannelIdQuestionIdProfileId($set_type, $obj);
+    public function SetProfileQuestionByChannelIdByQuestionIdByProfileId($set_type, $obj) {           
+        return $this->data->SetProfileQuestionByChannelIdByQuestionIdByProfileId($set_type, $obj);
     }
             
-    public function DelProfileQuestionUuid(
+    public function DelProfileQuestionByUuid(
         $uuid
     ) {
-        return $this->data->DelProfileQuestionUuid(
+        return $this->data->DelProfileQuestionByUuid(
             $uuid
         );
     }
         
-    public function DelProfileQuestionChannelIdOrgId(
+    public function DelProfileQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {
-        return $this->data->DelProfileQuestionChannelIdOrgId(
+        return $this->data->DelProfileQuestionByChannelIdByOrgId(
             $channel_id
             , $org_id
         );
@@ -6391,12 +6436,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileQuestionListUuid(
+    public function GetProfileQuestionListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileQuestionListUuid(
+        $rows = $this->data->GetProfileQuestionListByUuid(
             $uuid
         );
         
@@ -6410,12 +6455,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileQuestionListChannelId(
+    public function GetProfileQuestionListByChannelId(
         $channel_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileQuestionListChannelId(
+        $rows = $this->data->GetProfileQuestionListByChannelId(
             $channel_id
         );
         
@@ -6429,12 +6474,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileQuestionListOrgId(
+    public function GetProfileQuestionListByOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileQuestionListOrgId(
+        $rows = $this->data->GetProfileQuestionListByOrgId(
             $org_id
         );
         
@@ -6448,12 +6493,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileQuestionListProfileId(
+    public function GetProfileQuestionListByProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileQuestionListProfileId(
+        $rows = $this->data->GetProfileQuestionListByProfileId(
             $profile_id
         );
         
@@ -6467,12 +6512,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileQuestionListQuestionId(
+    public function GetProfileQuestionListByQuestionId(
         $question_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileQuestionListQuestionId(
+        $rows = $this->data->GetProfileQuestionListByQuestionId(
             $question_id
         );
         
@@ -6486,13 +6531,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileQuestionListChannelIdOrgId(
+    public function GetProfileQuestionListByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileQuestionListChannelIdOrgId(
+        $rows = $this->data->GetProfileQuestionListByChannelIdByOrgId(
             $channel_id
             , $org_id
         );
@@ -6507,13 +6552,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileQuestionListChannelIdProfileId(
+    public function GetProfileQuestionListByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileQuestionListChannelIdProfileId(
+        $rows = $this->data->GetProfileQuestionListByChannelIdByProfileId(
             $channel_id
             , $profile_id
         );
@@ -6528,13 +6573,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileQuestionListQuestionIdProfileId(
+    public function GetProfileQuestionListByQuestionIdByProfileId(
         $question_id
         , $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileQuestionListQuestionIdProfileId(
+        $rows = $this->data->GetProfileQuestionListByQuestionIdByProfileId(
             $question_id
             , $profile_id
         );
@@ -6587,48 +6632,48 @@ class BasePlatformACT {
         );
     }
                
-    public function CountProfileChannelUuid(
+    public function CountProfileChannelByUuid(
         $uuid
     ) {       
-        return $this->data->CountProfileChannelUuid(
+        return $this->data->CountProfileChannelByUuid(
             $uuid
         );
     }
                
-    public function CountProfileChannelChannelId(
+    public function CountProfileChannelByChannelId(
         $channel_id
     ) {       
-        return $this->data->CountProfileChannelChannelId(
+        return $this->data->CountProfileChannelByChannelId(
             $channel_id
         );
     }
                
-    public function CountProfileChannelProfileId(
+    public function CountProfileChannelByProfileId(
         $profile_id
     ) {       
-        return $this->data->CountProfileChannelProfileId(
+        return $this->data->CountProfileChannelByProfileId(
             $profile_id
         );
     }
                
-    public function CountProfileChannelChannelIdProfileId(
+    public function CountProfileChannelByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {       
-        return $this->data->CountProfileChannelChannelIdProfileId(
+        return $this->data->CountProfileChannelByChannelIdByProfileId(
             $channel_id
             , $profile_id
         );
     }
                
-    public function BrowseProfileChannelListFilter($filter_obj) {
+    public function BrowseProfileChannelListByFilter($filter_obj) {
         $result = new ProfileChannelResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseProfileChannelListFilter(filter_obj);
+        $rows = $this->data->BrowseProfileChannelListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $profile_channel = $this->FillProfileChannel($row);
@@ -6642,27 +6687,27 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetProfileChannelUuid($set_type, $obj) {           
-        return $this->data->SetProfileChannelUuid($set_type, $obj);
+    public function SetProfileChannelByUuid($set_type, $obj) {           
+        return $this->data->SetProfileChannelByUuid($set_type, $obj);
     }
             
-    public function SetProfileChannelChannelIdProfileId($set_type, $obj) {           
-        return $this->data->SetProfileChannelChannelIdProfileId($set_type, $obj);
+    public function SetProfileChannelByChannelIdByProfileId($set_type, $obj) {           
+        return $this->data->SetProfileChannelByChannelIdByProfileId($set_type, $obj);
     }
             
-    public function DelProfileChannelUuid(
+    public function DelProfileChannelByUuid(
         $uuid
     ) {
-        return $this->data->DelProfileChannelUuid(
+        return $this->data->DelProfileChannelByUuid(
             $uuid
         );
     }
         
-    public function DelProfileChannelChannelIdProfileId(
+    public function DelProfileChannelByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {
-        return $this->data->DelProfileChannelChannelIdProfileId(
+        return $this->data->DelProfileChannelByChannelIdByProfileId(
             $channel_id
             , $profile_id
         );
@@ -6685,12 +6730,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileChannelListUuid(
+    public function GetProfileChannelListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileChannelListUuid(
+        $rows = $this->data->GetProfileChannelListByUuid(
             $uuid
         );
         
@@ -6704,12 +6749,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileChannelListChannelId(
+    public function GetProfileChannelListByChannelId(
         $channel_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileChannelListChannelId(
+        $rows = $this->data->GetProfileChannelListByChannelId(
             $channel_id
         );
         
@@ -6723,12 +6768,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileChannelListProfileId(
+    public function GetProfileChannelListByProfileId(
         $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileChannelListProfileId(
+        $rows = $this->data->GetProfileChannelListByProfileId(
             $profile_id
         );
         
@@ -6742,13 +6787,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetProfileChannelListChannelIdProfileId(
+    public function GetProfileChannelListByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetProfileChannelListChannelIdProfileId(
+        $rows = $this->data->GetProfileChannelListByChannelIdByProfileId(
             $channel_id
             , $profile_id
         );
@@ -6801,48 +6846,48 @@ class BasePlatformACT {
         );
     }
                
-    public function CountOrgSiteUuid(
+    public function CountOrgSiteByUuid(
         $uuid
     ) {       
-        return $this->data->CountOrgSiteUuid(
+        return $this->data->CountOrgSiteByUuid(
             $uuid
         );
     }
                
-    public function CountOrgSiteOrgId(
+    public function CountOrgSiteByOrgId(
         $org_id
     ) {       
-        return $this->data->CountOrgSiteOrgId(
+        return $this->data->CountOrgSiteByOrgId(
             $org_id
         );
     }
                
-    public function CountOrgSiteSiteId(
+    public function CountOrgSiteBySiteId(
         $site_id
     ) {       
-        return $this->data->CountOrgSiteSiteId(
+        return $this->data->CountOrgSiteBySiteId(
             $site_id
         );
     }
                
-    public function CountOrgSiteOrgIdSiteId(
+    public function CountOrgSiteByOrgIdBySiteId(
         $org_id
         , $site_id
     ) {       
-        return $this->data->CountOrgSiteOrgIdSiteId(
+        return $this->data->CountOrgSiteByOrgIdBySiteId(
             $org_id
             , $site_id
         );
     }
                
-    public function BrowseOrgSiteListFilter($filter_obj) {
+    public function BrowseOrgSiteListByFilter($filter_obj) {
         $result = new OrgSiteResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseOrgSiteListFilter(filter_obj);
+        $rows = $this->data->BrowseOrgSiteListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $org_site = $this->FillOrgSite($row);
@@ -6856,27 +6901,27 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetOrgSiteUuid($set_type, $obj) {           
-        return $this->data->SetOrgSiteUuid($set_type, $obj);
+    public function SetOrgSiteByUuid($set_type, $obj) {           
+        return $this->data->SetOrgSiteByUuid($set_type, $obj);
     }
             
-    public function SetOrgSiteOrgIdSiteId($set_type, $obj) {           
-        return $this->data->SetOrgSiteOrgIdSiteId($set_type, $obj);
+    public function SetOrgSiteByOrgIdBySiteId($set_type, $obj) {           
+        return $this->data->SetOrgSiteByOrgIdBySiteId($set_type, $obj);
     }
             
-    public function DelOrgSiteUuid(
+    public function DelOrgSiteByUuid(
         $uuid
     ) {
-        return $this->data->DelOrgSiteUuid(
+        return $this->data->DelOrgSiteByUuid(
             $uuid
         );
     }
         
-    public function DelOrgSiteOrgIdSiteId(
+    public function DelOrgSiteByOrgIdBySiteId(
         $org_id
         , $site_id
     ) {
-        return $this->data->DelOrgSiteOrgIdSiteId(
+        return $this->data->DelOrgSiteByOrgIdBySiteId(
             $org_id
             , $site_id
         );
@@ -6899,12 +6944,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOrgSiteListUuid(
+    public function GetOrgSiteListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetOrgSiteListUuid(
+        $rows = $this->data->GetOrgSiteListByUuid(
             $uuid
         );
         
@@ -6918,12 +6963,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOrgSiteListOrgId(
+    public function GetOrgSiteListByOrgId(
         $org_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOrgSiteListOrgId(
+        $rows = $this->data->GetOrgSiteListByOrgId(
             $org_id
         );
         
@@ -6937,12 +6982,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOrgSiteListSiteId(
+    public function GetOrgSiteListBySiteId(
         $site_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOrgSiteListSiteId(
+        $rows = $this->data->GetOrgSiteListBySiteId(
             $site_id
         );
         
@@ -6956,13 +7001,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetOrgSiteListOrgIdSiteId(
+    public function GetOrgSiteListByOrgIdBySiteId(
         $org_id
         , $site_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetOrgSiteListOrgIdSiteId(
+        $rows = $this->data->GetOrgSiteListByOrgIdBySiteId(
             $org_id
             , $site_id
         );
@@ -7015,48 +7060,48 @@ class BasePlatformACT {
         );
     }
                
-    public function CountSiteAppUuid(
+    public function CountSiteAppByUuid(
         $uuid
     ) {       
-        return $this->data->CountSiteAppUuid(
+        return $this->data->CountSiteAppByUuid(
             $uuid
         );
     }
                
-    public function CountSiteAppAppId(
+    public function CountSiteAppByAppId(
         $app_id
     ) {       
-        return $this->data->CountSiteAppAppId(
+        return $this->data->CountSiteAppByAppId(
             $app_id
         );
     }
                
-    public function CountSiteAppSiteId(
+    public function CountSiteAppBySiteId(
         $site_id
     ) {       
-        return $this->data->CountSiteAppSiteId(
+        return $this->data->CountSiteAppBySiteId(
             $site_id
         );
     }
                
-    public function CountSiteAppAppIdSiteId(
+    public function CountSiteAppByAppIdBySiteId(
         $app_id
         , $site_id
     ) {       
-        return $this->data->CountSiteAppAppIdSiteId(
+        return $this->data->CountSiteAppByAppIdBySiteId(
             $app_id
             , $site_id
         );
     }
                
-    public function BrowseSiteAppListFilter($filter_obj) {
+    public function BrowseSiteAppListByFilter($filter_obj) {
         $result = new SiteAppResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseSiteAppListFilter(filter_obj);
+        $rows = $this->data->BrowseSiteAppListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $site_app = $this->FillSiteApp($row);
@@ -7070,27 +7115,27 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetSiteAppUuid($set_type, $obj) {           
-        return $this->data->SetSiteAppUuid($set_type, $obj);
+    public function SetSiteAppByUuid($set_type, $obj) {           
+        return $this->data->SetSiteAppByUuid($set_type, $obj);
     }
             
-    public function SetSiteAppAppIdSiteId($set_type, $obj) {           
-        return $this->data->SetSiteAppAppIdSiteId($set_type, $obj);
+    public function SetSiteAppByAppIdBySiteId($set_type, $obj) {           
+        return $this->data->SetSiteAppByAppIdBySiteId($set_type, $obj);
     }
             
-    public function DelSiteAppUuid(
+    public function DelSiteAppByUuid(
         $uuid
     ) {
-        return $this->data->DelSiteAppUuid(
+        return $this->data->DelSiteAppByUuid(
             $uuid
         );
     }
         
-    public function DelSiteAppAppIdSiteId(
+    public function DelSiteAppByAppIdBySiteId(
         $app_id
         , $site_id
     ) {
-        return $this->data->DelSiteAppAppIdSiteId(
+        return $this->data->DelSiteAppByAppIdBySiteId(
             $app_id
             , $site_id
         );
@@ -7113,12 +7158,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteAppListUuid(
+    public function GetSiteAppListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteAppListUuid(
+        $rows = $this->data->GetSiteAppListByUuid(
             $uuid
         );
         
@@ -7132,12 +7177,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteAppListAppId(
+    public function GetSiteAppListByAppId(
         $app_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteAppListAppId(
+        $rows = $this->data->GetSiteAppListByAppId(
             $app_id
         );
         
@@ -7151,12 +7196,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteAppListSiteId(
+    public function GetSiteAppListBySiteId(
         $site_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteAppListSiteId(
+        $rows = $this->data->GetSiteAppListBySiteId(
             $site_id
         );
         
@@ -7170,13 +7215,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetSiteAppListAppIdSiteId(
+    public function GetSiteAppListByAppIdBySiteId(
         $app_id
         , $site_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetSiteAppListAppIdSiteId(
+        $rows = $this->data->GetSiteAppListByAppIdBySiteId(
             $app_id
             , $site_id
         );
@@ -7222,6 +7267,9 @@ class BasePlatformACT {
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['third_party_url'] != NULL) {                
             $obj->third_party_url = $row['third_party_url'];#dataType.FillDataString(dr, "third_party_url");
         }
@@ -7256,58 +7304,58 @@ class BasePlatformACT {
         );
     }
                
-    public function CountPhotoUuid(
+    public function CountPhotoByUuid(
         $uuid
     ) {       
-        return $this->data->CountPhotoUuid(
+        return $this->data->CountPhotoByUuid(
             $uuid
         );
     }
                
-    public function CountPhotoExternalId(
+    public function CountPhotoByExternalId(
         $external_id
     ) {       
-        return $this->data->CountPhotoExternalId(
+        return $this->data->CountPhotoByExternalId(
             $external_id
         );
     }
                
-    public function CountPhotoUrl(
+    public function CountPhotoByUrl(
         $url
     ) {       
-        return $this->data->CountPhotoUrl(
+        return $this->data->CountPhotoByUrl(
             $url
         );
     }
                
-    public function CountPhotoUrlExternalId(
+    public function CountPhotoByUrlByExternalId(
         $url
         , $external_id
     ) {       
-        return $this->data->CountPhotoUrlExternalId(
+        return $this->data->CountPhotoByUrlByExternalId(
             $url
             , $external_id
         );
     }
                
-    public function CountPhotoUuidExternalId(
+    public function CountPhotoByUuidByExternalId(
         $uuid
         , $external_id
     ) {       
-        return $this->data->CountPhotoUuidExternalId(
+        return $this->data->CountPhotoByUuidByExternalId(
             $uuid
             , $external_id
         );
     }
                
-    public function BrowsePhotoListFilter($filter_obj) {
+    public function BrowsePhotoListByFilter($filter_obj) {
         $result = new PhotoResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowsePhotoListFilter(filter_obj);
+        $rows = $this->data->BrowsePhotoListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $photo = $this->FillPhoto($row);
@@ -7321,65 +7369,65 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetPhotoUuid($set_type, $obj) {           
-        return $this->data->SetPhotoUuid($set_type, $obj);
+    public function SetPhotoByUuid($set_type, $obj) {           
+        return $this->data->SetPhotoByUuid($set_type, $obj);
     }
             
-    public function SetPhotoExternalId($set_type, $obj) {           
-        return $this->data->SetPhotoExternalId($set_type, $obj);
+    public function SetPhotoByExternalId($set_type, $obj) {           
+        return $this->data->SetPhotoByExternalId($set_type, $obj);
     }
             
-    public function SetPhotoUrl($set_type, $obj) {           
-        return $this->data->SetPhotoUrl($set_type, $obj);
+    public function SetPhotoByUrl($set_type, $obj) {           
+        return $this->data->SetPhotoByUrl($set_type, $obj);
     }
             
-    public function SetPhotoUrlExternalId($set_type, $obj) {           
-        return $this->data->SetPhotoUrlExternalId($set_type, $obj);
+    public function SetPhotoByUrlByExternalId($set_type, $obj) {           
+        return $this->data->SetPhotoByUrlByExternalId($set_type, $obj);
     }
             
-    public function SetPhotoUuidExternalId($set_type, $obj) {           
-        return $this->data->SetPhotoUuidExternalId($set_type, $obj);
+    public function SetPhotoByUuidByExternalId($set_type, $obj) {           
+        return $this->data->SetPhotoByUuidByExternalId($set_type, $obj);
     }
             
-    public function DelPhotoUuid(
+    public function DelPhotoByUuid(
         $uuid
     ) {
-        return $this->data->DelPhotoUuid(
+        return $this->data->DelPhotoByUuid(
             $uuid
         );
     }
         
-    public function DelPhotoExternalId(
+    public function DelPhotoByExternalId(
         $external_id
     ) {
-        return $this->data->DelPhotoExternalId(
+        return $this->data->DelPhotoByExternalId(
             $external_id
         );
     }
         
-    public function DelPhotoUrl(
+    public function DelPhotoByUrl(
         $url
     ) {
-        return $this->data->DelPhotoUrl(
+        return $this->data->DelPhotoByUrl(
             $url
         );
     }
         
-    public function DelPhotoUrlExternalId(
+    public function DelPhotoByUrlByExternalId(
         $url
         , $external_id
     ) {
-        return $this->data->DelPhotoUrlExternalId(
+        return $this->data->DelPhotoByUrlByExternalId(
             $url
             , $external_id
         );
     }
         
-    public function DelPhotoUuidExternalId(
+    public function DelPhotoByUuidByExternalId(
         $uuid
         , $external_id
     ) {
-        return $this->data->DelPhotoUuidExternalId(
+        return $this->data->DelPhotoByUuidByExternalId(
             $uuid
             , $external_id
         );
@@ -7402,12 +7450,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetPhotoListUuid(
+    public function GetPhotoListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetPhotoListUuid(
+        $rows = $this->data->GetPhotoListByUuid(
             $uuid
         );
         
@@ -7421,12 +7469,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetPhotoListExternalId(
+    public function GetPhotoListByExternalId(
         $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetPhotoListExternalId(
+        $rows = $this->data->GetPhotoListByExternalId(
             $external_id
         );
         
@@ -7440,12 +7488,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetPhotoListUrl(
+    public function GetPhotoListByUrl(
         $url
     ) {
 
         $results = array();
-        $rows = $this->data->GetPhotoListUrl(
+        $rows = $this->data->GetPhotoListByUrl(
             $url
         );
         
@@ -7459,13 +7507,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetPhotoListUrlExternalId(
+    public function GetPhotoListByUrlByExternalId(
         $url
         , $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetPhotoListUrlExternalId(
+        $rows = $this->data->GetPhotoListByUrlByExternalId(
             $url
             , $external_id
         );
@@ -7480,13 +7528,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetPhotoListUuidExternalId(
+    public function GetPhotoListByUuidByExternalId(
         $uuid
         , $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetPhotoListUuidExternalId(
+        $rows = $this->data->GetPhotoListByUuidByExternalId(
             $uuid
             , $external_id
         );
@@ -7532,6 +7580,9 @@ class BasePlatformACT {
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
         }
+        if ($row['data'] != NULL) {                
+            $obj->data = $row['data'];#dataType.FillDataString(dr, "data");
+        }
         if ($row['third_party_url'] != NULL) {                
             $obj->third_party_url = $row['third_party_url'];#dataType.FillDataString(dr, "third_party_url");
         }
@@ -7566,58 +7617,58 @@ class BasePlatformACT {
         );
     }
                
-    public function CountVideoUuid(
+    public function CountVideoByUuid(
         $uuid
     ) {       
-        return $this->data->CountVideoUuid(
+        return $this->data->CountVideoByUuid(
             $uuid
         );
     }
                
-    public function CountVideoExternalId(
+    public function CountVideoByExternalId(
         $external_id
     ) {       
-        return $this->data->CountVideoExternalId(
+        return $this->data->CountVideoByExternalId(
             $external_id
         );
     }
                
-    public function CountVideoUrl(
+    public function CountVideoByUrl(
         $url
     ) {       
-        return $this->data->CountVideoUrl(
+        return $this->data->CountVideoByUrl(
             $url
         );
     }
                
-    public function CountVideoUrlExternalId(
+    public function CountVideoByUrlByExternalId(
         $url
         , $external_id
     ) {       
-        return $this->data->CountVideoUrlExternalId(
+        return $this->data->CountVideoByUrlByExternalId(
             $url
             , $external_id
         );
     }
                
-    public function CountVideoUuidExternalId(
+    public function CountVideoByUuidByExternalId(
         $uuid
         , $external_id
     ) {       
-        return $this->data->CountVideoUuidExternalId(
+        return $this->data->CountVideoByUuidByExternalId(
             $uuid
             , $external_id
         );
     }
                
-    public function BrowseVideoListFilter($filter_obj) {
+    public function BrowseVideoListByFilter($filter_obj) {
         $result = new VideoResult();
         $result->page = $filter_obj->page;
         $result->page_size = $filter_obj->page_size;
         $result->data = array();
         
         $rows = array();
-        $rows = $this->data->BrowseVideoListFilter(filter_obj);
+        $rows = $this->data->BrowseVideoListByFilter(filter_obj);
         if($rows != None) {
             foreach ($rows as $row) {
                 $video = $this->FillVideo($row);
@@ -7631,65 +7682,65 @@ class BasePlatformACT {
         return $result;
     }
 
-    public function SetVideoUuid($set_type, $obj) {           
-        return $this->data->SetVideoUuid($set_type, $obj);
+    public function SetVideoByUuid($set_type, $obj) {           
+        return $this->data->SetVideoByUuid($set_type, $obj);
     }
             
-    public function SetVideoExternalId($set_type, $obj) {           
-        return $this->data->SetVideoExternalId($set_type, $obj);
+    public function SetVideoByExternalId($set_type, $obj) {           
+        return $this->data->SetVideoByExternalId($set_type, $obj);
     }
             
-    public function SetVideoUrl($set_type, $obj) {           
-        return $this->data->SetVideoUrl($set_type, $obj);
+    public function SetVideoByUrl($set_type, $obj) {           
+        return $this->data->SetVideoByUrl($set_type, $obj);
     }
             
-    public function SetVideoUrlExternalId($set_type, $obj) {           
-        return $this->data->SetVideoUrlExternalId($set_type, $obj);
+    public function SetVideoByUrlByExternalId($set_type, $obj) {           
+        return $this->data->SetVideoByUrlByExternalId($set_type, $obj);
     }
             
-    public function SetVideoUuidExternalId($set_type, $obj) {           
-        return $this->data->SetVideoUuidExternalId($set_type, $obj);
+    public function SetVideoByUuidByExternalId($set_type, $obj) {           
+        return $this->data->SetVideoByUuidByExternalId($set_type, $obj);
     }
             
-    public function DelVideoUuid(
+    public function DelVideoByUuid(
         $uuid
     ) {
-        return $this->data->DelVideoUuid(
+        return $this->data->DelVideoByUuid(
             $uuid
         );
     }
         
-    public function DelVideoExternalId(
+    public function DelVideoByExternalId(
         $external_id
     ) {
-        return $this->data->DelVideoExternalId(
+        return $this->data->DelVideoByExternalId(
             $external_id
         );
     }
         
-    public function DelVideoUrl(
+    public function DelVideoByUrl(
         $url
     ) {
-        return $this->data->DelVideoUrl(
+        return $this->data->DelVideoByUrl(
             $url
         );
     }
         
-    public function DelVideoUrlExternalId(
+    public function DelVideoByUrlByExternalId(
         $url
         , $external_id
     ) {
-        return $this->data->DelVideoUrlExternalId(
+        return $this->data->DelVideoByUrlByExternalId(
             $url
             , $external_id
         );
     }
         
-    public function DelVideoUuidExternalId(
+    public function DelVideoByUuidByExternalId(
         $uuid
         , $external_id
     ) {
-        return $this->data->DelVideoUuidExternalId(
+        return $this->data->DelVideoByUuidByExternalId(
             $uuid
             , $external_id
         );
@@ -7712,12 +7763,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetVideoListUuid(
+    public function GetVideoListByUuid(
         $uuid
     ) {
 
         $results = array();
-        $rows = $this->data->GetVideoListUuid(
+        $rows = $this->data->GetVideoListByUuid(
             $uuid
         );
         
@@ -7731,12 +7782,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetVideoListExternalId(
+    public function GetVideoListByExternalId(
         $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetVideoListExternalId(
+        $rows = $this->data->GetVideoListByExternalId(
             $external_id
         );
         
@@ -7750,12 +7801,12 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetVideoListUrl(
+    public function GetVideoListByUrl(
         $url
     ) {
 
         $results = array();
-        $rows = $this->data->GetVideoListUrl(
+        $rows = $this->data->GetVideoListByUrl(
             $url
         );
         
@@ -7769,13 +7820,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetVideoListUrlExternalId(
+    public function GetVideoListByUrlByExternalId(
         $url
         , $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetVideoListUrlExternalId(
+        $rows = $this->data->GetVideoListByUrlByExternalId(
             $url
             , $external_id
         );
@@ -7790,13 +7841,13 @@ class BasePlatformACT {
         return $results;
     }
         
-    public function GetVideoListUuidExternalId(
+    public function GetVideoListByUuidByExternalId(
         $uuid
         , $external_id
     ) {
 
         $results = array();
-        $rows = $this->data->GetVideoListUuidExternalId(
+        $rows = $this->data->GetVideoListByUuidByExternalId(
             $uuid
             , $external_id
         );

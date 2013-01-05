@@ -83,13 +83,13 @@ DROP TABLE IF EXISTS `game_rpg_item_skill` CASCADE;
 DROP TABLE IF EXISTS `game_product` CASCADE;
     
         
-DROP TABLE IF EXISTS `game_statistic_leaderboard` CASCADE;
+DROP TABLE IF EXISTS `game_leaderboard` CASCADE;
     
         
-DROP TABLE IF EXISTS `game_statistic_leaderboard_item` CASCADE;
+DROP TABLE IF EXISTS `game_leaderboard_item` CASCADE;
     
         
-DROP TABLE IF EXISTS `game_statistic_leaderboard_rollup` CASCADE;
+DROP TABLE IF EXISTS `game_leaderboard_rollup` CASCADE;
     
         
 DROP TABLE IF EXISTS `game_live_queue` CASCADE;
@@ -117,6 +117,51 @@ DROP TABLE IF EXISTS `game_profile_achievement` CASCADE;
     
         
 DROP TABLE IF EXISTS `game_achievement_meta` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `profile_reward` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `coupon` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `profile_coupon` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `org` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `channel` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `channel_type` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `reward` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `reward_type` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `reward_condition` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `reward_condition_type` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `question` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `profile_question` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `profile_channel` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `profile_reward_points` CASCADE;
+    
+        
+DROP TABLE IF EXISTS `reward_competition` CASCADE;
     
 */
 
@@ -656,7 +701,7 @@ CREATE TABLE `game_product`
 ALTER TABLE `game_product` ADD PRIMARY KEY (`uuid`);
     
         
-CREATE TABLE `game_statistic_leaderboard` 
+CREATE TABLE `game_leaderboard` 
 (
     `status` VARCHAR (255)
     , `username` VARCHAR (500)
@@ -683,10 +728,10 @@ CREATE TABLE `game_statistic_leaderboard`
     , `type` VARCHAR (500)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `game_statistic_leaderboard` ADD PRIMARY KEY (`uuid`);
+ALTER TABLE `game_leaderboard` ADD PRIMARY KEY (`uuid`);
     
         
-CREATE TABLE `game_statistic_leaderboard_item` 
+CREATE TABLE `game_leaderboard_item` 
 (
     `status` VARCHAR (255)
     , `username` VARCHAR (500)
@@ -713,10 +758,10 @@ CREATE TABLE `game_statistic_leaderboard_item`
     , `type` VARCHAR (500)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `game_statistic_leaderboard_item` ADD PRIMARY KEY (`uuid`);
+ALTER TABLE `game_leaderboard_item` ADD PRIMARY KEY (`uuid`);
     
         
-CREATE TABLE `game_statistic_leaderboard_rollup` 
+CREATE TABLE `game_leaderboard_rollup` 
 (
     `status` VARCHAR (255)
     , `username` VARCHAR (500)
@@ -743,7 +788,7 @@ CREATE TABLE `game_statistic_leaderboard_rollup`
     , `type` VARCHAR (500)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `game_statistic_leaderboard_rollup` ADD PRIMARY KEY (`uuid`);
+ALTER TABLE `game_leaderboard_rollup` ADD PRIMARY KEY (`uuid`);
     
         
 CREATE TABLE `game_live_queue` 
@@ -977,6 +1022,375 @@ CREATE TABLE `game_achievement_meta`
 
 ALTER TABLE `game_achievement_meta` ADD PRIMARY KEY (`uuid`);
     
+        
+CREATE TABLE `profile_reward` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `viewed` int 
+                DEFAULT 1
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `data` TEXT
+    , `profile_id` BINARY(16) 
+    , `uuid` BINARY(16) 
+    , `downloaded` int 
+                DEFAULT 1
+    , `channel_id` BINARY(16)
+    , `reward_id` BINARY(16) 
+    , `usage_count` INTEGER
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (500)
+    , `blurb` VARCHAR (2000)
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `profile_reward` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `coupon` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `url` VARCHAR (500)
+    , `data` TEXT
+    , `org_id` BINARY(16) 
+    , `uuid` BINARY(16) 
+    , `usage_count` INTEGER
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (500)
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `coupon` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `profile_coupon` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `url` VARCHAR (50)
+    , `data` TEXT
+    , `profile_id` BINARY(16) 
+    , `uuid` BINARY(16) 
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (500)
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `profile_coupon` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `org` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `data` TEXT
+    , `uuid` BINARY(16) 
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (500)
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `org` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `channel` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `data` TEXT
+    , `type_id` BINARY(16) 
+    , `org_id` BINARY(16) 
+    , `uuid` BINARY(16) 
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (500)
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `channel` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `channel_type` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `data` TEXT
+    , `uuid` BINARY(16) 
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (50) 
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `channel_type` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `reward` 
+(
+    `status` VARCHAR (255)
+    , `type_url` VARCHAR (50)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `url` VARCHAR (500)
+    , `data` TEXT
+    , `org_id` BINARY(16) 
+    , `uuid` BINARY(16) 
+    , `channel_id` BINARY(16) 
+    , `usage_count` INTEGER
+    , `external_id` VARCHAR (50) 
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (50) 
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `reward` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `reward_type` 
+(
+    `status` VARCHAR (255)
+    , `type_url` VARCHAR (50) 
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `data` TEXT
+    , `uuid` BINARY(16) 
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (50) 
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `reward_type` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `reward_condition` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `end_date` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `data` TEXT
+    , `org_id` BINARY(16)
+    , `uuid` BINARY(16) 
+    , `channel_id` BINARY(16)
+    , `amount` INTEGER
+    , `global_reward` int
+                DEFAULT 1
+    , `condition` VARCHAR (50)
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (50)
+    , `start_date` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `reward_id` BINARY(16)
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `reward_condition` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `reward_condition_type` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `data` TEXT
+    , `uuid` BINARY(16) 
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (50) 
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `reward_condition_type` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `question` 
+(
+    `status` VARCHAR (255)
+    , `code` VARCHAR (255)
+    , `display_name` VARCHAR (255)
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `data` TEXT
+    , `org_id` BINARY(16) 
+    , `uuid` BINARY(16) 
+    , `choices` TEXT
+    , `channel_id` BINARY(16) 
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (50) 
+    , `description` VARCHAR (255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `question` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `profile_question` 
+(
+    `status` VARCHAR (255)
+    , `profile_id` BINARY(16) 
+    , `active` int
+                DEFAULT 1
+    , `data` TEXT 
+    , `uuid` BINARY(16) 
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `org_id` BINARY(16) 
+    , `channel_id` BINARY(16) 
+    , `answer` VARCHAR (1000) 
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (500)
+    , `question_id` BINARY(16) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `profile_question` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `profile_channel` 
+(
+    `status` VARCHAR (255)
+    , `channel_id` BINARY(16) 
+    , `uuid` BINARY(16) 
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `active` int
+                DEFAULT 1
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `profile_id` BINARY(16) 
+    , `type` VARCHAR (500)
+    , `data` TEXT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `profile_channel` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `profile_reward_points` 
+(
+    `status` VARCHAR (255)
+    , `profile_id` BINARY(16) 
+    , `active` int
+                DEFAULT 1
+    , `data` TEXT
+    , `uuid` BINARY(16) 
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `org_id` BINARY(16) 
+    , `channel_id` BINARY(16) 
+    , `points` INTEGER 
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `type` VARCHAR (500)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `profile_reward_points` ADD PRIMARY KEY (`uuid`);
+    
+        
+CREATE TABLE `reward_competition` 
+(
+    `sort` INTEGER
+    , `code` VARCHAR (255)
+    , `date_end` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `results` TEXT
+    , `visible` int
+                DEFAULT 1
+    , `display_name` VARCHAR (255)
+    , `uuid` BINARY(16) 
+    , `date_start` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+    , `winners` TEXT
+    , `template` TEXT
+    , `type` VARCHAR (500)
+    , `trigger_data` TEXT
+    , `status` VARCHAR (255)
+    , `description` VARCHAR (255)
+    , `completed` int
+                DEFAULT 1
+    , `template_url` VARCHAR (500)
+    , `active` int
+                DEFAULT 1
+    , `path` VARCHAR (500)
+    , `data` TEXT
+    , `name` VARCHAR (255)
+    , `date_modified` TIMESTAMP
+                    DEFAULT NOW()
+    , `fulfilled` int
+                DEFAULT 1
+    , `channel_id` BINARY(16)
+    , `date_created` TIMESTAMP
+                    DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `reward_competition` ADD PRIMARY KEY (`uuid`);
+    
 
         
 -- INDEX CREATES
@@ -1063,41 +1477,41 @@ CREATE INDEX `IX_profile_game_data_attribute_profile_id_game_id_code` ON `profil
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code` ON `game_leaderboard` 
 (
                     
     `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_profile_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_profile_id','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_profile_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_profile_id` ON `game_leaderboard` 
 (
                     
     `profile_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_username','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_username','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_username` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_username` ON `game_leaderboard` 
 (
                     
     `username` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_game_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_game_id','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_game_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_game_id` ON `game_leaderboard` 
 (
                     
     `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_game_id_level','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_game_id_level','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_game_id_level` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_game_id_level` ON `game_leaderboard` 
 (
                     
     `game_id` ASC
@@ -1107,9 +1521,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_game_id_level` ON `game_statist
     , `level` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_profile_id_game_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_profile_id_game_id','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_profile_id_game_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_profile_id_game_id` ON `game_leaderboard` 
 (
                     
     `game_id` ASC
@@ -1117,9 +1531,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_profile_id_game_id` ON `game_statist
     , `profile_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_username_game_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_username_game_id','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_username_game_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_username_game_id` ON `game_leaderboard` 
 (
                     
     `username` ASC
@@ -1127,9 +1541,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_username_game_id` ON `game_statistic
     , `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_username','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_username','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_username` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_username` ON `game_leaderboard` 
 (
                     
     `username` ASC
@@ -1137,9 +1551,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_username` ON `game_statistic_le
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_username_game_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_username_game_id','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_username_game_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_username_game_id` ON `game_leaderboard` 
 (
                     
     `username` ASC
@@ -1149,9 +1563,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_username_game_id` ON `game_stat
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_username_game_id_type','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_username_game_id_type','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_username_game_id_type` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_username_game_id_type` ON `game_leaderboard` 
 (
                     
     `username` ASC
@@ -1163,9 +1577,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_username_game_id_type` ON `game
     , `type` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_profile_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_profile_id','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_profile_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_profile_id` ON `game_leaderboard` 
 (
                     
     `profile_id` ASC
@@ -1173,9 +1587,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_profile_id` ON `game_statistic_
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_profile_id_game_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_profile_id_game_id','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_profile_id_game_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_profile_id_game_id` ON `game_leaderboard` 
 (
                     
     `profile_id` ASC
@@ -1185,9 +1599,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_profile_id_game_id` ON `game_st
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_profile_id_game_id_type','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_profile_id_game_id_type','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_profile_id_game_id_type` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_profile_id_game_id_type` ON `game_leaderboard` 
 (
                     
     `profile_id` ASC
@@ -1199,9 +1613,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_profile_id_game_id_type` ON `ga
     , `type` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_game_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_game_id','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_game_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_game_id` ON `game_leaderboard` 
 (
                     
     `game_id` ASC
@@ -1209,9 +1623,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_game_id` ON `game_statistic_lea
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_game_id_profile_id','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_game_id_profile_id','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_game_id_profile_id` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_game_id_profile_id` ON `game_leaderboard` 
 (
                     
     `profile_id` ASC
@@ -1221,9 +1635,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_game_id_profile_id` ON `game_st
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_code_game_id_type','game_statistic_leaderboard');
+CALL drop_index_if_exists('IX_game_leaderboard_code_game_id_type','game_leaderboard');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_code_game_id_type` ON `game_statistic_leaderboard` 
+CREATE INDEX `IX_game_leaderboard_code_game_id_type` ON `game_leaderboard` 
 (
                     
     `game_id` ASC
@@ -1236,41 +1650,41 @@ CREATE INDEX `IX_game_statistic_leaderboard_code_game_id_type` ON `game_statisti
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code` ON `game_leaderboard_item` 
 (
                     
     `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_profile_id','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_profile_id','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_profile_id` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_profile_id` ON `game_leaderboard_item` 
 (
                     
     `profile_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_username','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_username','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_username` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_username` ON `game_leaderboard_item` 
 (
                     
     `username` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_game_id','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_game_id','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_game_id` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_game_id` ON `game_leaderboard_item` 
 (
                     
     `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_game_id_level','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_game_id_level','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_game_id_level` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_game_id_level` ON `game_leaderboard_item` 
 (
                     
     `game_id` ASC
@@ -1280,9 +1694,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_game_id_level` ON `game_st
     , `level` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_profile_id_game_id','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_profile_id_game_id','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_profile_id_game_id` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_profile_id_game_id` ON `game_leaderboard_item` 
 (
                     
     `game_id` ASC
@@ -1290,9 +1704,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_profile_id_game_id` ON `game_st
     , `profile_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_username_game_id','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_username_game_id','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_username_game_id` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_username_game_id` ON `game_leaderboard_item` 
 (
                     
     `username` ASC
@@ -1300,9 +1714,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_username_game_id` ON `game_stat
     , `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_username','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_username','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_username` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_username` ON `game_leaderboard_item` 
 (
                     
     `username` ASC
@@ -1310,9 +1724,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_username` ON `game_statist
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_username_game_id','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_username_game_id','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_username_game_id` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_username_game_id` ON `game_leaderboard_item` 
 (
                     
     `username` ASC
@@ -1322,9 +1736,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_username_game_id` ON `game
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_username_game_id_type','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_username_game_id_type','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_username_game_id_type` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_username_game_id_type` ON `game_leaderboard_item` 
 (
                     
     `username` ASC
@@ -1336,9 +1750,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_username_game_id_type` ON 
     , `type` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_profile_id','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_profile_id','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_profile_id` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_profile_id` ON `game_leaderboard_item` 
 (
                     
     `profile_id` ASC
@@ -1346,9 +1760,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_profile_id` ON `game_stati
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_profile_id_game_id','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_profile_id_game_id','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_profile_id_game_id` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_profile_id_game_id` ON `game_leaderboard_item` 
 (
                     
     `profile_id` ASC
@@ -1358,9 +1772,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_profile_id_game_id` ON `ga
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_profile_id_game_id_type','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_profile_id_game_id_type','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_profile_id_game_id_type` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_profile_id_game_id_type` ON `game_leaderboard_item` 
 (
                     
     `profile_id` ASC
@@ -1372,9 +1786,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_profile_id_game_id_type` O
     , `type` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_game_id','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_game_id','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_game_id` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_game_id` ON `game_leaderboard_item` 
 (
                     
     `game_id` ASC
@@ -1382,9 +1796,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_game_id` ON `game_statisti
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_game_id_profile_id','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_game_id_profile_id','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_game_id_profile_id` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_game_id_profile_id` ON `game_leaderboard_item` 
 (
                     
     `profile_id` ASC
@@ -1394,9 +1808,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_game_id_profile_id` ON `ga
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_item_code_game_id_type','game_statistic_leaderboard_item');
+CALL drop_index_if_exists('IX_game_leaderboard_item_code_game_id_type','game_leaderboard_item');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_item_code_game_id_type` ON `game_statistic_leaderboard_item` 
+CREATE INDEX `IX_game_leaderboard_item_code_game_id_type` ON `game_leaderboard_item` 
 (
                     
     `game_id` ASC
@@ -1409,41 +1823,41 @@ CREATE INDEX `IX_game_statistic_leaderboard_item_code_game_id_type` ON `game_sta
 -- INDEX CREATES
 
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code` ON `game_leaderboard_rollup` 
 (
                     
     `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_profile_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_profile_id','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_profile_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_profile_id` ON `game_leaderboard_rollup` 
 (
                     
     `profile_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_username','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_username','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_username` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_username` ON `game_leaderboard_rollup` 
 (
                     
     `username` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_game_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_game_id','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_game_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_game_id` ON `game_leaderboard_rollup` 
 (
                     
     `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_game_id_level','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_game_id_level','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id_level` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_game_id_level` ON `game_leaderboard_rollup` 
 (
                     
     `game_id` ASC
@@ -1453,9 +1867,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id_level` ON `game_
     , `level` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_profile_id_game_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_profile_id_game_id','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_profile_id_game_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_profile_id_game_id` ON `game_leaderboard_rollup` 
 (
                     
     `game_id` ASC
@@ -1463,9 +1877,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_profile_id_game_id` ON `game_
     , `profile_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_username_game_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_username_game_id','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_username_game_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_username_game_id` ON `game_leaderboard_rollup` 
 (
                     
     `username` ASC
@@ -1473,9 +1887,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_username_game_id` ON `game_st
     , `game_id` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_username','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_username','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_username` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_username` ON `game_leaderboard_rollup` 
 (
                     
     `username` ASC
@@ -1483,9 +1897,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_username` ON `game_stati
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_username_game_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_username_game_id','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_username_game_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_username_game_id` ON `game_leaderboard_rollup` 
 (
                     
     `username` ASC
@@ -1495,9 +1909,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_username_game_id` ON `ga
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_username_game_id_type','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_username_game_id_type','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_username_game_id_type` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_username_game_id_type` ON `game_leaderboard_rollup` 
 (
                     
     `username` ASC
@@ -1509,9 +1923,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_username_game_id_type` O
     , `type` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_profile_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_profile_id','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_profile_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_profile_id` ON `game_leaderboard_rollup` 
 (
                     
     `profile_id` ASC
@@ -1519,9 +1933,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_profile_id` ON `game_sta
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_profile_id_game_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_profile_id_game_id','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_profile_id_game_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_profile_id_game_id` ON `game_leaderboard_rollup` 
 (
                     
     `profile_id` ASC
@@ -1531,9 +1945,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_profile_id_game_id` ON `
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_profile_id_game_id_type','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_profile_id_game_id_type` ON `game_leaderboard_rollup` 
 (
                     
     `profile_id` ASC
@@ -1545,9 +1959,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type`
     , `type` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_game_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_game_id','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_game_id` ON `game_leaderboard_rollup` 
 (
                     
     `game_id` ASC
@@ -1555,9 +1969,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id` ON `game_statis
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_game_id_profile_id','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_game_id_profile_id','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id_profile_id` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_game_id_profile_id` ON `game_leaderboard_rollup` 
 (
                     
     `profile_id` ASC
@@ -1567,9 +1981,9 @@ CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id_profile_id` ON `
     , `code` ASC
 );
                 
-CALL drop_index_if_exists('IX_game_statistic_leaderboard_rollup_code_game_id_type','game_statistic_leaderboard_rollup');
+CALL drop_index_if_exists('IX_game_leaderboard_rollup_code_game_id_type','game_leaderboard_rollup');
                 
-CREATE INDEX `IX_game_statistic_leaderboard_rollup_code_game_id_type` ON `game_statistic_leaderboard_rollup` 
+CREATE INDEX `IX_game_leaderboard_rollup_code_game_id_type` ON `game_leaderboard_rollup` 
 (
                     
     `game_id` ASC
@@ -2432,6 +2846,39 @@ CREATE INDEX `IX_game_achievement_meta_code_game_id_type` ON `game_achievement_m
     , `code` ASC
                     
     , `type` ASC
+);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+-- INDEX CREATES
+
+                
+CALL drop_index_if_exists('IX_reward_competition_path','reward_competition');
+                
+CREATE INDEX `IX_reward_competition_path` ON `reward_competition` 
+(
+                    
+    `path` ASC
+);
+                
+CALL drop_index_if_exists('IX_reward_competition_channel_id','reward_competition');
+                
+CREATE INDEX `IX_reward_competition_channel_id` ON `reward_competition` 
+(
+                    
+    `channel_id` ASC
 );
 
 -- -----------------------------------------------------------------------------
@@ -20601,72 +21048,72 @@ delimiter ;
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_count`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count`
+CREATE PROCEDURE `usp_game_leaderboard_count`
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_count_uuid`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_count_uuid`
 (
     in_uuid BINARY(16) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND `uuid` = in_uuid
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_count_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_count_game_id`
 (
     in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_count_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code`
+CREATE PROCEDURE `usp_game_leaderboard_count_code`
 (
     in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_count_code_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_count_code_game_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -20674,7 +21121,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code_game_id`
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -20682,9 +21129,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_count_code_game_id_profile_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_count_code_game_id_profile_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -20693,7 +21140,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code_game_id_profile_id`
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -20702,9 +21149,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_code_game_id_profile_id_ti`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_count_code_game_id_profile_id_timestamp`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code_game_id_profile_id_ti`
+CREATE PROCEDURE `usp_game_leaderboard_count_code_game_id_profile_id_timestamp`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -20714,7 +21161,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_count_code_game_id_profile_id_t
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -20724,9 +21171,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_count_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_count_profile_id_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_count_profile_id_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_count_profile_id_game_id`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -20734,7 +21181,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_count_profile_id_game_id`
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
@@ -20746,13 +21193,13 @@ delimiter ;
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_browse_filter`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_browse_filter`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_browse_filter`
+CREATE PROCEDURE `usp_game_leaderboard_browse_filter`
 (
     in_page int,
     in_page_size int,
@@ -20797,7 +21244,7 @@ BEGIN
     SET @sfields = CONCAT(@sfields, ', `date_created`');
     SET @sfields = CONCAT(@sfields, ', `type`');
     
-    SET @stable = CONCAT('', ' FROM `game_statistic_leaderboard` WHERE 1=1 ');
+    SET @stable = CONCAT('', ' FROM `game_leaderboard` WHERE 1=1 ');
     
     SET @s = CONCAT(' ', @stable);
     SET @s = CONCAT(@s, ' ', in_filter);    
@@ -20824,12 +21271,12 @@ delimiter ;
 -- SET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_set_uuid`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_set_uuid`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -20871,7 +21318,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard`  
+                    FROM  `game_leaderboard`  
                     WHERE 1=1
                     AND `uuid` = in_uuid
                     ;
@@ -20884,156 +21331,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard` 
-                    SET
-                        `status` = in_status
-                        , `username` = in_username
-                        , `code` = in_code
-                        , `timestamp` = in_timestamp
-                        , `profile_id` = in_profile_id
-                        , `rank` = in_rank
-                        , `rank_change` = in_rank_change
-                        , `game_id` = in_game_id
-                        , `active` = in_active
-                        , `rank_total_count` = in_rank_total_count
-                        , `absolute_value` = in_absolute_value
-                        , `data` = in_data
-                        , `stat_value` = in_stat_value
-                        , `network` = in_network
-                        , `uuid` = in_uuid
-                        , `date_modified` = in_date_modified
-                        , `level` = in_level
-                        , `stat_value_formatted` = in_stat_value_formatted
-                        , `date_created` = in_date_created
-                        , `type` = in_type
-                    WHERE 1=1
-                    AND `uuid` = in_uuid
-                    ;
-                    SET @id = 1;
-                END;
-            END IF;
-        END;
-        BEGIN
-            # INSERT
-            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
-                BEGIN			
-                    INSERT INTO `game_statistic_leaderboard`
-                    (
-                        `status`
-                        , `username`
-                        , `code`
-                        , `timestamp`
-                        , `profile_id`
-                        , `rank`
-                        , `rank_change`
-                        , `game_id`
-                        , `active`
-                        , `rank_total_count`
-                        , `absolute_value`
-                        , `data`
-                        , `stat_value`
-                        , `network`
-                        , `uuid`
-                        , `date_modified`
-                        , `level`
-                        , `stat_value_formatted`
-                        , `date_created`
-                        , `type`
-                    )
-                    VALUES
-                    (
-                        in_status
-                        , in_username
-                        , in_code
-                        , in_timestamp
-                        , in_profile_id
-                        , in_rank
-                        , in_rank_change
-                        , in_game_id
-                        , in_active
-                        , in_rank_total_count
-                        , in_absolute_value
-                        , in_data
-                        , in_stat_value
-                        , in_network
-                        , in_uuid
-                        , in_date_modified
-                        , in_level
-                        , in_stat_value_formatted
-                        , in_date_created
-                        , in_type
-                    )
-                    ;
-                    SET @id = 1;                  
-                END;
-            END IF;
-        END;     
-        SELECT @id as id;
-    END;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_time`;
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_time`
-(
-    in_set_type varchar(50)                      
-    , in_status VARCHAR (255) 
-    , in_username VARCHAR (500) 
-    , in_code VARCHAR (500) 
-    , in_timestamp decimal 
-    , in_profile_id BINARY(16) 
-    , in_rank INTEGER 
-    , in_rank_change INTEGER 
-    , in_game_id BINARY(16) 
-    , in_active int 
-    , in_rank_total_count INTEGER 
-    , in_absolute_value decimal 
-    , in_data TEXT 
-    , in_stat_value decimal 
-    , in_network VARCHAR (500) 
-    , in_uuid BINARY(16) 
-    , in_date_modified TIMESTAMP 
-    , in_level VARCHAR (500) 
-    , in_stat_value_formatted VARCHAR (500) 
-    , in_date_created TIMESTAMP 
-    , in_type VARCHAR (500) 
-)
-BEGIN
-    BEGIN
-        SET @countItems = 0;
-        SET @id = 0;
-        
-        BEGIN
-            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
-                SET in_set_type = 'full';
-            END IF;
-        END;
-
-	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	# GET COUNT TO CHECK
-	BEGIN
-	    IF (in_set_type = 'full') THEN
-                BEGIN
-                    -- CHECK COUNT
-                    SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard`  
-                    WHERE 1=1
-                    AND `uuid` = in_uuid
-                    AND `profile_id` = in_profile_id
-                    AND `game_id` = in_game_id
-                    AND `timestamp` = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_statistic_leaderboard` 
+                    UPDATE `game_leaderboard` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -21057,6 +21355,155 @@ BEGIN
                         , `type` = in_type
                     WHERE 1=1
                     AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_leaderboard`
+                    (
+                        `status`
+                        , `username`
+                        , `code`
+                        , `timestamp`
+                        , `profile_id`
+                        , `rank`
+                        , `rank_change`
+                        , `game_id`
+                        , `active`
+                        , `rank_total_count`
+                        , `absolute_value`
+                        , `data`
+                        , `stat_value`
+                        , `network`
+                        , `uuid`
+                        , `date_modified`
+                        , `level`
+                        , `stat_value_formatted`
+                        , `date_created`
+                        , `type`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_set_uuid_profile_id_game_id_timestamp`;
+delimiter $$
+CREATE PROCEDURE `usp_game_leaderboard_set_uuid_profile_id_game_id_timestamp`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
+    , in_timestamp decimal 
+    , in_profile_id BINARY(16) 
+    , in_rank INTEGER 
+    , in_rank_change INTEGER 
+    , in_game_id BINARY(16) 
+    , in_active int 
+    , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
+    , in_data TEXT 
+    , in_stat_value decimal 
+    , in_network VARCHAR (500) 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_level VARCHAR (500) 
+    , in_stat_value_formatted VARCHAR (500) 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_leaderboard`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
+                    AND `timestamp` = in_timestamp
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_leaderboard` 
+                    SET
+                        `status` = in_status
+                        , `username` = in_username
+                        , `code` = in_code
+                        , `timestamp` = in_timestamp
+                        , `profile_id` = in_profile_id
+                        , `rank` = in_rank
+                        , `rank_change` = in_rank_change
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
+                        , `data` = in_data
+                        , `stat_value` = in_stat_value
+                        , `network` = in_network
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `level` = in_level
+                        , `stat_value_formatted` = in_stat_value_formatted
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     AND `timestamp` = in_timestamp
@@ -21069,7 +21516,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard`
+                    INSERT INTO `game_leaderboard`
                     (
                         `status`
                         , `username`
@@ -21125,9 +21572,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_set_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_code`
+CREATE PROCEDURE `usp_game_leaderboard_set_code`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -21169,7 +21616,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard`  
+                    FROM  `game_leaderboard`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     ;
@@ -21182,7 +21629,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard` 
+                    UPDATE `game_leaderboard` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -21215,7 +21662,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard`
+                    INSERT INTO `game_leaderboard`
                     (
                         `status`
                         , `username`
@@ -21271,9 +21718,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_set_code_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_set_code_game_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -21315,7 +21762,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard`  
+                    FROM  `game_leaderboard`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
@@ -21329,7 +21776,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard` 
+                    UPDATE `game_leaderboard` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -21363,7 +21810,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard`
+                    INSERT INTO `game_leaderboard`
                     (
                         `status`
                         , `username`
@@ -21419,9 +21866,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_set_code_game_id_profile_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_set_code_game_id_profile_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -21463,7 +21910,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard`  
+                    FROM  `game_leaderboard`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
@@ -21478,7 +21925,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard` 
+                    UPDATE `game_leaderboard` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -21513,7 +21960,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard`
+                    INSERT INTO `game_leaderboard`
                     (
                         `status`
                         , `username`
@@ -21569,9 +22016,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_set_code_game_id_profile_id_time`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_set_code_game_id_profile_id_timestamp`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_set_code_game_id_profile_id_time`
+CREATE PROCEDURE `usp_game_leaderboard_set_code_game_id_profile_id_timestamp`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -21613,50 +22060,50 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard`  
-                    WHERE 1=1
-                    AND lower(`code`) = lower(in_code)
-                    AND `game_id` = in_game_id
-                    AND `profile_id` = in_profile_id
-                    AND `timestamp` = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_statistic_leaderboard` 
-                    SET
-                        `status` = in_status
-                        , `username` = in_username
-                        , `code` = in_code
-                        , `timestamp` = in_timestamp
-                        , `profile_id` = in_profile_id
-                        , `rank` = in_rank
-                        , `rank_change` = in_rank_change
-                        , `game_id` = in_game_id
-                        , `active` = in_active
-                        , `rank_total_count` = in_rank_total_count
-                        , `absolute_value` = in_absolute_value
-                        , `data` = in_data
-                        , `stat_value` = in_stat_value
-                        , `network` = in_network
-                        , `uuid` = in_uuid
-                        , `date_modified` = in_date_modified
-                        , `level` = in_level
-                        , `stat_value_formatted` = in_stat_value_formatted
-                        , `date_created` = in_date_created
-                        , `type` = in_type
+                    FROM  `game_leaderboard`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
                     AND `profile_id` = in_profile_id
                     AND `timestamp` = in_timestamp
                     ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_leaderboard` 
+                    SET
+                        `status` = in_status
+                        , `username` = in_username
+                        , `code` = in_code
+                        , `timestamp` = in_timestamp
+                        , `profile_id` = in_profile_id
+                        , `rank` = in_rank
+                        , `rank_change` = in_rank_change
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
+                        , `data` = in_data
+                        , `stat_value` = in_stat_value
+                        , `network` = in_network
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `level` = in_level
+                        , `stat_value_formatted` = in_stat_value_formatted
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    AND `profile_id` = in_profile_id
+                    AND `timestamp` = in_timestamp
+                    ;
                     SET @id = 1;
                 END;
             END IF;
@@ -21665,7 +22112,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard`
+                    INSERT INTO `game_leaderboard`
                     (
                         `status`
                         , `username`
@@ -21725,45 +22172,45 @@ delimiter ;
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_del_uuid`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_del_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_del_uuid`
 (
     in_uuid BINARY(16) 
 )
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1                        
     AND "uuid" = in_uuid
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_del_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code`
+CREATE PROCEDURE `usp_game_leaderboard_del_code`
 (
     in_code VARCHAR (500) 
 )
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_del_code_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_del_code_game_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -21771,17 +22218,17 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code_game_id`
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_del_code_game_id_profile_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_del_code_game_id_profile_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -21790,7 +22237,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code_game_id_profile_id`
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -21798,10 +22245,10 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_code_game_id_profile_id_time`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_del_code_game_id_profile_id_timestamp`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code_game_id_profile_id_time`
+CREATE PROCEDURE `usp_game_leaderboard_del_code_game_id_profile_id_timestamp`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -21811,7 +22258,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_del_code_game_id_profile_id_tim
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -21820,10 +22267,10 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_del_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_del_profile_id_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_del_profile_id_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_del_profile_id_game_id`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -21831,7 +22278,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_del_profile_id_game_id`
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1                        
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -21842,13 +22289,13 @@ delimiter ;
 -- GET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_get`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get`
+CREATE PROCEDURE `usp_game_leaderboard_get`
 (
 )                        
 BEGIN
@@ -21873,16 +22320,16 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_get_uuid`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_get_uuid`
 (
     in_uuid BINARY(16) 
 )
@@ -21908,17 +22355,17 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND `uuid` = in_uuid
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_get_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_get_game_id`
 (
     in_game_id BINARY(16) 
 )
@@ -21944,17 +22391,17 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_get_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_code`
+CREATE PROCEDURE `usp_game_leaderboard_get_code`
 (
     in_code VARCHAR (500) 
 )
@@ -21980,17 +22427,17 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_get_code_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_get_code_game_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -22017,7 +22464,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -22025,10 +22472,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_get_code_game_id_profile_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_get_code_game_id_profile_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -22056,7 +22503,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -22065,10 +22512,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_code_game_id_profile_id_time`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_get_code_game_id_profile_id_timestamp`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_code_game_id_profile_id_time`
+CREATE PROCEDURE `usp_game_leaderboard_get_code_game_id_profile_id_timestamp`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -22097,7 +22544,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -22107,10 +22554,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_get_profile_id_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_profile_id_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_get_profile_id_game_id`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -22137,7 +22584,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
@@ -22145,10 +22592,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_get_profile_id_game_id_timestamp`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp`
+CREATE PROCEDURE `usp_game_leaderboard_get_profile_id_game_id_timestamp`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -22176,7 +22623,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard`
+    FROM `game_leaderboard`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
@@ -22192,72 +22639,72 @@ delimiter ;
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_count`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_count`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count`
+CREATE PROCEDURE `usp_game_leaderboard_item_count`
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_count_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_count_uuid`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_item_count_uuid`
 (
     in_uuid BINARY(16) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND `uuid` = in_uuid
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_count_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_count_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_count_game_id`
 (
     in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_count_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_count_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_code`
+CREATE PROCEDURE `usp_game_leaderboard_item_count_code`
 (
     in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_count_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_count_code_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_count_code_game_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -22265,7 +22712,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_code_game_id`
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -22273,9 +22720,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_count_code_game_id_profile_`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_count_code_game_id_profile_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_code_game_id_profile_`
+CREATE PROCEDURE `usp_game_leaderboard_item_count_code_game_id_profile_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -22284,7 +22731,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_code_game_id_profile
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -22293,9 +22740,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_count_code_game_id_profile_`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_count_code_game_id_profile_id_timesta`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_code_game_id_profile_`
+CREATE PROCEDURE `usp_game_leaderboard_item_count_code_game_id_profile_id_timesta`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -22305,7 +22752,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_code_game_id_profile
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -22315,9 +22762,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_count_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_count_profile_id_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_profile_id_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_count_profile_id_game_id`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -22325,7 +22772,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_item_count_profile_id_game_id`
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
@@ -22337,13 +22784,13 @@ delimiter ;
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_browse_filter`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_browse_filter`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_browse_filter`
+CREATE PROCEDURE `usp_game_leaderboard_item_browse_filter`
 (
     in_page int,
     in_page_size int,
@@ -22388,7 +22835,7 @@ BEGIN
     SET @sfields = CONCAT(@sfields, ', `date_created`');
     SET @sfields = CONCAT(@sfields, ', `type`');
     
-    SET @stable = CONCAT('', ' FROM `game_statistic_leaderboard_item` WHERE 1=1 ');
+    SET @stable = CONCAT('', ' FROM `game_leaderboard_item` WHERE 1=1 ');
     
     SET @s = CONCAT(' ', @stable);
     SET @s = CONCAT(@s, ' ', in_filter);    
@@ -22415,12 +22862,12 @@ delimiter ;
 -- SET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_set_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_set_uuid`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_set_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_item_set_uuid`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -22462,7 +22909,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_item`  
+                    FROM  `game_leaderboard_item`  
                     WHERE 1=1
                     AND `uuid` = in_uuid
                     ;
@@ -22475,156 +22922,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard_item` 
-                    SET
-                        `status` = in_status
-                        , `username` = in_username
-                        , `code` = in_code
-                        , `timestamp` = in_timestamp
-                        , `profile_id` = in_profile_id
-                        , `rank` = in_rank
-                        , `rank_change` = in_rank_change
-                        , `game_id` = in_game_id
-                        , `active` = in_active
-                        , `rank_total_count` = in_rank_total_count
-                        , `absolute_value` = in_absolute_value
-                        , `data` = in_data
-                        , `stat_value` = in_stat_value
-                        , `network` = in_network
-                        , `uuid` = in_uuid
-                        , `date_modified` = in_date_modified
-                        , `level` = in_level
-                        , `stat_value_formatted` = in_stat_value_formatted
-                        , `date_created` = in_date_created
-                        , `type` = in_type
-                    WHERE 1=1
-                    AND `uuid` = in_uuid
-                    ;
-                    SET @id = 1;
-                END;
-            END IF;
-        END;
-        BEGIN
-            # INSERT
-            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
-                BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_item`
-                    (
-                        `status`
-                        , `username`
-                        , `code`
-                        , `timestamp`
-                        , `profile_id`
-                        , `rank`
-                        , `rank_change`
-                        , `game_id`
-                        , `active`
-                        , `rank_total_count`
-                        , `absolute_value`
-                        , `data`
-                        , `stat_value`
-                        , `network`
-                        , `uuid`
-                        , `date_modified`
-                        , `level`
-                        , `stat_value_formatted`
-                        , `date_created`
-                        , `type`
-                    )
-                    VALUES
-                    (
-                        in_status
-                        , in_username
-                        , in_code
-                        , in_timestamp
-                        , in_profile_id
-                        , in_rank
-                        , in_rank_change
-                        , in_game_id
-                        , in_active
-                        , in_rank_total_count
-                        , in_absolute_value
-                        , in_data
-                        , in_stat_value
-                        , in_network
-                        , in_uuid
-                        , in_date_modified
-                        , in_level
-                        , in_stat_value_formatted
-                        , in_date_created
-                        , in_type
-                    )
-                    ;
-                    SET @id = 1;                  
-                END;
-            END IF;
-        END;     
-        SELECT @id as id;
-    END;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id`;
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id`
-(
-    in_set_type varchar(50)                      
-    , in_status VARCHAR (255) 
-    , in_username VARCHAR (500) 
-    , in_code VARCHAR (500) 
-    , in_timestamp decimal 
-    , in_profile_id BINARY(16) 
-    , in_rank INTEGER 
-    , in_rank_change INTEGER 
-    , in_game_id BINARY(16) 
-    , in_active int 
-    , in_rank_total_count INTEGER 
-    , in_absolute_value decimal 
-    , in_data TEXT 
-    , in_stat_value decimal 
-    , in_network VARCHAR (500) 
-    , in_uuid BINARY(16) 
-    , in_date_modified TIMESTAMP 
-    , in_level VARCHAR (500) 
-    , in_stat_value_formatted VARCHAR (500) 
-    , in_date_created TIMESTAMP 
-    , in_type VARCHAR (500) 
-)
-BEGIN
-    BEGIN
-        SET @countItems = 0;
-        SET @id = 0;
-        
-        BEGIN
-            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
-                SET in_set_type = 'full';
-            END IF;
-        END;
-
-	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	# GET COUNT TO CHECK
-	BEGIN
-	    IF (in_set_type = 'full') THEN
-                BEGIN
-                    -- CHECK COUNT
-                    SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_item`  
-                    WHERE 1=1
-                    AND `uuid` = in_uuid
-                    AND `profile_id` = in_profile_id
-                    AND `game_id` = in_game_id
-                    AND `timestamp` = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_statistic_leaderboard_item` 
+                    UPDATE `game_leaderboard_item` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -22648,6 +22946,155 @@ BEGIN
                         , `type` = in_type
                     WHERE 1=1
                     AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_leaderboard_item`
+                    (
+                        `status`
+                        , `username`
+                        , `code`
+                        , `timestamp`
+                        , `profile_id`
+                        , `rank`
+                        , `rank_change`
+                        , `game_id`
+                        , `active`
+                        , `rank_total_count`
+                        , `absolute_value`
+                        , `data`
+                        , `stat_value`
+                        , `network`
+                        , `uuid`
+                        , `date_modified`
+                        , `level`
+                        , `stat_value_formatted`
+                        , `date_created`
+                        , `type`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_set_uuid_profile_id_game_id_timestamp`;
+delimiter $$
+CREATE PROCEDURE `usp_game_leaderboard_item_set_uuid_profile_id_game_id_timestamp`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
+    , in_timestamp decimal 
+    , in_profile_id BINARY(16) 
+    , in_rank INTEGER 
+    , in_rank_change INTEGER 
+    , in_game_id BINARY(16) 
+    , in_active int 
+    , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
+    , in_data TEXT 
+    , in_stat_value decimal 
+    , in_network VARCHAR (500) 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_level VARCHAR (500) 
+    , in_stat_value_formatted VARCHAR (500) 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_leaderboard_item`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
+                    AND `timestamp` = in_timestamp
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_leaderboard_item` 
+                    SET
+                        `status` = in_status
+                        , `username` = in_username
+                        , `code` = in_code
+                        , `timestamp` = in_timestamp
+                        , `profile_id` = in_profile_id
+                        , `rank` = in_rank
+                        , `rank_change` = in_rank_change
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
+                        , `data` = in_data
+                        , `stat_value` = in_stat_value
+                        , `network` = in_network
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `level` = in_level
+                        , `stat_value_formatted` = in_stat_value_formatted
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     AND `timestamp` = in_timestamp
@@ -22660,7 +23107,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_item`
+                    INSERT INTO `game_leaderboard_item`
                     (
                         `status`
                         , `username`
@@ -22716,9 +23163,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_set_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_set_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_set_code`
+CREATE PROCEDURE `usp_game_leaderboard_item_set_code`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -22760,7 +23207,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_item`  
+                    FROM  `game_leaderboard_item`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     ;
@@ -22773,7 +23220,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard_item` 
+                    UPDATE `game_leaderboard_item` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -22806,7 +23253,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_item`
+                    INSERT INTO `game_leaderboard_item`
                     (
                         `status`
                         , `username`
@@ -22862,9 +23309,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_set_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_set_code_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_set_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_set_code_game_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -22906,7 +23353,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_item`  
+                    FROM  `game_leaderboard_item`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
@@ -22920,7 +23367,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard_item` 
+                    UPDATE `game_leaderboard_item` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -22954,7 +23401,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_item`
+                    INSERT INTO `game_leaderboard_item`
                     (
                         `status`
                         , `username`
@@ -23010,9 +23457,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_set_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_set_code_game_id_profile_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_set_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_set_code_game_id_profile_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -23054,7 +23501,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_item`  
+                    FROM  `game_leaderboard_item`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
@@ -23069,7 +23516,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard_item` 
+                    UPDATE `game_leaderboard_item` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -23104,7 +23551,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_item`
+                    INSERT INTO `game_leaderboard_item`
                     (
                         `status`
                         , `username`
@@ -23160,9 +23607,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_set_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_set_code_game_id_profile_id_timestamp`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_set_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_set_code_game_id_profile_id_timestamp`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -23204,50 +23651,50 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_item`  
-                    WHERE 1=1
-                    AND lower(`code`) = lower(in_code)
-                    AND `game_id` = in_game_id
-                    AND `profile_id` = in_profile_id
-                    AND `timestamp` = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_statistic_leaderboard_item` 
-                    SET
-                        `status` = in_status
-                        , `username` = in_username
-                        , `code` = in_code
-                        , `timestamp` = in_timestamp
-                        , `profile_id` = in_profile_id
-                        , `rank` = in_rank
-                        , `rank_change` = in_rank_change
-                        , `game_id` = in_game_id
-                        , `active` = in_active
-                        , `rank_total_count` = in_rank_total_count
-                        , `absolute_value` = in_absolute_value
-                        , `data` = in_data
-                        , `stat_value` = in_stat_value
-                        , `network` = in_network
-                        , `uuid` = in_uuid
-                        , `date_modified` = in_date_modified
-                        , `level` = in_level
-                        , `stat_value_formatted` = in_stat_value_formatted
-                        , `date_created` = in_date_created
-                        , `type` = in_type
+                    FROM  `game_leaderboard_item`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
                     AND `profile_id` = in_profile_id
                     AND `timestamp` = in_timestamp
                     ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_leaderboard_item` 
+                    SET
+                        `status` = in_status
+                        , `username` = in_username
+                        , `code` = in_code
+                        , `timestamp` = in_timestamp
+                        , `profile_id` = in_profile_id
+                        , `rank` = in_rank
+                        , `rank_change` = in_rank_change
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
+                        , `data` = in_data
+                        , `stat_value` = in_stat_value
+                        , `network` = in_network
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `level` = in_level
+                        , `stat_value_formatted` = in_stat_value_formatted
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    AND `profile_id` = in_profile_id
+                    AND `timestamp` = in_timestamp
+                    ;
                     SET @id = 1;
                 END;
             END IF;
@@ -23256,7 +23703,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_item`
+                    INSERT INTO `game_leaderboard_item`
                     (
                         `status`
                         , `username`
@@ -23316,45 +23763,45 @@ delimiter ;
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_del_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_del_uuid`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_item_del_uuid`
 (
     in_uuid BINARY(16) 
 )
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1                        
     AND "uuid" = in_uuid
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_del_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_del_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_code`
+CREATE PROCEDURE `usp_game_leaderboard_item_del_code`
 (
     in_code VARCHAR (500) 
 )
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_del_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_del_code_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_del_code_game_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -23362,17 +23809,17 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_code_game_id`
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_del_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_del_code_game_id_profile_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_del_code_game_id_profile_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -23381,7 +23828,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_code_game_id_profile_i
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -23389,10 +23836,10 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_del_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_del_code_game_id_profile_id_timestamp`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_del_code_game_id_profile_id_timestamp`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -23402,7 +23849,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_code_game_id_profile_i
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -23411,10 +23858,10 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_del_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_del_profile_id_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_profile_id_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_del_profile_id_game_id`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -23422,7 +23869,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_item_del_profile_id_game_id`
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1                        
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -23433,13 +23880,13 @@ delimiter ;
 -- GET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_get`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_get`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_get`
+CREATE PROCEDURE `usp_game_leaderboard_item_get`
 (
 )                        
 BEGIN
@@ -23464,16 +23911,16 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_get_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_get_uuid`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_get_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_item_get_uuid`
 (
     in_uuid BINARY(16) 
 )
@@ -23499,17 +23946,17 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND `uuid` = in_uuid
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_get_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_get_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_get_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_get_game_id`
 (
     in_game_id BINARY(16) 
 )
@@ -23535,17 +23982,17 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_get_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_get_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_get_code`
+CREATE PROCEDURE `usp_game_leaderboard_item_get_code`
 (
     in_code VARCHAR (500) 
 )
@@ -23571,17 +24018,17 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_get_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_get_code_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_get_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_get_code_game_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -23608,7 +24055,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -23616,10 +24063,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_get_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_get_code_game_id_profile_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_get_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_get_code_game_id_profile_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -23647,7 +24094,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -23656,10 +24103,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_get_code_game_id_profile_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_get_code_game_id_profile_id_timestamp`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_get_code_game_id_profile_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_get_code_game_id_profile_id_timestamp`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -23688,7 +24135,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -23698,10 +24145,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_get_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_get_profile_id_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_get_profile_id_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_item_get_profile_id_game_id`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -23728,7 +24175,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
@@ -23736,10 +24183,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_item_get_profile_id_game_id_time`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_item_get_profile_id_game_id_timestamp`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_item_get_profile_id_game_id_time`
+CREATE PROCEDURE `usp_game_leaderboard_item_get_profile_id_game_id_timestamp`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -23767,7 +24214,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_item`
+    FROM `game_leaderboard_item`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
@@ -23783,72 +24230,72 @@ delimiter ;
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_count`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_count`
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_count_uuid`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_count_uuid`
 (
     in_uuid BINARY(16) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND `uuid` = in_uuid
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_count_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_count_game_id`
 (
     in_game_id BINARY(16) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_count_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_count_code`
 (
     in_code VARCHAR (500) 
 )
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_count_code_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_count_code_game_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -23856,7 +24303,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code_game_id`
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -23864,9 +24311,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_code_game_id_profil`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_count_code_game_id_profile_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code_game_id_profil`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_count_code_game_id_profile_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -23875,7 +24322,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code_game_id_profi
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -23884,9 +24331,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_code_game_id_profil`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_count_code_game_id_profile_id_times`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code_game_id_profil`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_count_code_game_id_profile_id_times`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -23896,7 +24343,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_code_game_id_profi
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -23906,9 +24353,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_count_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_count_profile_id_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_profile_id_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_count_profile_id_game_id`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -23916,7 +24363,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_count_profile_id_game_id
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
@@ -23928,13 +24375,13 @@ delimiter ;
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_browse_filter`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_browse_filter`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_browse_filter`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_browse_filter`
 (
     in_page int,
     in_page_size int,
@@ -23979,7 +24426,7 @@ BEGIN
     SET @sfields = CONCAT(@sfields, ', `date_created`');
     SET @sfields = CONCAT(@sfields, ', `type`');
     
-    SET @stable = CONCAT('', ' FROM `game_statistic_leaderboard_rollup` WHERE 1=1 ');
+    SET @stable = CONCAT('', ' FROM `game_leaderboard_rollup` WHERE 1=1 ');
     
     SET @s = CONCAT(' ', @stable);
     SET @s = CONCAT(@s, ' ', in_filter);    
@@ -24006,12 +24453,12 @@ delimiter ;
 -- SET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_set_uuid`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_set_uuid`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -24053,7 +24500,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_rollup`  
+                    FROM  `game_leaderboard_rollup`  
                     WHERE 1=1
                     AND `uuid` = in_uuid
                     ;
@@ -24066,156 +24513,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard_rollup` 
-                    SET
-                        `status` = in_status
-                        , `username` = in_username
-                        , `code` = in_code
-                        , `timestamp` = in_timestamp
-                        , `profile_id` = in_profile_id
-                        , `rank` = in_rank
-                        , `rank_change` = in_rank_change
-                        , `game_id` = in_game_id
-                        , `active` = in_active
-                        , `rank_total_count` = in_rank_total_count
-                        , `absolute_value` = in_absolute_value
-                        , `data` = in_data
-                        , `stat_value` = in_stat_value
-                        , `network` = in_network
-                        , `uuid` = in_uuid
-                        , `date_modified` = in_date_modified
-                        , `level` = in_level
-                        , `stat_value_formatted` = in_stat_value_formatted
-                        , `date_created` = in_date_created
-                        , `type` = in_type
-                    WHERE 1=1
-                    AND `uuid` = in_uuid
-                    ;
-                    SET @id = 1;
-                END;
-            END IF;
-        END;
-        BEGIN
-            # INSERT
-            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
-                BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_rollup`
-                    (
-                        `status`
-                        , `username`
-                        , `code`
-                        , `timestamp`
-                        , `profile_id`
-                        , `rank`
-                        , `rank_change`
-                        , `game_id`
-                        , `active`
-                        , `rank_total_count`
-                        , `absolute_value`
-                        , `data`
-                        , `stat_value`
-                        , `network`
-                        , `uuid`
-                        , `date_modified`
-                        , `level`
-                        , `stat_value_formatted`
-                        , `date_created`
-                        , `type`
-                    )
-                    VALUES
-                    (
-                        in_status
-                        , in_username
-                        , in_code
-                        , in_timestamp
-                        , in_profile_id
-                        , in_rank
-                        , in_rank_change
-                        , in_game_id
-                        , in_active
-                        , in_rank_total_count
-                        , in_absolute_value
-                        , in_data
-                        , in_stat_value
-                        , in_network
-                        , in_uuid
-                        , in_date_modified
-                        , in_level
-                        , in_stat_value_formatted
-                        , in_date_created
-                        , in_type
-                    )
-                    ;
-                    SET @id = 1;                  
-                END;
-            END IF;
-        END;     
-        SELECT @id as id;
-    END;
-END$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_`;
-delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_`
-(
-    in_set_type varchar(50)                      
-    , in_status VARCHAR (255) 
-    , in_username VARCHAR (500) 
-    , in_code VARCHAR (500) 
-    , in_timestamp decimal 
-    , in_profile_id BINARY(16) 
-    , in_rank INTEGER 
-    , in_rank_change INTEGER 
-    , in_game_id BINARY(16) 
-    , in_active int 
-    , in_rank_total_count INTEGER 
-    , in_absolute_value decimal 
-    , in_data TEXT 
-    , in_stat_value decimal 
-    , in_network VARCHAR (500) 
-    , in_uuid BINARY(16) 
-    , in_date_modified TIMESTAMP 
-    , in_level VARCHAR (500) 
-    , in_stat_value_formatted VARCHAR (500) 
-    , in_date_created TIMESTAMP 
-    , in_type VARCHAR (500) 
-)
-BEGIN
-    BEGIN
-        SET @countItems = 0;
-        SET @id = 0;
-        
-        BEGIN
-            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
-                SET in_set_type = 'full';
-            END IF;
-        END;
-
-	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	# GET COUNT TO CHECK
-	BEGIN
-	    IF (in_set_type = 'full') THEN
-                BEGIN
-                    -- CHECK COUNT
-                    SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_rollup`  
-                    WHERE 1=1
-                    AND `uuid` = in_uuid
-                    AND `profile_id` = in_profile_id
-                    AND `game_id` = in_game_id
-                    AND `timestamp` = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_statistic_leaderboard_rollup` 
+                    UPDATE `game_leaderboard_rollup` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -24239,6 +24537,155 @@ BEGIN
                         , `type` = in_type
                     WHERE 1=1
                     AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `game_leaderboard_rollup`
+                    (
+                        `status`
+                        , `username`
+                        , `code`
+                        , `timestamp`
+                        , `profile_id`
+                        , `rank`
+                        , `rank_change`
+                        , `game_id`
+                        , `active`
+                        , `rank_total_count`
+                        , `absolute_value`
+                        , `data`
+                        , `stat_value`
+                        , `network`
+                        , `uuid`
+                        , `date_modified`
+                        , `level`
+                        , `stat_value_formatted`
+                        , `date_created`
+                        , `type`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_username
+                        , in_code
+                        , in_timestamp
+                        , in_profile_id
+                        , in_rank
+                        , in_rank_change
+                        , in_game_id
+                        , in_active
+                        , in_rank_total_count
+                        , in_absolute_value
+                        , in_data
+                        , in_stat_value
+                        , in_network
+                        , in_uuid
+                        , in_date_modified
+                        , in_level
+                        , in_stat_value_formatted
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_set_uuid_profile_id_game_id_timesta`;
+delimiter $$
+CREATE PROCEDURE `usp_game_leaderboard_rollup_set_uuid_profile_id_game_id_timesta`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_username VARCHAR (500) 
+    , in_code VARCHAR (500) 
+    , in_timestamp decimal 
+    , in_profile_id BINARY(16) 
+    , in_rank INTEGER 
+    , in_rank_change INTEGER 
+    , in_game_id BINARY(16) 
+    , in_active int 
+    , in_rank_total_count INTEGER 
+    , in_absolute_value decimal 
+    , in_data TEXT 
+    , in_stat_value decimal 
+    , in_network VARCHAR (500) 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_level VARCHAR (500) 
+    , in_stat_value_formatted VARCHAR (500) 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `game_leaderboard_rollup`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    AND `profile_id` = in_profile_id
+                    AND `game_id` = in_game_id
+                    AND `timestamp` = in_timestamp
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_leaderboard_rollup` 
+                    SET
+                        `status` = in_status
+                        , `username` = in_username
+                        , `code` = in_code
+                        , `timestamp` = in_timestamp
+                        , `profile_id` = in_profile_id
+                        , `rank` = in_rank
+                        , `rank_change` = in_rank_change
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
+                        , `data` = in_data
+                        , `stat_value` = in_stat_value
+                        , `network` = in_network
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `level` = in_level
+                        , `stat_value_formatted` = in_stat_value_formatted
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
                     AND `profile_id` = in_profile_id
                     AND `game_id` = in_game_id
                     AND `timestamp` = in_timestamp
@@ -24251,7 +24698,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_rollup`
+                    INSERT INTO `game_leaderboard_rollup`
                     (
                         `status`
                         , `username`
@@ -24307,9 +24754,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_set_code`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_code`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_set_code`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -24351,7 +24798,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_rollup`  
+                    FROM  `game_leaderboard_rollup`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     ;
@@ -24364,7 +24811,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard_rollup` 
+                    UPDATE `game_leaderboard_rollup` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -24397,7 +24844,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_rollup`
+                    INSERT INTO `game_leaderboard_rollup`
                     (
                         `status`
                         , `username`
@@ -24453,9 +24900,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_set_code_game_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_set_code_game_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -24497,7 +24944,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_rollup`  
+                    FROM  `game_leaderboard_rollup`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
@@ -24511,7 +24958,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard_rollup` 
+                    UPDATE `game_leaderboard_rollup` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -24545,7 +24992,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_rollup`
+                    INSERT INTO `game_leaderboard_rollup`
                     (
                         `status`
                         , `username`
@@ -24601,9 +25048,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_set_code_game_id_profile_id`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_set_code_game_id_profile_id`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -24645,7 +25092,7 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_rollup`  
+                    FROM  `game_leaderboard_rollup`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
@@ -24660,7 +25107,7 @@ BEGIN
             IF (@countItems > 0 AND in_set_type != 'insertonly')
                 OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
                 BEGIN		
-                    UPDATE `game_statistic_leaderboard_rollup` 
+                    UPDATE `game_leaderboard_rollup` 
                     SET
                         `status` = in_status
                         , `username` = in_username
@@ -24695,7 +25142,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_rollup`
+                    INSERT INTO `game_leaderboard_rollup`
                     (
                         `status`
                         , `username`
@@ -24751,9 +25198,9 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_set_code_game_id_profile_id_timesta`;
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_set_code_game_id_profile_id_timesta`
 (
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
@@ -24795,50 +25242,50 @@ BEGIN
                 BEGIN
                     -- CHECK COUNT
                     SELECT COUNT(*) INTO @countItems
-                    FROM  `game_statistic_leaderboard_rollup`  
-                    WHERE 1=1
-                    AND lower(`code`) = lower(in_code)
-                    AND `game_id` = in_game_id
-                    AND `profile_id` = in_profile_id
-                    AND `timestamp` = in_timestamp
-                    ;
-                END;
-            END IF;
-	END;
-
-        BEGIN
-            # UPDATE
-            IF (@countItems > 0 AND in_set_type != 'insertonly')
-                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
-                BEGIN		
-                    UPDATE `game_statistic_leaderboard_rollup` 
-                    SET
-                        `status` = in_status
-                        , `username` = in_username
-                        , `code` = in_code
-                        , `timestamp` = in_timestamp
-                        , `profile_id` = in_profile_id
-                        , `rank` = in_rank
-                        , `rank_change` = in_rank_change
-                        , `game_id` = in_game_id
-                        , `active` = in_active
-                        , `rank_total_count` = in_rank_total_count
-                        , `absolute_value` = in_absolute_value
-                        , `data` = in_data
-                        , `stat_value` = in_stat_value
-                        , `network` = in_network
-                        , `uuid` = in_uuid
-                        , `date_modified` = in_date_modified
-                        , `level` = in_level
-                        , `stat_value_formatted` = in_stat_value_formatted
-                        , `date_created` = in_date_created
-                        , `type` = in_type
+                    FROM  `game_leaderboard_rollup`  
                     WHERE 1=1
                     AND lower(`code`) = lower(in_code)
                     AND `game_id` = in_game_id
                     AND `profile_id` = in_profile_id
                     AND `timestamp` = in_timestamp
                     ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `game_leaderboard_rollup` 
+                    SET
+                        `status` = in_status
+                        , `username` = in_username
+                        , `code` = in_code
+                        , `timestamp` = in_timestamp
+                        , `profile_id` = in_profile_id
+                        , `rank` = in_rank
+                        , `rank_change` = in_rank_change
+                        , `game_id` = in_game_id
+                        , `active` = in_active
+                        , `rank_total_count` = in_rank_total_count
+                        , `absolute_value` = in_absolute_value
+                        , `data` = in_data
+                        , `stat_value` = in_stat_value
+                        , `network` = in_network
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `level` = in_level
+                        , `stat_value_formatted` = in_stat_value_formatted
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                    WHERE 1=1
+                    AND lower(`code`) = lower(in_code)
+                    AND `game_id` = in_game_id
+                    AND `profile_id` = in_profile_id
+                    AND `timestamp` = in_timestamp
+                    ;
                     SET @id = 1;
                 END;
             END IF;
@@ -24847,7 +25294,7 @@ BEGIN
             # INSERT
             IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
                 BEGIN			
-                    INSERT INTO `game_statistic_leaderboard_rollup`
+                    INSERT INTO `game_leaderboard_rollup`
                     (
                         `status`
                         , `username`
@@ -24907,45 +25354,45 @@ delimiter ;
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_del_uuid`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_del_uuid`
 (
     in_uuid BINARY(16) 
 )
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1                        
     AND "uuid" = in_uuid
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_del_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_del_code`
 (
     in_code VARCHAR (500) 
 )
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_del_code_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_del_code_game_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -24953,17 +25400,17 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code_game_id`
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_del_code_game_id_profile_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_del_code_game_id_profile_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -24972,7 +25419,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -24980,10 +25427,10 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_del_code_game_id_profile_id_timesta`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_del_code_game_id_profile_id_timesta`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -24993,7 +25440,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_code_game_id_profile
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1                        
     AND lower("code") = lower(in_code)
     AND "game_id" = in_game_id
@@ -25002,10 +25449,10 @@ BEGIN
     ;
 END$$
 delimiter ;
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_del_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_del_profile_id_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_profile_id_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_del_profile_id_game_id`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -25013,7 +25460,7 @@ CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_del_profile_id_game_id`
 
 BEGIN
     DELETE 
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1                        
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
@@ -25024,13 +25471,13 @@ delimiter ;
 -- GET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
 
                        
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_get`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_get`
 (
 )                        
 BEGIN
@@ -25055,16 +25502,16 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_uuid`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_get_uuid`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_uuid`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_get_uuid`
 (
     in_uuid BINARY(16) 
 )
@@ -25090,17 +25537,17 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND `uuid` = in_uuid
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_get_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_get_game_id`
 (
     in_game_id BINARY(16) 
 )
@@ -25126,17 +25573,17 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND `game_id` = in_game_id
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_code`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_get_code`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_code`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_get_code`
 (
     in_code VARCHAR (500) 
 )
@@ -25162,17 +25609,17 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     ;
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_code_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_get_code_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_code_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_get_code_game_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -25199,7 +25646,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -25207,10 +25654,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_get_code_game_id_profile_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_get_code_game_id_profile_id`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -25238,7 +25685,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -25247,10 +25694,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_get_code_game_id_profile_id_timesta`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_get_code_game_id_profile_id_timesta`
 (
     in_code VARCHAR (500) 
     , in_game_id BINARY(16) 
@@ -25279,7 +25726,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND lower(`code`) = lower(in_code)
     AND `game_id` = in_game_id
@@ -25289,10 +25736,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_profile_id_game_id`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_get_profile_id_game_id`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_profile_id_game_id`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_get_profile_id_game_id`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -25319,7 +25766,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
@@ -25327,10 +25774,10 @@ BEGIN
 END$$
 delimiter ;
 
-DROP PROCEDURE IF EXISTS `usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_ti`;
+DROP PROCEDURE IF EXISTS `usp_game_leaderboard_rollup_get_profile_id_game_id_timestamp`;
 
 delimiter $$
-CREATE PROCEDURE `usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_ti`
+CREATE PROCEDURE `usp_game_leaderboard_rollup_get_profile_id_game_id_timestamp`
 (
     in_profile_id BINARY(16) 
     , in_game_id BINARY(16) 
@@ -25358,7 +25805,7 @@ BEGIN
         , `stat_value_formatted`
         , `date_created`
         , `type`
-    FROM `game_statistic_leaderboard_rollup`
+    FROM `game_leaderboard_rollup`
     WHERE 1=1
     AND `profile_id` = in_profile_id
     AND `game_id` = in_game_id
@@ -33559,6 +34006,8498 @@ BEGIN
     FROM `game_achievement_meta`
     WHERE 1=1
     AND `game_id` = in_game_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_count`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_count_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_count_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_count_reward_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_count_reward_id`
+(
+    in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_count_profile_id_reward_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_count_profile_id_reward_id`
+(
+    in_profile_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_count_profile_id_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_count_profile_id_channel_id`
+(
+    in_profile_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_count_profile_id_channel_id_reward_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_count_profile_id_channel_id_reward_id`
+(
+    in_profile_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    AND `channel_id` = in_channel_id
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `viewed`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `profile_id`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `downloaded`');
+    SET @sfields = CONCAT(@sfields, ', `channel_id`');
+    SET @sfields = CONCAT(@sfields, ', `reward_id`');
+    SET @sfields = CONCAT(@sfields, ', `usage_count`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `blurb`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `profile_reward` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_viewed int 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_profile_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_downloaded int 
+    , in_channel_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+    , in_usage_count INTEGER 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_blurb VARCHAR (2000) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_reward`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_reward` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `viewed` = in_viewed
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `profile_id` = in_profile_id
+                        , `uuid` = in_uuid
+                        , `downloaded` = in_downloaded
+                        , `channel_id` = in_channel_id
+                        , `reward_id` = in_reward_id
+                        , `usage_count` = in_usage_count
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `blurb` = in_blurb
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_reward`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `viewed`
+                        , `date_modified`
+                        , `data`
+                        , `profile_id`
+                        , `uuid`
+                        , `downloaded`
+                        , `channel_id`
+                        , `reward_id`
+                        , `usage_count`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `blurb`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_viewed
+                        , in_date_modified
+                        , in_data
+                        , in_profile_id
+                        , in_uuid
+                        , in_downloaded
+                        , in_channel_id
+                        , in_reward_id
+                        , in_usage_count
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_blurb
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_set_profile_id_channel_id_reward_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_set_profile_id_channel_id_reward_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_viewed int 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_profile_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_downloaded int 
+    , in_channel_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+    , in_usage_count INTEGER 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_blurb VARCHAR (2000) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_reward`  
+                    WHERE 1=1
+                    AND `profile_id` = in_profile_id
+                    AND `channel_id` = in_channel_id
+                    AND `reward_id` = in_reward_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_reward` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `viewed` = in_viewed
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `profile_id` = in_profile_id
+                        , `uuid` = in_uuid
+                        , `downloaded` = in_downloaded
+                        , `channel_id` = in_channel_id
+                        , `reward_id` = in_reward_id
+                        , `usage_count` = in_usage_count
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `blurb` = in_blurb
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `profile_id` = in_profile_id
+                    AND `channel_id` = in_channel_id
+                    AND `reward_id` = in_reward_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_reward`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `viewed`
+                        , `date_modified`
+                        , `data`
+                        , `profile_id`
+                        , `uuid`
+                        , `downloaded`
+                        , `channel_id`
+                        , `reward_id`
+                        , `usage_count`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `blurb`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_viewed
+                        , in_date_modified
+                        , in_data
+                        , in_profile_id
+                        , in_uuid
+                        , in_downloaded
+                        , in_channel_id
+                        , in_reward_id
+                        , in_usage_count
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_blurb
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_reward`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_profile_reward_del_profile_id_reward_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_del_profile_id_reward_id`
+(
+    in_profile_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_reward`
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    AND "reward_id" = in_reward_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `viewed`
+        , `date_modified`
+        , `data`
+        , `profile_id`
+        , `uuid`
+        , `downloaded`
+        , `channel_id`
+        , `reward_id`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `blurb`
+        , `description`
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_get_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_get_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `viewed`
+        , `date_modified`
+        , `data`
+        , `profile_id`
+        , `uuid`
+        , `downloaded`
+        , `channel_id`
+        , `reward_id`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `blurb`
+        , `description`
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_get_reward_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_get_reward_id`
+(
+    in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `viewed`
+        , `date_modified`
+        , `data`
+        , `profile_id`
+        , `uuid`
+        , `downloaded`
+        , `channel_id`
+        , `reward_id`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `blurb`
+        , `description`
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_get_profile_id_reward_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_get_profile_id_reward_id`
+(
+    in_profile_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `viewed`
+        , `date_modified`
+        , `data`
+        , `profile_id`
+        , `uuid`
+        , `downloaded`
+        , `channel_id`
+        , `reward_id`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `blurb`
+        , `description`
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_get_profile_id_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_get_profile_id_channel_id`
+(
+    in_profile_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `viewed`
+        , `date_modified`
+        , `data`
+        , `profile_id`
+        , `uuid`
+        , `downloaded`
+        , `channel_id`
+        , `reward_id`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `blurb`
+        , `description`
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_get_profile_id_channel_id_reward_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_get_profile_id_channel_id_reward_id`
+(
+    in_profile_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `viewed`
+        , `date_modified`
+        , `data`
+        , `profile_id`
+        , `uuid`
+        , `downloaded`
+        , `channel_id`
+        , `reward_id`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `blurb`
+        , `description`
+    FROM `profile_reward`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    AND `channel_id` = in_channel_id
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_coupon_count`;
+delimiter $$
+CREATE PROCEDURE `usp_coupon_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `coupon`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_coupon_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_coupon_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `coupon`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_coupon_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_coupon_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `coupon`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_coupon_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_coupon_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `coupon`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_coupon_count_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_coupon_count_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `coupon`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_coupon_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_coupon_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `url`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `org_id`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `usage_count`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `coupon` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_coupon_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_coupon_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_url VARCHAR (500) 
+    , in_data TEXT 
+    , in_org_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_usage_count INTEGER 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `coupon`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `coupon` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `url` = in_url
+                        , `data` = in_data
+                        , `org_id` = in_org_id
+                        , `uuid` = in_uuid
+                        , `usage_count` = in_usage_count
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `coupon`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `url`
+                        , `data`
+                        , `org_id`
+                        , `uuid`
+                        , `usage_count`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_usage_count
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_coupon_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_coupon_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `coupon`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_coupon_del_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_coupon_del_org_id`
+(
+    in_org_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `coupon`
+    WHERE 1=1                        
+    AND "org_id" = in_org_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_coupon_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_coupon_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `coupon`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_coupon_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_coupon_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `coupon`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_coupon_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_coupon_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `coupon`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_coupon_get_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_coupon_get_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `usage_count`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `coupon`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_coupon_count`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_coupon_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_coupon`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_coupon_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_coupon_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_coupon`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_coupon_count_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_coupon_count_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_coupon`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_coupon_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_coupon_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `url`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `profile_id`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `profile_coupon` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_coupon_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_coupon_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_url VARCHAR (50) 
+    , in_data TEXT 
+    , in_profile_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_coupon`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_coupon` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `url` = in_url
+                        , `data` = in_data
+                        , `profile_id` = in_profile_id
+                        , `uuid` = in_uuid
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_coupon`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `url`
+                        , `data`
+                        , `profile_id`
+                        , `uuid`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_profile_id
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_coupon_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_coupon_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_coupon`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_profile_coupon_del_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_coupon_del_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_coupon`
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_coupon_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_coupon_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `profile_id`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `profile_coupon`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_coupon_get_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_coupon_get_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `profile_id`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `profile_coupon`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+                       
+DROP PROCEDURE IF EXISTS `usp_org_count`;
+delimiter $$
+CREATE PROCEDURE `usp_org_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `org`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_org_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_org_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `org`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_org_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_org_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `org`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_org_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_org_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `org`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+                       
+DROP PROCEDURE IF EXISTS `usp_org_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_org_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `org` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+                       
+DROP PROCEDURE IF EXISTS `usp_org_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_org_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `org`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `org` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `org`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `uuid`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+                       
+DROP PROCEDURE IF EXISTS `usp_org_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_org_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `org`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Org - org
+
+                       
+DROP PROCEDURE IF EXISTS `usp_org_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_org_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `org`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_org_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_org_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `org`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_org_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_org_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `org`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_count`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_count_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_count_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_count_type_id`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_count_type_id`
+(
+    in_type_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel`
+    WHERE 1=1
+    AND `type_id` = in_type_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_count_org_id_type_id`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_count_org_id_type_id`
+(
+    in_org_id BINARY(16) 
+    , in_type_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    AND `type_id` = in_type_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `type_id`');
+    SET @sfields = CONCAT(@sfields, ', `org_id`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `channel` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_type_id BINARY(16) 
+    , in_org_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `channel`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `channel` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `type_id` = in_type_id
+                        , `org_id` = in_org_id
+                        , `uuid` = in_uuid
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `channel`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `type_id`
+                        , `org_id`
+                        , `uuid`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_type_id
+                        , in_org_id
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `channel`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_channel_del_code_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_del_code_org_id`
+(
+    in_code VARCHAR (255) 
+    , in_org_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `channel`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "org_id" = in_org_id
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_channel_del_code_org_id_type_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_del_code_org_id_type_id`
+(
+    in_code VARCHAR (255) 
+    , in_org_id BINARY(16) 
+    , in_type_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `channel`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "org_id" = in_org_id
+    AND "type_id" = in_type_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `type_id`
+        , `org_id`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `channel`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `type_id`
+        , `org_id`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `channel`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `type_id`
+        , `org_id`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `channel`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_get_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_get_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `type_id`
+        , `org_id`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `channel`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_get_type_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_get_type_id`
+(
+    in_type_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `type_id`
+        , `org_id`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `channel`
+    WHERE 1=1
+    AND `type_id` = in_type_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_get_org_id_type_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_get_org_id_type_id`
+(
+    in_org_id BINARY(16) 
+    , in_type_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `type_id`
+        , `org_id`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `channel`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    AND `type_id` = in_type_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_type_count`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel_type`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_type_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel_type`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_type_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel_type`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_type_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `channel_type`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_type_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `channel_type` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_type_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (50) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `channel_type`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `channel_type` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `channel_type`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `uuid`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_type_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `channel_type`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_channel_type_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `channel_type`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_type_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `channel_type`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_channel_type_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_channel_type_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `channel_type`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_count`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_count_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_count_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_count_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_count_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_count_org_id_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_count_org_id_channel_id`
+(
+    in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `type_url`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `url`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `org_id`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `channel_id`');
+    SET @sfields = CONCAT(@sfields, ', `usage_count`');
+    SET @sfields = CONCAT(@sfields, ', `external_id`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `reward` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_type_url VARCHAR (50) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_url VARCHAR (500) 
+    , in_data TEXT 
+    , in_org_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_usage_count INTEGER 
+    , in_external_id VARCHAR (50) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (50) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `reward`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `reward` 
+                    SET
+                        `status` = in_status
+                        , `type_url` = in_type_url
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `url` = in_url
+                        , `data` = in_data
+                        , `org_id` = in_org_id
+                        , `uuid` = in_uuid
+                        , `channel_id` = in_channel_id
+                        , `usage_count` = in_usage_count
+                        , `external_id` = in_external_id
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `reward`
+                    (
+                        `status`
+                        , `type_url`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `url`
+                        , `data`
+                        , `org_id`
+                        , `uuid`
+                        , `channel_id`
+                        , `usage_count`
+                        , `external_id`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_type_url
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_url
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_channel_id
+                        , in_usage_count
+                        , in_external_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_reward_del_org_id_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_del_org_id_channel_id`
+(
+    in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward`
+    WHERE 1=1                        
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `usage_count`
+        , `external_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `usage_count`
+        , `external_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `usage_count`
+        , `external_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_get_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_get_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `usage_count`
+        , `external_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_get_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_get_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `usage_count`
+        , `external_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_get_org_id_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_get_org_id_channel_id`
+(
+    in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `url`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `usage_count`
+        , `external_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_type_count`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_type`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_type_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_type`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_type_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_type`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_type_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_type`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_type_count_type`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_count_type`
+(
+    in_type VARCHAR (50) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_type`
+    WHERE 1=1
+    AND lower(`type`) = lower(in_type)
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_type_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `type_url`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `reward_type` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_type_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_type_url VARCHAR (50) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (50) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `reward_type`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `reward_type` 
+                    SET
+                        `status` = in_status
+                        , `type_url` = in_type_url
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `reward_type`
+                    (
+                        `status`
+                        , `type_url`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `uuid`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_type_url
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_type_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward_type`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_type_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward_type`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_type_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward_type`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_type_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward_type`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_type_get_type`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_type_get_type`
+(
+    in_type VARCHAR (50) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `type_url`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward_type`
+    WHERE 1=1
+    AND lower(`type`) = lower(in_type)
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_count`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_count_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_count_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_count_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_count_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_count_org_id_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_count_org_id_channel_id`
+(
+    in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_count_org_id_channel_id_reward_id`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_count_org_id_channel_id_reward_id`
+(
+    in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    AND `channel_id` = in_channel_id
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_count_reward_id`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_count_reward_id`
+(
+    in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `end_date`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `org_id`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `channel_id`');
+    SET @sfields = CONCAT(@sfields, ', `amount`');
+    SET @sfields = CONCAT(@sfields, ', `global_reward`');
+    SET @sfields = CONCAT(@sfields, ', `condition`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `start_date`');
+    SET @sfields = CONCAT(@sfields, ', `reward_id`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `reward_condition` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_end_date TIMESTAMP 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_org_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_amount INTEGER 
+    , in_global_reward int 
+    , in_condition VARCHAR (50) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (50) 
+    , in_start_date TIMESTAMP 
+    , in_reward_id BINARY(16) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `reward_condition`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `reward_condition` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `end_date` = in_end_date
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `org_id` = in_org_id
+                        , `uuid` = in_uuid
+                        , `channel_id` = in_channel_id
+                        , `amount` = in_amount
+                        , `global_reward` = in_global_reward
+                        , `condition` = in_condition
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `start_date` = in_start_date
+                        , `reward_id` = in_reward_id
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `reward_condition`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `end_date`
+                        , `date_modified`
+                        , `data`
+                        , `org_id`
+                        , `uuid`
+                        , `channel_id`
+                        , `amount`
+                        , `global_reward`
+                        , `condition`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `start_date`
+                        , `reward_id`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_end_date
+                        , in_date_modified
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_channel_id
+                        , in_amount
+                        , in_global_reward
+                        , in_condition
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_start_date
+                        , in_reward_id
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward_condition`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_reward_condition_del_org_id_channel_id_reward_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_del_org_id_channel_id_reward_id`
+(
+    in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward_condition`
+    WHERE 1=1                        
+    AND "org_id" = in_org_id
+    AND "channel_id" = in_channel_id
+    AND "reward_id" = in_reward_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `end_date`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `amount`
+        , `global_reward`
+        , `condition`
+        , `active`
+        , `date_created`
+        , `type`
+        , `start_date`
+        , `reward_id`
+        , `description`
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `end_date`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `amount`
+        , `global_reward`
+        , `condition`
+        , `active`
+        , `date_created`
+        , `type`
+        , `start_date`
+        , `reward_id`
+        , `description`
+    FROM `reward_condition`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `end_date`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `amount`
+        , `global_reward`
+        , `condition`
+        , `active`
+        , `date_created`
+        , `type`
+        , `start_date`
+        , `reward_id`
+        , `description`
+    FROM `reward_condition`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_get_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_get_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `end_date`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `amount`
+        , `global_reward`
+        , `condition`
+        , `active`
+        , `date_created`
+        , `type`
+        , `start_date`
+        , `reward_id`
+        , `description`
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_get_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_get_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `end_date`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `amount`
+        , `global_reward`
+        , `condition`
+        , `active`
+        , `date_created`
+        , `type`
+        , `start_date`
+        , `reward_id`
+        , `description`
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_get_org_id_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_get_org_id_channel_id`
+(
+    in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `end_date`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `amount`
+        , `global_reward`
+        , `condition`
+        , `active`
+        , `date_created`
+        , `type`
+        , `start_date`
+        , `reward_id`
+        , `description`
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_get_org_id_channel_id_reward_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_get_org_id_channel_id_reward_id`
+(
+    in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `end_date`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `amount`
+        , `global_reward`
+        , `condition`
+        , `active`
+        , `date_created`
+        , `type`
+        , `start_date`
+        , `reward_id`
+        , `description`
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    AND `channel_id` = in_channel_id
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_get_reward_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_get_reward_id`
+(
+    in_reward_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `end_date`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `channel_id`
+        , `amount`
+        , `global_reward`
+        , `condition`
+        , `active`
+        , `date_created`
+        , `type`
+        , `start_date`
+        , `reward_id`
+        , `description`
+    FROM `reward_condition`
+    WHERE 1=1
+    AND `reward_id` = in_reward_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_count`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition_type`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition_type`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition_type`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition_type`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_count_type`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_count_type`
+(
+    in_type VARCHAR (50) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_condition_type`
+    WHERE 1=1
+    AND lower(`type`) = lower(in_type)
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `reward_condition_type` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (50) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `reward_condition_type`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `reward_condition_type` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `reward_condition_type`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `uuid`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_uuid
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward_condition_type`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward_condition_type`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward_condition_type`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward_condition_type`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_condition_type_get_type`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_condition_type_get_type`
+(
+    in_type VARCHAR (50) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `uuid`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `reward_condition_type`
+    WHERE 1=1
+    AND lower(`type`) = lower(in_type)
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_question_count`;
+delimiter $$
+CREATE PROCEDURE `usp_question_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `question`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_question_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `question`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_question_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `question`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_question_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `question`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_count_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_question_count_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_count_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_question_count_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `question`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_count_channel_id_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_question_count_channel_id_org_id`
+(
+    in_channel_id BINARY(16) 
+    , in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_count_channel_id_code`;
+delimiter $$
+CREATE PROCEDURE `usp_question_count_channel_id_code`
+(
+    in_channel_id BINARY(16) 
+    , in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_question_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `org_id`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `choices`');
+    SET @sfields = CONCAT(@sfields, ', `channel_id`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    
+    SET @stable = CONCAT('', ' FROM `question` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_question_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_question_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_org_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_choices TEXT 
+    , in_channel_id BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (50) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `question`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `question` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `org_id` = in_org_id
+                        , `uuid` = in_uuid
+                        , `choices` = in_choices
+                        , `channel_id` = in_channel_id
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `question`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `org_id`
+                        , `uuid`
+                        , `choices`
+                        , `channel_id`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_choices
+                        , in_channel_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_set_channel_id_code`;
+delimiter $$
+CREATE PROCEDURE `usp_question_set_channel_id_code`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_code VARCHAR (255) 
+    , in_display_name VARCHAR (255) 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_data TEXT 
+    , in_org_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_choices TEXT 
+    , in_channel_id BINARY(16) 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (50) 
+    , in_description VARCHAR (255) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `question`  
+                    WHERE 1=1
+                    AND `channel_id` = in_channel_id
+                    AND lower(`code`) = lower(in_code)
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `question` 
+                    SET
+                        `status` = in_status
+                        , `code` = in_code
+                        , `display_name` = in_display_name
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `data` = in_data
+                        , `org_id` = in_org_id
+                        , `uuid` = in_uuid
+                        , `choices` = in_choices
+                        , `channel_id` = in_channel_id
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `description` = in_description
+                    WHERE 1=1
+                    AND `channel_id` = in_channel_id
+                    AND lower(`code`) = lower(in_code)
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `question`
+                    (
+                        `status`
+                        , `code`
+                        , `display_name`
+                        , `name`
+                        , `date_modified`
+                        , `data`
+                        , `org_id`
+                        , `uuid`
+                        , `choices`
+                        , `channel_id`
+                        , `active`
+                        , `date_created`
+                        , `type`
+                        , `description`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_data
+                        , in_org_id
+                        , in_uuid
+                        , in_choices
+                        , in_channel_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_description
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_question_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `question`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_question_del_channel_id_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_del_channel_id_org_id`
+(
+    in_channel_id BINARY(16) 
+    , in_org_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `question`
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Question - question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_question_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `choices`
+        , `channel_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `question`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `choices`
+        , `channel_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `question`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `choices`
+        , `channel_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `question`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_get_type`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_get_type`
+(
+    in_type VARCHAR (50) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `choices`
+        , `channel_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `question`
+    WHERE 1=1
+    AND lower(`type`) = lower(in_type)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_get_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_get_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `choices`
+        , `channel_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_get_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_get_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `choices`
+        , `channel_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `question`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_get_channel_id_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_get_channel_id_org_id`
+(
+    in_channel_id BINARY(16) 
+    , in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `choices`
+        , `channel_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_question_get_channel_id_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_question_get_channel_id_code`
+(
+    in_channel_id BINARY(16) 
+    , in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `code`
+        , `display_name`
+        , `name`
+        , `date_modified`
+        , `data`
+        , `org_id`
+        , `uuid`
+        , `choices`
+        , `channel_id`
+        , `active`
+        , `date_created`
+        , `type`
+        , `description`
+    FROM `question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_question_count`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_question`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_question`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_count_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_count_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_count_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_count_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_question`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_count_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_count_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_question`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_count_question_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_count_question_id`
+(
+    in_question_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_question`
+    WHERE 1=1
+    AND `question_id` = in_question_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_count_channel_id_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_count_channel_id_org_id`
+(
+    in_channel_id BINARY(16) 
+    , in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_count_channel_id_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_count_channel_id_profile_id`
+(
+    in_channel_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_count_question_id_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_count_question_id_profile_id`
+(
+    in_question_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_question`
+    WHERE 1=1
+    AND `question_id` = in_question_id
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_question_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `profile_id`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `org_id`');
+    SET @sfields = CONCAT(@sfields, ', `channel_id`');
+    SET @sfields = CONCAT(@sfields, ', `answer`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `question_id`');
+    
+    SET @stable = CONCAT('', ' FROM `profile_question` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_question_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_profile_id BINARY(16) 
+    , in_active int 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_answer VARCHAR (1000) 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_question_id BINARY(16) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_question`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_question` 
+                    SET
+                        `status` = in_status
+                        , `profile_id` = in_profile_id
+                        , `active` = in_active
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `org_id` = in_org_id
+                        , `channel_id` = in_channel_id
+                        , `answer` = in_answer
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `question_id` = in_question_id
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_question`
+                    (
+                        `status`
+                        , `profile_id`
+                        , `active`
+                        , `data`
+                        , `uuid`
+                        , `date_modified`
+                        , `org_id`
+                        , `channel_id`
+                        , `answer`
+                        , `date_created`
+                        , `type`
+                        , `question_id`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_answer
+                        , in_date_created
+                        , in_type
+                        , in_question_id
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_set_channel_id_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_set_channel_id_profile_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_profile_id BINARY(16) 
+    , in_active int 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_answer VARCHAR (1000) 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_question_id BINARY(16) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_question`  
+                    WHERE 1=1
+                    AND `channel_id` = in_channel_id
+                    AND `profile_id` = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_question` 
+                    SET
+                        `status` = in_status
+                        , `profile_id` = in_profile_id
+                        , `active` = in_active
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `org_id` = in_org_id
+                        , `channel_id` = in_channel_id
+                        , `answer` = in_answer
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `question_id` = in_question_id
+                    WHERE 1=1
+                    AND `channel_id` = in_channel_id
+                    AND `profile_id` = in_profile_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_question`
+                    (
+                        `status`
+                        , `profile_id`
+                        , `active`
+                        , `data`
+                        , `uuid`
+                        , `date_modified`
+                        , `org_id`
+                        , `channel_id`
+                        , `answer`
+                        , `date_created`
+                        , `type`
+                        , `question_id`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_answer
+                        , in_date_created
+                        , in_type
+                        , in_question_id
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_set_question_id_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_set_question_id_profile_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_profile_id BINARY(16) 
+    , in_active int 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_answer VARCHAR (1000) 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_question_id BINARY(16) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_question`  
+                    WHERE 1=1
+                    AND `question_id` = in_question_id
+                    AND `profile_id` = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_question` 
+                    SET
+                        `status` = in_status
+                        , `profile_id` = in_profile_id
+                        , `active` = in_active
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `org_id` = in_org_id
+                        , `channel_id` = in_channel_id
+                        , `answer` = in_answer
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `question_id` = in_question_id
+                    WHERE 1=1
+                    AND `question_id` = in_question_id
+                    AND `profile_id` = in_profile_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_question`
+                    (
+                        `status`
+                        , `profile_id`
+                        , `active`
+                        , `data`
+                        , `uuid`
+                        , `date_modified`
+                        , `org_id`
+                        , `channel_id`
+                        , `answer`
+                        , `date_created`
+                        , `type`
+                        , `question_id`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_answer
+                        , in_date_created
+                        , in_type
+                        , in_question_id
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_set_channel_id_question_id_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_set_channel_id_question_id_profile_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_profile_id BINARY(16) 
+    , in_active int 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_answer VARCHAR (1000) 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+    , in_question_id BINARY(16) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_question`  
+                    WHERE 1=1
+                    AND `channel_id` = in_channel_id
+                    AND `question_id` = in_question_id
+                    AND `profile_id` = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_question` 
+                    SET
+                        `status` = in_status
+                        , `profile_id` = in_profile_id
+                        , `active` = in_active
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `org_id` = in_org_id
+                        , `channel_id` = in_channel_id
+                        , `answer` = in_answer
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                        , `question_id` = in_question_id
+                    WHERE 1=1
+                    AND `channel_id` = in_channel_id
+                    AND `question_id` = in_question_id
+                    AND `profile_id` = in_profile_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_question`
+                    (
+                        `status`
+                        , `profile_id`
+                        , `active`
+                        , `data`
+                        , `uuid`
+                        , `date_modified`
+                        , `org_id`
+                        , `channel_id`
+                        , `answer`
+                        , `date_created`
+                        , `type`
+                        , `question_id`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_answer
+                        , in_date_created
+                        , in_type
+                        , in_question_id
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_question_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_question`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_profile_question_del_channel_id_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_del_channel_id_org_id`
+(
+    in_channel_id BINARY(16) 
+    , in_org_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_question`
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_question_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `answer`
+        , `date_created`
+        , `type`
+        , `question_id`
+    FROM `profile_question`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_get_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_get_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `answer`
+        , `date_created`
+        , `type`
+        , `question_id`
+    FROM `profile_question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_get_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_get_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `answer`
+        , `date_created`
+        , `type`
+        , `question_id`
+    FROM `profile_question`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_get_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_get_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `answer`
+        , `date_created`
+        , `type`
+        , `question_id`
+    FROM `profile_question`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_get_question_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_get_question_id`
+(
+    in_question_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `answer`
+        , `date_created`
+        , `type`
+        , `question_id`
+    FROM `profile_question`
+    WHERE 1=1
+    AND `question_id` = in_question_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_get_channel_id_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_get_channel_id_org_id`
+(
+    in_channel_id BINARY(16) 
+    , in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `answer`
+        , `date_created`
+        , `type`
+        , `question_id`
+    FROM `profile_question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_get_channel_id_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_get_channel_id_profile_id`
+(
+    in_channel_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `answer`
+        , `date_created`
+        , `type`
+        , `question_id`
+    FROM `profile_question`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_question_get_question_id_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_question_get_question_id_profile_id`
+(
+    in_question_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `answer`
+        , `date_created`
+        , `type`
+        , `question_id`
+    FROM `profile_question`
+    WHERE 1=1
+    AND `question_id` = in_question_id
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_channel_count`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_channel`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_channel_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_channel`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_channel_count_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_count_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_channel`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_channel_count_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_count_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_channel`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_channel_count_channel_id_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_count_channel_id_profile_id`
+(
+    in_channel_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_channel`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_channel_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `channel_id`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `profile_id`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    
+    SET @stable = CONCAT('', ' FROM `profile_channel` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_channel_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_channel_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_profile_id BINARY(16) 
+    , in_type VARCHAR (500) 
+    , in_data TEXT 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_channel`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_channel` 
+                    SET
+                        `status` = in_status
+                        , `channel_id` = in_channel_id
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `profile_id` = in_profile_id
+                        , `type` = in_type
+                        , `data` = in_data
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_channel`
+                    (
+                        `status`
+                        , `channel_id`
+                        , `uuid`
+                        , `date_modified`
+                        , `active`
+                        , `date_created`
+                        , `profile_id`
+                        , `type`
+                        , `data`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_channel_id
+                        , in_uuid
+                        , in_date_modified
+                        , in_active
+                        , in_date_created
+                        , in_profile_id
+                        , in_type
+                        , in_data
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_channel_set_channel_id_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_set_channel_id_profile_id`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_channel_id BINARY(16) 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_active int 
+    , in_date_created TIMESTAMP 
+    , in_profile_id BINARY(16) 
+    , in_type VARCHAR (500) 
+    , in_data TEXT 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_channel`  
+                    WHERE 1=1
+                    AND `channel_id` = in_channel_id
+                    AND `profile_id` = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_channel` 
+                    SET
+                        `status` = in_status
+                        , `channel_id` = in_channel_id
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `active` = in_active
+                        , `date_created` = in_date_created
+                        , `profile_id` = in_profile_id
+                        , `type` = in_type
+                        , `data` = in_data
+                    WHERE 1=1
+                    AND `channel_id` = in_channel_id
+                    AND `profile_id` = in_profile_id
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_channel`
+                    (
+                        `status`
+                        , `channel_id`
+                        , `uuid`
+                        , `date_modified`
+                        , `active`
+                        , `date_created`
+                        , `profile_id`
+                        , `type`
+                        , `data`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_channel_id
+                        , in_uuid
+                        , in_date_modified
+                        , in_active
+                        , in_date_created
+                        , in_profile_id
+                        , in_type
+                        , in_data
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_channel_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_channel`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_profile_channel_del_channel_id_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_del_channel_id_profile_id`
+(
+    in_channel_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_channel`
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND "profile_id" = in_profile_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_channel_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `channel_id`
+        , `uuid`
+        , `date_modified`
+        , `active`
+        , `date_created`
+        , `profile_id`
+        , `type`
+        , `data`
+    FROM `profile_channel`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_channel_get_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_get_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `channel_id`
+        , `uuid`
+        , `date_modified`
+        , `active`
+        , `date_created`
+        , `profile_id`
+        , `type`
+        , `data`
+    FROM `profile_channel`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_channel_get_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_get_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `channel_id`
+        , `uuid`
+        , `date_modified`
+        , `active`
+        , `date_created`
+        , `profile_id`
+        , `type`
+        , `data`
+    FROM `profile_channel`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_channel_get_channel_id_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_channel_get_channel_id_profile_id`
+(
+    in_channel_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `channel_id`
+        , `uuid`
+        , `date_modified`
+        , `active`
+        , `date_created`
+        , `profile_id`
+        , `type`
+        , `data`
+    FROM `profile_channel`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_count`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_count`
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward_points`
+    WHERE 1=1
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_count_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_count_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_count_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_count_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_count_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_count_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_count_channel_id_org_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_count_channel_id_org_id`
+(
+    in_channel_id BINARY(16) 
+    , in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_count_channel_id_profile_id`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_count_channel_id_profile_id`
+(
+    in_channel_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`status`');
+    SET @sfields = CONCAT(@sfields, ', `profile_id`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `org_id`');
+    SET @sfields = CONCAT(@sfields, ', `channel_id`');
+    SET @sfields = CONCAT(@sfields, ', `points`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    
+    SET @stable = CONCAT('', ' FROM `profile_reward_points` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_status VARCHAR (255) 
+    , in_profile_id BINARY(16) 
+    , in_active int 
+    , in_data TEXT 
+    , in_uuid BINARY(16) 
+    , in_date_modified TIMESTAMP 
+    , in_org_id BINARY(16) 
+    , in_channel_id BINARY(16) 
+    , in_points INTEGER 
+    , in_date_created TIMESTAMP 
+    , in_type VARCHAR (500) 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `profile_reward_points`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `profile_reward_points` 
+                    SET
+                        `status` = in_status
+                        , `profile_id` = in_profile_id
+                        , `active` = in_active
+                        , `data` = in_data
+                        , `uuid` = in_uuid
+                        , `date_modified` = in_date_modified
+                        , `org_id` = in_org_id
+                        , `channel_id` = in_channel_id
+                        , `points` = in_points
+                        , `date_created` = in_date_created
+                        , `type` = in_type
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `profile_reward_points`
+                    (
+                        `status`
+                        , `profile_id`
+                        , `active`
+                        , `data`
+                        , `uuid`
+                        , `date_modified`
+                        , `org_id`
+                        , `channel_id`
+                        , `points`
+                        , `date_created`
+                        , `type`
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_profile_id
+                        , in_active
+                        , in_data
+                        , in_uuid
+                        , in_date_modified
+                        , in_org_id
+                        , in_channel_id
+                        , in_points
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_reward_points`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_del_channel_id_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_del_channel_id_org_id`
+(
+    in_channel_id BINARY(16) 
+    , in_org_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `profile_reward_points`
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND "org_id" = in_org_id
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+
+                       
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `points`
+        , `date_created`
+        , `type`
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_get_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_get_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `points`
+        , `date_created`
+        , `type`
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_get_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_get_org_id`
+(
+    in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `points`
+        , `date_created`
+        , `type`
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_get_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_get_profile_id`
+(
+    in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `points`
+        , `date_created`
+        , `type`
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_get_channel_id_org_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_get_channel_id_org_id`
+(
+    in_channel_id BINARY(16) 
+    , in_org_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `points`
+        , `date_created`
+        , `type`
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `org_id` = in_org_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_profile_reward_points_get_channel_id_profile_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_profile_reward_points_get_channel_id_profile_id`
+(
+    in_channel_id BINARY(16) 
+    , in_profile_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `status`
+        , `profile_id`
+        , `active`
+        , `data`
+        , `uuid`
+        , `date_modified`
+        , `org_id`
+        , `channel_id`
+        , `points`
+        , `date_created`
+        , `type`
+    FROM `profile_reward_points`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `profile_id` = in_profile_id
+    ;
+END$$
+delimiter ;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_competition_count_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_count_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_competition`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_count_code`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_count_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_competition`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_count_name`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_count_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_competition`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_count_path`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_count_path`
+(
+    in_path VARCHAR (500) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_competition`
+    WHERE 1=1
+    AND lower(`path`) = lower(in_path)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_count_channel_id`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_count_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_competition`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_count_channel_id_completed`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_count_channel_id_completed`
+(
+    in_channel_id BINARY(16) 
+    , in_completed int 
+)
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM `reward_competition`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `completed` = in_completed
+    ;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_competition_browse_filter`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_browse_filter`
+(
+    in_page int,
+    in_page_size int,
+    in_sort VARCHAR(500),
+    in_filter VARCHAR(4000)
+    
+)
+BEGIN
+    DECLARE total_rows int;
+    SET total_rows = 0;
+        
+    IF (in_page = 0) THEN
+        SET in_page = 1;
+    END IF;    
+    
+    IF (in_page_size = 0) THEN
+       SET in_page_size = 10;
+    END IF;
+    
+    IF (in_sort = NULL || in_sort = '') THEN
+       SET in_sort = ' date_modified ASC ';
+    END IF;
+    
+    SET @sfields = CONCAT('', '`sort`');
+    SET @sfields = CONCAT(@sfields, ', `code`');
+    SET @sfields = CONCAT(@sfields, ', `date_end`');
+    SET @sfields = CONCAT(@sfields, ', `results`');
+    SET @sfields = CONCAT(@sfields, ', `visible`');
+    SET @sfields = CONCAT(@sfields, ', `display_name`');
+    SET @sfields = CONCAT(@sfields, ', `uuid`');
+    SET @sfields = CONCAT(@sfields, ', `date_start`');
+    SET @sfields = CONCAT(@sfields, ', `winners`');
+    SET @sfields = CONCAT(@sfields, ', `template`');
+    SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `trigger_data`');
+    SET @sfields = CONCAT(@sfields, ', `status`');
+    SET @sfields = CONCAT(@sfields, ', `description`');
+    SET @sfields = CONCAT(@sfields, ', `completed`');
+    SET @sfields = CONCAT(@sfields, ', `template_url`');
+    SET @sfields = CONCAT(@sfields, ', `active`');
+    SET @sfields = CONCAT(@sfields, ', `path`');
+    SET @sfields = CONCAT(@sfields, ', `data`');
+    SET @sfields = CONCAT(@sfields, ', `name`');
+    SET @sfields = CONCAT(@sfields, ', `date_modified`');
+    SET @sfields = CONCAT(@sfields, ', `fulfilled`');
+    SET @sfields = CONCAT(@sfields, ', `channel_id`');
+    SET @sfields = CONCAT(@sfields, ', `date_created`');
+    
+    SET @stable = CONCAT('', ' FROM `reward_competition` WHERE 1=1 ');
+    
+    SET @s = CONCAT(' ', @stable);
+    SET @s = CONCAT(@s, ' ', in_filter);    
+    
+    SET @scount = CONCAT('SELECT COUNT(*) as `total_rows` ', @s, ' INTO @total_rows');
+    
+    PREPARE stmtcount FROM @scount;
+    EXECUTE stmtcount;
+    #SELECT @total_rows;
+    SET total_rows = @total_rows;
+
+    SET @sfields = CONCAT(total_rows, ' as `total_rows`, ', @sfields);
+    SET @s = CONCAT('SELECT ', @sfields, @s);
+    SET @s = CONCAT(@s, ' ORDER BY ', in_sort);
+    SET @s = CONCAT(@s, ' LIMIT ', in_page);
+    SET @s = CONCAT(@s, ',', in_page_size);    
+
+    PREPARE stmt FROM @s;
+    EXECUTE stmt;
+    
+END$$
+delimiter ;
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_competition_set_uuid`;
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_set_uuid`
+(
+    in_set_type varchar(50)                      
+    , in_sort INTEGER 
+    , in_code VARCHAR (255) 
+    , in_date_end TIMESTAMP 
+    , in_results TEXT 
+    , in_visible int 
+    , in_display_name VARCHAR (255) 
+    , in_uuid BINARY(16) 
+    , in_date_start TIMESTAMP 
+    , in_winners TEXT 
+    , in_template TEXT 
+    , in_type VARCHAR (500) 
+    , in_trigger_data TEXT 
+    , in_status VARCHAR (255) 
+    , in_description VARCHAR (255) 
+    , in_completed int 
+    , in_template_url VARCHAR (500) 
+    , in_active int 
+    , in_path VARCHAR (500) 
+    , in_data TEXT 
+    , in_name VARCHAR (255) 
+    , in_date_modified TIMESTAMP 
+    , in_fulfilled int 
+    , in_channel_id BINARY(16) 
+    , in_date_created TIMESTAMP 
+)
+BEGIN
+    BEGIN
+        SET @countItems = 0;
+        SET @id = 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                SET in_set_type = 'full';
+            END IF;
+        END;
+
+	# IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	# GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO @countItems
+                    FROM  `reward_competition`  
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            # UPDATE
+            IF (@countItems > 0 AND in_set_type != 'insertonly')
+                OR (@countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE `reward_competition` 
+                    SET
+                        `sort` = in_sort
+                        , `code` = in_code
+                        , `date_end` = in_date_end
+                        , `results` = in_results
+                        , `visible` = in_visible
+                        , `display_name` = in_display_name
+                        , `uuid` = in_uuid
+                        , `date_start` = in_date_start
+                        , `winners` = in_winners
+                        , `template` = in_template
+                        , `type` = in_type
+                        , `trigger_data` = in_trigger_data
+                        , `status` = in_status
+                        , `description` = in_description
+                        , `completed` = in_completed
+                        , `template_url` = in_template_url
+                        , `active` = in_active
+                        , `path` = in_path
+                        , `data` = in_data
+                        , `name` = in_name
+                        , `date_modified` = in_date_modified
+                        , `fulfilled` = in_fulfilled
+                        , `channel_id` = in_channel_id
+                        , `date_created` = in_date_created
+                    WHERE 1=1
+                    AND `uuid` = in_uuid
+                    ;
+                    SET @id = 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            # INSERT
+            IF (@countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO `reward_competition`
+                    (
+                        `sort`
+                        , `code`
+                        , `date_end`
+                        , `results`
+                        , `visible`
+                        , `display_name`
+                        , `uuid`
+                        , `date_start`
+                        , `winners`
+                        , `template`
+                        , `type`
+                        , `trigger_data`
+                        , `status`
+                        , `description`
+                        , `completed`
+                        , `template_url`
+                        , `active`
+                        , `path`
+                        , `data`
+                        , `name`
+                        , `date_modified`
+                        , `fulfilled`
+                        , `channel_id`
+                        , `date_created`
+                    )
+                    VALUES
+                    (
+                        in_sort
+                        , in_code
+                        , in_date_end
+                        , in_results
+                        , in_visible
+                        , in_display_name
+                        , in_uuid
+                        , in_date_start
+                        , in_winners
+                        , in_template
+                        , in_type
+                        , in_trigger_data
+                        , in_status
+                        , in_description
+                        , in_completed
+                        , in_template_url
+                        , in_active
+                        , in_path
+                        , in_data
+                        , in_name
+                        , in_date_modified
+                        , in_fulfilled
+                        , in_channel_id
+                        , in_date_created
+                    )
+                    ;
+                    SET @id = 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT @id as id;
+    END;
+END$$
+delimiter ;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_competition_del_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_del_uuid`
+(
+    in_uuid BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward_competition`
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_reward_competition_del_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_del_code`
+(
+    in_code VARCHAR (255) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward_competition`
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_reward_competition_del_path_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_del_path_channel_id`
+(
+    in_path VARCHAR (500) 
+    , in_channel_id BINARY(16) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward_competition`
+    WHERE 1=1                        
+    AND lower("path") = lower(in_path)
+    AND "channel_id" = in_channel_id
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_reward_competition_del_path`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_del_path`
+(
+    in_path VARCHAR (500) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward_competition`
+    WHERE 1=1                        
+    AND lower("path") = lower(in_path)
+    ;
+END$$
+delimiter ;
+DROP PROCEDURE IF EXISTS `usp_reward_competition_del_channel_id_path`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_del_channel_id_path`
+(
+    in_channel_id BINARY(16) 
+    , in_path VARCHAR (500) 
+)
+
+BEGIN
+    DELETE 
+    FROM `reward_competition`
+    WHERE 1=1                        
+    AND "channel_id" = in_channel_id
+    AND lower("path") = lower(in_path)
+    ;
+END$$
+delimiter ;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+
+                       
+DROP PROCEDURE IF EXISTS `usp_reward_competition_get_uuid`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_get_uuid`
+(
+    in_uuid BINARY(16) 
+)
+BEGIN
+    SELECT
+        `sort`
+        , `code`
+        , `date_end`
+        , `results`
+        , `visible`
+        , `display_name`
+        , `uuid`
+        , `date_start`
+        , `winners`
+        , `template`
+        , `type`
+        , `trigger_data`
+        , `status`
+        , `description`
+        , `completed`
+        , `template_url`
+        , `active`
+        , `path`
+        , `data`
+        , `name`
+        , `date_modified`
+        , `fulfilled`
+        , `channel_id`
+        , `date_created`
+    FROM `reward_competition`
+    WHERE 1=1
+    AND `uuid` = in_uuid
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_get_code`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_get_code`
+(
+    in_code VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `sort`
+        , `code`
+        , `date_end`
+        , `results`
+        , `visible`
+        , `display_name`
+        , `uuid`
+        , `date_start`
+        , `winners`
+        , `template`
+        , `type`
+        , `trigger_data`
+        , `status`
+        , `description`
+        , `completed`
+        , `template_url`
+        , `active`
+        , `path`
+        , `data`
+        , `name`
+        , `date_modified`
+        , `fulfilled`
+        , `channel_id`
+        , `date_created`
+    FROM `reward_competition`
+    WHERE 1=1
+    AND lower(`code`) = lower(in_code)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_get_name`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_get_name`
+(
+    in_name VARCHAR (255) 
+)
+BEGIN
+    SELECT
+        `sort`
+        , `code`
+        , `date_end`
+        , `results`
+        , `visible`
+        , `display_name`
+        , `uuid`
+        , `date_start`
+        , `winners`
+        , `template`
+        , `type`
+        , `trigger_data`
+        , `status`
+        , `description`
+        , `completed`
+        , `template_url`
+        , `active`
+        , `path`
+        , `data`
+        , `name`
+        , `date_modified`
+        , `fulfilled`
+        , `channel_id`
+        , `date_created`
+    FROM `reward_competition`
+    WHERE 1=1
+    AND lower(`name`) = lower(in_name)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_get_path`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_get_path`
+(
+    in_path VARCHAR (500) 
+)
+BEGIN
+    SELECT
+        `sort`
+        , `code`
+        , `date_end`
+        , `results`
+        , `visible`
+        , `display_name`
+        , `uuid`
+        , `date_start`
+        , `winners`
+        , `template`
+        , `type`
+        , `trigger_data`
+        , `status`
+        , `description`
+        , `completed`
+        , `template_url`
+        , `active`
+        , `path`
+        , `data`
+        , `name`
+        , `date_modified`
+        , `fulfilled`
+        , `channel_id`
+        , `date_created`
+    FROM `reward_competition`
+    WHERE 1=1
+    AND lower(`path`) = lower(in_path)
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_get_channel_id`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_get_channel_id`
+(
+    in_channel_id BINARY(16) 
+)
+BEGIN
+    SELECT
+        `sort`
+        , `code`
+        , `date_end`
+        , `results`
+        , `visible`
+        , `display_name`
+        , `uuid`
+        , `date_start`
+        , `winners`
+        , `template`
+        , `type`
+        , `trigger_data`
+        , `status`
+        , `description`
+        , `completed`
+        , `template_url`
+        , `active`
+        , `path`
+        , `data`
+        , `name`
+        , `date_modified`
+        , `fulfilled`
+        , `channel_id`
+        , `date_created`
+    FROM `reward_competition`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_get_channel_id_completed`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_get_channel_id_completed`
+(
+    in_channel_id BINARY(16) 
+    , in_completed int 
+)
+BEGIN
+    SELECT
+        `sort`
+        , `code`
+        , `date_end`
+        , `results`
+        , `visible`
+        , `display_name`
+        , `uuid`
+        , `date_start`
+        , `winners`
+        , `template`
+        , `type`
+        , `trigger_data`
+        , `status`
+        , `description`
+        , `completed`
+        , `template_url`
+        , `active`
+        , `path`
+        , `data`
+        , `name`
+        , `date_modified`
+        , `fulfilled`
+        , `channel_id`
+        , `date_created`
+    FROM `reward_competition`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND `completed` = in_completed
+    ;
+END$$
+delimiter ;
+
+DROP PROCEDURE IF EXISTS `usp_reward_competition_get_channel_id_path`;
+
+delimiter $$
+CREATE PROCEDURE `usp_reward_competition_get_channel_id_path`
+(
+    in_channel_id BINARY(16) 
+    , in_path VARCHAR (500) 
+)
+BEGIN
+    SELECT
+        `sort`
+        , `code`
+        , `date_end`
+        , `results`
+        , `visible`
+        , `display_name`
+        , `uuid`
+        , `date_start`
+        , `winners`
+        , `template`
+        , `type`
+        , `trigger_data`
+        , `status`
+        , `description`
+        , `completed`
+        , `template_url`
+        , `active`
+        , `path`
+        , `data`
+        , `name`
+        , `date_modified`
+        , `fulfilled`
+        , `channel_id`
+        , `date_created`
+    FROM `reward_competition`
+    WHERE 1=1
+    AND `channel_id` = in_channel_id
+    AND lower(`path`) = lower(in_path)
     ;
 END$$
 delimiter ;

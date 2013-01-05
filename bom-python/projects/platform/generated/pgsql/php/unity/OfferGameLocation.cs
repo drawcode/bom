@@ -52,6 +52,7 @@ public class OfferGameLocation : BaseEntity {
     // profile conversions.
     public string game_location_id { get; set; }
     public string offer_id { get; set; }
+    public string data { get; set; }
     public string type_id { get; set; }
 
     public OfferGameLocation() {
@@ -70,6 +71,9 @@ public class OfferGameLocation : BaseEntity {
 	if (offer_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "offer_id", offer_id);
 	}
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
 	if (type_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "type_id", type_id);
 	}
@@ -85,6 +89,11 @@ public class OfferGameLocation : BaseEntity {
 	if(dict.ContainsKey("offer_id")) {
 	    if(dict["offer_id"] != null) {
 	    	offer_id = DataType.Instance.FillString(dict["offer_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.FillString(dict["data"]);
 	    }		
 	}
 	if(dict.ContainsKey("type_id")) {

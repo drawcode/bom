@@ -37,6 +37,7 @@ class OfferGameLocation extends BaseEntity {
     
     public $game_location_id;
     public $offer_id;
+    public $data;
     public $type_id;
 
     public function __construct() {

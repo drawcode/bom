@@ -63,6 +63,7 @@ class EventLocation(BaseLocation):
     super(EventLocation, self).__init__()
     #self.__dict__.update(entries)
     self.event_id = None
+    self.data = None
         
   def to_dict_obj(self):
     return self.to_dict(self)

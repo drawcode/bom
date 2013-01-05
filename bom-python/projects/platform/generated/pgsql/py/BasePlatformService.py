@@ -88,1535 +88,1535 @@ namespace platform {
             if(IsContext("app/count")){
                 CountApp();
             }
-            else if(IsContext("app/count/uuid")){
-                CountAppUuid();
+            else if(IsContext("app/count/by-uuid")){
+                CountAppByUuid();
             }
-            else if(IsContext("app/count/code")){
-                CountAppCode();
+            else if(IsContext("app/count/by-code")){
+                CountAppByCode();
             }
-            else if(IsContext("app/count/type-id")){
-                CountAppTypeId();
+            else if(IsContext("app/count/by-type-id")){
+                CountAppByTypeId();
             }
-            else if(IsContext("app/count/code/type-id")){
-                CountAppCodeTypeId();
+            else if(IsContext("app/count/by-code/by-type-id")){
+                CountAppByCodeByTypeId();
             }
-            else if(IsContext("app/count/platform/type-id")){
-                CountAppPlatformTypeId();
+            else if(IsContext("app/count/by-platform/by-type-id")){
+                CountAppByPlatformByTypeId();
             }
-            else if(IsContext("app/count/platform")){
-                CountAppPlatform();
+            else if(IsContext("app/count/by-platform")){
+                CountAppByPlatform();
             }
-            else if(IsContext("app/browse/filter")){
-                BrowseAppListFilter();
+            else if(IsContext("app/browse/by-filter")){
+                BrowseAppListByFilter();
             }
-            else if(IsContext("app/set/uuid")){
-                SetAppUuid();
+            else if(IsContext("app/set/by-uuid")){
+                SetAppByUuid();
             }
-            else if(IsContext("app/set/code")){
-                SetAppCode();
+            else if(IsContext("app/set/by-code")){
+                SetAppByCode();
             }
-            else if(IsContext("app/del/uuid")){
-                DelAppUuid();
+            else if(IsContext("app/del/by-uuid")){
+                DelAppByUuid();
             }
-            else if(IsContext("app/del/code")){
-                DelAppCode();
+            else if(IsContext("app/del/by-code")){
+                DelAppByCode();
             }
             else if(IsContext("app/get")){
                 GetAppList();
             }
-            else if(IsContext("app/get/uuid")){
-                GetAppListUuid();
+            else if(IsContext("app/get/by-uuid")){
+                GetAppListByUuid();
             }
-            else if(IsContext("app/get/code")){
-                GetAppListCode();
+            else if(IsContext("app/get/by-code")){
+                GetAppListByCode();
             }
-            else if(IsContext("app/get/type-id")){
-                GetAppListTypeId();
+            else if(IsContext("app/get/by-type-id")){
+                GetAppListByTypeId();
             }
-            else if(IsContext("app/get/code/type-id")){
-                GetAppListCodeTypeId();
+            else if(IsContext("app/get/by-code/by-type-id")){
+                GetAppListByCodeByTypeId();
             }
-            else if(IsContext("app/get/platform/type-id")){
-                GetAppListPlatformTypeId();
+            else if(IsContext("app/get/by-platform/by-type-id")){
+                GetAppListByPlatformByTypeId();
             }
-            else if(IsContext("app/get/platform")){
-                GetAppListPlatform();
+            else if(IsContext("app/get/by-platform")){
+                GetAppListByPlatform();
             }
             if(IsContext("app-type/count")){
                 CountAppType();
             }
-            else if(IsContext("app-type/count/uuid")){
-                CountAppTypeUuid();
+            else if(IsContext("app-type/count/by-uuid")){
+                CountAppTypeByUuid();
             }
-            else if(IsContext("app-type/count/code")){
-                CountAppTypeCode();
+            else if(IsContext("app-type/count/by-code")){
+                CountAppTypeByCode();
             }
-            else if(IsContext("app-type/browse/filter")){
-                BrowseAppTypeListFilter();
+            else if(IsContext("app-type/browse/by-filter")){
+                BrowseAppTypeListByFilter();
             }
-            else if(IsContext("app-type/set/uuid")){
-                SetAppTypeUuid();
+            else if(IsContext("app-type/set/by-uuid")){
+                SetAppTypeByUuid();
             }
-            else if(IsContext("app-type/set/code")){
-                SetAppTypeCode();
+            else if(IsContext("app-type/set/by-code")){
+                SetAppTypeByCode();
             }
-            else if(IsContext("app-type/del/uuid")){
-                DelAppTypeUuid();
+            else if(IsContext("app-type/del/by-uuid")){
+                DelAppTypeByUuid();
             }
-            else if(IsContext("app-type/del/code")){
-                DelAppTypeCode();
+            else if(IsContext("app-type/del/by-code")){
+                DelAppTypeByCode();
             }
             else if(IsContext("app-type/get")){
                 GetAppTypeList();
             }
-            else if(IsContext("app-type/get/uuid")){
-                GetAppTypeListUuid();
+            else if(IsContext("app-type/get/by-uuid")){
+                GetAppTypeListByUuid();
             }
-            else if(IsContext("app-type/get/code")){
-                GetAppTypeListCode();
+            else if(IsContext("app-type/get/by-code")){
+                GetAppTypeListByCode();
             }
             if(IsContext("site/count")){
                 CountSite();
             }
-            else if(IsContext("site/count/uuid")){
-                CountSiteUuid();
+            else if(IsContext("site/count/by-uuid")){
+                CountSiteByUuid();
             }
-            else if(IsContext("site/count/code")){
-                CountSiteCode();
+            else if(IsContext("site/count/by-code")){
+                CountSiteByCode();
             }
-            else if(IsContext("site/count/type-id")){
-                CountSiteTypeId();
+            else if(IsContext("site/count/by-type-id")){
+                CountSiteByTypeId();
             }
-            else if(IsContext("site/count/code/type-id")){
-                CountSiteCodeTypeId();
+            else if(IsContext("site/count/by-code/by-type-id")){
+                CountSiteByCodeByTypeId();
             }
-            else if(IsContext("site/count/domain/type-id")){
-                CountSiteDomainTypeId();
+            else if(IsContext("site/count/by-domain/by-type-id")){
+                CountSiteByDomainByTypeId();
             }
-            else if(IsContext("site/count/domain")){
-                CountSiteDomain();
+            else if(IsContext("site/count/by-domain")){
+                CountSiteByDomain();
             }
-            else if(IsContext("site/browse/filter")){
-                BrowseSiteListFilter();
+            else if(IsContext("site/browse/by-filter")){
+                BrowseSiteListByFilter();
             }
-            else if(IsContext("site/set/uuid")){
-                SetSiteUuid();
+            else if(IsContext("site/set/by-uuid")){
+                SetSiteByUuid();
             }
-            else if(IsContext("site/set/code")){
-                SetSiteCode();
+            else if(IsContext("site/set/by-code")){
+                SetSiteByCode();
             }
-            else if(IsContext("site/del/uuid")){
-                DelSiteUuid();
+            else if(IsContext("site/del/by-uuid")){
+                DelSiteByUuid();
             }
-            else if(IsContext("site/del/code")){
-                DelSiteCode();
+            else if(IsContext("site/del/by-code")){
+                DelSiteByCode();
             }
             else if(IsContext("site/get")){
                 GetSiteList();
             }
-            else if(IsContext("site/get/uuid")){
-                GetSiteListUuid();
+            else if(IsContext("site/get/by-uuid")){
+                GetSiteListByUuid();
             }
-            else if(IsContext("site/get/code")){
-                GetSiteListCode();
+            else if(IsContext("site/get/by-code")){
+                GetSiteListByCode();
             }
-            else if(IsContext("site/get/type-id")){
-                GetSiteListTypeId();
+            else if(IsContext("site/get/by-type-id")){
+                GetSiteListByTypeId();
             }
-            else if(IsContext("site/get/code/type-id")){
-                GetSiteListCodeTypeId();
+            else if(IsContext("site/get/by-code/by-type-id")){
+                GetSiteListByCodeByTypeId();
             }
-            else if(IsContext("site/get/domain/type-id")){
-                GetSiteListDomainTypeId();
+            else if(IsContext("site/get/by-domain/by-type-id")){
+                GetSiteListByDomainByTypeId();
             }
-            else if(IsContext("site/get/domain")){
-                GetSiteListDomain();
+            else if(IsContext("site/get/by-domain")){
+                GetSiteListByDomain();
             }
             if(IsContext("site-type/count")){
                 CountSiteType();
             }
-            else if(IsContext("site-type/count/uuid")){
-                CountSiteTypeUuid();
+            else if(IsContext("site-type/count/by-uuid")){
+                CountSiteTypeByUuid();
             }
-            else if(IsContext("site-type/count/code")){
-                CountSiteTypeCode();
+            else if(IsContext("site-type/count/by-code")){
+                CountSiteTypeByCode();
             }
-            else if(IsContext("site-type/browse/filter")){
-                BrowseSiteTypeListFilter();
+            else if(IsContext("site-type/browse/by-filter")){
+                BrowseSiteTypeListByFilter();
             }
-            else if(IsContext("site-type/set/uuid")){
-                SetSiteTypeUuid();
+            else if(IsContext("site-type/set/by-uuid")){
+                SetSiteTypeByUuid();
             }
-            else if(IsContext("site-type/set/code")){
-                SetSiteTypeCode();
+            else if(IsContext("site-type/set/by-code")){
+                SetSiteTypeByCode();
             }
-            else if(IsContext("site-type/del/uuid")){
-                DelSiteTypeUuid();
+            else if(IsContext("site-type/del/by-uuid")){
+                DelSiteTypeByUuid();
             }
-            else if(IsContext("site-type/del/code")){
-                DelSiteTypeCode();
+            else if(IsContext("site-type/del/by-code")){
+                DelSiteTypeByCode();
             }
             else if(IsContext("site-type/get")){
                 GetSiteTypeList();
             }
-            else if(IsContext("site-type/get/uuid")){
-                GetSiteTypeListUuid();
+            else if(IsContext("site-type/get/by-uuid")){
+                GetSiteTypeListByUuid();
             }
-            else if(IsContext("site-type/get/code")){
-                GetSiteTypeListCode();
+            else if(IsContext("site-type/get/by-code")){
+                GetSiteTypeListByCode();
             }
             if(IsContext("org/count")){
                 CountOrg();
             }
-            else if(IsContext("org/count/uuid")){
-                CountOrgUuid();
+            else if(IsContext("org/count/by-uuid")){
+                CountOrgByUuid();
             }
-            else if(IsContext("org/count/code")){
-                CountOrgCode();
+            else if(IsContext("org/count/by-code")){
+                CountOrgByCode();
             }
-            else if(IsContext("org/count/name")){
-                CountOrgName();
+            else if(IsContext("org/count/by-name")){
+                CountOrgByName();
             }
-            else if(IsContext("org/browse/filter")){
-                BrowseOrgListFilter();
+            else if(IsContext("org/browse/by-filter")){
+                BrowseOrgListByFilter();
             }
-            else if(IsContext("org/set/uuid")){
-                SetOrgUuid();
+            else if(IsContext("org/set/by-uuid")){
+                SetOrgByUuid();
             }
-            else if(IsContext("org/del/uuid")){
-                DelOrgUuid();
+            else if(IsContext("org/del/by-uuid")){
+                DelOrgByUuid();
             }
             else if(IsContext("org/get")){
                 GetOrgList();
             }
-            else if(IsContext("org/get/uuid")){
-                GetOrgListUuid();
+            else if(IsContext("org/get/by-uuid")){
+                GetOrgListByUuid();
             }
-            else if(IsContext("org/get/code")){
-                GetOrgListCode();
+            else if(IsContext("org/get/by-code")){
+                GetOrgListByCode();
             }
-            else if(IsContext("org/get/name")){
-                GetOrgListName();
+            else if(IsContext("org/get/by-name")){
+                GetOrgListByName();
             }
             if(IsContext("org-type/count")){
                 CountOrgType();
             }
-            else if(IsContext("org-type/count/uuid")){
-                CountOrgTypeUuid();
+            else if(IsContext("org-type/count/by-uuid")){
+                CountOrgTypeByUuid();
             }
-            else if(IsContext("org-type/count/code")){
-                CountOrgTypeCode();
+            else if(IsContext("org-type/count/by-code")){
+                CountOrgTypeByCode();
             }
-            else if(IsContext("org-type/browse/filter")){
-                BrowseOrgTypeListFilter();
+            else if(IsContext("org-type/browse/by-filter")){
+                BrowseOrgTypeListByFilter();
             }
-            else if(IsContext("org-type/set/uuid")){
-                SetOrgTypeUuid();
+            else if(IsContext("org-type/set/by-uuid")){
+                SetOrgTypeByUuid();
             }
-            else if(IsContext("org-type/set/code")){
-                SetOrgTypeCode();
+            else if(IsContext("org-type/set/by-code")){
+                SetOrgTypeByCode();
             }
-            else if(IsContext("org-type/del/uuid")){
-                DelOrgTypeUuid();
+            else if(IsContext("org-type/del/by-uuid")){
+                DelOrgTypeByUuid();
             }
-            else if(IsContext("org-type/del/code")){
-                DelOrgTypeCode();
+            else if(IsContext("org-type/del/by-code")){
+                DelOrgTypeByCode();
             }
             else if(IsContext("org-type/get")){
                 GetOrgTypeList();
             }
-            else if(IsContext("org-type/get/uuid")){
-                GetOrgTypeListUuid();
+            else if(IsContext("org-type/get/by-uuid")){
+                GetOrgTypeListByUuid();
             }
-            else if(IsContext("org-type/get/code")){
-                GetOrgTypeListCode();
+            else if(IsContext("org-type/get/by-code")){
+                GetOrgTypeListByCode();
             }
             if(IsContext("content-item/count")){
                 CountContentItem();
             }
-            else if(IsContext("content-item/count/uuid")){
-                CountContentItemUuid();
+            else if(IsContext("content-item/count/by-uuid")){
+                CountContentItemByUuid();
             }
-            else if(IsContext("content-item/count/code")){
-                CountContentItemCode();
+            else if(IsContext("content-item/count/by-code")){
+                CountContentItemByCode();
             }
-            else if(IsContext("content-item/count/name")){
-                CountContentItemName();
+            else if(IsContext("content-item/count/by-name")){
+                CountContentItemByName();
             }
-            else if(IsContext("content-item/count/path")){
-                CountContentItemPath();
+            else if(IsContext("content-item/count/by-path")){
+                CountContentItemByPath();
             }
-            else if(IsContext("content-item/browse/filter")){
-                BrowseContentItemListFilter();
+            else if(IsContext("content-item/browse/by-filter")){
+                BrowseContentItemListByFilter();
             }
-            else if(IsContext("content-item/set/uuid")){
-                SetContentItemUuid();
+            else if(IsContext("content-item/set/by-uuid")){
+                SetContentItemByUuid();
             }
-            else if(IsContext("content-item/del/uuid")){
-                DelContentItemUuid();
+            else if(IsContext("content-item/del/by-uuid")){
+                DelContentItemByUuid();
             }
-            else if(IsContext("content-item/del/path")){
-                DelContentItemPath();
+            else if(IsContext("content-item/del/by-path")){
+                DelContentItemByPath();
             }
             else if(IsContext("content-item/get")){
                 GetContentItemList();
             }
-            else if(IsContext("content-item/get/uuid")){
-                GetContentItemListUuid();
+            else if(IsContext("content-item/get/by-uuid")){
+                GetContentItemListByUuid();
             }
-            else if(IsContext("content-item/get/code")){
-                GetContentItemListCode();
+            else if(IsContext("content-item/get/by-code")){
+                GetContentItemListByCode();
             }
-            else if(IsContext("content-item/get/name")){
-                GetContentItemListName();
+            else if(IsContext("content-item/get/by-name")){
+                GetContentItemListByName();
             }
-            else if(IsContext("content-item/get/path")){
-                GetContentItemListPath();
+            else if(IsContext("content-item/get/by-path")){
+                GetContentItemListByPath();
             }
             if(IsContext("content-item-type/count")){
                 CountContentItemType();
             }
-            else if(IsContext("content-item-type/count/uuid")){
-                CountContentItemTypeUuid();
+            else if(IsContext("content-item-type/count/by-uuid")){
+                CountContentItemTypeByUuid();
             }
-            else if(IsContext("content-item-type/count/code")){
-                CountContentItemTypeCode();
+            else if(IsContext("content-item-type/count/by-code")){
+                CountContentItemTypeByCode();
             }
-            else if(IsContext("content-item-type/browse/filter")){
-                BrowseContentItemTypeListFilter();
+            else if(IsContext("content-item-type/browse/by-filter")){
+                BrowseContentItemTypeListByFilter();
             }
-            else if(IsContext("content-item-type/set/uuid")){
-                SetContentItemTypeUuid();
+            else if(IsContext("content-item-type/set/by-uuid")){
+                SetContentItemTypeByUuid();
             }
-            else if(IsContext("content-item-type/set/code")){
-                SetContentItemTypeCode();
+            else if(IsContext("content-item-type/set/by-code")){
+                SetContentItemTypeByCode();
             }
-            else if(IsContext("content-item-type/del/uuid")){
-                DelContentItemTypeUuid();
+            else if(IsContext("content-item-type/del/by-uuid")){
+                DelContentItemTypeByUuid();
             }
-            else if(IsContext("content-item-type/del/code")){
-                DelContentItemTypeCode();
+            else if(IsContext("content-item-type/del/by-code")){
+                DelContentItemTypeByCode();
             }
             else if(IsContext("content-item-type/get")){
                 GetContentItemTypeList();
             }
-            else if(IsContext("content-item-type/get/uuid")){
-                GetContentItemTypeListUuid();
+            else if(IsContext("content-item-type/get/by-uuid")){
+                GetContentItemTypeListByUuid();
             }
-            else if(IsContext("content-item-type/get/code")){
-                GetContentItemTypeListCode();
+            else if(IsContext("content-item-type/get/by-code")){
+                GetContentItemTypeListByCode();
             }
             if(IsContext("content-page/count")){
                 CountContentPage();
             }
-            else if(IsContext("content-page/count/uuid")){
-                CountContentPageUuid();
+            else if(IsContext("content-page/count/by-uuid")){
+                CountContentPageByUuid();
             }
-            else if(IsContext("content-page/count/code")){
-                CountContentPageCode();
+            else if(IsContext("content-page/count/by-code")){
+                CountContentPageByCode();
             }
-            else if(IsContext("content-page/count/name")){
-                CountContentPageName();
+            else if(IsContext("content-page/count/by-name")){
+                CountContentPageByName();
             }
-            else if(IsContext("content-page/count/path")){
-                CountContentPagePath();
+            else if(IsContext("content-page/count/by-path")){
+                CountContentPageByPath();
             }
-            else if(IsContext("content-page/browse/filter")){
-                BrowseContentPageListFilter();
+            else if(IsContext("content-page/browse/by-filter")){
+                BrowseContentPageListByFilter();
             }
-            else if(IsContext("content-page/set/uuid")){
-                SetContentPageUuid();
+            else if(IsContext("content-page/set/by-uuid")){
+                SetContentPageByUuid();
             }
-            else if(IsContext("content-page/del/uuid")){
-                DelContentPageUuid();
+            else if(IsContext("content-page/del/by-uuid")){
+                DelContentPageByUuid();
             }
-            else if(IsContext("content-page/del/path/site-id")){
-                DelContentPagePathSiteId();
+            else if(IsContext("content-page/del/by-path/by-site-id")){
+                DelContentPageByPathBySiteId();
             }
-            else if(IsContext("content-page/del/path")){
-                DelContentPagePath();
+            else if(IsContext("content-page/del/by-path")){
+                DelContentPageByPath();
             }
             else if(IsContext("content-page/get")){
                 GetContentPageList();
             }
-            else if(IsContext("content-page/get/uuid")){
-                GetContentPageListUuid();
+            else if(IsContext("content-page/get/by-uuid")){
+                GetContentPageListByUuid();
             }
-            else if(IsContext("content-page/get/code")){
-                GetContentPageListCode();
+            else if(IsContext("content-page/get/by-code")){
+                GetContentPageListByCode();
             }
-            else if(IsContext("content-page/get/name")){
-                GetContentPageListName();
+            else if(IsContext("content-page/get/by-name")){
+                GetContentPageListByName();
             }
-            else if(IsContext("content-page/get/path")){
-                GetContentPageListPath();
+            else if(IsContext("content-page/get/by-path")){
+                GetContentPageListByPath();
             }
-            else if(IsContext("content-page/get/site-id")){
-                GetContentPageListSiteId();
+            else if(IsContext("content-page/get/by-site-id")){
+                GetContentPageListBySiteId();
             }
-            else if(IsContext("content-page/get/site-id/path")){
-                GetContentPageListSiteIdPath();
+            else if(IsContext("content-page/get/by-site-id/by-path")){
+                GetContentPageListBySiteIdByPath();
             }
             if(IsContext("message/count")){
                 CountMessage();
             }
-            else if(IsContext("message/count/uuid")){
-                CountMessageUuid();
+            else if(IsContext("message/count/by-uuid")){
+                CountMessageByUuid();
             }
-            else if(IsContext("message/browse/filter")){
-                BrowseMessageListFilter();
+            else if(IsContext("message/browse/by-filter")){
+                BrowseMessageListByFilter();
             }
-            else if(IsContext("message/set/uuid")){
-                SetMessageUuid();
+            else if(IsContext("message/set/by-uuid")){
+                SetMessageByUuid();
             }
-            else if(IsContext("message/del/uuid")){
-                DelMessageUuid();
+            else if(IsContext("message/del/by-uuid")){
+                DelMessageByUuid();
             }
             else if(IsContext("message/get")){
                 GetMessageList();
             }
-            else if(IsContext("message/get/uuid")){
-                GetMessageListUuid();
+            else if(IsContext("message/get/by-uuid")){
+                GetMessageListByUuid();
             }
             if(IsContext("offer/count")){
                 CountOffer();
             }
-            else if(IsContext("offer/count/uuid")){
-                CountOfferUuid();
+            else if(IsContext("offer/count/by-uuid")){
+                CountOfferByUuid();
             }
-            else if(IsContext("offer/count/code")){
-                CountOfferCode();
+            else if(IsContext("offer/count/by-code")){
+                CountOfferByCode();
             }
-            else if(IsContext("offer/count/name")){
-                CountOfferName();
+            else if(IsContext("offer/count/by-name")){
+                CountOfferByName();
             }
-            else if(IsContext("offer/count/org-id")){
-                CountOfferOrgId();
+            else if(IsContext("offer/count/by-org-id")){
+                CountOfferByOrgId();
             }
-            else if(IsContext("offer/browse/filter")){
-                BrowseOfferListFilter();
+            else if(IsContext("offer/browse/by-filter")){
+                BrowseOfferListByFilter();
             }
-            else if(IsContext("offer/set/uuid")){
-                SetOfferUuid();
+            else if(IsContext("offer/set/by-uuid")){
+                SetOfferByUuid();
             }
-            else if(IsContext("offer/del/uuid")){
-                DelOfferUuid();
+            else if(IsContext("offer/del/by-uuid")){
+                DelOfferByUuid();
             }
-            else if(IsContext("offer/del/org-id")){
-                DelOfferOrgId();
+            else if(IsContext("offer/del/by-org-id")){
+                DelOfferByOrgId();
             }
             else if(IsContext("offer/get")){
                 GetOfferList();
             }
-            else if(IsContext("offer/get/uuid")){
-                GetOfferListUuid();
+            else if(IsContext("offer/get/by-uuid")){
+                GetOfferListByUuid();
             }
-            else if(IsContext("offer/get/code")){
-                GetOfferListCode();
+            else if(IsContext("offer/get/by-code")){
+                GetOfferListByCode();
             }
-            else if(IsContext("offer/get/name")){
-                GetOfferListName();
+            else if(IsContext("offer/get/by-name")){
+                GetOfferListByName();
             }
-            else if(IsContext("offer/get/org-id")){
-                GetOfferListOrgId();
+            else if(IsContext("offer/get/by-org-id")){
+                GetOfferListByOrgId();
             }
             if(IsContext("offer-type/count")){
                 CountOfferType();
             }
-            else if(IsContext("offer-type/count/uuid")){
-                CountOfferTypeUuid();
+            else if(IsContext("offer-type/count/by-uuid")){
+                CountOfferTypeByUuid();
             }
-            else if(IsContext("offer-type/count/code")){
-                CountOfferTypeCode();
+            else if(IsContext("offer-type/count/by-code")){
+                CountOfferTypeByCode();
             }
-            else if(IsContext("offer-type/count/name")){
-                CountOfferTypeName();
+            else if(IsContext("offer-type/count/by-name")){
+                CountOfferTypeByName();
             }
-            else if(IsContext("offer-type/browse/filter")){
-                BrowseOfferTypeListFilter();
+            else if(IsContext("offer-type/browse/by-filter")){
+                BrowseOfferTypeListByFilter();
             }
-            else if(IsContext("offer-type/set/uuid")){
-                SetOfferTypeUuid();
+            else if(IsContext("offer-type/set/by-uuid")){
+                SetOfferTypeByUuid();
             }
-            else if(IsContext("offer-type/del/uuid")){
-                DelOfferTypeUuid();
+            else if(IsContext("offer-type/del/by-uuid")){
+                DelOfferTypeByUuid();
             }
             else if(IsContext("offer-type/get")){
                 GetOfferTypeList();
             }
-            else if(IsContext("offer-type/get/uuid")){
-                GetOfferTypeListUuid();
+            else if(IsContext("offer-type/get/by-uuid")){
+                GetOfferTypeListByUuid();
             }
-            else if(IsContext("offer-type/get/code")){
-                GetOfferTypeListCode();
+            else if(IsContext("offer-type/get/by-code")){
+                GetOfferTypeListByCode();
             }
-            else if(IsContext("offer-type/get/name")){
-                GetOfferTypeListName();
+            else if(IsContext("offer-type/get/by-name")){
+                GetOfferTypeListByName();
             }
             if(IsContext("offer-location/count")){
                 CountOfferLocation();
             }
-            else if(IsContext("offer-location/count/uuid")){
-                CountOfferLocationUuid();
+            else if(IsContext("offer-location/count/by-uuid")){
+                CountOfferLocationByUuid();
             }
-            else if(IsContext("offer-location/count/offer-id")){
-                CountOfferLocationOfferId();
+            else if(IsContext("offer-location/count/by-offer-id")){
+                CountOfferLocationByOfferId();
             }
-            else if(IsContext("offer-location/count/city")){
-                CountOfferLocationCity();
+            else if(IsContext("offer-location/count/by-city")){
+                CountOfferLocationByCity();
             }
-            else if(IsContext("offer-location/count/country-code")){
-                CountOfferLocationCountryCode();
+            else if(IsContext("offer-location/count/by-country-code")){
+                CountOfferLocationByCountryCode();
             }
-            else if(IsContext("offer-location/count/postal-code")){
-                CountOfferLocationPostalCode();
+            else if(IsContext("offer-location/count/by-postal-code")){
+                CountOfferLocationByPostalCode();
             }
-            else if(IsContext("offer-location/browse/filter")){
-                BrowseOfferLocationListFilter();
+            else if(IsContext("offer-location/browse/by-filter")){
+                BrowseOfferLocationListByFilter();
             }
-            else if(IsContext("offer-location/set/uuid")){
-                SetOfferLocationUuid();
+            else if(IsContext("offer-location/set/by-uuid")){
+                SetOfferLocationByUuid();
             }
-            else if(IsContext("offer-location/del/uuid")){
-                DelOfferLocationUuid();
+            else if(IsContext("offer-location/del/by-uuid")){
+                DelOfferLocationByUuid();
             }
             else if(IsContext("offer-location/get")){
                 GetOfferLocationList();
             }
-            else if(IsContext("offer-location/get/uuid")){
-                GetOfferLocationListUuid();
+            else if(IsContext("offer-location/get/by-uuid")){
+                GetOfferLocationListByUuid();
             }
-            else if(IsContext("offer-location/get/offer-id")){
-                GetOfferLocationListOfferId();
+            else if(IsContext("offer-location/get/by-offer-id")){
+                GetOfferLocationListByOfferId();
             }
-            else if(IsContext("offer-location/get/city")){
-                GetOfferLocationListCity();
+            else if(IsContext("offer-location/get/by-city")){
+                GetOfferLocationListByCity();
             }
-            else if(IsContext("offer-location/get/country-code")){
-                GetOfferLocationListCountryCode();
+            else if(IsContext("offer-location/get/by-country-code")){
+                GetOfferLocationListByCountryCode();
             }
-            else if(IsContext("offer-location/get/postal-code")){
-                GetOfferLocationListPostalCode();
+            else if(IsContext("offer-location/get/by-postal-code")){
+                GetOfferLocationListByPostalCode();
             }
             if(IsContext("offer-category/count")){
                 CountOfferCategory();
             }
-            else if(IsContext("offer-category/count/uuid")){
-                CountOfferCategoryUuid();
+            else if(IsContext("offer-category/count/by-uuid")){
+                CountOfferCategoryByUuid();
             }
-            else if(IsContext("offer-category/count/code")){
-                CountOfferCategoryCode();
+            else if(IsContext("offer-category/count/by-code")){
+                CountOfferCategoryByCode();
             }
-            else if(IsContext("offer-category/count/name")){
-                CountOfferCategoryName();
+            else if(IsContext("offer-category/count/by-name")){
+                CountOfferCategoryByName();
             }
-            else if(IsContext("offer-category/count/org-id")){
-                CountOfferCategoryOrgId();
+            else if(IsContext("offer-category/count/by-org-id")){
+                CountOfferCategoryByOrgId();
             }
-            else if(IsContext("offer-category/count/type-id")){
-                CountOfferCategoryTypeId();
+            else if(IsContext("offer-category/count/by-type-id")){
+                CountOfferCategoryByTypeId();
             }
-            else if(IsContext("offer-category/count/org-id/type-id")){
-                CountOfferCategoryOrgIdTypeId();
+            else if(IsContext("offer-category/count/by-org-id/by-type-id")){
+                CountOfferCategoryByOrgIdByTypeId();
             }
-            else if(IsContext("offer-category/browse/filter")){
-                BrowseOfferCategoryListFilter();
+            else if(IsContext("offer-category/browse/by-filter")){
+                BrowseOfferCategoryListByFilter();
             }
-            else if(IsContext("offer-category/set/uuid")){
-                SetOfferCategoryUuid();
+            else if(IsContext("offer-category/set/by-uuid")){
+                SetOfferCategoryByUuid();
             }
-            else if(IsContext("offer-category/del/uuid")){
-                DelOfferCategoryUuid();
+            else if(IsContext("offer-category/del/by-uuid")){
+                DelOfferCategoryByUuid();
             }
-            else if(IsContext("offer-category/del/code/org-id")){
-                DelOfferCategoryCodeOrgId();
+            else if(IsContext("offer-category/del/by-code/by-org-id")){
+                DelOfferCategoryByCodeByOrgId();
             }
-            else if(IsContext("offer-category/del/code/org-id/type-id")){
-                DelOfferCategoryCodeOrgIdTypeId();
+            else if(IsContext("offer-category/del/by-code/by-org-id/by-type-id")){
+                DelOfferCategoryByCodeByOrgIdByTypeId();
             }
             else if(IsContext("offer-category/get")){
                 GetOfferCategoryList();
             }
-            else if(IsContext("offer-category/get/uuid")){
-                GetOfferCategoryListUuid();
+            else if(IsContext("offer-category/get/by-uuid")){
+                GetOfferCategoryListByUuid();
             }
-            else if(IsContext("offer-category/get/code")){
-                GetOfferCategoryListCode();
+            else if(IsContext("offer-category/get/by-code")){
+                GetOfferCategoryListByCode();
             }
-            else if(IsContext("offer-category/get/name")){
-                GetOfferCategoryListName();
+            else if(IsContext("offer-category/get/by-name")){
+                GetOfferCategoryListByName();
             }
-            else if(IsContext("offer-category/get/org-id")){
-                GetOfferCategoryListOrgId();
+            else if(IsContext("offer-category/get/by-org-id")){
+                GetOfferCategoryListByOrgId();
             }
-            else if(IsContext("offer-category/get/type-id")){
-                GetOfferCategoryListTypeId();
+            else if(IsContext("offer-category/get/by-type-id")){
+                GetOfferCategoryListByTypeId();
             }
-            else if(IsContext("offer-category/get/org-id/type-id")){
-                GetOfferCategoryListOrgIdTypeId();
+            else if(IsContext("offer-category/get/by-org-id/by-type-id")){
+                GetOfferCategoryListByOrgIdByTypeId();
             }
             if(IsContext("offer-category-tree/count")){
                 CountOfferCategoryTree();
             }
-            else if(IsContext("offer-category-tree/count/uuid")){
-                CountOfferCategoryTreeUuid();
+            else if(IsContext("offer-category-tree/count/by-uuid")){
+                CountOfferCategoryTreeByUuid();
             }
-            else if(IsContext("offer-category-tree/count/parent-id")){
-                CountOfferCategoryTreeParentId();
+            else if(IsContext("offer-category-tree/count/by-parent-id")){
+                CountOfferCategoryTreeByParentId();
             }
-            else if(IsContext("offer-category-tree/count/category-id")){
-                CountOfferCategoryTreeCategoryId();
+            else if(IsContext("offer-category-tree/count/by-category-id")){
+                CountOfferCategoryTreeByCategoryId();
             }
-            else if(IsContext("offer-category-tree/count/parent-id/category-id")){
-                CountOfferCategoryTreeParentIdCategoryId();
+            else if(IsContext("offer-category-tree/count/by-parent-id/by-category-id")){
+                CountOfferCategoryTreeByParentIdByCategoryId();
             }
-            else if(IsContext("offer-category-tree/browse/filter")){
-                BrowseOfferCategoryTreeListFilter();
+            else if(IsContext("offer-category-tree/browse/by-filter")){
+                BrowseOfferCategoryTreeListByFilter();
             }
-            else if(IsContext("offer-category-tree/set/uuid")){
-                SetOfferCategoryTreeUuid();
+            else if(IsContext("offer-category-tree/set/by-uuid")){
+                SetOfferCategoryTreeByUuid();
             }
-            else if(IsContext("offer-category-tree/del/uuid")){
-                DelOfferCategoryTreeUuid();
+            else if(IsContext("offer-category-tree/del/by-uuid")){
+                DelOfferCategoryTreeByUuid();
             }
-            else if(IsContext("offer-category-tree/del/parent-id")){
-                DelOfferCategoryTreeParentId();
+            else if(IsContext("offer-category-tree/del/by-parent-id")){
+                DelOfferCategoryTreeByParentId();
             }
-            else if(IsContext("offer-category-tree/del/category-id")){
-                DelOfferCategoryTreeCategoryId();
+            else if(IsContext("offer-category-tree/del/by-category-id")){
+                DelOfferCategoryTreeByCategoryId();
             }
-            else if(IsContext("offer-category-tree/del/parent-id/category-id")){
-                DelOfferCategoryTreeParentIdCategoryId();
+            else if(IsContext("offer-category-tree/del/by-parent-id/by-category-id")){
+                DelOfferCategoryTreeByParentIdByCategoryId();
             }
             else if(IsContext("offer-category-tree/get")){
                 GetOfferCategoryTreeList();
             }
-            else if(IsContext("offer-category-tree/get/uuid")){
-                GetOfferCategoryTreeListUuid();
+            else if(IsContext("offer-category-tree/get/by-uuid")){
+                GetOfferCategoryTreeListByUuid();
             }
-            else if(IsContext("offer-category-tree/get/parent-id")){
-                GetOfferCategoryTreeListParentId();
+            else if(IsContext("offer-category-tree/get/by-parent-id")){
+                GetOfferCategoryTreeListByParentId();
             }
-            else if(IsContext("offer-category-tree/get/category-id")){
-                GetOfferCategoryTreeListCategoryId();
+            else if(IsContext("offer-category-tree/get/by-category-id")){
+                GetOfferCategoryTreeListByCategoryId();
             }
-            else if(IsContext("offer-category-tree/get/parent-id/category-id")){
-                GetOfferCategoryTreeListParentIdCategoryId();
+            else if(IsContext("offer-category-tree/get/by-parent-id/by-category-id")){
+                GetOfferCategoryTreeListByParentIdByCategoryId();
             }
             if(IsContext("offer-category-assoc/count")){
                 CountOfferCategoryAssoc();
             }
-            else if(IsContext("offer-category-assoc/count/uuid")){
-                CountOfferCategoryAssocUuid();
+            else if(IsContext("offer-category-assoc/count/by-uuid")){
+                CountOfferCategoryAssocByUuid();
             }
-            else if(IsContext("offer-category-assoc/count/offer-id")){
-                CountOfferCategoryAssocOfferId();
+            else if(IsContext("offer-category-assoc/count/by-offer-id")){
+                CountOfferCategoryAssocByOfferId();
             }
-            else if(IsContext("offer-category-assoc/count/category-id")){
-                CountOfferCategoryAssocCategoryId();
+            else if(IsContext("offer-category-assoc/count/by-category-id")){
+                CountOfferCategoryAssocByCategoryId();
             }
-            else if(IsContext("offer-category-assoc/count/offer-id/category-id")){
-                CountOfferCategoryAssocOfferIdCategoryId();
+            else if(IsContext("offer-category-assoc/count/by-offer-id/by-category-id")){
+                CountOfferCategoryAssocByOfferIdByCategoryId();
             }
-            else if(IsContext("offer-category-assoc/browse/filter")){
-                BrowseOfferCategoryAssocListFilter();
+            else if(IsContext("offer-category-assoc/browse/by-filter")){
+                BrowseOfferCategoryAssocListByFilter();
             }
-            else if(IsContext("offer-category-assoc/set/uuid")){
-                SetOfferCategoryAssocUuid();
+            else if(IsContext("offer-category-assoc/set/by-uuid")){
+                SetOfferCategoryAssocByUuid();
             }
-            else if(IsContext("offer-category-assoc/del/uuid")){
-                DelOfferCategoryAssocUuid();
+            else if(IsContext("offer-category-assoc/del/by-uuid")){
+                DelOfferCategoryAssocByUuid();
             }
             else if(IsContext("offer-category-assoc/get")){
                 GetOfferCategoryAssocList();
             }
-            else if(IsContext("offer-category-assoc/get/uuid")){
-                GetOfferCategoryAssocListUuid();
+            else if(IsContext("offer-category-assoc/get/by-uuid")){
+                GetOfferCategoryAssocListByUuid();
             }
-            else if(IsContext("offer-category-assoc/get/offer-id")){
-                GetOfferCategoryAssocListOfferId();
+            else if(IsContext("offer-category-assoc/get/by-offer-id")){
+                GetOfferCategoryAssocListByOfferId();
             }
-            else if(IsContext("offer-category-assoc/get/category-id")){
-                GetOfferCategoryAssocListCategoryId();
+            else if(IsContext("offer-category-assoc/get/by-category-id")){
+                GetOfferCategoryAssocListByCategoryId();
             }
-            else if(IsContext("offer-category-assoc/get/offer-id/category-id")){
-                GetOfferCategoryAssocListOfferIdCategoryId();
+            else if(IsContext("offer-category-assoc/get/by-offer-id/by-category-id")){
+                GetOfferCategoryAssocListByOfferIdByCategoryId();
             }
             if(IsContext("offer-game-location/count")){
                 CountOfferGameLocation();
             }
-            else if(IsContext("offer-game-location/count/uuid")){
-                CountOfferGameLocationUuid();
+            else if(IsContext("offer-game-location/count/by-uuid")){
+                CountOfferGameLocationByUuid();
             }
-            else if(IsContext("offer-game-location/count/game-location-id")){
-                CountOfferGameLocationGameLocationId();
+            else if(IsContext("offer-game-location/count/by-game-location-id")){
+                CountOfferGameLocationByGameLocationId();
             }
-            else if(IsContext("offer-game-location/count/offer-id")){
-                CountOfferGameLocationOfferId();
+            else if(IsContext("offer-game-location/count/by-offer-id")){
+                CountOfferGameLocationByOfferId();
             }
-            else if(IsContext("offer-game-location/count/offer-id/game-location-id")){
-                CountOfferGameLocationOfferIdGameLocationId();
+            else if(IsContext("offer-game-location/count/by-offer-id/by-game-location-id")){
+                CountOfferGameLocationByOfferIdByGameLocationId();
             }
-            else if(IsContext("offer-game-location/browse/filter")){
-                BrowseOfferGameLocationListFilter();
+            else if(IsContext("offer-game-location/browse/by-filter")){
+                BrowseOfferGameLocationListByFilter();
             }
-            else if(IsContext("offer-game-location/set/uuid")){
-                SetOfferGameLocationUuid();
+            else if(IsContext("offer-game-location/set/by-uuid")){
+                SetOfferGameLocationByUuid();
             }
-            else if(IsContext("offer-game-location/del/uuid")){
-                DelOfferGameLocationUuid();
+            else if(IsContext("offer-game-location/del/by-uuid")){
+                DelOfferGameLocationByUuid();
             }
             else if(IsContext("offer-game-location/get")){
                 GetOfferGameLocationList();
             }
-            else if(IsContext("offer-game-location/get/uuid")){
-                GetOfferGameLocationListUuid();
+            else if(IsContext("offer-game-location/get/by-uuid")){
+                GetOfferGameLocationListByUuid();
             }
-            else if(IsContext("offer-game-location/get/game-location-id")){
-                GetOfferGameLocationListGameLocationId();
+            else if(IsContext("offer-game-location/get/by-game-location-id")){
+                GetOfferGameLocationListByGameLocationId();
             }
-            else if(IsContext("offer-game-location/get/offer-id")){
-                GetOfferGameLocationListOfferId();
+            else if(IsContext("offer-game-location/get/by-offer-id")){
+                GetOfferGameLocationListByOfferId();
             }
-            else if(IsContext("offer-game-location/get/offer-id/game-location-id")){
-                GetOfferGameLocationListOfferIdGameLocationId();
+            else if(IsContext("offer-game-location/get/by-offer-id/by-game-location-id")){
+                GetOfferGameLocationListByOfferIdByGameLocationId();
             }
             if(IsContext("event-info/count")){
                 CountEventInfo();
             }
-            else if(IsContext("event-info/count/uuid")){
-                CountEventInfoUuid();
+            else if(IsContext("event-info/count/by-uuid")){
+                CountEventInfoByUuid();
             }
-            else if(IsContext("event-info/count/code")){
-                CountEventInfoCode();
+            else if(IsContext("event-info/count/by-code")){
+                CountEventInfoByCode();
             }
-            else if(IsContext("event-info/count/name")){
-                CountEventInfoName();
+            else if(IsContext("event-info/count/by-name")){
+                CountEventInfoByName();
             }
-            else if(IsContext("event-info/count/org-id")){
-                CountEventInfoOrgId();
+            else if(IsContext("event-info/count/by-org-id")){
+                CountEventInfoByOrgId();
             }
-            else if(IsContext("event-info/browse/filter")){
-                BrowseEventInfoListFilter();
+            else if(IsContext("event-info/browse/by-filter")){
+                BrowseEventInfoListByFilter();
             }
-            else if(IsContext("event-info/set/uuid")){
-                SetEventInfoUuid();
+            else if(IsContext("event-info/set/by-uuid")){
+                SetEventInfoByUuid();
             }
-            else if(IsContext("event-info/del/uuid")){
-                DelEventInfoUuid();
+            else if(IsContext("event-info/del/by-uuid")){
+                DelEventInfoByUuid();
             }
-            else if(IsContext("event-info/del/org-id")){
-                DelEventInfoOrgId();
+            else if(IsContext("event-info/del/by-org-id")){
+                DelEventInfoByOrgId();
             }
             else if(IsContext("event-info/get")){
                 GetEventInfoList();
             }
-            else if(IsContext("event-info/get/uuid")){
-                GetEventInfoListUuid();
+            else if(IsContext("event-info/get/by-uuid")){
+                GetEventInfoListByUuid();
             }
-            else if(IsContext("event-info/get/code")){
-                GetEventInfoListCode();
+            else if(IsContext("event-info/get/by-code")){
+                GetEventInfoListByCode();
             }
-            else if(IsContext("event-info/get/name")){
-                GetEventInfoListName();
+            else if(IsContext("event-info/get/by-name")){
+                GetEventInfoListByName();
             }
-            else if(IsContext("event-info/get/org-id")){
-                GetEventInfoListOrgId();
+            else if(IsContext("event-info/get/by-org-id")){
+                GetEventInfoListByOrgId();
             }
             if(IsContext("event-location/count")){
                 CountEventLocation();
             }
-            else if(IsContext("event-location/count/uuid")){
-                CountEventLocationUuid();
+            else if(IsContext("event-location/count/by-uuid")){
+                CountEventLocationByUuid();
             }
-            else if(IsContext("event-location/count/event-id")){
-                CountEventLocationEventId();
+            else if(IsContext("event-location/count/by-event-id")){
+                CountEventLocationByEventId();
             }
-            else if(IsContext("event-location/count/city")){
-                CountEventLocationCity();
+            else if(IsContext("event-location/count/by-city")){
+                CountEventLocationByCity();
             }
-            else if(IsContext("event-location/count/country-code")){
-                CountEventLocationCountryCode();
+            else if(IsContext("event-location/count/by-country-code")){
+                CountEventLocationByCountryCode();
             }
-            else if(IsContext("event-location/count/postal-code")){
-                CountEventLocationPostalCode();
+            else if(IsContext("event-location/count/by-postal-code")){
+                CountEventLocationByPostalCode();
             }
-            else if(IsContext("event-location/browse/filter")){
-                BrowseEventLocationListFilter();
+            else if(IsContext("event-location/browse/by-filter")){
+                BrowseEventLocationListByFilter();
             }
-            else if(IsContext("event-location/set/uuid")){
-                SetEventLocationUuid();
+            else if(IsContext("event-location/set/by-uuid")){
+                SetEventLocationByUuid();
             }
-            else if(IsContext("event-location/del/uuid")){
-                DelEventLocationUuid();
+            else if(IsContext("event-location/del/by-uuid")){
+                DelEventLocationByUuid();
             }
             else if(IsContext("event-location/get")){
                 GetEventLocationList();
             }
-            else if(IsContext("event-location/get/uuid")){
-                GetEventLocationListUuid();
+            else if(IsContext("event-location/get/by-uuid")){
+                GetEventLocationListByUuid();
             }
-            else if(IsContext("event-location/get/event-id")){
-                GetEventLocationListEventId();
+            else if(IsContext("event-location/get/by-event-id")){
+                GetEventLocationListByEventId();
             }
-            else if(IsContext("event-location/get/city")){
-                GetEventLocationListCity();
+            else if(IsContext("event-location/get/by-city")){
+                GetEventLocationListByCity();
             }
-            else if(IsContext("event-location/get/country-code")){
-                GetEventLocationListCountryCode();
+            else if(IsContext("event-location/get/by-country-code")){
+                GetEventLocationListByCountryCode();
             }
-            else if(IsContext("event-location/get/postal-code")){
-                GetEventLocationListPostalCode();
+            else if(IsContext("event-location/get/by-postal-code")){
+                GetEventLocationListByPostalCode();
             }
             if(IsContext("event-category/count")){
                 CountEventCategory();
             }
-            else if(IsContext("event-category/count/uuid")){
-                CountEventCategoryUuid();
+            else if(IsContext("event-category/count/by-uuid")){
+                CountEventCategoryByUuid();
             }
-            else if(IsContext("event-category/count/code")){
-                CountEventCategoryCode();
+            else if(IsContext("event-category/count/by-code")){
+                CountEventCategoryByCode();
             }
-            else if(IsContext("event-category/count/name")){
-                CountEventCategoryName();
+            else if(IsContext("event-category/count/by-name")){
+                CountEventCategoryByName();
             }
-            else if(IsContext("event-category/count/org-id")){
-                CountEventCategoryOrgId();
+            else if(IsContext("event-category/count/by-org-id")){
+                CountEventCategoryByOrgId();
             }
-            else if(IsContext("event-category/count/type-id")){
-                CountEventCategoryTypeId();
+            else if(IsContext("event-category/count/by-type-id")){
+                CountEventCategoryByTypeId();
             }
-            else if(IsContext("event-category/count/org-id/type-id")){
-                CountEventCategoryOrgIdTypeId();
+            else if(IsContext("event-category/count/by-org-id/by-type-id")){
+                CountEventCategoryByOrgIdByTypeId();
             }
-            else if(IsContext("event-category/browse/filter")){
-                BrowseEventCategoryListFilter();
+            else if(IsContext("event-category/browse/by-filter")){
+                BrowseEventCategoryListByFilter();
             }
-            else if(IsContext("event-category/set/uuid")){
-                SetEventCategoryUuid();
+            else if(IsContext("event-category/set/by-uuid")){
+                SetEventCategoryByUuid();
             }
-            else if(IsContext("event-category/del/uuid")){
-                DelEventCategoryUuid();
+            else if(IsContext("event-category/del/by-uuid")){
+                DelEventCategoryByUuid();
             }
-            else if(IsContext("event-category/del/code/org-id")){
-                DelEventCategoryCodeOrgId();
+            else if(IsContext("event-category/del/by-code/by-org-id")){
+                DelEventCategoryByCodeByOrgId();
             }
-            else if(IsContext("event-category/del/code/org-id/type-id")){
-                DelEventCategoryCodeOrgIdTypeId();
+            else if(IsContext("event-category/del/by-code/by-org-id/by-type-id")){
+                DelEventCategoryByCodeByOrgIdByTypeId();
             }
             else if(IsContext("event-category/get")){
                 GetEventCategoryList();
             }
-            else if(IsContext("event-category/get/uuid")){
-                GetEventCategoryListUuid();
+            else if(IsContext("event-category/get/by-uuid")){
+                GetEventCategoryListByUuid();
             }
-            else if(IsContext("event-category/get/code")){
-                GetEventCategoryListCode();
+            else if(IsContext("event-category/get/by-code")){
+                GetEventCategoryListByCode();
             }
-            else if(IsContext("event-category/get/name")){
-                GetEventCategoryListName();
+            else if(IsContext("event-category/get/by-name")){
+                GetEventCategoryListByName();
             }
-            else if(IsContext("event-category/get/org-id")){
-                GetEventCategoryListOrgId();
+            else if(IsContext("event-category/get/by-org-id")){
+                GetEventCategoryListByOrgId();
             }
-            else if(IsContext("event-category/get/type-id")){
-                GetEventCategoryListTypeId();
+            else if(IsContext("event-category/get/by-type-id")){
+                GetEventCategoryListByTypeId();
             }
-            else if(IsContext("event-category/get/org-id/type-id")){
-                GetEventCategoryListOrgIdTypeId();
+            else if(IsContext("event-category/get/by-org-id/by-type-id")){
+                GetEventCategoryListByOrgIdByTypeId();
             }
             if(IsContext("event-category-tree/count")){
                 CountEventCategoryTree();
             }
-            else if(IsContext("event-category-tree/count/uuid")){
-                CountEventCategoryTreeUuid();
+            else if(IsContext("event-category-tree/count/by-uuid")){
+                CountEventCategoryTreeByUuid();
             }
-            else if(IsContext("event-category-tree/count/parent-id")){
-                CountEventCategoryTreeParentId();
+            else if(IsContext("event-category-tree/count/by-parent-id")){
+                CountEventCategoryTreeByParentId();
             }
-            else if(IsContext("event-category-tree/count/category-id")){
-                CountEventCategoryTreeCategoryId();
+            else if(IsContext("event-category-tree/count/by-category-id")){
+                CountEventCategoryTreeByCategoryId();
             }
-            else if(IsContext("event-category-tree/count/parent-id/category-id")){
-                CountEventCategoryTreeParentIdCategoryId();
+            else if(IsContext("event-category-tree/count/by-parent-id/by-category-id")){
+                CountEventCategoryTreeByParentIdByCategoryId();
             }
-            else if(IsContext("event-category-tree/browse/filter")){
-                BrowseEventCategoryTreeListFilter();
+            else if(IsContext("event-category-tree/browse/by-filter")){
+                BrowseEventCategoryTreeListByFilter();
             }
-            else if(IsContext("event-category-tree/set/uuid")){
-                SetEventCategoryTreeUuid();
+            else if(IsContext("event-category-tree/set/by-uuid")){
+                SetEventCategoryTreeByUuid();
             }
-            else if(IsContext("event-category-tree/del/uuid")){
-                DelEventCategoryTreeUuid();
+            else if(IsContext("event-category-tree/del/by-uuid")){
+                DelEventCategoryTreeByUuid();
             }
-            else if(IsContext("event-category-tree/del/parent-id")){
-                DelEventCategoryTreeParentId();
+            else if(IsContext("event-category-tree/del/by-parent-id")){
+                DelEventCategoryTreeByParentId();
             }
-            else if(IsContext("event-category-tree/del/category-id")){
-                DelEventCategoryTreeCategoryId();
+            else if(IsContext("event-category-tree/del/by-category-id")){
+                DelEventCategoryTreeByCategoryId();
             }
-            else if(IsContext("event-category-tree/del/parent-id/category-id")){
-                DelEventCategoryTreeParentIdCategoryId();
+            else if(IsContext("event-category-tree/del/by-parent-id/by-category-id")){
+                DelEventCategoryTreeByParentIdByCategoryId();
             }
             else if(IsContext("event-category-tree/get")){
                 GetEventCategoryTreeList();
             }
-            else if(IsContext("event-category-tree/get/uuid")){
-                GetEventCategoryTreeListUuid();
+            else if(IsContext("event-category-tree/get/by-uuid")){
+                GetEventCategoryTreeListByUuid();
             }
-            else if(IsContext("event-category-tree/get/parent-id")){
-                GetEventCategoryTreeListParentId();
+            else if(IsContext("event-category-tree/get/by-parent-id")){
+                GetEventCategoryTreeListByParentId();
             }
-            else if(IsContext("event-category-tree/get/category-id")){
-                GetEventCategoryTreeListCategoryId();
+            else if(IsContext("event-category-tree/get/by-category-id")){
+                GetEventCategoryTreeListByCategoryId();
             }
-            else if(IsContext("event-category-tree/get/parent-id/category-id")){
-                GetEventCategoryTreeListParentIdCategoryId();
+            else if(IsContext("event-category-tree/get/by-parent-id/by-category-id")){
+                GetEventCategoryTreeListByParentIdByCategoryId();
             }
             if(IsContext("event-category-assoc/count")){
                 CountEventCategoryAssoc();
             }
-            else if(IsContext("event-category-assoc/count/uuid")){
-                CountEventCategoryAssocUuid();
+            else if(IsContext("event-category-assoc/count/by-uuid")){
+                CountEventCategoryAssocByUuid();
             }
-            else if(IsContext("event-category-assoc/count/event-id")){
-                CountEventCategoryAssocEventId();
+            else if(IsContext("event-category-assoc/count/by-event-id")){
+                CountEventCategoryAssocByEventId();
             }
-            else if(IsContext("event-category-assoc/count/category-id")){
-                CountEventCategoryAssocCategoryId();
+            else if(IsContext("event-category-assoc/count/by-category-id")){
+                CountEventCategoryAssocByCategoryId();
             }
-            else if(IsContext("event-category-assoc/count/event-id/category-id")){
-                CountEventCategoryAssocEventIdCategoryId();
+            else if(IsContext("event-category-assoc/count/by-event-id/by-category-id")){
+                CountEventCategoryAssocByEventIdByCategoryId();
             }
-            else if(IsContext("event-category-assoc/browse/filter")){
-                BrowseEventCategoryAssocListFilter();
+            else if(IsContext("event-category-assoc/browse/by-filter")){
+                BrowseEventCategoryAssocListByFilter();
             }
-            else if(IsContext("event-category-assoc/set/uuid")){
-                SetEventCategoryAssocUuid();
+            else if(IsContext("event-category-assoc/set/by-uuid")){
+                SetEventCategoryAssocByUuid();
             }
-            else if(IsContext("event-category-assoc/del/uuid")){
-                DelEventCategoryAssocUuid();
+            else if(IsContext("event-category-assoc/del/by-uuid")){
+                DelEventCategoryAssocByUuid();
             }
             else if(IsContext("event-category-assoc/get")){
                 GetEventCategoryAssocList();
             }
-            else if(IsContext("event-category-assoc/get/uuid")){
-                GetEventCategoryAssocListUuid();
+            else if(IsContext("event-category-assoc/get/by-uuid")){
+                GetEventCategoryAssocListByUuid();
             }
-            else if(IsContext("event-category-assoc/get/event-id")){
-                GetEventCategoryAssocListEventId();
+            else if(IsContext("event-category-assoc/get/by-event-id")){
+                GetEventCategoryAssocListByEventId();
             }
-            else if(IsContext("event-category-assoc/get/category-id")){
-                GetEventCategoryAssocListCategoryId();
+            else if(IsContext("event-category-assoc/get/by-category-id")){
+                GetEventCategoryAssocListByCategoryId();
             }
-            else if(IsContext("event-category-assoc/get/event-id/category-id")){
-                GetEventCategoryAssocListEventIdCategoryId();
+            else if(IsContext("event-category-assoc/get/by-event-id/by-category-id")){
+                GetEventCategoryAssocListByEventIdByCategoryId();
             }
             if(IsContext("channel/count")){
                 CountChannel();
             }
-            else if(IsContext("channel/count/uuid")){
-                CountChannelUuid();
+            else if(IsContext("channel/count/by-uuid")){
+                CountChannelByUuid();
             }
-            else if(IsContext("channel/count/code")){
-                CountChannelCode();
+            else if(IsContext("channel/count/by-code")){
+                CountChannelByCode();
             }
-            else if(IsContext("channel/count/name")){
-                CountChannelName();
+            else if(IsContext("channel/count/by-name")){
+                CountChannelByName();
             }
-            else if(IsContext("channel/count/org-id")){
-                CountChannelOrgId();
+            else if(IsContext("channel/count/by-org-id")){
+                CountChannelByOrgId();
             }
-            else if(IsContext("channel/count/type-id")){
-                CountChannelTypeId();
+            else if(IsContext("channel/count/by-type-id")){
+                CountChannelByTypeId();
             }
-            else if(IsContext("channel/count/org-id/type-id")){
-                CountChannelOrgIdTypeId();
+            else if(IsContext("channel/count/by-org-id/by-type-id")){
+                CountChannelByOrgIdByTypeId();
             }
-            else if(IsContext("channel/browse/filter")){
-                BrowseChannelListFilter();
+            else if(IsContext("channel/browse/by-filter")){
+                BrowseChannelListByFilter();
             }
-            else if(IsContext("channel/set/uuid")){
-                SetChannelUuid();
+            else if(IsContext("channel/set/by-uuid")){
+                SetChannelByUuid();
             }
-            else if(IsContext("channel/del/uuid")){
-                DelChannelUuid();
+            else if(IsContext("channel/del/by-uuid")){
+                DelChannelByUuid();
             }
-            else if(IsContext("channel/del/code/org-id")){
-                DelChannelCodeOrgId();
+            else if(IsContext("channel/del/by-code/by-org-id")){
+                DelChannelByCodeByOrgId();
             }
-            else if(IsContext("channel/del/code/org-id/type-id")){
-                DelChannelCodeOrgIdTypeId();
+            else if(IsContext("channel/del/by-code/by-org-id/by-type-id")){
+                DelChannelByCodeByOrgIdByTypeId();
             }
             else if(IsContext("channel/get")){
                 GetChannelList();
             }
-            else if(IsContext("channel/get/uuid")){
-                GetChannelListUuid();
+            else if(IsContext("channel/get/by-uuid")){
+                GetChannelListByUuid();
             }
-            else if(IsContext("channel/get/code")){
-                GetChannelListCode();
+            else if(IsContext("channel/get/by-code")){
+                GetChannelListByCode();
             }
-            else if(IsContext("channel/get/name")){
-                GetChannelListName();
+            else if(IsContext("channel/get/by-name")){
+                GetChannelListByName();
             }
-            else if(IsContext("channel/get/org-id")){
-                GetChannelListOrgId();
+            else if(IsContext("channel/get/by-org-id")){
+                GetChannelListByOrgId();
             }
-            else if(IsContext("channel/get/type-id")){
-                GetChannelListTypeId();
+            else if(IsContext("channel/get/by-type-id")){
+                GetChannelListByTypeId();
             }
-            else if(IsContext("channel/get/org-id/type-id")){
-                GetChannelListOrgIdTypeId();
+            else if(IsContext("channel/get/by-org-id/by-type-id")){
+                GetChannelListByOrgIdByTypeId();
             }
             if(IsContext("channel-type/count")){
                 CountChannelType();
             }
-            else if(IsContext("channel-type/count/uuid")){
-                CountChannelTypeUuid();
+            else if(IsContext("channel-type/count/by-uuid")){
+                CountChannelTypeByUuid();
             }
-            else if(IsContext("channel-type/count/code")){
-                CountChannelTypeCode();
+            else if(IsContext("channel-type/count/by-code")){
+                CountChannelTypeByCode();
             }
-            else if(IsContext("channel-type/count/name")){
-                CountChannelTypeName();
+            else if(IsContext("channel-type/count/by-name")){
+                CountChannelTypeByName();
             }
-            else if(IsContext("channel-type/browse/filter")){
-                BrowseChannelTypeListFilter();
+            else if(IsContext("channel-type/browse/by-filter")){
+                BrowseChannelTypeListByFilter();
             }
-            else if(IsContext("channel-type/set/uuid")){
-                SetChannelTypeUuid();
+            else if(IsContext("channel-type/set/by-uuid")){
+                SetChannelTypeByUuid();
             }
-            else if(IsContext("channel-type/del/uuid")){
-                DelChannelTypeUuid();
+            else if(IsContext("channel-type/del/by-uuid")){
+                DelChannelTypeByUuid();
             }
             else if(IsContext("channel-type/get")){
                 GetChannelTypeList();
             }
-            else if(IsContext("channel-type/get/uuid")){
-                GetChannelTypeListUuid();
+            else if(IsContext("channel-type/get/by-uuid")){
+                GetChannelTypeListByUuid();
             }
-            else if(IsContext("channel-type/get/code")){
-                GetChannelTypeListCode();
+            else if(IsContext("channel-type/get/by-code")){
+                GetChannelTypeListByCode();
             }
-            else if(IsContext("channel-type/get/name")){
-                GetChannelTypeListName();
+            else if(IsContext("channel-type/get/by-name")){
+                GetChannelTypeListByName();
             }
             if(IsContext("question/count")){
                 CountQuestion();
             }
-            else if(IsContext("question/count/uuid")){
-                CountQuestionUuid();
+            else if(IsContext("question/count/by-uuid")){
+                CountQuestionByUuid();
             }
-            else if(IsContext("question/count/code")){
-                CountQuestionCode();
+            else if(IsContext("question/count/by-code")){
+                CountQuestionByCode();
             }
-            else if(IsContext("question/count/name")){
-                CountQuestionName();
+            else if(IsContext("question/count/by-name")){
+                CountQuestionByName();
             }
-            else if(IsContext("question/count/channel-id")){
-                CountQuestionChannelId();
+            else if(IsContext("question/count/by-channel-id")){
+                CountQuestionByChannelId();
             }
-            else if(IsContext("question/count/org-id")){
-                CountQuestionOrgId();
+            else if(IsContext("question/count/by-org-id")){
+                CountQuestionByOrgId();
             }
-            else if(IsContext("question/count/channel-id/org-id")){
-                CountQuestionChannelIdOrgId();
+            else if(IsContext("question/count/by-channel-id/by-org-id")){
+                CountQuestionByChannelIdByOrgId();
             }
-            else if(IsContext("question/count/channel-id/code")){
-                CountQuestionChannelIdCode();
+            else if(IsContext("question/count/by-channel-id/by-code")){
+                CountQuestionByChannelIdByCode();
             }
-            else if(IsContext("question/browse/filter")){
-                BrowseQuestionListFilter();
+            else if(IsContext("question/browse/by-filter")){
+                BrowseQuestionListByFilter();
             }
-            else if(IsContext("question/set/uuid")){
-                SetQuestionUuid();
+            else if(IsContext("question/set/by-uuid")){
+                SetQuestionByUuid();
             }
-            else if(IsContext("question/set/channel-id/code")){
-                SetQuestionChannelIdCode();
+            else if(IsContext("question/set/by-channel-id/by-code")){
+                SetQuestionByChannelIdByCode();
             }
-            else if(IsContext("question/del/uuid")){
-                DelQuestionUuid();
+            else if(IsContext("question/del/by-uuid")){
+                DelQuestionByUuid();
             }
-            else if(IsContext("question/del/channel-id/org-id")){
-                DelQuestionChannelIdOrgId();
+            else if(IsContext("question/del/by-channel-id/by-org-id")){
+                DelQuestionByChannelIdByOrgId();
             }
             else if(IsContext("question/get")){
                 GetQuestionList();
             }
-            else if(IsContext("question/get/uuid")){
-                GetQuestionListUuid();
+            else if(IsContext("question/get/by-uuid")){
+                GetQuestionListByUuid();
             }
-            else if(IsContext("question/get/code")){
-                GetQuestionListCode();
+            else if(IsContext("question/get/by-code")){
+                GetQuestionListByCode();
             }
-            else if(IsContext("question/get/name")){
-                GetQuestionListName();
+            else if(IsContext("question/get/by-name")){
+                GetQuestionListByName();
             }
-            else if(IsContext("question/get/type")){
-                GetQuestionListType();
+            else if(IsContext("question/get/by-type")){
+                GetQuestionListByType();
             }
-            else if(IsContext("question/get/channel-id")){
-                GetQuestionListChannelId();
+            else if(IsContext("question/get/by-channel-id")){
+                GetQuestionListByChannelId();
             }
-            else if(IsContext("question/get/org-id")){
-                GetQuestionListOrgId();
+            else if(IsContext("question/get/by-org-id")){
+                GetQuestionListByOrgId();
             }
-            else if(IsContext("question/get/channel-id/org-id")){
-                GetQuestionListChannelIdOrgId();
+            else if(IsContext("question/get/by-channel-id/by-org-id")){
+                GetQuestionListByChannelIdByOrgId();
             }
-            else if(IsContext("question/get/channel-id/code")){
-                GetQuestionListChannelIdCode();
+            else if(IsContext("question/get/by-channel-id/by-code")){
+                GetQuestionListByChannelIdByCode();
             }
             if(IsContext("profile-offer/count")){
                 CountProfileOffer();
             }
-            else if(IsContext("profile-offer/count/uuid")){
-                CountProfileOfferUuid();
+            else if(IsContext("profile-offer/count/by-uuid")){
+                CountProfileOfferByUuid();
             }
-            else if(IsContext("profile-offer/count/profile-id")){
-                CountProfileOfferProfileId();
+            else if(IsContext("profile-offer/count/by-profile-id")){
+                CountProfileOfferByProfileId();
             }
-            else if(IsContext("profile-offer/browse/filter")){
-                BrowseProfileOfferListFilter();
+            else if(IsContext("profile-offer/browse/by-filter")){
+                BrowseProfileOfferListByFilter();
             }
-            else if(IsContext("profile-offer/set/uuid")){
-                SetProfileOfferUuid();
+            else if(IsContext("profile-offer/set/by-uuid")){
+                SetProfileOfferByUuid();
             }
-            else if(IsContext("profile-offer/del/uuid")){
-                DelProfileOfferUuid();
+            else if(IsContext("profile-offer/del/by-uuid")){
+                DelProfileOfferByUuid();
             }
-            else if(IsContext("profile-offer/del/profile-id")){
-                DelProfileOfferProfileId();
+            else if(IsContext("profile-offer/del/by-profile-id")){
+                DelProfileOfferByProfileId();
             }
             else if(IsContext("profile-offer/get")){
                 GetProfileOfferList();
             }
-            else if(IsContext("profile-offer/get/uuid")){
-                GetProfileOfferListUuid();
+            else if(IsContext("profile-offer/get/by-uuid")){
+                GetProfileOfferListByUuid();
             }
-            else if(IsContext("profile-offer/get/profile-id")){
-                GetProfileOfferListProfileId();
+            else if(IsContext("profile-offer/get/by-profile-id")){
+                GetProfileOfferListByProfileId();
             }
             if(IsContext("profile-app/count")){
                 CountProfileApp();
             }
-            else if(IsContext("profile-app/count/uuid")){
-                CountProfileAppUuid();
+            else if(IsContext("profile-app/count/by-uuid")){
+                CountProfileAppByUuid();
             }
-            else if(IsContext("profile-app/count/profile-id/app-id")){
-                CountProfileAppProfileIdAppId();
+            else if(IsContext("profile-app/count/by-profile-id/by-app-id")){
+                CountProfileAppByProfileIdByAppId();
             }
-            else if(IsContext("profile-app/browse/filter")){
-                BrowseProfileAppListFilter();
+            else if(IsContext("profile-app/browse/by-filter")){
+                BrowseProfileAppListByFilter();
             }
-            else if(IsContext("profile-app/set/uuid")){
-                SetProfileAppUuid();
+            else if(IsContext("profile-app/set/by-uuid")){
+                SetProfileAppByUuid();
             }
-            else if(IsContext("profile-app/set/profile-id/app-id")){
-                SetProfileAppProfileIdAppId();
+            else if(IsContext("profile-app/set/by-profile-id/by-app-id")){
+                SetProfileAppByProfileIdByAppId();
             }
-            else if(IsContext("profile-app/del/uuid")){
-                DelProfileAppUuid();
+            else if(IsContext("profile-app/del/by-uuid")){
+                DelProfileAppByUuid();
             }
-            else if(IsContext("profile-app/del/profile-id/app-id")){
-                DelProfileAppProfileIdAppId();
+            else if(IsContext("profile-app/del/by-profile-id/by-app-id")){
+                DelProfileAppByProfileIdByAppId();
             }
             else if(IsContext("profile-app/get")){
                 GetProfileAppList();
             }
-            else if(IsContext("profile-app/get/uuid")){
-                GetProfileAppListUuid();
+            else if(IsContext("profile-app/get/by-uuid")){
+                GetProfileAppListByUuid();
             }
-            else if(IsContext("profile-app/get/app-id")){
-                GetProfileAppListAppId();
+            else if(IsContext("profile-app/get/by-app-id")){
+                GetProfileAppListByAppId();
             }
-            else if(IsContext("profile-app/get/profile-id")){
-                GetProfileAppListProfileId();
+            else if(IsContext("profile-app/get/by-profile-id")){
+                GetProfileAppListByProfileId();
             }
-            else if(IsContext("profile-app/get/profile-id/app-id")){
-                GetProfileAppListProfileIdAppId();
+            else if(IsContext("profile-app/get/by-profile-id/by-app-id")){
+                GetProfileAppListByProfileIdByAppId();
             }
             if(IsContext("profile-org/count")){
                 CountProfileOrg();
             }
-            else if(IsContext("profile-org/count/uuid")){
-                CountProfileOrgUuid();
+            else if(IsContext("profile-org/count/by-uuid")){
+                CountProfileOrgByUuid();
             }
-            else if(IsContext("profile-org/count/org-id")){
-                CountProfileOrgOrgId();
+            else if(IsContext("profile-org/count/by-org-id")){
+                CountProfileOrgByOrgId();
             }
-            else if(IsContext("profile-org/count/profile-id")){
-                CountProfileOrgProfileId();
+            else if(IsContext("profile-org/count/by-profile-id")){
+                CountProfileOrgByProfileId();
             }
-            else if(IsContext("profile-org/browse/filter")){
-                BrowseProfileOrgListFilter();
+            else if(IsContext("profile-org/browse/by-filter")){
+                BrowseProfileOrgListByFilter();
             }
-            else if(IsContext("profile-org/set/uuid")){
-                SetProfileOrgUuid();
+            else if(IsContext("profile-org/set/by-uuid")){
+                SetProfileOrgByUuid();
             }
-            else if(IsContext("profile-org/del/uuid")){
-                DelProfileOrgUuid();
+            else if(IsContext("profile-org/del/by-uuid")){
+                DelProfileOrgByUuid();
             }
             else if(IsContext("profile-org/get")){
                 GetProfileOrgList();
             }
-            else if(IsContext("profile-org/get/uuid")){
-                GetProfileOrgListUuid();
+            else if(IsContext("profile-org/get/by-uuid")){
+                GetProfileOrgListByUuid();
             }
-            else if(IsContext("profile-org/get/org-id")){
-                GetProfileOrgListOrgId();
+            else if(IsContext("profile-org/get/by-org-id")){
+                GetProfileOrgListByOrgId();
             }
-            else if(IsContext("profile-org/get/profile-id")){
-                GetProfileOrgListProfileId();
+            else if(IsContext("profile-org/get/by-profile-id")){
+                GetProfileOrgListByProfileId();
             }
             if(IsContext("profile-question/count")){
                 CountProfileQuestion();
             }
-            else if(IsContext("profile-question/count/uuid")){
-                CountProfileQuestionUuid();
+            else if(IsContext("profile-question/count/by-uuid")){
+                CountProfileQuestionByUuid();
             }
-            else if(IsContext("profile-question/count/channel-id")){
-                CountProfileQuestionChannelId();
+            else if(IsContext("profile-question/count/by-channel-id")){
+                CountProfileQuestionByChannelId();
             }
-            else if(IsContext("profile-question/count/org-id")){
-                CountProfileQuestionOrgId();
+            else if(IsContext("profile-question/count/by-org-id")){
+                CountProfileQuestionByOrgId();
             }
-            else if(IsContext("profile-question/count/profile-id")){
-                CountProfileQuestionProfileId();
+            else if(IsContext("profile-question/count/by-profile-id")){
+                CountProfileQuestionByProfileId();
             }
-            else if(IsContext("profile-question/count/question-id")){
-                CountProfileQuestionQuestionId();
+            else if(IsContext("profile-question/count/by-question-id")){
+                CountProfileQuestionByQuestionId();
             }
-            else if(IsContext("profile-question/count/channel-id/org-id")){
-                CountProfileQuestionChannelIdOrgId();
+            else if(IsContext("profile-question/count/by-channel-id/by-org-id")){
+                CountProfileQuestionByChannelIdByOrgId();
             }
-            else if(IsContext("profile-question/count/channel-id/profile-id")){
-                CountProfileQuestionChannelIdProfileId();
+            else if(IsContext("profile-question/count/by-channel-id/by-profile-id")){
+                CountProfileQuestionByChannelIdByProfileId();
             }
-            else if(IsContext("profile-question/count/question-id/profile-id")){
-                CountProfileQuestionQuestionIdProfileId();
+            else if(IsContext("profile-question/count/by-question-id/by-profile-id")){
+                CountProfileQuestionByQuestionIdByProfileId();
             }
-            else if(IsContext("profile-question/browse/filter")){
-                BrowseProfileQuestionListFilter();
+            else if(IsContext("profile-question/browse/by-filter")){
+                BrowseProfileQuestionListByFilter();
             }
-            else if(IsContext("profile-question/set/uuid")){
-                SetProfileQuestionUuid();
+            else if(IsContext("profile-question/set/by-uuid")){
+                SetProfileQuestionByUuid();
             }
-            else if(IsContext("profile-question/set/channel-id/profile-id")){
-                SetProfileQuestionChannelIdProfileId();
+            else if(IsContext("profile-question/set/by-channel-id/by-profile-id")){
+                SetProfileQuestionByChannelIdByProfileId();
             }
-            else if(IsContext("profile-question/set/question-id/profile-id")){
-                SetProfileQuestionQuestionIdProfileId();
+            else if(IsContext("profile-question/set/by-question-id/by-profile-id")){
+                SetProfileQuestionByQuestionIdByProfileId();
             }
-            else if(IsContext("profile-question/set/channel-id/question-id/profile-id")){
-                SetProfileQuestionChannelIdQuestionIdProfileId();
+            else if(IsContext("profile-question/set/by-channel-id/by-question-id/by-profile-id")){
+                SetProfileQuestionByChannelIdByQuestionIdByProfileId();
             }
-            else if(IsContext("profile-question/del/uuid")){
-                DelProfileQuestionUuid();
+            else if(IsContext("profile-question/del/by-uuid")){
+                DelProfileQuestionByUuid();
             }
-            else if(IsContext("profile-question/del/channel-id/org-id")){
-                DelProfileQuestionChannelIdOrgId();
+            else if(IsContext("profile-question/del/by-channel-id/by-org-id")){
+                DelProfileQuestionByChannelIdByOrgId();
             }
             else if(IsContext("profile-question/get")){
                 GetProfileQuestionList();
             }
-            else if(IsContext("profile-question/get/uuid")){
-                GetProfileQuestionListUuid();
+            else if(IsContext("profile-question/get/by-uuid")){
+                GetProfileQuestionListByUuid();
             }
-            else if(IsContext("profile-question/get/channel-id")){
-                GetProfileQuestionListChannelId();
+            else if(IsContext("profile-question/get/by-channel-id")){
+                GetProfileQuestionListByChannelId();
             }
-            else if(IsContext("profile-question/get/org-id")){
-                GetProfileQuestionListOrgId();
+            else if(IsContext("profile-question/get/by-org-id")){
+                GetProfileQuestionListByOrgId();
             }
-            else if(IsContext("profile-question/get/profile-id")){
-                GetProfileQuestionListProfileId();
+            else if(IsContext("profile-question/get/by-profile-id")){
+                GetProfileQuestionListByProfileId();
             }
-            else if(IsContext("profile-question/get/question-id")){
-                GetProfileQuestionListQuestionId();
+            else if(IsContext("profile-question/get/by-question-id")){
+                GetProfileQuestionListByQuestionId();
             }
-            else if(IsContext("profile-question/get/channel-id/org-id")){
-                GetProfileQuestionListChannelIdOrgId();
+            else if(IsContext("profile-question/get/by-channel-id/by-org-id")){
+                GetProfileQuestionListByChannelIdByOrgId();
             }
-            else if(IsContext("profile-question/get/channel-id/profile-id")){
-                GetProfileQuestionListChannelIdProfileId();
+            else if(IsContext("profile-question/get/by-channel-id/by-profile-id")){
+                GetProfileQuestionListByChannelIdByProfileId();
             }
-            else if(IsContext("profile-question/get/question-id/profile-id")){
-                GetProfileQuestionListQuestionIdProfileId();
+            else if(IsContext("profile-question/get/by-question-id/by-profile-id")){
+                GetProfileQuestionListByQuestionIdByProfileId();
             }
             if(IsContext("profile-channel/count")){
                 CountProfileChannel();
             }
-            else if(IsContext("profile-channel/count/uuid")){
-                CountProfileChannelUuid();
+            else if(IsContext("profile-channel/count/by-uuid")){
+                CountProfileChannelByUuid();
             }
-            else if(IsContext("profile-channel/count/channel-id")){
-                CountProfileChannelChannelId();
+            else if(IsContext("profile-channel/count/by-channel-id")){
+                CountProfileChannelByChannelId();
             }
-            else if(IsContext("profile-channel/count/profile-id")){
-                CountProfileChannelProfileId();
+            else if(IsContext("profile-channel/count/by-profile-id")){
+                CountProfileChannelByProfileId();
             }
-            else if(IsContext("profile-channel/count/channel-id/profile-id")){
-                CountProfileChannelChannelIdProfileId();
+            else if(IsContext("profile-channel/count/by-channel-id/by-profile-id")){
+                CountProfileChannelByChannelIdByProfileId();
             }
-            else if(IsContext("profile-channel/browse/filter")){
-                BrowseProfileChannelListFilter();
+            else if(IsContext("profile-channel/browse/by-filter")){
+                BrowseProfileChannelListByFilter();
             }
-            else if(IsContext("profile-channel/set/uuid")){
-                SetProfileChannelUuid();
+            else if(IsContext("profile-channel/set/by-uuid")){
+                SetProfileChannelByUuid();
             }
-            else if(IsContext("profile-channel/set/channel-id/profile-id")){
-                SetProfileChannelChannelIdProfileId();
+            else if(IsContext("profile-channel/set/by-channel-id/by-profile-id")){
+                SetProfileChannelByChannelIdByProfileId();
             }
-            else if(IsContext("profile-channel/del/uuid")){
-                DelProfileChannelUuid();
+            else if(IsContext("profile-channel/del/by-uuid")){
+                DelProfileChannelByUuid();
             }
-            else if(IsContext("profile-channel/del/channel-id/profile-id")){
-                DelProfileChannelChannelIdProfileId();
+            else if(IsContext("profile-channel/del/by-channel-id/by-profile-id")){
+                DelProfileChannelByChannelIdByProfileId();
             }
             else if(IsContext("profile-channel/get")){
                 GetProfileChannelList();
             }
-            else if(IsContext("profile-channel/get/uuid")){
-                GetProfileChannelListUuid();
+            else if(IsContext("profile-channel/get/by-uuid")){
+                GetProfileChannelListByUuid();
             }
-            else if(IsContext("profile-channel/get/channel-id")){
-                GetProfileChannelListChannelId();
+            else if(IsContext("profile-channel/get/by-channel-id")){
+                GetProfileChannelListByChannelId();
             }
-            else if(IsContext("profile-channel/get/profile-id")){
-                GetProfileChannelListProfileId();
+            else if(IsContext("profile-channel/get/by-profile-id")){
+                GetProfileChannelListByProfileId();
             }
-            else if(IsContext("profile-channel/get/channel-id/profile-id")){
-                GetProfileChannelListChannelIdProfileId();
+            else if(IsContext("profile-channel/get/by-channel-id/by-profile-id")){
+                GetProfileChannelListByChannelIdByProfileId();
             }
             if(IsContext("org-site/count")){
                 CountOrgSite();
             }
-            else if(IsContext("org-site/count/uuid")){
-                CountOrgSiteUuid();
+            else if(IsContext("org-site/count/by-uuid")){
+                CountOrgSiteByUuid();
             }
-            else if(IsContext("org-site/count/org-id")){
-                CountOrgSiteOrgId();
+            else if(IsContext("org-site/count/by-org-id")){
+                CountOrgSiteByOrgId();
             }
-            else if(IsContext("org-site/count/site-id")){
-                CountOrgSiteSiteId();
+            else if(IsContext("org-site/count/by-site-id")){
+                CountOrgSiteBySiteId();
             }
-            else if(IsContext("org-site/count/org-id/site-id")){
-                CountOrgSiteOrgIdSiteId();
+            else if(IsContext("org-site/count/by-org-id/by-site-id")){
+                CountOrgSiteByOrgIdBySiteId();
             }
-            else if(IsContext("org-site/browse/filter")){
-                BrowseOrgSiteListFilter();
+            else if(IsContext("org-site/browse/by-filter")){
+                BrowseOrgSiteListByFilter();
             }
-            else if(IsContext("org-site/set/uuid")){
-                SetOrgSiteUuid();
+            else if(IsContext("org-site/set/by-uuid")){
+                SetOrgSiteByUuid();
             }
-            else if(IsContext("org-site/set/org-id/site-id")){
-                SetOrgSiteOrgIdSiteId();
+            else if(IsContext("org-site/set/by-org-id/by-site-id")){
+                SetOrgSiteByOrgIdBySiteId();
             }
-            else if(IsContext("org-site/del/uuid")){
-                DelOrgSiteUuid();
+            else if(IsContext("org-site/del/by-uuid")){
+                DelOrgSiteByUuid();
             }
-            else if(IsContext("org-site/del/org-id/site-id")){
-                DelOrgSiteOrgIdSiteId();
+            else if(IsContext("org-site/del/by-org-id/by-site-id")){
+                DelOrgSiteByOrgIdBySiteId();
             }
             else if(IsContext("org-site/get")){
                 GetOrgSiteList();
             }
-            else if(IsContext("org-site/get/uuid")){
-                GetOrgSiteListUuid();
+            else if(IsContext("org-site/get/by-uuid")){
+                GetOrgSiteListByUuid();
             }
-            else if(IsContext("org-site/get/org-id")){
-                GetOrgSiteListOrgId();
+            else if(IsContext("org-site/get/by-org-id")){
+                GetOrgSiteListByOrgId();
             }
-            else if(IsContext("org-site/get/site-id")){
-                GetOrgSiteListSiteId();
+            else if(IsContext("org-site/get/by-site-id")){
+                GetOrgSiteListBySiteId();
             }
-            else if(IsContext("org-site/get/org-id/site-id")){
-                GetOrgSiteListOrgIdSiteId();
+            else if(IsContext("org-site/get/by-org-id/by-site-id")){
+                GetOrgSiteListByOrgIdBySiteId();
             }
             if(IsContext("site-app/count")){
                 CountSiteApp();
             }
-            else if(IsContext("site-app/count/uuid")){
-                CountSiteAppUuid();
+            else if(IsContext("site-app/count/by-uuid")){
+                CountSiteAppByUuid();
             }
-            else if(IsContext("site-app/count/app-id")){
-                CountSiteAppAppId();
+            else if(IsContext("site-app/count/by-app-id")){
+                CountSiteAppByAppId();
             }
-            else if(IsContext("site-app/count/site-id")){
-                CountSiteAppSiteId();
+            else if(IsContext("site-app/count/by-site-id")){
+                CountSiteAppBySiteId();
             }
-            else if(IsContext("site-app/count/app-id/site-id")){
-                CountSiteAppAppIdSiteId();
+            else if(IsContext("site-app/count/by-app-id/by-site-id")){
+                CountSiteAppByAppIdBySiteId();
             }
-            else if(IsContext("site-app/browse/filter")){
-                BrowseSiteAppListFilter();
+            else if(IsContext("site-app/browse/by-filter")){
+                BrowseSiteAppListByFilter();
             }
-            else if(IsContext("site-app/set/uuid")){
-                SetSiteAppUuid();
+            else if(IsContext("site-app/set/by-uuid")){
+                SetSiteAppByUuid();
             }
-            else if(IsContext("site-app/set/app-id/site-id")){
-                SetSiteAppAppIdSiteId();
+            else if(IsContext("site-app/set/by-app-id/by-site-id")){
+                SetSiteAppByAppIdBySiteId();
             }
-            else if(IsContext("site-app/del/uuid")){
-                DelSiteAppUuid();
+            else if(IsContext("site-app/del/by-uuid")){
+                DelSiteAppByUuid();
             }
-            else if(IsContext("site-app/del/app-id/site-id")){
-                DelSiteAppAppIdSiteId();
+            else if(IsContext("site-app/del/by-app-id/by-site-id")){
+                DelSiteAppByAppIdBySiteId();
             }
             else if(IsContext("site-app/get")){
                 GetSiteAppList();
             }
-            else if(IsContext("site-app/get/uuid")){
-                GetSiteAppListUuid();
+            else if(IsContext("site-app/get/by-uuid")){
+                GetSiteAppListByUuid();
             }
-            else if(IsContext("site-app/get/app-id")){
-                GetSiteAppListAppId();
+            else if(IsContext("site-app/get/by-app-id")){
+                GetSiteAppListByAppId();
             }
-            else if(IsContext("site-app/get/site-id")){
-                GetSiteAppListSiteId();
+            else if(IsContext("site-app/get/by-site-id")){
+                GetSiteAppListBySiteId();
             }
-            else if(IsContext("site-app/get/app-id/site-id")){
-                GetSiteAppListAppIdSiteId();
+            else if(IsContext("site-app/get/by-app-id/by-site-id")){
+                GetSiteAppListByAppIdBySiteId();
             }
             if(IsContext("photo/count")){
                 CountPhoto();
             }
-            else if(IsContext("photo/count/uuid")){
-                CountPhotoUuid();
+            else if(IsContext("photo/count/by-uuid")){
+                CountPhotoByUuid();
             }
-            else if(IsContext("photo/count/external-id")){
-                CountPhotoExternalId();
+            else if(IsContext("photo/count/by-external-id")){
+                CountPhotoByExternalId();
             }
-            else if(IsContext("photo/count/url")){
-                CountPhotoUrl();
+            else if(IsContext("photo/count/by-url")){
+                CountPhotoByUrl();
             }
-            else if(IsContext("photo/count/url/external-id")){
-                CountPhotoUrlExternalId();
+            else if(IsContext("photo/count/by-url/by-external-id")){
+                CountPhotoByUrlByExternalId();
             }
-            else if(IsContext("photo/count/uuid/external-id")){
-                CountPhotoUuidExternalId();
+            else if(IsContext("photo/count/by-uuid/by-external-id")){
+                CountPhotoByUuidByExternalId();
             }
-            else if(IsContext("photo/browse/filter")){
-                BrowsePhotoListFilter();
+            else if(IsContext("photo/browse/by-filter")){
+                BrowsePhotoListByFilter();
             }
-            else if(IsContext("photo/set/uuid")){
-                SetPhotoUuid();
+            else if(IsContext("photo/set/by-uuid")){
+                SetPhotoByUuid();
             }
-            else if(IsContext("photo/set/external-id")){
-                SetPhotoExternalId();
+            else if(IsContext("photo/set/by-external-id")){
+                SetPhotoByExternalId();
             }
-            else if(IsContext("photo/set/url")){
-                SetPhotoUrl();
+            else if(IsContext("photo/set/by-url")){
+                SetPhotoByUrl();
             }
-            else if(IsContext("photo/set/url/external-id")){
-                SetPhotoUrlExternalId();
+            else if(IsContext("photo/set/by-url/by-external-id")){
+                SetPhotoByUrlByExternalId();
             }
-            else if(IsContext("photo/set/uuid/external-id")){
-                SetPhotoUuidExternalId();
+            else if(IsContext("photo/set/by-uuid/by-external-id")){
+                SetPhotoByUuidByExternalId();
             }
-            else if(IsContext("photo/del/uuid")){
-                DelPhotoUuid();
+            else if(IsContext("photo/del/by-uuid")){
+                DelPhotoByUuid();
             }
-            else if(IsContext("photo/del/external-id")){
-                DelPhotoExternalId();
+            else if(IsContext("photo/del/by-external-id")){
+                DelPhotoByExternalId();
             }
-            else if(IsContext("photo/del/url")){
-                DelPhotoUrl();
+            else if(IsContext("photo/del/by-url")){
+                DelPhotoByUrl();
             }
-            else if(IsContext("photo/del/url/external-id")){
-                DelPhotoUrlExternalId();
+            else if(IsContext("photo/del/by-url/by-external-id")){
+                DelPhotoByUrlByExternalId();
             }
-            else if(IsContext("photo/del/uuid/external-id")){
-                DelPhotoUuidExternalId();
+            else if(IsContext("photo/del/by-uuid/by-external-id")){
+                DelPhotoByUuidByExternalId();
             }
             else if(IsContext("photo/get")){
                 GetPhotoList();
             }
-            else if(IsContext("photo/get/uuid")){
-                GetPhotoListUuid();
+            else if(IsContext("photo/get/by-uuid")){
+                GetPhotoListByUuid();
             }
-            else if(IsContext("photo/get/external-id")){
-                GetPhotoListExternalId();
+            else if(IsContext("photo/get/by-external-id")){
+                GetPhotoListByExternalId();
             }
-            else if(IsContext("photo/get/url")){
-                GetPhotoListUrl();
+            else if(IsContext("photo/get/by-url")){
+                GetPhotoListByUrl();
             }
-            else if(IsContext("photo/get/url/external-id")){
-                GetPhotoListUrlExternalId();
+            else if(IsContext("photo/get/by-url/by-external-id")){
+                GetPhotoListByUrlByExternalId();
             }
-            else if(IsContext("photo/get/uuid/external-id")){
-                GetPhotoListUuidExternalId();
+            else if(IsContext("photo/get/by-uuid/by-external-id")){
+                GetPhotoListByUuidByExternalId();
             }
             if(IsContext("video/count")){
                 CountVideo();
             }
-            else if(IsContext("video/count/uuid")){
-                CountVideoUuid();
+            else if(IsContext("video/count/by-uuid")){
+                CountVideoByUuid();
             }
-            else if(IsContext("video/count/external-id")){
-                CountVideoExternalId();
+            else if(IsContext("video/count/by-external-id")){
+                CountVideoByExternalId();
             }
-            else if(IsContext("video/count/url")){
-                CountVideoUrl();
+            else if(IsContext("video/count/by-url")){
+                CountVideoByUrl();
             }
-            else if(IsContext("video/count/url/external-id")){
-                CountVideoUrlExternalId();
+            else if(IsContext("video/count/by-url/by-external-id")){
+                CountVideoByUrlByExternalId();
             }
-            else if(IsContext("video/count/uuid/external-id")){
-                CountVideoUuidExternalId();
+            else if(IsContext("video/count/by-uuid/by-external-id")){
+                CountVideoByUuidByExternalId();
             }
-            else if(IsContext("video/browse/filter")){
-                BrowseVideoListFilter();
+            else if(IsContext("video/browse/by-filter")){
+                BrowseVideoListByFilter();
             }
-            else if(IsContext("video/set/uuid")){
-                SetVideoUuid();
+            else if(IsContext("video/set/by-uuid")){
+                SetVideoByUuid();
             }
-            else if(IsContext("video/set/external-id")){
-                SetVideoExternalId();
+            else if(IsContext("video/set/by-external-id")){
+                SetVideoByExternalId();
             }
-            else if(IsContext("video/set/url")){
-                SetVideoUrl();
+            else if(IsContext("video/set/by-url")){
+                SetVideoByUrl();
             }
-            else if(IsContext("video/set/url/external-id")){
-                SetVideoUrlExternalId();
+            else if(IsContext("video/set/by-url/by-external-id")){
+                SetVideoByUrlByExternalId();
             }
-            else if(IsContext("video/set/uuid/external-id")){
-                SetVideoUuidExternalId();
+            else if(IsContext("video/set/by-uuid/by-external-id")){
+                SetVideoByUuidByExternalId();
             }
-            else if(IsContext("video/del/uuid")){
-                DelVideoUuid();
+            else if(IsContext("video/del/by-uuid")){
+                DelVideoByUuid();
             }
-            else if(IsContext("video/del/external-id")){
-                DelVideoExternalId();
+            else if(IsContext("video/del/by-external-id")){
+                DelVideoByExternalId();
             }
-            else if(IsContext("video/del/url")){
-                DelVideoUrl();
+            else if(IsContext("video/del/by-url")){
+                DelVideoByUrl();
             }
-            else if(IsContext("video/del/url/external-id")){
-                DelVideoUrlExternalId();
+            else if(IsContext("video/del/by-url/by-external-id")){
+                DelVideoByUrlByExternalId();
             }
-            else if(IsContext("video/del/uuid/external-id")){
-                DelVideoUuidExternalId();
+            else if(IsContext("video/del/by-uuid/by-external-id")){
+                DelVideoByUuidByExternalId();
             }
             else if(IsContext("video/get")){
                 GetVideoList();
             }
-            else if(IsContext("video/get/uuid")){
-                GetVideoListUuid();
+            else if(IsContext("video/get/by-uuid")){
+                GetVideoListByUuid();
             }
-            else if(IsContext("video/get/external-id")){
-                GetVideoListExternalId();
+            else if(IsContext("video/get/by-external-id")){
+                GetVideoListByExternalId();
             }
-            else if(IsContext("video/get/url")){
-                GetVideoListUrl();
+            else if(IsContext("video/get/by-url")){
+                GetVideoListByUrl();
             }
-            else if(IsContext("video/get/url/external-id")){
-                GetVideoListUrlExternalId();
+            else if(IsContext("video/get/by-url/by-external-id")){
+                GetVideoListByUrlByExternalId();
             }
-            else if(IsContext("video/get/uuid/external-id")){
-                GetVideoListUuidExternalId();
+            else if(IsContext("video/get/by-uuid/by-external-id")){
+                GetVideoListByUuidByExternalId();
             }
         }    
         
@@ -1645,21 +1645,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountAppUuid() {
+        public virtual void CountAppByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseAppInt wrapper = new ResponseAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/count/uuid";
+            wrapper.action = "app/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountAppUuid(
+            int i = api.CountAppByUuid(
                 _uuid
             );
             
@@ -1670,21 +1670,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountAppCode() {
+        public virtual void CountAppByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseAppInt wrapper = new ResponseAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/count/code";
+            wrapper.action = "app/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountAppCode(
+            int i = api.CountAppByCode(
                 _code
             );
             
@@ -1695,21 +1695,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountAppTypeId() {
+        public virtual void CountAppByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseAppInt wrapper = new ResponseAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/count/type-id";
+            wrapper.action = "app/count/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountAppTypeId(
+            int i = api.CountAppByTypeId(
                 _type_id
             );
             
@@ -1720,7 +1720,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountAppCodeTypeId() {
+        public virtual void CountAppByCodeByTypeId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -1728,14 +1728,14 @@ namespace platform {
             ResponseAppInt wrapper = new ResponseAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/count/code/type-id";
+            wrapper.action = "app/count/by-code/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountAppCodeTypeId(
+            int i = api.CountAppByCodeByTypeId(
                 _code
                 , _type_id
             );
@@ -1747,7 +1747,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountAppPlatformTypeId() {
+        public virtual void CountAppByPlatformByTypeId() {
         
              _platform = ()util.GetParamValue(_context, "@platform");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -1755,14 +1755,14 @@ namespace platform {
             ResponseAppInt wrapper = new ResponseAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/count/platform/type-id";
+            wrapper.action = "app/count/by-platform/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountAppPlatformTypeId(
+            int i = api.CountAppByPlatformByTypeId(
                 _platform
                 , _type_id
             );
@@ -1774,21 +1774,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountAppPlatform() {
+        public virtual void CountAppByPlatform() {
         
              _platform = ()util.GetParamValue(_context, "@platform");
 
             ResponseAppInt wrapper = new ResponseAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/count/platform";
+            wrapper.action = "app/count/by-platform";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountAppPlatform(
+            int i = api.CountAppByPlatform(
                 _platform
             );
             
@@ -1798,12 +1798,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseAppListFilter()  {
+        public virtual void BrowseAppListByFilter()  {
         
             ResponseAppList wrapper = new ResponseAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/browse/filter";
+            wrapper.action = "app/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -1815,7 +1815,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            AppResult result = api.BrowseAppListFilter(obj);
+            AppResult result = api.BrowseAppListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -1827,12 +1827,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetAppUuid()  {
+        public virtual void SetAppByUuid()  {
         
             ResponseAppBool wrapper = new ResponseAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/set/uuid";
+            wrapper.action = "app/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -1895,17 +1895,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetAppUuid(obj);
+            wrapper.data = api.SetAppByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetAppCode()  {
+        public virtual void SetAppByCode()  {
         
             ResponseAppBool wrapper = new ResponseAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/set/code";
+            wrapper.action = "app/set/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -1968,26 +1968,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetAppCode(obj);
+            wrapper.data = api.SetAppByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelAppUuid() {
+        public virtual void DelAppByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseAppBool wrapper = new ResponseAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/del/uuid";
+            wrapper.action = "app/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelAppUuid(
+            bool completed = api.DelAppByUuid(
                         
                 _uuid
             );
@@ -1998,21 +1998,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelAppCode() {
+        public virtual void DelAppByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseAppBool wrapper = new ResponseAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/del/code";
+            wrapper.action = "app/del/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelAppCode(
+            bool completed = api.DelAppByCode(
                         
                 _code
             );
@@ -2047,21 +2047,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetAppListUuid() {
+        public virtual void GetAppListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseAppList wrapper = new ResponseAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/get/uuid";
+            wrapper.action = "app/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<App> objs = api.GetAppListUuid(
+            List<App> objs = api.GetAppListByUuid(
                 _uuid
             );
             
@@ -2072,21 +2072,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetAppListCode() {
+        public virtual void GetAppListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseAppList wrapper = new ResponseAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/get/code";
+            wrapper.action = "app/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<App> objs = api.GetAppListCode(
+            List<App> objs = api.GetAppListByCode(
                 _code
             );
             
@@ -2097,21 +2097,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetAppListTypeId() {
+        public virtual void GetAppListByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseAppList wrapper = new ResponseAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/get/type-id";
+            wrapper.action = "app/get/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<App> objs = api.GetAppListTypeId(
+            List<App> objs = api.GetAppListByTypeId(
                 _type_id
             );
             
@@ -2122,7 +2122,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetAppListCodeTypeId() {
+        public virtual void GetAppListByCodeByTypeId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -2130,14 +2130,14 @@ namespace platform {
             ResponseAppList wrapper = new ResponseAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/get/code/type-id";
+            wrapper.action = "app/get/by-code/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<App> objs = api.GetAppListCodeTypeId(
+            List<App> objs = api.GetAppListByCodeByTypeId(
                 _code
                 , _type_id
             );
@@ -2149,7 +2149,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetAppListPlatformTypeId() {
+        public virtual void GetAppListByPlatformByTypeId() {
         
              _platform = ()util.GetParamValue(_context, "@platform");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -2157,14 +2157,14 @@ namespace platform {
             ResponseAppList wrapper = new ResponseAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/get/platform/type-id";
+            wrapper.action = "app/get/by-platform/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<App> objs = api.GetAppListPlatformTypeId(
+            List<App> objs = api.GetAppListByPlatformByTypeId(
                 _platform
                 , _type_id
             );
@@ -2176,21 +2176,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetAppListPlatform() {
+        public virtual void GetAppListByPlatform() {
         
              _platform = ()util.GetParamValue(_context, "@platform");
 
             ResponseAppList wrapper = new ResponseAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app/get/platform";
+            wrapper.action = "app/get/by-platform";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<App> objs = api.GetAppListPlatform(
+            List<App> objs = api.GetAppListByPlatform(
                 _platform
             );
             
@@ -2224,21 +2224,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountAppTypeUuid() {
+        public virtual void CountAppTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseAppTypeInt wrapper = new ResponseAppTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app-type/count/uuid";
+            wrapper.action = "app-type/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountAppTypeUuid(
+            int i = api.CountAppTypeByUuid(
                 _uuid
             );
             
@@ -2249,21 +2249,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountAppTypeCode() {
+        public virtual void CountAppTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseAppTypeInt wrapper = new ResponseAppTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app-type/count/code";
+            wrapper.action = "app-type/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountAppTypeCode(
+            int i = api.CountAppTypeByCode(
                 _code
             );
             
@@ -2273,12 +2273,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseAppTypeListFilter()  {
+        public virtual void BrowseAppTypeListByFilter()  {
         
             ResponseAppTypeList wrapper = new ResponseAppTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app-type/browse/filter";
+            wrapper.action = "app-type/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2290,7 +2290,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            AppTypeResult result = api.BrowseAppTypeListFilter(obj);
+            AppTypeResult result = api.BrowseAppTypeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -2302,12 +2302,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetAppTypeUuid()  {
+        public virtual void SetAppTypeByUuid()  {
         
             ResponseAppTypeBool wrapper = new ResponseAppTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app-type/set/uuid";
+            wrapper.action = "app-type/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2362,17 +2362,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetAppTypeUuid(obj);
+            wrapper.data = api.SetAppTypeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetAppTypeCode()  {
+        public virtual void SetAppTypeByCode()  {
         
             ResponseAppTypeBool wrapper = new ResponseAppTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app-type/set/code";
+            wrapper.action = "app-type/set/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2427,26 +2427,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetAppTypeCode(obj);
+            wrapper.data = api.SetAppTypeByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelAppTypeUuid() {
+        public virtual void DelAppTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseAppTypeBool wrapper = new ResponseAppTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app-type/del/uuid";
+            wrapper.action = "app-type/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelAppTypeUuid(
+            bool completed = api.DelAppTypeByUuid(
                         
                 _uuid
             );
@@ -2457,21 +2457,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelAppTypeCode() {
+        public virtual void DelAppTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseAppTypeBool wrapper = new ResponseAppTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app-type/del/code";
+            wrapper.action = "app-type/del/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelAppTypeCode(
+            bool completed = api.DelAppTypeByCode(
                         
                 _code
             );
@@ -2506,21 +2506,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetAppTypeListUuid() {
+        public virtual void GetAppTypeListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseAppTypeList wrapper = new ResponseAppTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app-type/get/uuid";
+            wrapper.action = "app-type/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<AppType> objs = api.GetAppTypeListUuid(
+            List<AppType> objs = api.GetAppTypeListByUuid(
                 _uuid
             );
             
@@ -2531,21 +2531,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetAppTypeListCode() {
+        public virtual void GetAppTypeListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseAppTypeList wrapper = new ResponseAppTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "app-type/get/code";
+            wrapper.action = "app-type/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<AppType> objs = api.GetAppTypeListCode(
+            List<AppType> objs = api.GetAppTypeListByCode(
                 _code
             );
             
@@ -2579,21 +2579,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteUuid() {
+        public virtual void CountSiteByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseSiteInt wrapper = new ResponseSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/count/uuid";
+            wrapper.action = "site/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteUuid(
+            int i = api.CountSiteByUuid(
                 _uuid
             );
             
@@ -2604,21 +2604,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteCode() {
+        public virtual void CountSiteByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseSiteInt wrapper = new ResponseSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/count/code";
+            wrapper.action = "site/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteCode(
+            int i = api.CountSiteByCode(
                 _code
             );
             
@@ -2629,21 +2629,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteTypeId() {
+        public virtual void CountSiteByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseSiteInt wrapper = new ResponseSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/count/type-id";
+            wrapper.action = "site/count/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteTypeId(
+            int i = api.CountSiteByTypeId(
                 _type_id
             );
             
@@ -2654,7 +2654,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteCodeTypeId() {
+        public virtual void CountSiteByCodeByTypeId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -2662,14 +2662,14 @@ namespace platform {
             ResponseSiteInt wrapper = new ResponseSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/count/code/type-id";
+            wrapper.action = "site/count/by-code/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteCodeTypeId(
+            int i = api.CountSiteByCodeByTypeId(
                 _code
                 , _type_id
             );
@@ -2681,7 +2681,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteDomainTypeId() {
+        public virtual void CountSiteByDomainByTypeId() {
         
              _domain = ()util.GetParamValue(_context, "@domain");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -2689,14 +2689,14 @@ namespace platform {
             ResponseSiteInt wrapper = new ResponseSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/count/domain/type-id";
+            wrapper.action = "site/count/by-domain/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteDomainTypeId(
+            int i = api.CountSiteByDomainByTypeId(
                 _domain
                 , _type_id
             );
@@ -2708,21 +2708,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteDomain() {
+        public virtual void CountSiteByDomain() {
         
              _domain = ()util.GetParamValue(_context, "@domain");
 
             ResponseSiteInt wrapper = new ResponseSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/count/domain";
+            wrapper.action = "site/count/by-domain";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteDomain(
+            int i = api.CountSiteByDomain(
                 _domain
             );
             
@@ -2732,12 +2732,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseSiteListFilter()  {
+        public virtual void BrowseSiteListByFilter()  {
         
             ResponseSiteList wrapper = new ResponseSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/browse/filter";
+            wrapper.action = "site/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2749,7 +2749,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            SiteResult result = api.BrowseSiteListFilter(obj);
+            SiteResult result = api.BrowseSiteListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -2761,12 +2761,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetSiteUuid()  {
+        public virtual void SetSiteByUuid()  {
         
             ResponseSiteBool wrapper = new ResponseSiteBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/set/uuid";
+            wrapper.action = "site/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2829,17 +2829,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetSiteUuid(obj);
+            wrapper.data = api.SetSiteByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetSiteCode()  {
+        public virtual void SetSiteByCode()  {
         
             ResponseSiteBool wrapper = new ResponseSiteBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/set/code";
+            wrapper.action = "site/set/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -2902,26 +2902,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetSiteCode(obj);
+            wrapper.data = api.SetSiteByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelSiteUuid() {
+        public virtual void DelSiteByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseSiteBool wrapper = new ResponseSiteBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/del/uuid";
+            wrapper.action = "site/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelSiteUuid(
+            bool completed = api.DelSiteByUuid(
                         
                 _uuid
             );
@@ -2932,21 +2932,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelSiteCode() {
+        public virtual void DelSiteByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseSiteBool wrapper = new ResponseSiteBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/del/code";
+            wrapper.action = "site/del/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelSiteCode(
+            bool completed = api.DelSiteByCode(
                         
                 _code
             );
@@ -2981,21 +2981,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteListUuid() {
+        public virtual void GetSiteListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseSiteList wrapper = new ResponseSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/get/uuid";
+            wrapper.action = "site/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Site> objs = api.GetSiteListUuid(
+            List<Site> objs = api.GetSiteListByUuid(
                 _uuid
             );
             
@@ -3006,21 +3006,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteListCode() {
+        public virtual void GetSiteListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseSiteList wrapper = new ResponseSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/get/code";
+            wrapper.action = "site/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Site> objs = api.GetSiteListCode(
+            List<Site> objs = api.GetSiteListByCode(
                 _code
             );
             
@@ -3031,21 +3031,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteListTypeId() {
+        public virtual void GetSiteListByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseSiteList wrapper = new ResponseSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/get/type-id";
+            wrapper.action = "site/get/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Site> objs = api.GetSiteListTypeId(
+            List<Site> objs = api.GetSiteListByTypeId(
                 _type_id
             );
             
@@ -3056,7 +3056,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteListCodeTypeId() {
+        public virtual void GetSiteListByCodeByTypeId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -3064,14 +3064,14 @@ namespace platform {
             ResponseSiteList wrapper = new ResponseSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/get/code/type-id";
+            wrapper.action = "site/get/by-code/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Site> objs = api.GetSiteListCodeTypeId(
+            List<Site> objs = api.GetSiteListByCodeByTypeId(
                 _code
                 , _type_id
             );
@@ -3083,7 +3083,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteListDomainTypeId() {
+        public virtual void GetSiteListByDomainByTypeId() {
         
              _domain = ()util.GetParamValue(_context, "@domain");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -3091,14 +3091,14 @@ namespace platform {
             ResponseSiteList wrapper = new ResponseSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/get/domain/type-id";
+            wrapper.action = "site/get/by-domain/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Site> objs = api.GetSiteListDomainTypeId(
+            List<Site> objs = api.GetSiteListByDomainByTypeId(
                 _domain
                 , _type_id
             );
@@ -3110,21 +3110,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteListDomain() {
+        public virtual void GetSiteListByDomain() {
         
              _domain = ()util.GetParamValue(_context, "@domain");
 
             ResponseSiteList wrapper = new ResponseSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site/get/domain";
+            wrapper.action = "site/get/by-domain";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Site> objs = api.GetSiteListDomain(
+            List<Site> objs = api.GetSiteListByDomain(
                 _domain
             );
             
@@ -3158,21 +3158,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteTypeUuid() {
+        public virtual void CountSiteTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseSiteTypeInt wrapper = new ResponseSiteTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-type/count/uuid";
+            wrapper.action = "site-type/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteTypeUuid(
+            int i = api.CountSiteTypeByUuid(
                 _uuid
             );
             
@@ -3183,21 +3183,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteTypeCode() {
+        public virtual void CountSiteTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseSiteTypeInt wrapper = new ResponseSiteTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-type/count/code";
+            wrapper.action = "site-type/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteTypeCode(
+            int i = api.CountSiteTypeByCode(
                 _code
             );
             
@@ -3207,12 +3207,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseSiteTypeListFilter()  {
+        public virtual void BrowseSiteTypeListByFilter()  {
         
             ResponseSiteTypeList wrapper = new ResponseSiteTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-type/browse/filter";
+            wrapper.action = "site-type/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3224,7 +3224,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            SiteTypeResult result = api.BrowseSiteTypeListFilter(obj);
+            SiteTypeResult result = api.BrowseSiteTypeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -3236,12 +3236,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetSiteTypeUuid()  {
+        public virtual void SetSiteTypeByUuid()  {
         
             ResponseSiteTypeBool wrapper = new ResponseSiteTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-type/set/uuid";
+            wrapper.action = "site-type/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3296,17 +3296,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetSiteTypeUuid(obj);
+            wrapper.data = api.SetSiteTypeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetSiteTypeCode()  {
+        public virtual void SetSiteTypeByCode()  {
         
             ResponseSiteTypeBool wrapper = new ResponseSiteTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-type/set/code";
+            wrapper.action = "site-type/set/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3361,26 +3361,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetSiteTypeCode(obj);
+            wrapper.data = api.SetSiteTypeByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelSiteTypeUuid() {
+        public virtual void DelSiteTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseSiteTypeBool wrapper = new ResponseSiteTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-type/del/uuid";
+            wrapper.action = "site-type/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelSiteTypeUuid(
+            bool completed = api.DelSiteTypeByUuid(
                         
                 _uuid
             );
@@ -3391,21 +3391,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelSiteTypeCode() {
+        public virtual void DelSiteTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseSiteTypeBool wrapper = new ResponseSiteTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-type/del/code";
+            wrapper.action = "site-type/del/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelSiteTypeCode(
+            bool completed = api.DelSiteTypeByCode(
                         
                 _code
             );
@@ -3440,21 +3440,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteTypeListUuid() {
+        public virtual void GetSiteTypeListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseSiteTypeList wrapper = new ResponseSiteTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-type/get/uuid";
+            wrapper.action = "site-type/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<SiteType> objs = api.GetSiteTypeListUuid(
+            List<SiteType> objs = api.GetSiteTypeListByUuid(
                 _uuid
             );
             
@@ -3465,21 +3465,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteTypeListCode() {
+        public virtual void GetSiteTypeListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseSiteTypeList wrapper = new ResponseSiteTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-type/get/code";
+            wrapper.action = "site-type/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<SiteType> objs = api.GetSiteTypeListCode(
+            List<SiteType> objs = api.GetSiteTypeListByCode(
                 _code
             );
             
@@ -3513,21 +3513,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOrgUuid() {
+        public virtual void CountOrgByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOrgInt wrapper = new ResponseOrgInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org/count/uuid";
+            wrapper.action = "org/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOrgUuid(
+            int i = api.CountOrgByUuid(
                 _uuid
             );
             
@@ -3538,21 +3538,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOrgCode() {
+        public virtual void CountOrgByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOrgInt wrapper = new ResponseOrgInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org/count/code";
+            wrapper.action = "org/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOrgCode(
+            int i = api.CountOrgByCode(
                 _code
             );
             
@@ -3563,21 +3563,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOrgName() {
+        public virtual void CountOrgByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseOrgInt wrapper = new ResponseOrgInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org/count/name";
+            wrapper.action = "org/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOrgName(
+            int i = api.CountOrgByName(
                 _name
             );
             
@@ -3587,12 +3587,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOrgListFilter()  {
+        public virtual void BrowseOrgListByFilter()  {
         
             ResponseOrgList wrapper = new ResponseOrgList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org/browse/filter";
+            wrapper.action = "org/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3604,7 +3604,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OrgResult result = api.BrowseOrgListFilter(obj);
+            OrgResult result = api.BrowseOrgListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -3616,12 +3616,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOrgUuid()  {
+        public virtual void SetOrgByUuid()  {
         
             ResponseOrgBool wrapper = new ResponseOrgBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org/set/uuid";
+            wrapper.action = "org/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3680,26 +3680,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOrgUuid(obj);
+            wrapper.data = api.SetOrgByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOrgUuid() {
+        public virtual void DelOrgByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOrgBool wrapper = new ResponseOrgBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org/del/uuid";
+            wrapper.action = "org/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOrgUuid(
+            bool completed = api.DelOrgByUuid(
                         
                 _uuid
             );
@@ -3734,21 +3734,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOrgListUuid() {
+        public virtual void GetOrgListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOrgList wrapper = new ResponseOrgList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org/get/uuid";
+            wrapper.action = "org/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Org> objs = api.GetOrgListUuid(
+            List<Org> objs = api.GetOrgListByUuid(
                 _uuid
             );
             
@@ -3759,21 +3759,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOrgListCode() {
+        public virtual void GetOrgListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOrgList wrapper = new ResponseOrgList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org/get/code";
+            wrapper.action = "org/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Org> objs = api.GetOrgListCode(
+            List<Org> objs = api.GetOrgListByCode(
                 _code
             );
             
@@ -3784,21 +3784,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOrgListName() {
+        public virtual void GetOrgListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseOrgList wrapper = new ResponseOrgList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org/get/name";
+            wrapper.action = "org/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Org> objs = api.GetOrgListName(
+            List<Org> objs = api.GetOrgListByName(
                 _name
             );
             
@@ -3832,21 +3832,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOrgTypeUuid() {
+        public virtual void CountOrgTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOrgTypeInt wrapper = new ResponseOrgTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-type/count/uuid";
+            wrapper.action = "org-type/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOrgTypeUuid(
+            int i = api.CountOrgTypeByUuid(
                 _uuid
             );
             
@@ -3857,21 +3857,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOrgTypeCode() {
+        public virtual void CountOrgTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOrgTypeInt wrapper = new ResponseOrgTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-type/count/code";
+            wrapper.action = "org-type/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOrgTypeCode(
+            int i = api.CountOrgTypeByCode(
                 _code
             );
             
@@ -3881,12 +3881,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOrgTypeListFilter()  {
+        public virtual void BrowseOrgTypeListByFilter()  {
         
             ResponseOrgTypeList wrapper = new ResponseOrgTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-type/browse/filter";
+            wrapper.action = "org-type/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3898,7 +3898,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OrgTypeResult result = api.BrowseOrgTypeListFilter(obj);
+            OrgTypeResult result = api.BrowseOrgTypeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -3910,12 +3910,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOrgTypeUuid()  {
+        public virtual void SetOrgTypeByUuid()  {
         
             ResponseOrgTypeBool wrapper = new ResponseOrgTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-type/set/uuid";
+            wrapper.action = "org-type/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -3970,17 +3970,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOrgTypeUuid(obj);
+            wrapper.data = api.SetOrgTypeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOrgTypeCode()  {
+        public virtual void SetOrgTypeByCode()  {
         
             ResponseOrgTypeBool wrapper = new ResponseOrgTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-type/set/code";
+            wrapper.action = "org-type/set/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4035,26 +4035,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOrgTypeCode(obj);
+            wrapper.data = api.SetOrgTypeByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOrgTypeUuid() {
+        public virtual void DelOrgTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOrgTypeBool wrapper = new ResponseOrgTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-type/del/uuid";
+            wrapper.action = "org-type/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOrgTypeUuid(
+            bool completed = api.DelOrgTypeByUuid(
                         
                 _uuid
             );
@@ -4065,21 +4065,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOrgTypeCode() {
+        public virtual void DelOrgTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOrgTypeBool wrapper = new ResponseOrgTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-type/del/code";
+            wrapper.action = "org-type/del/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOrgTypeCode(
+            bool completed = api.DelOrgTypeByCode(
                         
                 _code
             );
@@ -4114,21 +4114,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOrgTypeListUuid() {
+        public virtual void GetOrgTypeListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOrgTypeList wrapper = new ResponseOrgTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-type/get/uuid";
+            wrapper.action = "org-type/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OrgType> objs = api.GetOrgTypeListUuid(
+            List<OrgType> objs = api.GetOrgTypeListByUuid(
                 _uuid
             );
             
@@ -4139,21 +4139,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOrgTypeListCode() {
+        public virtual void GetOrgTypeListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOrgTypeList wrapper = new ResponseOrgTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-type/get/code";
+            wrapper.action = "org-type/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OrgType> objs = api.GetOrgTypeListCode(
+            List<OrgType> objs = api.GetOrgTypeListByCode(
                 _code
             );
             
@@ -4187,21 +4187,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentItemUuid() {
+        public virtual void CountContentItemByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseContentItemInt wrapper = new ResponseContentItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/count/uuid";
+            wrapper.action = "content-item/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentItemUuid(
+            int i = api.CountContentItemByUuid(
                 _uuid
             );
             
@@ -4212,21 +4212,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentItemCode() {
+        public virtual void CountContentItemByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseContentItemInt wrapper = new ResponseContentItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/count/code";
+            wrapper.action = "content-item/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentItemCode(
+            int i = api.CountContentItemByCode(
                 _code
             );
             
@@ -4237,21 +4237,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentItemName() {
+        public virtual void CountContentItemByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseContentItemInt wrapper = new ResponseContentItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/count/name";
+            wrapper.action = "content-item/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentItemName(
+            int i = api.CountContentItemByName(
                 _name
             );
             
@@ -4262,21 +4262,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentItemPath() {
+        public virtual void CountContentItemByPath() {
         
              _path = ()util.GetParamValue(_context, "@path");
 
             ResponseContentItemInt wrapper = new ResponseContentItemInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/count/path";
+            wrapper.action = "content-item/count/by-path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentItemPath(
+            int i = api.CountContentItemByPath(
                 _path
             );
             
@@ -4286,12 +4286,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseContentItemListFilter()  {
+        public virtual void BrowseContentItemListByFilter()  {
         
             ResponseContentItemList wrapper = new ResponseContentItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/browse/filter";
+            wrapper.action = "content-item/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4303,7 +4303,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ContentItemResult result = api.BrowseContentItemListFilter(obj);
+            ContentItemResult result = api.BrowseContentItemListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -4315,12 +4315,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetContentItemUuid()  {
+        public virtual void SetContentItemByUuid()  {
         
             ResponseContentItemBool wrapper = new ResponseContentItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/set/uuid";
+            wrapper.action = "content-item/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4399,26 +4399,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetContentItemUuid(obj);
+            wrapper.data = api.SetContentItemByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelContentItemUuid() {
+        public virtual void DelContentItemByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseContentItemBool wrapper = new ResponseContentItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/del/uuid";
+            wrapper.action = "content-item/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelContentItemUuid(
+            bool completed = api.DelContentItemByUuid(
                         
                 _uuid
             );
@@ -4429,21 +4429,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelContentItemPath() {
+        public virtual void DelContentItemByPath() {
         
              _path = ()util.GetParamValue(_context, "@path");
 
             ResponseContentItemBool wrapper = new ResponseContentItemBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/del/path";
+            wrapper.action = "content-item/del/by-path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelContentItemPath(
+            bool completed = api.DelContentItemByPath(
                         
                 _path
             );
@@ -4478,21 +4478,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentItemListUuid() {
+        public virtual void GetContentItemListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseContentItemList wrapper = new ResponseContentItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/get/uuid";
+            wrapper.action = "content-item/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentItem> objs = api.GetContentItemListUuid(
+            List<ContentItem> objs = api.GetContentItemListByUuid(
                 _uuid
             );
             
@@ -4503,21 +4503,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentItemListCode() {
+        public virtual void GetContentItemListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseContentItemList wrapper = new ResponseContentItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/get/code";
+            wrapper.action = "content-item/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentItem> objs = api.GetContentItemListCode(
+            List<ContentItem> objs = api.GetContentItemListByCode(
                 _code
             );
             
@@ -4528,21 +4528,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentItemListName() {
+        public virtual void GetContentItemListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseContentItemList wrapper = new ResponseContentItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/get/name";
+            wrapper.action = "content-item/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentItem> objs = api.GetContentItemListName(
+            List<ContentItem> objs = api.GetContentItemListByName(
                 _name
             );
             
@@ -4553,21 +4553,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentItemListPath() {
+        public virtual void GetContentItemListByPath() {
         
              _path = ()util.GetParamValue(_context, "@path");
 
             ResponseContentItemList wrapper = new ResponseContentItemList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item/get/path";
+            wrapper.action = "content-item/get/by-path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentItem> objs = api.GetContentItemListPath(
+            List<ContentItem> objs = api.GetContentItemListByPath(
                 _path
             );
             
@@ -4601,21 +4601,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentItemTypeUuid() {
+        public virtual void CountContentItemTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseContentItemTypeInt wrapper = new ResponseContentItemTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item-type/count/uuid";
+            wrapper.action = "content-item-type/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentItemTypeUuid(
+            int i = api.CountContentItemTypeByUuid(
                 _uuid
             );
             
@@ -4626,21 +4626,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentItemTypeCode() {
+        public virtual void CountContentItemTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseContentItemTypeInt wrapper = new ResponseContentItemTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item-type/count/code";
+            wrapper.action = "content-item-type/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentItemTypeCode(
+            int i = api.CountContentItemTypeByCode(
                 _code
             );
             
@@ -4650,12 +4650,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseContentItemTypeListFilter()  {
+        public virtual void BrowseContentItemTypeListByFilter()  {
         
             ResponseContentItemTypeList wrapper = new ResponseContentItemTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item-type/browse/filter";
+            wrapper.action = "content-item-type/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4667,7 +4667,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ContentItemTypeResult result = api.BrowseContentItemTypeListFilter(obj);
+            ContentItemTypeResult result = api.BrowseContentItemTypeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -4679,12 +4679,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetContentItemTypeUuid()  {
+        public virtual void SetContentItemTypeByUuid()  {
         
             ResponseContentItemTypeBool wrapper = new ResponseContentItemTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item-type/set/uuid";
+            wrapper.action = "content-item-type/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4739,17 +4739,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetContentItemTypeUuid(obj);
+            wrapper.data = api.SetContentItemTypeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetContentItemTypeCode()  {
+        public virtual void SetContentItemTypeByCode()  {
         
             ResponseContentItemTypeBool wrapper = new ResponseContentItemTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item-type/set/code";
+            wrapper.action = "content-item-type/set/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -4804,26 +4804,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetContentItemTypeCode(obj);
+            wrapper.data = api.SetContentItemTypeByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelContentItemTypeUuid() {
+        public virtual void DelContentItemTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseContentItemTypeBool wrapper = new ResponseContentItemTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item-type/del/uuid";
+            wrapper.action = "content-item-type/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelContentItemTypeUuid(
+            bool completed = api.DelContentItemTypeByUuid(
                         
                 _uuid
             );
@@ -4834,21 +4834,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelContentItemTypeCode() {
+        public virtual void DelContentItemTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseContentItemTypeBool wrapper = new ResponseContentItemTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item-type/del/code";
+            wrapper.action = "content-item-type/del/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelContentItemTypeCode(
+            bool completed = api.DelContentItemTypeByCode(
                         
                 _code
             );
@@ -4883,21 +4883,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentItemTypeListUuid() {
+        public virtual void GetContentItemTypeListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseContentItemTypeList wrapper = new ResponseContentItemTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item-type/get/uuid";
+            wrapper.action = "content-item-type/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentItemType> objs = api.GetContentItemTypeListUuid(
+            List<ContentItemType> objs = api.GetContentItemTypeListByUuid(
                 _uuid
             );
             
@@ -4908,21 +4908,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentItemTypeListCode() {
+        public virtual void GetContentItemTypeListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseContentItemTypeList wrapper = new ResponseContentItemTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-item-type/get/code";
+            wrapper.action = "content-item-type/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentItemType> objs = api.GetContentItemTypeListCode(
+            List<ContentItemType> objs = api.GetContentItemTypeListByCode(
                 _code
             );
             
@@ -4956,21 +4956,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentPageUuid() {
+        public virtual void CountContentPageByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseContentPageInt wrapper = new ResponseContentPageInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/count/uuid";
+            wrapper.action = "content-page/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentPageUuid(
+            int i = api.CountContentPageByUuid(
                 _uuid
             );
             
@@ -4981,21 +4981,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentPageCode() {
+        public virtual void CountContentPageByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseContentPageInt wrapper = new ResponseContentPageInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/count/code";
+            wrapper.action = "content-page/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentPageCode(
+            int i = api.CountContentPageByCode(
                 _code
             );
             
@@ -5006,21 +5006,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentPageName() {
+        public virtual void CountContentPageByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseContentPageInt wrapper = new ResponseContentPageInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/count/name";
+            wrapper.action = "content-page/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentPageName(
+            int i = api.CountContentPageByName(
                 _name
             );
             
@@ -5031,21 +5031,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountContentPagePath() {
+        public virtual void CountContentPageByPath() {
         
              _path = ()util.GetParamValue(_context, "@path");
 
             ResponseContentPageInt wrapper = new ResponseContentPageInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/count/path";
+            wrapper.action = "content-page/count/by-path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountContentPagePath(
+            int i = api.CountContentPageByPath(
                 _path
             );
             
@@ -5055,12 +5055,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseContentPageListFilter()  {
+        public virtual void BrowseContentPageListByFilter()  {
         
             ResponseContentPageList wrapper = new ResponseContentPageList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/browse/filter";
+            wrapper.action = "content-page/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5072,7 +5072,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ContentPageResult result = api.BrowseContentPageListFilter(obj);
+            ContentPageResult result = api.BrowseContentPageListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -5084,12 +5084,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetContentPageUuid()  {
+        public virtual void SetContentPageByUuid()  {
         
             ResponseContentPageBool wrapper = new ResponseContentPageBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/set/uuid";
+            wrapper.action = "content-page/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5119,6 +5119,10 @@ namespace platform {
                 obj.date_modified = Convert.ToDateTime(_date_modified);
             else 
                 obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
             
             string _date_end = util.GetParamValue(_context, "@date_end");
             if(!String.IsNoneOrEmpty(_date_end))
@@ -5168,26 +5172,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetContentPageUuid(obj);
+            wrapper.data = api.SetContentPageByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelContentPageUuid() {
+        public virtual void DelContentPageByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseContentPageBool wrapper = new ResponseContentPageBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/del/uuid";
+            wrapper.action = "content-page/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelContentPageUuid(
+            bool completed = api.DelContentPageByUuid(
                         
                 _uuid
             );
@@ -5198,7 +5202,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelContentPagePathSiteId() {
+        public virtual void DelContentPageByPathBySiteId() {
         
              _path = ()util.GetParamValue(_context, "@path");
              _site_id = ()util.GetParamValue(_context, "@site_id");
@@ -5206,14 +5210,14 @@ namespace platform {
             ResponseContentPageBool wrapper = new ResponseContentPageBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/del/path/site-id";
+            wrapper.action = "content-page/del/by-path/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelContentPagePathSiteId(
+            bool completed = api.DelContentPageByPathBySiteId(
                         
                 _path
                 , _site_id
@@ -5225,21 +5229,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelContentPagePath() {
+        public virtual void DelContentPageByPath() {
         
              _path = ()util.GetParamValue(_context, "@path");
 
             ResponseContentPageBool wrapper = new ResponseContentPageBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/del/path";
+            wrapper.action = "content-page/del/by-path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelContentPagePath(
+            bool completed = api.DelContentPageByPath(
                         
                 _path
             );
@@ -5274,21 +5278,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentPageListUuid() {
+        public virtual void GetContentPageListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseContentPageList wrapper = new ResponseContentPageList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/get/uuid";
+            wrapper.action = "content-page/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentPage> objs = api.GetContentPageListUuid(
+            List<ContentPage> objs = api.GetContentPageListByUuid(
                 _uuid
             );
             
@@ -5299,21 +5303,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentPageListCode() {
+        public virtual void GetContentPageListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseContentPageList wrapper = new ResponseContentPageList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/get/code";
+            wrapper.action = "content-page/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentPage> objs = api.GetContentPageListCode(
+            List<ContentPage> objs = api.GetContentPageListByCode(
                 _code
             );
             
@@ -5324,21 +5328,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentPageListName() {
+        public virtual void GetContentPageListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseContentPageList wrapper = new ResponseContentPageList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/get/name";
+            wrapper.action = "content-page/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentPage> objs = api.GetContentPageListName(
+            List<ContentPage> objs = api.GetContentPageListByName(
                 _name
             );
             
@@ -5349,21 +5353,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentPageListPath() {
+        public virtual void GetContentPageListByPath() {
         
              _path = ()util.GetParamValue(_context, "@path");
 
             ResponseContentPageList wrapper = new ResponseContentPageList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/get/path";
+            wrapper.action = "content-page/get/by-path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentPage> objs = api.GetContentPageListPath(
+            List<ContentPage> objs = api.GetContentPageListByPath(
                 _path
             );
             
@@ -5374,21 +5378,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentPageListSiteId() {
+        public virtual void GetContentPageListBySiteId() {
         
              _site_id = ()util.GetParamValue(_context, "@site_id");
 
             ResponseContentPageList wrapper = new ResponseContentPageList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/get/site-id";
+            wrapper.action = "content-page/get/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentPage> objs = api.GetContentPageListSiteId(
+            List<ContentPage> objs = api.GetContentPageListBySiteId(
                 _site_id
             );
             
@@ -5399,7 +5403,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetContentPageListSiteIdPath() {
+        public virtual void GetContentPageListBySiteIdByPath() {
         
              _site_id = ()util.GetParamValue(_context, "@site_id");
              _path = ()util.GetParamValue(_context, "@path");
@@ -5407,14 +5411,14 @@ namespace platform {
             ResponseContentPageList wrapper = new ResponseContentPageList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "content-page/get/site-id/path";
+            wrapper.action = "content-page/get/by-site-id/by-path";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ContentPage> objs = api.GetContentPageListSiteIdPath(
+            List<ContentPage> objs = api.GetContentPageListBySiteIdByPath(
                 _site_id
                 , _path
             );
@@ -5449,21 +5453,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountMessageUuid() {
+        public virtual void CountMessageByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseMessageInt wrapper = new ResponseMessageInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "message/count/uuid";
+            wrapper.action = "message/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountMessageUuid(
+            int i = api.CountMessageByUuid(
                 _uuid
             );
             
@@ -5473,12 +5477,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseMessageListFilter()  {
+        public virtual void BrowseMessageListByFilter()  {
         
             ResponseMessageList wrapper = new ResponseMessageList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "message/browse/filter";
+            wrapper.action = "message/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5490,7 +5494,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            MessageResult result = api.BrowseMessageListFilter(obj);
+            MessageResult result = api.BrowseMessageListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -5502,12 +5506,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetMessageUuid()  {
+        public virtual void SetMessageByUuid()  {
         
             ResponseMessageBool wrapper = new ResponseMessageBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "message/set/uuid";
+            wrapper.action = "message/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5543,6 +5547,10 @@ namespace platform {
             string _active = util.GetParamValue(_context, "@active");
             if(!String.IsNoneOrEmpty(_active))
                 obj.active = Convert.ToBoolean(_active);
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
             
             string _subject = util.GetParamValue(_context, "@subject");
             if(!String.IsNoneOrEmpty(_subject))
@@ -5582,26 +5590,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetMessageUuid(obj);
+            wrapper.data = api.SetMessageByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelMessageUuid() {
+        public virtual void DelMessageByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseMessageBool wrapper = new ResponseMessageBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "message/del/uuid";
+            wrapper.action = "message/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelMessageUuid(
+            bool completed = api.DelMessageByUuid(
                         
                 _uuid
             );
@@ -5636,21 +5644,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetMessageListUuid() {
+        public virtual void GetMessageListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseMessageList wrapper = new ResponseMessageList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "message/get/uuid";
+            wrapper.action = "message/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Message> objs = api.GetMessageListUuid(
+            List<Message> objs = api.GetMessageListByUuid(
                 _uuid
             );
             
@@ -5684,21 +5692,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferUuid() {
+        public virtual void CountOfferByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferInt wrapper = new ResponseOfferInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/count/uuid";
+            wrapper.action = "offer/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferUuid(
+            int i = api.CountOfferByUuid(
                 _uuid
             );
             
@@ -5709,21 +5717,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCode() {
+        public virtual void CountOfferByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOfferInt wrapper = new ResponseOfferInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/count/code";
+            wrapper.action = "offer/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCode(
+            int i = api.CountOfferByCode(
                 _code
             );
             
@@ -5734,21 +5742,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferName() {
+        public virtual void CountOfferByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseOfferInt wrapper = new ResponseOfferInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/count/name";
+            wrapper.action = "offer/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferName(
+            int i = api.CountOfferByName(
                 _name
             );
             
@@ -5759,21 +5767,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferOrgId() {
+        public virtual void CountOfferByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseOfferInt wrapper = new ResponseOfferInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/count/org-id";
+            wrapper.action = "offer/count/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferOrgId(
+            int i = api.CountOfferByOrgId(
                 _org_id
             );
             
@@ -5783,12 +5791,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOfferListFilter()  {
+        public virtual void BrowseOfferListByFilter()  {
         
             ResponseOfferList wrapper = new ResponseOfferList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/browse/filter";
+            wrapper.action = "offer/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5800,7 +5808,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OfferResult result = api.BrowseOfferListFilter(obj);
+            OfferResult result = api.BrowseOfferListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -5812,12 +5820,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOfferUuid()  {
+        public virtual void SetOfferByUuid()  {
         
             ResponseOfferBool wrapper = new ResponseOfferBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/set/uuid";
+            wrapper.action = "offer/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -5851,6 +5859,10 @@ namespace platform {
             string _url = util.GetParamValue(_context, "@url");
             if(!String.IsNoneOrEmpty(_url))
                 obj.url = ()_url;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
             
             string _type_id = util.GetParamValue(_context, "@type_id");
             if(!String.IsNoneOrEmpty(_type_id))
@@ -5888,26 +5900,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOfferUuid(obj);
+            wrapper.data = api.SetOfferByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferUuid() {
+        public virtual void DelOfferByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferBool wrapper = new ResponseOfferBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/del/uuid";
+            wrapper.action = "offer/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferUuid(
+            bool completed = api.DelOfferByUuid(
                         
                 _uuid
             );
@@ -5918,21 +5930,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferOrgId() {
+        public virtual void DelOfferByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseOfferBool wrapper = new ResponseOfferBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/del/org-id";
+            wrapper.action = "offer/del/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferOrgId(
+            bool completed = api.DelOfferByOrgId(
                         
                 _org_id
             );
@@ -5967,21 +5979,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferListUuid() {
+        public virtual void GetOfferListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferList wrapper = new ResponseOfferList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/get/uuid";
+            wrapper.action = "offer/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Offer> objs = api.GetOfferListUuid(
+            List<Offer> objs = api.GetOfferListByUuid(
                 _uuid
             );
             
@@ -5992,21 +6004,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferListCode() {
+        public virtual void GetOfferListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOfferList wrapper = new ResponseOfferList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/get/code";
+            wrapper.action = "offer/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Offer> objs = api.GetOfferListCode(
+            List<Offer> objs = api.GetOfferListByCode(
                 _code
             );
             
@@ -6017,21 +6029,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferListName() {
+        public virtual void GetOfferListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseOfferList wrapper = new ResponseOfferList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/get/name";
+            wrapper.action = "offer/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Offer> objs = api.GetOfferListName(
+            List<Offer> objs = api.GetOfferListByName(
                 _name
             );
             
@@ -6042,21 +6054,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferListOrgId() {
+        public virtual void GetOfferListByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseOfferList wrapper = new ResponseOfferList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer/get/org-id";
+            wrapper.action = "offer/get/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Offer> objs = api.GetOfferListOrgId(
+            List<Offer> objs = api.GetOfferListByOrgId(
                 _org_id
             );
             
@@ -6090,21 +6102,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferTypeUuid() {
+        public virtual void CountOfferTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferTypeInt wrapper = new ResponseOfferTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-type/count/uuid";
+            wrapper.action = "offer-type/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferTypeUuid(
+            int i = api.CountOfferTypeByUuid(
                 _uuid
             );
             
@@ -6115,21 +6127,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferTypeCode() {
+        public virtual void CountOfferTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOfferTypeInt wrapper = new ResponseOfferTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-type/count/code";
+            wrapper.action = "offer-type/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferTypeCode(
+            int i = api.CountOfferTypeByCode(
                 _code
             );
             
@@ -6140,21 +6152,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferTypeName() {
+        public virtual void CountOfferTypeByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseOfferTypeInt wrapper = new ResponseOfferTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-type/count/name";
+            wrapper.action = "offer-type/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferTypeName(
+            int i = api.CountOfferTypeByName(
                 _name
             );
             
@@ -6164,12 +6176,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOfferTypeListFilter()  {
+        public virtual void BrowseOfferTypeListByFilter()  {
         
             ResponseOfferTypeList wrapper = new ResponseOfferTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-type/browse/filter";
+            wrapper.action = "offer-type/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6181,7 +6193,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OfferTypeResult result = api.BrowseOfferTypeListFilter(obj);
+            OfferTypeResult result = api.BrowseOfferTypeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -6193,12 +6205,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOfferTypeUuid()  {
+        public virtual void SetOfferTypeByUuid()  {
         
             ResponseOfferTypeBool wrapper = new ResponseOfferTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-type/set/uuid";
+            wrapper.action = "offer-type/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6253,26 +6265,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOfferTypeUuid(obj);
+            wrapper.data = api.SetOfferTypeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferTypeUuid() {
+        public virtual void DelOfferTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferTypeBool wrapper = new ResponseOfferTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-type/del/uuid";
+            wrapper.action = "offer-type/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferTypeUuid(
+            bool completed = api.DelOfferTypeByUuid(
                         
                 _uuid
             );
@@ -6307,21 +6319,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferTypeListUuid() {
+        public virtual void GetOfferTypeListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferTypeList wrapper = new ResponseOfferTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-type/get/uuid";
+            wrapper.action = "offer-type/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferType> objs = api.GetOfferTypeListUuid(
+            List<OfferType> objs = api.GetOfferTypeListByUuid(
                 _uuid
             );
             
@@ -6332,21 +6344,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferTypeListCode() {
+        public virtual void GetOfferTypeListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOfferTypeList wrapper = new ResponseOfferTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-type/get/code";
+            wrapper.action = "offer-type/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferType> objs = api.GetOfferTypeListCode(
+            List<OfferType> objs = api.GetOfferTypeListByCode(
                 _code
             );
             
@@ -6357,21 +6369,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferTypeListName() {
+        public virtual void GetOfferTypeListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseOfferTypeList wrapper = new ResponseOfferTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-type/get/name";
+            wrapper.action = "offer-type/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferType> objs = api.GetOfferTypeListName(
+            List<OfferType> objs = api.GetOfferTypeListByName(
                 _name
             );
             
@@ -6405,21 +6417,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferLocationUuid() {
+        public virtual void CountOfferLocationByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferLocationInt wrapper = new ResponseOfferLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/count/uuid";
+            wrapper.action = "offer-location/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferLocationUuid(
+            int i = api.CountOfferLocationByUuid(
                 _uuid
             );
             
@@ -6430,21 +6442,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferLocationOfferId() {
+        public virtual void CountOfferLocationByOfferId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
 
             ResponseOfferLocationInt wrapper = new ResponseOfferLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/count/offer-id";
+            wrapper.action = "offer-location/count/by-offer-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferLocationOfferId(
+            int i = api.CountOfferLocationByOfferId(
                 _offer_id
             );
             
@@ -6455,21 +6467,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferLocationCity() {
+        public virtual void CountOfferLocationByCity() {
         
              _city = ()util.GetParamValue(_context, "@city");
 
             ResponseOfferLocationInt wrapper = new ResponseOfferLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/count/city";
+            wrapper.action = "offer-location/count/by-city";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferLocationCity(
+            int i = api.CountOfferLocationByCity(
                 _city
             );
             
@@ -6480,21 +6492,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferLocationCountryCode() {
+        public virtual void CountOfferLocationByCountryCode() {
         
              _country_code = ()util.GetParamValue(_context, "@country_code");
 
             ResponseOfferLocationInt wrapper = new ResponseOfferLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/count/country-code";
+            wrapper.action = "offer-location/count/by-country-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferLocationCountryCode(
+            int i = api.CountOfferLocationByCountryCode(
                 _country_code
             );
             
@@ -6505,21 +6517,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferLocationPostalCode() {
+        public virtual void CountOfferLocationByPostalCode() {
         
              _postal_code = ()util.GetParamValue(_context, "@postal_code");
 
             ResponseOfferLocationInt wrapper = new ResponseOfferLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/count/postal-code";
+            wrapper.action = "offer-location/count/by-postal-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferLocationPostalCode(
+            int i = api.CountOfferLocationByPostalCode(
                 _postal_code
             );
             
@@ -6529,12 +6541,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOfferLocationListFilter()  {
+        public virtual void BrowseOfferLocationListByFilter()  {
         
             ResponseOfferLocationList wrapper = new ResponseOfferLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/browse/filter";
+            wrapper.action = "offer-location/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6546,7 +6558,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OfferLocationResult result = api.BrowseOfferLocationListFilter(obj);
+            OfferLocationResult result = api.BrowseOfferLocationListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -6558,12 +6570,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOfferLocationUuid()  {
+        public virtual void SetOfferLocationByUuid()  {
         
             ResponseOfferLocationBool wrapper = new ResponseOfferLocationBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/set/uuid";
+            wrapper.action = "offer-location/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -6622,6 +6634,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_active))
                 obj.active = Convert.ToBoolean(_active);
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _uuid = util.GetParamValue(_context, "@uuid");
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
@@ -6692,26 +6708,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOfferLocationUuid(obj);
+            wrapper.data = api.SetOfferLocationByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferLocationUuid() {
+        public virtual void DelOfferLocationByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferLocationBool wrapper = new ResponseOfferLocationBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/del/uuid";
+            wrapper.action = "offer-location/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferLocationUuid(
+            bool completed = api.DelOfferLocationByUuid(
                         
                 _uuid
             );
@@ -6746,21 +6762,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferLocationListUuid() {
+        public virtual void GetOfferLocationListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferLocationList wrapper = new ResponseOfferLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/get/uuid";
+            wrapper.action = "offer-location/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferLocation> objs = api.GetOfferLocationListUuid(
+            List<OfferLocation> objs = api.GetOfferLocationListByUuid(
                 _uuid
             );
             
@@ -6771,21 +6787,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferLocationListOfferId() {
+        public virtual void GetOfferLocationListByOfferId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
 
             ResponseOfferLocationList wrapper = new ResponseOfferLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/get/offer-id";
+            wrapper.action = "offer-location/get/by-offer-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferLocation> objs = api.GetOfferLocationListOfferId(
+            List<OfferLocation> objs = api.GetOfferLocationListByOfferId(
                 _offer_id
             );
             
@@ -6796,21 +6812,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferLocationListCity() {
+        public virtual void GetOfferLocationListByCity() {
         
              _city = ()util.GetParamValue(_context, "@city");
 
             ResponseOfferLocationList wrapper = new ResponseOfferLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/get/city";
+            wrapper.action = "offer-location/get/by-city";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferLocation> objs = api.GetOfferLocationListCity(
+            List<OfferLocation> objs = api.GetOfferLocationListByCity(
                 _city
             );
             
@@ -6821,21 +6837,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferLocationListCountryCode() {
+        public virtual void GetOfferLocationListByCountryCode() {
         
              _country_code = ()util.GetParamValue(_context, "@country_code");
 
             ResponseOfferLocationList wrapper = new ResponseOfferLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/get/country-code";
+            wrapper.action = "offer-location/get/by-country-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferLocation> objs = api.GetOfferLocationListCountryCode(
+            List<OfferLocation> objs = api.GetOfferLocationListByCountryCode(
                 _country_code
             );
             
@@ -6846,21 +6862,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferLocationListPostalCode() {
+        public virtual void GetOfferLocationListByPostalCode() {
         
              _postal_code = ()util.GetParamValue(_context, "@postal_code");
 
             ResponseOfferLocationList wrapper = new ResponseOfferLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-location/get/postal-code";
+            wrapper.action = "offer-location/get/by-postal-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferLocation> objs = api.GetOfferLocationListPostalCode(
+            List<OfferLocation> objs = api.GetOfferLocationListByPostalCode(
                 _postal_code
             );
             
@@ -6894,21 +6910,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryUuid() {
+        public virtual void CountOfferCategoryByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferCategoryInt wrapper = new ResponseOfferCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/count/uuid";
+            wrapper.action = "offer-category/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryUuid(
+            int i = api.CountOfferCategoryByUuid(
                 _uuid
             );
             
@@ -6919,21 +6935,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryCode() {
+        public virtual void CountOfferCategoryByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOfferCategoryInt wrapper = new ResponseOfferCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/count/code";
+            wrapper.action = "offer-category/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryCode(
+            int i = api.CountOfferCategoryByCode(
                 _code
             );
             
@@ -6944,21 +6960,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryName() {
+        public virtual void CountOfferCategoryByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseOfferCategoryInt wrapper = new ResponseOfferCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/count/name";
+            wrapper.action = "offer-category/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryName(
+            int i = api.CountOfferCategoryByName(
                 _name
             );
             
@@ -6969,21 +6985,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryOrgId() {
+        public virtual void CountOfferCategoryByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseOfferCategoryInt wrapper = new ResponseOfferCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/count/org-id";
+            wrapper.action = "offer-category/count/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryOrgId(
+            int i = api.CountOfferCategoryByOrgId(
                 _org_id
             );
             
@@ -6994,21 +7010,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryTypeId() {
+        public virtual void CountOfferCategoryByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseOfferCategoryInt wrapper = new ResponseOfferCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/count/type-id";
+            wrapper.action = "offer-category/count/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryTypeId(
+            int i = api.CountOfferCategoryByTypeId(
                 _type_id
             );
             
@@ -7019,7 +7035,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryOrgIdTypeId() {
+        public virtual void CountOfferCategoryByOrgIdByTypeId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -7027,14 +7043,14 @@ namespace platform {
             ResponseOfferCategoryInt wrapper = new ResponseOfferCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/count/org-id/type-id";
+            wrapper.action = "offer-category/count/by-org-id/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryOrgIdTypeId(
+            int i = api.CountOfferCategoryByOrgIdByTypeId(
                 _org_id
                 , _type_id
             );
@@ -7045,12 +7061,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOfferCategoryListFilter()  {
+        public virtual void BrowseOfferCategoryListByFilter()  {
         
             ResponseOfferCategoryList wrapper = new ResponseOfferCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/browse/filter";
+            wrapper.action = "offer-category/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7062,7 +7078,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OfferCategoryResult result = api.BrowseOfferCategoryListFilter(obj);
+            OfferCategoryResult result = api.BrowseOfferCategoryListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -7074,12 +7090,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOfferCategoryUuid()  {
+        public virtual void SetOfferCategoryByUuid()  {
         
             ResponseOfferCategoryBool wrapper = new ResponseOfferCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/set/uuid";
+            wrapper.action = "offer-category/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7109,6 +7125,10 @@ namespace platform {
                 obj.date_modified = Convert.ToDateTime(_date_modified);
             else 
                 obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
             
             string _type_id = util.GetParamValue(_context, "@type_id");
             if(!String.IsNoneOrEmpty(_type_id))
@@ -7142,26 +7162,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOfferCategoryUuid(obj);
+            wrapper.data = api.SetOfferCategoryByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferCategoryUuid() {
+        public virtual void DelOfferCategoryByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferCategoryBool wrapper = new ResponseOfferCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/del/uuid";
+            wrapper.action = "offer-category/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferCategoryUuid(
+            bool completed = api.DelOfferCategoryByUuid(
                         
                 _uuid
             );
@@ -7172,7 +7192,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferCategoryCodeOrgId() {
+        public virtual void DelOfferCategoryByCodeByOrgId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -7180,14 +7200,14 @@ namespace platform {
             ResponseOfferCategoryBool wrapper = new ResponseOfferCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/del/code/org-id";
+            wrapper.action = "offer-category/del/by-code/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferCategoryCodeOrgId(
+            bool completed = api.DelOfferCategoryByCodeByOrgId(
                         
                 _code
                 , _org_id
@@ -7199,7 +7219,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferCategoryCodeOrgIdTypeId() {
+        public virtual void DelOfferCategoryByCodeByOrgIdByTypeId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -7208,14 +7228,14 @@ namespace platform {
             ResponseOfferCategoryBool wrapper = new ResponseOfferCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/del/code/org-id/type-id";
+            wrapper.action = "offer-category/del/by-code/by-org-id/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferCategoryCodeOrgIdTypeId(
+            bool completed = api.DelOfferCategoryByCodeByOrgIdByTypeId(
                         
                 _code
                 , _org_id
@@ -7252,21 +7272,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryListUuid() {
+        public virtual void GetOfferCategoryListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferCategoryList wrapper = new ResponseOfferCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/get/uuid";
+            wrapper.action = "offer-category/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategory> objs = api.GetOfferCategoryListUuid(
+            List<OfferCategory> objs = api.GetOfferCategoryListByUuid(
                 _uuid
             );
             
@@ -7277,21 +7297,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryListCode() {
+        public virtual void GetOfferCategoryListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseOfferCategoryList wrapper = new ResponseOfferCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/get/code";
+            wrapper.action = "offer-category/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategory> objs = api.GetOfferCategoryListCode(
+            List<OfferCategory> objs = api.GetOfferCategoryListByCode(
                 _code
             );
             
@@ -7302,21 +7322,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryListName() {
+        public virtual void GetOfferCategoryListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseOfferCategoryList wrapper = new ResponseOfferCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/get/name";
+            wrapper.action = "offer-category/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategory> objs = api.GetOfferCategoryListName(
+            List<OfferCategory> objs = api.GetOfferCategoryListByName(
                 _name
             );
             
@@ -7327,21 +7347,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryListOrgId() {
+        public virtual void GetOfferCategoryListByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseOfferCategoryList wrapper = new ResponseOfferCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/get/org-id";
+            wrapper.action = "offer-category/get/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategory> objs = api.GetOfferCategoryListOrgId(
+            List<OfferCategory> objs = api.GetOfferCategoryListByOrgId(
                 _org_id
             );
             
@@ -7352,21 +7372,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryListTypeId() {
+        public virtual void GetOfferCategoryListByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseOfferCategoryList wrapper = new ResponseOfferCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/get/type-id";
+            wrapper.action = "offer-category/get/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategory> objs = api.GetOfferCategoryListTypeId(
+            List<OfferCategory> objs = api.GetOfferCategoryListByTypeId(
                 _type_id
             );
             
@@ -7377,7 +7397,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryListOrgIdTypeId() {
+        public virtual void GetOfferCategoryListByOrgIdByTypeId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -7385,14 +7405,14 @@ namespace platform {
             ResponseOfferCategoryList wrapper = new ResponseOfferCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category/get/org-id/type-id";
+            wrapper.action = "offer-category/get/by-org-id/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategory> objs = api.GetOfferCategoryListOrgIdTypeId(
+            List<OfferCategory> objs = api.GetOfferCategoryListByOrgIdByTypeId(
                 _org_id
                 , _type_id
             );
@@ -7427,21 +7447,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryTreeUuid() {
+        public virtual void CountOfferCategoryTreeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferCategoryTreeInt wrapper = new ResponseOfferCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/count/uuid";
+            wrapper.action = "offer-category-tree/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryTreeUuid(
+            int i = api.CountOfferCategoryTreeByUuid(
                 _uuid
             );
             
@@ -7452,21 +7472,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryTreeParentId() {
+        public virtual void CountOfferCategoryTreeByParentId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
 
             ResponseOfferCategoryTreeInt wrapper = new ResponseOfferCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/count/parent-id";
+            wrapper.action = "offer-category-tree/count/by-parent-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryTreeParentId(
+            int i = api.CountOfferCategoryTreeByParentId(
                 _parent_id
             );
             
@@ -7477,21 +7497,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryTreeCategoryId() {
+        public virtual void CountOfferCategoryTreeByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseOfferCategoryTreeInt wrapper = new ResponseOfferCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/count/category-id";
+            wrapper.action = "offer-category-tree/count/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryTreeCategoryId(
+            int i = api.CountOfferCategoryTreeByCategoryId(
                 _category_id
             );
             
@@ -7502,7 +7522,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryTreeParentIdCategoryId() {
+        public virtual void CountOfferCategoryTreeByParentIdByCategoryId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -7510,14 +7530,14 @@ namespace platform {
             ResponseOfferCategoryTreeInt wrapper = new ResponseOfferCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/count/parent-id/category-id";
+            wrapper.action = "offer-category-tree/count/by-parent-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryTreeParentIdCategoryId(
+            int i = api.CountOfferCategoryTreeByParentIdByCategoryId(
                 _parent_id
                 , _category_id
             );
@@ -7528,12 +7548,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOfferCategoryTreeListFilter()  {
+        public virtual void BrowseOfferCategoryTreeListByFilter()  {
         
             ResponseOfferCategoryTreeList wrapper = new ResponseOfferCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/browse/filter";
+            wrapper.action = "offer-category-tree/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7545,7 +7565,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OfferCategoryTreeResult result = api.BrowseOfferCategoryTreeListFilter(obj);
+            OfferCategoryTreeResult result = api.BrowseOfferCategoryTreeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -7557,12 +7577,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOfferCategoryTreeUuid()  {
+        public virtual void SetOfferCategoryTreeByUuid()  {
         
             ResponseOfferCategoryTreeBool wrapper = new ResponseOfferCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/set/uuid";
+            wrapper.action = "offer-category-tree/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7609,26 +7629,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOfferCategoryTreeUuid(obj);
+            wrapper.data = api.SetOfferCategoryTreeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferCategoryTreeUuid() {
+        public virtual void DelOfferCategoryTreeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferCategoryTreeBool wrapper = new ResponseOfferCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/del/uuid";
+            wrapper.action = "offer-category-tree/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferCategoryTreeUuid(
+            bool completed = api.DelOfferCategoryTreeByUuid(
                         
                 _uuid
             );
@@ -7639,21 +7659,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferCategoryTreeParentId() {
+        public virtual void DelOfferCategoryTreeByParentId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
 
             ResponseOfferCategoryTreeBool wrapper = new ResponseOfferCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/del/parent-id";
+            wrapper.action = "offer-category-tree/del/by-parent-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferCategoryTreeParentId(
+            bool completed = api.DelOfferCategoryTreeByParentId(
                         
                 _parent_id
             );
@@ -7664,21 +7684,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferCategoryTreeCategoryId() {
+        public virtual void DelOfferCategoryTreeByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseOfferCategoryTreeBool wrapper = new ResponseOfferCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/del/category-id";
+            wrapper.action = "offer-category-tree/del/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferCategoryTreeCategoryId(
+            bool completed = api.DelOfferCategoryTreeByCategoryId(
                         
                 _category_id
             );
@@ -7689,7 +7709,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferCategoryTreeParentIdCategoryId() {
+        public virtual void DelOfferCategoryTreeByParentIdByCategoryId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -7697,14 +7717,14 @@ namespace platform {
             ResponseOfferCategoryTreeBool wrapper = new ResponseOfferCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/del/parent-id/category-id";
+            wrapper.action = "offer-category-tree/del/by-parent-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferCategoryTreeParentIdCategoryId(
+            bool completed = api.DelOfferCategoryTreeByParentIdByCategoryId(
                         
                 _parent_id
                 , _category_id
@@ -7740,21 +7760,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryTreeListUuid() {
+        public virtual void GetOfferCategoryTreeListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferCategoryTreeList wrapper = new ResponseOfferCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/get/uuid";
+            wrapper.action = "offer-category-tree/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategoryTree> objs = api.GetOfferCategoryTreeListUuid(
+            List<OfferCategoryTree> objs = api.GetOfferCategoryTreeListByUuid(
                 _uuid
             );
             
@@ -7765,21 +7785,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryTreeListParentId() {
+        public virtual void GetOfferCategoryTreeListByParentId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
 
             ResponseOfferCategoryTreeList wrapper = new ResponseOfferCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/get/parent-id";
+            wrapper.action = "offer-category-tree/get/by-parent-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategoryTree> objs = api.GetOfferCategoryTreeListParentId(
+            List<OfferCategoryTree> objs = api.GetOfferCategoryTreeListByParentId(
                 _parent_id
             );
             
@@ -7790,21 +7810,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryTreeListCategoryId() {
+        public virtual void GetOfferCategoryTreeListByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseOfferCategoryTreeList wrapper = new ResponseOfferCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/get/category-id";
+            wrapper.action = "offer-category-tree/get/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategoryTree> objs = api.GetOfferCategoryTreeListCategoryId(
+            List<OfferCategoryTree> objs = api.GetOfferCategoryTreeListByCategoryId(
                 _category_id
             );
             
@@ -7815,7 +7835,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryTreeListParentIdCategoryId() {
+        public virtual void GetOfferCategoryTreeListByParentIdByCategoryId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -7823,14 +7843,14 @@ namespace platform {
             ResponseOfferCategoryTreeList wrapper = new ResponseOfferCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-tree/get/parent-id/category-id";
+            wrapper.action = "offer-category-tree/get/by-parent-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategoryTree> objs = api.GetOfferCategoryTreeListParentIdCategoryId(
+            List<OfferCategoryTree> objs = api.GetOfferCategoryTreeListByParentIdByCategoryId(
                 _parent_id
                 , _category_id
             );
@@ -7865,21 +7885,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryAssocUuid() {
+        public virtual void CountOfferCategoryAssocByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferCategoryAssocInt wrapper = new ResponseOfferCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/count/uuid";
+            wrapper.action = "offer-category-assoc/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryAssocUuid(
+            int i = api.CountOfferCategoryAssocByUuid(
                 _uuid
             );
             
@@ -7890,21 +7910,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryAssocOfferId() {
+        public virtual void CountOfferCategoryAssocByOfferId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
 
             ResponseOfferCategoryAssocInt wrapper = new ResponseOfferCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/count/offer-id";
+            wrapper.action = "offer-category-assoc/count/by-offer-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryAssocOfferId(
+            int i = api.CountOfferCategoryAssocByOfferId(
                 _offer_id
             );
             
@@ -7915,21 +7935,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryAssocCategoryId() {
+        public virtual void CountOfferCategoryAssocByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseOfferCategoryAssocInt wrapper = new ResponseOfferCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/count/category-id";
+            wrapper.action = "offer-category-assoc/count/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryAssocCategoryId(
+            int i = api.CountOfferCategoryAssocByCategoryId(
                 _category_id
             );
             
@@ -7940,7 +7960,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferCategoryAssocOfferIdCategoryId() {
+        public virtual void CountOfferCategoryAssocByOfferIdByCategoryId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -7948,14 +7968,14 @@ namespace platform {
             ResponseOfferCategoryAssocInt wrapper = new ResponseOfferCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/count/offer-id/category-id";
+            wrapper.action = "offer-category-assoc/count/by-offer-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferCategoryAssocOfferIdCategoryId(
+            int i = api.CountOfferCategoryAssocByOfferIdByCategoryId(
                 _offer_id
                 , _category_id
             );
@@ -7966,12 +7986,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOfferCategoryAssocListFilter()  {
+        public virtual void BrowseOfferCategoryAssocListByFilter()  {
         
             ResponseOfferCategoryAssocList wrapper = new ResponseOfferCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/browse/filter";
+            wrapper.action = "offer-category-assoc/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -7983,7 +8003,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OfferCategoryAssocResult result = api.BrowseOfferCategoryAssocListFilter(obj);
+            OfferCategoryAssocResult result = api.BrowseOfferCategoryAssocListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -7995,12 +8015,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOfferCategoryAssocUuid()  {
+        public virtual void SetOfferCategoryAssocByUuid()  {
         
             ResponseOfferCategoryAssocBool wrapper = new ResponseOfferCategoryAssocBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/set/uuid";
+            wrapper.action = "offer-category-assoc/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8047,26 +8067,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOfferCategoryAssocUuid(obj);
+            wrapper.data = api.SetOfferCategoryAssocByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferCategoryAssocUuid() {
+        public virtual void DelOfferCategoryAssocByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferCategoryAssocBool wrapper = new ResponseOfferCategoryAssocBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/del/uuid";
+            wrapper.action = "offer-category-assoc/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferCategoryAssocUuid(
+            bool completed = api.DelOfferCategoryAssocByUuid(
                         
                 _uuid
             );
@@ -8101,21 +8121,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryAssocListUuid() {
+        public virtual void GetOfferCategoryAssocListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferCategoryAssocList wrapper = new ResponseOfferCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/get/uuid";
+            wrapper.action = "offer-category-assoc/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategoryAssoc> objs = api.GetOfferCategoryAssocListUuid(
+            List<OfferCategoryAssoc> objs = api.GetOfferCategoryAssocListByUuid(
                 _uuid
             );
             
@@ -8126,21 +8146,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryAssocListOfferId() {
+        public virtual void GetOfferCategoryAssocListByOfferId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
 
             ResponseOfferCategoryAssocList wrapper = new ResponseOfferCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/get/offer-id";
+            wrapper.action = "offer-category-assoc/get/by-offer-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategoryAssoc> objs = api.GetOfferCategoryAssocListOfferId(
+            List<OfferCategoryAssoc> objs = api.GetOfferCategoryAssocListByOfferId(
                 _offer_id
             );
             
@@ -8151,21 +8171,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryAssocListCategoryId() {
+        public virtual void GetOfferCategoryAssocListByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseOfferCategoryAssocList wrapper = new ResponseOfferCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/get/category-id";
+            wrapper.action = "offer-category-assoc/get/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategoryAssoc> objs = api.GetOfferCategoryAssocListCategoryId(
+            List<OfferCategoryAssoc> objs = api.GetOfferCategoryAssocListByCategoryId(
                 _category_id
             );
             
@@ -8176,7 +8196,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferCategoryAssocListOfferIdCategoryId() {
+        public virtual void GetOfferCategoryAssocListByOfferIdByCategoryId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -8184,14 +8204,14 @@ namespace platform {
             ResponseOfferCategoryAssocList wrapper = new ResponseOfferCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-category-assoc/get/offer-id/category-id";
+            wrapper.action = "offer-category-assoc/get/by-offer-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferCategoryAssoc> objs = api.GetOfferCategoryAssocListOfferIdCategoryId(
+            List<OfferCategoryAssoc> objs = api.GetOfferCategoryAssocListByOfferIdByCategoryId(
                 _offer_id
                 , _category_id
             );
@@ -8226,21 +8246,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferGameLocationUuid() {
+        public virtual void CountOfferGameLocationByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferGameLocationInt wrapper = new ResponseOfferGameLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/count/uuid";
+            wrapper.action = "offer-game-location/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferGameLocationUuid(
+            int i = api.CountOfferGameLocationByUuid(
                 _uuid
             );
             
@@ -8251,21 +8271,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferGameLocationGameLocationId() {
+        public virtual void CountOfferGameLocationByGameLocationId() {
         
              _game_location_id = ()util.GetParamValue(_context, "@game_location_id");
 
             ResponseOfferGameLocationInt wrapper = new ResponseOfferGameLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/count/game-location-id";
+            wrapper.action = "offer-game-location/count/by-game-location-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferGameLocationGameLocationId(
+            int i = api.CountOfferGameLocationByGameLocationId(
                 _game_location_id
             );
             
@@ -8276,21 +8296,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferGameLocationOfferId() {
+        public virtual void CountOfferGameLocationByOfferId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
 
             ResponseOfferGameLocationInt wrapper = new ResponseOfferGameLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/count/offer-id";
+            wrapper.action = "offer-game-location/count/by-offer-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferGameLocationOfferId(
+            int i = api.CountOfferGameLocationByOfferId(
                 _offer_id
             );
             
@@ -8301,7 +8321,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOfferGameLocationOfferIdGameLocationId() {
+        public virtual void CountOfferGameLocationByOfferIdByGameLocationId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
              _game_location_id = ()util.GetParamValue(_context, "@game_location_id");
@@ -8309,14 +8329,14 @@ namespace platform {
             ResponseOfferGameLocationInt wrapper = new ResponseOfferGameLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/count/offer-id/game-location-id";
+            wrapper.action = "offer-game-location/count/by-offer-id/by-game-location-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOfferGameLocationOfferIdGameLocationId(
+            int i = api.CountOfferGameLocationByOfferIdByGameLocationId(
                 _offer_id
                 , _game_location_id
             );
@@ -8327,12 +8347,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOfferGameLocationListFilter()  {
+        public virtual void BrowseOfferGameLocationListByFilter()  {
         
             ResponseOfferGameLocationList wrapper = new ResponseOfferGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/browse/filter";
+            wrapper.action = "offer-game-location/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8344,7 +8364,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OfferGameLocationResult result = api.BrowseOfferGameLocationListFilter(obj);
+            OfferGameLocationResult result = api.BrowseOfferGameLocationListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -8356,12 +8376,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOfferGameLocationUuid()  {
+        public virtual void SetOfferGameLocationByUuid()  {
         
             ResponseOfferGameLocationBool wrapper = new ResponseOfferGameLocationBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/set/uuid";
+            wrapper.action = "offer-game-location/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8410,28 +8430,32 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_type))
                 obj.type = ()_type;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             
             // get data
-            wrapper.data = api.SetOfferGameLocationUuid(obj);
+            wrapper.data = api.SetOfferGameLocationByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOfferGameLocationUuid() {
+        public virtual void DelOfferGameLocationByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferGameLocationBool wrapper = new ResponseOfferGameLocationBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/del/uuid";
+            wrapper.action = "offer-game-location/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOfferGameLocationUuid(
+            bool completed = api.DelOfferGameLocationByUuid(
                         
                 _uuid
             );
@@ -8466,21 +8490,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferGameLocationListUuid() {
+        public virtual void GetOfferGameLocationListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOfferGameLocationList wrapper = new ResponseOfferGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/get/uuid";
+            wrapper.action = "offer-game-location/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferGameLocation> objs = api.GetOfferGameLocationListUuid(
+            List<OfferGameLocation> objs = api.GetOfferGameLocationListByUuid(
                 _uuid
             );
             
@@ -8491,21 +8515,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferGameLocationListGameLocationId() {
+        public virtual void GetOfferGameLocationListByGameLocationId() {
         
              _game_location_id = ()util.GetParamValue(_context, "@game_location_id");
 
             ResponseOfferGameLocationList wrapper = new ResponseOfferGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/get/game-location-id";
+            wrapper.action = "offer-game-location/get/by-game-location-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferGameLocation> objs = api.GetOfferGameLocationListGameLocationId(
+            List<OfferGameLocation> objs = api.GetOfferGameLocationListByGameLocationId(
                 _game_location_id
             );
             
@@ -8516,21 +8540,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferGameLocationListOfferId() {
+        public virtual void GetOfferGameLocationListByOfferId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
 
             ResponseOfferGameLocationList wrapper = new ResponseOfferGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/get/offer-id";
+            wrapper.action = "offer-game-location/get/by-offer-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferGameLocation> objs = api.GetOfferGameLocationListOfferId(
+            List<OfferGameLocation> objs = api.GetOfferGameLocationListByOfferId(
                 _offer_id
             );
             
@@ -8541,7 +8565,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOfferGameLocationListOfferIdGameLocationId() {
+        public virtual void GetOfferGameLocationListByOfferIdByGameLocationId() {
         
              _offer_id = ()util.GetParamValue(_context, "@offer_id");
              _game_location_id = ()util.GetParamValue(_context, "@game_location_id");
@@ -8549,14 +8573,14 @@ namespace platform {
             ResponseOfferGameLocationList wrapper = new ResponseOfferGameLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "offer-game-location/get/offer-id/game-location-id";
+            wrapper.action = "offer-game-location/get/by-offer-id/by-game-location-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OfferGameLocation> objs = api.GetOfferGameLocationListOfferIdGameLocationId(
+            List<OfferGameLocation> objs = api.GetOfferGameLocationListByOfferIdByGameLocationId(
                 _offer_id
                 , _game_location_id
             );
@@ -8591,21 +8615,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventInfoUuid() {
+        public virtual void CountEventInfoByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventInfoInt wrapper = new ResponseEventInfoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/count/uuid";
+            wrapper.action = "event-info/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventInfoUuid(
+            int i = api.CountEventInfoByUuid(
                 _uuid
             );
             
@@ -8616,21 +8640,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventInfoCode() {
+        public virtual void CountEventInfoByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseEventInfoInt wrapper = new ResponseEventInfoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/count/code";
+            wrapper.action = "event-info/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventInfoCode(
+            int i = api.CountEventInfoByCode(
                 _code
             );
             
@@ -8641,21 +8665,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventInfoName() {
+        public virtual void CountEventInfoByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseEventInfoInt wrapper = new ResponseEventInfoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/count/name";
+            wrapper.action = "event-info/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventInfoName(
+            int i = api.CountEventInfoByName(
                 _name
             );
             
@@ -8666,21 +8690,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventInfoOrgId() {
+        public virtual void CountEventInfoByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseEventInfoInt wrapper = new ResponseEventInfoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/count/org-id";
+            wrapper.action = "event-info/count/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventInfoOrgId(
+            int i = api.CountEventInfoByOrgId(
                 _org_id
             );
             
@@ -8690,12 +8714,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseEventInfoListFilter()  {
+        public virtual void BrowseEventInfoListByFilter()  {
         
             ResponseEventInfoList wrapper = new ResponseEventInfoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/browse/filter";
+            wrapper.action = "event-info/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8707,7 +8731,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            EventInfoResult result = api.BrowseEventInfoListFilter(obj);
+            EventInfoResult result = api.BrowseEventInfoListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -8719,12 +8743,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetEventInfoUuid()  {
+        public virtual void SetEventInfoByUuid()  {
         
             ResponseEventInfoBool wrapper = new ResponseEventInfoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/set/uuid";
+            wrapper.action = "event-info/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -8759,6 +8783,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_url))
                 obj.url = ()_url;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _org_id = util.GetParamValue(_context, "@org_id");
             if(!String.IsNoneOrEmpty(_org_id))
                 obj.org_id = ()_org_id;
@@ -8791,26 +8819,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetEventInfoUuid(obj);
+            wrapper.data = api.SetEventInfoByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventInfoUuid() {
+        public virtual void DelEventInfoByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventInfoBool wrapper = new ResponseEventInfoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/del/uuid";
+            wrapper.action = "event-info/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventInfoUuid(
+            bool completed = api.DelEventInfoByUuid(
                         
                 _uuid
             );
@@ -8821,21 +8849,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventInfoOrgId() {
+        public virtual void DelEventInfoByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseEventInfoBool wrapper = new ResponseEventInfoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/del/org-id";
+            wrapper.action = "event-info/del/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventInfoOrgId(
+            bool completed = api.DelEventInfoByOrgId(
                         
                 _org_id
             );
@@ -8870,21 +8898,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventInfoListUuid() {
+        public virtual void GetEventInfoListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventInfoList wrapper = new ResponseEventInfoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/get/uuid";
+            wrapper.action = "event-info/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventInfo> objs = api.GetEventInfoListUuid(
+            List<EventInfo> objs = api.GetEventInfoListByUuid(
                 _uuid
             );
             
@@ -8895,21 +8923,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventInfoListCode() {
+        public virtual void GetEventInfoListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseEventInfoList wrapper = new ResponseEventInfoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/get/code";
+            wrapper.action = "event-info/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventInfo> objs = api.GetEventInfoListCode(
+            List<EventInfo> objs = api.GetEventInfoListByCode(
                 _code
             );
             
@@ -8920,21 +8948,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventInfoListName() {
+        public virtual void GetEventInfoListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseEventInfoList wrapper = new ResponseEventInfoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/get/name";
+            wrapper.action = "event-info/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventInfo> objs = api.GetEventInfoListName(
+            List<EventInfo> objs = api.GetEventInfoListByName(
                 _name
             );
             
@@ -8945,21 +8973,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventInfoListOrgId() {
+        public virtual void GetEventInfoListByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseEventInfoList wrapper = new ResponseEventInfoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-info/get/org-id";
+            wrapper.action = "event-info/get/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventInfo> objs = api.GetEventInfoListOrgId(
+            List<EventInfo> objs = api.GetEventInfoListByOrgId(
                 _org_id
             );
             
@@ -8993,21 +9021,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventLocationUuid() {
+        public virtual void CountEventLocationByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventLocationInt wrapper = new ResponseEventLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/count/uuid";
+            wrapper.action = "event-location/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventLocationUuid(
+            int i = api.CountEventLocationByUuid(
                 _uuid
             );
             
@@ -9018,21 +9046,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventLocationEventId() {
+        public virtual void CountEventLocationByEventId() {
         
              _event_id = ()util.GetParamValue(_context, "@event_id");
 
             ResponseEventLocationInt wrapper = new ResponseEventLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/count/event-id";
+            wrapper.action = "event-location/count/by-event-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventLocationEventId(
+            int i = api.CountEventLocationByEventId(
                 _event_id
             );
             
@@ -9043,21 +9071,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventLocationCity() {
+        public virtual void CountEventLocationByCity() {
         
              _city = ()util.GetParamValue(_context, "@city");
 
             ResponseEventLocationInt wrapper = new ResponseEventLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/count/city";
+            wrapper.action = "event-location/count/by-city";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventLocationCity(
+            int i = api.CountEventLocationByCity(
                 _city
             );
             
@@ -9068,21 +9096,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventLocationCountryCode() {
+        public virtual void CountEventLocationByCountryCode() {
         
              _country_code = ()util.GetParamValue(_context, "@country_code");
 
             ResponseEventLocationInt wrapper = new ResponseEventLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/count/country-code";
+            wrapper.action = "event-location/count/by-country-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventLocationCountryCode(
+            int i = api.CountEventLocationByCountryCode(
                 _country_code
             );
             
@@ -9093,21 +9121,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventLocationPostalCode() {
+        public virtual void CountEventLocationByPostalCode() {
         
              _postal_code = ()util.GetParamValue(_context, "@postal_code");
 
             ResponseEventLocationInt wrapper = new ResponseEventLocationInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/count/postal-code";
+            wrapper.action = "event-location/count/by-postal-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventLocationPostalCode(
+            int i = api.CountEventLocationByPostalCode(
                 _postal_code
             );
             
@@ -9117,12 +9145,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseEventLocationListFilter()  {
+        public virtual void BrowseEventLocationListByFilter()  {
         
             ResponseEventLocationList wrapper = new ResponseEventLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/browse/filter";
+            wrapper.action = "event-location/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9134,7 +9162,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            EventLocationResult result = api.BrowseEventLocationListFilter(obj);
+            EventLocationResult result = api.BrowseEventLocationListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -9146,12 +9174,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetEventLocationUuid()  {
+        public virtual void SetEventLocationByUuid()  {
         
             ResponseEventLocationBool wrapper = new ResponseEventLocationBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/set/uuid";
+            wrapper.action = "event-location/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9206,6 +9234,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_active))
                 obj.active = Convert.ToBoolean(_active);
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _uuid = util.GetParamValue(_context, "@uuid");
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
@@ -9280,26 +9312,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetEventLocationUuid(obj);
+            wrapper.data = api.SetEventLocationByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventLocationUuid() {
+        public virtual void DelEventLocationByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventLocationBool wrapper = new ResponseEventLocationBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/del/uuid";
+            wrapper.action = "event-location/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventLocationUuid(
+            bool completed = api.DelEventLocationByUuid(
                         
                 _uuid
             );
@@ -9334,21 +9366,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventLocationListUuid() {
+        public virtual void GetEventLocationListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventLocationList wrapper = new ResponseEventLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/get/uuid";
+            wrapper.action = "event-location/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventLocation> objs = api.GetEventLocationListUuid(
+            List<EventLocation> objs = api.GetEventLocationListByUuid(
                 _uuid
             );
             
@@ -9359,21 +9391,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventLocationListEventId() {
+        public virtual void GetEventLocationListByEventId() {
         
              _event_id = ()util.GetParamValue(_context, "@event_id");
 
             ResponseEventLocationList wrapper = new ResponseEventLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/get/event-id";
+            wrapper.action = "event-location/get/by-event-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventLocation> objs = api.GetEventLocationListEventId(
+            List<EventLocation> objs = api.GetEventLocationListByEventId(
                 _event_id
             );
             
@@ -9384,21 +9416,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventLocationListCity() {
+        public virtual void GetEventLocationListByCity() {
         
              _city = ()util.GetParamValue(_context, "@city");
 
             ResponseEventLocationList wrapper = new ResponseEventLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/get/city";
+            wrapper.action = "event-location/get/by-city";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventLocation> objs = api.GetEventLocationListCity(
+            List<EventLocation> objs = api.GetEventLocationListByCity(
                 _city
             );
             
@@ -9409,21 +9441,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventLocationListCountryCode() {
+        public virtual void GetEventLocationListByCountryCode() {
         
              _country_code = ()util.GetParamValue(_context, "@country_code");
 
             ResponseEventLocationList wrapper = new ResponseEventLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/get/country-code";
+            wrapper.action = "event-location/get/by-country-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventLocation> objs = api.GetEventLocationListCountryCode(
+            List<EventLocation> objs = api.GetEventLocationListByCountryCode(
                 _country_code
             );
             
@@ -9434,21 +9466,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventLocationListPostalCode() {
+        public virtual void GetEventLocationListByPostalCode() {
         
              _postal_code = ()util.GetParamValue(_context, "@postal_code");
 
             ResponseEventLocationList wrapper = new ResponseEventLocationList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-location/get/postal-code";
+            wrapper.action = "event-location/get/by-postal-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventLocation> objs = api.GetEventLocationListPostalCode(
+            List<EventLocation> objs = api.GetEventLocationListByPostalCode(
                 _postal_code
             );
             
@@ -9482,21 +9514,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryUuid() {
+        public virtual void CountEventCategoryByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventCategoryInt wrapper = new ResponseEventCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/count/uuid";
+            wrapper.action = "event-category/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryUuid(
+            int i = api.CountEventCategoryByUuid(
                 _uuid
             );
             
@@ -9507,21 +9539,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryCode() {
+        public virtual void CountEventCategoryByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseEventCategoryInt wrapper = new ResponseEventCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/count/code";
+            wrapper.action = "event-category/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryCode(
+            int i = api.CountEventCategoryByCode(
                 _code
             );
             
@@ -9532,21 +9564,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryName() {
+        public virtual void CountEventCategoryByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseEventCategoryInt wrapper = new ResponseEventCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/count/name";
+            wrapper.action = "event-category/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryName(
+            int i = api.CountEventCategoryByName(
                 _name
             );
             
@@ -9557,21 +9589,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryOrgId() {
+        public virtual void CountEventCategoryByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseEventCategoryInt wrapper = new ResponseEventCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/count/org-id";
+            wrapper.action = "event-category/count/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryOrgId(
+            int i = api.CountEventCategoryByOrgId(
                 _org_id
             );
             
@@ -9582,21 +9614,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryTypeId() {
+        public virtual void CountEventCategoryByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseEventCategoryInt wrapper = new ResponseEventCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/count/type-id";
+            wrapper.action = "event-category/count/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryTypeId(
+            int i = api.CountEventCategoryByTypeId(
                 _type_id
             );
             
@@ -9607,7 +9639,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryOrgIdTypeId() {
+        public virtual void CountEventCategoryByOrgIdByTypeId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -9615,14 +9647,14 @@ namespace platform {
             ResponseEventCategoryInt wrapper = new ResponseEventCategoryInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/count/org-id/type-id";
+            wrapper.action = "event-category/count/by-org-id/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryOrgIdTypeId(
+            int i = api.CountEventCategoryByOrgIdByTypeId(
                 _org_id
                 , _type_id
             );
@@ -9633,12 +9665,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseEventCategoryListFilter()  {
+        public virtual void BrowseEventCategoryListByFilter()  {
         
             ResponseEventCategoryList wrapper = new ResponseEventCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/browse/filter";
+            wrapper.action = "event-category/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9650,7 +9682,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            EventCategoryResult result = api.BrowseEventCategoryListFilter(obj);
+            EventCategoryResult result = api.BrowseEventCategoryListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -9662,12 +9694,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetEventCategoryUuid()  {
+        public virtual void SetEventCategoryByUuid()  {
         
             ResponseEventCategoryBool wrapper = new ResponseEventCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/set/uuid";
+            wrapper.action = "event-category/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -9697,6 +9729,10 @@ namespace platform {
                 obj.date_modified = Convert.ToDateTime(_date_modified);
             else 
                 obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
             
             string _type_id = util.GetParamValue(_context, "@type_id");
             if(!String.IsNoneOrEmpty(_type_id))
@@ -9730,26 +9766,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetEventCategoryUuid(obj);
+            wrapper.data = api.SetEventCategoryByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventCategoryUuid() {
+        public virtual void DelEventCategoryByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventCategoryBool wrapper = new ResponseEventCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/del/uuid";
+            wrapper.action = "event-category/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventCategoryUuid(
+            bool completed = api.DelEventCategoryByUuid(
                         
                 _uuid
             );
@@ -9760,7 +9796,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventCategoryCodeOrgId() {
+        public virtual void DelEventCategoryByCodeByOrgId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -9768,14 +9804,14 @@ namespace platform {
             ResponseEventCategoryBool wrapper = new ResponseEventCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/del/code/org-id";
+            wrapper.action = "event-category/del/by-code/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventCategoryCodeOrgId(
+            bool completed = api.DelEventCategoryByCodeByOrgId(
                         
                 _code
                 , _org_id
@@ -9787,7 +9823,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventCategoryCodeOrgIdTypeId() {
+        public virtual void DelEventCategoryByCodeByOrgIdByTypeId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -9796,14 +9832,14 @@ namespace platform {
             ResponseEventCategoryBool wrapper = new ResponseEventCategoryBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/del/code/org-id/type-id";
+            wrapper.action = "event-category/del/by-code/by-org-id/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventCategoryCodeOrgIdTypeId(
+            bool completed = api.DelEventCategoryByCodeByOrgIdByTypeId(
                         
                 _code
                 , _org_id
@@ -9840,21 +9876,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryListUuid() {
+        public virtual void GetEventCategoryListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventCategoryList wrapper = new ResponseEventCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/get/uuid";
+            wrapper.action = "event-category/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategory> objs = api.GetEventCategoryListUuid(
+            List<EventCategory> objs = api.GetEventCategoryListByUuid(
                 _uuid
             );
             
@@ -9865,21 +9901,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryListCode() {
+        public virtual void GetEventCategoryListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseEventCategoryList wrapper = new ResponseEventCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/get/code";
+            wrapper.action = "event-category/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategory> objs = api.GetEventCategoryListCode(
+            List<EventCategory> objs = api.GetEventCategoryListByCode(
                 _code
             );
             
@@ -9890,21 +9926,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryListName() {
+        public virtual void GetEventCategoryListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseEventCategoryList wrapper = new ResponseEventCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/get/name";
+            wrapper.action = "event-category/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategory> objs = api.GetEventCategoryListName(
+            List<EventCategory> objs = api.GetEventCategoryListByName(
                 _name
             );
             
@@ -9915,21 +9951,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryListOrgId() {
+        public virtual void GetEventCategoryListByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseEventCategoryList wrapper = new ResponseEventCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/get/org-id";
+            wrapper.action = "event-category/get/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategory> objs = api.GetEventCategoryListOrgId(
+            List<EventCategory> objs = api.GetEventCategoryListByOrgId(
                 _org_id
             );
             
@@ -9940,21 +9976,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryListTypeId() {
+        public virtual void GetEventCategoryListByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseEventCategoryList wrapper = new ResponseEventCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/get/type-id";
+            wrapper.action = "event-category/get/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategory> objs = api.GetEventCategoryListTypeId(
+            List<EventCategory> objs = api.GetEventCategoryListByTypeId(
                 _type_id
             );
             
@@ -9965,7 +10001,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryListOrgIdTypeId() {
+        public virtual void GetEventCategoryListByOrgIdByTypeId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -9973,14 +10009,14 @@ namespace platform {
             ResponseEventCategoryList wrapper = new ResponseEventCategoryList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category/get/org-id/type-id";
+            wrapper.action = "event-category/get/by-org-id/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategory> objs = api.GetEventCategoryListOrgIdTypeId(
+            List<EventCategory> objs = api.GetEventCategoryListByOrgIdByTypeId(
                 _org_id
                 , _type_id
             );
@@ -10015,21 +10051,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryTreeUuid() {
+        public virtual void CountEventCategoryTreeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventCategoryTreeInt wrapper = new ResponseEventCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/count/uuid";
+            wrapper.action = "event-category-tree/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryTreeUuid(
+            int i = api.CountEventCategoryTreeByUuid(
                 _uuid
             );
             
@@ -10040,21 +10076,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryTreeParentId() {
+        public virtual void CountEventCategoryTreeByParentId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
 
             ResponseEventCategoryTreeInt wrapper = new ResponseEventCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/count/parent-id";
+            wrapper.action = "event-category-tree/count/by-parent-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryTreeParentId(
+            int i = api.CountEventCategoryTreeByParentId(
                 _parent_id
             );
             
@@ -10065,21 +10101,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryTreeCategoryId() {
+        public virtual void CountEventCategoryTreeByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseEventCategoryTreeInt wrapper = new ResponseEventCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/count/category-id";
+            wrapper.action = "event-category-tree/count/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryTreeCategoryId(
+            int i = api.CountEventCategoryTreeByCategoryId(
                 _category_id
             );
             
@@ -10090,7 +10126,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryTreeParentIdCategoryId() {
+        public virtual void CountEventCategoryTreeByParentIdByCategoryId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -10098,14 +10134,14 @@ namespace platform {
             ResponseEventCategoryTreeInt wrapper = new ResponseEventCategoryTreeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/count/parent-id/category-id";
+            wrapper.action = "event-category-tree/count/by-parent-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryTreeParentIdCategoryId(
+            int i = api.CountEventCategoryTreeByParentIdByCategoryId(
                 _parent_id
                 , _category_id
             );
@@ -10116,12 +10152,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseEventCategoryTreeListFilter()  {
+        public virtual void BrowseEventCategoryTreeListByFilter()  {
         
             ResponseEventCategoryTreeList wrapper = new ResponseEventCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/browse/filter";
+            wrapper.action = "event-category-tree/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -10133,7 +10169,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            EventCategoryTreeResult result = api.BrowseEventCategoryTreeListFilter(obj);
+            EventCategoryTreeResult result = api.BrowseEventCategoryTreeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -10145,12 +10181,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetEventCategoryTreeUuid()  {
+        public virtual void SetEventCategoryTreeByUuid()  {
         
             ResponseEventCategoryTreeBool wrapper = new ResponseEventCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/set/uuid";
+            wrapper.action = "event-category-tree/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -10197,26 +10233,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetEventCategoryTreeUuid(obj);
+            wrapper.data = api.SetEventCategoryTreeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventCategoryTreeUuid() {
+        public virtual void DelEventCategoryTreeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventCategoryTreeBool wrapper = new ResponseEventCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/del/uuid";
+            wrapper.action = "event-category-tree/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventCategoryTreeUuid(
+            bool completed = api.DelEventCategoryTreeByUuid(
                         
                 _uuid
             );
@@ -10227,21 +10263,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventCategoryTreeParentId() {
+        public virtual void DelEventCategoryTreeByParentId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
 
             ResponseEventCategoryTreeBool wrapper = new ResponseEventCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/del/parent-id";
+            wrapper.action = "event-category-tree/del/by-parent-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventCategoryTreeParentId(
+            bool completed = api.DelEventCategoryTreeByParentId(
                         
                 _parent_id
             );
@@ -10252,21 +10288,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventCategoryTreeCategoryId() {
+        public virtual void DelEventCategoryTreeByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseEventCategoryTreeBool wrapper = new ResponseEventCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/del/category-id";
+            wrapper.action = "event-category-tree/del/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventCategoryTreeCategoryId(
+            bool completed = api.DelEventCategoryTreeByCategoryId(
                         
                 _category_id
             );
@@ -10277,7 +10313,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventCategoryTreeParentIdCategoryId() {
+        public virtual void DelEventCategoryTreeByParentIdByCategoryId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -10285,14 +10321,14 @@ namespace platform {
             ResponseEventCategoryTreeBool wrapper = new ResponseEventCategoryTreeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/del/parent-id/category-id";
+            wrapper.action = "event-category-tree/del/by-parent-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventCategoryTreeParentIdCategoryId(
+            bool completed = api.DelEventCategoryTreeByParentIdByCategoryId(
                         
                 _parent_id
                 , _category_id
@@ -10328,21 +10364,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryTreeListUuid() {
+        public virtual void GetEventCategoryTreeListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventCategoryTreeList wrapper = new ResponseEventCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/get/uuid";
+            wrapper.action = "event-category-tree/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategoryTree> objs = api.GetEventCategoryTreeListUuid(
+            List<EventCategoryTree> objs = api.GetEventCategoryTreeListByUuid(
                 _uuid
             );
             
@@ -10353,21 +10389,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryTreeListParentId() {
+        public virtual void GetEventCategoryTreeListByParentId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
 
             ResponseEventCategoryTreeList wrapper = new ResponseEventCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/get/parent-id";
+            wrapper.action = "event-category-tree/get/by-parent-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategoryTree> objs = api.GetEventCategoryTreeListParentId(
+            List<EventCategoryTree> objs = api.GetEventCategoryTreeListByParentId(
                 _parent_id
             );
             
@@ -10378,21 +10414,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryTreeListCategoryId() {
+        public virtual void GetEventCategoryTreeListByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseEventCategoryTreeList wrapper = new ResponseEventCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/get/category-id";
+            wrapper.action = "event-category-tree/get/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategoryTree> objs = api.GetEventCategoryTreeListCategoryId(
+            List<EventCategoryTree> objs = api.GetEventCategoryTreeListByCategoryId(
                 _category_id
             );
             
@@ -10403,7 +10439,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryTreeListParentIdCategoryId() {
+        public virtual void GetEventCategoryTreeListByParentIdByCategoryId() {
         
              _parent_id = ()util.GetParamValue(_context, "@parent_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -10411,14 +10447,14 @@ namespace platform {
             ResponseEventCategoryTreeList wrapper = new ResponseEventCategoryTreeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-tree/get/parent-id/category-id";
+            wrapper.action = "event-category-tree/get/by-parent-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategoryTree> objs = api.GetEventCategoryTreeListParentIdCategoryId(
+            List<EventCategoryTree> objs = api.GetEventCategoryTreeListByParentIdByCategoryId(
                 _parent_id
                 , _category_id
             );
@@ -10453,21 +10489,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryAssocUuid() {
+        public virtual void CountEventCategoryAssocByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventCategoryAssocInt wrapper = new ResponseEventCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/count/uuid";
+            wrapper.action = "event-category-assoc/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryAssocUuid(
+            int i = api.CountEventCategoryAssocByUuid(
                 _uuid
             );
             
@@ -10478,21 +10514,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryAssocEventId() {
+        public virtual void CountEventCategoryAssocByEventId() {
         
              _event_id = ()util.GetParamValue(_context, "@event_id");
 
             ResponseEventCategoryAssocInt wrapper = new ResponseEventCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/count/event-id";
+            wrapper.action = "event-category-assoc/count/by-event-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryAssocEventId(
+            int i = api.CountEventCategoryAssocByEventId(
                 _event_id
             );
             
@@ -10503,21 +10539,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryAssocCategoryId() {
+        public virtual void CountEventCategoryAssocByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseEventCategoryAssocInt wrapper = new ResponseEventCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/count/category-id";
+            wrapper.action = "event-category-assoc/count/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryAssocCategoryId(
+            int i = api.CountEventCategoryAssocByCategoryId(
                 _category_id
             );
             
@@ -10528,7 +10564,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountEventCategoryAssocEventIdCategoryId() {
+        public virtual void CountEventCategoryAssocByEventIdByCategoryId() {
         
              _event_id = ()util.GetParamValue(_context, "@event_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -10536,14 +10572,14 @@ namespace platform {
             ResponseEventCategoryAssocInt wrapper = new ResponseEventCategoryAssocInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/count/event-id/category-id";
+            wrapper.action = "event-category-assoc/count/by-event-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountEventCategoryAssocEventIdCategoryId(
+            int i = api.CountEventCategoryAssocByEventIdByCategoryId(
                 _event_id
                 , _category_id
             );
@@ -10554,12 +10590,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseEventCategoryAssocListFilter()  {
+        public virtual void BrowseEventCategoryAssocListByFilter()  {
         
             ResponseEventCategoryAssocList wrapper = new ResponseEventCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/browse/filter";
+            wrapper.action = "event-category-assoc/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -10571,7 +10607,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            EventCategoryAssocResult result = api.BrowseEventCategoryAssocListFilter(obj);
+            EventCategoryAssocResult result = api.BrowseEventCategoryAssocListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -10583,12 +10619,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetEventCategoryAssocUuid()  {
+        public virtual void SetEventCategoryAssocByUuid()  {
         
             ResponseEventCategoryAssocBool wrapper = new ResponseEventCategoryAssocBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/set/uuid";
+            wrapper.action = "event-category-assoc/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -10635,26 +10671,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetEventCategoryAssocUuid(obj);
+            wrapper.data = api.SetEventCategoryAssocByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelEventCategoryAssocUuid() {
+        public virtual void DelEventCategoryAssocByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventCategoryAssocBool wrapper = new ResponseEventCategoryAssocBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/del/uuid";
+            wrapper.action = "event-category-assoc/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelEventCategoryAssocUuid(
+            bool completed = api.DelEventCategoryAssocByUuid(
                         
                 _uuid
             );
@@ -10689,21 +10725,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryAssocListUuid() {
+        public virtual void GetEventCategoryAssocListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseEventCategoryAssocList wrapper = new ResponseEventCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/get/uuid";
+            wrapper.action = "event-category-assoc/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategoryAssoc> objs = api.GetEventCategoryAssocListUuid(
+            List<EventCategoryAssoc> objs = api.GetEventCategoryAssocListByUuid(
                 _uuid
             );
             
@@ -10714,21 +10750,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryAssocListEventId() {
+        public virtual void GetEventCategoryAssocListByEventId() {
         
              _event_id = ()util.GetParamValue(_context, "@event_id");
 
             ResponseEventCategoryAssocList wrapper = new ResponseEventCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/get/event-id";
+            wrapper.action = "event-category-assoc/get/by-event-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategoryAssoc> objs = api.GetEventCategoryAssocListEventId(
+            List<EventCategoryAssoc> objs = api.GetEventCategoryAssocListByEventId(
                 _event_id
             );
             
@@ -10739,21 +10775,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryAssocListCategoryId() {
+        public virtual void GetEventCategoryAssocListByCategoryId() {
         
              _category_id = ()util.GetParamValue(_context, "@category_id");
 
             ResponseEventCategoryAssocList wrapper = new ResponseEventCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/get/category-id";
+            wrapper.action = "event-category-assoc/get/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategoryAssoc> objs = api.GetEventCategoryAssocListCategoryId(
+            List<EventCategoryAssoc> objs = api.GetEventCategoryAssocListByCategoryId(
                 _category_id
             );
             
@@ -10764,7 +10800,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetEventCategoryAssocListEventIdCategoryId() {
+        public virtual void GetEventCategoryAssocListByEventIdByCategoryId() {
         
              _event_id = ()util.GetParamValue(_context, "@event_id");
              _category_id = ()util.GetParamValue(_context, "@category_id");
@@ -10772,14 +10808,14 @@ namespace platform {
             ResponseEventCategoryAssocList wrapper = new ResponseEventCategoryAssocList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "event-category-assoc/get/event-id/category-id";
+            wrapper.action = "event-category-assoc/get/by-event-id/by-category-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<EventCategoryAssoc> objs = api.GetEventCategoryAssocListEventIdCategoryId(
+            List<EventCategoryAssoc> objs = api.GetEventCategoryAssocListByEventIdByCategoryId(
                 _event_id
                 , _category_id
             );
@@ -10814,21 +10850,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountChannelUuid() {
+        public virtual void CountChannelByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseChannelInt wrapper = new ResponseChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/count/uuid";
+            wrapper.action = "channel/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountChannelUuid(
+            int i = api.CountChannelByUuid(
                 _uuid
             );
             
@@ -10839,21 +10875,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountChannelCode() {
+        public virtual void CountChannelByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseChannelInt wrapper = new ResponseChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/count/code";
+            wrapper.action = "channel/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountChannelCode(
+            int i = api.CountChannelByCode(
                 _code
             );
             
@@ -10864,21 +10900,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountChannelName() {
+        public virtual void CountChannelByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseChannelInt wrapper = new ResponseChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/count/name";
+            wrapper.action = "channel/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountChannelName(
+            int i = api.CountChannelByName(
                 _name
             );
             
@@ -10889,21 +10925,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountChannelOrgId() {
+        public virtual void CountChannelByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseChannelInt wrapper = new ResponseChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/count/org-id";
+            wrapper.action = "channel/count/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountChannelOrgId(
+            int i = api.CountChannelByOrgId(
                 _org_id
             );
             
@@ -10914,21 +10950,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountChannelTypeId() {
+        public virtual void CountChannelByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseChannelInt wrapper = new ResponseChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/count/type-id";
+            wrapper.action = "channel/count/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountChannelTypeId(
+            int i = api.CountChannelByTypeId(
                 _type_id
             );
             
@@ -10939,7 +10975,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountChannelOrgIdTypeId() {
+        public virtual void CountChannelByOrgIdByTypeId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -10947,14 +10983,14 @@ namespace platform {
             ResponseChannelInt wrapper = new ResponseChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/count/org-id/type-id";
+            wrapper.action = "channel/count/by-org-id/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountChannelOrgIdTypeId(
+            int i = api.CountChannelByOrgIdByTypeId(
                 _org_id
                 , _type_id
             );
@@ -10965,12 +11001,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseChannelListFilter()  {
+        public virtual void BrowseChannelListByFilter()  {
         
             ResponseChannelList wrapper = new ResponseChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/browse/filter";
+            wrapper.action = "channel/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -10982,7 +11018,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ChannelResult result = api.BrowseChannelListFilter(obj);
+            ChannelResult result = api.BrowseChannelListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -10994,12 +11030,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetChannelUuid()  {
+        public virtual void SetChannelByUuid()  {
         
             ResponseChannelBool wrapper = new ResponseChannelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/set/uuid";
+            wrapper.action = "channel/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11029,6 +11065,10 @@ namespace platform {
                 obj.date_modified = Convert.ToDateTime(_date_modified);
             else 
                 obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
             
             string _type_id = util.GetParamValue(_context, "@type_id");
             if(!String.IsNoneOrEmpty(_type_id))
@@ -11062,26 +11102,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetChannelUuid(obj);
+            wrapper.data = api.SetChannelByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelChannelUuid() {
+        public virtual void DelChannelByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseChannelBool wrapper = new ResponseChannelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/del/uuid";
+            wrapper.action = "channel/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelChannelUuid(
+            bool completed = api.DelChannelByUuid(
                         
                 _uuid
             );
@@ -11092,7 +11132,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelChannelCodeOrgId() {
+        public virtual void DelChannelByCodeByOrgId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -11100,14 +11140,14 @@ namespace platform {
             ResponseChannelBool wrapper = new ResponseChannelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/del/code/org-id";
+            wrapper.action = "channel/del/by-code/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelChannelCodeOrgId(
+            bool completed = api.DelChannelByCodeByOrgId(
                         
                 _code
                 , _org_id
@@ -11119,7 +11159,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelChannelCodeOrgIdTypeId() {
+        public virtual void DelChannelByCodeByOrgIdByTypeId() {
         
              _code = ()util.GetParamValue(_context, "@code");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -11128,14 +11168,14 @@ namespace platform {
             ResponseChannelBool wrapper = new ResponseChannelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/del/code/org-id/type-id";
+            wrapper.action = "channel/del/by-code/by-org-id/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelChannelCodeOrgIdTypeId(
+            bool completed = api.DelChannelByCodeByOrgIdByTypeId(
                         
                 _code
                 , _org_id
@@ -11172,21 +11212,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetChannelListUuid() {
+        public virtual void GetChannelListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseChannelList wrapper = new ResponseChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/get/uuid";
+            wrapper.action = "channel/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Channel> objs = api.GetChannelListUuid(
+            List<Channel> objs = api.GetChannelListByUuid(
                 _uuid
             );
             
@@ -11197,21 +11237,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetChannelListCode() {
+        public virtual void GetChannelListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseChannelList wrapper = new ResponseChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/get/code";
+            wrapper.action = "channel/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Channel> objs = api.GetChannelListCode(
+            List<Channel> objs = api.GetChannelListByCode(
                 _code
             );
             
@@ -11222,21 +11262,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetChannelListName() {
+        public virtual void GetChannelListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseChannelList wrapper = new ResponseChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/get/name";
+            wrapper.action = "channel/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Channel> objs = api.GetChannelListName(
+            List<Channel> objs = api.GetChannelListByName(
                 _name
             );
             
@@ -11247,21 +11287,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetChannelListOrgId() {
+        public virtual void GetChannelListByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseChannelList wrapper = new ResponseChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/get/org-id";
+            wrapper.action = "channel/get/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Channel> objs = api.GetChannelListOrgId(
+            List<Channel> objs = api.GetChannelListByOrgId(
                 _org_id
             );
             
@@ -11272,21 +11312,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetChannelListTypeId() {
+        public virtual void GetChannelListByTypeId() {
         
              _type_id = ()util.GetParamValue(_context, "@type_id");
 
             ResponseChannelList wrapper = new ResponseChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/get/type-id";
+            wrapper.action = "channel/get/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Channel> objs = api.GetChannelListTypeId(
+            List<Channel> objs = api.GetChannelListByTypeId(
                 _type_id
             );
             
@@ -11297,7 +11337,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetChannelListOrgIdTypeId() {
+        public virtual void GetChannelListByOrgIdByTypeId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _type_id = ()util.GetParamValue(_context, "@type_id");
@@ -11305,14 +11345,14 @@ namespace platform {
             ResponseChannelList wrapper = new ResponseChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel/get/org-id/type-id";
+            wrapper.action = "channel/get/by-org-id/by-type-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Channel> objs = api.GetChannelListOrgIdTypeId(
+            List<Channel> objs = api.GetChannelListByOrgIdByTypeId(
                 _org_id
                 , _type_id
             );
@@ -11347,21 +11387,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountChannelTypeUuid() {
+        public virtual void CountChannelTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseChannelTypeInt wrapper = new ResponseChannelTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel-type/count/uuid";
+            wrapper.action = "channel-type/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountChannelTypeUuid(
+            int i = api.CountChannelTypeByUuid(
                 _uuid
             );
             
@@ -11372,21 +11412,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountChannelTypeCode() {
+        public virtual void CountChannelTypeByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseChannelTypeInt wrapper = new ResponseChannelTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel-type/count/code";
+            wrapper.action = "channel-type/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountChannelTypeCode(
+            int i = api.CountChannelTypeByCode(
                 _code
             );
             
@@ -11397,21 +11437,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountChannelTypeName() {
+        public virtual void CountChannelTypeByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseChannelTypeInt wrapper = new ResponseChannelTypeInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel-type/count/name";
+            wrapper.action = "channel-type/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountChannelTypeName(
+            int i = api.CountChannelTypeByName(
                 _name
             );
             
@@ -11421,12 +11461,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseChannelTypeListFilter()  {
+        public virtual void BrowseChannelTypeListByFilter()  {
         
             ResponseChannelTypeList wrapper = new ResponseChannelTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel-type/browse/filter";
+            wrapper.action = "channel-type/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11438,7 +11478,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ChannelTypeResult result = api.BrowseChannelTypeListFilter(obj);
+            ChannelTypeResult result = api.BrowseChannelTypeListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -11450,12 +11490,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetChannelTypeUuid()  {
+        public virtual void SetChannelTypeByUuid()  {
         
             ResponseChannelTypeBool wrapper = new ResponseChannelTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel-type/set/uuid";
+            wrapper.action = "channel-type/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11486,6 +11526,10 @@ namespace platform {
             else 
                 obj.date_modified = DateTime.Now;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _uuid = util.GetParamValue(_context, "@uuid");
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
@@ -11510,26 +11554,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetChannelTypeUuid(obj);
+            wrapper.data = api.SetChannelTypeByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelChannelTypeUuid() {
+        public virtual void DelChannelTypeByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseChannelTypeBool wrapper = new ResponseChannelTypeBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel-type/del/uuid";
+            wrapper.action = "channel-type/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelChannelTypeUuid(
+            bool completed = api.DelChannelTypeByUuid(
                         
                 _uuid
             );
@@ -11564,21 +11608,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetChannelTypeListUuid() {
+        public virtual void GetChannelTypeListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseChannelTypeList wrapper = new ResponseChannelTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel-type/get/uuid";
+            wrapper.action = "channel-type/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ChannelType> objs = api.GetChannelTypeListUuid(
+            List<ChannelType> objs = api.GetChannelTypeListByUuid(
                 _uuid
             );
             
@@ -11589,21 +11633,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetChannelTypeListCode() {
+        public virtual void GetChannelTypeListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseChannelTypeList wrapper = new ResponseChannelTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel-type/get/code";
+            wrapper.action = "channel-type/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ChannelType> objs = api.GetChannelTypeListCode(
+            List<ChannelType> objs = api.GetChannelTypeListByCode(
                 _code
             );
             
@@ -11614,21 +11658,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetChannelTypeListName() {
+        public virtual void GetChannelTypeListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseChannelTypeList wrapper = new ResponseChannelTypeList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "channel-type/get/name";
+            wrapper.action = "channel-type/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ChannelType> objs = api.GetChannelTypeListName(
+            List<ChannelType> objs = api.GetChannelTypeListByName(
                 _name
             );
             
@@ -11662,21 +11706,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountQuestionUuid() {
+        public virtual void CountQuestionByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseQuestionInt wrapper = new ResponseQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/count/uuid";
+            wrapper.action = "question/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountQuestionUuid(
+            int i = api.CountQuestionByUuid(
                 _uuid
             );
             
@@ -11687,21 +11731,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountQuestionCode() {
+        public virtual void CountQuestionByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseQuestionInt wrapper = new ResponseQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/count/code";
+            wrapper.action = "question/count/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountQuestionCode(
+            int i = api.CountQuestionByCode(
                 _code
             );
             
@@ -11712,21 +11756,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountQuestionName() {
+        public virtual void CountQuestionByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseQuestionInt wrapper = new ResponseQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/count/name";
+            wrapper.action = "question/count/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountQuestionName(
+            int i = api.CountQuestionByName(
                 _name
             );
             
@@ -11737,21 +11781,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountQuestionChannelId() {
+        public virtual void CountQuestionByChannelId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
 
             ResponseQuestionInt wrapper = new ResponseQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/count/channel-id";
+            wrapper.action = "question/count/by-channel-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountQuestionChannelId(
+            int i = api.CountQuestionByChannelId(
                 _channel_id
             );
             
@@ -11762,21 +11806,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountQuestionOrgId() {
+        public virtual void CountQuestionByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseQuestionInt wrapper = new ResponseQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/count/org-id";
+            wrapper.action = "question/count/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountQuestionOrgId(
+            int i = api.CountQuestionByOrgId(
                 _org_id
             );
             
@@ -11787,7 +11831,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountQuestionChannelIdOrgId() {
+        public virtual void CountQuestionByChannelIdByOrgId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -11795,14 +11839,14 @@ namespace platform {
             ResponseQuestionInt wrapper = new ResponseQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/count/channel-id/org-id";
+            wrapper.action = "question/count/by-channel-id/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountQuestionChannelIdOrgId(
+            int i = api.CountQuestionByChannelIdByOrgId(
                 _channel_id
                 , _org_id
             );
@@ -11814,7 +11858,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountQuestionChannelIdCode() {
+        public virtual void CountQuestionByChannelIdByCode() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _code = ()util.GetParamValue(_context, "@code");
@@ -11822,14 +11866,14 @@ namespace platform {
             ResponseQuestionInt wrapper = new ResponseQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/count/channel-id/code";
+            wrapper.action = "question/count/by-channel-id/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountQuestionChannelIdCode(
+            int i = api.CountQuestionByChannelIdByCode(
                 _channel_id
                 , _code
             );
@@ -11840,12 +11884,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseQuestionListFilter()  {
+        public virtual void BrowseQuestionListByFilter()  {
         
             ResponseQuestionList wrapper = new ResponseQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/browse/filter";
+            wrapper.action = "question/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11857,7 +11901,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            QuestionResult result = api.BrowseQuestionListFilter(obj);
+            QuestionResult result = api.BrowseQuestionListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -11869,12 +11913,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetQuestionUuid()  {
+        public virtual void SetQuestionByUuid()  {
         
             ResponseQuestionBool wrapper = new ResponseQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/set/uuid";
+            wrapper.action = "question/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11904,6 +11948,10 @@ namespace platform {
                 obj.date_modified = Convert.ToDateTime(_date_modified);
             else 
                 obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
             
             string _org_id = util.GetParamValue(_context, "@org_id");
             if(!String.IsNoneOrEmpty(_org_id))
@@ -11941,17 +11989,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetQuestionUuid(obj);
+            wrapper.data = api.SetQuestionByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetQuestionChannelIdCode()  {
+        public virtual void SetQuestionByChannelIdByCode()  {
         
             ResponseQuestionBool wrapper = new ResponseQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/set/channel-id/code";
+            wrapper.action = "question/set/by-channel-id/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -11981,6 +12029,10 @@ namespace platform {
                 obj.date_modified = Convert.ToDateTime(_date_modified);
             else 
                 obj.date_modified = DateTime.Now;
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
             
             string _org_id = util.GetParamValue(_context, "@org_id");
             if(!String.IsNoneOrEmpty(_org_id))
@@ -12018,26 +12070,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetQuestionChannelIdCode(obj);
+            wrapper.data = api.SetQuestionByChannelIdByCode(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelQuestionUuid() {
+        public virtual void DelQuestionByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseQuestionBool wrapper = new ResponseQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/del/uuid";
+            wrapper.action = "question/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelQuestionUuid(
+            bool completed = api.DelQuestionByUuid(
                         
                 _uuid
             );
@@ -12048,7 +12100,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelQuestionChannelIdOrgId() {
+        public virtual void DelQuestionByChannelIdByOrgId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -12056,14 +12108,14 @@ namespace platform {
             ResponseQuestionBool wrapper = new ResponseQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/del/channel-id/org-id";
+            wrapper.action = "question/del/by-channel-id/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelQuestionChannelIdOrgId(
+            bool completed = api.DelQuestionByChannelIdByOrgId(
                         
                 _channel_id
                 , _org_id
@@ -12099,21 +12151,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetQuestionListUuid() {
+        public virtual void GetQuestionListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseQuestionList wrapper = new ResponseQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/get/uuid";
+            wrapper.action = "question/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Question> objs = api.GetQuestionListUuid(
+            List<Question> objs = api.GetQuestionListByUuid(
                 _uuid
             );
             
@@ -12124,21 +12176,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetQuestionListCode() {
+        public virtual void GetQuestionListByCode() {
         
              _code = ()util.GetParamValue(_context, "@code");
 
             ResponseQuestionList wrapper = new ResponseQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/get/code";
+            wrapper.action = "question/get/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Question> objs = api.GetQuestionListCode(
+            List<Question> objs = api.GetQuestionListByCode(
                 _code
             );
             
@@ -12149,21 +12201,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetQuestionListName() {
+        public virtual void GetQuestionListByName() {
         
              _name = ()util.GetParamValue(_context, "@name");
 
             ResponseQuestionList wrapper = new ResponseQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/get/name";
+            wrapper.action = "question/get/by-name";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Question> objs = api.GetQuestionListName(
+            List<Question> objs = api.GetQuestionListByName(
                 _name
             );
             
@@ -12174,21 +12226,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetQuestionListType() {
+        public virtual void GetQuestionListByType() {
         
              _type = ()util.GetParamValue(_context, "@type");
 
             ResponseQuestionList wrapper = new ResponseQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/get/type";
+            wrapper.action = "question/get/by-type";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Question> objs = api.GetQuestionListType(
+            List<Question> objs = api.GetQuestionListByType(
                 _type
             );
             
@@ -12199,21 +12251,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetQuestionListChannelId() {
+        public virtual void GetQuestionListByChannelId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
 
             ResponseQuestionList wrapper = new ResponseQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/get/channel-id";
+            wrapper.action = "question/get/by-channel-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Question> objs = api.GetQuestionListChannelId(
+            List<Question> objs = api.GetQuestionListByChannelId(
                 _channel_id
             );
             
@@ -12224,21 +12276,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetQuestionListOrgId() {
+        public virtual void GetQuestionListByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseQuestionList wrapper = new ResponseQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/get/org-id";
+            wrapper.action = "question/get/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Question> objs = api.GetQuestionListOrgId(
+            List<Question> objs = api.GetQuestionListByOrgId(
                 _org_id
             );
             
@@ -12249,7 +12301,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetQuestionListChannelIdOrgId() {
+        public virtual void GetQuestionListByChannelIdByOrgId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -12257,14 +12309,14 @@ namespace platform {
             ResponseQuestionList wrapper = new ResponseQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/get/channel-id/org-id";
+            wrapper.action = "question/get/by-channel-id/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Question> objs = api.GetQuestionListChannelIdOrgId(
+            List<Question> objs = api.GetQuestionListByChannelIdByOrgId(
                 _channel_id
                 , _org_id
             );
@@ -12276,7 +12328,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetQuestionListChannelIdCode() {
+        public virtual void GetQuestionListByChannelIdByCode() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _code = ()util.GetParamValue(_context, "@code");
@@ -12284,14 +12336,14 @@ namespace platform {
             ResponseQuestionList wrapper = new ResponseQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "question/get/channel-id/code";
+            wrapper.action = "question/get/by-channel-id/by-code";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Question> objs = api.GetQuestionListChannelIdCode(
+            List<Question> objs = api.GetQuestionListByChannelIdByCode(
                 _channel_id
                 , _code
             );
@@ -12326,21 +12378,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileOfferUuid() {
+        public virtual void CountProfileOfferByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileOfferInt wrapper = new ResponseProfileOfferInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-offer/count/uuid";
+            wrapper.action = "profile-offer/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileOfferUuid(
+            int i = api.CountProfileOfferByUuid(
                 _uuid
             );
             
@@ -12351,21 +12403,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileOfferProfileId() {
+        public virtual void CountProfileOfferByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileOfferInt wrapper = new ResponseProfileOfferInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-offer/count/profile-id";
+            wrapper.action = "profile-offer/count/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileOfferProfileId(
+            int i = api.CountProfileOfferByProfileId(
                 _profile_id
             );
             
@@ -12375,12 +12427,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileOfferListFilter()  {
+        public virtual void BrowseProfileOfferListByFilter()  {
         
             ResponseProfileOfferList wrapper = new ResponseProfileOfferList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-offer/browse/filter";
+            wrapper.action = "profile-offer/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12392,7 +12444,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ProfileOfferResult result = api.BrowseProfileOfferListFilter(obj);
+            ProfileOfferResult result = api.BrowseProfileOfferListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -12404,12 +12456,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileOfferUuid()  {
+        public virtual void SetProfileOfferByUuid()  {
         
             ResponseProfileOfferBool wrapper = new ResponseProfileOfferBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-offer/set/uuid";
+            wrapper.action = "profile-offer/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12437,6 +12489,10 @@ namespace platform {
             string _active = util.GetParamValue(_context, "@active");
             if(!String.IsNoneOrEmpty(_active))
                 obj.active = Convert.ToBoolean(_active);
+            
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
             
             string _uuid = util.GetParamValue(_context, "@uuid");
             if(!String.IsNoneOrEmpty(_uuid))
@@ -12468,26 +12524,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetProfileOfferUuid(obj);
+            wrapper.data = api.SetProfileOfferByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileOfferUuid() {
+        public virtual void DelProfileOfferByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileOfferBool wrapper = new ResponseProfileOfferBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-offer/del/uuid";
+            wrapper.action = "profile-offer/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileOfferUuid(
+            bool completed = api.DelProfileOfferByUuid(
                         
                 _uuid
             );
@@ -12498,21 +12554,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileOfferProfileId() {
+        public virtual void DelProfileOfferByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileOfferBool wrapper = new ResponseProfileOfferBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-offer/del/profile-id";
+            wrapper.action = "profile-offer/del/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileOfferProfileId(
+            bool completed = api.DelProfileOfferByProfileId(
                         
                 _profile_id
             );
@@ -12547,21 +12603,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileOfferListUuid() {
+        public virtual void GetProfileOfferListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileOfferList wrapper = new ResponseProfileOfferList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-offer/get/uuid";
+            wrapper.action = "profile-offer/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileOffer> objs = api.GetProfileOfferListUuid(
+            List<ProfileOffer> objs = api.GetProfileOfferListByUuid(
                 _uuid
             );
             
@@ -12572,21 +12628,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileOfferListProfileId() {
+        public virtual void GetProfileOfferListByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileOfferList wrapper = new ResponseProfileOfferList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-offer/get/profile-id";
+            wrapper.action = "profile-offer/get/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileOffer> objs = api.GetProfileOfferListProfileId(
+            List<ProfileOffer> objs = api.GetProfileOfferListByProfileId(
                 _profile_id
             );
             
@@ -12620,21 +12676,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAppUuid() {
+        public virtual void CountProfileAppByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileAppInt wrapper = new ResponseProfileAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/count/uuid";
+            wrapper.action = "profile-app/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileAppUuid(
+            int i = api.CountProfileAppByUuid(
                 _uuid
             );
             
@@ -12645,7 +12701,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileAppProfileIdAppId() {
+        public virtual void CountProfileAppByProfileIdByAppId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _app_id = ()util.GetParamValue(_context, "@app_id");
@@ -12653,14 +12709,14 @@ namespace platform {
             ResponseProfileAppInt wrapper = new ResponseProfileAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/count/profile-id/app-id";
+            wrapper.action = "profile-app/count/by-profile-id/by-app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileAppProfileIdAppId(
+            int i = api.CountProfileAppByProfileIdByAppId(
                 _profile_id
                 , _app_id
             );
@@ -12671,12 +12727,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileAppListFilter()  {
+        public virtual void BrowseProfileAppListByFilter()  {
         
             ResponseProfileAppList wrapper = new ResponseProfileAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/browse/filter";
+            wrapper.action = "profile-app/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12688,7 +12744,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ProfileAppResult result = api.BrowseProfileAppListFilter(obj);
+            ProfileAppResult result = api.BrowseProfileAppListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -12700,12 +12756,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAppUuid()  {
+        public virtual void SetProfileAppByUuid()  {
         
             ResponseProfileAppBool wrapper = new ResponseProfileAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/set/uuid";
+            wrapper.action = "profile-app/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12750,19 +12806,23 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_app_id))
                 obj.app_id = ()_app_id;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             
             // get data
-            wrapper.data = api.SetProfileAppUuid(obj);
+            wrapper.data = api.SetProfileAppByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileAppProfileIdAppId()  {
+        public virtual void SetProfileAppByProfileIdByAppId()  {
         
             ResponseProfileAppBool wrapper = new ResponseProfileAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/set/profile-id/app-id";
+            wrapper.action = "profile-app/set/by-profile-id/by-app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -12807,28 +12867,32 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_app_id))
                 obj.app_id = ()_app_id;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             
             // get data
-            wrapper.data = api.SetProfileAppProfileIdAppId(obj);
+            wrapper.data = api.SetProfileAppByProfileIdByAppId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAppUuid() {
+        public virtual void DelProfileAppByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileAppBool wrapper = new ResponseProfileAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/del/uuid";
+            wrapper.action = "profile-app/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileAppUuid(
+            bool completed = api.DelProfileAppByUuid(
                         
                 _uuid
             );
@@ -12839,7 +12903,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileAppProfileIdAppId() {
+        public virtual void DelProfileAppByProfileIdByAppId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _app_id = ()util.GetParamValue(_context, "@app_id");
@@ -12847,14 +12911,14 @@ namespace platform {
             ResponseProfileAppBool wrapper = new ResponseProfileAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/del/profile-id/app-id";
+            wrapper.action = "profile-app/del/by-profile-id/by-app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileAppProfileIdAppId(
+            bool completed = api.DelProfileAppByProfileIdByAppId(
                         
                 _profile_id
                 , _app_id
@@ -12890,21 +12954,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAppListUuid() {
+        public virtual void GetProfileAppListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileAppList wrapper = new ResponseProfileAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/get/uuid";
+            wrapper.action = "profile-app/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileApp> objs = api.GetProfileAppListUuid(
+            List<ProfileApp> objs = api.GetProfileAppListByUuid(
                 _uuid
             );
             
@@ -12915,21 +12979,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAppListAppId() {
+        public virtual void GetProfileAppListByAppId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
 
             ResponseProfileAppList wrapper = new ResponseProfileAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/get/app-id";
+            wrapper.action = "profile-app/get/by-app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileApp> objs = api.GetProfileAppListAppId(
+            List<ProfileApp> objs = api.GetProfileAppListByAppId(
                 _app_id
             );
             
@@ -12940,21 +13004,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAppListProfileId() {
+        public virtual void GetProfileAppListByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileAppList wrapper = new ResponseProfileAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/get/profile-id";
+            wrapper.action = "profile-app/get/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileApp> objs = api.GetProfileAppListProfileId(
+            List<ProfileApp> objs = api.GetProfileAppListByProfileId(
                 _profile_id
             );
             
@@ -12965,7 +13029,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileAppListProfileIdAppId() {
+        public virtual void GetProfileAppListByProfileIdByAppId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
              _app_id = ()util.GetParamValue(_context, "@app_id");
@@ -12973,14 +13037,14 @@ namespace platform {
             ResponseProfileAppList wrapper = new ResponseProfileAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-app/get/profile-id/app-id";
+            wrapper.action = "profile-app/get/by-profile-id/by-app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileApp> objs = api.GetProfileAppListProfileIdAppId(
+            List<ProfileApp> objs = api.GetProfileAppListByProfileIdByAppId(
                 _profile_id
                 , _app_id
             );
@@ -13015,21 +13079,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileOrgUuid() {
+        public virtual void CountProfileOrgByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileOrgInt wrapper = new ResponseProfileOrgInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-org/count/uuid";
+            wrapper.action = "profile-org/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileOrgUuid(
+            int i = api.CountProfileOrgByUuid(
                 _uuid
             );
             
@@ -13040,21 +13104,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileOrgOrgId() {
+        public virtual void CountProfileOrgByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseProfileOrgInt wrapper = new ResponseProfileOrgInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-org/count/org-id";
+            wrapper.action = "profile-org/count/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileOrgOrgId(
+            int i = api.CountProfileOrgByOrgId(
                 _org_id
             );
             
@@ -13065,21 +13129,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileOrgProfileId() {
+        public virtual void CountProfileOrgByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileOrgInt wrapper = new ResponseProfileOrgInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-org/count/profile-id";
+            wrapper.action = "profile-org/count/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileOrgProfileId(
+            int i = api.CountProfileOrgByProfileId(
                 _profile_id
             );
             
@@ -13089,12 +13153,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileOrgListFilter()  {
+        public virtual void BrowseProfileOrgListByFilter()  {
         
             ResponseProfileOrgList wrapper = new ResponseProfileOrgList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-org/browse/filter";
+            wrapper.action = "profile-org/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13106,7 +13170,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ProfileOrgResult result = api.BrowseProfileOrgListFilter(obj);
+            ProfileOrgResult result = api.BrowseProfileOrgListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -13118,12 +13182,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileOrgUuid()  {
+        public virtual void SetProfileOrgByUuid()  {
         
             ResponseProfileOrgBool wrapper = new ResponseProfileOrgBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-org/set/uuid";
+            wrapper.action = "profile-org/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13172,28 +13236,32 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_org_id))
                 obj.org_id = ()_org_id;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             
             // get data
-            wrapper.data = api.SetProfileOrgUuid(obj);
+            wrapper.data = api.SetProfileOrgByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileOrgUuid() {
+        public virtual void DelProfileOrgByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileOrgBool wrapper = new ResponseProfileOrgBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-org/del/uuid";
+            wrapper.action = "profile-org/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileOrgUuid(
+            bool completed = api.DelProfileOrgByUuid(
                         
                 _uuid
             );
@@ -13228,21 +13296,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileOrgListUuid() {
+        public virtual void GetProfileOrgListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileOrgList wrapper = new ResponseProfileOrgList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-org/get/uuid";
+            wrapper.action = "profile-org/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileOrg> objs = api.GetProfileOrgListUuid(
+            List<ProfileOrg> objs = api.GetProfileOrgListByUuid(
                 _uuid
             );
             
@@ -13253,21 +13321,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileOrgListOrgId() {
+        public virtual void GetProfileOrgListByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseProfileOrgList wrapper = new ResponseProfileOrgList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-org/get/org-id";
+            wrapper.action = "profile-org/get/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileOrg> objs = api.GetProfileOrgListOrgId(
+            List<ProfileOrg> objs = api.GetProfileOrgListByOrgId(
                 _org_id
             );
             
@@ -13278,21 +13346,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileOrgListProfileId() {
+        public virtual void GetProfileOrgListByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileOrgList wrapper = new ResponseProfileOrgList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-org/get/profile-id";
+            wrapper.action = "profile-org/get/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileOrg> objs = api.GetProfileOrgListProfileId(
+            List<ProfileOrg> objs = api.GetProfileOrgListByProfileId(
                 _profile_id
             );
             
@@ -13326,21 +13394,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileQuestionUuid() {
+        public virtual void CountProfileQuestionByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileQuestionInt wrapper = new ResponseProfileQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/count/uuid";
+            wrapper.action = "profile-question/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileQuestionUuid(
+            int i = api.CountProfileQuestionByUuid(
                 _uuid
             );
             
@@ -13351,21 +13419,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileQuestionChannelId() {
+        public virtual void CountProfileQuestionByChannelId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
 
             ResponseProfileQuestionInt wrapper = new ResponseProfileQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/count/channel-id";
+            wrapper.action = "profile-question/count/by-channel-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileQuestionChannelId(
+            int i = api.CountProfileQuestionByChannelId(
                 _channel_id
             );
             
@@ -13376,21 +13444,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileQuestionOrgId() {
+        public virtual void CountProfileQuestionByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseProfileQuestionInt wrapper = new ResponseProfileQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/count/org-id";
+            wrapper.action = "profile-question/count/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileQuestionOrgId(
+            int i = api.CountProfileQuestionByOrgId(
                 _org_id
             );
             
@@ -13401,21 +13469,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileQuestionProfileId() {
+        public virtual void CountProfileQuestionByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileQuestionInt wrapper = new ResponseProfileQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/count/profile-id";
+            wrapper.action = "profile-question/count/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileQuestionProfileId(
+            int i = api.CountProfileQuestionByProfileId(
                 _profile_id
             );
             
@@ -13426,21 +13494,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileQuestionQuestionId() {
+        public virtual void CountProfileQuestionByQuestionId() {
         
              _question_id = ()util.GetParamValue(_context, "@question_id");
 
             ResponseProfileQuestionInt wrapper = new ResponseProfileQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/count/question-id";
+            wrapper.action = "profile-question/count/by-question-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileQuestionQuestionId(
+            int i = api.CountProfileQuestionByQuestionId(
                 _question_id
             );
             
@@ -13451,7 +13519,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileQuestionChannelIdOrgId() {
+        public virtual void CountProfileQuestionByChannelIdByOrgId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -13459,14 +13527,14 @@ namespace platform {
             ResponseProfileQuestionInt wrapper = new ResponseProfileQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/count/channel-id/org-id";
+            wrapper.action = "profile-question/count/by-channel-id/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileQuestionChannelIdOrgId(
+            int i = api.CountProfileQuestionByChannelIdByOrgId(
                 _channel_id
                 , _org_id
             );
@@ -13478,7 +13546,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileQuestionChannelIdProfileId() {
+        public virtual void CountProfileQuestionByChannelIdByProfileId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -13486,14 +13554,14 @@ namespace platform {
             ResponseProfileQuestionInt wrapper = new ResponseProfileQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/count/channel-id/profile-id";
+            wrapper.action = "profile-question/count/by-channel-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileQuestionChannelIdProfileId(
+            int i = api.CountProfileQuestionByChannelIdByProfileId(
                 _channel_id
                 , _profile_id
             );
@@ -13505,7 +13573,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileQuestionQuestionIdProfileId() {
+        public virtual void CountProfileQuestionByQuestionIdByProfileId() {
         
              _question_id = ()util.GetParamValue(_context, "@question_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -13513,14 +13581,14 @@ namespace platform {
             ResponseProfileQuestionInt wrapper = new ResponseProfileQuestionInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/count/question-id/profile-id";
+            wrapper.action = "profile-question/count/by-question-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileQuestionQuestionIdProfileId(
+            int i = api.CountProfileQuestionByQuestionIdByProfileId(
                 _question_id
                 , _profile_id
             );
@@ -13531,12 +13599,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileQuestionListFilter()  {
+        public virtual void BrowseProfileQuestionListByFilter()  {
         
             ResponseProfileQuestionList wrapper = new ResponseProfileQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/browse/filter";
+            wrapper.action = "profile-question/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13548,7 +13616,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ProfileQuestionResult result = api.BrowseProfileQuestionListFilter(obj);
+            ProfileQuestionResult result = api.BrowseProfileQuestionListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -13560,12 +13628,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileQuestionUuid()  {
+        public virtual void SetProfileQuestionByUuid()  {
         
             ResponseProfileQuestionBool wrapper = new ResponseProfileQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/set/uuid";
+            wrapper.action = "profile-question/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13628,17 +13696,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetProfileQuestionUuid(obj);
+            wrapper.data = api.SetProfileQuestionByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileQuestionChannelIdProfileId()  {
+        public virtual void SetProfileQuestionByChannelIdByProfileId()  {
         
             ResponseProfileQuestionBool wrapper = new ResponseProfileQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/set/channel-id/profile-id";
+            wrapper.action = "profile-question/set/by-channel-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13701,17 +13769,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetProfileQuestionChannelIdProfileId(obj);
+            wrapper.data = api.SetProfileQuestionByChannelIdByProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileQuestionQuestionIdProfileId()  {
+        public virtual void SetProfileQuestionByQuestionIdByProfileId()  {
         
             ResponseProfileQuestionBool wrapper = new ResponseProfileQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/set/question-id/profile-id";
+            wrapper.action = "profile-question/set/by-question-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13774,17 +13842,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetProfileQuestionQuestionIdProfileId(obj);
+            wrapper.data = api.SetProfileQuestionByQuestionIdByProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileQuestionChannelIdQuestionIdProfileId()  {
+        public virtual void SetProfileQuestionByChannelIdByQuestionIdByProfileId()  {
         
             ResponseProfileQuestionBool wrapper = new ResponseProfileQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/set/channel-id/question-id/profile-id";
+            wrapper.action = "profile-question/set/by-channel-id/by-question-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -13847,26 +13915,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetProfileQuestionChannelIdQuestionIdProfileId(obj);
+            wrapper.data = api.SetProfileQuestionByChannelIdByQuestionIdByProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileQuestionUuid() {
+        public virtual void DelProfileQuestionByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileQuestionBool wrapper = new ResponseProfileQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/del/uuid";
+            wrapper.action = "profile-question/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileQuestionUuid(
+            bool completed = api.DelProfileQuestionByUuid(
                         
                 _uuid
             );
@@ -13877,7 +13945,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileQuestionChannelIdOrgId() {
+        public virtual void DelProfileQuestionByChannelIdByOrgId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -13885,14 +13953,14 @@ namespace platform {
             ResponseProfileQuestionBool wrapper = new ResponseProfileQuestionBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/del/channel-id/org-id";
+            wrapper.action = "profile-question/del/by-channel-id/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileQuestionChannelIdOrgId(
+            bool completed = api.DelProfileQuestionByChannelIdByOrgId(
                         
                 _channel_id
                 , _org_id
@@ -13928,21 +13996,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileQuestionListUuid() {
+        public virtual void GetProfileQuestionListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileQuestionList wrapper = new ResponseProfileQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/get/uuid";
+            wrapper.action = "profile-question/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileQuestion> objs = api.GetProfileQuestionListUuid(
+            List<ProfileQuestion> objs = api.GetProfileQuestionListByUuid(
                 _uuid
             );
             
@@ -13953,21 +14021,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileQuestionListChannelId() {
+        public virtual void GetProfileQuestionListByChannelId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
 
             ResponseProfileQuestionList wrapper = new ResponseProfileQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/get/channel-id";
+            wrapper.action = "profile-question/get/by-channel-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileQuestion> objs = api.GetProfileQuestionListChannelId(
+            List<ProfileQuestion> objs = api.GetProfileQuestionListByChannelId(
                 _channel_id
             );
             
@@ -13978,21 +14046,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileQuestionListOrgId() {
+        public virtual void GetProfileQuestionListByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseProfileQuestionList wrapper = new ResponseProfileQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/get/org-id";
+            wrapper.action = "profile-question/get/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileQuestion> objs = api.GetProfileQuestionListOrgId(
+            List<ProfileQuestion> objs = api.GetProfileQuestionListByOrgId(
                 _org_id
             );
             
@@ -14003,21 +14071,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileQuestionListProfileId() {
+        public virtual void GetProfileQuestionListByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileQuestionList wrapper = new ResponseProfileQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/get/profile-id";
+            wrapper.action = "profile-question/get/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileQuestion> objs = api.GetProfileQuestionListProfileId(
+            List<ProfileQuestion> objs = api.GetProfileQuestionListByProfileId(
                 _profile_id
             );
             
@@ -14028,21 +14096,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileQuestionListQuestionId() {
+        public virtual void GetProfileQuestionListByQuestionId() {
         
              _question_id = ()util.GetParamValue(_context, "@question_id");
 
             ResponseProfileQuestionList wrapper = new ResponseProfileQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/get/question-id";
+            wrapper.action = "profile-question/get/by-question-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileQuestion> objs = api.GetProfileQuestionListQuestionId(
+            List<ProfileQuestion> objs = api.GetProfileQuestionListByQuestionId(
                 _question_id
             );
             
@@ -14053,7 +14121,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileQuestionListChannelIdOrgId() {
+        public virtual void GetProfileQuestionListByChannelIdByOrgId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _org_id = ()util.GetParamValue(_context, "@org_id");
@@ -14061,14 +14129,14 @@ namespace platform {
             ResponseProfileQuestionList wrapper = new ResponseProfileQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/get/channel-id/org-id";
+            wrapper.action = "profile-question/get/by-channel-id/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileQuestion> objs = api.GetProfileQuestionListChannelIdOrgId(
+            List<ProfileQuestion> objs = api.GetProfileQuestionListByChannelIdByOrgId(
                 _channel_id
                 , _org_id
             );
@@ -14080,7 +14148,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileQuestionListChannelIdProfileId() {
+        public virtual void GetProfileQuestionListByChannelIdByProfileId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -14088,14 +14156,14 @@ namespace platform {
             ResponseProfileQuestionList wrapper = new ResponseProfileQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/get/channel-id/profile-id";
+            wrapper.action = "profile-question/get/by-channel-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileQuestion> objs = api.GetProfileQuestionListChannelIdProfileId(
+            List<ProfileQuestion> objs = api.GetProfileQuestionListByChannelIdByProfileId(
                 _channel_id
                 , _profile_id
             );
@@ -14107,7 +14175,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileQuestionListQuestionIdProfileId() {
+        public virtual void GetProfileQuestionListByQuestionIdByProfileId() {
         
              _question_id = ()util.GetParamValue(_context, "@question_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -14115,14 +14183,14 @@ namespace platform {
             ResponseProfileQuestionList wrapper = new ResponseProfileQuestionList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-question/get/question-id/profile-id";
+            wrapper.action = "profile-question/get/by-question-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileQuestion> objs = api.GetProfileQuestionListQuestionIdProfileId(
+            List<ProfileQuestion> objs = api.GetProfileQuestionListByQuestionIdByProfileId(
                 _question_id
                 , _profile_id
             );
@@ -14157,21 +14225,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileChannelUuid() {
+        public virtual void CountProfileChannelByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileChannelInt wrapper = new ResponseProfileChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/count/uuid";
+            wrapper.action = "profile-channel/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileChannelUuid(
+            int i = api.CountProfileChannelByUuid(
                 _uuid
             );
             
@@ -14182,21 +14250,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileChannelChannelId() {
+        public virtual void CountProfileChannelByChannelId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
 
             ResponseProfileChannelInt wrapper = new ResponseProfileChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/count/channel-id";
+            wrapper.action = "profile-channel/count/by-channel-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileChannelChannelId(
+            int i = api.CountProfileChannelByChannelId(
                 _channel_id
             );
             
@@ -14207,21 +14275,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileChannelProfileId() {
+        public virtual void CountProfileChannelByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileChannelInt wrapper = new ResponseProfileChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/count/profile-id";
+            wrapper.action = "profile-channel/count/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileChannelProfileId(
+            int i = api.CountProfileChannelByProfileId(
                 _profile_id
             );
             
@@ -14232,7 +14300,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountProfileChannelChannelIdProfileId() {
+        public virtual void CountProfileChannelByChannelIdByProfileId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -14240,14 +14308,14 @@ namespace platform {
             ResponseProfileChannelInt wrapper = new ResponseProfileChannelInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/count/channel-id/profile-id";
+            wrapper.action = "profile-channel/count/by-channel-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountProfileChannelChannelIdProfileId(
+            int i = api.CountProfileChannelByChannelIdByProfileId(
                 _channel_id
                 , _profile_id
             );
@@ -14258,12 +14326,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseProfileChannelListFilter()  {
+        public virtual void BrowseProfileChannelListByFilter()  {
         
             ResponseProfileChannelList wrapper = new ResponseProfileChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/browse/filter";
+            wrapper.action = "profile-channel/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14275,7 +14343,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            ProfileChannelResult result = api.BrowseProfileChannelListFilter(obj);
+            ProfileChannelResult result = api.BrowseProfileChannelListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -14287,12 +14355,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileChannelUuid()  {
+        public virtual void SetProfileChannelByUuid()  {
         
             ResponseProfileChannelBool wrapper = new ResponseProfileChannelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/set/uuid";
+            wrapper.action = "profile-channel/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14339,17 +14407,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetProfileChannelUuid(obj);
+            wrapper.data = api.SetProfileChannelByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetProfileChannelChannelIdProfileId()  {
+        public virtual void SetProfileChannelByChannelIdByProfileId()  {
         
             ResponseProfileChannelBool wrapper = new ResponseProfileChannelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/set/channel-id/profile-id";
+            wrapper.action = "profile-channel/set/by-channel-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14396,26 +14464,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetProfileChannelChannelIdProfileId(obj);
+            wrapper.data = api.SetProfileChannelByChannelIdByProfileId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileChannelUuid() {
+        public virtual void DelProfileChannelByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileChannelBool wrapper = new ResponseProfileChannelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/del/uuid";
+            wrapper.action = "profile-channel/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileChannelUuid(
+            bool completed = api.DelProfileChannelByUuid(
                         
                 _uuid
             );
@@ -14426,7 +14494,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelProfileChannelChannelIdProfileId() {
+        public virtual void DelProfileChannelByChannelIdByProfileId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -14434,14 +14502,14 @@ namespace platform {
             ResponseProfileChannelBool wrapper = new ResponseProfileChannelBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/del/channel-id/profile-id";
+            wrapper.action = "profile-channel/del/by-channel-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelProfileChannelChannelIdProfileId(
+            bool completed = api.DelProfileChannelByChannelIdByProfileId(
                         
                 _channel_id
                 , _profile_id
@@ -14477,21 +14545,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileChannelListUuid() {
+        public virtual void GetProfileChannelListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseProfileChannelList wrapper = new ResponseProfileChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/get/uuid";
+            wrapper.action = "profile-channel/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileChannel> objs = api.GetProfileChannelListUuid(
+            List<ProfileChannel> objs = api.GetProfileChannelListByUuid(
                 _uuid
             );
             
@@ -14502,21 +14570,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileChannelListChannelId() {
+        public virtual void GetProfileChannelListByChannelId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
 
             ResponseProfileChannelList wrapper = new ResponseProfileChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/get/channel-id";
+            wrapper.action = "profile-channel/get/by-channel-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileChannel> objs = api.GetProfileChannelListChannelId(
+            List<ProfileChannel> objs = api.GetProfileChannelListByChannelId(
                 _channel_id
             );
             
@@ -14527,21 +14595,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileChannelListProfileId() {
+        public virtual void GetProfileChannelListByProfileId() {
         
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
 
             ResponseProfileChannelList wrapper = new ResponseProfileChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/get/profile-id";
+            wrapper.action = "profile-channel/get/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileChannel> objs = api.GetProfileChannelListProfileId(
+            List<ProfileChannel> objs = api.GetProfileChannelListByProfileId(
                 _profile_id
             );
             
@@ -14552,7 +14620,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetProfileChannelListChannelIdProfileId() {
+        public virtual void GetProfileChannelListByChannelIdByProfileId() {
         
              _channel_id = ()util.GetParamValue(_context, "@channel_id");
              _profile_id = ()util.GetParamValue(_context, "@profile_id");
@@ -14560,14 +14628,14 @@ namespace platform {
             ResponseProfileChannelList wrapper = new ResponseProfileChannelList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "profile-channel/get/channel-id/profile-id";
+            wrapper.action = "profile-channel/get/by-channel-id/by-profile-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<ProfileChannel> objs = api.GetProfileChannelListChannelIdProfileId(
+            List<ProfileChannel> objs = api.GetProfileChannelListByChannelIdByProfileId(
                 _channel_id
                 , _profile_id
             );
@@ -14602,21 +14670,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOrgSiteUuid() {
+        public virtual void CountOrgSiteByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOrgSiteInt wrapper = new ResponseOrgSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/count/uuid";
+            wrapper.action = "org-site/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOrgSiteUuid(
+            int i = api.CountOrgSiteByUuid(
                 _uuid
             );
             
@@ -14627,21 +14695,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOrgSiteOrgId() {
+        public virtual void CountOrgSiteByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseOrgSiteInt wrapper = new ResponseOrgSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/count/org-id";
+            wrapper.action = "org-site/count/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOrgSiteOrgId(
+            int i = api.CountOrgSiteByOrgId(
                 _org_id
             );
             
@@ -14652,21 +14720,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOrgSiteSiteId() {
+        public virtual void CountOrgSiteBySiteId() {
         
              _site_id = ()util.GetParamValue(_context, "@site_id");
 
             ResponseOrgSiteInt wrapper = new ResponseOrgSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/count/site-id";
+            wrapper.action = "org-site/count/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOrgSiteSiteId(
+            int i = api.CountOrgSiteBySiteId(
                 _site_id
             );
             
@@ -14677,7 +14745,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountOrgSiteOrgIdSiteId() {
+        public virtual void CountOrgSiteByOrgIdBySiteId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _site_id = ()util.GetParamValue(_context, "@site_id");
@@ -14685,14 +14753,14 @@ namespace platform {
             ResponseOrgSiteInt wrapper = new ResponseOrgSiteInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/count/org-id/site-id";
+            wrapper.action = "org-site/count/by-org-id/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountOrgSiteOrgIdSiteId(
+            int i = api.CountOrgSiteByOrgIdBySiteId(
                 _org_id
                 , _site_id
             );
@@ -14703,12 +14771,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseOrgSiteListFilter()  {
+        public virtual void BrowseOrgSiteListByFilter()  {
         
             ResponseOrgSiteList wrapper = new ResponseOrgSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/browse/filter";
+            wrapper.action = "org-site/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14720,7 +14788,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            OrgSiteResult result = api.BrowseOrgSiteListFilter(obj);
+            OrgSiteResult result = api.BrowseOrgSiteListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -14732,12 +14800,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOrgSiteUuid()  {
+        public virtual void SetOrgSiteByUuid()  {
         
             ResponseOrgSiteBool wrapper = new ResponseOrgSiteBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/set/uuid";
+            wrapper.action = "org-site/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14784,17 +14852,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOrgSiteUuid(obj);
+            wrapper.data = api.SetOrgSiteByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetOrgSiteOrgIdSiteId()  {
+        public virtual void SetOrgSiteByOrgIdBySiteId()  {
         
             ResponseOrgSiteBool wrapper = new ResponseOrgSiteBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/set/org-id/site-id";
+            wrapper.action = "org-site/set/by-org-id/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -14841,26 +14909,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetOrgSiteOrgIdSiteId(obj);
+            wrapper.data = api.SetOrgSiteByOrgIdBySiteId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOrgSiteUuid() {
+        public virtual void DelOrgSiteByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOrgSiteBool wrapper = new ResponseOrgSiteBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/del/uuid";
+            wrapper.action = "org-site/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOrgSiteUuid(
+            bool completed = api.DelOrgSiteByUuid(
                         
                 _uuid
             );
@@ -14871,7 +14939,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelOrgSiteOrgIdSiteId() {
+        public virtual void DelOrgSiteByOrgIdBySiteId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _site_id = ()util.GetParamValue(_context, "@site_id");
@@ -14879,14 +14947,14 @@ namespace platform {
             ResponseOrgSiteBool wrapper = new ResponseOrgSiteBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/del/org-id/site-id";
+            wrapper.action = "org-site/del/by-org-id/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelOrgSiteOrgIdSiteId(
+            bool completed = api.DelOrgSiteByOrgIdBySiteId(
                         
                 _org_id
                 , _site_id
@@ -14922,21 +14990,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOrgSiteListUuid() {
+        public virtual void GetOrgSiteListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseOrgSiteList wrapper = new ResponseOrgSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/get/uuid";
+            wrapper.action = "org-site/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OrgSite> objs = api.GetOrgSiteListUuid(
+            List<OrgSite> objs = api.GetOrgSiteListByUuid(
                 _uuid
             );
             
@@ -14947,21 +15015,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOrgSiteListOrgId() {
+        public virtual void GetOrgSiteListByOrgId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
 
             ResponseOrgSiteList wrapper = new ResponseOrgSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/get/org-id";
+            wrapper.action = "org-site/get/by-org-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OrgSite> objs = api.GetOrgSiteListOrgId(
+            List<OrgSite> objs = api.GetOrgSiteListByOrgId(
                 _org_id
             );
             
@@ -14972,21 +15040,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOrgSiteListSiteId() {
+        public virtual void GetOrgSiteListBySiteId() {
         
              _site_id = ()util.GetParamValue(_context, "@site_id");
 
             ResponseOrgSiteList wrapper = new ResponseOrgSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/get/site-id";
+            wrapper.action = "org-site/get/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OrgSite> objs = api.GetOrgSiteListSiteId(
+            List<OrgSite> objs = api.GetOrgSiteListBySiteId(
                 _site_id
             );
             
@@ -14997,7 +15065,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetOrgSiteListOrgIdSiteId() {
+        public virtual void GetOrgSiteListByOrgIdBySiteId() {
         
              _org_id = ()util.GetParamValue(_context, "@org_id");
              _site_id = ()util.GetParamValue(_context, "@site_id");
@@ -15005,14 +15073,14 @@ namespace platform {
             ResponseOrgSiteList wrapper = new ResponseOrgSiteList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "org-site/get/org-id/site-id";
+            wrapper.action = "org-site/get/by-org-id/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<OrgSite> objs = api.GetOrgSiteListOrgIdSiteId(
+            List<OrgSite> objs = api.GetOrgSiteListByOrgIdBySiteId(
                 _org_id
                 , _site_id
             );
@@ -15047,21 +15115,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteAppUuid() {
+        public virtual void CountSiteAppByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseSiteAppInt wrapper = new ResponseSiteAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/count/uuid";
+            wrapper.action = "site-app/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteAppUuid(
+            int i = api.CountSiteAppByUuid(
                 _uuid
             );
             
@@ -15072,21 +15140,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteAppAppId() {
+        public virtual void CountSiteAppByAppId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
 
             ResponseSiteAppInt wrapper = new ResponseSiteAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/count/app-id";
+            wrapper.action = "site-app/count/by-app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteAppAppId(
+            int i = api.CountSiteAppByAppId(
                 _app_id
             );
             
@@ -15097,21 +15165,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteAppSiteId() {
+        public virtual void CountSiteAppBySiteId() {
         
              _site_id = ()util.GetParamValue(_context, "@site_id");
 
             ResponseSiteAppInt wrapper = new ResponseSiteAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/count/site-id";
+            wrapper.action = "site-app/count/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteAppSiteId(
+            int i = api.CountSiteAppBySiteId(
                 _site_id
             );
             
@@ -15122,7 +15190,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountSiteAppAppIdSiteId() {
+        public virtual void CountSiteAppByAppIdBySiteId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
              _site_id = ()util.GetParamValue(_context, "@site_id");
@@ -15130,14 +15198,14 @@ namespace platform {
             ResponseSiteAppInt wrapper = new ResponseSiteAppInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/count/app-id/site-id";
+            wrapper.action = "site-app/count/by-app-id/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountSiteAppAppIdSiteId(
+            int i = api.CountSiteAppByAppIdBySiteId(
                 _app_id
                 , _site_id
             );
@@ -15148,12 +15216,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseSiteAppListFilter()  {
+        public virtual void BrowseSiteAppListByFilter()  {
         
             ResponseSiteAppList wrapper = new ResponseSiteAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/browse/filter";
+            wrapper.action = "site-app/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15165,7 +15233,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            SiteAppResult result = api.BrowseSiteAppListFilter(obj);
+            SiteAppResult result = api.BrowseSiteAppListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -15177,12 +15245,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetSiteAppUuid()  {
+        public virtual void SetSiteAppByUuid()  {
         
             ResponseSiteAppBool wrapper = new ResponseSiteAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/set/uuid";
+            wrapper.action = "site-app/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15229,17 +15297,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetSiteAppUuid(obj);
+            wrapper.data = api.SetSiteAppByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetSiteAppAppIdSiteId()  {
+        public virtual void SetSiteAppByAppIdBySiteId()  {
         
             ResponseSiteAppBool wrapper = new ResponseSiteAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/set/app-id/site-id";
+            wrapper.action = "site-app/set/by-app-id/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15286,26 +15354,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetSiteAppAppIdSiteId(obj);
+            wrapper.data = api.SetSiteAppByAppIdBySiteId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelSiteAppUuid() {
+        public virtual void DelSiteAppByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseSiteAppBool wrapper = new ResponseSiteAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/del/uuid";
+            wrapper.action = "site-app/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelSiteAppUuid(
+            bool completed = api.DelSiteAppByUuid(
                         
                 _uuid
             );
@@ -15316,7 +15384,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelSiteAppAppIdSiteId() {
+        public virtual void DelSiteAppByAppIdBySiteId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
              _site_id = ()util.GetParamValue(_context, "@site_id");
@@ -15324,14 +15392,14 @@ namespace platform {
             ResponseSiteAppBool wrapper = new ResponseSiteAppBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/del/app-id/site-id";
+            wrapper.action = "site-app/del/by-app-id/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelSiteAppAppIdSiteId(
+            bool completed = api.DelSiteAppByAppIdBySiteId(
                         
                 _app_id
                 , _site_id
@@ -15367,21 +15435,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteAppListUuid() {
+        public virtual void GetSiteAppListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseSiteAppList wrapper = new ResponseSiteAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/get/uuid";
+            wrapper.action = "site-app/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<SiteApp> objs = api.GetSiteAppListUuid(
+            List<SiteApp> objs = api.GetSiteAppListByUuid(
                 _uuid
             );
             
@@ -15392,21 +15460,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteAppListAppId() {
+        public virtual void GetSiteAppListByAppId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
 
             ResponseSiteAppList wrapper = new ResponseSiteAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/get/app-id";
+            wrapper.action = "site-app/get/by-app-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<SiteApp> objs = api.GetSiteAppListAppId(
+            List<SiteApp> objs = api.GetSiteAppListByAppId(
                 _app_id
             );
             
@@ -15417,21 +15485,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteAppListSiteId() {
+        public virtual void GetSiteAppListBySiteId() {
         
              _site_id = ()util.GetParamValue(_context, "@site_id");
 
             ResponseSiteAppList wrapper = new ResponseSiteAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/get/site-id";
+            wrapper.action = "site-app/get/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<SiteApp> objs = api.GetSiteAppListSiteId(
+            List<SiteApp> objs = api.GetSiteAppListBySiteId(
                 _site_id
             );
             
@@ -15442,7 +15510,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetSiteAppListAppIdSiteId() {
+        public virtual void GetSiteAppListByAppIdBySiteId() {
         
              _app_id = ()util.GetParamValue(_context, "@app_id");
              _site_id = ()util.GetParamValue(_context, "@site_id");
@@ -15450,14 +15518,14 @@ namespace platform {
             ResponseSiteAppList wrapper = new ResponseSiteAppList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "site-app/get/app-id/site-id";
+            wrapper.action = "site-app/get/by-app-id/by-site-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<SiteApp> objs = api.GetSiteAppListAppIdSiteId(
+            List<SiteApp> objs = api.GetSiteAppListByAppIdBySiteId(
                 _app_id
                 , _site_id
             );
@@ -15492,21 +15560,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountPhotoUuid() {
+        public virtual void CountPhotoByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponsePhotoInt wrapper = new ResponsePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/count/uuid";
+            wrapper.action = "photo/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountPhotoUuid(
+            int i = api.CountPhotoByUuid(
                 _uuid
             );
             
@@ -15517,21 +15585,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountPhotoExternalId() {
+        public virtual void CountPhotoByExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponsePhotoInt wrapper = new ResponsePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/count/external-id";
+            wrapper.action = "photo/count/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountPhotoExternalId(
+            int i = api.CountPhotoByExternalId(
                 _external_id
             );
             
@@ -15542,21 +15610,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountPhotoUrl() {
+        public virtual void CountPhotoByUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponsePhotoInt wrapper = new ResponsePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/count/url";
+            wrapper.action = "photo/count/by-url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountPhotoUrl(
+            int i = api.CountPhotoByUrl(
                 _url
             );
             
@@ -15567,7 +15635,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountPhotoUrlExternalId() {
+        public virtual void CountPhotoByUrlByExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -15575,14 +15643,14 @@ namespace platform {
             ResponsePhotoInt wrapper = new ResponsePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/count/url/external-id";
+            wrapper.action = "photo/count/by-url/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountPhotoUrlExternalId(
+            int i = api.CountPhotoByUrlByExternalId(
                 _url
                 , _external_id
             );
@@ -15594,7 +15662,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountPhotoUuidExternalId() {
+        public virtual void CountPhotoByUuidByExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -15602,14 +15670,14 @@ namespace platform {
             ResponsePhotoInt wrapper = new ResponsePhotoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/count/uuid/external-id";
+            wrapper.action = "photo/count/by-uuid/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountPhotoUuidExternalId(
+            int i = api.CountPhotoByUuidByExternalId(
                 _uuid
                 , _external_id
             );
@@ -15620,12 +15688,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowsePhotoListFilter()  {
+        public virtual void BrowsePhotoListByFilter()  {
         
             ResponsePhotoList wrapper = new ResponsePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/browse/filter";
+            wrapper.action = "photo/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15637,7 +15705,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            PhotoResult result = api.BrowsePhotoListFilter(obj);
+            PhotoResult result = api.BrowsePhotoListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -15649,12 +15717,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetPhotoUuid()  {
+        public virtual void SetPhotoByUuid()  {
         
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/set/uuid";
+            wrapper.action = "photo/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15701,6 +15769,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -15737,17 +15809,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetPhotoUuid(obj);
+            wrapper.data = api.SetPhotoByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetPhotoExternalId()  {
+        public virtual void SetPhotoByExternalId()  {
         
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/set/external-id";
+            wrapper.action = "photo/set/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15794,6 +15866,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -15830,17 +15906,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetPhotoExternalId(obj);
+            wrapper.data = api.SetPhotoByExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetPhotoUrl()  {
+        public virtual void SetPhotoByUrl()  {
         
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/set/url";
+            wrapper.action = "photo/set/by-url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15887,6 +15963,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -15923,17 +16003,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetPhotoUrl(obj);
+            wrapper.data = api.SetPhotoByUrl(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetPhotoUrlExternalId()  {
+        public virtual void SetPhotoByUrlByExternalId()  {
         
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/set/url/external-id";
+            wrapper.action = "photo/set/by-url/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -15980,6 +16060,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -16016,17 +16100,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetPhotoUrlExternalId(obj);
+            wrapper.data = api.SetPhotoByUrlByExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetPhotoUuidExternalId()  {
+        public virtual void SetPhotoByUuidByExternalId()  {
         
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/set/uuid/external-id";
+            wrapper.action = "photo/set/by-uuid/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16073,6 +16157,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -16109,26 +16197,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetPhotoUuidExternalId(obj);
+            wrapper.data = api.SetPhotoByUuidByExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelPhotoUuid() {
+        public virtual void DelPhotoByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/del/uuid";
+            wrapper.action = "photo/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelPhotoUuid(
+            bool completed = api.DelPhotoByUuid(
                         
                 _uuid
             );
@@ -16139,21 +16227,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelPhotoExternalId() {
+        public virtual void DelPhotoByExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/del/external-id";
+            wrapper.action = "photo/del/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelPhotoExternalId(
+            bool completed = api.DelPhotoByExternalId(
                         
                 _external_id
             );
@@ -16164,21 +16252,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelPhotoUrl() {
+        public virtual void DelPhotoByUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/del/url";
+            wrapper.action = "photo/del/by-url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelPhotoUrl(
+            bool completed = api.DelPhotoByUrl(
                         
                 _url
             );
@@ -16189,7 +16277,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelPhotoUrlExternalId() {
+        public virtual void DelPhotoByUrlByExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -16197,14 +16285,14 @@ namespace platform {
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/del/url/external-id";
+            wrapper.action = "photo/del/by-url/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelPhotoUrlExternalId(
+            bool completed = api.DelPhotoByUrlByExternalId(
                         
                 _url
                 , _external_id
@@ -16216,7 +16304,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelPhotoUuidExternalId() {
+        public virtual void DelPhotoByUuidByExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -16224,14 +16312,14 @@ namespace platform {
             ResponsePhotoBool wrapper = new ResponsePhotoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/del/uuid/external-id";
+            wrapper.action = "photo/del/by-uuid/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelPhotoUuidExternalId(
+            bool completed = api.DelPhotoByUuidByExternalId(
                         
                 _uuid
                 , _external_id
@@ -16267,21 +16355,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetPhotoListUuid() {
+        public virtual void GetPhotoListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponsePhotoList wrapper = new ResponsePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/get/uuid";
+            wrapper.action = "photo/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Photo> objs = api.GetPhotoListUuid(
+            List<Photo> objs = api.GetPhotoListByUuid(
                 _uuid
             );
             
@@ -16292,21 +16380,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetPhotoListExternalId() {
+        public virtual void GetPhotoListByExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponsePhotoList wrapper = new ResponsePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/get/external-id";
+            wrapper.action = "photo/get/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Photo> objs = api.GetPhotoListExternalId(
+            List<Photo> objs = api.GetPhotoListByExternalId(
                 _external_id
             );
             
@@ -16317,21 +16405,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetPhotoListUrl() {
+        public virtual void GetPhotoListByUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponsePhotoList wrapper = new ResponsePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/get/url";
+            wrapper.action = "photo/get/by-url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Photo> objs = api.GetPhotoListUrl(
+            List<Photo> objs = api.GetPhotoListByUrl(
                 _url
             );
             
@@ -16342,7 +16430,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetPhotoListUrlExternalId() {
+        public virtual void GetPhotoListByUrlByExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -16350,14 +16438,14 @@ namespace platform {
             ResponsePhotoList wrapper = new ResponsePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/get/url/external-id";
+            wrapper.action = "photo/get/by-url/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Photo> objs = api.GetPhotoListUrlExternalId(
+            List<Photo> objs = api.GetPhotoListByUrlByExternalId(
                 _url
                 , _external_id
             );
@@ -16369,7 +16457,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetPhotoListUuidExternalId() {
+        public virtual void GetPhotoListByUuidByExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -16377,14 +16465,14 @@ namespace platform {
             ResponsePhotoList wrapper = new ResponsePhotoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "photo/get/uuid/external-id";
+            wrapper.action = "photo/get/by-uuid/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Photo> objs = api.GetPhotoListUuidExternalId(
+            List<Photo> objs = api.GetPhotoListByUuidByExternalId(
                 _uuid
                 , _external_id
             );
@@ -16419,21 +16507,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountVideoUuid() {
+        public virtual void CountVideoByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseVideoInt wrapper = new ResponseVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/count/uuid";
+            wrapper.action = "video/count/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountVideoUuid(
+            int i = api.CountVideoByUuid(
                 _uuid
             );
             
@@ -16444,21 +16532,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountVideoExternalId() {
+        public virtual void CountVideoByExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponseVideoInt wrapper = new ResponseVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/count/external-id";
+            wrapper.action = "video/count/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountVideoExternalId(
+            int i = api.CountVideoByExternalId(
                 _external_id
             );
             
@@ -16469,21 +16557,21 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountVideoUrl() {
+        public virtual void CountVideoByUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseVideoInt wrapper = new ResponseVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/count/url";
+            wrapper.action = "video/count/by-url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountVideoUrl(
+            int i = api.CountVideoByUrl(
                 _url
             );
             
@@ -16494,7 +16582,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountVideoUrlExternalId() {
+        public virtual void CountVideoByUrlByExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -16502,14 +16590,14 @@ namespace platform {
             ResponseVideoInt wrapper = new ResponseVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/count/url/external-id";
+            wrapper.action = "video/count/by-url/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountVideoUrlExternalId(
+            int i = api.CountVideoByUrlByExternalId(
                 _url
                 , _external_id
             );
@@ -16521,7 +16609,7 @@ namespace platform {
         }
 //------------------------------------------------------------------------------                    
                     
-        public virtual void CountVideoUuidExternalId() {
+        public virtual void CountVideoByUuidByExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -16529,14 +16617,14 @@ namespace platform {
             ResponseVideoInt wrapper = new ResponseVideoInt();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/count/uuid/external-id";
+            wrapper.action = "video/count/by-uuid/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            int i = api.CountVideoUuidExternalId(
+            int i = api.CountVideoByUuidByExternalId(
                 _uuid
                 , _external_id
             );
@@ -16547,12 +16635,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void BrowseVideoListFilter()  {
+        public virtual void BrowseVideoListByFilter()  {
         
             ResponseVideoList wrapper = new ResponseVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/browse/filter";
+            wrapper.action = "video/browse/by-filter";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16564,7 +16652,7 @@ namespace platform {
             obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
             obj.filter = util.GetParamValue(_context, "@filter");
             
-            VideoResult result = api.BrowseVideoListFilter(obj);
+            VideoResult result = api.BrowseVideoListByFilter(obj);
             wrapper.info.Add("total_rows", result.total_rows);
             wrapper.info.Add("total_pages", result.total_pages);
             wrapper.info.Add("page", result.page);
@@ -16576,12 +16664,12 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetVideoUuid()  {
+        public virtual void SetVideoByUuid()  {
         
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/set/uuid";
+            wrapper.action = "video/set/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16628,6 +16716,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -16664,17 +16756,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetVideoUuid(obj);
+            wrapper.data = api.SetVideoByUuid(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetVideoExternalId()  {
+        public virtual void SetVideoByExternalId()  {
         
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/set/external-id";
+            wrapper.action = "video/set/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16721,6 +16813,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -16757,17 +16853,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetVideoExternalId(obj);
+            wrapper.data = api.SetVideoByExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetVideoUrl()  {
+        public virtual void SetVideoByUrl()  {
         
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/set/url";
+            wrapper.action = "video/set/by-url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16814,6 +16910,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -16850,17 +16950,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetVideoUrl(obj);
+            wrapper.data = api.SetVideoByUrl(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetVideoUrlExternalId()  {
+        public virtual void SetVideoByUrlByExternalId()  {
         
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/set/url/external-id";
+            wrapper.action = "video/set/by-url/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -16907,6 +17007,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -16943,17 +17047,17 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetVideoUrlExternalId(obj);
+            wrapper.data = api.SetVideoByUrlByExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void SetVideoUuidExternalId()  {
+        public virtual void SetVideoByUuidByExternalId()  {
         
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/set/uuid/external-id";
+            wrapper.action = "video/set/by-uuid/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
@@ -17000,6 +17104,10 @@ namespace platform {
             if(!String.IsNoneOrEmpty(_uuid))
                 obj.uuid = ()_uuid;
             
+            string _data = util.GetParamValue(_context, "@data");
+            if(!String.IsNoneOrEmpty(_data))
+                obj.data = ()_data;
+            
             string _third_party_url = util.GetParamValue(_context, "@third_party_url");
             if(!String.IsNoneOrEmpty(_third_party_url))
                 obj.third_party_url = ()_third_party_url;
@@ -17036,26 +17144,26 @@ namespace platform {
             
             
             // get data
-            wrapper.data = api.SetVideoUuidExternalId(obj);
+            wrapper.data = api.SetVideoByUuidByExternalId(obj);
                         
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelVideoUuid() {
+        public virtual void DelVideoByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/del/uuid";
+            wrapper.action = "video/del/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelVideoUuid(
+            bool completed = api.DelVideoByUuid(
                         
                 _uuid
             );
@@ -17066,21 +17174,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelVideoExternalId() {
+        public virtual void DelVideoByExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/del/external-id";
+            wrapper.action = "video/del/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelVideoExternalId(
+            bool completed = api.DelVideoByExternalId(
                         
                 _external_id
             );
@@ -17091,21 +17199,21 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelVideoUrl() {
+        public virtual void DelVideoByUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/del/url";
+            wrapper.action = "video/del/by-url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelVideoUrl(
+            bool completed = api.DelVideoByUrl(
                         
                 _url
             );
@@ -17116,7 +17224,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelVideoUrlExternalId() {
+        public virtual void DelVideoByUrlByExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -17124,14 +17232,14 @@ namespace platform {
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/del/url/external-id";
+            wrapper.action = "video/del/by-url/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelVideoUrlExternalId(
+            bool completed = api.DelVideoByUrlByExternalId(
                         
                 _url
                 , _external_id
@@ -17143,7 +17251,7 @@ namespace platform {
 	    util.SerializeTypeToResponse(_format, _context, wrapper);
         }
 //------------------------------------------------------------------------------                    
-        public virtual void DelVideoUuidExternalId() {
+        public virtual void DelVideoByUuidByExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -17151,14 +17259,14 @@ namespace platform {
             ResponseVideoBool wrapper = new ResponseVideoBool();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/del/uuid/external-id";
+            wrapper.action = "video/del/by-uuid/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            bool completed = api.DelVideoUuidExternalId(
+            bool completed = api.DelVideoByUuidByExternalId(
                         
                 _uuid
                 , _external_id
@@ -17194,21 +17302,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetVideoListUuid() {
+        public virtual void GetVideoListByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
 
             ResponseVideoList wrapper = new ResponseVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/get/uuid";
+            wrapper.action = "video/get/by-uuid";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Video> objs = api.GetVideoListUuid(
+            List<Video> objs = api.GetVideoListByUuid(
                 _uuid
             );
             
@@ -17219,21 +17327,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetVideoListExternalId() {
+        public virtual void GetVideoListByExternalId() {
         
              _external_id = ()util.GetParamValue(_context, "@external_id");
 
             ResponseVideoList wrapper = new ResponseVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/get/external-id";
+            wrapper.action = "video/get/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Video> objs = api.GetVideoListExternalId(
+            List<Video> objs = api.GetVideoListByExternalId(
                 _external_id
             );
             
@@ -17244,21 +17352,21 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetVideoListUrl() {
+        public virtual void GetVideoListByUrl() {
         
              _url = ()util.GetParamValue(_context, "@url");
 
             ResponseVideoList wrapper = new ResponseVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/get/url";
+            wrapper.action = "video/get/by-url";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Video> objs = api.GetVideoListUrl(
+            List<Video> objs = api.GetVideoListByUrl(
                 _url
             );
             
@@ -17269,7 +17377,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetVideoListUrlExternalId() {
+        public virtual void GetVideoListByUrlByExternalId() {
         
              _url = ()util.GetParamValue(_context, "@url");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -17277,14 +17385,14 @@ namespace platform {
             ResponseVideoList wrapper = new ResponseVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/get/url/external-id";
+            wrapper.action = "video/get/by-url/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Video> objs = api.GetVideoListUrlExternalId(
+            List<Video> objs = api.GetVideoListByUrlByExternalId(
                 _url
                 , _external_id
             );
@@ -17296,7 +17404,7 @@ namespace platform {
         }     
 //------------------------------------------------------------------------------                    
                     
-        public virtual void GetVideoListUuidExternalId() {
+        public virtual void GetVideoListByUuidByExternalId() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
              _external_id = ()util.GetParamValue(_context, "@external_id");
@@ -17304,14 +17412,14 @@ namespace platform {
             ResponseVideoList wrapper = new ResponseVideoList();
             wrapper.message = "Success";
             wrapper.error = 0;
-            wrapper.action = "video/get/uuid/external-id";
+            wrapper.action = "video/get/by-uuid/by-external-id";
             wrapper.info.Add("path", path);
             wrapper.info.Add("path_info", path_info);
             wrapper.info.Add("qstring", qstring);
             wrapper.info.Add("action", action);
             wrapper.info.Add("action_params", action_params);
 
-            List<Video> objs = api.GetVideoListUuidExternalId(
+            List<Video> objs = api.GetVideoListByUuidByExternalId(
                 _uuid
                 , _external_id
             );

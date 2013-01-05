@@ -36,6 +36,7 @@ class ProfileApp extends BaseEntity {
     }
     
     public $profile_id;
+    public $data;
     public $app_id;
 
     public function __construct() {

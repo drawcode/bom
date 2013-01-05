@@ -44,7 +44,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileUuid(
+    public function CountProfileByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -66,7 +66,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileUsernameHash(
+    public function CountProfileByUsernameByHash(
         $username
         , $hash
     ) {
@@ -91,7 +91,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileUsername(
+    public function CountProfileByUsername(
         $username
     ) {
         $parameters = array();
@@ -113,7 +113,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowseProfileListFilter($filter_obj) {
+    public function BrowseProfileListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -134,7 +134,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetProfileUuid($set_type, $obj) {
+    public function SetProfileByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -179,7 +179,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetProfileUsername($set_type, $obj) {
+    public function SetProfileByUsername($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -224,7 +224,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelProfileUuid(
+    public function DelProfileByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -247,7 +247,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelProfileUsername(
+    public function DelProfileByUsername(
         $username
     ) {
         $parameters = array();
@@ -270,7 +270,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function GetProfileListUuid(
+    public function GetProfileListByUuid(
         $uuid
     ) {
             
@@ -293,7 +293,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileListUsernameHash(
+    public function GetProfileListByUsernameByHash(
         $username
         , $hash
     ) {
@@ -319,7 +319,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileListUsername(
+    public function GetProfileListByUsername(
         $username
     ) {
             
@@ -361,7 +361,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileTypeUuid(
+    public function CountProfileTypeByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -383,7 +383,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileTypeTypeId(
+    public function CountProfileTypeByTypeId(
         $type_id
     ) {
         $parameters = array();
@@ -405,7 +405,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowseProfileTypeListFilter($filter_obj) {
+    public function BrowseProfileTypeListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -426,7 +426,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetProfileTypeUuid($set_type, $obj) {
+    public function SetProfileTypeByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -469,7 +469,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelProfileTypeUuid(
+    public function DelProfileTypeByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -492,7 +492,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function GetProfileTypeListUuid(
+    public function GetProfileTypeListByUuid(
         $uuid
     ) {
             
@@ -515,7 +515,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileTypeListCode(
+    public function GetProfileTypeListByCode(
         $code
     ) {
             
@@ -538,7 +538,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileTypeListTypeId(
+    public function GetProfileTypeListByTypeId(
         $type_id
     ) {
             
@@ -580,7 +580,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeUuid(
+    public function CountProfileAttributeByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -602,7 +602,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeCode(
+    public function CountProfileAttributeByCode(
         $code
     ) {
         $parameters = array();
@@ -624,7 +624,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeType(
+    public function CountProfileAttributeByType(
         $type
     ) {
         $parameters = array();
@@ -646,7 +646,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeGroup(
+    public function CountProfileAttributeByGroup(
         $group
     ) {
         $parameters = array();
@@ -668,7 +668,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeCodeType(
+    public function CountProfileAttributeByCodeByType(
         $code
         , $type
     ) {
@@ -693,7 +693,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowseProfileAttributeListFilter($filter_obj) {
+    public function BrowseProfileAttributeListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -714,7 +714,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetProfileAttributeUuid($set_type, $obj) {
+    public function SetProfileAttributeByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -763,7 +763,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetProfileAttributeCode($set_type, $obj) {
+    public function SetProfileAttributeByCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -812,7 +812,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelProfileAttributeUuid(
+    public function DelProfileAttributeByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -835,7 +835,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelProfileAttributeCode(
+    public function DelProfileAttributeByCode(
         $code
     ) {
         $parameters = array();
@@ -858,7 +858,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function GetProfileAttributeListUuid(
+    public function GetProfileAttributeListByUuid(
         $uuid
     ) {
             
@@ -881,7 +881,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileAttributeListCode(
+    public function GetProfileAttributeListByCode(
         $code
     ) {
             
@@ -904,7 +904,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileAttributeListType(
+    public function GetProfileAttributeListByType(
         $type
     ) {
             
@@ -927,7 +927,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileAttributeListGroup(
+    public function GetProfileAttributeListByGroup(
         $group
     ) {
             
@@ -950,7 +950,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileAttributeListCodeType(
+    public function GetProfileAttributeListByCodeByType(
         $code
         , $type
     ) {
@@ -995,7 +995,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeTextUuid(
+    public function CountProfileAttributeTextByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1017,7 +1017,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeTextProfileId(
+    public function CountProfileAttributeTextByProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -1039,7 +1039,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeTextProfileIdAttributeId(
+    public function CountProfileAttributeTextByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
@@ -1064,7 +1064,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowseProfileAttributeTextListFilter($filter_obj) {
+    public function BrowseProfileAttributeTextListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -1085,7 +1085,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetProfileAttributeTextUuid($set_type, $obj) {
+    public function SetProfileAttributeTextByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1132,7 +1132,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetProfileAttributeTextProfileId($set_type, $obj) {
+    public function SetProfileAttributeTextByProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1179,7 +1179,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetProfileAttributeTextProfileIdAttributeId($set_type, $obj) {
+    public function SetProfileAttributeTextByProfileIdByAttributeId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1227,7 +1227,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelProfileAttributeTextUuid(
+    public function DelProfileAttributeTextByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1250,7 +1250,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelProfileAttributeTextProfileId(
+    public function DelProfileAttributeTextByProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -1273,7 +1273,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelProfileAttributeTextProfileIdAttributeId(
+    public function DelProfileAttributeTextByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
@@ -1299,7 +1299,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function GetProfileAttributeTextListUuid(
+    public function GetProfileAttributeTextListByUuid(
         $uuid
     ) {
             
@@ -1322,7 +1322,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileAttributeTextListProfileId(
+    public function GetProfileAttributeTextListByProfileId(
         $profile_id
     ) {
             
@@ -1345,7 +1345,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileAttributeTextListProfileIdAttributeId(
+    public function GetProfileAttributeTextListByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
@@ -1390,7 +1390,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeDataUuid(
+    public function CountProfileAttributeDataByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1412,7 +1412,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeDataProfileId(
+    public function CountProfileAttributeDataByProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -1434,7 +1434,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileAttributeDataProfileIdAttributeId(
+    public function CountProfileAttributeDataByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
@@ -1459,7 +1459,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowseProfileAttributeDataListFilter($filter_obj) {
+    public function BrowseProfileAttributeDataListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -1480,7 +1480,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetProfileAttributeDataUuid($set_type, $obj) {
+    public function SetProfileAttributeDataByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1527,7 +1527,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetProfileAttributeDataProfileId($set_type, $obj) {
+    public function SetProfileAttributeDataByProfileId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1574,7 +1574,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetProfileAttributeDataProfileIdAttributeId($set_type, $obj) {
+    public function SetProfileAttributeDataByProfileIdByAttributeId($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1622,7 +1622,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelProfileAttributeDataUuid(
+    public function DelProfileAttributeDataByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1645,7 +1645,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelProfileAttributeDataProfileId(
+    public function DelProfileAttributeDataByProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -1668,7 +1668,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelProfileAttributeDataProfileIdAttributeId(
+    public function DelProfileAttributeDataByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
@@ -1694,7 +1694,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function GetProfileAttributeDataListUuid(
+    public function GetProfileAttributeDataListByUuid(
         $uuid
     ) {
             
@@ -1717,7 +1717,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileAttributeDataListProfileId(
+    public function GetProfileAttributeDataListByProfileId(
         $profile_id
     ) {
             
@@ -1740,7 +1740,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileAttributeDataListProfileIdAttributeId(
+    public function GetProfileAttributeDataListByProfileIdByAttributeId(
         $profile_id
         , $attribute_id
     ) {
@@ -1785,7 +1785,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileDeviceUuid(
+    public function CountProfileDeviceByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -1807,7 +1807,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileDeviceProfileIdDeviceId(
+    public function CountProfileDeviceByProfileIdByDeviceId(
         $profile_id
         , $device_id
     ) {
@@ -1832,7 +1832,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileDeviceProfileIdToken(
+    public function CountProfileDeviceByProfileIdByToken(
         $profile_id
         , $token
     ) {
@@ -1857,7 +1857,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileDeviceProfileId(
+    public function CountProfileDeviceByProfileId(
         $profile_id
     ) {
         $parameters = array();
@@ -1879,7 +1879,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileDeviceDeviceId(
+    public function CountProfileDeviceByDeviceId(
         $device_id
     ) {
         $parameters = array();
@@ -1901,7 +1901,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountProfileDeviceToken(
+    public function CountProfileDeviceByToken(
         $token
     ) {
         $parameters = array();
@@ -1923,7 +1923,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowseProfileDeviceListFilter($filter_obj) {
+    public function BrowseProfileDeviceListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -1944,7 +1944,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetProfileDeviceUuid($set_type, $obj) {
+    public function SetProfileDeviceByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -1993,7 +1993,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelProfileDeviceUuid(
+    public function DelProfileDeviceByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2016,7 +2016,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelProfileDeviceProfileIdDeviceId(
+    public function DelProfileDeviceByProfileIdByDeviceId(
         $profile_id
         , $device_id
     ) {
@@ -2042,7 +2042,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelProfileDeviceProfileIdToken(
+    public function DelProfileDeviceByProfileIdByToken(
         $profile_id
         , $token
     ) {
@@ -2068,7 +2068,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelProfileDeviceToken(
+    public function DelProfileDeviceByToken(
         $token
     ) {
         $parameters = array();
@@ -2091,7 +2091,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function GetProfileDeviceListUuid(
+    public function GetProfileDeviceListByUuid(
         $uuid
     ) {
             
@@ -2114,7 +2114,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileDeviceListProfileIdDeviceId(
+    public function GetProfileDeviceListByProfileIdByDeviceId(
         $profile_id
         , $device_id
     ) {
@@ -2140,7 +2140,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileDeviceListProfileIdToken(
+    public function GetProfileDeviceListByProfileIdByToken(
         $profile_id
         , $token
     ) {
@@ -2166,7 +2166,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileDeviceListProfileId(
+    public function GetProfileDeviceListByProfileId(
         $profile_id
     ) {
             
@@ -2189,7 +2189,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileDeviceListDeviceId(
+    public function GetProfileDeviceListByDeviceId(
         $device_id
     ) {
             
@@ -2212,7 +2212,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetProfileDeviceListToken(
+    public function GetProfileDeviceListByToken(
         $token
     ) {
             
@@ -2254,7 +2254,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountCountryUuid(
+    public function CountCountryByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2276,7 +2276,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountCountryCode(
+    public function CountCountryByCode(
         $code
     ) {
         $parameters = array();
@@ -2298,7 +2298,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowseCountryListFilter($filter_obj) {
+    public function BrowseCountryListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2319,7 +2319,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetCountryUuid($set_type, $obj) {
+    public function SetCountryByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2360,7 +2360,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetCountryCode($set_type, $obj) {
+    public function SetCountryByCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2401,7 +2401,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelCountryUuid(
+    public function DelCountryByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2424,7 +2424,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelCountryCode(
+    public function DelCountryByCode(
         $code
     ) {
         $parameters = array();
@@ -2467,7 +2467,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetCountryListUuid(
+    public function GetCountryListByUuid(
         $uuid
     ) {
             
@@ -2490,7 +2490,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetCountryListCode(
+    public function GetCountryListByCode(
         $code
     ) {
             
@@ -2532,7 +2532,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountStateUuid(
+    public function CountStateByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2554,7 +2554,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountStateCode(
+    public function CountStateByCode(
         $code
     ) {
         $parameters = array();
@@ -2576,7 +2576,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowseStateListFilter($filter_obj) {
+    public function BrowseStateListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2597,7 +2597,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetStateUuid($set_type, $obj) {
+    public function SetStateByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2638,7 +2638,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetStateCode($set_type, $obj) {
+    public function SetStateByCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2679,7 +2679,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelStateUuid(
+    public function DelStateByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2702,7 +2702,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelStateCode(
+    public function DelStateByCode(
         $code
     ) {
         $parameters = array();
@@ -2745,7 +2745,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetStateListUuid(
+    public function GetStateListByUuid(
         $uuid
     ) {
             
@@ -2768,7 +2768,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetStateListCode(
+    public function GetStateListByCode(
         $code
     ) {
             
@@ -2810,7 +2810,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountCityUuid(
+    public function CountCityByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2832,7 +2832,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountCityCode(
+    public function CountCityByCode(
         $code
     ) {
         $parameters = array();
@@ -2854,7 +2854,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowseCityListFilter($filter_obj) {
+    public function BrowseCityListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -2875,7 +2875,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetCityUuid($set_type, $obj) {
+    public function SetCityByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2916,7 +2916,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetCityCode($set_type, $obj) {
+    public function SetCityByCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -2957,7 +2957,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelCityUuid(
+    public function DelCityByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -2980,7 +2980,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelCityCode(
+    public function DelCityByCode(
         $code
     ) {
         $parameters = array();
@@ -3023,7 +3023,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetCityListUuid(
+    public function GetCityListByUuid(
         $uuid
     ) {
             
@@ -3046,7 +3046,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetCityListCode(
+    public function GetCityListByCode(
         $code
     ) {
             
@@ -3088,7 +3088,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountPostalCodeUuid(
+    public function CountPostalCodeByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3110,7 +3110,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function CountPostalCodeCode(
+    public function CountPostalCodeByCode(
         $code
     ) {
         $parameters = array();
@@ -3132,7 +3132,7 @@ class BaseProfileData {
         
         return 0;
     }
-    public function BrowsePostalCodeListFilter($filter_obj) {
+    public function BrowsePostalCodeListByFilter($filter_obj) {
         $parameters = array();
             
         $parameters['in_page'] = $filter_obj->page; //"in_page"
@@ -3153,7 +3153,7 @@ class BaseProfileData {
         }
     }
 
-    public function SetPostalCodeUuid($set_type, $obj) {
+    public function SetPostalCodeByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3194,7 +3194,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function SetPostalCodeCode($set_type, $obj) {
+    public function SetPostalCodeByCode($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;
         if($obj != NULL) {
@@ -3235,7 +3235,7 @@ class BaseProfileData {
         return FALSE;
     }
     
-    public function DelPostalCodeUuid(
+    public function DelPostalCodeByUuid(
         $uuid
     ) {
         $parameters = array();
@@ -3258,7 +3258,7 @@ class BaseProfileData {
         
         return FALSE;
     }
-    public function DelPostalCodeCode(
+    public function DelPostalCodeByCode(
         $code
     ) {
         $parameters = array();
@@ -3301,7 +3301,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetPostalCodeListUuid(
+    public function GetPostalCodeListByUuid(
         $uuid
     ) {
             
@@ -3324,7 +3324,7 @@ class BaseProfileData {
                 
         return NULL;
     }
-    public function GetPostalCodeListCode(
+    public function GetPostalCodeListByCode(
         $code
     ) {
             

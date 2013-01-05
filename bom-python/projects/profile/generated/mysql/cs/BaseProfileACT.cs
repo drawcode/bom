@@ -58,34 +58,34 @@ namespace profile {
             return data.CountProfile(
             );
         }       
-        public virtual int CountProfileUuid(
+        public virtual int CountProfileByUuid(
             string uuid
         )  {            
-            return data.CountProfileUuid(
+            return data.CountProfileByUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileUsernameHash(
+        public virtual int CountProfileByUsernameByHash(
             string username
             , string hash
         )  {            
-            return data.CountProfileUsernameHash(
+            return data.CountProfileByUsernameByHash(
                 username
                 , hash
             );
         }       
-        public virtual int CountProfileUsername(
+        public virtual int CountProfileByUsername(
             string username
         )  {            
-            return data.CountProfileUsername(
+            return data.CountProfileByUsername(
                 username
             );
         }       
-        public virtual ProfileResult BrowseProfileListFilter(SearchFilter obj)  {
+        public virtual ProfileResult BrowseProfileListByFilter(SearchFilter obj)  {
             ProfileResult result = new ProfileResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileListFilter(obj);
+            DataSet ds = data.BrowseProfileListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -98,31 +98,31 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetProfileUuid(string set_type, Profile obj)  {            
-            return data.SetProfileUuid(set_type, obj);
+        public virtual bool SetProfileByUuid(string set_type, Profile obj)  {            
+            return data.SetProfileByUuid(set_type, obj);
         }    
-        public virtual bool SetProfileUsername(string set_type, Profile obj)  {            
-            return data.SetProfileUsername(set_type, obj);
+        public virtual bool SetProfileByUsername(string set_type, Profile obj)  {            
+            return data.SetProfileByUsername(set_type, obj);
         }    
-        public virtual bool DelProfileUuid(
+        public virtual bool DelProfileByUuid(
             string uuid
         )  {
-            return data.DelProfileUuid(
+            return data.DelProfileByUuid(
                 uuid
             );
         }                     
-        public virtual bool DelProfileUsername(
+        public virtual bool DelProfileByUsername(
             string username
         )  {
-            return data.DelProfileUsername(
+            return data.DelProfileByUsername(
                 username
             );
         }                     
-        public virtual List<Profile> GetProfileListUuid(
+        public virtual List<Profile> GetProfileListByUuid(
             string uuid
         )  {
             List<Profile> list = new List<Profile>();
-            DataSet ds = data.GetProfileListUuid(
+            DataSet ds = data.GetProfileListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -137,12 +137,12 @@ namespace profile {
         }
         
         
-        public virtual List<Profile> GetProfileListUsernameHash(
+        public virtual List<Profile> GetProfileListByUsernameByHash(
             string username
             , string hash
         )  {
             List<Profile> list = new List<Profile>();
-            DataSet ds = data.GetProfileListUsernameHash(
+            DataSet ds = data.GetProfileListByUsernameByHash(
                 username
                 , hash
             );
@@ -158,11 +158,11 @@ namespace profile {
         }
         
         
-        public virtual List<Profile> GetProfileListUsername(
+        public virtual List<Profile> GetProfileListByUsername(
             string username
         )  {
             List<Profile> list = new List<Profile>();
-            DataSet ds = data.GetProfileListUsername(
+            DataSet ds = data.GetProfileListByUsername(
                 username
             );
             if(ds != null) {
@@ -210,25 +210,25 @@ namespace profile {
             return data.CountProfileType(
             );
         }       
-        public virtual int CountProfileTypeUuid(
+        public virtual int CountProfileTypeByUuid(
             string uuid
         )  {            
-            return data.CountProfileTypeUuid(
+            return data.CountProfileTypeByUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileTypeTypeId(
+        public virtual int CountProfileTypeByTypeId(
             string type_id
         )  {            
-            return data.CountProfileTypeTypeId(
+            return data.CountProfileTypeByTypeId(
                 type_id
             );
         }       
-        public virtual ProfileTypeResult BrowseProfileTypeListFilter(SearchFilter obj)  {
+        public virtual ProfileTypeResult BrowseProfileTypeListByFilter(SearchFilter obj)  {
             ProfileTypeResult result = new ProfileTypeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileTypeListFilter(obj);
+            DataSet ds = data.BrowseProfileTypeListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -241,21 +241,21 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetProfileTypeUuid(string set_type, ProfileType obj)  {            
-            return data.SetProfileTypeUuid(set_type, obj);
+        public virtual bool SetProfileTypeByUuid(string set_type, ProfileType obj)  {            
+            return data.SetProfileTypeByUuid(set_type, obj);
         }    
-        public virtual bool DelProfileTypeUuid(
+        public virtual bool DelProfileTypeByUuid(
             string uuid
         )  {
-            return data.DelProfileTypeUuid(
+            return data.DelProfileTypeByUuid(
                 uuid
             );
         }                     
-        public virtual List<ProfileType> GetProfileTypeListUuid(
+        public virtual List<ProfileType> GetProfileTypeListByUuid(
             string uuid
         )  {
             List<ProfileType> list = new List<ProfileType>();
-            DataSet ds = data.GetProfileTypeListUuid(
+            DataSet ds = data.GetProfileTypeListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -270,11 +270,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileType> GetProfileTypeListCode(
+        public virtual List<ProfileType> GetProfileTypeListByCode(
             string code
         )  {
             List<ProfileType> list = new List<ProfileType>();
-            DataSet ds = data.GetProfileTypeListCode(
+            DataSet ds = data.GetProfileTypeListByCode(
                 code
             );
             if(ds != null) {
@@ -289,11 +289,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileType> GetProfileTypeListTypeId(
+        public virtual List<ProfileType> GetProfileTypeListByTypeId(
             string type_id
         )  {
             List<ProfileType> list = new List<ProfileType>();
-            DataSet ds = data.GetProfileTypeListTypeId(
+            DataSet ds = data.GetProfileTypeListByTypeId(
                 type_id
             );
             if(ds != null) {
@@ -347,48 +347,48 @@ namespace profile {
             return data.CountProfileAttribute(
             );
         }       
-        public virtual int CountProfileAttributeUuid(
+        public virtual int CountProfileAttributeByUuid(
             string uuid
         )  {            
-            return data.CountProfileAttributeUuid(
+            return data.CountProfileAttributeByUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileAttributeCode(
+        public virtual int CountProfileAttributeByCode(
             string code
         )  {            
-            return data.CountProfileAttributeCode(
+            return data.CountProfileAttributeByCode(
                 code
             );
         }       
-        public virtual int CountProfileAttributeType(
+        public virtual int CountProfileAttributeByType(
             int type
         )  {            
-            return data.CountProfileAttributeType(
+            return data.CountProfileAttributeByType(
                 type
             );
         }       
-        public virtual int CountProfileAttributeGroup(
+        public virtual int CountProfileAttributeByGroup(
             int group
         )  {            
-            return data.CountProfileAttributeGroup(
+            return data.CountProfileAttributeByGroup(
                 group
             );
         }       
-        public virtual int CountProfileAttributeCodeType(
+        public virtual int CountProfileAttributeByCodeByType(
             string code
             , int type
         )  {            
-            return data.CountProfileAttributeCodeType(
+            return data.CountProfileAttributeByCodeByType(
                 code
                 , type
             );
         }       
-        public virtual ProfileAttributeResult BrowseProfileAttributeListFilter(SearchFilter obj)  {
+        public virtual ProfileAttributeResult BrowseProfileAttributeListByFilter(SearchFilter obj)  {
             ProfileAttributeResult result = new ProfileAttributeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileAttributeListFilter(obj);
+            DataSet ds = data.BrowseProfileAttributeListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -401,31 +401,31 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetProfileAttributeUuid(string set_type, ProfileAttribute obj)  {            
-            return data.SetProfileAttributeUuid(set_type, obj);
+        public virtual bool SetProfileAttributeByUuid(string set_type, ProfileAttribute obj)  {            
+            return data.SetProfileAttributeByUuid(set_type, obj);
         }    
-        public virtual bool SetProfileAttributeCode(string set_type, ProfileAttribute obj)  {            
-            return data.SetProfileAttributeCode(set_type, obj);
+        public virtual bool SetProfileAttributeByCode(string set_type, ProfileAttribute obj)  {            
+            return data.SetProfileAttributeByCode(set_type, obj);
         }    
-        public virtual bool DelProfileAttributeUuid(
+        public virtual bool DelProfileAttributeByUuid(
             string uuid
         )  {
-            return data.DelProfileAttributeUuid(
+            return data.DelProfileAttributeByUuid(
                 uuid
             );
         }                     
-        public virtual bool DelProfileAttributeCode(
+        public virtual bool DelProfileAttributeByCode(
             string code
         )  {
-            return data.DelProfileAttributeCode(
+            return data.DelProfileAttributeByCode(
                 code
             );
         }                     
-        public virtual List<ProfileAttribute> GetProfileAttributeListUuid(
+        public virtual List<ProfileAttribute> GetProfileAttributeListByUuid(
             string uuid
         )  {
             List<ProfileAttribute> list = new List<ProfileAttribute>();
-            DataSet ds = data.GetProfileAttributeListUuid(
+            DataSet ds = data.GetProfileAttributeListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -440,11 +440,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileAttribute> GetProfileAttributeListCode(
+        public virtual List<ProfileAttribute> GetProfileAttributeListByCode(
             string code
         )  {
             List<ProfileAttribute> list = new List<ProfileAttribute>();
-            DataSet ds = data.GetProfileAttributeListCode(
+            DataSet ds = data.GetProfileAttributeListByCode(
                 code
             );
             if(ds != null) {
@@ -459,11 +459,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileAttribute> GetProfileAttributeListType(
+        public virtual List<ProfileAttribute> GetProfileAttributeListByType(
             int type
         )  {
             List<ProfileAttribute> list = new List<ProfileAttribute>();
-            DataSet ds = data.GetProfileAttributeListType(
+            DataSet ds = data.GetProfileAttributeListByType(
                 type
             );
             if(ds != null) {
@@ -478,11 +478,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileAttribute> GetProfileAttributeListGroup(
+        public virtual List<ProfileAttribute> GetProfileAttributeListByGroup(
             int group
         )  {
             List<ProfileAttribute> list = new List<ProfileAttribute>();
-            DataSet ds = data.GetProfileAttributeListGroup(
+            DataSet ds = data.GetProfileAttributeListByGroup(
                 group
             );
             if(ds != null) {
@@ -497,12 +497,12 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileAttribute> GetProfileAttributeListCodeType(
+        public virtual List<ProfileAttribute> GetProfileAttributeListByCodeByType(
             string code
             , int type
         )  {
             List<ProfileAttribute> list = new List<ProfileAttribute>();
-            DataSet ds = data.GetProfileAttributeListCodeType(
+            DataSet ds = data.GetProfileAttributeListByCodeByType(
                 code
                 , type
             );
@@ -555,34 +555,34 @@ namespace profile {
             return data.CountProfileAttributeText(
             );
         }       
-        public virtual int CountProfileAttributeTextUuid(
+        public virtual int CountProfileAttributeTextByUuid(
             string uuid
         )  {            
-            return data.CountProfileAttributeTextUuid(
+            return data.CountProfileAttributeTextByUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileAttributeTextProfileId(
+        public virtual int CountProfileAttributeTextByProfileId(
             string profile_id
         )  {            
-            return data.CountProfileAttributeTextProfileId(
+            return data.CountProfileAttributeTextByProfileId(
                 profile_id
             );
         }       
-        public virtual int CountProfileAttributeTextProfileIdAttributeId(
+        public virtual int CountProfileAttributeTextByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {            
-            return data.CountProfileAttributeTextProfileIdAttributeId(
+            return data.CountProfileAttributeTextByProfileIdByAttributeId(
                 profile_id
                 , attribute_id
             );
         }       
-        public virtual ProfileAttributeTextResult BrowseProfileAttributeTextListFilter(SearchFilter obj)  {
+        public virtual ProfileAttributeTextResult BrowseProfileAttributeTextListByFilter(SearchFilter obj)  {
             ProfileAttributeTextResult result = new ProfileAttributeTextResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileAttributeTextListFilter(obj);
+            DataSet ds = data.BrowseProfileAttributeTextListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -595,43 +595,43 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetProfileAttributeTextUuid(string set_type, ProfileAttributeText obj)  {            
-            return data.SetProfileAttributeTextUuid(set_type, obj);
+        public virtual bool SetProfileAttributeTextByUuid(string set_type, ProfileAttributeText obj)  {            
+            return data.SetProfileAttributeTextByUuid(set_type, obj);
         }    
-        public virtual bool SetProfileAttributeTextProfileId(string set_type, ProfileAttributeText obj)  {            
-            return data.SetProfileAttributeTextProfileId(set_type, obj);
+        public virtual bool SetProfileAttributeTextByProfileId(string set_type, ProfileAttributeText obj)  {            
+            return data.SetProfileAttributeTextByProfileId(set_type, obj);
         }    
-        public virtual bool SetProfileAttributeTextProfileIdAttributeId(string set_type, ProfileAttributeText obj)  {            
-            return data.SetProfileAttributeTextProfileIdAttributeId(set_type, obj);
+        public virtual bool SetProfileAttributeTextByProfileIdByAttributeId(string set_type, ProfileAttributeText obj)  {            
+            return data.SetProfileAttributeTextByProfileIdByAttributeId(set_type, obj);
         }    
-        public virtual bool DelProfileAttributeTextUuid(
+        public virtual bool DelProfileAttributeTextByUuid(
             string uuid
         )  {
-            return data.DelProfileAttributeTextUuid(
+            return data.DelProfileAttributeTextByUuid(
                 uuid
             );
         }                     
-        public virtual bool DelProfileAttributeTextProfileId(
+        public virtual bool DelProfileAttributeTextByProfileId(
             string profile_id
         )  {
-            return data.DelProfileAttributeTextProfileId(
+            return data.DelProfileAttributeTextByProfileId(
                 profile_id
             );
         }                     
-        public virtual bool DelProfileAttributeTextProfileIdAttributeId(
+        public virtual bool DelProfileAttributeTextByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
-            return data.DelProfileAttributeTextProfileIdAttributeId(
+            return data.DelProfileAttributeTextByProfileIdByAttributeId(
                 profile_id
                 , attribute_id
             );
         }                     
-        public virtual List<ProfileAttributeText> GetProfileAttributeTextListUuid(
+        public virtual List<ProfileAttributeText> GetProfileAttributeTextListByUuid(
             string uuid
         )  {
             List<ProfileAttributeText> list = new List<ProfileAttributeText>();
-            DataSet ds = data.GetProfileAttributeTextListUuid(
+            DataSet ds = data.GetProfileAttributeTextListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -646,11 +646,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileAttributeText> GetProfileAttributeTextListProfileId(
+        public virtual List<ProfileAttributeText> GetProfileAttributeTextListByProfileId(
             string profile_id
         )  {
             List<ProfileAttributeText> list = new List<ProfileAttributeText>();
-            DataSet ds = data.GetProfileAttributeTextListProfileId(
+            DataSet ds = data.GetProfileAttributeTextListByProfileId(
                 profile_id
             );
             if(ds != null) {
@@ -665,12 +665,12 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileAttributeText> GetProfileAttributeTextListProfileIdAttributeId(
+        public virtual List<ProfileAttributeText> GetProfileAttributeTextListByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
             List<ProfileAttributeText> list = new List<ProfileAttributeText>();
-            DataSet ds = data.GetProfileAttributeTextListProfileIdAttributeId(
+            DataSet ds = data.GetProfileAttributeTextListByProfileIdByAttributeId(
                 profile_id
                 , attribute_id
             );
@@ -723,34 +723,34 @@ namespace profile {
             return data.CountProfileAttributeData(
             );
         }       
-        public virtual int CountProfileAttributeDataUuid(
+        public virtual int CountProfileAttributeDataByUuid(
             string uuid
         )  {            
-            return data.CountProfileAttributeDataUuid(
+            return data.CountProfileAttributeDataByUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileAttributeDataProfileId(
+        public virtual int CountProfileAttributeDataByProfileId(
             string profile_id
         )  {            
-            return data.CountProfileAttributeDataProfileId(
+            return data.CountProfileAttributeDataByProfileId(
                 profile_id
             );
         }       
-        public virtual int CountProfileAttributeDataProfileIdAttributeId(
+        public virtual int CountProfileAttributeDataByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {            
-            return data.CountProfileAttributeDataProfileIdAttributeId(
+            return data.CountProfileAttributeDataByProfileIdByAttributeId(
                 profile_id
                 , attribute_id
             );
         }       
-        public virtual ProfileAttributeDataResult BrowseProfileAttributeDataListFilter(SearchFilter obj)  {
+        public virtual ProfileAttributeDataResult BrowseProfileAttributeDataListByFilter(SearchFilter obj)  {
             ProfileAttributeDataResult result = new ProfileAttributeDataResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileAttributeDataListFilter(obj);
+            DataSet ds = data.BrowseProfileAttributeDataListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -763,43 +763,43 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetProfileAttributeDataUuid(string set_type, ProfileAttributeData obj)  {            
-            return data.SetProfileAttributeDataUuid(set_type, obj);
+        public virtual bool SetProfileAttributeDataByUuid(string set_type, ProfileAttributeData obj)  {            
+            return data.SetProfileAttributeDataByUuid(set_type, obj);
         }    
-        public virtual bool SetProfileAttributeDataProfileId(string set_type, ProfileAttributeData obj)  {            
-            return data.SetProfileAttributeDataProfileId(set_type, obj);
+        public virtual bool SetProfileAttributeDataByProfileId(string set_type, ProfileAttributeData obj)  {            
+            return data.SetProfileAttributeDataByProfileId(set_type, obj);
         }    
-        public virtual bool SetProfileAttributeDataProfileIdAttributeId(string set_type, ProfileAttributeData obj)  {            
-            return data.SetProfileAttributeDataProfileIdAttributeId(set_type, obj);
+        public virtual bool SetProfileAttributeDataByProfileIdByAttributeId(string set_type, ProfileAttributeData obj)  {            
+            return data.SetProfileAttributeDataByProfileIdByAttributeId(set_type, obj);
         }    
-        public virtual bool DelProfileAttributeDataUuid(
+        public virtual bool DelProfileAttributeDataByUuid(
             string uuid
         )  {
-            return data.DelProfileAttributeDataUuid(
+            return data.DelProfileAttributeDataByUuid(
                 uuid
             );
         }                     
-        public virtual bool DelProfileAttributeDataProfileId(
+        public virtual bool DelProfileAttributeDataByProfileId(
             string profile_id
         )  {
-            return data.DelProfileAttributeDataProfileId(
+            return data.DelProfileAttributeDataByProfileId(
                 profile_id
             );
         }                     
-        public virtual bool DelProfileAttributeDataProfileIdAttributeId(
+        public virtual bool DelProfileAttributeDataByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
-            return data.DelProfileAttributeDataProfileIdAttributeId(
+            return data.DelProfileAttributeDataByProfileIdByAttributeId(
                 profile_id
                 , attribute_id
             );
         }                     
-        public virtual List<ProfileAttributeData> GetProfileAttributeDataListUuid(
+        public virtual List<ProfileAttributeData> GetProfileAttributeDataListByUuid(
             string uuid
         )  {
             List<ProfileAttributeData> list = new List<ProfileAttributeData>();
-            DataSet ds = data.GetProfileAttributeDataListUuid(
+            DataSet ds = data.GetProfileAttributeDataListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -814,11 +814,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileAttributeData> GetProfileAttributeDataListProfileId(
+        public virtual List<ProfileAttributeData> GetProfileAttributeDataListByProfileId(
             string profile_id
         )  {
             List<ProfileAttributeData> list = new List<ProfileAttributeData>();
-            DataSet ds = data.GetProfileAttributeDataListProfileId(
+            DataSet ds = data.GetProfileAttributeDataListByProfileId(
                 profile_id
             );
             if(ds != null) {
@@ -833,12 +833,12 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileAttributeData> GetProfileAttributeDataListProfileIdAttributeId(
+        public virtual List<ProfileAttributeData> GetProfileAttributeDataListByProfileIdByAttributeId(
             string profile_id
             , string attribute_id
         )  {
             List<ProfileAttributeData> list = new List<ProfileAttributeData>();
-            DataSet ds = data.GetProfileAttributeDataListProfileIdAttributeId(
+            DataSet ds = data.GetProfileAttributeDataListByProfileIdByAttributeId(
                 profile_id
                 , attribute_id
             );
@@ -893,57 +893,57 @@ namespace profile {
             return data.CountProfileDevice(
             );
         }       
-        public virtual int CountProfileDeviceUuid(
+        public virtual int CountProfileDeviceByUuid(
             string uuid
         )  {            
-            return data.CountProfileDeviceUuid(
+            return data.CountProfileDeviceByUuid(
                 uuid
             );
         }       
-        public virtual int CountProfileDeviceProfileIdDeviceId(
+        public virtual int CountProfileDeviceByProfileIdByDeviceId(
             string profile_id
             , string device_id
         )  {            
-            return data.CountProfileDeviceProfileIdDeviceId(
+            return data.CountProfileDeviceByProfileIdByDeviceId(
                 profile_id
                 , device_id
             );
         }       
-        public virtual int CountProfileDeviceProfileIdToken(
+        public virtual int CountProfileDeviceByProfileIdByToken(
             string profile_id
             , string token
         )  {            
-            return data.CountProfileDeviceProfileIdToken(
+            return data.CountProfileDeviceByProfileIdByToken(
                 profile_id
                 , token
             );
         }       
-        public virtual int CountProfileDeviceProfileId(
+        public virtual int CountProfileDeviceByProfileId(
             string profile_id
         )  {            
-            return data.CountProfileDeviceProfileId(
+            return data.CountProfileDeviceByProfileId(
                 profile_id
             );
         }       
-        public virtual int CountProfileDeviceDeviceId(
+        public virtual int CountProfileDeviceByDeviceId(
             string device_id
         )  {            
-            return data.CountProfileDeviceDeviceId(
+            return data.CountProfileDeviceByDeviceId(
                 device_id
             );
         }       
-        public virtual int CountProfileDeviceToken(
+        public virtual int CountProfileDeviceByToken(
             string token
         )  {            
-            return data.CountProfileDeviceToken(
+            return data.CountProfileDeviceByToken(
                 token
             );
         }       
-        public virtual ProfileDeviceResult BrowseProfileDeviceListFilter(SearchFilter obj)  {
+        public virtual ProfileDeviceResult BrowseProfileDeviceListByFilter(SearchFilter obj)  {
             ProfileDeviceResult result = new ProfileDeviceResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseProfileDeviceListFilter(obj);
+            DataSet ds = data.BrowseProfileDeviceListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -956,46 +956,46 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetProfileDeviceUuid(string set_type, ProfileDevice obj)  {            
-            return data.SetProfileDeviceUuid(set_type, obj);
+        public virtual bool SetProfileDeviceByUuid(string set_type, ProfileDevice obj)  {            
+            return data.SetProfileDeviceByUuid(set_type, obj);
         }    
-        public virtual bool DelProfileDeviceUuid(
+        public virtual bool DelProfileDeviceByUuid(
             string uuid
         )  {
-            return data.DelProfileDeviceUuid(
+            return data.DelProfileDeviceByUuid(
                 uuid
             );
         }                     
-        public virtual bool DelProfileDeviceProfileIdDeviceId(
+        public virtual bool DelProfileDeviceByProfileIdByDeviceId(
             string profile_id
             , string device_id
         )  {
-            return data.DelProfileDeviceProfileIdDeviceId(
+            return data.DelProfileDeviceByProfileIdByDeviceId(
                 profile_id
                 , device_id
             );
         }                     
-        public virtual bool DelProfileDeviceProfileIdToken(
+        public virtual bool DelProfileDeviceByProfileIdByToken(
             string profile_id
             , string token
         )  {
-            return data.DelProfileDeviceProfileIdToken(
+            return data.DelProfileDeviceByProfileIdByToken(
                 profile_id
                 , token
             );
         }                     
-        public virtual bool DelProfileDeviceToken(
+        public virtual bool DelProfileDeviceByToken(
             string token
         )  {
-            return data.DelProfileDeviceToken(
+            return data.DelProfileDeviceByToken(
                 token
             );
         }                     
-        public virtual List<ProfileDevice> GetProfileDeviceListUuid(
+        public virtual List<ProfileDevice> GetProfileDeviceListByUuid(
             string uuid
         )  {
             List<ProfileDevice> list = new List<ProfileDevice>();
-            DataSet ds = data.GetProfileDeviceListUuid(
+            DataSet ds = data.GetProfileDeviceListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -1010,12 +1010,12 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileDevice> GetProfileDeviceListProfileIdDeviceId(
+        public virtual List<ProfileDevice> GetProfileDeviceListByProfileIdByDeviceId(
             string profile_id
             , string device_id
         )  {
             List<ProfileDevice> list = new List<ProfileDevice>();
-            DataSet ds = data.GetProfileDeviceListProfileIdDeviceId(
+            DataSet ds = data.GetProfileDeviceListByProfileIdByDeviceId(
                 profile_id
                 , device_id
             );
@@ -1031,12 +1031,12 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileDevice> GetProfileDeviceListProfileIdToken(
+        public virtual List<ProfileDevice> GetProfileDeviceListByProfileIdByToken(
             string profile_id
             , string token
         )  {
             List<ProfileDevice> list = new List<ProfileDevice>();
-            DataSet ds = data.GetProfileDeviceListProfileIdToken(
+            DataSet ds = data.GetProfileDeviceListByProfileIdByToken(
                 profile_id
                 , token
             );
@@ -1052,11 +1052,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileDevice> GetProfileDeviceListProfileId(
+        public virtual List<ProfileDevice> GetProfileDeviceListByProfileId(
             string profile_id
         )  {
             List<ProfileDevice> list = new List<ProfileDevice>();
-            DataSet ds = data.GetProfileDeviceListProfileId(
+            DataSet ds = data.GetProfileDeviceListByProfileId(
                 profile_id
             );
             if(ds != null) {
@@ -1071,11 +1071,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileDevice> GetProfileDeviceListDeviceId(
+        public virtual List<ProfileDevice> GetProfileDeviceListByDeviceId(
             string device_id
         )  {
             List<ProfileDevice> list = new List<ProfileDevice>();
-            DataSet ds = data.GetProfileDeviceListDeviceId(
+            DataSet ds = data.GetProfileDeviceListByDeviceId(
                 device_id
             );
             if(ds != null) {
@@ -1090,11 +1090,11 @@ namespace profile {
         }
         
         
-        public virtual List<ProfileDevice> GetProfileDeviceListToken(
+        public virtual List<ProfileDevice> GetProfileDeviceListByToken(
             string token
         )  {
             List<ProfileDevice> list = new List<ProfileDevice>();
-            DataSet ds = data.GetProfileDeviceListToken(
+            DataSet ds = data.GetProfileDeviceListByToken(
                 token
             );
             if(ds != null) {
@@ -1140,25 +1140,25 @@ namespace profile {
             return data.CountCountry(
             );
         }       
-        public virtual int CountCountryUuid(
+        public virtual int CountCountryByUuid(
             string uuid
         )  {            
-            return data.CountCountryUuid(
+            return data.CountCountryByUuid(
                 uuid
             );
         }       
-        public virtual int CountCountryCode(
+        public virtual int CountCountryByCode(
             string code
         )  {            
-            return data.CountCountryCode(
+            return data.CountCountryByCode(
                 code
             );
         }       
-        public virtual CountryResult BrowseCountryListFilter(SearchFilter obj)  {
+        public virtual CountryResult BrowseCountryListByFilter(SearchFilter obj)  {
             CountryResult result = new CountryResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseCountryListFilter(obj);
+            DataSet ds = data.BrowseCountryListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1171,23 +1171,23 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetCountryUuid(string set_type, Country obj)  {            
-            return data.SetCountryUuid(set_type, obj);
+        public virtual bool SetCountryByUuid(string set_type, Country obj)  {            
+            return data.SetCountryByUuid(set_type, obj);
         }    
-        public virtual bool SetCountryCode(string set_type, Country obj)  {            
-            return data.SetCountryCode(set_type, obj);
+        public virtual bool SetCountryByCode(string set_type, Country obj)  {            
+            return data.SetCountryByCode(set_type, obj);
         }    
-        public virtual bool DelCountryUuid(
+        public virtual bool DelCountryByUuid(
             string uuid
         )  {
-            return data.DelCountryUuid(
+            return data.DelCountryByUuid(
                 uuid
             );
         }                     
-        public virtual bool DelCountryCode(
+        public virtual bool DelCountryByCode(
             string code
         )  {
-            return data.DelCountryCode(
+            return data.DelCountryByCode(
                 code
             );
         }                     
@@ -1208,11 +1208,11 @@ namespace profile {
         }
         
         
-        public virtual List<Country> GetCountryListUuid(
+        public virtual List<Country> GetCountryListByUuid(
             string uuid
         )  {
             List<Country> list = new List<Country>();
-            DataSet ds = data.GetCountryListUuid(
+            DataSet ds = data.GetCountryListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -1227,11 +1227,11 @@ namespace profile {
         }
         
         
-        public virtual List<Country> GetCountryListCode(
+        public virtual List<Country> GetCountryListByCode(
             string code
         )  {
             List<Country> list = new List<Country>();
-            DataSet ds = data.GetCountryListCode(
+            DataSet ds = data.GetCountryListByCode(
                 code
             );
             if(ds != null) {
@@ -1277,25 +1277,25 @@ namespace profile {
             return data.CountState(
             );
         }       
-        public virtual int CountStateUuid(
+        public virtual int CountStateByUuid(
             string uuid
         )  {            
-            return data.CountStateUuid(
+            return data.CountStateByUuid(
                 uuid
             );
         }       
-        public virtual int CountStateCode(
+        public virtual int CountStateByCode(
             string code
         )  {            
-            return data.CountStateCode(
+            return data.CountStateByCode(
                 code
             );
         }       
-        public virtual StateResult BrowseStateListFilter(SearchFilter obj)  {
+        public virtual StateResult BrowseStateListByFilter(SearchFilter obj)  {
             StateResult result = new StateResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseStateListFilter(obj);
+            DataSet ds = data.BrowseStateListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1308,23 +1308,23 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetStateUuid(string set_type, State obj)  {            
-            return data.SetStateUuid(set_type, obj);
+        public virtual bool SetStateByUuid(string set_type, State obj)  {            
+            return data.SetStateByUuid(set_type, obj);
         }    
-        public virtual bool SetStateCode(string set_type, State obj)  {            
-            return data.SetStateCode(set_type, obj);
+        public virtual bool SetStateByCode(string set_type, State obj)  {            
+            return data.SetStateByCode(set_type, obj);
         }    
-        public virtual bool DelStateUuid(
+        public virtual bool DelStateByUuid(
             string uuid
         )  {
-            return data.DelStateUuid(
+            return data.DelStateByUuid(
                 uuid
             );
         }                     
-        public virtual bool DelStateCode(
+        public virtual bool DelStateByCode(
             string code
         )  {
-            return data.DelStateCode(
+            return data.DelStateByCode(
                 code
             );
         }                     
@@ -1345,11 +1345,11 @@ namespace profile {
         }
         
         
-        public virtual List<State> GetStateListUuid(
+        public virtual List<State> GetStateListByUuid(
             string uuid
         )  {
             List<State> list = new List<State>();
-            DataSet ds = data.GetStateListUuid(
+            DataSet ds = data.GetStateListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -1364,11 +1364,11 @@ namespace profile {
         }
         
         
-        public virtual List<State> GetStateListCode(
+        public virtual List<State> GetStateListByCode(
             string code
         )  {
             List<State> list = new List<State>();
-            DataSet ds = data.GetStateListCode(
+            DataSet ds = data.GetStateListByCode(
                 code
             );
             if(ds != null) {
@@ -1414,25 +1414,25 @@ namespace profile {
             return data.CountCity(
             );
         }       
-        public virtual int CountCityUuid(
+        public virtual int CountCityByUuid(
             string uuid
         )  {            
-            return data.CountCityUuid(
+            return data.CountCityByUuid(
                 uuid
             );
         }       
-        public virtual int CountCityCode(
+        public virtual int CountCityByCode(
             string code
         )  {            
-            return data.CountCityCode(
+            return data.CountCityByCode(
                 code
             );
         }       
-        public virtual CityResult BrowseCityListFilter(SearchFilter obj)  {
+        public virtual CityResult BrowseCityListByFilter(SearchFilter obj)  {
             CityResult result = new CityResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowseCityListFilter(obj);
+            DataSet ds = data.BrowseCityListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1445,23 +1445,23 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetCityUuid(string set_type, City obj)  {            
-            return data.SetCityUuid(set_type, obj);
+        public virtual bool SetCityByUuid(string set_type, City obj)  {            
+            return data.SetCityByUuid(set_type, obj);
         }    
-        public virtual bool SetCityCode(string set_type, City obj)  {            
-            return data.SetCityCode(set_type, obj);
+        public virtual bool SetCityByCode(string set_type, City obj)  {            
+            return data.SetCityByCode(set_type, obj);
         }    
-        public virtual bool DelCityUuid(
+        public virtual bool DelCityByUuid(
             string uuid
         )  {
-            return data.DelCityUuid(
+            return data.DelCityByUuid(
                 uuid
             );
         }                     
-        public virtual bool DelCityCode(
+        public virtual bool DelCityByCode(
             string code
         )  {
-            return data.DelCityCode(
+            return data.DelCityByCode(
                 code
             );
         }                     
@@ -1482,11 +1482,11 @@ namespace profile {
         }
         
         
-        public virtual List<City> GetCityListUuid(
+        public virtual List<City> GetCityListByUuid(
             string uuid
         )  {
             List<City> list = new List<City>();
-            DataSet ds = data.GetCityListUuid(
+            DataSet ds = data.GetCityListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -1501,11 +1501,11 @@ namespace profile {
         }
         
         
-        public virtual List<City> GetCityListCode(
+        public virtual List<City> GetCityListByCode(
             string code
         )  {
             List<City> list = new List<City>();
-            DataSet ds = data.GetCityListCode(
+            DataSet ds = data.GetCityListByCode(
                 code
             );
             if(ds != null) {
@@ -1551,25 +1551,25 @@ namespace profile {
             return data.CountPostalCode(
             );
         }       
-        public virtual int CountPostalCodeUuid(
+        public virtual int CountPostalCodeByUuid(
             string uuid
         )  {            
-            return data.CountPostalCodeUuid(
+            return data.CountPostalCodeByUuid(
                 uuid
             );
         }       
-        public virtual int CountPostalCodeCode(
+        public virtual int CountPostalCodeByCode(
             string code
         )  {            
-            return data.CountPostalCodeCode(
+            return data.CountPostalCodeByCode(
                 code
             );
         }       
-        public virtual PostalCodeResult BrowsePostalCodeListFilter(SearchFilter obj)  {
+        public virtual PostalCodeResult BrowsePostalCodeListByFilter(SearchFilter obj)  {
             PostalCodeResult result = new PostalCodeResult();
             result.page = obj.page;
             result.page_size = obj.page_size;
-            DataSet ds = data.BrowsePostalCodeListFilter(obj);
+            DataSet ds = data.BrowsePostalCodeListByFilter(obj);
             if(ds != null) {
                 foreach(DataTable dt in ds.Tables){
                     foreach(DataRow dr in dt.Rows){
@@ -1582,23 +1582,23 @@ namespace profile {
             }
             return result;
         }
-        public virtual bool SetPostalCodeUuid(string set_type, PostalCode obj)  {            
-            return data.SetPostalCodeUuid(set_type, obj);
+        public virtual bool SetPostalCodeByUuid(string set_type, PostalCode obj)  {            
+            return data.SetPostalCodeByUuid(set_type, obj);
         }    
-        public virtual bool SetPostalCodeCode(string set_type, PostalCode obj)  {            
-            return data.SetPostalCodeCode(set_type, obj);
+        public virtual bool SetPostalCodeByCode(string set_type, PostalCode obj)  {            
+            return data.SetPostalCodeByCode(set_type, obj);
         }    
-        public virtual bool DelPostalCodeUuid(
+        public virtual bool DelPostalCodeByUuid(
             string uuid
         )  {
-            return data.DelPostalCodeUuid(
+            return data.DelPostalCodeByUuid(
                 uuid
             );
         }                     
-        public virtual bool DelPostalCodeCode(
+        public virtual bool DelPostalCodeByCode(
             string code
         )  {
-            return data.DelPostalCodeCode(
+            return data.DelPostalCodeByCode(
                 code
             );
         }                     
@@ -1619,11 +1619,11 @@ namespace profile {
         }
         
         
-        public virtual List<PostalCode> GetPostalCodeListUuid(
+        public virtual List<PostalCode> GetPostalCodeListByUuid(
             string uuid
         )  {
             List<PostalCode> list = new List<PostalCode>();
-            DataSet ds = data.GetPostalCodeListUuid(
+            DataSet ds = data.GetPostalCodeListByUuid(
                 uuid
             );
             if(ds != null) {
@@ -1638,11 +1638,11 @@ namespace profile {
         }
         
         
-        public virtual List<PostalCode> GetPostalCodeListCode(
+        public virtual List<PostalCode> GetPostalCodeListByCode(
             string code
         )  {
             List<PostalCode> list = new List<PostalCode>();
-            DataSet ds = data.GetPostalCodeListCode(
+            DataSet ds = data.GetPostalCodeListByCode(
                 code
             );
             if(ds != null) {

@@ -33,96 +33,96 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountAppUuid(
+    public function CountAppByUuid(
         $uuid
     ) {      
-        return $this->act->CountAppUuid(
+        return $this->act->CountAppByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountAppCode(
+    public function CountAppByCode(
         $code
     ) {      
-        return $this->act->CountAppCode(
+        return $this->act->CountAppByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountAppTypeId(
+    public function CountAppByTypeId(
         $type_id
     ) {      
-        return $this->act->CountAppTypeId(
+        return $this->act->CountAppByTypeId(
         $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountAppCodeTypeId(
+    public function CountAppByCodeByTypeId(
         $code
         , $type_id
     ) {      
-        return $this->act->CountAppCodeTypeId(
+        return $this->act->CountAppByCodeByTypeId(
         $code
         , $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountAppPlatformTypeId(
+    public function CountAppByPlatformByTypeId(
         $platform
         , $type_id
     ) {      
-        return $this->act->CountAppPlatformTypeId(
+        return $this->act->CountAppByPlatformByTypeId(
         $platform
         , $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountAppPlatform(
+    public function CountAppByPlatform(
         $platform
     ) {      
-        return $this->act->CountAppPlatform(
+        return $this->act->CountAppByPlatform(
         $platform
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseAppListFilter($filter_obj) {
-        return $this->act->BrowseAppListFilter($filter_obj);
+    public function BrowseAppListByFilter($filter_obj) {
+        return $this->act->BrowseAppListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetAppUuid($set_type, $obj) {
-        return $this->act->SetAppUuid($set_type, $obj);
+    public function SetAppByUuid($set_type, $obj) {
+        return $this->act->SetAppByUuid($set_type, $obj);
     }
                
-    public function SetAppUuidFull($obj) {
-        return $this->act->SetAppUuid('full', $obj);
+    public function SetAppByUuidFull($obj) {
+        return $this->act->SetAppByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetAppCode($set_type, $obj) {
-        return $this->act->SetAppCode($set_type, $obj);
+    public function SetAppByCode($set_type, $obj) {
+        return $this->act->SetAppByCode($set_type, $obj);
     }
                
-    public function SetAppCodeFull($obj) {
-        return $this->act->SetAppCode('full', $obj);
+    public function SetAppByCodeFull($obj) {
+        return $this->act->SetAppByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelAppUuid(
+    public function DelAppByUuid(
         $uuid
     ) {         
-        return $this->act->DelAppUuid(
+        return $this->act->DelAppByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelAppCode(
+    public function DelAppByCode(
         $code
     ) {         
-        return $this->act->DelAppCode(
+        return $this->act->DelAppByCode(
         $code
         );
     }
@@ -178,18 +178,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetAppListUuid(
+    public function GetAppListByUuid(
         $uuid
         ) {
-            return $this->act->GetAppListUuid(
+            return $this->act->GetAppListByUuid(
                 $uuid
             );
         }
         
-    public function GetAppUuid(
+    public function GetAppByUuid(
         $uuid
     ) {
-        foreach($this->act->GetAppListUuid(
+        foreach($this->act->GetAppListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -198,10 +198,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetAppListUuid(
+    public function CachedGetAppListByUuid(
         $uuid
     ) {
-        return $this->CachedGetAppListUuid(
+        return $this->CachedGetAppListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -209,7 +209,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetAppListUuid(
+    public function CachedGetAppListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -217,7 +217,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetAppListUuid";
+        $method_name = "CachedGetAppListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -232,7 +232,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetAppListUuid(
+            $objs = $this->GetAppListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -241,18 +241,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetAppListCode(
+    public function GetAppListByCode(
         $code
         ) {
-            return $this->act->GetAppListCode(
+            return $this->act->GetAppListByCode(
                 $code
             );
         }
         
-    public function GetAppCode(
+    public function GetAppByCode(
         $code
     ) {
-        foreach($this->act->GetAppListCode(
+        foreach($this->act->GetAppListByCode(
         $code
         ) as $item) {
             return $item;
@@ -261,10 +261,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetAppListCode(
+    public function CachedGetAppListByCode(
         $code
     ) {
-        return $this->CachedGetAppListCode(
+        return $this->CachedGetAppListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -272,7 +272,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetAppListCode(
+    public function CachedGetAppListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -280,7 +280,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetAppListCode";
+        $method_name = "CachedGetAppListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -295,7 +295,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetAppListCode(
+            $objs = $this->GetAppListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -304,18 +304,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetAppListTypeId(
+    public function GetAppListByTypeId(
         $type_id
         ) {
-            return $this->act->GetAppListTypeId(
+            return $this->act->GetAppListByTypeId(
                 $type_id
             );
         }
         
-    public function GetAppTypeId(
+    public function GetAppByTypeId(
         $type_id
     ) {
-        foreach($this->act->GetAppListTypeId(
+        foreach($this->act->GetAppListByTypeId(
         $type_id
         ) as $item) {
             return $item;
@@ -324,10 +324,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetAppListTypeId(
+    public function CachedGetAppListByTypeId(
         $type_id
     ) {
-        return $this->CachedGetAppListTypeId(
+        return $this->CachedGetAppListByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $type_id
@@ -335,7 +335,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetAppListTypeId(
+    public function CachedGetAppListByTypeId(
         $overrideCache
         , $cacheHours
         , $type_id
@@ -343,7 +343,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetAppListTypeId";
+        $method_name = "CachedGetAppListByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -358,7 +358,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetAppListTypeId(
+            $objs = $this->GetAppListByTypeId(
                 $type_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -367,21 +367,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetAppListCodeTypeId(
+    public function GetAppListByCodeByTypeId(
         $code
         , $type_id
         ) {
-            return $this->act->GetAppListCodeTypeId(
+            return $this->act->GetAppListByCodeByTypeId(
                 $code
                 , $type_id
             );
         }
         
-    public function GetAppCodeTypeId(
+    public function GetAppByCodeByTypeId(
         $code
         , $type_id
     ) {
-        foreach($this->act->GetAppListCodeTypeId(
+        foreach($this->act->GetAppListByCodeByTypeId(
         $code
         , $type_id
         ) as $item) {
@@ -391,11 +391,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetAppListCodeTypeId(
+    public function CachedGetAppListByCodeByTypeId(
         $code
         , $type_id
     ) {
-        return $this->CachedGetAppListCodeTypeId(
+        return $this->CachedGetAppListByCodeByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -404,7 +404,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetAppListCodeTypeId(
+    public function CachedGetAppListByCodeByTypeId(
         $overrideCache
         , $cacheHours
         , $code
@@ -413,7 +413,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetAppListCodeTypeId";
+        $method_name = "CachedGetAppListByCodeByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -432,7 +432,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetAppListCodeTypeId(
+            $objs = $this->GetAppListByCodeByTypeId(
                 $code
                 , $type_id
             );
@@ -442,21 +442,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetAppListPlatformTypeId(
+    public function GetAppListByPlatformByTypeId(
         $platform
         , $type_id
         ) {
-            return $this->act->GetAppListPlatformTypeId(
+            return $this->act->GetAppListByPlatformByTypeId(
                 $platform
                 , $type_id
             );
         }
         
-    public function GetAppPlatformTypeId(
+    public function GetAppByPlatformByTypeId(
         $platform
         , $type_id
     ) {
-        foreach($this->act->GetAppListPlatformTypeId(
+        foreach($this->act->GetAppListByPlatformByTypeId(
         $platform
         , $type_id
         ) as $item) {
@@ -466,11 +466,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetAppListPlatformTypeId(
+    public function CachedGetAppListByPlatformByTypeId(
         $platform
         , $type_id
     ) {
-        return $this->CachedGetAppListPlatformTypeId(
+        return $this->CachedGetAppListByPlatformByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $platform
@@ -479,7 +479,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetAppListPlatformTypeId(
+    public function CachedGetAppListByPlatformByTypeId(
         $overrideCache
         , $cacheHours
         , $platform
@@ -488,7 +488,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetAppListPlatformTypeId";
+        $method_name = "CachedGetAppListByPlatformByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -507,7 +507,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetAppListPlatformTypeId(
+            $objs = $this->GetAppListByPlatformByTypeId(
                 $platform
                 , $type_id
             );
@@ -517,18 +517,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetAppListPlatform(
+    public function GetAppListByPlatform(
         $platform
         ) {
-            return $this->act->GetAppListPlatform(
+            return $this->act->GetAppListByPlatform(
                 $platform
             );
         }
         
-    public function GetAppPlatform(
+    public function GetAppByPlatform(
         $platform
     ) {
-        foreach($this->act->GetAppListPlatform(
+        foreach($this->act->GetAppListByPlatform(
         $platform
         ) as $item) {
             return $item;
@@ -537,10 +537,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetAppListPlatform(
+    public function CachedGetAppListByPlatform(
         $platform
     ) {
-        return $this->CachedGetAppListPlatform(
+        return $this->CachedGetAppListByPlatform(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $platform
@@ -548,7 +548,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetAppListPlatform(
+    public function CachedGetAppListByPlatform(
         $overrideCache
         , $cacheHours
         , $platform
@@ -556,7 +556,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetAppListPlatform";
+        $method_name = "CachedGetAppListByPlatform";
 
         $sb = "";
         $sb += $method_name;
@@ -571,7 +571,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetAppListPlatform(
+            $objs = $this->GetAppListByPlatform(
                 $platform
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -587,56 +587,56 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountAppTypeUuid(
+    public function CountAppTypeByUuid(
         $uuid
     ) {      
-        return $this->act->CountAppTypeUuid(
+        return $this->act->CountAppTypeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountAppTypeCode(
+    public function CountAppTypeByCode(
         $code
     ) {      
-        return $this->act->CountAppTypeCode(
+        return $this->act->CountAppTypeByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseAppTypeListFilter($filter_obj) {
-        return $this->act->BrowseAppTypeListFilter($filter_obj);
+    public function BrowseAppTypeListByFilter($filter_obj) {
+        return $this->act->BrowseAppTypeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetAppTypeUuid($set_type, $obj) {
-        return $this->act->SetAppTypeUuid($set_type, $obj);
+    public function SetAppTypeByUuid($set_type, $obj) {
+        return $this->act->SetAppTypeByUuid($set_type, $obj);
     }
                
-    public function SetAppTypeUuidFull($obj) {
-        return $this->act->SetAppTypeUuid('full', $obj);
+    public function SetAppTypeByUuidFull($obj) {
+        return $this->act->SetAppTypeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetAppTypeCode($set_type, $obj) {
-        return $this->act->SetAppTypeCode($set_type, $obj);
+    public function SetAppTypeByCode($set_type, $obj) {
+        return $this->act->SetAppTypeByCode($set_type, $obj);
     }
                
-    public function SetAppTypeCodeFull($obj) {
-        return $this->act->SetAppTypeCode('full', $obj);
+    public function SetAppTypeByCodeFull($obj) {
+        return $this->act->SetAppTypeByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelAppTypeUuid(
+    public function DelAppTypeByUuid(
         $uuid
     ) {         
-        return $this->act->DelAppTypeUuid(
+        return $this->act->DelAppTypeByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelAppTypeCode(
+    public function DelAppTypeByCode(
         $code
     ) {         
-        return $this->act->DelAppTypeCode(
+        return $this->act->DelAppTypeByCode(
         $code
         );
     }
@@ -692,18 +692,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetAppTypeListUuid(
+    public function GetAppTypeListByUuid(
         $uuid
         ) {
-            return $this->act->GetAppTypeListUuid(
+            return $this->act->GetAppTypeListByUuid(
                 $uuid
             );
         }
         
-    public function GetAppTypeUuid(
+    public function GetAppTypeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetAppTypeListUuid(
+        foreach($this->act->GetAppTypeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -712,10 +712,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetAppTypeListUuid(
+    public function CachedGetAppTypeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetAppTypeListUuid(
+        return $this->CachedGetAppTypeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -723,7 +723,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetAppTypeListUuid(
+    public function CachedGetAppTypeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -731,7 +731,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetAppTypeListUuid";
+        $method_name = "CachedGetAppTypeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -746,7 +746,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetAppTypeListUuid(
+            $objs = $this->GetAppTypeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -755,18 +755,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetAppTypeListCode(
+    public function GetAppTypeListByCode(
         $code
         ) {
-            return $this->act->GetAppTypeListCode(
+            return $this->act->GetAppTypeListByCode(
                 $code
             );
         }
         
-    public function GetAppTypeCode(
+    public function GetAppTypeByCode(
         $code
     ) {
-        foreach($this->act->GetAppTypeListCode(
+        foreach($this->act->GetAppTypeListByCode(
         $code
         ) as $item) {
             return $item;
@@ -775,10 +775,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetAppTypeListCode(
+    public function CachedGetAppTypeListByCode(
         $code
     ) {
-        return $this->CachedGetAppTypeListCode(
+        return $this->CachedGetAppTypeListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -786,7 +786,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetAppTypeListCode(
+    public function CachedGetAppTypeListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -794,7 +794,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetAppTypeListCode";
+        $method_name = "CachedGetAppTypeListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -809,7 +809,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetAppTypeListCode(
+            $objs = $this->GetAppTypeListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -825,96 +825,96 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteUuid(
+    public function CountSiteByUuid(
         $uuid
     ) {      
-        return $this->act->CountSiteUuid(
+        return $this->act->CountSiteByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteCode(
+    public function CountSiteByCode(
         $code
     ) {      
-        return $this->act->CountSiteCode(
+        return $this->act->CountSiteByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteTypeId(
+    public function CountSiteByTypeId(
         $type_id
     ) {      
-        return $this->act->CountSiteTypeId(
+        return $this->act->CountSiteByTypeId(
         $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteCodeTypeId(
+    public function CountSiteByCodeByTypeId(
         $code
         , $type_id
     ) {      
-        return $this->act->CountSiteCodeTypeId(
+        return $this->act->CountSiteByCodeByTypeId(
         $code
         , $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteDomainTypeId(
+    public function CountSiteByDomainByTypeId(
         $domain
         , $type_id
     ) {      
-        return $this->act->CountSiteDomainTypeId(
+        return $this->act->CountSiteByDomainByTypeId(
         $domain
         , $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteDomain(
+    public function CountSiteByDomain(
         $domain
     ) {      
-        return $this->act->CountSiteDomain(
+        return $this->act->CountSiteByDomain(
         $domain
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseSiteListFilter($filter_obj) {
-        return $this->act->BrowseSiteListFilter($filter_obj);
+    public function BrowseSiteListByFilter($filter_obj) {
+        return $this->act->BrowseSiteListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetSiteUuid($set_type, $obj) {
-        return $this->act->SetSiteUuid($set_type, $obj);
+    public function SetSiteByUuid($set_type, $obj) {
+        return $this->act->SetSiteByUuid($set_type, $obj);
     }
                
-    public function SetSiteUuidFull($obj) {
-        return $this->act->SetSiteUuid('full', $obj);
+    public function SetSiteByUuidFull($obj) {
+        return $this->act->SetSiteByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetSiteCode($set_type, $obj) {
-        return $this->act->SetSiteCode($set_type, $obj);
+    public function SetSiteByCode($set_type, $obj) {
+        return $this->act->SetSiteByCode($set_type, $obj);
     }
                
-    public function SetSiteCodeFull($obj) {
-        return $this->act->SetSiteCode('full', $obj);
+    public function SetSiteByCodeFull($obj) {
+        return $this->act->SetSiteByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelSiteUuid(
+    public function DelSiteByUuid(
         $uuid
     ) {         
-        return $this->act->DelSiteUuid(
+        return $this->act->DelSiteByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelSiteCode(
+    public function DelSiteByCode(
         $code
     ) {         
-        return $this->act->DelSiteCode(
+        return $this->act->DelSiteByCode(
         $code
         );
     }
@@ -970,18 +970,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteListUuid(
+    public function GetSiteListByUuid(
         $uuid
         ) {
-            return $this->act->GetSiteListUuid(
+            return $this->act->GetSiteListByUuid(
                 $uuid
             );
         }
         
-    public function GetSiteUuid(
+    public function GetSiteByUuid(
         $uuid
     ) {
-        foreach($this->act->GetSiteListUuid(
+        foreach($this->act->GetSiteListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -990,10 +990,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteListUuid(
+    public function CachedGetSiteListByUuid(
         $uuid
     ) {
-        return $this->CachedGetSiteListUuid(
+        return $this->CachedGetSiteListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -1001,7 +1001,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteListUuid(
+    public function CachedGetSiteListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -1009,7 +1009,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteListUuid";
+        $method_name = "CachedGetSiteListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -1024,7 +1024,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteListUuid(
+            $objs = $this->GetSiteListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1033,18 +1033,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteListCode(
+    public function GetSiteListByCode(
         $code
         ) {
-            return $this->act->GetSiteListCode(
+            return $this->act->GetSiteListByCode(
                 $code
             );
         }
         
-    public function GetSiteCode(
+    public function GetSiteByCode(
         $code
     ) {
-        foreach($this->act->GetSiteListCode(
+        foreach($this->act->GetSiteListByCode(
         $code
         ) as $item) {
             return $item;
@@ -1053,10 +1053,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteListCode(
+    public function CachedGetSiteListByCode(
         $code
     ) {
-        return $this->CachedGetSiteListCode(
+        return $this->CachedGetSiteListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -1064,7 +1064,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteListCode(
+    public function CachedGetSiteListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -1072,7 +1072,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteListCode";
+        $method_name = "CachedGetSiteListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -1087,7 +1087,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteListCode(
+            $objs = $this->GetSiteListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1096,18 +1096,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteListTypeId(
+    public function GetSiteListByTypeId(
         $type_id
         ) {
-            return $this->act->GetSiteListTypeId(
+            return $this->act->GetSiteListByTypeId(
                 $type_id
             );
         }
         
-    public function GetSiteTypeId(
+    public function GetSiteByTypeId(
         $type_id
     ) {
-        foreach($this->act->GetSiteListTypeId(
+        foreach($this->act->GetSiteListByTypeId(
         $type_id
         ) as $item) {
             return $item;
@@ -1116,10 +1116,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteListTypeId(
+    public function CachedGetSiteListByTypeId(
         $type_id
     ) {
-        return $this->CachedGetSiteListTypeId(
+        return $this->CachedGetSiteListByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $type_id
@@ -1127,7 +1127,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteListTypeId(
+    public function CachedGetSiteListByTypeId(
         $overrideCache
         , $cacheHours
         , $type_id
@@ -1135,7 +1135,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteListTypeId";
+        $method_name = "CachedGetSiteListByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -1150,7 +1150,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteListTypeId(
+            $objs = $this->GetSiteListByTypeId(
                 $type_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1159,21 +1159,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteListCodeTypeId(
+    public function GetSiteListByCodeByTypeId(
         $code
         , $type_id
         ) {
-            return $this->act->GetSiteListCodeTypeId(
+            return $this->act->GetSiteListByCodeByTypeId(
                 $code
                 , $type_id
             );
         }
         
-    public function GetSiteCodeTypeId(
+    public function GetSiteByCodeByTypeId(
         $code
         , $type_id
     ) {
-        foreach($this->act->GetSiteListCodeTypeId(
+        foreach($this->act->GetSiteListByCodeByTypeId(
         $code
         , $type_id
         ) as $item) {
@@ -1183,11 +1183,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteListCodeTypeId(
+    public function CachedGetSiteListByCodeByTypeId(
         $code
         , $type_id
     ) {
-        return $this->CachedGetSiteListCodeTypeId(
+        return $this->CachedGetSiteListByCodeByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -1196,7 +1196,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteListCodeTypeId(
+    public function CachedGetSiteListByCodeByTypeId(
         $overrideCache
         , $cacheHours
         , $code
@@ -1205,7 +1205,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteListCodeTypeId";
+        $method_name = "CachedGetSiteListByCodeByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -1224,7 +1224,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteListCodeTypeId(
+            $objs = $this->GetSiteListByCodeByTypeId(
                 $code
                 , $type_id
             );
@@ -1234,21 +1234,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteListDomainTypeId(
+    public function GetSiteListByDomainByTypeId(
         $domain
         , $type_id
         ) {
-            return $this->act->GetSiteListDomainTypeId(
+            return $this->act->GetSiteListByDomainByTypeId(
                 $domain
                 , $type_id
             );
         }
         
-    public function GetSiteDomainTypeId(
+    public function GetSiteByDomainByTypeId(
         $domain
         , $type_id
     ) {
-        foreach($this->act->GetSiteListDomainTypeId(
+        foreach($this->act->GetSiteListByDomainByTypeId(
         $domain
         , $type_id
         ) as $item) {
@@ -1258,11 +1258,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteListDomainTypeId(
+    public function CachedGetSiteListByDomainByTypeId(
         $domain
         , $type_id
     ) {
-        return $this->CachedGetSiteListDomainTypeId(
+        return $this->CachedGetSiteListByDomainByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $domain
@@ -1271,7 +1271,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteListDomainTypeId(
+    public function CachedGetSiteListByDomainByTypeId(
         $overrideCache
         , $cacheHours
         , $domain
@@ -1280,7 +1280,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteListDomainTypeId";
+        $method_name = "CachedGetSiteListByDomainByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -1299,7 +1299,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteListDomainTypeId(
+            $objs = $this->GetSiteListByDomainByTypeId(
                 $domain
                 , $type_id
             );
@@ -1309,18 +1309,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteListDomain(
+    public function GetSiteListByDomain(
         $domain
         ) {
-            return $this->act->GetSiteListDomain(
+            return $this->act->GetSiteListByDomain(
                 $domain
             );
         }
         
-    public function GetSiteDomain(
+    public function GetSiteByDomain(
         $domain
     ) {
-        foreach($this->act->GetSiteListDomain(
+        foreach($this->act->GetSiteListByDomain(
         $domain
         ) as $item) {
             return $item;
@@ -1329,10 +1329,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteListDomain(
+    public function CachedGetSiteListByDomain(
         $domain
     ) {
-        return $this->CachedGetSiteListDomain(
+        return $this->CachedGetSiteListByDomain(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $domain
@@ -1340,7 +1340,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteListDomain(
+    public function CachedGetSiteListByDomain(
         $overrideCache
         , $cacheHours
         , $domain
@@ -1348,7 +1348,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteListDomain";
+        $method_name = "CachedGetSiteListByDomain";
 
         $sb = "";
         $sb += $method_name;
@@ -1363,7 +1363,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteListDomain(
+            $objs = $this->GetSiteListByDomain(
                 $domain
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1379,56 +1379,56 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteTypeUuid(
+    public function CountSiteTypeByUuid(
         $uuid
     ) {      
-        return $this->act->CountSiteTypeUuid(
+        return $this->act->CountSiteTypeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteTypeCode(
+    public function CountSiteTypeByCode(
         $code
     ) {      
-        return $this->act->CountSiteTypeCode(
+        return $this->act->CountSiteTypeByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseSiteTypeListFilter($filter_obj) {
-        return $this->act->BrowseSiteTypeListFilter($filter_obj);
+    public function BrowseSiteTypeListByFilter($filter_obj) {
+        return $this->act->BrowseSiteTypeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetSiteTypeUuid($set_type, $obj) {
-        return $this->act->SetSiteTypeUuid($set_type, $obj);
+    public function SetSiteTypeByUuid($set_type, $obj) {
+        return $this->act->SetSiteTypeByUuid($set_type, $obj);
     }
                
-    public function SetSiteTypeUuidFull($obj) {
-        return $this->act->SetSiteTypeUuid('full', $obj);
+    public function SetSiteTypeByUuidFull($obj) {
+        return $this->act->SetSiteTypeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetSiteTypeCode($set_type, $obj) {
-        return $this->act->SetSiteTypeCode($set_type, $obj);
+    public function SetSiteTypeByCode($set_type, $obj) {
+        return $this->act->SetSiteTypeByCode($set_type, $obj);
     }
                
-    public function SetSiteTypeCodeFull($obj) {
-        return $this->act->SetSiteTypeCode('full', $obj);
+    public function SetSiteTypeByCodeFull($obj) {
+        return $this->act->SetSiteTypeByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelSiteTypeUuid(
+    public function DelSiteTypeByUuid(
         $uuid
     ) {         
-        return $this->act->DelSiteTypeUuid(
+        return $this->act->DelSiteTypeByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelSiteTypeCode(
+    public function DelSiteTypeByCode(
         $code
     ) {         
-        return $this->act->DelSiteTypeCode(
+        return $this->act->DelSiteTypeByCode(
         $code
         );
     }
@@ -1484,18 +1484,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteTypeListUuid(
+    public function GetSiteTypeListByUuid(
         $uuid
         ) {
-            return $this->act->GetSiteTypeListUuid(
+            return $this->act->GetSiteTypeListByUuid(
                 $uuid
             );
         }
         
-    public function GetSiteTypeUuid(
+    public function GetSiteTypeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetSiteTypeListUuid(
+        foreach($this->act->GetSiteTypeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -1504,10 +1504,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteTypeListUuid(
+    public function CachedGetSiteTypeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetSiteTypeListUuid(
+        return $this->CachedGetSiteTypeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -1515,7 +1515,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteTypeListUuid(
+    public function CachedGetSiteTypeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -1523,7 +1523,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteTypeListUuid";
+        $method_name = "CachedGetSiteTypeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -1538,7 +1538,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteTypeListUuid(
+            $objs = $this->GetSiteTypeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1547,18 +1547,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteTypeListCode(
+    public function GetSiteTypeListByCode(
         $code
         ) {
-            return $this->act->GetSiteTypeListCode(
+            return $this->act->GetSiteTypeListByCode(
                 $code
             );
         }
         
-    public function GetSiteTypeCode(
+    public function GetSiteTypeByCode(
         $code
     ) {
-        foreach($this->act->GetSiteTypeListCode(
+        foreach($this->act->GetSiteTypeListByCode(
         $code
         ) as $item) {
             return $item;
@@ -1567,10 +1567,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteTypeListCode(
+    public function CachedGetSiteTypeListByCode(
         $code
     ) {
-        return $this->CachedGetSiteTypeListCode(
+        return $this->CachedGetSiteTypeListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -1578,7 +1578,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteTypeListCode(
+    public function CachedGetSiteTypeListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -1586,7 +1586,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteTypeListCode";
+        $method_name = "CachedGetSiteTypeListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -1601,7 +1601,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteTypeListCode(
+            $objs = $this->GetSiteTypeListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1617,49 +1617,49 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOrgUuid(
+    public function CountOrgByUuid(
         $uuid
     ) {      
-        return $this->act->CountOrgUuid(
+        return $this->act->CountOrgByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOrgCode(
+    public function CountOrgByCode(
         $code
     ) {      
-        return $this->act->CountOrgCode(
+        return $this->act->CountOrgByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOrgName(
+    public function CountOrgByName(
         $name
     ) {      
-        return $this->act->CountOrgName(
+        return $this->act->CountOrgByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOrgListFilter($filter_obj) {
-        return $this->act->BrowseOrgListFilter($filter_obj);
+    public function BrowseOrgListByFilter($filter_obj) {
+        return $this->act->BrowseOrgListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOrgUuid($set_type, $obj) {
-        return $this->act->SetOrgUuid($set_type, $obj);
+    public function SetOrgByUuid($set_type, $obj) {
+        return $this->act->SetOrgByUuid($set_type, $obj);
     }
                
-    public function SetOrgUuidFull($obj) {
-        return $this->act->SetOrgUuid('full', $obj);
+    public function SetOrgByUuidFull($obj) {
+        return $this->act->SetOrgByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOrgUuid(
+    public function DelOrgByUuid(
         $uuid
     ) {         
-        return $this->act->DelOrgUuid(
+        return $this->act->DelOrgByUuid(
         $uuid
         );
     }
@@ -1715,18 +1715,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOrgListUuid(
+    public function GetOrgListByUuid(
         $uuid
         ) {
-            return $this->act->GetOrgListUuid(
+            return $this->act->GetOrgListByUuid(
                 $uuid
             );
         }
         
-    public function GetOrgUuid(
+    public function GetOrgByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOrgListUuid(
+        foreach($this->act->GetOrgListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -1735,10 +1735,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOrgListUuid(
+    public function CachedGetOrgListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOrgListUuid(
+        return $this->CachedGetOrgListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -1746,7 +1746,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOrgListUuid(
+    public function CachedGetOrgListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -1754,7 +1754,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOrgListUuid";
+        $method_name = "CachedGetOrgListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -1769,7 +1769,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOrgListUuid(
+            $objs = $this->GetOrgListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1778,18 +1778,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOrgListCode(
+    public function GetOrgListByCode(
         $code
         ) {
-            return $this->act->GetOrgListCode(
+            return $this->act->GetOrgListByCode(
                 $code
             );
         }
         
-    public function GetOrgCode(
+    public function GetOrgByCode(
         $code
     ) {
-        foreach($this->act->GetOrgListCode(
+        foreach($this->act->GetOrgListByCode(
         $code
         ) as $item) {
             return $item;
@@ -1798,10 +1798,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOrgListCode(
+    public function CachedGetOrgListByCode(
         $code
     ) {
-        return $this->CachedGetOrgListCode(
+        return $this->CachedGetOrgListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -1809,7 +1809,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOrgListCode(
+    public function CachedGetOrgListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -1817,7 +1817,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOrgListCode";
+        $method_name = "CachedGetOrgListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -1832,7 +1832,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOrgListCode(
+            $objs = $this->GetOrgListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1841,18 +1841,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOrgListName(
+    public function GetOrgListByName(
         $name
         ) {
-            return $this->act->GetOrgListName(
+            return $this->act->GetOrgListByName(
                 $name
             );
         }
         
-    public function GetOrgName(
+    public function GetOrgByName(
         $name
     ) {
-        foreach($this->act->GetOrgListName(
+        foreach($this->act->GetOrgListByName(
         $name
         ) as $item) {
             return $item;
@@ -1861,10 +1861,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOrgListName(
+    public function CachedGetOrgListByName(
         $name
     ) {
-        return $this->CachedGetOrgListName(
+        return $this->CachedGetOrgListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -1872,7 +1872,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOrgListName(
+    public function CachedGetOrgListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -1880,7 +1880,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOrgListName";
+        $method_name = "CachedGetOrgListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -1895,7 +1895,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOrgListName(
+            $objs = $this->GetOrgListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -1911,56 +1911,56 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOrgTypeUuid(
+    public function CountOrgTypeByUuid(
         $uuid
     ) {      
-        return $this->act->CountOrgTypeUuid(
+        return $this->act->CountOrgTypeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOrgTypeCode(
+    public function CountOrgTypeByCode(
         $code
     ) {      
-        return $this->act->CountOrgTypeCode(
+        return $this->act->CountOrgTypeByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOrgTypeListFilter($filter_obj) {
-        return $this->act->BrowseOrgTypeListFilter($filter_obj);
+    public function BrowseOrgTypeListByFilter($filter_obj) {
+        return $this->act->BrowseOrgTypeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOrgTypeUuid($set_type, $obj) {
-        return $this->act->SetOrgTypeUuid($set_type, $obj);
+    public function SetOrgTypeByUuid($set_type, $obj) {
+        return $this->act->SetOrgTypeByUuid($set_type, $obj);
     }
                
-    public function SetOrgTypeUuidFull($obj) {
-        return $this->act->SetOrgTypeUuid('full', $obj);
+    public function SetOrgTypeByUuidFull($obj) {
+        return $this->act->SetOrgTypeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOrgTypeCode($set_type, $obj) {
-        return $this->act->SetOrgTypeCode($set_type, $obj);
+    public function SetOrgTypeByCode($set_type, $obj) {
+        return $this->act->SetOrgTypeByCode($set_type, $obj);
     }
                
-    public function SetOrgTypeCodeFull($obj) {
-        return $this->act->SetOrgTypeCode('full', $obj);
+    public function SetOrgTypeByCodeFull($obj) {
+        return $this->act->SetOrgTypeByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOrgTypeUuid(
+    public function DelOrgTypeByUuid(
         $uuid
     ) {         
-        return $this->act->DelOrgTypeUuid(
+        return $this->act->DelOrgTypeByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelOrgTypeCode(
+    public function DelOrgTypeByCode(
         $code
     ) {         
-        return $this->act->DelOrgTypeCode(
+        return $this->act->DelOrgTypeByCode(
         $code
         );
     }
@@ -2016,18 +2016,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOrgTypeListUuid(
+    public function GetOrgTypeListByUuid(
         $uuid
         ) {
-            return $this->act->GetOrgTypeListUuid(
+            return $this->act->GetOrgTypeListByUuid(
                 $uuid
             );
         }
         
-    public function GetOrgTypeUuid(
+    public function GetOrgTypeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOrgTypeListUuid(
+        foreach($this->act->GetOrgTypeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -2036,10 +2036,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOrgTypeListUuid(
+    public function CachedGetOrgTypeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOrgTypeListUuid(
+        return $this->CachedGetOrgTypeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -2047,7 +2047,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOrgTypeListUuid(
+    public function CachedGetOrgTypeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -2055,7 +2055,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOrgTypeListUuid";
+        $method_name = "CachedGetOrgTypeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -2070,7 +2070,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOrgTypeListUuid(
+            $objs = $this->GetOrgTypeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2079,18 +2079,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOrgTypeListCode(
+    public function GetOrgTypeListByCode(
         $code
         ) {
-            return $this->act->GetOrgTypeListCode(
+            return $this->act->GetOrgTypeListByCode(
                 $code
             );
         }
         
-    public function GetOrgTypeCode(
+    public function GetOrgTypeByCode(
         $code
     ) {
-        foreach($this->act->GetOrgTypeListCode(
+        foreach($this->act->GetOrgTypeListByCode(
         $code
         ) as $item) {
             return $item;
@@ -2099,10 +2099,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOrgTypeListCode(
+    public function CachedGetOrgTypeListByCode(
         $code
     ) {
-        return $this->CachedGetOrgTypeListCode(
+        return $this->CachedGetOrgTypeListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -2110,7 +2110,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOrgTypeListCode(
+    public function CachedGetOrgTypeListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -2118,7 +2118,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOrgTypeListCode";
+        $method_name = "CachedGetOrgTypeListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -2133,7 +2133,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOrgTypeListCode(
+            $objs = $this->GetOrgTypeListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2149,66 +2149,66 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentItemUuid(
+    public function CountContentItemByUuid(
         $uuid
     ) {      
-        return $this->act->CountContentItemUuid(
+        return $this->act->CountContentItemByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentItemCode(
+    public function CountContentItemByCode(
         $code
     ) {      
-        return $this->act->CountContentItemCode(
+        return $this->act->CountContentItemByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentItemName(
+    public function CountContentItemByName(
         $name
     ) {      
-        return $this->act->CountContentItemName(
+        return $this->act->CountContentItemByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentItemPath(
+    public function CountContentItemByPath(
         $path
     ) {      
-        return $this->act->CountContentItemPath(
+        return $this->act->CountContentItemByPath(
         $path
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseContentItemListFilter($filter_obj) {
-        return $this->act->BrowseContentItemListFilter($filter_obj);
+    public function BrowseContentItemListByFilter($filter_obj) {
+        return $this->act->BrowseContentItemListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetContentItemUuid($set_type, $obj) {
-        return $this->act->SetContentItemUuid($set_type, $obj);
+    public function SetContentItemByUuid($set_type, $obj) {
+        return $this->act->SetContentItemByUuid($set_type, $obj);
     }
                
-    public function SetContentItemUuidFull($obj) {
-        return $this->act->SetContentItemUuid('full', $obj);
+    public function SetContentItemByUuidFull($obj) {
+        return $this->act->SetContentItemByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelContentItemUuid(
+    public function DelContentItemByUuid(
         $uuid
     ) {         
-        return $this->act->DelContentItemUuid(
+        return $this->act->DelContentItemByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelContentItemPath(
+    public function DelContentItemByPath(
         $path
     ) {         
-        return $this->act->DelContentItemPath(
+        return $this->act->DelContentItemByPath(
         $path
         );
     }
@@ -2264,18 +2264,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentItemListUuid(
+    public function GetContentItemListByUuid(
         $uuid
         ) {
-            return $this->act->GetContentItemListUuid(
+            return $this->act->GetContentItemListByUuid(
                 $uuid
             );
         }
         
-    public function GetContentItemUuid(
+    public function GetContentItemByUuid(
         $uuid
     ) {
-        foreach($this->act->GetContentItemListUuid(
+        foreach($this->act->GetContentItemListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -2284,10 +2284,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentItemListUuid(
+    public function CachedGetContentItemListByUuid(
         $uuid
     ) {
-        return $this->CachedGetContentItemListUuid(
+        return $this->CachedGetContentItemListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -2295,7 +2295,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentItemListUuid(
+    public function CachedGetContentItemListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -2303,7 +2303,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentItemListUuid";
+        $method_name = "CachedGetContentItemListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -2318,7 +2318,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentItemListUuid(
+            $objs = $this->GetContentItemListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2327,18 +2327,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentItemListCode(
+    public function GetContentItemListByCode(
         $code
         ) {
-            return $this->act->GetContentItemListCode(
+            return $this->act->GetContentItemListByCode(
                 $code
             );
         }
         
-    public function GetContentItemCode(
+    public function GetContentItemByCode(
         $code
     ) {
-        foreach($this->act->GetContentItemListCode(
+        foreach($this->act->GetContentItemListByCode(
         $code
         ) as $item) {
             return $item;
@@ -2347,10 +2347,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentItemListCode(
+    public function CachedGetContentItemListByCode(
         $code
     ) {
-        return $this->CachedGetContentItemListCode(
+        return $this->CachedGetContentItemListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -2358,7 +2358,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentItemListCode(
+    public function CachedGetContentItemListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -2366,7 +2366,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentItemListCode";
+        $method_name = "CachedGetContentItemListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -2381,7 +2381,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentItemListCode(
+            $objs = $this->GetContentItemListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2390,18 +2390,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentItemListName(
+    public function GetContentItemListByName(
         $name
         ) {
-            return $this->act->GetContentItemListName(
+            return $this->act->GetContentItemListByName(
                 $name
             );
         }
         
-    public function GetContentItemName(
+    public function GetContentItemByName(
         $name
     ) {
-        foreach($this->act->GetContentItemListName(
+        foreach($this->act->GetContentItemListByName(
         $name
         ) as $item) {
             return $item;
@@ -2410,10 +2410,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentItemListName(
+    public function CachedGetContentItemListByName(
         $name
     ) {
-        return $this->CachedGetContentItemListName(
+        return $this->CachedGetContentItemListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -2421,7 +2421,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentItemListName(
+    public function CachedGetContentItemListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -2429,7 +2429,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentItemListName";
+        $method_name = "CachedGetContentItemListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -2444,7 +2444,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentItemListName(
+            $objs = $this->GetContentItemListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2453,18 +2453,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentItemListPath(
+    public function GetContentItemListByPath(
         $path
         ) {
-            return $this->act->GetContentItemListPath(
+            return $this->act->GetContentItemListByPath(
                 $path
             );
         }
         
-    public function GetContentItemPath(
+    public function GetContentItemByPath(
         $path
     ) {
-        foreach($this->act->GetContentItemListPath(
+        foreach($this->act->GetContentItemListByPath(
         $path
         ) as $item) {
             return $item;
@@ -2473,10 +2473,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentItemListPath(
+    public function CachedGetContentItemListByPath(
         $path
     ) {
-        return $this->CachedGetContentItemListPath(
+        return $this->CachedGetContentItemListByPath(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $path
@@ -2484,7 +2484,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentItemListPath(
+    public function CachedGetContentItemListByPath(
         $overrideCache
         , $cacheHours
         , $path
@@ -2492,7 +2492,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentItemListPath";
+        $method_name = "CachedGetContentItemListByPath";
 
         $sb = "";
         $sb += $method_name;
@@ -2507,7 +2507,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentItemListPath(
+            $objs = $this->GetContentItemListByPath(
                 $path
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2523,56 +2523,56 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentItemTypeUuid(
+    public function CountContentItemTypeByUuid(
         $uuid
     ) {      
-        return $this->act->CountContentItemTypeUuid(
+        return $this->act->CountContentItemTypeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentItemTypeCode(
+    public function CountContentItemTypeByCode(
         $code
     ) {      
-        return $this->act->CountContentItemTypeCode(
+        return $this->act->CountContentItemTypeByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseContentItemTypeListFilter($filter_obj) {
-        return $this->act->BrowseContentItemTypeListFilter($filter_obj);
+    public function BrowseContentItemTypeListByFilter($filter_obj) {
+        return $this->act->BrowseContentItemTypeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetContentItemTypeUuid($set_type, $obj) {
-        return $this->act->SetContentItemTypeUuid($set_type, $obj);
+    public function SetContentItemTypeByUuid($set_type, $obj) {
+        return $this->act->SetContentItemTypeByUuid($set_type, $obj);
     }
                
-    public function SetContentItemTypeUuidFull($obj) {
-        return $this->act->SetContentItemTypeUuid('full', $obj);
+    public function SetContentItemTypeByUuidFull($obj) {
+        return $this->act->SetContentItemTypeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetContentItemTypeCode($set_type, $obj) {
-        return $this->act->SetContentItemTypeCode($set_type, $obj);
+    public function SetContentItemTypeByCode($set_type, $obj) {
+        return $this->act->SetContentItemTypeByCode($set_type, $obj);
     }
                
-    public function SetContentItemTypeCodeFull($obj) {
-        return $this->act->SetContentItemTypeCode('full', $obj);
+    public function SetContentItemTypeByCodeFull($obj) {
+        return $this->act->SetContentItemTypeByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelContentItemTypeUuid(
+    public function DelContentItemTypeByUuid(
         $uuid
     ) {         
-        return $this->act->DelContentItemTypeUuid(
+        return $this->act->DelContentItemTypeByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelContentItemTypeCode(
+    public function DelContentItemTypeByCode(
         $code
     ) {         
-        return $this->act->DelContentItemTypeCode(
+        return $this->act->DelContentItemTypeByCode(
         $code
         );
     }
@@ -2628,18 +2628,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentItemTypeListUuid(
+    public function GetContentItemTypeListByUuid(
         $uuid
         ) {
-            return $this->act->GetContentItemTypeListUuid(
+            return $this->act->GetContentItemTypeListByUuid(
                 $uuid
             );
         }
         
-    public function GetContentItemTypeUuid(
+    public function GetContentItemTypeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetContentItemTypeListUuid(
+        foreach($this->act->GetContentItemTypeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -2648,10 +2648,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentItemTypeListUuid(
+    public function CachedGetContentItemTypeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetContentItemTypeListUuid(
+        return $this->CachedGetContentItemTypeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -2659,7 +2659,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentItemTypeListUuid(
+    public function CachedGetContentItemTypeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -2667,7 +2667,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentItemTypeListUuid";
+        $method_name = "CachedGetContentItemTypeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -2682,7 +2682,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentItemTypeListUuid(
+            $objs = $this->GetContentItemTypeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2691,18 +2691,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentItemTypeListCode(
+    public function GetContentItemTypeListByCode(
         $code
         ) {
-            return $this->act->GetContentItemTypeListCode(
+            return $this->act->GetContentItemTypeListByCode(
                 $code
             );
         }
         
-    public function GetContentItemTypeCode(
+    public function GetContentItemTypeByCode(
         $code
     ) {
-        foreach($this->act->GetContentItemTypeListCode(
+        foreach($this->act->GetContentItemTypeListByCode(
         $code
         ) as $item) {
             return $item;
@@ -2711,10 +2711,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentItemTypeListCode(
+    public function CachedGetContentItemTypeListByCode(
         $code
     ) {
-        return $this->CachedGetContentItemTypeListCode(
+        return $this->CachedGetContentItemTypeListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -2722,7 +2722,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentItemTypeListCode(
+    public function CachedGetContentItemTypeListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -2730,7 +2730,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentItemTypeListCode";
+        $method_name = "CachedGetContentItemTypeListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -2745,7 +2745,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentItemTypeListCode(
+            $objs = $this->GetContentItemTypeListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2761,76 +2761,76 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentPageUuid(
+    public function CountContentPageByUuid(
         $uuid
     ) {      
-        return $this->act->CountContentPageUuid(
+        return $this->act->CountContentPageByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentPageCode(
+    public function CountContentPageByCode(
         $code
     ) {      
-        return $this->act->CountContentPageCode(
+        return $this->act->CountContentPageByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentPageName(
+    public function CountContentPageByName(
         $name
     ) {      
-        return $this->act->CountContentPageName(
+        return $this->act->CountContentPageByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountContentPagePath(
+    public function CountContentPageByPath(
         $path
     ) {      
-        return $this->act->CountContentPagePath(
+        return $this->act->CountContentPageByPath(
         $path
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseContentPageListFilter($filter_obj) {
-        return $this->act->BrowseContentPageListFilter($filter_obj);
+    public function BrowseContentPageListByFilter($filter_obj) {
+        return $this->act->BrowseContentPageListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetContentPageUuid($set_type, $obj) {
-        return $this->act->SetContentPageUuid($set_type, $obj);
+    public function SetContentPageByUuid($set_type, $obj) {
+        return $this->act->SetContentPageByUuid($set_type, $obj);
     }
                
-    public function SetContentPageUuidFull($obj) {
-        return $this->act->SetContentPageUuid('full', $obj);
+    public function SetContentPageByUuidFull($obj) {
+        return $this->act->SetContentPageByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelContentPageUuid(
+    public function DelContentPageByUuid(
         $uuid
     ) {         
-        return $this->act->DelContentPageUuid(
+        return $this->act->DelContentPageByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelContentPagePathSiteId(
+    public function DelContentPageByPathBySiteId(
         $path
         , $site_id
     ) {         
-        return $this->act->DelContentPagePathSiteId(
+        return $this->act->DelContentPageByPathBySiteId(
         $path
         , $site_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelContentPagePath(
+    public function DelContentPageByPath(
         $path
     ) {         
-        return $this->act->DelContentPagePath(
+        return $this->act->DelContentPageByPath(
         $path
         );
     }
@@ -2886,18 +2886,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentPageListUuid(
+    public function GetContentPageListByUuid(
         $uuid
         ) {
-            return $this->act->GetContentPageListUuid(
+            return $this->act->GetContentPageListByUuid(
                 $uuid
             );
         }
         
-    public function GetContentPageUuid(
+    public function GetContentPageByUuid(
         $uuid
     ) {
-        foreach($this->act->GetContentPageListUuid(
+        foreach($this->act->GetContentPageListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -2906,10 +2906,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentPageListUuid(
+    public function CachedGetContentPageListByUuid(
         $uuid
     ) {
-        return $this->CachedGetContentPageListUuid(
+        return $this->CachedGetContentPageListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -2917,7 +2917,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentPageListUuid(
+    public function CachedGetContentPageListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -2925,7 +2925,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentPageListUuid";
+        $method_name = "CachedGetContentPageListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -2940,7 +2940,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentPageListUuid(
+            $objs = $this->GetContentPageListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -2949,18 +2949,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentPageListCode(
+    public function GetContentPageListByCode(
         $code
         ) {
-            return $this->act->GetContentPageListCode(
+            return $this->act->GetContentPageListByCode(
                 $code
             );
         }
         
-    public function GetContentPageCode(
+    public function GetContentPageByCode(
         $code
     ) {
-        foreach($this->act->GetContentPageListCode(
+        foreach($this->act->GetContentPageListByCode(
         $code
         ) as $item) {
             return $item;
@@ -2969,10 +2969,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentPageListCode(
+    public function CachedGetContentPageListByCode(
         $code
     ) {
-        return $this->CachedGetContentPageListCode(
+        return $this->CachedGetContentPageListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -2980,7 +2980,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentPageListCode(
+    public function CachedGetContentPageListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -2988,7 +2988,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentPageListCode";
+        $method_name = "CachedGetContentPageListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -3003,7 +3003,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentPageListCode(
+            $objs = $this->GetContentPageListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3012,18 +3012,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentPageListName(
+    public function GetContentPageListByName(
         $name
         ) {
-            return $this->act->GetContentPageListName(
+            return $this->act->GetContentPageListByName(
                 $name
             );
         }
         
-    public function GetContentPageName(
+    public function GetContentPageByName(
         $name
     ) {
-        foreach($this->act->GetContentPageListName(
+        foreach($this->act->GetContentPageListByName(
         $name
         ) as $item) {
             return $item;
@@ -3032,10 +3032,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentPageListName(
+    public function CachedGetContentPageListByName(
         $name
     ) {
-        return $this->CachedGetContentPageListName(
+        return $this->CachedGetContentPageListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -3043,7 +3043,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentPageListName(
+    public function CachedGetContentPageListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -3051,7 +3051,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentPageListName";
+        $method_name = "CachedGetContentPageListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -3066,7 +3066,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentPageListName(
+            $objs = $this->GetContentPageListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3075,18 +3075,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentPageListPath(
+    public function GetContentPageListByPath(
         $path
         ) {
-            return $this->act->GetContentPageListPath(
+            return $this->act->GetContentPageListByPath(
                 $path
             );
         }
         
-    public function GetContentPagePath(
+    public function GetContentPageByPath(
         $path
     ) {
-        foreach($this->act->GetContentPageListPath(
+        foreach($this->act->GetContentPageListByPath(
         $path
         ) as $item) {
             return $item;
@@ -3095,10 +3095,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentPageListPath(
+    public function CachedGetContentPageListByPath(
         $path
     ) {
-        return $this->CachedGetContentPageListPath(
+        return $this->CachedGetContentPageListByPath(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $path
@@ -3106,7 +3106,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentPageListPath(
+    public function CachedGetContentPageListByPath(
         $overrideCache
         , $cacheHours
         , $path
@@ -3114,7 +3114,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentPageListPath";
+        $method_name = "CachedGetContentPageListByPath";
 
         $sb = "";
         $sb += $method_name;
@@ -3129,7 +3129,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentPageListPath(
+            $objs = $this->GetContentPageListByPath(
                 $path
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3138,18 +3138,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentPageListSiteId(
+    public function GetContentPageListBySiteId(
         $site_id
         ) {
-            return $this->act->GetContentPageListSiteId(
+            return $this->act->GetContentPageListBySiteId(
                 $site_id
             );
         }
         
-    public function GetContentPageSiteId(
+    public function GetContentPageBySiteId(
         $site_id
     ) {
-        foreach($this->act->GetContentPageListSiteId(
+        foreach($this->act->GetContentPageListBySiteId(
         $site_id
         ) as $item) {
             return $item;
@@ -3158,10 +3158,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentPageListSiteId(
+    public function CachedGetContentPageListBySiteId(
         $site_id
     ) {
-        return $this->CachedGetContentPageListSiteId(
+        return $this->CachedGetContentPageListBySiteId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $site_id
@@ -3169,7 +3169,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentPageListSiteId(
+    public function CachedGetContentPageListBySiteId(
         $overrideCache
         , $cacheHours
         , $site_id
@@ -3177,7 +3177,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentPageListSiteId";
+        $method_name = "CachedGetContentPageListBySiteId";
 
         $sb = "";
         $sb += $method_name;
@@ -3192,7 +3192,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentPageListSiteId(
+            $objs = $this->GetContentPageListBySiteId(
                 $site_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3201,21 +3201,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetContentPageListSiteIdPath(
+    public function GetContentPageListBySiteIdByPath(
         $site_id
         , $path
         ) {
-            return $this->act->GetContentPageListSiteIdPath(
+            return $this->act->GetContentPageListBySiteIdByPath(
                 $site_id
                 , $path
             );
         }
         
-    public function GetContentPageSiteIdPath(
+    public function GetContentPageBySiteIdByPath(
         $site_id
         , $path
     ) {
-        foreach($this->act->GetContentPageListSiteIdPath(
+        foreach($this->act->GetContentPageListBySiteIdByPath(
         $site_id
         , $path
         ) as $item) {
@@ -3225,11 +3225,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetContentPageListSiteIdPath(
+    public function CachedGetContentPageListBySiteIdByPath(
         $site_id
         , $path
     ) {
-        return $this->CachedGetContentPageListSiteIdPath(
+        return $this->CachedGetContentPageListBySiteIdByPath(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $site_id
@@ -3238,7 +3238,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetContentPageListSiteIdPath(
+    public function CachedGetContentPageListBySiteIdByPath(
         $overrideCache
         , $cacheHours
         , $site_id
@@ -3247,7 +3247,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetContentPageListSiteIdPath";
+        $method_name = "CachedGetContentPageListBySiteIdByPath";
 
         $sb = "";
         $sb += $method_name;
@@ -3266,7 +3266,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetContentPageListSiteIdPath(
+            $objs = $this->GetContentPageListBySiteIdByPath(
                 $site_id
                 , $path
             );
@@ -3283,31 +3283,31 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountMessageUuid(
+    public function CountMessageByUuid(
         $uuid
     ) {      
-        return $this->act->CountMessageUuid(
+        return $this->act->CountMessageByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseMessageListFilter($filter_obj) {
-        return $this->act->BrowseMessageListFilter($filter_obj);
+    public function BrowseMessageListByFilter($filter_obj) {
+        return $this->act->BrowseMessageListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetMessageUuid($set_type, $obj) {
-        return $this->act->SetMessageUuid($set_type, $obj);
+    public function SetMessageByUuid($set_type, $obj) {
+        return $this->act->SetMessageByUuid($set_type, $obj);
     }
                
-    public function SetMessageUuidFull($obj) {
-        return $this->act->SetMessageUuid('full', $obj);
+    public function SetMessageByUuidFull($obj) {
+        return $this->act->SetMessageByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelMessageUuid(
+    public function DelMessageByUuid(
         $uuid
     ) {         
-        return $this->act->DelMessageUuid(
+        return $this->act->DelMessageByUuid(
         $uuid
         );
     }
@@ -3363,18 +3363,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetMessageListUuid(
+    public function GetMessageListByUuid(
         $uuid
         ) {
-            return $this->act->GetMessageListUuid(
+            return $this->act->GetMessageListByUuid(
                 $uuid
             );
         }
         
-    public function GetMessageUuid(
+    public function GetMessageByUuid(
         $uuid
     ) {
-        foreach($this->act->GetMessageListUuid(
+        foreach($this->act->GetMessageListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -3383,10 +3383,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetMessageListUuid(
+    public function CachedGetMessageListByUuid(
         $uuid
     ) {
-        return $this->CachedGetMessageListUuid(
+        return $this->CachedGetMessageListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -3394,7 +3394,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetMessageListUuid(
+    public function CachedGetMessageListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -3402,7 +3402,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetMessageListUuid";
+        $method_name = "CachedGetMessageListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -3417,7 +3417,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetMessageListUuid(
+            $objs = $this->GetMessageListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3433,66 +3433,66 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferUuid(
+    public function CountOfferByUuid(
         $uuid
     ) {      
-        return $this->act->CountOfferUuid(
+        return $this->act->CountOfferByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCode(
+    public function CountOfferByCode(
         $code
     ) {      
-        return $this->act->CountOfferCode(
+        return $this->act->CountOfferByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferName(
+    public function CountOfferByName(
         $name
     ) {      
-        return $this->act->CountOfferName(
+        return $this->act->CountOfferByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferOrgId(
+    public function CountOfferByOrgId(
         $org_id
     ) {      
-        return $this->act->CountOfferOrgId(
+        return $this->act->CountOfferByOrgId(
         $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOfferListFilter($filter_obj) {
-        return $this->act->BrowseOfferListFilter($filter_obj);
+    public function BrowseOfferListByFilter($filter_obj) {
+        return $this->act->BrowseOfferListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOfferUuid($set_type, $obj) {
-        return $this->act->SetOfferUuid($set_type, $obj);
+    public function SetOfferByUuid($set_type, $obj) {
+        return $this->act->SetOfferByUuid($set_type, $obj);
     }
                
-    public function SetOfferUuidFull($obj) {
-        return $this->act->SetOfferUuid('full', $obj);
+    public function SetOfferByUuidFull($obj) {
+        return $this->act->SetOfferByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferUuid(
+    public function DelOfferByUuid(
         $uuid
     ) {         
-        return $this->act->DelOfferUuid(
+        return $this->act->DelOfferByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferOrgId(
+    public function DelOfferByOrgId(
         $org_id
     ) {         
-        return $this->act->DelOfferOrgId(
+        return $this->act->DelOfferByOrgId(
         $org_id
         );
     }
@@ -3548,18 +3548,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferListUuid(
+    public function GetOfferListByUuid(
         $uuid
         ) {
-            return $this->act->GetOfferListUuid(
+            return $this->act->GetOfferListByUuid(
                 $uuid
             );
         }
         
-    public function GetOfferUuid(
+    public function GetOfferByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOfferListUuid(
+        foreach($this->act->GetOfferListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -3568,10 +3568,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferListUuid(
+    public function CachedGetOfferListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOfferListUuid(
+        return $this->CachedGetOfferListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -3579,7 +3579,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferListUuid(
+    public function CachedGetOfferListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -3587,7 +3587,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferListUuid";
+        $method_name = "CachedGetOfferListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -3602,7 +3602,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferListUuid(
+            $objs = $this->GetOfferListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3611,18 +3611,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferListCode(
+    public function GetOfferListByCode(
         $code
         ) {
-            return $this->act->GetOfferListCode(
+            return $this->act->GetOfferListByCode(
                 $code
             );
         }
         
-    public function GetOfferCode(
+    public function GetOfferByCode(
         $code
     ) {
-        foreach($this->act->GetOfferListCode(
+        foreach($this->act->GetOfferListByCode(
         $code
         ) as $item) {
             return $item;
@@ -3631,10 +3631,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferListCode(
+    public function CachedGetOfferListByCode(
         $code
     ) {
-        return $this->CachedGetOfferListCode(
+        return $this->CachedGetOfferListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -3642,7 +3642,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferListCode(
+    public function CachedGetOfferListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -3650,7 +3650,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferListCode";
+        $method_name = "CachedGetOfferListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -3665,7 +3665,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferListCode(
+            $objs = $this->GetOfferListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3674,18 +3674,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferListName(
+    public function GetOfferListByName(
         $name
         ) {
-            return $this->act->GetOfferListName(
+            return $this->act->GetOfferListByName(
                 $name
             );
         }
         
-    public function GetOfferName(
+    public function GetOfferByName(
         $name
     ) {
-        foreach($this->act->GetOfferListName(
+        foreach($this->act->GetOfferListByName(
         $name
         ) as $item) {
             return $item;
@@ -3694,10 +3694,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferListName(
+    public function CachedGetOfferListByName(
         $name
     ) {
-        return $this->CachedGetOfferListName(
+        return $this->CachedGetOfferListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -3705,7 +3705,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferListName(
+    public function CachedGetOfferListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -3713,7 +3713,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferListName";
+        $method_name = "CachedGetOfferListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -3728,7 +3728,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferListName(
+            $objs = $this->GetOfferListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3737,18 +3737,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferListOrgId(
+    public function GetOfferListByOrgId(
         $org_id
         ) {
-            return $this->act->GetOfferListOrgId(
+            return $this->act->GetOfferListByOrgId(
                 $org_id
             );
         }
         
-    public function GetOfferOrgId(
+    public function GetOfferByOrgId(
         $org_id
     ) {
-        foreach($this->act->GetOfferListOrgId(
+        foreach($this->act->GetOfferListByOrgId(
         $org_id
         ) as $item) {
             return $item;
@@ -3757,10 +3757,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferListOrgId(
+    public function CachedGetOfferListByOrgId(
         $org_id
     ) {
-        return $this->CachedGetOfferListOrgId(
+        return $this->CachedGetOfferListByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -3768,7 +3768,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferListOrgId(
+    public function CachedGetOfferListByOrgId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -3776,7 +3776,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferListOrgId";
+        $method_name = "CachedGetOfferListByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -3791,7 +3791,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferListOrgId(
+            $objs = $this->GetOfferListByOrgId(
                 $org_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3807,49 +3807,49 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferTypeUuid(
+    public function CountOfferTypeByUuid(
         $uuid
     ) {      
-        return $this->act->CountOfferTypeUuid(
+        return $this->act->CountOfferTypeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferTypeCode(
+    public function CountOfferTypeByCode(
         $code
     ) {      
-        return $this->act->CountOfferTypeCode(
+        return $this->act->CountOfferTypeByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferTypeName(
+    public function CountOfferTypeByName(
         $name
     ) {      
-        return $this->act->CountOfferTypeName(
+        return $this->act->CountOfferTypeByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOfferTypeListFilter($filter_obj) {
-        return $this->act->BrowseOfferTypeListFilter($filter_obj);
+    public function BrowseOfferTypeListByFilter($filter_obj) {
+        return $this->act->BrowseOfferTypeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOfferTypeUuid($set_type, $obj) {
-        return $this->act->SetOfferTypeUuid($set_type, $obj);
+    public function SetOfferTypeByUuid($set_type, $obj) {
+        return $this->act->SetOfferTypeByUuid($set_type, $obj);
     }
                
-    public function SetOfferTypeUuidFull($obj) {
-        return $this->act->SetOfferTypeUuid('full', $obj);
+    public function SetOfferTypeByUuidFull($obj) {
+        return $this->act->SetOfferTypeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferTypeUuid(
+    public function DelOfferTypeByUuid(
         $uuid
     ) {         
-        return $this->act->DelOfferTypeUuid(
+        return $this->act->DelOfferTypeByUuid(
         $uuid
         );
     }
@@ -3905,18 +3905,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferTypeListUuid(
+    public function GetOfferTypeListByUuid(
         $uuid
         ) {
-            return $this->act->GetOfferTypeListUuid(
+            return $this->act->GetOfferTypeListByUuid(
                 $uuid
             );
         }
         
-    public function GetOfferTypeUuid(
+    public function GetOfferTypeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOfferTypeListUuid(
+        foreach($this->act->GetOfferTypeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -3925,10 +3925,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferTypeListUuid(
+    public function CachedGetOfferTypeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOfferTypeListUuid(
+        return $this->CachedGetOfferTypeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -3936,7 +3936,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferTypeListUuid(
+    public function CachedGetOfferTypeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -3944,7 +3944,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferTypeListUuid";
+        $method_name = "CachedGetOfferTypeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -3959,7 +3959,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferTypeListUuid(
+            $objs = $this->GetOfferTypeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -3968,18 +3968,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferTypeListCode(
+    public function GetOfferTypeListByCode(
         $code
         ) {
-            return $this->act->GetOfferTypeListCode(
+            return $this->act->GetOfferTypeListByCode(
                 $code
             );
         }
         
-    public function GetOfferTypeCode(
+    public function GetOfferTypeByCode(
         $code
     ) {
-        foreach($this->act->GetOfferTypeListCode(
+        foreach($this->act->GetOfferTypeListByCode(
         $code
         ) as $item) {
             return $item;
@@ -3988,10 +3988,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferTypeListCode(
+    public function CachedGetOfferTypeListByCode(
         $code
     ) {
-        return $this->CachedGetOfferTypeListCode(
+        return $this->CachedGetOfferTypeListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -3999,7 +3999,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferTypeListCode(
+    public function CachedGetOfferTypeListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -4007,7 +4007,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferTypeListCode";
+        $method_name = "CachedGetOfferTypeListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -4022,7 +4022,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferTypeListCode(
+            $objs = $this->GetOfferTypeListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4031,18 +4031,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferTypeListName(
+    public function GetOfferTypeListByName(
         $name
         ) {
-            return $this->act->GetOfferTypeListName(
+            return $this->act->GetOfferTypeListByName(
                 $name
             );
         }
         
-    public function GetOfferTypeName(
+    public function GetOfferTypeByName(
         $name
     ) {
-        foreach($this->act->GetOfferTypeListName(
+        foreach($this->act->GetOfferTypeListByName(
         $name
         ) as $item) {
             return $item;
@@ -4051,10 +4051,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferTypeListName(
+    public function CachedGetOfferTypeListByName(
         $name
     ) {
-        return $this->CachedGetOfferTypeListName(
+        return $this->CachedGetOfferTypeListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -4062,7 +4062,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferTypeListName(
+    public function CachedGetOfferTypeListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -4070,7 +4070,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferTypeListName";
+        $method_name = "CachedGetOfferTypeListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -4085,7 +4085,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferTypeListName(
+            $objs = $this->GetOfferTypeListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4101,67 +4101,67 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferLocationUuid(
+    public function CountOfferLocationByUuid(
         $uuid
     ) {      
-        return $this->act->CountOfferLocationUuid(
+        return $this->act->CountOfferLocationByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferLocationOfferId(
+    public function CountOfferLocationByOfferId(
         $offer_id
     ) {      
-        return $this->act->CountOfferLocationOfferId(
+        return $this->act->CountOfferLocationByOfferId(
         $offer_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferLocationCity(
+    public function CountOfferLocationByCity(
         $city
     ) {      
-        return $this->act->CountOfferLocationCity(
+        return $this->act->CountOfferLocationByCity(
         $city
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferLocationCountryCode(
+    public function CountOfferLocationByCountryCode(
         $country_code
     ) {      
-        return $this->act->CountOfferLocationCountryCode(
+        return $this->act->CountOfferLocationByCountryCode(
         $country_code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferLocationPostalCode(
+    public function CountOfferLocationByPostalCode(
         $postal_code
     ) {      
-        return $this->act->CountOfferLocationPostalCode(
+        return $this->act->CountOfferLocationByPostalCode(
         $postal_code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOfferLocationListFilter($filter_obj) {
-        return $this->act->BrowseOfferLocationListFilter($filter_obj);
+    public function BrowseOfferLocationListByFilter($filter_obj) {
+        return $this->act->BrowseOfferLocationListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOfferLocationUuid($set_type, $obj) {
-        return $this->act->SetOfferLocationUuid($set_type, $obj);
+    public function SetOfferLocationByUuid($set_type, $obj) {
+        return $this->act->SetOfferLocationByUuid($set_type, $obj);
     }
                
-    public function SetOfferLocationUuidFull($obj) {
-        return $this->act->SetOfferLocationUuid('full', $obj);
+    public function SetOfferLocationByUuidFull($obj) {
+        return $this->act->SetOfferLocationByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferLocationUuid(
+    public function DelOfferLocationByUuid(
         $uuid
     ) {         
-        return $this->act->DelOfferLocationUuid(
+        return $this->act->DelOfferLocationByUuid(
         $uuid
         );
     }
@@ -4217,18 +4217,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferLocationListUuid(
+    public function GetOfferLocationListByUuid(
         $uuid
         ) {
-            return $this->act->GetOfferLocationListUuid(
+            return $this->act->GetOfferLocationListByUuid(
                 $uuid
             );
         }
         
-    public function GetOfferLocationUuid(
+    public function GetOfferLocationByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOfferLocationListUuid(
+        foreach($this->act->GetOfferLocationListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -4237,10 +4237,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferLocationListUuid(
+    public function CachedGetOfferLocationListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOfferLocationListUuid(
+        return $this->CachedGetOfferLocationListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -4248,7 +4248,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferLocationListUuid(
+    public function CachedGetOfferLocationListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -4256,7 +4256,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferLocationListUuid";
+        $method_name = "CachedGetOfferLocationListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -4271,7 +4271,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferLocationListUuid(
+            $objs = $this->GetOfferLocationListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4280,18 +4280,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferLocationListOfferId(
+    public function GetOfferLocationListByOfferId(
         $offer_id
         ) {
-            return $this->act->GetOfferLocationListOfferId(
+            return $this->act->GetOfferLocationListByOfferId(
                 $offer_id
             );
         }
         
-    public function GetOfferLocationOfferId(
+    public function GetOfferLocationByOfferId(
         $offer_id
     ) {
-        foreach($this->act->GetOfferLocationListOfferId(
+        foreach($this->act->GetOfferLocationListByOfferId(
         $offer_id
         ) as $item) {
             return $item;
@@ -4300,10 +4300,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferLocationListOfferId(
+    public function CachedGetOfferLocationListByOfferId(
         $offer_id
     ) {
-        return $this->CachedGetOfferLocationListOfferId(
+        return $this->CachedGetOfferLocationListByOfferId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $offer_id
@@ -4311,7 +4311,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferLocationListOfferId(
+    public function CachedGetOfferLocationListByOfferId(
         $overrideCache
         , $cacheHours
         , $offer_id
@@ -4319,7 +4319,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferLocationListOfferId";
+        $method_name = "CachedGetOfferLocationListByOfferId";
 
         $sb = "";
         $sb += $method_name;
@@ -4334,7 +4334,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferLocationListOfferId(
+            $objs = $this->GetOfferLocationListByOfferId(
                 $offer_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4343,18 +4343,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferLocationListCity(
+    public function GetOfferLocationListByCity(
         $city
         ) {
-            return $this->act->GetOfferLocationListCity(
+            return $this->act->GetOfferLocationListByCity(
                 $city
             );
         }
         
-    public function GetOfferLocationCity(
+    public function GetOfferLocationByCity(
         $city
     ) {
-        foreach($this->act->GetOfferLocationListCity(
+        foreach($this->act->GetOfferLocationListByCity(
         $city
         ) as $item) {
             return $item;
@@ -4363,10 +4363,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferLocationListCity(
+    public function CachedGetOfferLocationListByCity(
         $city
     ) {
-        return $this->CachedGetOfferLocationListCity(
+        return $this->CachedGetOfferLocationListByCity(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $city
@@ -4374,7 +4374,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferLocationListCity(
+    public function CachedGetOfferLocationListByCity(
         $overrideCache
         , $cacheHours
         , $city
@@ -4382,7 +4382,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferLocationListCity";
+        $method_name = "CachedGetOfferLocationListByCity";
 
         $sb = "";
         $sb += $method_name;
@@ -4397,7 +4397,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferLocationListCity(
+            $objs = $this->GetOfferLocationListByCity(
                 $city
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4406,18 +4406,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferLocationListCountryCode(
+    public function GetOfferLocationListByCountryCode(
         $country_code
         ) {
-            return $this->act->GetOfferLocationListCountryCode(
+            return $this->act->GetOfferLocationListByCountryCode(
                 $country_code
             );
         }
         
-    public function GetOfferLocationCountryCode(
+    public function GetOfferLocationByCountryCode(
         $country_code
     ) {
-        foreach($this->act->GetOfferLocationListCountryCode(
+        foreach($this->act->GetOfferLocationListByCountryCode(
         $country_code
         ) as $item) {
             return $item;
@@ -4426,10 +4426,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferLocationListCountryCode(
+    public function CachedGetOfferLocationListByCountryCode(
         $country_code
     ) {
-        return $this->CachedGetOfferLocationListCountryCode(
+        return $this->CachedGetOfferLocationListByCountryCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $country_code
@@ -4437,7 +4437,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferLocationListCountryCode(
+    public function CachedGetOfferLocationListByCountryCode(
         $overrideCache
         , $cacheHours
         , $country_code
@@ -4445,7 +4445,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferLocationListCountryCode";
+        $method_name = "CachedGetOfferLocationListByCountryCode";
 
         $sb = "";
         $sb += $method_name;
@@ -4460,7 +4460,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferLocationListCountryCode(
+            $objs = $this->GetOfferLocationListByCountryCode(
                 $country_code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4469,18 +4469,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferLocationListPostalCode(
+    public function GetOfferLocationListByPostalCode(
         $postal_code
         ) {
-            return $this->act->GetOfferLocationListPostalCode(
+            return $this->act->GetOfferLocationListByPostalCode(
                 $postal_code
             );
         }
         
-    public function GetOfferLocationPostalCode(
+    public function GetOfferLocationByPostalCode(
         $postal_code
     ) {
-        foreach($this->act->GetOfferLocationListPostalCode(
+        foreach($this->act->GetOfferLocationListByPostalCode(
         $postal_code
         ) as $item) {
             return $item;
@@ -4489,10 +4489,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferLocationListPostalCode(
+    public function CachedGetOfferLocationListByPostalCode(
         $postal_code
     ) {
-        return $this->CachedGetOfferLocationListPostalCode(
+        return $this->CachedGetOfferLocationListByPostalCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $postal_code
@@ -4500,7 +4500,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferLocationListPostalCode(
+    public function CachedGetOfferLocationListByPostalCode(
         $overrideCache
         , $cacheHours
         , $postal_code
@@ -4508,7 +4508,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferLocationListPostalCode";
+        $method_name = "CachedGetOfferLocationListByPostalCode";
 
         $sb = "";
         $sb += $method_name;
@@ -4523,7 +4523,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferLocationListPostalCode(
+            $objs = $this->GetOfferLocationListByPostalCode(
                 $postal_code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4539,98 +4539,98 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryUuid(
+    public function CountOfferCategoryByUuid(
         $uuid
     ) {      
-        return $this->act->CountOfferCategoryUuid(
+        return $this->act->CountOfferCategoryByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryCode(
+    public function CountOfferCategoryByCode(
         $code
     ) {      
-        return $this->act->CountOfferCategoryCode(
+        return $this->act->CountOfferCategoryByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryName(
+    public function CountOfferCategoryByName(
         $name
     ) {      
-        return $this->act->CountOfferCategoryName(
+        return $this->act->CountOfferCategoryByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryOrgId(
+    public function CountOfferCategoryByOrgId(
         $org_id
     ) {      
-        return $this->act->CountOfferCategoryOrgId(
+        return $this->act->CountOfferCategoryByOrgId(
         $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryTypeId(
+    public function CountOfferCategoryByTypeId(
         $type_id
     ) {      
-        return $this->act->CountOfferCategoryTypeId(
+        return $this->act->CountOfferCategoryByTypeId(
         $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryOrgIdTypeId(
+    public function CountOfferCategoryByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {      
-        return $this->act->CountOfferCategoryOrgIdTypeId(
+        return $this->act->CountOfferCategoryByOrgIdByTypeId(
         $org_id
         , $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOfferCategoryListFilter($filter_obj) {
-        return $this->act->BrowseOfferCategoryListFilter($filter_obj);
+    public function BrowseOfferCategoryListByFilter($filter_obj) {
+        return $this->act->BrowseOfferCategoryListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOfferCategoryUuid($set_type, $obj) {
-        return $this->act->SetOfferCategoryUuid($set_type, $obj);
+    public function SetOfferCategoryByUuid($set_type, $obj) {
+        return $this->act->SetOfferCategoryByUuid($set_type, $obj);
     }
                
-    public function SetOfferCategoryUuidFull($obj) {
-        return $this->act->SetOfferCategoryUuid('full', $obj);
+    public function SetOfferCategoryByUuidFull($obj) {
+        return $this->act->SetOfferCategoryByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferCategoryUuid(
+    public function DelOfferCategoryByUuid(
         $uuid
     ) {         
-        return $this->act->DelOfferCategoryUuid(
+        return $this->act->DelOfferCategoryByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferCategoryCodeOrgId(
+    public function DelOfferCategoryByCodeByOrgId(
         $code
         , $org_id
     ) {         
-        return $this->act->DelOfferCategoryCodeOrgId(
+        return $this->act->DelOfferCategoryByCodeByOrgId(
         $code
         , $org_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferCategoryCodeOrgIdTypeId(
+    public function DelOfferCategoryByCodeByOrgIdByTypeId(
         $code
         , $org_id
         , $type_id
     ) {         
-        return $this->act->DelOfferCategoryCodeOrgIdTypeId(
+        return $this->act->DelOfferCategoryByCodeByOrgIdByTypeId(
         $code
         , $org_id
         , $type_id
@@ -4688,18 +4688,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryListUuid(
+    public function GetOfferCategoryListByUuid(
         $uuid
         ) {
-            return $this->act->GetOfferCategoryListUuid(
+            return $this->act->GetOfferCategoryListByUuid(
                 $uuid
             );
         }
         
-    public function GetOfferCategoryUuid(
+    public function GetOfferCategoryByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOfferCategoryListUuid(
+        foreach($this->act->GetOfferCategoryListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -4708,10 +4708,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryListUuid(
+    public function CachedGetOfferCategoryListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOfferCategoryListUuid(
+        return $this->CachedGetOfferCategoryListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -4719,7 +4719,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryListUuid(
+    public function CachedGetOfferCategoryListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -4727,7 +4727,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryListUuid";
+        $method_name = "CachedGetOfferCategoryListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -4742,7 +4742,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryListUuid(
+            $objs = $this->GetOfferCategoryListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4751,18 +4751,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryListCode(
+    public function GetOfferCategoryListByCode(
         $code
         ) {
-            return $this->act->GetOfferCategoryListCode(
+            return $this->act->GetOfferCategoryListByCode(
                 $code
             );
         }
         
-    public function GetOfferCategoryCode(
+    public function GetOfferCategoryByCode(
         $code
     ) {
-        foreach($this->act->GetOfferCategoryListCode(
+        foreach($this->act->GetOfferCategoryListByCode(
         $code
         ) as $item) {
             return $item;
@@ -4771,10 +4771,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryListCode(
+    public function CachedGetOfferCategoryListByCode(
         $code
     ) {
-        return $this->CachedGetOfferCategoryListCode(
+        return $this->CachedGetOfferCategoryListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -4782,7 +4782,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryListCode(
+    public function CachedGetOfferCategoryListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -4790,7 +4790,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryListCode";
+        $method_name = "CachedGetOfferCategoryListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -4805,7 +4805,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryListCode(
+            $objs = $this->GetOfferCategoryListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4814,18 +4814,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryListName(
+    public function GetOfferCategoryListByName(
         $name
         ) {
-            return $this->act->GetOfferCategoryListName(
+            return $this->act->GetOfferCategoryListByName(
                 $name
             );
         }
         
-    public function GetOfferCategoryName(
+    public function GetOfferCategoryByName(
         $name
     ) {
-        foreach($this->act->GetOfferCategoryListName(
+        foreach($this->act->GetOfferCategoryListByName(
         $name
         ) as $item) {
             return $item;
@@ -4834,10 +4834,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryListName(
+    public function CachedGetOfferCategoryListByName(
         $name
     ) {
-        return $this->CachedGetOfferCategoryListName(
+        return $this->CachedGetOfferCategoryListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -4845,7 +4845,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryListName(
+    public function CachedGetOfferCategoryListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -4853,7 +4853,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryListName";
+        $method_name = "CachedGetOfferCategoryListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -4868,7 +4868,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryListName(
+            $objs = $this->GetOfferCategoryListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4877,18 +4877,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryListOrgId(
+    public function GetOfferCategoryListByOrgId(
         $org_id
         ) {
-            return $this->act->GetOfferCategoryListOrgId(
+            return $this->act->GetOfferCategoryListByOrgId(
                 $org_id
             );
         }
         
-    public function GetOfferCategoryOrgId(
+    public function GetOfferCategoryByOrgId(
         $org_id
     ) {
-        foreach($this->act->GetOfferCategoryListOrgId(
+        foreach($this->act->GetOfferCategoryListByOrgId(
         $org_id
         ) as $item) {
             return $item;
@@ -4897,10 +4897,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryListOrgId(
+    public function CachedGetOfferCategoryListByOrgId(
         $org_id
     ) {
-        return $this->CachedGetOfferCategoryListOrgId(
+        return $this->CachedGetOfferCategoryListByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -4908,7 +4908,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryListOrgId(
+    public function CachedGetOfferCategoryListByOrgId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -4916,7 +4916,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryListOrgId";
+        $method_name = "CachedGetOfferCategoryListByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -4931,7 +4931,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryListOrgId(
+            $objs = $this->GetOfferCategoryListByOrgId(
                 $org_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -4940,18 +4940,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryListTypeId(
+    public function GetOfferCategoryListByTypeId(
         $type_id
         ) {
-            return $this->act->GetOfferCategoryListTypeId(
+            return $this->act->GetOfferCategoryListByTypeId(
                 $type_id
             );
         }
         
-    public function GetOfferCategoryTypeId(
+    public function GetOfferCategoryByTypeId(
         $type_id
     ) {
-        foreach($this->act->GetOfferCategoryListTypeId(
+        foreach($this->act->GetOfferCategoryListByTypeId(
         $type_id
         ) as $item) {
             return $item;
@@ -4960,10 +4960,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryListTypeId(
+    public function CachedGetOfferCategoryListByTypeId(
         $type_id
     ) {
-        return $this->CachedGetOfferCategoryListTypeId(
+        return $this->CachedGetOfferCategoryListByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $type_id
@@ -4971,7 +4971,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryListTypeId(
+    public function CachedGetOfferCategoryListByTypeId(
         $overrideCache
         , $cacheHours
         , $type_id
@@ -4979,7 +4979,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryListTypeId";
+        $method_name = "CachedGetOfferCategoryListByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -4994,7 +4994,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryListTypeId(
+            $objs = $this->GetOfferCategoryListByTypeId(
                 $type_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5003,21 +5003,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryListOrgIdTypeId(
+    public function GetOfferCategoryListByOrgIdByTypeId(
         $org_id
         , $type_id
         ) {
-            return $this->act->GetOfferCategoryListOrgIdTypeId(
+            return $this->act->GetOfferCategoryListByOrgIdByTypeId(
                 $org_id
                 , $type_id
             );
         }
         
-    public function GetOfferCategoryOrgIdTypeId(
+    public function GetOfferCategoryByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {
-        foreach($this->act->GetOfferCategoryListOrgIdTypeId(
+        foreach($this->act->GetOfferCategoryListByOrgIdByTypeId(
         $org_id
         , $type_id
         ) as $item) {
@@ -5027,11 +5027,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryListOrgIdTypeId(
+    public function CachedGetOfferCategoryListByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {
-        return $this->CachedGetOfferCategoryListOrgIdTypeId(
+        return $this->CachedGetOfferCategoryListByOrgIdByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -5040,7 +5040,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryListOrgIdTypeId(
+    public function CachedGetOfferCategoryListByOrgIdByTypeId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -5049,7 +5049,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryListOrgIdTypeId";
+        $method_name = "CachedGetOfferCategoryListByOrgIdByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -5068,7 +5068,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryListOrgIdTypeId(
+            $objs = $this->GetOfferCategoryListByOrgIdByTypeId(
                 $org_id
                 , $type_id
             );
@@ -5085,85 +5085,85 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryTreeUuid(
+    public function CountOfferCategoryTreeByUuid(
         $uuid
     ) {      
-        return $this->act->CountOfferCategoryTreeUuid(
+        return $this->act->CountOfferCategoryTreeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryTreeParentId(
+    public function CountOfferCategoryTreeByParentId(
         $parent_id
     ) {      
-        return $this->act->CountOfferCategoryTreeParentId(
+        return $this->act->CountOfferCategoryTreeByParentId(
         $parent_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryTreeCategoryId(
+    public function CountOfferCategoryTreeByCategoryId(
         $category_id
     ) {      
-        return $this->act->CountOfferCategoryTreeCategoryId(
+        return $this->act->CountOfferCategoryTreeByCategoryId(
         $category_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryTreeParentIdCategoryId(
+    public function CountOfferCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {      
-        return $this->act->CountOfferCategoryTreeParentIdCategoryId(
+        return $this->act->CountOfferCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOfferCategoryTreeListFilter($filter_obj) {
-        return $this->act->BrowseOfferCategoryTreeListFilter($filter_obj);
+    public function BrowseOfferCategoryTreeListByFilter($filter_obj) {
+        return $this->act->BrowseOfferCategoryTreeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOfferCategoryTreeUuid($set_type, $obj) {
-        return $this->act->SetOfferCategoryTreeUuid($set_type, $obj);
+    public function SetOfferCategoryTreeByUuid($set_type, $obj) {
+        return $this->act->SetOfferCategoryTreeByUuid($set_type, $obj);
     }
                
-    public function SetOfferCategoryTreeUuidFull($obj) {
-        return $this->act->SetOfferCategoryTreeUuid('full', $obj);
+    public function SetOfferCategoryTreeByUuidFull($obj) {
+        return $this->act->SetOfferCategoryTreeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferCategoryTreeUuid(
+    public function DelOfferCategoryTreeByUuid(
         $uuid
     ) {         
-        return $this->act->DelOfferCategoryTreeUuid(
+        return $this->act->DelOfferCategoryTreeByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferCategoryTreeParentId(
+    public function DelOfferCategoryTreeByParentId(
         $parent_id
     ) {         
-        return $this->act->DelOfferCategoryTreeParentId(
+        return $this->act->DelOfferCategoryTreeByParentId(
         $parent_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferCategoryTreeCategoryId(
+    public function DelOfferCategoryTreeByCategoryId(
         $category_id
     ) {         
-        return $this->act->DelOfferCategoryTreeCategoryId(
+        return $this->act->DelOfferCategoryTreeByCategoryId(
         $category_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferCategoryTreeParentIdCategoryId(
+    public function DelOfferCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {         
-        return $this->act->DelOfferCategoryTreeParentIdCategoryId(
+        return $this->act->DelOfferCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
         );
@@ -5220,18 +5220,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryTreeListUuid(
+    public function GetOfferCategoryTreeListByUuid(
         $uuid
         ) {
-            return $this->act->GetOfferCategoryTreeListUuid(
+            return $this->act->GetOfferCategoryTreeListByUuid(
                 $uuid
             );
         }
         
-    public function GetOfferCategoryTreeUuid(
+    public function GetOfferCategoryTreeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOfferCategoryTreeListUuid(
+        foreach($this->act->GetOfferCategoryTreeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -5240,10 +5240,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryTreeListUuid(
+    public function CachedGetOfferCategoryTreeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOfferCategoryTreeListUuid(
+        return $this->CachedGetOfferCategoryTreeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -5251,7 +5251,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryTreeListUuid(
+    public function CachedGetOfferCategoryTreeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -5259,7 +5259,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryTreeListUuid";
+        $method_name = "CachedGetOfferCategoryTreeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -5274,7 +5274,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryTreeListUuid(
+            $objs = $this->GetOfferCategoryTreeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5283,18 +5283,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryTreeListParentId(
+    public function GetOfferCategoryTreeListByParentId(
         $parent_id
         ) {
-            return $this->act->GetOfferCategoryTreeListParentId(
+            return $this->act->GetOfferCategoryTreeListByParentId(
                 $parent_id
             );
         }
         
-    public function GetOfferCategoryTreeParentId(
+    public function GetOfferCategoryTreeByParentId(
         $parent_id
     ) {
-        foreach($this->act->GetOfferCategoryTreeListParentId(
+        foreach($this->act->GetOfferCategoryTreeListByParentId(
         $parent_id
         ) as $item) {
             return $item;
@@ -5303,10 +5303,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryTreeListParentId(
+    public function CachedGetOfferCategoryTreeListByParentId(
         $parent_id
     ) {
-        return $this->CachedGetOfferCategoryTreeListParentId(
+        return $this->CachedGetOfferCategoryTreeListByParentId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $parent_id
@@ -5314,7 +5314,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryTreeListParentId(
+    public function CachedGetOfferCategoryTreeListByParentId(
         $overrideCache
         , $cacheHours
         , $parent_id
@@ -5322,7 +5322,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryTreeListParentId";
+        $method_name = "CachedGetOfferCategoryTreeListByParentId";
 
         $sb = "";
         $sb += $method_name;
@@ -5337,7 +5337,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryTreeListParentId(
+            $objs = $this->GetOfferCategoryTreeListByParentId(
                 $parent_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5346,18 +5346,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryTreeListCategoryId(
+    public function GetOfferCategoryTreeListByCategoryId(
         $category_id
         ) {
-            return $this->act->GetOfferCategoryTreeListCategoryId(
+            return $this->act->GetOfferCategoryTreeListByCategoryId(
                 $category_id
             );
         }
         
-    public function GetOfferCategoryTreeCategoryId(
+    public function GetOfferCategoryTreeByCategoryId(
         $category_id
     ) {
-        foreach($this->act->GetOfferCategoryTreeListCategoryId(
+        foreach($this->act->GetOfferCategoryTreeListByCategoryId(
         $category_id
         ) as $item) {
             return $item;
@@ -5366,10 +5366,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryTreeListCategoryId(
+    public function CachedGetOfferCategoryTreeListByCategoryId(
         $category_id
     ) {
-        return $this->CachedGetOfferCategoryTreeListCategoryId(
+        return $this->CachedGetOfferCategoryTreeListByCategoryId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $category_id
@@ -5377,7 +5377,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryTreeListCategoryId(
+    public function CachedGetOfferCategoryTreeListByCategoryId(
         $overrideCache
         , $cacheHours
         , $category_id
@@ -5385,7 +5385,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryTreeListCategoryId";
+        $method_name = "CachedGetOfferCategoryTreeListByCategoryId";
 
         $sb = "";
         $sb += $method_name;
@@ -5400,7 +5400,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryTreeListCategoryId(
+            $objs = $this->GetOfferCategoryTreeListByCategoryId(
                 $category_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5409,21 +5409,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryTreeListParentIdCategoryId(
+    public function GetOfferCategoryTreeListByParentIdByCategoryId(
         $parent_id
         , $category_id
         ) {
-            return $this->act->GetOfferCategoryTreeListParentIdCategoryId(
+            return $this->act->GetOfferCategoryTreeListByParentIdByCategoryId(
                 $parent_id
                 , $category_id
             );
         }
         
-    public function GetOfferCategoryTreeParentIdCategoryId(
+    public function GetOfferCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {
-        foreach($this->act->GetOfferCategoryTreeListParentIdCategoryId(
+        foreach($this->act->GetOfferCategoryTreeListByParentIdByCategoryId(
         $parent_id
         , $category_id
         ) as $item) {
@@ -5433,11 +5433,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryTreeListParentIdCategoryId(
+    public function CachedGetOfferCategoryTreeListByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {
-        return $this->CachedGetOfferCategoryTreeListParentIdCategoryId(
+        return $this->CachedGetOfferCategoryTreeListByParentIdByCategoryId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $parent_id
@@ -5446,7 +5446,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryTreeListParentIdCategoryId(
+    public function CachedGetOfferCategoryTreeListByParentIdByCategoryId(
         $overrideCache
         , $cacheHours
         , $parent_id
@@ -5455,7 +5455,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryTreeListParentIdCategoryId";
+        $method_name = "CachedGetOfferCategoryTreeListByParentIdByCategoryId";
 
         $sb = "";
         $sb += $method_name;
@@ -5474,7 +5474,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryTreeListParentIdCategoryId(
+            $objs = $this->GetOfferCategoryTreeListByParentIdByCategoryId(
                 $parent_id
                 , $category_id
             );
@@ -5491,60 +5491,60 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryAssocUuid(
+    public function CountOfferCategoryAssocByUuid(
         $uuid
     ) {      
-        return $this->act->CountOfferCategoryAssocUuid(
+        return $this->act->CountOfferCategoryAssocByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryAssocOfferId(
+    public function CountOfferCategoryAssocByOfferId(
         $offer_id
     ) {      
-        return $this->act->CountOfferCategoryAssocOfferId(
+        return $this->act->CountOfferCategoryAssocByOfferId(
         $offer_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryAssocCategoryId(
+    public function CountOfferCategoryAssocByCategoryId(
         $category_id
     ) {      
-        return $this->act->CountOfferCategoryAssocCategoryId(
+        return $this->act->CountOfferCategoryAssocByCategoryId(
         $category_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferCategoryAssocOfferIdCategoryId(
+    public function CountOfferCategoryAssocByOfferIdByCategoryId(
         $offer_id
         , $category_id
     ) {      
-        return $this->act->CountOfferCategoryAssocOfferIdCategoryId(
+        return $this->act->CountOfferCategoryAssocByOfferIdByCategoryId(
         $offer_id
         , $category_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOfferCategoryAssocListFilter($filter_obj) {
-        return $this->act->BrowseOfferCategoryAssocListFilter($filter_obj);
+    public function BrowseOfferCategoryAssocListByFilter($filter_obj) {
+        return $this->act->BrowseOfferCategoryAssocListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOfferCategoryAssocUuid($set_type, $obj) {
-        return $this->act->SetOfferCategoryAssocUuid($set_type, $obj);
+    public function SetOfferCategoryAssocByUuid($set_type, $obj) {
+        return $this->act->SetOfferCategoryAssocByUuid($set_type, $obj);
     }
                
-    public function SetOfferCategoryAssocUuidFull($obj) {
-        return $this->act->SetOfferCategoryAssocUuid('full', $obj);
+    public function SetOfferCategoryAssocByUuidFull($obj) {
+        return $this->act->SetOfferCategoryAssocByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferCategoryAssocUuid(
+    public function DelOfferCategoryAssocByUuid(
         $uuid
     ) {         
-        return $this->act->DelOfferCategoryAssocUuid(
+        return $this->act->DelOfferCategoryAssocByUuid(
         $uuid
         );
     }
@@ -5600,18 +5600,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryAssocListUuid(
+    public function GetOfferCategoryAssocListByUuid(
         $uuid
         ) {
-            return $this->act->GetOfferCategoryAssocListUuid(
+            return $this->act->GetOfferCategoryAssocListByUuid(
                 $uuid
             );
         }
         
-    public function GetOfferCategoryAssocUuid(
+    public function GetOfferCategoryAssocByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOfferCategoryAssocListUuid(
+        foreach($this->act->GetOfferCategoryAssocListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -5620,10 +5620,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryAssocListUuid(
+    public function CachedGetOfferCategoryAssocListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOfferCategoryAssocListUuid(
+        return $this->CachedGetOfferCategoryAssocListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -5631,7 +5631,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryAssocListUuid(
+    public function CachedGetOfferCategoryAssocListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -5639,7 +5639,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryAssocListUuid";
+        $method_name = "CachedGetOfferCategoryAssocListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -5654,7 +5654,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryAssocListUuid(
+            $objs = $this->GetOfferCategoryAssocListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5663,18 +5663,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryAssocListOfferId(
+    public function GetOfferCategoryAssocListByOfferId(
         $offer_id
         ) {
-            return $this->act->GetOfferCategoryAssocListOfferId(
+            return $this->act->GetOfferCategoryAssocListByOfferId(
                 $offer_id
             );
         }
         
-    public function GetOfferCategoryAssocOfferId(
+    public function GetOfferCategoryAssocByOfferId(
         $offer_id
     ) {
-        foreach($this->act->GetOfferCategoryAssocListOfferId(
+        foreach($this->act->GetOfferCategoryAssocListByOfferId(
         $offer_id
         ) as $item) {
             return $item;
@@ -5683,10 +5683,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryAssocListOfferId(
+    public function CachedGetOfferCategoryAssocListByOfferId(
         $offer_id
     ) {
-        return $this->CachedGetOfferCategoryAssocListOfferId(
+        return $this->CachedGetOfferCategoryAssocListByOfferId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $offer_id
@@ -5694,7 +5694,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryAssocListOfferId(
+    public function CachedGetOfferCategoryAssocListByOfferId(
         $overrideCache
         , $cacheHours
         , $offer_id
@@ -5702,7 +5702,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryAssocListOfferId";
+        $method_name = "CachedGetOfferCategoryAssocListByOfferId";
 
         $sb = "";
         $sb += $method_name;
@@ -5717,7 +5717,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryAssocListOfferId(
+            $objs = $this->GetOfferCategoryAssocListByOfferId(
                 $offer_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5726,18 +5726,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryAssocListCategoryId(
+    public function GetOfferCategoryAssocListByCategoryId(
         $category_id
         ) {
-            return $this->act->GetOfferCategoryAssocListCategoryId(
+            return $this->act->GetOfferCategoryAssocListByCategoryId(
                 $category_id
             );
         }
         
-    public function GetOfferCategoryAssocCategoryId(
+    public function GetOfferCategoryAssocByCategoryId(
         $category_id
     ) {
-        foreach($this->act->GetOfferCategoryAssocListCategoryId(
+        foreach($this->act->GetOfferCategoryAssocListByCategoryId(
         $category_id
         ) as $item) {
             return $item;
@@ -5746,10 +5746,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryAssocListCategoryId(
+    public function CachedGetOfferCategoryAssocListByCategoryId(
         $category_id
     ) {
-        return $this->CachedGetOfferCategoryAssocListCategoryId(
+        return $this->CachedGetOfferCategoryAssocListByCategoryId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $category_id
@@ -5757,7 +5757,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryAssocListCategoryId(
+    public function CachedGetOfferCategoryAssocListByCategoryId(
         $overrideCache
         , $cacheHours
         , $category_id
@@ -5765,7 +5765,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryAssocListCategoryId";
+        $method_name = "CachedGetOfferCategoryAssocListByCategoryId";
 
         $sb = "";
         $sb += $method_name;
@@ -5780,7 +5780,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryAssocListCategoryId(
+            $objs = $this->GetOfferCategoryAssocListByCategoryId(
                 $category_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -5789,21 +5789,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferCategoryAssocListOfferIdCategoryId(
+    public function GetOfferCategoryAssocListByOfferIdByCategoryId(
         $offer_id
         , $category_id
         ) {
-            return $this->act->GetOfferCategoryAssocListOfferIdCategoryId(
+            return $this->act->GetOfferCategoryAssocListByOfferIdByCategoryId(
                 $offer_id
                 , $category_id
             );
         }
         
-    public function GetOfferCategoryAssocOfferIdCategoryId(
+    public function GetOfferCategoryAssocByOfferIdByCategoryId(
         $offer_id
         , $category_id
     ) {
-        foreach($this->act->GetOfferCategoryAssocListOfferIdCategoryId(
+        foreach($this->act->GetOfferCategoryAssocListByOfferIdByCategoryId(
         $offer_id
         , $category_id
         ) as $item) {
@@ -5813,11 +5813,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferCategoryAssocListOfferIdCategoryId(
+    public function CachedGetOfferCategoryAssocListByOfferIdByCategoryId(
         $offer_id
         , $category_id
     ) {
-        return $this->CachedGetOfferCategoryAssocListOfferIdCategoryId(
+        return $this->CachedGetOfferCategoryAssocListByOfferIdByCategoryId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $offer_id
@@ -5826,7 +5826,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferCategoryAssocListOfferIdCategoryId(
+    public function CachedGetOfferCategoryAssocListByOfferIdByCategoryId(
         $overrideCache
         , $cacheHours
         , $offer_id
@@ -5835,7 +5835,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferCategoryAssocListOfferIdCategoryId";
+        $method_name = "CachedGetOfferCategoryAssocListByOfferIdByCategoryId";
 
         $sb = "";
         $sb += $method_name;
@@ -5854,7 +5854,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferCategoryAssocListOfferIdCategoryId(
+            $objs = $this->GetOfferCategoryAssocListByOfferIdByCategoryId(
                 $offer_id
                 , $category_id
             );
@@ -5871,60 +5871,60 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferGameLocationUuid(
+    public function CountOfferGameLocationByUuid(
         $uuid
     ) {      
-        return $this->act->CountOfferGameLocationUuid(
+        return $this->act->CountOfferGameLocationByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferGameLocationGameLocationId(
+    public function CountOfferGameLocationByGameLocationId(
         $game_location_id
     ) {      
-        return $this->act->CountOfferGameLocationGameLocationId(
+        return $this->act->CountOfferGameLocationByGameLocationId(
         $game_location_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferGameLocationOfferId(
+    public function CountOfferGameLocationByOfferId(
         $offer_id
     ) {      
-        return $this->act->CountOfferGameLocationOfferId(
+        return $this->act->CountOfferGameLocationByOfferId(
         $offer_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOfferGameLocationOfferIdGameLocationId(
+    public function CountOfferGameLocationByOfferIdByGameLocationId(
         $offer_id
         , $game_location_id
     ) {      
-        return $this->act->CountOfferGameLocationOfferIdGameLocationId(
+        return $this->act->CountOfferGameLocationByOfferIdByGameLocationId(
         $offer_id
         , $game_location_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOfferGameLocationListFilter($filter_obj) {
-        return $this->act->BrowseOfferGameLocationListFilter($filter_obj);
+    public function BrowseOfferGameLocationListByFilter($filter_obj) {
+        return $this->act->BrowseOfferGameLocationListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOfferGameLocationUuid($set_type, $obj) {
-        return $this->act->SetOfferGameLocationUuid($set_type, $obj);
+    public function SetOfferGameLocationByUuid($set_type, $obj) {
+        return $this->act->SetOfferGameLocationByUuid($set_type, $obj);
     }
                
-    public function SetOfferGameLocationUuidFull($obj) {
-        return $this->act->SetOfferGameLocationUuid('full', $obj);
+    public function SetOfferGameLocationByUuidFull($obj) {
+        return $this->act->SetOfferGameLocationByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOfferGameLocationUuid(
+    public function DelOfferGameLocationByUuid(
         $uuid
     ) {         
-        return $this->act->DelOfferGameLocationUuid(
+        return $this->act->DelOfferGameLocationByUuid(
         $uuid
         );
     }
@@ -5980,18 +5980,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferGameLocationListUuid(
+    public function GetOfferGameLocationListByUuid(
         $uuid
         ) {
-            return $this->act->GetOfferGameLocationListUuid(
+            return $this->act->GetOfferGameLocationListByUuid(
                 $uuid
             );
         }
         
-    public function GetOfferGameLocationUuid(
+    public function GetOfferGameLocationByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOfferGameLocationListUuid(
+        foreach($this->act->GetOfferGameLocationListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -6000,10 +6000,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferGameLocationListUuid(
+    public function CachedGetOfferGameLocationListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOfferGameLocationListUuid(
+        return $this->CachedGetOfferGameLocationListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -6011,7 +6011,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferGameLocationListUuid(
+    public function CachedGetOfferGameLocationListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -6019,7 +6019,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferGameLocationListUuid";
+        $method_name = "CachedGetOfferGameLocationListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -6034,7 +6034,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferGameLocationListUuid(
+            $objs = $this->GetOfferGameLocationListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6043,18 +6043,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferGameLocationListGameLocationId(
+    public function GetOfferGameLocationListByGameLocationId(
         $game_location_id
         ) {
-            return $this->act->GetOfferGameLocationListGameLocationId(
+            return $this->act->GetOfferGameLocationListByGameLocationId(
                 $game_location_id
             );
         }
         
-    public function GetOfferGameLocationGameLocationId(
+    public function GetOfferGameLocationByGameLocationId(
         $game_location_id
     ) {
-        foreach($this->act->GetOfferGameLocationListGameLocationId(
+        foreach($this->act->GetOfferGameLocationListByGameLocationId(
         $game_location_id
         ) as $item) {
             return $item;
@@ -6063,10 +6063,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferGameLocationListGameLocationId(
+    public function CachedGetOfferGameLocationListByGameLocationId(
         $game_location_id
     ) {
-        return $this->CachedGetOfferGameLocationListGameLocationId(
+        return $this->CachedGetOfferGameLocationListByGameLocationId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $game_location_id
@@ -6074,7 +6074,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferGameLocationListGameLocationId(
+    public function CachedGetOfferGameLocationListByGameLocationId(
         $overrideCache
         , $cacheHours
         , $game_location_id
@@ -6082,7 +6082,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferGameLocationListGameLocationId";
+        $method_name = "CachedGetOfferGameLocationListByGameLocationId";
 
         $sb = "";
         $sb += $method_name;
@@ -6097,7 +6097,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferGameLocationListGameLocationId(
+            $objs = $this->GetOfferGameLocationListByGameLocationId(
                 $game_location_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6106,18 +6106,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferGameLocationListOfferId(
+    public function GetOfferGameLocationListByOfferId(
         $offer_id
         ) {
-            return $this->act->GetOfferGameLocationListOfferId(
+            return $this->act->GetOfferGameLocationListByOfferId(
                 $offer_id
             );
         }
         
-    public function GetOfferGameLocationOfferId(
+    public function GetOfferGameLocationByOfferId(
         $offer_id
     ) {
-        foreach($this->act->GetOfferGameLocationListOfferId(
+        foreach($this->act->GetOfferGameLocationListByOfferId(
         $offer_id
         ) as $item) {
             return $item;
@@ -6126,10 +6126,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferGameLocationListOfferId(
+    public function CachedGetOfferGameLocationListByOfferId(
         $offer_id
     ) {
-        return $this->CachedGetOfferGameLocationListOfferId(
+        return $this->CachedGetOfferGameLocationListByOfferId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $offer_id
@@ -6137,7 +6137,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferGameLocationListOfferId(
+    public function CachedGetOfferGameLocationListByOfferId(
         $overrideCache
         , $cacheHours
         , $offer_id
@@ -6145,7 +6145,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferGameLocationListOfferId";
+        $method_name = "CachedGetOfferGameLocationListByOfferId";
 
         $sb = "";
         $sb += $method_name;
@@ -6160,7 +6160,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferGameLocationListOfferId(
+            $objs = $this->GetOfferGameLocationListByOfferId(
                 $offer_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6169,21 +6169,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOfferGameLocationListOfferIdGameLocationId(
+    public function GetOfferGameLocationListByOfferIdByGameLocationId(
         $offer_id
         , $game_location_id
         ) {
-            return $this->act->GetOfferGameLocationListOfferIdGameLocationId(
+            return $this->act->GetOfferGameLocationListByOfferIdByGameLocationId(
                 $offer_id
                 , $game_location_id
             );
         }
         
-    public function GetOfferGameLocationOfferIdGameLocationId(
+    public function GetOfferGameLocationByOfferIdByGameLocationId(
         $offer_id
         , $game_location_id
     ) {
-        foreach($this->act->GetOfferGameLocationListOfferIdGameLocationId(
+        foreach($this->act->GetOfferGameLocationListByOfferIdByGameLocationId(
         $offer_id
         , $game_location_id
         ) as $item) {
@@ -6193,11 +6193,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOfferGameLocationListOfferIdGameLocationId(
+    public function CachedGetOfferGameLocationListByOfferIdByGameLocationId(
         $offer_id
         , $game_location_id
     ) {
-        return $this->CachedGetOfferGameLocationListOfferIdGameLocationId(
+        return $this->CachedGetOfferGameLocationListByOfferIdByGameLocationId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $offer_id
@@ -6206,7 +6206,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOfferGameLocationListOfferIdGameLocationId(
+    public function CachedGetOfferGameLocationListByOfferIdByGameLocationId(
         $overrideCache
         , $cacheHours
         , $offer_id
@@ -6215,7 +6215,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOfferGameLocationListOfferIdGameLocationId";
+        $method_name = "CachedGetOfferGameLocationListByOfferIdByGameLocationId";
 
         $sb = "";
         $sb += $method_name;
@@ -6234,7 +6234,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOfferGameLocationListOfferIdGameLocationId(
+            $objs = $this->GetOfferGameLocationListByOfferIdByGameLocationId(
                 $offer_id
                 , $game_location_id
             );
@@ -6251,66 +6251,66 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventInfoUuid(
+    public function CountEventInfoByUuid(
         $uuid
     ) {      
-        return $this->act->CountEventInfoUuid(
+        return $this->act->CountEventInfoByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventInfoCode(
+    public function CountEventInfoByCode(
         $code
     ) {      
-        return $this->act->CountEventInfoCode(
+        return $this->act->CountEventInfoByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventInfoName(
+    public function CountEventInfoByName(
         $name
     ) {      
-        return $this->act->CountEventInfoName(
+        return $this->act->CountEventInfoByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventInfoOrgId(
+    public function CountEventInfoByOrgId(
         $org_id
     ) {      
-        return $this->act->CountEventInfoOrgId(
+        return $this->act->CountEventInfoByOrgId(
         $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseEventInfoListFilter($filter_obj) {
-        return $this->act->BrowseEventInfoListFilter($filter_obj);
+    public function BrowseEventInfoListByFilter($filter_obj) {
+        return $this->act->BrowseEventInfoListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetEventInfoUuid($set_type, $obj) {
-        return $this->act->SetEventInfoUuid($set_type, $obj);
+    public function SetEventInfoByUuid($set_type, $obj) {
+        return $this->act->SetEventInfoByUuid($set_type, $obj);
     }
                
-    public function SetEventInfoUuidFull($obj) {
-        return $this->act->SetEventInfoUuid('full', $obj);
+    public function SetEventInfoByUuidFull($obj) {
+        return $this->act->SetEventInfoByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventInfoUuid(
+    public function DelEventInfoByUuid(
         $uuid
     ) {         
-        return $this->act->DelEventInfoUuid(
+        return $this->act->DelEventInfoByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventInfoOrgId(
+    public function DelEventInfoByOrgId(
         $org_id
     ) {         
-        return $this->act->DelEventInfoOrgId(
+        return $this->act->DelEventInfoByOrgId(
         $org_id
         );
     }
@@ -6366,18 +6366,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventInfoListUuid(
+    public function GetEventInfoListByUuid(
         $uuid
         ) {
-            return $this->act->GetEventInfoListUuid(
+            return $this->act->GetEventInfoListByUuid(
                 $uuid
             );
         }
         
-    public function GetEventInfoUuid(
+    public function GetEventInfoByUuid(
         $uuid
     ) {
-        foreach($this->act->GetEventInfoListUuid(
+        foreach($this->act->GetEventInfoListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -6386,10 +6386,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventInfoListUuid(
+    public function CachedGetEventInfoListByUuid(
         $uuid
     ) {
-        return $this->CachedGetEventInfoListUuid(
+        return $this->CachedGetEventInfoListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -6397,7 +6397,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventInfoListUuid(
+    public function CachedGetEventInfoListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -6405,7 +6405,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventInfoListUuid";
+        $method_name = "CachedGetEventInfoListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -6420,7 +6420,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventInfoListUuid(
+            $objs = $this->GetEventInfoListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6429,18 +6429,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventInfoListCode(
+    public function GetEventInfoListByCode(
         $code
         ) {
-            return $this->act->GetEventInfoListCode(
+            return $this->act->GetEventInfoListByCode(
                 $code
             );
         }
         
-    public function GetEventInfoCode(
+    public function GetEventInfoByCode(
         $code
     ) {
-        foreach($this->act->GetEventInfoListCode(
+        foreach($this->act->GetEventInfoListByCode(
         $code
         ) as $item) {
             return $item;
@@ -6449,10 +6449,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventInfoListCode(
+    public function CachedGetEventInfoListByCode(
         $code
     ) {
-        return $this->CachedGetEventInfoListCode(
+        return $this->CachedGetEventInfoListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -6460,7 +6460,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventInfoListCode(
+    public function CachedGetEventInfoListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -6468,7 +6468,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventInfoListCode";
+        $method_name = "CachedGetEventInfoListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -6483,7 +6483,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventInfoListCode(
+            $objs = $this->GetEventInfoListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6492,18 +6492,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventInfoListName(
+    public function GetEventInfoListByName(
         $name
         ) {
-            return $this->act->GetEventInfoListName(
+            return $this->act->GetEventInfoListByName(
                 $name
             );
         }
         
-    public function GetEventInfoName(
+    public function GetEventInfoByName(
         $name
     ) {
-        foreach($this->act->GetEventInfoListName(
+        foreach($this->act->GetEventInfoListByName(
         $name
         ) as $item) {
             return $item;
@@ -6512,10 +6512,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventInfoListName(
+    public function CachedGetEventInfoListByName(
         $name
     ) {
-        return $this->CachedGetEventInfoListName(
+        return $this->CachedGetEventInfoListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -6523,7 +6523,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventInfoListName(
+    public function CachedGetEventInfoListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -6531,7 +6531,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventInfoListName";
+        $method_name = "CachedGetEventInfoListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -6546,7 +6546,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventInfoListName(
+            $objs = $this->GetEventInfoListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6555,18 +6555,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventInfoListOrgId(
+    public function GetEventInfoListByOrgId(
         $org_id
         ) {
-            return $this->act->GetEventInfoListOrgId(
+            return $this->act->GetEventInfoListByOrgId(
                 $org_id
             );
         }
         
-    public function GetEventInfoOrgId(
+    public function GetEventInfoByOrgId(
         $org_id
     ) {
-        foreach($this->act->GetEventInfoListOrgId(
+        foreach($this->act->GetEventInfoListByOrgId(
         $org_id
         ) as $item) {
             return $item;
@@ -6575,10 +6575,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventInfoListOrgId(
+    public function CachedGetEventInfoListByOrgId(
         $org_id
     ) {
-        return $this->CachedGetEventInfoListOrgId(
+        return $this->CachedGetEventInfoListByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -6586,7 +6586,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventInfoListOrgId(
+    public function CachedGetEventInfoListByOrgId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -6594,7 +6594,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventInfoListOrgId";
+        $method_name = "CachedGetEventInfoListByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -6609,7 +6609,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventInfoListOrgId(
+            $objs = $this->GetEventInfoListByOrgId(
                 $org_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6625,67 +6625,67 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventLocationUuid(
+    public function CountEventLocationByUuid(
         $uuid
     ) {      
-        return $this->act->CountEventLocationUuid(
+        return $this->act->CountEventLocationByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventLocationEventId(
+    public function CountEventLocationByEventId(
         $event_id
     ) {      
-        return $this->act->CountEventLocationEventId(
+        return $this->act->CountEventLocationByEventId(
         $event_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventLocationCity(
+    public function CountEventLocationByCity(
         $city
     ) {      
-        return $this->act->CountEventLocationCity(
+        return $this->act->CountEventLocationByCity(
         $city
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventLocationCountryCode(
+    public function CountEventLocationByCountryCode(
         $country_code
     ) {      
-        return $this->act->CountEventLocationCountryCode(
+        return $this->act->CountEventLocationByCountryCode(
         $country_code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventLocationPostalCode(
+    public function CountEventLocationByPostalCode(
         $postal_code
     ) {      
-        return $this->act->CountEventLocationPostalCode(
+        return $this->act->CountEventLocationByPostalCode(
         $postal_code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseEventLocationListFilter($filter_obj) {
-        return $this->act->BrowseEventLocationListFilter($filter_obj);
+    public function BrowseEventLocationListByFilter($filter_obj) {
+        return $this->act->BrowseEventLocationListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetEventLocationUuid($set_type, $obj) {
-        return $this->act->SetEventLocationUuid($set_type, $obj);
+    public function SetEventLocationByUuid($set_type, $obj) {
+        return $this->act->SetEventLocationByUuid($set_type, $obj);
     }
                
-    public function SetEventLocationUuidFull($obj) {
-        return $this->act->SetEventLocationUuid('full', $obj);
+    public function SetEventLocationByUuidFull($obj) {
+        return $this->act->SetEventLocationByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventLocationUuid(
+    public function DelEventLocationByUuid(
         $uuid
     ) {         
-        return $this->act->DelEventLocationUuid(
+        return $this->act->DelEventLocationByUuid(
         $uuid
         );
     }
@@ -6741,18 +6741,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventLocationListUuid(
+    public function GetEventLocationListByUuid(
         $uuid
         ) {
-            return $this->act->GetEventLocationListUuid(
+            return $this->act->GetEventLocationListByUuid(
                 $uuid
             );
         }
         
-    public function GetEventLocationUuid(
+    public function GetEventLocationByUuid(
         $uuid
     ) {
-        foreach($this->act->GetEventLocationListUuid(
+        foreach($this->act->GetEventLocationListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -6761,10 +6761,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventLocationListUuid(
+    public function CachedGetEventLocationListByUuid(
         $uuid
     ) {
-        return $this->CachedGetEventLocationListUuid(
+        return $this->CachedGetEventLocationListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -6772,7 +6772,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventLocationListUuid(
+    public function CachedGetEventLocationListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -6780,7 +6780,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventLocationListUuid";
+        $method_name = "CachedGetEventLocationListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -6795,7 +6795,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventLocationListUuid(
+            $objs = $this->GetEventLocationListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6804,18 +6804,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventLocationListEventId(
+    public function GetEventLocationListByEventId(
         $event_id
         ) {
-            return $this->act->GetEventLocationListEventId(
+            return $this->act->GetEventLocationListByEventId(
                 $event_id
             );
         }
         
-    public function GetEventLocationEventId(
+    public function GetEventLocationByEventId(
         $event_id
     ) {
-        foreach($this->act->GetEventLocationListEventId(
+        foreach($this->act->GetEventLocationListByEventId(
         $event_id
         ) as $item) {
             return $item;
@@ -6824,10 +6824,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventLocationListEventId(
+    public function CachedGetEventLocationListByEventId(
         $event_id
     ) {
-        return $this->CachedGetEventLocationListEventId(
+        return $this->CachedGetEventLocationListByEventId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $event_id
@@ -6835,7 +6835,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventLocationListEventId(
+    public function CachedGetEventLocationListByEventId(
         $overrideCache
         , $cacheHours
         , $event_id
@@ -6843,7 +6843,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventLocationListEventId";
+        $method_name = "CachedGetEventLocationListByEventId";
 
         $sb = "";
         $sb += $method_name;
@@ -6858,7 +6858,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventLocationListEventId(
+            $objs = $this->GetEventLocationListByEventId(
                 $event_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6867,18 +6867,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventLocationListCity(
+    public function GetEventLocationListByCity(
         $city
         ) {
-            return $this->act->GetEventLocationListCity(
+            return $this->act->GetEventLocationListByCity(
                 $city
             );
         }
         
-    public function GetEventLocationCity(
+    public function GetEventLocationByCity(
         $city
     ) {
-        foreach($this->act->GetEventLocationListCity(
+        foreach($this->act->GetEventLocationListByCity(
         $city
         ) as $item) {
             return $item;
@@ -6887,10 +6887,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventLocationListCity(
+    public function CachedGetEventLocationListByCity(
         $city
     ) {
-        return $this->CachedGetEventLocationListCity(
+        return $this->CachedGetEventLocationListByCity(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $city
@@ -6898,7 +6898,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventLocationListCity(
+    public function CachedGetEventLocationListByCity(
         $overrideCache
         , $cacheHours
         , $city
@@ -6906,7 +6906,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventLocationListCity";
+        $method_name = "CachedGetEventLocationListByCity";
 
         $sb = "";
         $sb += $method_name;
@@ -6921,7 +6921,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventLocationListCity(
+            $objs = $this->GetEventLocationListByCity(
                 $city
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6930,18 +6930,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventLocationListCountryCode(
+    public function GetEventLocationListByCountryCode(
         $country_code
         ) {
-            return $this->act->GetEventLocationListCountryCode(
+            return $this->act->GetEventLocationListByCountryCode(
                 $country_code
             );
         }
         
-    public function GetEventLocationCountryCode(
+    public function GetEventLocationByCountryCode(
         $country_code
     ) {
-        foreach($this->act->GetEventLocationListCountryCode(
+        foreach($this->act->GetEventLocationListByCountryCode(
         $country_code
         ) as $item) {
             return $item;
@@ -6950,10 +6950,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventLocationListCountryCode(
+    public function CachedGetEventLocationListByCountryCode(
         $country_code
     ) {
-        return $this->CachedGetEventLocationListCountryCode(
+        return $this->CachedGetEventLocationListByCountryCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $country_code
@@ -6961,7 +6961,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventLocationListCountryCode(
+    public function CachedGetEventLocationListByCountryCode(
         $overrideCache
         , $cacheHours
         , $country_code
@@ -6969,7 +6969,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventLocationListCountryCode";
+        $method_name = "CachedGetEventLocationListByCountryCode";
 
         $sb = "";
         $sb += $method_name;
@@ -6984,7 +6984,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventLocationListCountryCode(
+            $objs = $this->GetEventLocationListByCountryCode(
                 $country_code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -6993,18 +6993,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventLocationListPostalCode(
+    public function GetEventLocationListByPostalCode(
         $postal_code
         ) {
-            return $this->act->GetEventLocationListPostalCode(
+            return $this->act->GetEventLocationListByPostalCode(
                 $postal_code
             );
         }
         
-    public function GetEventLocationPostalCode(
+    public function GetEventLocationByPostalCode(
         $postal_code
     ) {
-        foreach($this->act->GetEventLocationListPostalCode(
+        foreach($this->act->GetEventLocationListByPostalCode(
         $postal_code
         ) as $item) {
             return $item;
@@ -7013,10 +7013,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventLocationListPostalCode(
+    public function CachedGetEventLocationListByPostalCode(
         $postal_code
     ) {
-        return $this->CachedGetEventLocationListPostalCode(
+        return $this->CachedGetEventLocationListByPostalCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $postal_code
@@ -7024,7 +7024,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventLocationListPostalCode(
+    public function CachedGetEventLocationListByPostalCode(
         $overrideCache
         , $cacheHours
         , $postal_code
@@ -7032,7 +7032,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventLocationListPostalCode";
+        $method_name = "CachedGetEventLocationListByPostalCode";
 
         $sb = "";
         $sb += $method_name;
@@ -7047,7 +7047,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventLocationListPostalCode(
+            $objs = $this->GetEventLocationListByPostalCode(
                 $postal_code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7063,98 +7063,98 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryUuid(
+    public function CountEventCategoryByUuid(
         $uuid
     ) {      
-        return $this->act->CountEventCategoryUuid(
+        return $this->act->CountEventCategoryByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryCode(
+    public function CountEventCategoryByCode(
         $code
     ) {      
-        return $this->act->CountEventCategoryCode(
+        return $this->act->CountEventCategoryByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryName(
+    public function CountEventCategoryByName(
         $name
     ) {      
-        return $this->act->CountEventCategoryName(
+        return $this->act->CountEventCategoryByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryOrgId(
+    public function CountEventCategoryByOrgId(
         $org_id
     ) {      
-        return $this->act->CountEventCategoryOrgId(
+        return $this->act->CountEventCategoryByOrgId(
         $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryTypeId(
+    public function CountEventCategoryByTypeId(
         $type_id
     ) {      
-        return $this->act->CountEventCategoryTypeId(
+        return $this->act->CountEventCategoryByTypeId(
         $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryOrgIdTypeId(
+    public function CountEventCategoryByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {      
-        return $this->act->CountEventCategoryOrgIdTypeId(
+        return $this->act->CountEventCategoryByOrgIdByTypeId(
         $org_id
         , $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseEventCategoryListFilter($filter_obj) {
-        return $this->act->BrowseEventCategoryListFilter($filter_obj);
+    public function BrowseEventCategoryListByFilter($filter_obj) {
+        return $this->act->BrowseEventCategoryListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetEventCategoryUuid($set_type, $obj) {
-        return $this->act->SetEventCategoryUuid($set_type, $obj);
+    public function SetEventCategoryByUuid($set_type, $obj) {
+        return $this->act->SetEventCategoryByUuid($set_type, $obj);
     }
                
-    public function SetEventCategoryUuidFull($obj) {
-        return $this->act->SetEventCategoryUuid('full', $obj);
+    public function SetEventCategoryByUuidFull($obj) {
+        return $this->act->SetEventCategoryByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventCategoryUuid(
+    public function DelEventCategoryByUuid(
         $uuid
     ) {         
-        return $this->act->DelEventCategoryUuid(
+        return $this->act->DelEventCategoryByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventCategoryCodeOrgId(
+    public function DelEventCategoryByCodeByOrgId(
         $code
         , $org_id
     ) {         
-        return $this->act->DelEventCategoryCodeOrgId(
+        return $this->act->DelEventCategoryByCodeByOrgId(
         $code
         , $org_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventCategoryCodeOrgIdTypeId(
+    public function DelEventCategoryByCodeByOrgIdByTypeId(
         $code
         , $org_id
         , $type_id
     ) {         
-        return $this->act->DelEventCategoryCodeOrgIdTypeId(
+        return $this->act->DelEventCategoryByCodeByOrgIdByTypeId(
         $code
         , $org_id
         , $type_id
@@ -7212,18 +7212,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryListUuid(
+    public function GetEventCategoryListByUuid(
         $uuid
         ) {
-            return $this->act->GetEventCategoryListUuid(
+            return $this->act->GetEventCategoryListByUuid(
                 $uuid
             );
         }
         
-    public function GetEventCategoryUuid(
+    public function GetEventCategoryByUuid(
         $uuid
     ) {
-        foreach($this->act->GetEventCategoryListUuid(
+        foreach($this->act->GetEventCategoryListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -7232,10 +7232,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryListUuid(
+    public function CachedGetEventCategoryListByUuid(
         $uuid
     ) {
-        return $this->CachedGetEventCategoryListUuid(
+        return $this->CachedGetEventCategoryListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -7243,7 +7243,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryListUuid(
+    public function CachedGetEventCategoryListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -7251,7 +7251,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryListUuid";
+        $method_name = "CachedGetEventCategoryListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -7266,7 +7266,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryListUuid(
+            $objs = $this->GetEventCategoryListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7275,18 +7275,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryListCode(
+    public function GetEventCategoryListByCode(
         $code
         ) {
-            return $this->act->GetEventCategoryListCode(
+            return $this->act->GetEventCategoryListByCode(
                 $code
             );
         }
         
-    public function GetEventCategoryCode(
+    public function GetEventCategoryByCode(
         $code
     ) {
-        foreach($this->act->GetEventCategoryListCode(
+        foreach($this->act->GetEventCategoryListByCode(
         $code
         ) as $item) {
             return $item;
@@ -7295,10 +7295,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryListCode(
+    public function CachedGetEventCategoryListByCode(
         $code
     ) {
-        return $this->CachedGetEventCategoryListCode(
+        return $this->CachedGetEventCategoryListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -7306,7 +7306,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryListCode(
+    public function CachedGetEventCategoryListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -7314,7 +7314,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryListCode";
+        $method_name = "CachedGetEventCategoryListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -7329,7 +7329,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryListCode(
+            $objs = $this->GetEventCategoryListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7338,18 +7338,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryListName(
+    public function GetEventCategoryListByName(
         $name
         ) {
-            return $this->act->GetEventCategoryListName(
+            return $this->act->GetEventCategoryListByName(
                 $name
             );
         }
         
-    public function GetEventCategoryName(
+    public function GetEventCategoryByName(
         $name
     ) {
-        foreach($this->act->GetEventCategoryListName(
+        foreach($this->act->GetEventCategoryListByName(
         $name
         ) as $item) {
             return $item;
@@ -7358,10 +7358,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryListName(
+    public function CachedGetEventCategoryListByName(
         $name
     ) {
-        return $this->CachedGetEventCategoryListName(
+        return $this->CachedGetEventCategoryListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -7369,7 +7369,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryListName(
+    public function CachedGetEventCategoryListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -7377,7 +7377,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryListName";
+        $method_name = "CachedGetEventCategoryListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -7392,7 +7392,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryListName(
+            $objs = $this->GetEventCategoryListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7401,18 +7401,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryListOrgId(
+    public function GetEventCategoryListByOrgId(
         $org_id
         ) {
-            return $this->act->GetEventCategoryListOrgId(
+            return $this->act->GetEventCategoryListByOrgId(
                 $org_id
             );
         }
         
-    public function GetEventCategoryOrgId(
+    public function GetEventCategoryByOrgId(
         $org_id
     ) {
-        foreach($this->act->GetEventCategoryListOrgId(
+        foreach($this->act->GetEventCategoryListByOrgId(
         $org_id
         ) as $item) {
             return $item;
@@ -7421,10 +7421,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryListOrgId(
+    public function CachedGetEventCategoryListByOrgId(
         $org_id
     ) {
-        return $this->CachedGetEventCategoryListOrgId(
+        return $this->CachedGetEventCategoryListByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -7432,7 +7432,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryListOrgId(
+    public function CachedGetEventCategoryListByOrgId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -7440,7 +7440,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryListOrgId";
+        $method_name = "CachedGetEventCategoryListByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -7455,7 +7455,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryListOrgId(
+            $objs = $this->GetEventCategoryListByOrgId(
                 $org_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7464,18 +7464,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryListTypeId(
+    public function GetEventCategoryListByTypeId(
         $type_id
         ) {
-            return $this->act->GetEventCategoryListTypeId(
+            return $this->act->GetEventCategoryListByTypeId(
                 $type_id
             );
         }
         
-    public function GetEventCategoryTypeId(
+    public function GetEventCategoryByTypeId(
         $type_id
     ) {
-        foreach($this->act->GetEventCategoryListTypeId(
+        foreach($this->act->GetEventCategoryListByTypeId(
         $type_id
         ) as $item) {
             return $item;
@@ -7484,10 +7484,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryListTypeId(
+    public function CachedGetEventCategoryListByTypeId(
         $type_id
     ) {
-        return $this->CachedGetEventCategoryListTypeId(
+        return $this->CachedGetEventCategoryListByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $type_id
@@ -7495,7 +7495,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryListTypeId(
+    public function CachedGetEventCategoryListByTypeId(
         $overrideCache
         , $cacheHours
         , $type_id
@@ -7503,7 +7503,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryListTypeId";
+        $method_name = "CachedGetEventCategoryListByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -7518,7 +7518,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryListTypeId(
+            $objs = $this->GetEventCategoryListByTypeId(
                 $type_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7527,21 +7527,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryListOrgIdTypeId(
+    public function GetEventCategoryListByOrgIdByTypeId(
         $org_id
         , $type_id
         ) {
-            return $this->act->GetEventCategoryListOrgIdTypeId(
+            return $this->act->GetEventCategoryListByOrgIdByTypeId(
                 $org_id
                 , $type_id
             );
         }
         
-    public function GetEventCategoryOrgIdTypeId(
+    public function GetEventCategoryByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {
-        foreach($this->act->GetEventCategoryListOrgIdTypeId(
+        foreach($this->act->GetEventCategoryListByOrgIdByTypeId(
         $org_id
         , $type_id
         ) as $item) {
@@ -7551,11 +7551,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryListOrgIdTypeId(
+    public function CachedGetEventCategoryListByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {
-        return $this->CachedGetEventCategoryListOrgIdTypeId(
+        return $this->CachedGetEventCategoryListByOrgIdByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -7564,7 +7564,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryListOrgIdTypeId(
+    public function CachedGetEventCategoryListByOrgIdByTypeId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -7573,7 +7573,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryListOrgIdTypeId";
+        $method_name = "CachedGetEventCategoryListByOrgIdByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -7592,7 +7592,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryListOrgIdTypeId(
+            $objs = $this->GetEventCategoryListByOrgIdByTypeId(
                 $org_id
                 , $type_id
             );
@@ -7609,85 +7609,85 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryTreeUuid(
+    public function CountEventCategoryTreeByUuid(
         $uuid
     ) {      
-        return $this->act->CountEventCategoryTreeUuid(
+        return $this->act->CountEventCategoryTreeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryTreeParentId(
+    public function CountEventCategoryTreeByParentId(
         $parent_id
     ) {      
-        return $this->act->CountEventCategoryTreeParentId(
+        return $this->act->CountEventCategoryTreeByParentId(
         $parent_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryTreeCategoryId(
+    public function CountEventCategoryTreeByCategoryId(
         $category_id
     ) {      
-        return $this->act->CountEventCategoryTreeCategoryId(
+        return $this->act->CountEventCategoryTreeByCategoryId(
         $category_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryTreeParentIdCategoryId(
+    public function CountEventCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {      
-        return $this->act->CountEventCategoryTreeParentIdCategoryId(
+        return $this->act->CountEventCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseEventCategoryTreeListFilter($filter_obj) {
-        return $this->act->BrowseEventCategoryTreeListFilter($filter_obj);
+    public function BrowseEventCategoryTreeListByFilter($filter_obj) {
+        return $this->act->BrowseEventCategoryTreeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetEventCategoryTreeUuid($set_type, $obj) {
-        return $this->act->SetEventCategoryTreeUuid($set_type, $obj);
+    public function SetEventCategoryTreeByUuid($set_type, $obj) {
+        return $this->act->SetEventCategoryTreeByUuid($set_type, $obj);
     }
                
-    public function SetEventCategoryTreeUuidFull($obj) {
-        return $this->act->SetEventCategoryTreeUuid('full', $obj);
+    public function SetEventCategoryTreeByUuidFull($obj) {
+        return $this->act->SetEventCategoryTreeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventCategoryTreeUuid(
+    public function DelEventCategoryTreeByUuid(
         $uuid
     ) {         
-        return $this->act->DelEventCategoryTreeUuid(
+        return $this->act->DelEventCategoryTreeByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventCategoryTreeParentId(
+    public function DelEventCategoryTreeByParentId(
         $parent_id
     ) {         
-        return $this->act->DelEventCategoryTreeParentId(
+        return $this->act->DelEventCategoryTreeByParentId(
         $parent_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventCategoryTreeCategoryId(
+    public function DelEventCategoryTreeByCategoryId(
         $category_id
     ) {         
-        return $this->act->DelEventCategoryTreeCategoryId(
+        return $this->act->DelEventCategoryTreeByCategoryId(
         $category_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventCategoryTreeParentIdCategoryId(
+    public function DelEventCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {         
-        return $this->act->DelEventCategoryTreeParentIdCategoryId(
+        return $this->act->DelEventCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
         );
@@ -7744,18 +7744,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryTreeListUuid(
+    public function GetEventCategoryTreeListByUuid(
         $uuid
         ) {
-            return $this->act->GetEventCategoryTreeListUuid(
+            return $this->act->GetEventCategoryTreeListByUuid(
                 $uuid
             );
         }
         
-    public function GetEventCategoryTreeUuid(
+    public function GetEventCategoryTreeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetEventCategoryTreeListUuid(
+        foreach($this->act->GetEventCategoryTreeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -7764,10 +7764,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryTreeListUuid(
+    public function CachedGetEventCategoryTreeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetEventCategoryTreeListUuid(
+        return $this->CachedGetEventCategoryTreeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -7775,7 +7775,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryTreeListUuid(
+    public function CachedGetEventCategoryTreeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -7783,7 +7783,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryTreeListUuid";
+        $method_name = "CachedGetEventCategoryTreeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -7798,7 +7798,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryTreeListUuid(
+            $objs = $this->GetEventCategoryTreeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7807,18 +7807,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryTreeListParentId(
+    public function GetEventCategoryTreeListByParentId(
         $parent_id
         ) {
-            return $this->act->GetEventCategoryTreeListParentId(
+            return $this->act->GetEventCategoryTreeListByParentId(
                 $parent_id
             );
         }
         
-    public function GetEventCategoryTreeParentId(
+    public function GetEventCategoryTreeByParentId(
         $parent_id
     ) {
-        foreach($this->act->GetEventCategoryTreeListParentId(
+        foreach($this->act->GetEventCategoryTreeListByParentId(
         $parent_id
         ) as $item) {
             return $item;
@@ -7827,10 +7827,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryTreeListParentId(
+    public function CachedGetEventCategoryTreeListByParentId(
         $parent_id
     ) {
-        return $this->CachedGetEventCategoryTreeListParentId(
+        return $this->CachedGetEventCategoryTreeListByParentId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $parent_id
@@ -7838,7 +7838,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryTreeListParentId(
+    public function CachedGetEventCategoryTreeListByParentId(
         $overrideCache
         , $cacheHours
         , $parent_id
@@ -7846,7 +7846,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryTreeListParentId";
+        $method_name = "CachedGetEventCategoryTreeListByParentId";
 
         $sb = "";
         $sb += $method_name;
@@ -7861,7 +7861,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryTreeListParentId(
+            $objs = $this->GetEventCategoryTreeListByParentId(
                 $parent_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7870,18 +7870,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryTreeListCategoryId(
+    public function GetEventCategoryTreeListByCategoryId(
         $category_id
         ) {
-            return $this->act->GetEventCategoryTreeListCategoryId(
+            return $this->act->GetEventCategoryTreeListByCategoryId(
                 $category_id
             );
         }
         
-    public function GetEventCategoryTreeCategoryId(
+    public function GetEventCategoryTreeByCategoryId(
         $category_id
     ) {
-        foreach($this->act->GetEventCategoryTreeListCategoryId(
+        foreach($this->act->GetEventCategoryTreeListByCategoryId(
         $category_id
         ) as $item) {
             return $item;
@@ -7890,10 +7890,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryTreeListCategoryId(
+    public function CachedGetEventCategoryTreeListByCategoryId(
         $category_id
     ) {
-        return $this->CachedGetEventCategoryTreeListCategoryId(
+        return $this->CachedGetEventCategoryTreeListByCategoryId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $category_id
@@ -7901,7 +7901,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryTreeListCategoryId(
+    public function CachedGetEventCategoryTreeListByCategoryId(
         $overrideCache
         , $cacheHours
         , $category_id
@@ -7909,7 +7909,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryTreeListCategoryId";
+        $method_name = "CachedGetEventCategoryTreeListByCategoryId";
 
         $sb = "";
         $sb += $method_name;
@@ -7924,7 +7924,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryTreeListCategoryId(
+            $objs = $this->GetEventCategoryTreeListByCategoryId(
                 $category_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -7933,21 +7933,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryTreeListParentIdCategoryId(
+    public function GetEventCategoryTreeListByParentIdByCategoryId(
         $parent_id
         , $category_id
         ) {
-            return $this->act->GetEventCategoryTreeListParentIdCategoryId(
+            return $this->act->GetEventCategoryTreeListByParentIdByCategoryId(
                 $parent_id
                 , $category_id
             );
         }
         
-    public function GetEventCategoryTreeParentIdCategoryId(
+    public function GetEventCategoryTreeByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {
-        foreach($this->act->GetEventCategoryTreeListParentIdCategoryId(
+        foreach($this->act->GetEventCategoryTreeListByParentIdByCategoryId(
         $parent_id
         , $category_id
         ) as $item) {
@@ -7957,11 +7957,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryTreeListParentIdCategoryId(
+    public function CachedGetEventCategoryTreeListByParentIdByCategoryId(
         $parent_id
         , $category_id
     ) {
-        return $this->CachedGetEventCategoryTreeListParentIdCategoryId(
+        return $this->CachedGetEventCategoryTreeListByParentIdByCategoryId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $parent_id
@@ -7970,7 +7970,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryTreeListParentIdCategoryId(
+    public function CachedGetEventCategoryTreeListByParentIdByCategoryId(
         $overrideCache
         , $cacheHours
         , $parent_id
@@ -7979,7 +7979,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryTreeListParentIdCategoryId";
+        $method_name = "CachedGetEventCategoryTreeListByParentIdByCategoryId";
 
         $sb = "";
         $sb += $method_name;
@@ -7998,7 +7998,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryTreeListParentIdCategoryId(
+            $objs = $this->GetEventCategoryTreeListByParentIdByCategoryId(
                 $parent_id
                 , $category_id
             );
@@ -8015,60 +8015,60 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryAssocUuid(
+    public function CountEventCategoryAssocByUuid(
         $uuid
     ) {      
-        return $this->act->CountEventCategoryAssocUuid(
+        return $this->act->CountEventCategoryAssocByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryAssocEventId(
+    public function CountEventCategoryAssocByEventId(
         $event_id
     ) {      
-        return $this->act->CountEventCategoryAssocEventId(
+        return $this->act->CountEventCategoryAssocByEventId(
         $event_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryAssocCategoryId(
+    public function CountEventCategoryAssocByCategoryId(
         $category_id
     ) {      
-        return $this->act->CountEventCategoryAssocCategoryId(
+        return $this->act->CountEventCategoryAssocByCategoryId(
         $category_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountEventCategoryAssocEventIdCategoryId(
+    public function CountEventCategoryAssocByEventIdByCategoryId(
         $event_id
         , $category_id
     ) {      
-        return $this->act->CountEventCategoryAssocEventIdCategoryId(
+        return $this->act->CountEventCategoryAssocByEventIdByCategoryId(
         $event_id
         , $category_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseEventCategoryAssocListFilter($filter_obj) {
-        return $this->act->BrowseEventCategoryAssocListFilter($filter_obj);
+    public function BrowseEventCategoryAssocListByFilter($filter_obj) {
+        return $this->act->BrowseEventCategoryAssocListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetEventCategoryAssocUuid($set_type, $obj) {
-        return $this->act->SetEventCategoryAssocUuid($set_type, $obj);
+    public function SetEventCategoryAssocByUuid($set_type, $obj) {
+        return $this->act->SetEventCategoryAssocByUuid($set_type, $obj);
     }
                
-    public function SetEventCategoryAssocUuidFull($obj) {
-        return $this->act->SetEventCategoryAssocUuid('full', $obj);
+    public function SetEventCategoryAssocByUuidFull($obj) {
+        return $this->act->SetEventCategoryAssocByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelEventCategoryAssocUuid(
+    public function DelEventCategoryAssocByUuid(
         $uuid
     ) {         
-        return $this->act->DelEventCategoryAssocUuid(
+        return $this->act->DelEventCategoryAssocByUuid(
         $uuid
         );
     }
@@ -8124,18 +8124,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryAssocListUuid(
+    public function GetEventCategoryAssocListByUuid(
         $uuid
         ) {
-            return $this->act->GetEventCategoryAssocListUuid(
+            return $this->act->GetEventCategoryAssocListByUuid(
                 $uuid
             );
         }
         
-    public function GetEventCategoryAssocUuid(
+    public function GetEventCategoryAssocByUuid(
         $uuid
     ) {
-        foreach($this->act->GetEventCategoryAssocListUuid(
+        foreach($this->act->GetEventCategoryAssocListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -8144,10 +8144,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryAssocListUuid(
+    public function CachedGetEventCategoryAssocListByUuid(
         $uuid
     ) {
-        return $this->CachedGetEventCategoryAssocListUuid(
+        return $this->CachedGetEventCategoryAssocListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -8155,7 +8155,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryAssocListUuid(
+    public function CachedGetEventCategoryAssocListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -8163,7 +8163,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryAssocListUuid";
+        $method_name = "CachedGetEventCategoryAssocListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -8178,7 +8178,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryAssocListUuid(
+            $objs = $this->GetEventCategoryAssocListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8187,18 +8187,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryAssocListEventId(
+    public function GetEventCategoryAssocListByEventId(
         $event_id
         ) {
-            return $this->act->GetEventCategoryAssocListEventId(
+            return $this->act->GetEventCategoryAssocListByEventId(
                 $event_id
             );
         }
         
-    public function GetEventCategoryAssocEventId(
+    public function GetEventCategoryAssocByEventId(
         $event_id
     ) {
-        foreach($this->act->GetEventCategoryAssocListEventId(
+        foreach($this->act->GetEventCategoryAssocListByEventId(
         $event_id
         ) as $item) {
             return $item;
@@ -8207,10 +8207,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryAssocListEventId(
+    public function CachedGetEventCategoryAssocListByEventId(
         $event_id
     ) {
-        return $this->CachedGetEventCategoryAssocListEventId(
+        return $this->CachedGetEventCategoryAssocListByEventId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $event_id
@@ -8218,7 +8218,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryAssocListEventId(
+    public function CachedGetEventCategoryAssocListByEventId(
         $overrideCache
         , $cacheHours
         , $event_id
@@ -8226,7 +8226,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryAssocListEventId";
+        $method_name = "CachedGetEventCategoryAssocListByEventId";
 
         $sb = "";
         $sb += $method_name;
@@ -8241,7 +8241,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryAssocListEventId(
+            $objs = $this->GetEventCategoryAssocListByEventId(
                 $event_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8250,18 +8250,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryAssocListCategoryId(
+    public function GetEventCategoryAssocListByCategoryId(
         $category_id
         ) {
-            return $this->act->GetEventCategoryAssocListCategoryId(
+            return $this->act->GetEventCategoryAssocListByCategoryId(
                 $category_id
             );
         }
         
-    public function GetEventCategoryAssocCategoryId(
+    public function GetEventCategoryAssocByCategoryId(
         $category_id
     ) {
-        foreach($this->act->GetEventCategoryAssocListCategoryId(
+        foreach($this->act->GetEventCategoryAssocListByCategoryId(
         $category_id
         ) as $item) {
             return $item;
@@ -8270,10 +8270,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryAssocListCategoryId(
+    public function CachedGetEventCategoryAssocListByCategoryId(
         $category_id
     ) {
-        return $this->CachedGetEventCategoryAssocListCategoryId(
+        return $this->CachedGetEventCategoryAssocListByCategoryId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $category_id
@@ -8281,7 +8281,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryAssocListCategoryId(
+    public function CachedGetEventCategoryAssocListByCategoryId(
         $overrideCache
         , $cacheHours
         , $category_id
@@ -8289,7 +8289,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryAssocListCategoryId";
+        $method_name = "CachedGetEventCategoryAssocListByCategoryId";
 
         $sb = "";
         $sb += $method_name;
@@ -8304,7 +8304,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryAssocListCategoryId(
+            $objs = $this->GetEventCategoryAssocListByCategoryId(
                 $category_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8313,21 +8313,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetEventCategoryAssocListEventIdCategoryId(
+    public function GetEventCategoryAssocListByEventIdByCategoryId(
         $event_id
         , $category_id
         ) {
-            return $this->act->GetEventCategoryAssocListEventIdCategoryId(
+            return $this->act->GetEventCategoryAssocListByEventIdByCategoryId(
                 $event_id
                 , $category_id
             );
         }
         
-    public function GetEventCategoryAssocEventIdCategoryId(
+    public function GetEventCategoryAssocByEventIdByCategoryId(
         $event_id
         , $category_id
     ) {
-        foreach($this->act->GetEventCategoryAssocListEventIdCategoryId(
+        foreach($this->act->GetEventCategoryAssocListByEventIdByCategoryId(
         $event_id
         , $category_id
         ) as $item) {
@@ -8337,11 +8337,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetEventCategoryAssocListEventIdCategoryId(
+    public function CachedGetEventCategoryAssocListByEventIdByCategoryId(
         $event_id
         , $category_id
     ) {
-        return $this->CachedGetEventCategoryAssocListEventIdCategoryId(
+        return $this->CachedGetEventCategoryAssocListByEventIdByCategoryId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $event_id
@@ -8350,7 +8350,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetEventCategoryAssocListEventIdCategoryId(
+    public function CachedGetEventCategoryAssocListByEventIdByCategoryId(
         $overrideCache
         , $cacheHours
         , $event_id
@@ -8359,7 +8359,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetEventCategoryAssocListEventIdCategoryId";
+        $method_name = "CachedGetEventCategoryAssocListByEventIdByCategoryId";
 
         $sb = "";
         $sb += $method_name;
@@ -8378,7 +8378,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetEventCategoryAssocListEventIdCategoryId(
+            $objs = $this->GetEventCategoryAssocListByEventIdByCategoryId(
                 $event_id
                 , $category_id
             );
@@ -8395,98 +8395,98 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountChannelUuid(
+    public function CountChannelByUuid(
         $uuid
     ) {      
-        return $this->act->CountChannelUuid(
+        return $this->act->CountChannelByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountChannelCode(
+    public function CountChannelByCode(
         $code
     ) {      
-        return $this->act->CountChannelCode(
+        return $this->act->CountChannelByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountChannelName(
+    public function CountChannelByName(
         $name
     ) {      
-        return $this->act->CountChannelName(
+        return $this->act->CountChannelByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountChannelOrgId(
+    public function CountChannelByOrgId(
         $org_id
     ) {      
-        return $this->act->CountChannelOrgId(
+        return $this->act->CountChannelByOrgId(
         $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountChannelTypeId(
+    public function CountChannelByTypeId(
         $type_id
     ) {      
-        return $this->act->CountChannelTypeId(
+        return $this->act->CountChannelByTypeId(
         $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountChannelOrgIdTypeId(
+    public function CountChannelByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {      
-        return $this->act->CountChannelOrgIdTypeId(
+        return $this->act->CountChannelByOrgIdByTypeId(
         $org_id
         , $type_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseChannelListFilter($filter_obj) {
-        return $this->act->BrowseChannelListFilter($filter_obj);
+    public function BrowseChannelListByFilter($filter_obj) {
+        return $this->act->BrowseChannelListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetChannelUuid($set_type, $obj) {
-        return $this->act->SetChannelUuid($set_type, $obj);
+    public function SetChannelByUuid($set_type, $obj) {
+        return $this->act->SetChannelByUuid($set_type, $obj);
     }
                
-    public function SetChannelUuidFull($obj) {
-        return $this->act->SetChannelUuid('full', $obj);
+    public function SetChannelByUuidFull($obj) {
+        return $this->act->SetChannelByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelChannelUuid(
+    public function DelChannelByUuid(
         $uuid
     ) {         
-        return $this->act->DelChannelUuid(
+        return $this->act->DelChannelByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelChannelCodeOrgId(
+    public function DelChannelByCodeByOrgId(
         $code
         , $org_id
     ) {         
-        return $this->act->DelChannelCodeOrgId(
+        return $this->act->DelChannelByCodeByOrgId(
         $code
         , $org_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelChannelCodeOrgIdTypeId(
+    public function DelChannelByCodeByOrgIdByTypeId(
         $code
         , $org_id
         , $type_id
     ) {         
-        return $this->act->DelChannelCodeOrgIdTypeId(
+        return $this->act->DelChannelByCodeByOrgIdByTypeId(
         $code
         , $org_id
         , $type_id
@@ -8544,18 +8544,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetChannelListUuid(
+    public function GetChannelListByUuid(
         $uuid
         ) {
-            return $this->act->GetChannelListUuid(
+            return $this->act->GetChannelListByUuid(
                 $uuid
             );
         }
         
-    public function GetChannelUuid(
+    public function GetChannelByUuid(
         $uuid
     ) {
-        foreach($this->act->GetChannelListUuid(
+        foreach($this->act->GetChannelListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -8564,10 +8564,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetChannelListUuid(
+    public function CachedGetChannelListByUuid(
         $uuid
     ) {
-        return $this->CachedGetChannelListUuid(
+        return $this->CachedGetChannelListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -8575,7 +8575,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetChannelListUuid(
+    public function CachedGetChannelListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -8583,7 +8583,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetChannelListUuid";
+        $method_name = "CachedGetChannelListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -8598,7 +8598,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetChannelListUuid(
+            $objs = $this->GetChannelListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8607,18 +8607,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetChannelListCode(
+    public function GetChannelListByCode(
         $code
         ) {
-            return $this->act->GetChannelListCode(
+            return $this->act->GetChannelListByCode(
                 $code
             );
         }
         
-    public function GetChannelCode(
+    public function GetChannelByCode(
         $code
     ) {
-        foreach($this->act->GetChannelListCode(
+        foreach($this->act->GetChannelListByCode(
         $code
         ) as $item) {
             return $item;
@@ -8627,10 +8627,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetChannelListCode(
+    public function CachedGetChannelListByCode(
         $code
     ) {
-        return $this->CachedGetChannelListCode(
+        return $this->CachedGetChannelListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -8638,7 +8638,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetChannelListCode(
+    public function CachedGetChannelListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -8646,7 +8646,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetChannelListCode";
+        $method_name = "CachedGetChannelListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -8661,7 +8661,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetChannelListCode(
+            $objs = $this->GetChannelListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8670,18 +8670,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetChannelListName(
+    public function GetChannelListByName(
         $name
         ) {
-            return $this->act->GetChannelListName(
+            return $this->act->GetChannelListByName(
                 $name
             );
         }
         
-    public function GetChannelName(
+    public function GetChannelByName(
         $name
     ) {
-        foreach($this->act->GetChannelListName(
+        foreach($this->act->GetChannelListByName(
         $name
         ) as $item) {
             return $item;
@@ -8690,10 +8690,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetChannelListName(
+    public function CachedGetChannelListByName(
         $name
     ) {
-        return $this->CachedGetChannelListName(
+        return $this->CachedGetChannelListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -8701,7 +8701,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetChannelListName(
+    public function CachedGetChannelListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -8709,7 +8709,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetChannelListName";
+        $method_name = "CachedGetChannelListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -8724,7 +8724,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetChannelListName(
+            $objs = $this->GetChannelListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8733,18 +8733,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetChannelListOrgId(
+    public function GetChannelListByOrgId(
         $org_id
         ) {
-            return $this->act->GetChannelListOrgId(
+            return $this->act->GetChannelListByOrgId(
                 $org_id
             );
         }
         
-    public function GetChannelOrgId(
+    public function GetChannelByOrgId(
         $org_id
     ) {
-        foreach($this->act->GetChannelListOrgId(
+        foreach($this->act->GetChannelListByOrgId(
         $org_id
         ) as $item) {
             return $item;
@@ -8753,10 +8753,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetChannelListOrgId(
+    public function CachedGetChannelListByOrgId(
         $org_id
     ) {
-        return $this->CachedGetChannelListOrgId(
+        return $this->CachedGetChannelListByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -8764,7 +8764,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetChannelListOrgId(
+    public function CachedGetChannelListByOrgId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -8772,7 +8772,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetChannelListOrgId";
+        $method_name = "CachedGetChannelListByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -8787,7 +8787,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetChannelListOrgId(
+            $objs = $this->GetChannelListByOrgId(
                 $org_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8796,18 +8796,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetChannelListTypeId(
+    public function GetChannelListByTypeId(
         $type_id
         ) {
-            return $this->act->GetChannelListTypeId(
+            return $this->act->GetChannelListByTypeId(
                 $type_id
             );
         }
         
-    public function GetChannelTypeId(
+    public function GetChannelByTypeId(
         $type_id
     ) {
-        foreach($this->act->GetChannelListTypeId(
+        foreach($this->act->GetChannelListByTypeId(
         $type_id
         ) as $item) {
             return $item;
@@ -8816,10 +8816,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetChannelListTypeId(
+    public function CachedGetChannelListByTypeId(
         $type_id
     ) {
-        return $this->CachedGetChannelListTypeId(
+        return $this->CachedGetChannelListByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $type_id
@@ -8827,7 +8827,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetChannelListTypeId(
+    public function CachedGetChannelListByTypeId(
         $overrideCache
         , $cacheHours
         , $type_id
@@ -8835,7 +8835,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetChannelListTypeId";
+        $method_name = "CachedGetChannelListByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -8850,7 +8850,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetChannelListTypeId(
+            $objs = $this->GetChannelListByTypeId(
                 $type_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -8859,21 +8859,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetChannelListOrgIdTypeId(
+    public function GetChannelListByOrgIdByTypeId(
         $org_id
         , $type_id
         ) {
-            return $this->act->GetChannelListOrgIdTypeId(
+            return $this->act->GetChannelListByOrgIdByTypeId(
                 $org_id
                 , $type_id
             );
         }
         
-    public function GetChannelOrgIdTypeId(
+    public function GetChannelByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {
-        foreach($this->act->GetChannelListOrgIdTypeId(
+        foreach($this->act->GetChannelListByOrgIdByTypeId(
         $org_id
         , $type_id
         ) as $item) {
@@ -8883,11 +8883,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetChannelListOrgIdTypeId(
+    public function CachedGetChannelListByOrgIdByTypeId(
         $org_id
         , $type_id
     ) {
-        return $this->CachedGetChannelListOrgIdTypeId(
+        return $this->CachedGetChannelListByOrgIdByTypeId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -8896,7 +8896,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetChannelListOrgIdTypeId(
+    public function CachedGetChannelListByOrgIdByTypeId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -8905,7 +8905,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetChannelListOrgIdTypeId";
+        $method_name = "CachedGetChannelListByOrgIdByTypeId";
 
         $sb = "";
         $sb += $method_name;
@@ -8924,7 +8924,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetChannelListOrgIdTypeId(
+            $objs = $this->GetChannelListByOrgIdByTypeId(
                 $org_id
                 , $type_id
             );
@@ -8941,49 +8941,49 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountChannelTypeUuid(
+    public function CountChannelTypeByUuid(
         $uuid
     ) {      
-        return $this->act->CountChannelTypeUuid(
+        return $this->act->CountChannelTypeByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountChannelTypeCode(
+    public function CountChannelTypeByCode(
         $code
     ) {      
-        return $this->act->CountChannelTypeCode(
+        return $this->act->CountChannelTypeByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountChannelTypeName(
+    public function CountChannelTypeByName(
         $name
     ) {      
-        return $this->act->CountChannelTypeName(
+        return $this->act->CountChannelTypeByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseChannelTypeListFilter($filter_obj) {
-        return $this->act->BrowseChannelTypeListFilter($filter_obj);
+    public function BrowseChannelTypeListByFilter($filter_obj) {
+        return $this->act->BrowseChannelTypeListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetChannelTypeUuid($set_type, $obj) {
-        return $this->act->SetChannelTypeUuid($set_type, $obj);
+    public function SetChannelTypeByUuid($set_type, $obj) {
+        return $this->act->SetChannelTypeByUuid($set_type, $obj);
     }
                
-    public function SetChannelTypeUuidFull($obj) {
-        return $this->act->SetChannelTypeUuid('full', $obj);
+    public function SetChannelTypeByUuidFull($obj) {
+        return $this->act->SetChannelTypeByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelChannelTypeUuid(
+    public function DelChannelTypeByUuid(
         $uuid
     ) {         
-        return $this->act->DelChannelTypeUuid(
+        return $this->act->DelChannelTypeByUuid(
         $uuid
         );
     }
@@ -9039,18 +9039,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetChannelTypeListUuid(
+    public function GetChannelTypeListByUuid(
         $uuid
         ) {
-            return $this->act->GetChannelTypeListUuid(
+            return $this->act->GetChannelTypeListByUuid(
                 $uuid
             );
         }
         
-    public function GetChannelTypeUuid(
+    public function GetChannelTypeByUuid(
         $uuid
     ) {
-        foreach($this->act->GetChannelTypeListUuid(
+        foreach($this->act->GetChannelTypeListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -9059,10 +9059,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetChannelTypeListUuid(
+    public function CachedGetChannelTypeListByUuid(
         $uuid
     ) {
-        return $this->CachedGetChannelTypeListUuid(
+        return $this->CachedGetChannelTypeListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -9070,7 +9070,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetChannelTypeListUuid(
+    public function CachedGetChannelTypeListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -9078,7 +9078,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetChannelTypeListUuid";
+        $method_name = "CachedGetChannelTypeListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -9093,7 +9093,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetChannelTypeListUuid(
+            $objs = $this->GetChannelTypeListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9102,18 +9102,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetChannelTypeListCode(
+    public function GetChannelTypeListByCode(
         $code
         ) {
-            return $this->act->GetChannelTypeListCode(
+            return $this->act->GetChannelTypeListByCode(
                 $code
             );
         }
         
-    public function GetChannelTypeCode(
+    public function GetChannelTypeByCode(
         $code
     ) {
-        foreach($this->act->GetChannelTypeListCode(
+        foreach($this->act->GetChannelTypeListByCode(
         $code
         ) as $item) {
             return $item;
@@ -9122,10 +9122,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetChannelTypeListCode(
+    public function CachedGetChannelTypeListByCode(
         $code
     ) {
-        return $this->CachedGetChannelTypeListCode(
+        return $this->CachedGetChannelTypeListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -9133,7 +9133,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetChannelTypeListCode(
+    public function CachedGetChannelTypeListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -9141,7 +9141,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetChannelTypeListCode";
+        $method_name = "CachedGetChannelTypeListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -9156,7 +9156,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetChannelTypeListCode(
+            $objs = $this->GetChannelTypeListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9165,18 +9165,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetChannelTypeListName(
+    public function GetChannelTypeListByName(
         $name
         ) {
-            return $this->act->GetChannelTypeListName(
+            return $this->act->GetChannelTypeListByName(
                 $name
             );
         }
         
-    public function GetChannelTypeName(
+    public function GetChannelTypeByName(
         $name
     ) {
-        foreach($this->act->GetChannelTypeListName(
+        foreach($this->act->GetChannelTypeListByName(
         $name
         ) as $item) {
             return $item;
@@ -9185,10 +9185,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetChannelTypeListName(
+    public function CachedGetChannelTypeListByName(
         $name
     ) {
-        return $this->CachedGetChannelTypeListName(
+        return $this->CachedGetChannelTypeListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -9196,7 +9196,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetChannelTypeListName(
+    public function CachedGetChannelTypeListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -9204,7 +9204,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetChannelTypeListName";
+        $method_name = "CachedGetChannelTypeListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -9219,7 +9219,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetChannelTypeListName(
+            $objs = $this->GetChannelTypeListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9235,106 +9235,106 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountQuestionUuid(
+    public function CountQuestionByUuid(
         $uuid
     ) {      
-        return $this->act->CountQuestionUuid(
+        return $this->act->CountQuestionByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountQuestionCode(
+    public function CountQuestionByCode(
         $code
     ) {      
-        return $this->act->CountQuestionCode(
+        return $this->act->CountQuestionByCode(
         $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountQuestionName(
+    public function CountQuestionByName(
         $name
     ) {      
-        return $this->act->CountQuestionName(
+        return $this->act->CountQuestionByName(
         $name
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountQuestionChannelId(
+    public function CountQuestionByChannelId(
         $channel_id
     ) {      
-        return $this->act->CountQuestionChannelId(
+        return $this->act->CountQuestionByChannelId(
         $channel_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountQuestionOrgId(
+    public function CountQuestionByOrgId(
         $org_id
     ) {      
-        return $this->act->CountQuestionOrgId(
+        return $this->act->CountQuestionByOrgId(
         $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountQuestionChannelIdOrgId(
+    public function CountQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {      
-        return $this->act->CountQuestionChannelIdOrgId(
+        return $this->act->CountQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountQuestionChannelIdCode(
+    public function CountQuestionByChannelIdByCode(
         $channel_id
         , $code
     ) {      
-        return $this->act->CountQuestionChannelIdCode(
+        return $this->act->CountQuestionByChannelIdByCode(
         $channel_id
         , $code
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseQuestionListFilter($filter_obj) {
-        return $this->act->BrowseQuestionListFilter($filter_obj);
+    public function BrowseQuestionListByFilter($filter_obj) {
+        return $this->act->BrowseQuestionListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetQuestionUuid($set_type, $obj) {
-        return $this->act->SetQuestionUuid($set_type, $obj);
+    public function SetQuestionByUuid($set_type, $obj) {
+        return $this->act->SetQuestionByUuid($set_type, $obj);
     }
                
-    public function SetQuestionUuidFull($obj) {
-        return $this->act->SetQuestionUuid('full', $obj);
+    public function SetQuestionByUuidFull($obj) {
+        return $this->act->SetQuestionByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetQuestionChannelIdCode($set_type, $obj) {
-        return $this->act->SetQuestionChannelIdCode($set_type, $obj);
+    public function SetQuestionByChannelIdByCode($set_type, $obj) {
+        return $this->act->SetQuestionByChannelIdByCode($set_type, $obj);
     }
                
-    public function SetQuestionChannelIdCodeFull($obj) {
-        return $this->act->SetQuestionChannelIdCode('full', $obj);
+    public function SetQuestionByChannelIdByCodeFull($obj) {
+        return $this->act->SetQuestionByChannelIdByCode('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelQuestionUuid(
+    public function DelQuestionByUuid(
         $uuid
     ) {         
-        return $this->act->DelQuestionUuid(
+        return $this->act->DelQuestionByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelQuestionChannelIdOrgId(
+    public function DelQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {         
-        return $this->act->DelQuestionChannelIdOrgId(
+        return $this->act->DelQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
         );
@@ -9391,18 +9391,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetQuestionListUuid(
+    public function GetQuestionListByUuid(
         $uuid
         ) {
-            return $this->act->GetQuestionListUuid(
+            return $this->act->GetQuestionListByUuid(
                 $uuid
             );
         }
         
-    public function GetQuestionUuid(
+    public function GetQuestionByUuid(
         $uuid
     ) {
-        foreach($this->act->GetQuestionListUuid(
+        foreach($this->act->GetQuestionListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -9411,10 +9411,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetQuestionListUuid(
+    public function CachedGetQuestionListByUuid(
         $uuid
     ) {
-        return $this->CachedGetQuestionListUuid(
+        return $this->CachedGetQuestionListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -9422,7 +9422,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetQuestionListUuid(
+    public function CachedGetQuestionListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -9430,7 +9430,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetQuestionListUuid";
+        $method_name = "CachedGetQuestionListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -9445,7 +9445,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetQuestionListUuid(
+            $objs = $this->GetQuestionListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9454,18 +9454,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetQuestionListCode(
+    public function GetQuestionListByCode(
         $code
         ) {
-            return $this->act->GetQuestionListCode(
+            return $this->act->GetQuestionListByCode(
                 $code
             );
         }
         
-    public function GetQuestionCode(
+    public function GetQuestionByCode(
         $code
     ) {
-        foreach($this->act->GetQuestionListCode(
+        foreach($this->act->GetQuestionListByCode(
         $code
         ) as $item) {
             return $item;
@@ -9474,10 +9474,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetQuestionListCode(
+    public function CachedGetQuestionListByCode(
         $code
     ) {
-        return $this->CachedGetQuestionListCode(
+        return $this->CachedGetQuestionListByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $code
@@ -9485,7 +9485,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetQuestionListCode(
+    public function CachedGetQuestionListByCode(
         $overrideCache
         , $cacheHours
         , $code
@@ -9493,7 +9493,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetQuestionListCode";
+        $method_name = "CachedGetQuestionListByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -9508,7 +9508,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetQuestionListCode(
+            $objs = $this->GetQuestionListByCode(
                 $code
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9517,18 +9517,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetQuestionListName(
+    public function GetQuestionListByName(
         $name
         ) {
-            return $this->act->GetQuestionListName(
+            return $this->act->GetQuestionListByName(
                 $name
             );
         }
         
-    public function GetQuestionName(
+    public function GetQuestionByName(
         $name
     ) {
-        foreach($this->act->GetQuestionListName(
+        foreach($this->act->GetQuestionListByName(
         $name
         ) as $item) {
             return $item;
@@ -9537,10 +9537,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetQuestionListName(
+    public function CachedGetQuestionListByName(
         $name
     ) {
-        return $this->CachedGetQuestionListName(
+        return $this->CachedGetQuestionListByName(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $name
@@ -9548,7 +9548,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetQuestionListName(
+    public function CachedGetQuestionListByName(
         $overrideCache
         , $cacheHours
         , $name
@@ -9556,7 +9556,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetQuestionListName";
+        $method_name = "CachedGetQuestionListByName";
 
         $sb = "";
         $sb += $method_name;
@@ -9571,7 +9571,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetQuestionListName(
+            $objs = $this->GetQuestionListByName(
                 $name
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9580,18 +9580,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetQuestionListType(
+    public function GetQuestionListByType(
         $type
         ) {
-            return $this->act->GetQuestionListType(
+            return $this->act->GetQuestionListByType(
                 $type
             );
         }
         
-    public function GetQuestionType(
+    public function GetQuestionByType(
         $type
     ) {
-        foreach($this->act->GetQuestionListType(
+        foreach($this->act->GetQuestionListByType(
         $type
         ) as $item) {
             return $item;
@@ -9600,10 +9600,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetQuestionListType(
+    public function CachedGetQuestionListByType(
         $type
     ) {
-        return $this->CachedGetQuestionListType(
+        return $this->CachedGetQuestionListByType(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $type
@@ -9611,7 +9611,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetQuestionListType(
+    public function CachedGetQuestionListByType(
         $overrideCache
         , $cacheHours
         , $type
@@ -9619,7 +9619,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetQuestionListType";
+        $method_name = "CachedGetQuestionListByType";
 
         $sb = "";
         $sb += $method_name;
@@ -9634,7 +9634,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetQuestionListType(
+            $objs = $this->GetQuestionListByType(
                 $type
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9643,18 +9643,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetQuestionListChannelId(
+    public function GetQuestionListByChannelId(
         $channel_id
         ) {
-            return $this->act->GetQuestionListChannelId(
+            return $this->act->GetQuestionListByChannelId(
                 $channel_id
             );
         }
         
-    public function GetQuestionChannelId(
+    public function GetQuestionByChannelId(
         $channel_id
     ) {
-        foreach($this->act->GetQuestionListChannelId(
+        foreach($this->act->GetQuestionListByChannelId(
         $channel_id
         ) as $item) {
             return $item;
@@ -9663,10 +9663,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetQuestionListChannelId(
+    public function CachedGetQuestionListByChannelId(
         $channel_id
     ) {
-        return $this->CachedGetQuestionListChannelId(
+        return $this->CachedGetQuestionListByChannelId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $channel_id
@@ -9674,7 +9674,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetQuestionListChannelId(
+    public function CachedGetQuestionListByChannelId(
         $overrideCache
         , $cacheHours
         , $channel_id
@@ -9682,7 +9682,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetQuestionListChannelId";
+        $method_name = "CachedGetQuestionListByChannelId";
 
         $sb = "";
         $sb += $method_name;
@@ -9697,7 +9697,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetQuestionListChannelId(
+            $objs = $this->GetQuestionListByChannelId(
                 $channel_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9706,18 +9706,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetQuestionListOrgId(
+    public function GetQuestionListByOrgId(
         $org_id
         ) {
-            return $this->act->GetQuestionListOrgId(
+            return $this->act->GetQuestionListByOrgId(
                 $org_id
             );
         }
         
-    public function GetQuestionOrgId(
+    public function GetQuestionByOrgId(
         $org_id
     ) {
-        foreach($this->act->GetQuestionListOrgId(
+        foreach($this->act->GetQuestionListByOrgId(
         $org_id
         ) as $item) {
             return $item;
@@ -9726,10 +9726,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetQuestionListOrgId(
+    public function CachedGetQuestionListByOrgId(
         $org_id
     ) {
-        return $this->CachedGetQuestionListOrgId(
+        return $this->CachedGetQuestionListByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -9737,7 +9737,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetQuestionListOrgId(
+    public function CachedGetQuestionListByOrgId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -9745,7 +9745,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetQuestionListOrgId";
+        $method_name = "CachedGetQuestionListByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -9760,7 +9760,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetQuestionListOrgId(
+            $objs = $this->GetQuestionListByOrgId(
                 $org_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -9769,21 +9769,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetQuestionListChannelIdOrgId(
+    public function GetQuestionListByChannelIdByOrgId(
         $channel_id
         , $org_id
         ) {
-            return $this->act->GetQuestionListChannelIdOrgId(
+            return $this->act->GetQuestionListByChannelIdByOrgId(
                 $channel_id
                 , $org_id
             );
         }
         
-    public function GetQuestionChannelIdOrgId(
+    public function GetQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {
-        foreach($this->act->GetQuestionListChannelIdOrgId(
+        foreach($this->act->GetQuestionListByChannelIdByOrgId(
         $channel_id
         , $org_id
         ) as $item) {
@@ -9793,11 +9793,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetQuestionListChannelIdOrgId(
+    public function CachedGetQuestionListByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {
-        return $this->CachedGetQuestionListChannelIdOrgId(
+        return $this->CachedGetQuestionListByChannelIdByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $channel_id
@@ -9806,7 +9806,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetQuestionListChannelIdOrgId(
+    public function CachedGetQuestionListByChannelIdByOrgId(
         $overrideCache
         , $cacheHours
         , $channel_id
@@ -9815,7 +9815,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetQuestionListChannelIdOrgId";
+        $method_name = "CachedGetQuestionListByChannelIdByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -9834,7 +9834,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetQuestionListChannelIdOrgId(
+            $objs = $this->GetQuestionListByChannelIdByOrgId(
                 $channel_id
                 , $org_id
             );
@@ -9844,21 +9844,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetQuestionListChannelIdCode(
+    public function GetQuestionListByChannelIdByCode(
         $channel_id
         , $code
         ) {
-            return $this->act->GetQuestionListChannelIdCode(
+            return $this->act->GetQuestionListByChannelIdByCode(
                 $channel_id
                 , $code
             );
         }
         
-    public function GetQuestionChannelIdCode(
+    public function GetQuestionByChannelIdByCode(
         $channel_id
         , $code
     ) {
-        foreach($this->act->GetQuestionListChannelIdCode(
+        foreach($this->act->GetQuestionListByChannelIdByCode(
         $channel_id
         , $code
         ) as $item) {
@@ -9868,11 +9868,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetQuestionListChannelIdCode(
+    public function CachedGetQuestionListByChannelIdByCode(
         $channel_id
         , $code
     ) {
-        return $this->CachedGetQuestionListChannelIdCode(
+        return $this->CachedGetQuestionListByChannelIdByCode(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $channel_id
@@ -9881,7 +9881,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetQuestionListChannelIdCode(
+    public function CachedGetQuestionListByChannelIdByCode(
         $overrideCache
         , $cacheHours
         , $channel_id
@@ -9890,7 +9890,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetQuestionListChannelIdCode";
+        $method_name = "CachedGetQuestionListByChannelIdByCode";
 
         $sb = "";
         $sb += $method_name;
@@ -9909,7 +9909,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetQuestionListChannelIdCode(
+            $objs = $this->GetQuestionListByChannelIdByCode(
                 $channel_id
                 , $code
             );
@@ -9926,48 +9926,48 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileOfferUuid(
+    public function CountProfileOfferByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileOfferUuid(
+        return $this->act->CountProfileOfferByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileOfferProfileId(
+    public function CountProfileOfferByProfileId(
         $profile_id
     ) {      
-        return $this->act->CountProfileOfferProfileId(
+        return $this->act->CountProfileOfferByProfileId(
         $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileOfferListFilter($filter_obj) {
-        return $this->act->BrowseProfileOfferListFilter($filter_obj);
+    public function BrowseProfileOfferListByFilter($filter_obj) {
+        return $this->act->BrowseProfileOfferListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileOfferUuid($set_type, $obj) {
-        return $this->act->SetProfileOfferUuid($set_type, $obj);
+    public function SetProfileOfferByUuid($set_type, $obj) {
+        return $this->act->SetProfileOfferByUuid($set_type, $obj);
     }
                
-    public function SetProfileOfferUuidFull($obj) {
-        return $this->act->SetProfileOfferUuid('full', $obj);
+    public function SetProfileOfferByUuidFull($obj) {
+        return $this->act->SetProfileOfferByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileOfferUuid(
+    public function DelProfileOfferByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileOfferUuid(
+        return $this->act->DelProfileOfferByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileOfferProfileId(
+    public function DelProfileOfferByProfileId(
         $profile_id
     ) {         
-        return $this->act->DelProfileOfferProfileId(
+        return $this->act->DelProfileOfferByProfileId(
         $profile_id
         );
     }
@@ -10023,18 +10023,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileOfferListUuid(
+    public function GetProfileOfferListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileOfferListUuid(
+            return $this->act->GetProfileOfferListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileOfferUuid(
+    public function GetProfileOfferByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileOfferListUuid(
+        foreach($this->act->GetProfileOfferListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -10043,10 +10043,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileOfferListUuid(
+    public function CachedGetProfileOfferListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileOfferListUuid(
+        return $this->CachedGetProfileOfferListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -10054,7 +10054,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileOfferListUuid(
+    public function CachedGetProfileOfferListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -10062,7 +10062,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileOfferListUuid";
+        $method_name = "CachedGetProfileOfferListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -10077,7 +10077,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileOfferListUuid(
+            $objs = $this->GetProfileOfferListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10086,18 +10086,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileOfferListProfileId(
+    public function GetProfileOfferListByProfileId(
         $profile_id
         ) {
-            return $this->act->GetProfileOfferListProfileId(
+            return $this->act->GetProfileOfferListByProfileId(
                 $profile_id
             );
         }
         
-    public function GetProfileOfferProfileId(
+    public function GetProfileOfferByProfileId(
         $profile_id
     ) {
-        foreach($this->act->GetProfileOfferListProfileId(
+        foreach($this->act->GetProfileOfferListByProfileId(
         $profile_id
         ) as $item) {
             return $item;
@@ -10106,10 +10106,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileOfferListProfileId(
+    public function CachedGetProfileOfferListByProfileId(
         $profile_id
     ) {
-        return $this->CachedGetProfileOfferListProfileId(
+        return $this->CachedGetProfileOfferListByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -10117,7 +10117,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileOfferListProfileId(
+    public function CachedGetProfileOfferListByProfileId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -10125,7 +10125,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileOfferListProfileId";
+        $method_name = "CachedGetProfileOfferListByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -10140,7 +10140,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileOfferListProfileId(
+            $objs = $this->GetProfileOfferListByProfileId(
                 $profile_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10156,59 +10156,59 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAppUuid(
+    public function CountProfileAppByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileAppUuid(
+        return $this->act->CountProfileAppByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileAppProfileIdAppId(
+    public function CountProfileAppByProfileIdByAppId(
         $profile_id
         , $app_id
     ) {      
-        return $this->act->CountProfileAppProfileIdAppId(
+        return $this->act->CountProfileAppByProfileIdByAppId(
         $profile_id
         , $app_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileAppListFilter($filter_obj) {
-        return $this->act->BrowseProfileAppListFilter($filter_obj);
+    public function BrowseProfileAppListByFilter($filter_obj) {
+        return $this->act->BrowseProfileAppListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAppUuid($set_type, $obj) {
-        return $this->act->SetProfileAppUuid($set_type, $obj);
+    public function SetProfileAppByUuid($set_type, $obj) {
+        return $this->act->SetProfileAppByUuid($set_type, $obj);
     }
                
-    public function SetProfileAppUuidFull($obj) {
-        return $this->act->SetProfileAppUuid('full', $obj);
+    public function SetProfileAppByUuidFull($obj) {
+        return $this->act->SetProfileAppByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileAppProfileIdAppId($set_type, $obj) {
-        return $this->act->SetProfileAppProfileIdAppId($set_type, $obj);
+    public function SetProfileAppByProfileIdByAppId($set_type, $obj) {
+        return $this->act->SetProfileAppByProfileIdByAppId($set_type, $obj);
     }
                
-    public function SetProfileAppProfileIdAppIdFull($obj) {
-        return $this->act->SetProfileAppProfileIdAppId('full', $obj);
+    public function SetProfileAppByProfileIdByAppIdFull($obj) {
+        return $this->act->SetProfileAppByProfileIdByAppId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAppUuid(
+    public function DelProfileAppByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileAppUuid(
+        return $this->act->DelProfileAppByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileAppProfileIdAppId(
+    public function DelProfileAppByProfileIdByAppId(
         $profile_id
         , $app_id
     ) {         
-        return $this->act->DelProfileAppProfileIdAppId(
+        return $this->act->DelProfileAppByProfileIdByAppId(
         $profile_id
         , $app_id
         );
@@ -10265,18 +10265,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAppListUuid(
+    public function GetProfileAppListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileAppListUuid(
+            return $this->act->GetProfileAppListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileAppUuid(
+    public function GetProfileAppByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileAppListUuid(
+        foreach($this->act->GetProfileAppListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -10285,10 +10285,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileAppListUuid(
+    public function CachedGetProfileAppListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileAppListUuid(
+        return $this->CachedGetProfileAppListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -10296,7 +10296,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileAppListUuid(
+    public function CachedGetProfileAppListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -10304,7 +10304,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAppListUuid";
+        $method_name = "CachedGetProfileAppListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -10319,7 +10319,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAppListUuid(
+            $objs = $this->GetProfileAppListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10328,18 +10328,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAppListAppId(
+    public function GetProfileAppListByAppId(
         $app_id
         ) {
-            return $this->act->GetProfileAppListAppId(
+            return $this->act->GetProfileAppListByAppId(
                 $app_id
             );
         }
         
-    public function GetProfileAppAppId(
+    public function GetProfileAppByAppId(
         $app_id
     ) {
-        foreach($this->act->GetProfileAppListAppId(
+        foreach($this->act->GetProfileAppListByAppId(
         $app_id
         ) as $item) {
             return $item;
@@ -10348,10 +10348,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileAppListAppId(
+    public function CachedGetProfileAppListByAppId(
         $app_id
     ) {
-        return $this->CachedGetProfileAppListAppId(
+        return $this->CachedGetProfileAppListByAppId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $app_id
@@ -10359,7 +10359,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileAppListAppId(
+    public function CachedGetProfileAppListByAppId(
         $overrideCache
         , $cacheHours
         , $app_id
@@ -10367,7 +10367,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAppListAppId";
+        $method_name = "CachedGetProfileAppListByAppId";
 
         $sb = "";
         $sb += $method_name;
@@ -10382,7 +10382,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAppListAppId(
+            $objs = $this->GetProfileAppListByAppId(
                 $app_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10391,18 +10391,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAppListProfileId(
+    public function GetProfileAppListByProfileId(
         $profile_id
         ) {
-            return $this->act->GetProfileAppListProfileId(
+            return $this->act->GetProfileAppListByProfileId(
                 $profile_id
             );
         }
         
-    public function GetProfileAppProfileId(
+    public function GetProfileAppByProfileId(
         $profile_id
     ) {
-        foreach($this->act->GetProfileAppListProfileId(
+        foreach($this->act->GetProfileAppListByProfileId(
         $profile_id
         ) as $item) {
             return $item;
@@ -10411,10 +10411,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileAppListProfileId(
+    public function CachedGetProfileAppListByProfileId(
         $profile_id
     ) {
-        return $this->CachedGetProfileAppListProfileId(
+        return $this->CachedGetProfileAppListByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -10422,7 +10422,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileAppListProfileId(
+    public function CachedGetProfileAppListByProfileId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -10430,7 +10430,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAppListProfileId";
+        $method_name = "CachedGetProfileAppListByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -10445,7 +10445,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAppListProfileId(
+            $objs = $this->GetProfileAppListByProfileId(
                 $profile_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10454,21 +10454,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileAppListProfileIdAppId(
+    public function GetProfileAppListByProfileIdByAppId(
         $profile_id
         , $app_id
         ) {
-            return $this->act->GetProfileAppListProfileIdAppId(
+            return $this->act->GetProfileAppListByProfileIdByAppId(
                 $profile_id
                 , $app_id
             );
         }
         
-    public function GetProfileAppProfileIdAppId(
+    public function GetProfileAppByProfileIdByAppId(
         $profile_id
         , $app_id
     ) {
-        foreach($this->act->GetProfileAppListProfileIdAppId(
+        foreach($this->act->GetProfileAppListByProfileIdByAppId(
         $profile_id
         , $app_id
         ) as $item) {
@@ -10478,11 +10478,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileAppListProfileIdAppId(
+    public function CachedGetProfileAppListByProfileIdByAppId(
         $profile_id
         , $app_id
     ) {
-        return $this->CachedGetProfileAppListProfileIdAppId(
+        return $this->CachedGetProfileAppListByProfileIdByAppId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -10491,7 +10491,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileAppListProfileIdAppId(
+    public function CachedGetProfileAppListByProfileIdByAppId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -10500,7 +10500,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileAppListProfileIdAppId";
+        $method_name = "CachedGetProfileAppListByProfileIdByAppId";
 
         $sb = "";
         $sb += $method_name;
@@ -10519,7 +10519,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileAppListProfileIdAppId(
+            $objs = $this->GetProfileAppListByProfileIdByAppId(
                 $profile_id
                 , $app_id
             );
@@ -10536,49 +10536,49 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileOrgUuid(
+    public function CountProfileOrgByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileOrgUuid(
+        return $this->act->CountProfileOrgByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileOrgOrgId(
+    public function CountProfileOrgByOrgId(
         $org_id
     ) {      
-        return $this->act->CountProfileOrgOrgId(
+        return $this->act->CountProfileOrgByOrgId(
         $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileOrgProfileId(
+    public function CountProfileOrgByProfileId(
         $profile_id
     ) {      
-        return $this->act->CountProfileOrgProfileId(
+        return $this->act->CountProfileOrgByProfileId(
         $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileOrgListFilter($filter_obj) {
-        return $this->act->BrowseProfileOrgListFilter($filter_obj);
+    public function BrowseProfileOrgListByFilter($filter_obj) {
+        return $this->act->BrowseProfileOrgListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileOrgUuid($set_type, $obj) {
-        return $this->act->SetProfileOrgUuid($set_type, $obj);
+    public function SetProfileOrgByUuid($set_type, $obj) {
+        return $this->act->SetProfileOrgByUuid($set_type, $obj);
     }
                
-    public function SetProfileOrgUuidFull($obj) {
-        return $this->act->SetProfileOrgUuid('full', $obj);
+    public function SetProfileOrgByUuidFull($obj) {
+        return $this->act->SetProfileOrgByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileOrgUuid(
+    public function DelProfileOrgByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileOrgUuid(
+        return $this->act->DelProfileOrgByUuid(
         $uuid
         );
     }
@@ -10634,18 +10634,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileOrgListUuid(
+    public function GetProfileOrgListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileOrgListUuid(
+            return $this->act->GetProfileOrgListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileOrgUuid(
+    public function GetProfileOrgByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileOrgListUuid(
+        foreach($this->act->GetProfileOrgListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -10654,10 +10654,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileOrgListUuid(
+    public function CachedGetProfileOrgListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileOrgListUuid(
+        return $this->CachedGetProfileOrgListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -10665,7 +10665,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileOrgListUuid(
+    public function CachedGetProfileOrgListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -10673,7 +10673,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileOrgListUuid";
+        $method_name = "CachedGetProfileOrgListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -10688,7 +10688,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileOrgListUuid(
+            $objs = $this->GetProfileOrgListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10697,18 +10697,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileOrgListOrgId(
+    public function GetProfileOrgListByOrgId(
         $org_id
         ) {
-            return $this->act->GetProfileOrgListOrgId(
+            return $this->act->GetProfileOrgListByOrgId(
                 $org_id
             );
         }
         
-    public function GetProfileOrgOrgId(
+    public function GetProfileOrgByOrgId(
         $org_id
     ) {
-        foreach($this->act->GetProfileOrgListOrgId(
+        foreach($this->act->GetProfileOrgListByOrgId(
         $org_id
         ) as $item) {
             return $item;
@@ -10717,10 +10717,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileOrgListOrgId(
+    public function CachedGetProfileOrgListByOrgId(
         $org_id
     ) {
-        return $this->CachedGetProfileOrgListOrgId(
+        return $this->CachedGetProfileOrgListByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -10728,7 +10728,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileOrgListOrgId(
+    public function CachedGetProfileOrgListByOrgId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -10736,7 +10736,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileOrgListOrgId";
+        $method_name = "CachedGetProfileOrgListByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -10751,7 +10751,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileOrgListOrgId(
+            $objs = $this->GetProfileOrgListByOrgId(
                 $org_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10760,18 +10760,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileOrgListProfileId(
+    public function GetProfileOrgListByProfileId(
         $profile_id
         ) {
-            return $this->act->GetProfileOrgListProfileId(
+            return $this->act->GetProfileOrgListByProfileId(
                 $profile_id
             );
         }
         
-    public function GetProfileOrgProfileId(
+    public function GetProfileOrgByProfileId(
         $profile_id
     ) {
-        foreach($this->act->GetProfileOrgListProfileId(
+        foreach($this->act->GetProfileOrgListByProfileId(
         $profile_id
         ) as $item) {
             return $item;
@@ -10780,10 +10780,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileOrgListProfileId(
+    public function CachedGetProfileOrgListByProfileId(
         $profile_id
     ) {
-        return $this->CachedGetProfileOrgListProfileId(
+        return $this->CachedGetProfileOrgListByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -10791,7 +10791,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileOrgListProfileId(
+    public function CachedGetProfileOrgListByProfileId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -10799,7 +10799,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileOrgListProfileId";
+        $method_name = "CachedGetProfileOrgListByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -10814,7 +10814,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileOrgListProfileId(
+            $objs = $this->GetProfileOrgListByProfileId(
                 $profile_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -10830,133 +10830,133 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileQuestionUuid(
+    public function CountProfileQuestionByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileQuestionUuid(
+        return $this->act->CountProfileQuestionByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileQuestionChannelId(
+    public function CountProfileQuestionByChannelId(
         $channel_id
     ) {      
-        return $this->act->CountProfileQuestionChannelId(
+        return $this->act->CountProfileQuestionByChannelId(
         $channel_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileQuestionOrgId(
+    public function CountProfileQuestionByOrgId(
         $org_id
     ) {      
-        return $this->act->CountProfileQuestionOrgId(
+        return $this->act->CountProfileQuestionByOrgId(
         $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileQuestionProfileId(
+    public function CountProfileQuestionByProfileId(
         $profile_id
     ) {      
-        return $this->act->CountProfileQuestionProfileId(
+        return $this->act->CountProfileQuestionByProfileId(
         $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileQuestionQuestionId(
+    public function CountProfileQuestionByQuestionId(
         $question_id
     ) {      
-        return $this->act->CountProfileQuestionQuestionId(
+        return $this->act->CountProfileQuestionByQuestionId(
         $question_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileQuestionChannelIdOrgId(
+    public function CountProfileQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {      
-        return $this->act->CountProfileQuestionChannelIdOrgId(
+        return $this->act->CountProfileQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileQuestionChannelIdProfileId(
+    public function CountProfileQuestionByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {      
-        return $this->act->CountProfileQuestionChannelIdProfileId(
+        return $this->act->CountProfileQuestionByChannelIdByProfileId(
         $channel_id
         , $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileQuestionQuestionIdProfileId(
+    public function CountProfileQuestionByQuestionIdByProfileId(
         $question_id
         , $profile_id
     ) {      
-        return $this->act->CountProfileQuestionQuestionIdProfileId(
+        return $this->act->CountProfileQuestionByQuestionIdByProfileId(
         $question_id
         , $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileQuestionListFilter($filter_obj) {
-        return $this->act->BrowseProfileQuestionListFilter($filter_obj);
+    public function BrowseProfileQuestionListByFilter($filter_obj) {
+        return $this->act->BrowseProfileQuestionListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileQuestionUuid($set_type, $obj) {
-        return $this->act->SetProfileQuestionUuid($set_type, $obj);
+    public function SetProfileQuestionByUuid($set_type, $obj) {
+        return $this->act->SetProfileQuestionByUuid($set_type, $obj);
     }
                
-    public function SetProfileQuestionUuidFull($obj) {
-        return $this->act->SetProfileQuestionUuid('full', $obj);
+    public function SetProfileQuestionByUuidFull($obj) {
+        return $this->act->SetProfileQuestionByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileQuestionChannelIdProfileId($set_type, $obj) {
-        return $this->act->SetProfileQuestionChannelIdProfileId($set_type, $obj);
+    public function SetProfileQuestionByChannelIdByProfileId($set_type, $obj) {
+        return $this->act->SetProfileQuestionByChannelIdByProfileId($set_type, $obj);
     }
                
-    public function SetProfileQuestionChannelIdProfileIdFull($obj) {
-        return $this->act->SetProfileQuestionChannelIdProfileId('full', $obj);
+    public function SetProfileQuestionByChannelIdByProfileIdFull($obj) {
+        return $this->act->SetProfileQuestionByChannelIdByProfileId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileQuestionQuestionIdProfileId($set_type, $obj) {
-        return $this->act->SetProfileQuestionQuestionIdProfileId($set_type, $obj);
+    public function SetProfileQuestionByQuestionIdByProfileId($set_type, $obj) {
+        return $this->act->SetProfileQuestionByQuestionIdByProfileId($set_type, $obj);
     }
                
-    public function SetProfileQuestionQuestionIdProfileIdFull($obj) {
-        return $this->act->SetProfileQuestionQuestionIdProfileId('full', $obj);
+    public function SetProfileQuestionByQuestionIdByProfileIdFull($obj) {
+        return $this->act->SetProfileQuestionByQuestionIdByProfileId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileQuestionChannelIdQuestionIdProfileId($set_type, $obj) {
-        return $this->act->SetProfileQuestionChannelIdQuestionIdProfileId($set_type, $obj);
+    public function SetProfileQuestionByChannelIdByQuestionIdByProfileId($set_type, $obj) {
+        return $this->act->SetProfileQuestionByChannelIdByQuestionIdByProfileId($set_type, $obj);
     }
                
-    public function SetProfileQuestionChannelIdQuestionIdProfileIdFull($obj) {
-        return $this->act->SetProfileQuestionChannelIdQuestionIdProfileId('full', $obj);
+    public function SetProfileQuestionByChannelIdByQuestionIdByProfileIdFull($obj) {
+        return $this->act->SetProfileQuestionByChannelIdByQuestionIdByProfileId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileQuestionUuid(
+    public function DelProfileQuestionByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileQuestionUuid(
+        return $this->act->DelProfileQuestionByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileQuestionChannelIdOrgId(
+    public function DelProfileQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {         
-        return $this->act->DelProfileQuestionChannelIdOrgId(
+        return $this->act->DelProfileQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
         );
@@ -11013,18 +11013,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileQuestionListUuid(
+    public function GetProfileQuestionListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileQuestionListUuid(
+            return $this->act->GetProfileQuestionListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileQuestionUuid(
+    public function GetProfileQuestionByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileQuestionListUuid(
+        foreach($this->act->GetProfileQuestionListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -11033,10 +11033,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileQuestionListUuid(
+    public function CachedGetProfileQuestionListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileQuestionListUuid(
+        return $this->CachedGetProfileQuestionListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -11044,7 +11044,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileQuestionListUuid(
+    public function CachedGetProfileQuestionListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -11052,7 +11052,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileQuestionListUuid";
+        $method_name = "CachedGetProfileQuestionListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -11067,7 +11067,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileQuestionListUuid(
+            $objs = $this->GetProfileQuestionListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11076,18 +11076,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileQuestionListChannelId(
+    public function GetProfileQuestionListByChannelId(
         $channel_id
         ) {
-            return $this->act->GetProfileQuestionListChannelId(
+            return $this->act->GetProfileQuestionListByChannelId(
                 $channel_id
             );
         }
         
-    public function GetProfileQuestionChannelId(
+    public function GetProfileQuestionByChannelId(
         $channel_id
     ) {
-        foreach($this->act->GetProfileQuestionListChannelId(
+        foreach($this->act->GetProfileQuestionListByChannelId(
         $channel_id
         ) as $item) {
             return $item;
@@ -11096,10 +11096,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileQuestionListChannelId(
+    public function CachedGetProfileQuestionListByChannelId(
         $channel_id
     ) {
-        return $this->CachedGetProfileQuestionListChannelId(
+        return $this->CachedGetProfileQuestionListByChannelId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $channel_id
@@ -11107,7 +11107,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileQuestionListChannelId(
+    public function CachedGetProfileQuestionListByChannelId(
         $overrideCache
         , $cacheHours
         , $channel_id
@@ -11115,7 +11115,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileQuestionListChannelId";
+        $method_name = "CachedGetProfileQuestionListByChannelId";
 
         $sb = "";
         $sb += $method_name;
@@ -11130,7 +11130,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileQuestionListChannelId(
+            $objs = $this->GetProfileQuestionListByChannelId(
                 $channel_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11139,18 +11139,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileQuestionListOrgId(
+    public function GetProfileQuestionListByOrgId(
         $org_id
         ) {
-            return $this->act->GetProfileQuestionListOrgId(
+            return $this->act->GetProfileQuestionListByOrgId(
                 $org_id
             );
         }
         
-    public function GetProfileQuestionOrgId(
+    public function GetProfileQuestionByOrgId(
         $org_id
     ) {
-        foreach($this->act->GetProfileQuestionListOrgId(
+        foreach($this->act->GetProfileQuestionListByOrgId(
         $org_id
         ) as $item) {
             return $item;
@@ -11159,10 +11159,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileQuestionListOrgId(
+    public function CachedGetProfileQuestionListByOrgId(
         $org_id
     ) {
-        return $this->CachedGetProfileQuestionListOrgId(
+        return $this->CachedGetProfileQuestionListByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -11170,7 +11170,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileQuestionListOrgId(
+    public function CachedGetProfileQuestionListByOrgId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -11178,7 +11178,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileQuestionListOrgId";
+        $method_name = "CachedGetProfileQuestionListByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -11193,7 +11193,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileQuestionListOrgId(
+            $objs = $this->GetProfileQuestionListByOrgId(
                 $org_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11202,18 +11202,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileQuestionListProfileId(
+    public function GetProfileQuestionListByProfileId(
         $profile_id
         ) {
-            return $this->act->GetProfileQuestionListProfileId(
+            return $this->act->GetProfileQuestionListByProfileId(
                 $profile_id
             );
         }
         
-    public function GetProfileQuestionProfileId(
+    public function GetProfileQuestionByProfileId(
         $profile_id
     ) {
-        foreach($this->act->GetProfileQuestionListProfileId(
+        foreach($this->act->GetProfileQuestionListByProfileId(
         $profile_id
         ) as $item) {
             return $item;
@@ -11222,10 +11222,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileQuestionListProfileId(
+    public function CachedGetProfileQuestionListByProfileId(
         $profile_id
     ) {
-        return $this->CachedGetProfileQuestionListProfileId(
+        return $this->CachedGetProfileQuestionListByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -11233,7 +11233,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileQuestionListProfileId(
+    public function CachedGetProfileQuestionListByProfileId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -11241,7 +11241,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileQuestionListProfileId";
+        $method_name = "CachedGetProfileQuestionListByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -11256,7 +11256,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileQuestionListProfileId(
+            $objs = $this->GetProfileQuestionListByProfileId(
                 $profile_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11265,18 +11265,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileQuestionListQuestionId(
+    public function GetProfileQuestionListByQuestionId(
         $question_id
         ) {
-            return $this->act->GetProfileQuestionListQuestionId(
+            return $this->act->GetProfileQuestionListByQuestionId(
                 $question_id
             );
         }
         
-    public function GetProfileQuestionQuestionId(
+    public function GetProfileQuestionByQuestionId(
         $question_id
     ) {
-        foreach($this->act->GetProfileQuestionListQuestionId(
+        foreach($this->act->GetProfileQuestionListByQuestionId(
         $question_id
         ) as $item) {
             return $item;
@@ -11285,10 +11285,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileQuestionListQuestionId(
+    public function CachedGetProfileQuestionListByQuestionId(
         $question_id
     ) {
-        return $this->CachedGetProfileQuestionListQuestionId(
+        return $this->CachedGetProfileQuestionListByQuestionId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $question_id
@@ -11296,7 +11296,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileQuestionListQuestionId(
+    public function CachedGetProfileQuestionListByQuestionId(
         $overrideCache
         , $cacheHours
         , $question_id
@@ -11304,7 +11304,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileQuestionListQuestionId";
+        $method_name = "CachedGetProfileQuestionListByQuestionId";
 
         $sb = "";
         $sb += $method_name;
@@ -11319,7 +11319,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileQuestionListQuestionId(
+            $objs = $this->GetProfileQuestionListByQuestionId(
                 $question_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11328,21 +11328,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileQuestionListChannelIdOrgId(
+    public function GetProfileQuestionListByChannelIdByOrgId(
         $channel_id
         , $org_id
         ) {
-            return $this->act->GetProfileQuestionListChannelIdOrgId(
+            return $this->act->GetProfileQuestionListByChannelIdByOrgId(
                 $channel_id
                 , $org_id
             );
         }
         
-    public function GetProfileQuestionChannelIdOrgId(
+    public function GetProfileQuestionByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {
-        foreach($this->act->GetProfileQuestionListChannelIdOrgId(
+        foreach($this->act->GetProfileQuestionListByChannelIdByOrgId(
         $channel_id
         , $org_id
         ) as $item) {
@@ -11352,11 +11352,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileQuestionListChannelIdOrgId(
+    public function CachedGetProfileQuestionListByChannelIdByOrgId(
         $channel_id
         , $org_id
     ) {
-        return $this->CachedGetProfileQuestionListChannelIdOrgId(
+        return $this->CachedGetProfileQuestionListByChannelIdByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $channel_id
@@ -11365,7 +11365,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileQuestionListChannelIdOrgId(
+    public function CachedGetProfileQuestionListByChannelIdByOrgId(
         $overrideCache
         , $cacheHours
         , $channel_id
@@ -11374,7 +11374,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileQuestionListChannelIdOrgId";
+        $method_name = "CachedGetProfileQuestionListByChannelIdByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -11393,7 +11393,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileQuestionListChannelIdOrgId(
+            $objs = $this->GetProfileQuestionListByChannelIdByOrgId(
                 $channel_id
                 , $org_id
             );
@@ -11403,21 +11403,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileQuestionListChannelIdProfileId(
+    public function GetProfileQuestionListByChannelIdByProfileId(
         $channel_id
         , $profile_id
         ) {
-            return $this->act->GetProfileQuestionListChannelIdProfileId(
+            return $this->act->GetProfileQuestionListByChannelIdByProfileId(
                 $channel_id
                 , $profile_id
             );
         }
         
-    public function GetProfileQuestionChannelIdProfileId(
+    public function GetProfileQuestionByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {
-        foreach($this->act->GetProfileQuestionListChannelIdProfileId(
+        foreach($this->act->GetProfileQuestionListByChannelIdByProfileId(
         $channel_id
         , $profile_id
         ) as $item) {
@@ -11427,11 +11427,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileQuestionListChannelIdProfileId(
+    public function CachedGetProfileQuestionListByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {
-        return $this->CachedGetProfileQuestionListChannelIdProfileId(
+        return $this->CachedGetProfileQuestionListByChannelIdByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $channel_id
@@ -11440,7 +11440,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileQuestionListChannelIdProfileId(
+    public function CachedGetProfileQuestionListByChannelIdByProfileId(
         $overrideCache
         , $cacheHours
         , $channel_id
@@ -11449,7 +11449,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileQuestionListChannelIdProfileId";
+        $method_name = "CachedGetProfileQuestionListByChannelIdByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -11468,7 +11468,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileQuestionListChannelIdProfileId(
+            $objs = $this->GetProfileQuestionListByChannelIdByProfileId(
                 $channel_id
                 , $profile_id
             );
@@ -11478,21 +11478,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileQuestionListQuestionIdProfileId(
+    public function GetProfileQuestionListByQuestionIdByProfileId(
         $question_id
         , $profile_id
         ) {
-            return $this->act->GetProfileQuestionListQuestionIdProfileId(
+            return $this->act->GetProfileQuestionListByQuestionIdByProfileId(
                 $question_id
                 , $profile_id
             );
         }
         
-    public function GetProfileQuestionQuestionIdProfileId(
+    public function GetProfileQuestionByQuestionIdByProfileId(
         $question_id
         , $profile_id
     ) {
-        foreach($this->act->GetProfileQuestionListQuestionIdProfileId(
+        foreach($this->act->GetProfileQuestionListByQuestionIdByProfileId(
         $question_id
         , $profile_id
         ) as $item) {
@@ -11502,11 +11502,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileQuestionListQuestionIdProfileId(
+    public function CachedGetProfileQuestionListByQuestionIdByProfileId(
         $question_id
         , $profile_id
     ) {
-        return $this->CachedGetProfileQuestionListQuestionIdProfileId(
+        return $this->CachedGetProfileQuestionListByQuestionIdByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $question_id
@@ -11515,7 +11515,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileQuestionListQuestionIdProfileId(
+    public function CachedGetProfileQuestionListByQuestionIdByProfileId(
         $overrideCache
         , $cacheHours
         , $question_id
@@ -11524,7 +11524,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileQuestionListQuestionIdProfileId";
+        $method_name = "CachedGetProfileQuestionListByQuestionIdByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -11543,7 +11543,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileQuestionListQuestionIdProfileId(
+            $objs = $this->GetProfileQuestionListByQuestionIdByProfileId(
                 $question_id
                 , $profile_id
             );
@@ -11560,77 +11560,77 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileChannelUuid(
+    public function CountProfileChannelByUuid(
         $uuid
     ) {      
-        return $this->act->CountProfileChannelUuid(
+        return $this->act->CountProfileChannelByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileChannelChannelId(
+    public function CountProfileChannelByChannelId(
         $channel_id
     ) {      
-        return $this->act->CountProfileChannelChannelId(
+        return $this->act->CountProfileChannelByChannelId(
         $channel_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileChannelProfileId(
+    public function CountProfileChannelByProfileId(
         $profile_id
     ) {      
-        return $this->act->CountProfileChannelProfileId(
+        return $this->act->CountProfileChannelByProfileId(
         $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountProfileChannelChannelIdProfileId(
+    public function CountProfileChannelByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {      
-        return $this->act->CountProfileChannelChannelIdProfileId(
+        return $this->act->CountProfileChannelByChannelIdByProfileId(
         $channel_id
         , $profile_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseProfileChannelListFilter($filter_obj) {
-        return $this->act->BrowseProfileChannelListFilter($filter_obj);
+    public function BrowseProfileChannelListByFilter($filter_obj) {
+        return $this->act->BrowseProfileChannelListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileChannelUuid($set_type, $obj) {
-        return $this->act->SetProfileChannelUuid($set_type, $obj);
+    public function SetProfileChannelByUuid($set_type, $obj) {
+        return $this->act->SetProfileChannelByUuid($set_type, $obj);
     }
                
-    public function SetProfileChannelUuidFull($obj) {
-        return $this->act->SetProfileChannelUuid('full', $obj);
+    public function SetProfileChannelByUuidFull($obj) {
+        return $this->act->SetProfileChannelByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetProfileChannelChannelIdProfileId($set_type, $obj) {
-        return $this->act->SetProfileChannelChannelIdProfileId($set_type, $obj);
+    public function SetProfileChannelByChannelIdByProfileId($set_type, $obj) {
+        return $this->act->SetProfileChannelByChannelIdByProfileId($set_type, $obj);
     }
                
-    public function SetProfileChannelChannelIdProfileIdFull($obj) {
-        return $this->act->SetProfileChannelChannelIdProfileId('full', $obj);
+    public function SetProfileChannelByChannelIdByProfileIdFull($obj) {
+        return $this->act->SetProfileChannelByChannelIdByProfileId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileChannelUuid(
+    public function DelProfileChannelByUuid(
         $uuid
     ) {         
-        return $this->act->DelProfileChannelUuid(
+        return $this->act->DelProfileChannelByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelProfileChannelChannelIdProfileId(
+    public function DelProfileChannelByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {         
-        return $this->act->DelProfileChannelChannelIdProfileId(
+        return $this->act->DelProfileChannelByChannelIdByProfileId(
         $channel_id
         , $profile_id
         );
@@ -11687,18 +11687,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileChannelListUuid(
+    public function GetProfileChannelListByUuid(
         $uuid
         ) {
-            return $this->act->GetProfileChannelListUuid(
+            return $this->act->GetProfileChannelListByUuid(
                 $uuid
             );
         }
         
-    public function GetProfileChannelUuid(
+    public function GetProfileChannelByUuid(
         $uuid
     ) {
-        foreach($this->act->GetProfileChannelListUuid(
+        foreach($this->act->GetProfileChannelListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -11707,10 +11707,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileChannelListUuid(
+    public function CachedGetProfileChannelListByUuid(
         $uuid
     ) {
-        return $this->CachedGetProfileChannelListUuid(
+        return $this->CachedGetProfileChannelListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -11718,7 +11718,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileChannelListUuid(
+    public function CachedGetProfileChannelListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -11726,7 +11726,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileChannelListUuid";
+        $method_name = "CachedGetProfileChannelListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -11741,7 +11741,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileChannelListUuid(
+            $objs = $this->GetProfileChannelListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11750,18 +11750,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileChannelListChannelId(
+    public function GetProfileChannelListByChannelId(
         $channel_id
         ) {
-            return $this->act->GetProfileChannelListChannelId(
+            return $this->act->GetProfileChannelListByChannelId(
                 $channel_id
             );
         }
         
-    public function GetProfileChannelChannelId(
+    public function GetProfileChannelByChannelId(
         $channel_id
     ) {
-        foreach($this->act->GetProfileChannelListChannelId(
+        foreach($this->act->GetProfileChannelListByChannelId(
         $channel_id
         ) as $item) {
             return $item;
@@ -11770,10 +11770,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileChannelListChannelId(
+    public function CachedGetProfileChannelListByChannelId(
         $channel_id
     ) {
-        return $this->CachedGetProfileChannelListChannelId(
+        return $this->CachedGetProfileChannelListByChannelId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $channel_id
@@ -11781,7 +11781,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileChannelListChannelId(
+    public function CachedGetProfileChannelListByChannelId(
         $overrideCache
         , $cacheHours
         , $channel_id
@@ -11789,7 +11789,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileChannelListChannelId";
+        $method_name = "CachedGetProfileChannelListByChannelId";
 
         $sb = "";
         $sb += $method_name;
@@ -11804,7 +11804,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileChannelListChannelId(
+            $objs = $this->GetProfileChannelListByChannelId(
                 $channel_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11813,18 +11813,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileChannelListProfileId(
+    public function GetProfileChannelListByProfileId(
         $profile_id
         ) {
-            return $this->act->GetProfileChannelListProfileId(
+            return $this->act->GetProfileChannelListByProfileId(
                 $profile_id
             );
         }
         
-    public function GetProfileChannelProfileId(
+    public function GetProfileChannelByProfileId(
         $profile_id
     ) {
-        foreach($this->act->GetProfileChannelListProfileId(
+        foreach($this->act->GetProfileChannelListByProfileId(
         $profile_id
         ) as $item) {
             return $item;
@@ -11833,10 +11833,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileChannelListProfileId(
+    public function CachedGetProfileChannelListByProfileId(
         $profile_id
     ) {
-        return $this->CachedGetProfileChannelListProfileId(
+        return $this->CachedGetProfileChannelListByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $profile_id
@@ -11844,7 +11844,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileChannelListProfileId(
+    public function CachedGetProfileChannelListByProfileId(
         $overrideCache
         , $cacheHours
         , $profile_id
@@ -11852,7 +11852,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileChannelListProfileId";
+        $method_name = "CachedGetProfileChannelListByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -11867,7 +11867,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileChannelListProfileId(
+            $objs = $this->GetProfileChannelListByProfileId(
                 $profile_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -11876,21 +11876,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetProfileChannelListChannelIdProfileId(
+    public function GetProfileChannelListByChannelIdByProfileId(
         $channel_id
         , $profile_id
         ) {
-            return $this->act->GetProfileChannelListChannelIdProfileId(
+            return $this->act->GetProfileChannelListByChannelIdByProfileId(
                 $channel_id
                 , $profile_id
             );
         }
         
-    public function GetProfileChannelChannelIdProfileId(
+    public function GetProfileChannelByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {
-        foreach($this->act->GetProfileChannelListChannelIdProfileId(
+        foreach($this->act->GetProfileChannelListByChannelIdByProfileId(
         $channel_id
         , $profile_id
         ) as $item) {
@@ -11900,11 +11900,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetProfileChannelListChannelIdProfileId(
+    public function CachedGetProfileChannelListByChannelIdByProfileId(
         $channel_id
         , $profile_id
     ) {
-        return $this->CachedGetProfileChannelListChannelIdProfileId(
+        return $this->CachedGetProfileChannelListByChannelIdByProfileId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $channel_id
@@ -11913,7 +11913,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetProfileChannelListChannelIdProfileId(
+    public function CachedGetProfileChannelListByChannelIdByProfileId(
         $overrideCache
         , $cacheHours
         , $channel_id
@@ -11922,7 +11922,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetProfileChannelListChannelIdProfileId";
+        $method_name = "CachedGetProfileChannelListByChannelIdByProfileId";
 
         $sb = "";
         $sb += $method_name;
@@ -11941,7 +11941,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetProfileChannelListChannelIdProfileId(
+            $objs = $this->GetProfileChannelListByChannelIdByProfileId(
                 $channel_id
                 , $profile_id
             );
@@ -11958,77 +11958,77 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOrgSiteUuid(
+    public function CountOrgSiteByUuid(
         $uuid
     ) {      
-        return $this->act->CountOrgSiteUuid(
+        return $this->act->CountOrgSiteByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOrgSiteOrgId(
+    public function CountOrgSiteByOrgId(
         $org_id
     ) {      
-        return $this->act->CountOrgSiteOrgId(
+        return $this->act->CountOrgSiteByOrgId(
         $org_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOrgSiteSiteId(
+    public function CountOrgSiteBySiteId(
         $site_id
     ) {      
-        return $this->act->CountOrgSiteSiteId(
+        return $this->act->CountOrgSiteBySiteId(
         $site_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountOrgSiteOrgIdSiteId(
+    public function CountOrgSiteByOrgIdBySiteId(
         $org_id
         , $site_id
     ) {      
-        return $this->act->CountOrgSiteOrgIdSiteId(
+        return $this->act->CountOrgSiteByOrgIdBySiteId(
         $org_id
         , $site_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseOrgSiteListFilter($filter_obj) {
-        return $this->act->BrowseOrgSiteListFilter($filter_obj);
+    public function BrowseOrgSiteListByFilter($filter_obj) {
+        return $this->act->BrowseOrgSiteListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOrgSiteUuid($set_type, $obj) {
-        return $this->act->SetOrgSiteUuid($set_type, $obj);
+    public function SetOrgSiteByUuid($set_type, $obj) {
+        return $this->act->SetOrgSiteByUuid($set_type, $obj);
     }
                
-    public function SetOrgSiteUuidFull($obj) {
-        return $this->act->SetOrgSiteUuid('full', $obj);
+    public function SetOrgSiteByUuidFull($obj) {
+        return $this->act->SetOrgSiteByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetOrgSiteOrgIdSiteId($set_type, $obj) {
-        return $this->act->SetOrgSiteOrgIdSiteId($set_type, $obj);
+    public function SetOrgSiteByOrgIdBySiteId($set_type, $obj) {
+        return $this->act->SetOrgSiteByOrgIdBySiteId($set_type, $obj);
     }
                
-    public function SetOrgSiteOrgIdSiteIdFull($obj) {
-        return $this->act->SetOrgSiteOrgIdSiteId('full', $obj);
+    public function SetOrgSiteByOrgIdBySiteIdFull($obj) {
+        return $this->act->SetOrgSiteByOrgIdBySiteId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelOrgSiteUuid(
+    public function DelOrgSiteByUuid(
         $uuid
     ) {         
-        return $this->act->DelOrgSiteUuid(
+        return $this->act->DelOrgSiteByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelOrgSiteOrgIdSiteId(
+    public function DelOrgSiteByOrgIdBySiteId(
         $org_id
         , $site_id
     ) {         
-        return $this->act->DelOrgSiteOrgIdSiteId(
+        return $this->act->DelOrgSiteByOrgIdBySiteId(
         $org_id
         , $site_id
         );
@@ -12085,18 +12085,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOrgSiteListUuid(
+    public function GetOrgSiteListByUuid(
         $uuid
         ) {
-            return $this->act->GetOrgSiteListUuid(
+            return $this->act->GetOrgSiteListByUuid(
                 $uuid
             );
         }
         
-    public function GetOrgSiteUuid(
+    public function GetOrgSiteByUuid(
         $uuid
     ) {
-        foreach($this->act->GetOrgSiteListUuid(
+        foreach($this->act->GetOrgSiteListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -12105,10 +12105,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOrgSiteListUuid(
+    public function CachedGetOrgSiteListByUuid(
         $uuid
     ) {
-        return $this->CachedGetOrgSiteListUuid(
+        return $this->CachedGetOrgSiteListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -12116,7 +12116,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOrgSiteListUuid(
+    public function CachedGetOrgSiteListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -12124,7 +12124,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOrgSiteListUuid";
+        $method_name = "CachedGetOrgSiteListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -12139,7 +12139,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOrgSiteListUuid(
+            $objs = $this->GetOrgSiteListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12148,18 +12148,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOrgSiteListOrgId(
+    public function GetOrgSiteListByOrgId(
         $org_id
         ) {
-            return $this->act->GetOrgSiteListOrgId(
+            return $this->act->GetOrgSiteListByOrgId(
                 $org_id
             );
         }
         
-    public function GetOrgSiteOrgId(
+    public function GetOrgSiteByOrgId(
         $org_id
     ) {
-        foreach($this->act->GetOrgSiteListOrgId(
+        foreach($this->act->GetOrgSiteListByOrgId(
         $org_id
         ) as $item) {
             return $item;
@@ -12168,10 +12168,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOrgSiteListOrgId(
+    public function CachedGetOrgSiteListByOrgId(
         $org_id
     ) {
-        return $this->CachedGetOrgSiteListOrgId(
+        return $this->CachedGetOrgSiteListByOrgId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -12179,7 +12179,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOrgSiteListOrgId(
+    public function CachedGetOrgSiteListByOrgId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -12187,7 +12187,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOrgSiteListOrgId";
+        $method_name = "CachedGetOrgSiteListByOrgId";
 
         $sb = "";
         $sb += $method_name;
@@ -12202,7 +12202,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOrgSiteListOrgId(
+            $objs = $this->GetOrgSiteListByOrgId(
                 $org_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12211,18 +12211,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOrgSiteListSiteId(
+    public function GetOrgSiteListBySiteId(
         $site_id
         ) {
-            return $this->act->GetOrgSiteListSiteId(
+            return $this->act->GetOrgSiteListBySiteId(
                 $site_id
             );
         }
         
-    public function GetOrgSiteSiteId(
+    public function GetOrgSiteBySiteId(
         $site_id
     ) {
-        foreach($this->act->GetOrgSiteListSiteId(
+        foreach($this->act->GetOrgSiteListBySiteId(
         $site_id
         ) as $item) {
             return $item;
@@ -12231,10 +12231,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOrgSiteListSiteId(
+    public function CachedGetOrgSiteListBySiteId(
         $site_id
     ) {
-        return $this->CachedGetOrgSiteListSiteId(
+        return $this->CachedGetOrgSiteListBySiteId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $site_id
@@ -12242,7 +12242,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOrgSiteListSiteId(
+    public function CachedGetOrgSiteListBySiteId(
         $overrideCache
         , $cacheHours
         , $site_id
@@ -12250,7 +12250,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOrgSiteListSiteId";
+        $method_name = "CachedGetOrgSiteListBySiteId";
 
         $sb = "";
         $sb += $method_name;
@@ -12265,7 +12265,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOrgSiteListSiteId(
+            $objs = $this->GetOrgSiteListBySiteId(
                 $site_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12274,21 +12274,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetOrgSiteListOrgIdSiteId(
+    public function GetOrgSiteListByOrgIdBySiteId(
         $org_id
         , $site_id
         ) {
-            return $this->act->GetOrgSiteListOrgIdSiteId(
+            return $this->act->GetOrgSiteListByOrgIdBySiteId(
                 $org_id
                 , $site_id
             );
         }
         
-    public function GetOrgSiteOrgIdSiteId(
+    public function GetOrgSiteByOrgIdBySiteId(
         $org_id
         , $site_id
     ) {
-        foreach($this->act->GetOrgSiteListOrgIdSiteId(
+        foreach($this->act->GetOrgSiteListByOrgIdBySiteId(
         $org_id
         , $site_id
         ) as $item) {
@@ -12298,11 +12298,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetOrgSiteListOrgIdSiteId(
+    public function CachedGetOrgSiteListByOrgIdBySiteId(
         $org_id
         , $site_id
     ) {
-        return $this->CachedGetOrgSiteListOrgIdSiteId(
+        return $this->CachedGetOrgSiteListByOrgIdBySiteId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $org_id
@@ -12311,7 +12311,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetOrgSiteListOrgIdSiteId(
+    public function CachedGetOrgSiteListByOrgIdBySiteId(
         $overrideCache
         , $cacheHours
         , $org_id
@@ -12320,7 +12320,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetOrgSiteListOrgIdSiteId";
+        $method_name = "CachedGetOrgSiteListByOrgIdBySiteId";
 
         $sb = "";
         $sb += $method_name;
@@ -12339,7 +12339,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetOrgSiteListOrgIdSiteId(
+            $objs = $this->GetOrgSiteListByOrgIdBySiteId(
                 $org_id
                 , $site_id
             );
@@ -12356,77 +12356,77 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteAppUuid(
+    public function CountSiteAppByUuid(
         $uuid
     ) {      
-        return $this->act->CountSiteAppUuid(
+        return $this->act->CountSiteAppByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteAppAppId(
+    public function CountSiteAppByAppId(
         $app_id
     ) {      
-        return $this->act->CountSiteAppAppId(
+        return $this->act->CountSiteAppByAppId(
         $app_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteAppSiteId(
+    public function CountSiteAppBySiteId(
         $site_id
     ) {      
-        return $this->act->CountSiteAppSiteId(
+        return $this->act->CountSiteAppBySiteId(
         $site_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountSiteAppAppIdSiteId(
+    public function CountSiteAppByAppIdBySiteId(
         $app_id
         , $site_id
     ) {      
-        return $this->act->CountSiteAppAppIdSiteId(
+        return $this->act->CountSiteAppByAppIdBySiteId(
         $app_id
         , $site_id
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function BrowseSiteAppListFilter($filter_obj) {
-        return $this->act->BrowseSiteAppListFilter($filter_obj);
+    public function BrowseSiteAppListByFilter($filter_obj) {
+        return $this->act->BrowseSiteAppListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetSiteAppUuid($set_type, $obj) {
-        return $this->act->SetSiteAppUuid($set_type, $obj);
+    public function SetSiteAppByUuid($set_type, $obj) {
+        return $this->act->SetSiteAppByUuid($set_type, $obj);
     }
                
-    public function SetSiteAppUuidFull($obj) {
-        return $this->act->SetSiteAppUuid('full', $obj);
+    public function SetSiteAppByUuidFull($obj) {
+        return $this->act->SetSiteAppByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetSiteAppAppIdSiteId($set_type, $obj) {
-        return $this->act->SetSiteAppAppIdSiteId($set_type, $obj);
+    public function SetSiteAppByAppIdBySiteId($set_type, $obj) {
+        return $this->act->SetSiteAppByAppIdBySiteId($set_type, $obj);
     }
                
-    public function SetSiteAppAppIdSiteIdFull($obj) {
-        return $this->act->SetSiteAppAppIdSiteId('full', $obj);
+    public function SetSiteAppByAppIdBySiteIdFull($obj) {
+        return $this->act->SetSiteAppByAppIdBySiteId('full', $obj);
     }
 #------------------------------------------------------------------------------                    
-    public function DelSiteAppUuid(
+    public function DelSiteAppByUuid(
         $uuid
     ) {         
-        return $this->act->DelSiteAppUuid(
+        return $this->act->DelSiteAppByUuid(
         $uuid
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelSiteAppAppIdSiteId(
+    public function DelSiteAppByAppIdBySiteId(
         $app_id
         , $site_id
     ) {         
-        return $this->act->DelSiteAppAppIdSiteId(
+        return $this->act->DelSiteAppByAppIdBySiteId(
         $app_id
         , $site_id
         );
@@ -12483,18 +12483,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteAppListUuid(
+    public function GetSiteAppListByUuid(
         $uuid
         ) {
-            return $this->act->GetSiteAppListUuid(
+            return $this->act->GetSiteAppListByUuid(
                 $uuid
             );
         }
         
-    public function GetSiteAppUuid(
+    public function GetSiteAppByUuid(
         $uuid
     ) {
-        foreach($this->act->GetSiteAppListUuid(
+        foreach($this->act->GetSiteAppListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -12503,10 +12503,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteAppListUuid(
+    public function CachedGetSiteAppListByUuid(
         $uuid
     ) {
-        return $this->CachedGetSiteAppListUuid(
+        return $this->CachedGetSiteAppListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -12514,7 +12514,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteAppListUuid(
+    public function CachedGetSiteAppListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -12522,7 +12522,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteAppListUuid";
+        $method_name = "CachedGetSiteAppListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -12537,7 +12537,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteAppListUuid(
+            $objs = $this->GetSiteAppListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12546,18 +12546,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteAppListAppId(
+    public function GetSiteAppListByAppId(
         $app_id
         ) {
-            return $this->act->GetSiteAppListAppId(
+            return $this->act->GetSiteAppListByAppId(
                 $app_id
             );
         }
         
-    public function GetSiteAppAppId(
+    public function GetSiteAppByAppId(
         $app_id
     ) {
-        foreach($this->act->GetSiteAppListAppId(
+        foreach($this->act->GetSiteAppListByAppId(
         $app_id
         ) as $item) {
             return $item;
@@ -12566,10 +12566,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteAppListAppId(
+    public function CachedGetSiteAppListByAppId(
         $app_id
     ) {
-        return $this->CachedGetSiteAppListAppId(
+        return $this->CachedGetSiteAppListByAppId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $app_id
@@ -12577,7 +12577,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteAppListAppId(
+    public function CachedGetSiteAppListByAppId(
         $overrideCache
         , $cacheHours
         , $app_id
@@ -12585,7 +12585,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteAppListAppId";
+        $method_name = "CachedGetSiteAppListByAppId";
 
         $sb = "";
         $sb += $method_name;
@@ -12600,7 +12600,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteAppListAppId(
+            $objs = $this->GetSiteAppListByAppId(
                 $app_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12609,18 +12609,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteAppListSiteId(
+    public function GetSiteAppListBySiteId(
         $site_id
         ) {
-            return $this->act->GetSiteAppListSiteId(
+            return $this->act->GetSiteAppListBySiteId(
                 $site_id
             );
         }
         
-    public function GetSiteAppSiteId(
+    public function GetSiteAppBySiteId(
         $site_id
     ) {
-        foreach($this->act->GetSiteAppListSiteId(
+        foreach($this->act->GetSiteAppListBySiteId(
         $site_id
         ) as $item) {
             return $item;
@@ -12629,10 +12629,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteAppListSiteId(
+    public function CachedGetSiteAppListBySiteId(
         $site_id
     ) {
-        return $this->CachedGetSiteAppListSiteId(
+        return $this->CachedGetSiteAppListBySiteId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $site_id
@@ -12640,7 +12640,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteAppListSiteId(
+    public function CachedGetSiteAppListBySiteId(
         $overrideCache
         , $cacheHours
         , $site_id
@@ -12648,7 +12648,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteAppListSiteId";
+        $method_name = "CachedGetSiteAppListBySiteId";
 
         $sb = "";
         $sb += $method_name;
@@ -12663,7 +12663,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteAppListSiteId(
+            $objs = $this->GetSiteAppListBySiteId(
                 $site_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -12672,21 +12672,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetSiteAppListAppIdSiteId(
+    public function GetSiteAppListByAppIdBySiteId(
         $app_id
         , $site_id
         ) {
-            return $this->act->GetSiteAppListAppIdSiteId(
+            return $this->act->GetSiteAppListByAppIdBySiteId(
                 $app_id
                 , $site_id
             );
         }
         
-    public function GetSiteAppAppIdSiteId(
+    public function GetSiteAppByAppIdBySiteId(
         $app_id
         , $site_id
     ) {
-        foreach($this->act->GetSiteAppListAppIdSiteId(
+        foreach($this->act->GetSiteAppListByAppIdBySiteId(
         $app_id
         , $site_id
         ) as $item) {
@@ -12696,11 +12696,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetSiteAppListAppIdSiteId(
+    public function CachedGetSiteAppListByAppIdBySiteId(
         $app_id
         , $site_id
     ) {
-        return $this->CachedGetSiteAppListAppIdSiteId(
+        return $this->CachedGetSiteAppListByAppIdBySiteId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $app_id
@@ -12709,7 +12709,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetSiteAppListAppIdSiteId(
+    public function CachedGetSiteAppListByAppIdBySiteId(
         $overrideCache
         , $cacheHours
         , $app_id
@@ -12718,7 +12718,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetSiteAppListAppIdSiteId";
+        $method_name = "CachedGetSiteAppListByAppIdBySiteId";
 
         $sb = "";
         $sb += $method_name;
@@ -12737,7 +12737,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetSiteAppListAppIdSiteId(
+            $objs = $this->GetSiteAppListByAppIdBySiteId(
                 $app_id
                 , $site_id
             );
@@ -12754,138 +12754,138 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountPhotoUuid(
+    public function CountPhotoByUuid(
         $uuid
     ) {      
-        return $this->act->CountPhotoUuid(
+        return $this->act->CountPhotoByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountPhotoExternalId(
+    public function CountPhotoByExternalId(
         $external_id
     ) {      
-        return $this->act->CountPhotoExternalId(
-        $external_id
-        );
-    }
-        
-#------------------------------------------------------------------------------                    
-    public function CountPhotoUrl(
-        $url
-    ) {      
-        return $this->act->CountPhotoUrl(
-        $url
-        );
-    }
-        
-#------------------------------------------------------------------------------                    
-    public function CountPhotoUrlExternalId(
-        $url
-        , $external_id
-    ) {      
-        return $this->act->CountPhotoUrlExternalId(
-        $url
-        , $external_id
-        );
-    }
-        
-#------------------------------------------------------------------------------                    
-    public function CountPhotoUuidExternalId(
-        $uuid
-        , $external_id
-    ) {      
-        return $this->act->CountPhotoUuidExternalId(
-        $uuid
-        , $external_id
-        );
-    }
-        
-#------------------------------------------------------------------------------                    
-    public function BrowsePhotoListFilter($filter_obj) {
-        return $this->act->BrowsePhotoListFilter($filter_obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetPhotoUuid($set_type, $obj) {
-        return $this->act->SetPhotoUuid($set_type, $obj);
-    }
-               
-    public function SetPhotoUuidFull($obj) {
-        return $this->act->SetPhotoUuid('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetPhotoExternalId($set_type, $obj) {
-        return $this->act->SetPhotoExternalId($set_type, $obj);
-    }
-               
-    public function SetPhotoExternalIdFull($obj) {
-        return $this->act->SetPhotoExternalId('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetPhotoUrl($set_type, $obj) {
-        return $this->act->SetPhotoUrl($set_type, $obj);
-    }
-               
-    public function SetPhotoUrlFull($obj) {
-        return $this->act->SetPhotoUrl('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetPhotoUrlExternalId($set_type, $obj) {
-        return $this->act->SetPhotoUrlExternalId($set_type, $obj);
-    }
-               
-    public function SetPhotoUrlExternalIdFull($obj) {
-        return $this->act->SetPhotoUrlExternalId('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetPhotoUuidExternalId($set_type, $obj) {
-        return $this->act->SetPhotoUuidExternalId($set_type, $obj);
-    }
-               
-    public function SetPhotoUuidExternalIdFull($obj) {
-        return $this->act->SetPhotoUuidExternalId('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function DelPhotoUuid(
-        $uuid
-    ) {         
-        return $this->act->DelPhotoUuid(
-        $uuid
-        );
-    }
-#------------------------------------------------------------------------------                    
-    public function DelPhotoExternalId(
-        $external_id
-    ) {         
-        return $this->act->DelPhotoExternalId(
+        return $this->act->CountPhotoByExternalId(
         $external_id
         );
     }
+        
 #------------------------------------------------------------------------------                    
-    public function DelPhotoUrl(
+    public function CountPhotoByUrl(
+        $url
+    ) {      
+        return $this->act->CountPhotoByUrl(
+        $url
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountPhotoByUrlByExternalId(
+        $url
+        , $external_id
+    ) {      
+        return $this->act->CountPhotoByUrlByExternalId(
+        $url
+        , $external_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountPhotoByUuidByExternalId(
+        $uuid
+        , $external_id
+    ) {      
+        return $this->act->CountPhotoByUuidByExternalId(
+        $uuid
+        , $external_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowsePhotoListByFilter($filter_obj) {
+        return $this->act->BrowsePhotoListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetPhotoByUuid($set_type, $obj) {
+        return $this->act->SetPhotoByUuid($set_type, $obj);
+    }
+               
+    public function SetPhotoByUuidFull($obj) {
+        return $this->act->SetPhotoByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetPhotoByExternalId($set_type, $obj) {
+        return $this->act->SetPhotoByExternalId($set_type, $obj);
+    }
+               
+    public function SetPhotoByExternalIdFull($obj) {
+        return $this->act->SetPhotoByExternalId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetPhotoByUrl($set_type, $obj) {
+        return $this->act->SetPhotoByUrl($set_type, $obj);
+    }
+               
+    public function SetPhotoByUrlFull($obj) {
+        return $this->act->SetPhotoByUrl('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetPhotoByUrlByExternalId($set_type, $obj) {
+        return $this->act->SetPhotoByUrlByExternalId($set_type, $obj);
+    }
+               
+    public function SetPhotoByUrlByExternalIdFull($obj) {
+        return $this->act->SetPhotoByUrlByExternalId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetPhotoByUuidByExternalId($set_type, $obj) {
+        return $this->act->SetPhotoByUuidByExternalId($set_type, $obj);
+    }
+               
+    public function SetPhotoByUuidByExternalIdFull($obj) {
+        return $this->act->SetPhotoByUuidByExternalId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelPhotoByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelPhotoByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelPhotoByExternalId(
+        $external_id
+    ) {         
+        return $this->act->DelPhotoByExternalId(
+        $external_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelPhotoByUrl(
         $url
     ) {         
-        return $this->act->DelPhotoUrl(
+        return $this->act->DelPhotoByUrl(
         $url
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelPhotoUrlExternalId(
+    public function DelPhotoByUrlByExternalId(
         $url
         , $external_id
     ) {         
-        return $this->act->DelPhotoUrlExternalId(
+        return $this->act->DelPhotoByUrlByExternalId(
         $url
         , $external_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelPhotoUuidExternalId(
+    public function DelPhotoByUuidByExternalId(
         $uuid
         , $external_id
     ) {         
-        return $this->act->DelPhotoUuidExternalId(
+        return $this->act->DelPhotoByUuidByExternalId(
         $uuid
         , $external_id
         );
@@ -12942,18 +12942,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetPhotoListUuid(
+    public function GetPhotoListByUuid(
         $uuid
         ) {
-            return $this->act->GetPhotoListUuid(
+            return $this->act->GetPhotoListByUuid(
                 $uuid
             );
         }
         
-    public function GetPhotoUuid(
+    public function GetPhotoByUuid(
         $uuid
     ) {
-        foreach($this->act->GetPhotoListUuid(
+        foreach($this->act->GetPhotoListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -12962,10 +12962,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetPhotoListUuid(
+    public function CachedGetPhotoListByUuid(
         $uuid
     ) {
-        return $this->CachedGetPhotoListUuid(
+        return $this->CachedGetPhotoListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -12973,7 +12973,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetPhotoListUuid(
+    public function CachedGetPhotoListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -12981,7 +12981,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetPhotoListUuid";
+        $method_name = "CachedGetPhotoListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -12996,7 +12996,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetPhotoListUuid(
+            $objs = $this->GetPhotoListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13005,18 +13005,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetPhotoListExternalId(
+    public function GetPhotoListByExternalId(
         $external_id
         ) {
-            return $this->act->GetPhotoListExternalId(
+            return $this->act->GetPhotoListByExternalId(
                 $external_id
             );
         }
         
-    public function GetPhotoExternalId(
+    public function GetPhotoByExternalId(
         $external_id
     ) {
-        foreach($this->act->GetPhotoListExternalId(
+        foreach($this->act->GetPhotoListByExternalId(
         $external_id
         ) as $item) {
             return $item;
@@ -13025,10 +13025,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetPhotoListExternalId(
+    public function CachedGetPhotoListByExternalId(
         $external_id
     ) {
-        return $this->CachedGetPhotoListExternalId(
+        return $this->CachedGetPhotoListByExternalId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $external_id
@@ -13036,7 +13036,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetPhotoListExternalId(
+    public function CachedGetPhotoListByExternalId(
         $overrideCache
         , $cacheHours
         , $external_id
@@ -13044,7 +13044,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetPhotoListExternalId";
+        $method_name = "CachedGetPhotoListByExternalId";
 
         $sb = "";
         $sb += $method_name;
@@ -13059,7 +13059,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetPhotoListExternalId(
+            $objs = $this->GetPhotoListByExternalId(
                 $external_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13068,18 +13068,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetPhotoListUrl(
+    public function GetPhotoListByUrl(
         $url
         ) {
-            return $this->act->GetPhotoListUrl(
+            return $this->act->GetPhotoListByUrl(
                 $url
             );
         }
         
-    public function GetPhotoUrl(
+    public function GetPhotoByUrl(
         $url
     ) {
-        foreach($this->act->GetPhotoListUrl(
+        foreach($this->act->GetPhotoListByUrl(
         $url
         ) as $item) {
             return $item;
@@ -13088,10 +13088,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetPhotoListUrl(
+    public function CachedGetPhotoListByUrl(
         $url
     ) {
-        return $this->CachedGetPhotoListUrl(
+        return $this->CachedGetPhotoListByUrl(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $url
@@ -13099,7 +13099,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetPhotoListUrl(
+    public function CachedGetPhotoListByUrl(
         $overrideCache
         , $cacheHours
         , $url
@@ -13107,7 +13107,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetPhotoListUrl";
+        $method_name = "CachedGetPhotoListByUrl";
 
         $sb = "";
         $sb += $method_name;
@@ -13122,7 +13122,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetPhotoListUrl(
+            $objs = $this->GetPhotoListByUrl(
                 $url
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13131,21 +13131,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetPhotoListUrlExternalId(
+    public function GetPhotoListByUrlByExternalId(
         $url
         , $external_id
         ) {
-            return $this->act->GetPhotoListUrlExternalId(
+            return $this->act->GetPhotoListByUrlByExternalId(
                 $url
                 , $external_id
             );
         }
         
-    public function GetPhotoUrlExternalId(
+    public function GetPhotoByUrlByExternalId(
         $url
         , $external_id
     ) {
-        foreach($this->act->GetPhotoListUrlExternalId(
+        foreach($this->act->GetPhotoListByUrlByExternalId(
         $url
         , $external_id
         ) as $item) {
@@ -13155,11 +13155,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetPhotoListUrlExternalId(
+    public function CachedGetPhotoListByUrlByExternalId(
         $url
         , $external_id
     ) {
-        return $this->CachedGetPhotoListUrlExternalId(
+        return $this->CachedGetPhotoListByUrlByExternalId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $url
@@ -13168,7 +13168,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetPhotoListUrlExternalId(
+    public function CachedGetPhotoListByUrlByExternalId(
         $overrideCache
         , $cacheHours
         , $url
@@ -13177,7 +13177,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetPhotoListUrlExternalId";
+        $method_name = "CachedGetPhotoListByUrlByExternalId";
 
         $sb = "";
         $sb += $method_name;
@@ -13196,7 +13196,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetPhotoListUrlExternalId(
+            $objs = $this->GetPhotoListByUrlByExternalId(
                 $url
                 , $external_id
             );
@@ -13206,21 +13206,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetPhotoListUuidExternalId(
+    public function GetPhotoListByUuidByExternalId(
         $uuid
         , $external_id
         ) {
-            return $this->act->GetPhotoListUuidExternalId(
+            return $this->act->GetPhotoListByUuidByExternalId(
                 $uuid
                 , $external_id
             );
         }
         
-    public function GetPhotoUuidExternalId(
+    public function GetPhotoByUuidByExternalId(
         $uuid
         , $external_id
     ) {
-        foreach($this->act->GetPhotoListUuidExternalId(
+        foreach($this->act->GetPhotoListByUuidByExternalId(
         $uuid
         , $external_id
         ) as $item) {
@@ -13230,11 +13230,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetPhotoListUuidExternalId(
+    public function CachedGetPhotoListByUuidByExternalId(
         $uuid
         , $external_id
     ) {
-        return $this->CachedGetPhotoListUuidExternalId(
+        return $this->CachedGetPhotoListByUuidByExternalId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -13243,7 +13243,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetPhotoListUuidExternalId(
+    public function CachedGetPhotoListByUuidByExternalId(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -13252,7 +13252,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetPhotoListUuidExternalId";
+        $method_name = "CachedGetPhotoListByUuidByExternalId";
 
         $sb = "";
         $sb += $method_name;
@@ -13271,7 +13271,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetPhotoListUuidExternalId(
+            $objs = $this->GetPhotoListByUuidByExternalId(
                 $uuid
                 , $external_id
             );
@@ -13288,138 +13288,138 @@ class BasePlatformAPI {
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountVideoUuid(
+    public function CountVideoByUuid(
         $uuid
     ) {      
-        return $this->act->CountVideoUuid(
+        return $this->act->CountVideoByUuid(
         $uuid
         );
     }
         
 #------------------------------------------------------------------------------                    
-    public function CountVideoExternalId(
+    public function CountVideoByExternalId(
         $external_id
     ) {      
-        return $this->act->CountVideoExternalId(
-        $external_id
-        );
-    }
-        
-#------------------------------------------------------------------------------                    
-    public function CountVideoUrl(
-        $url
-    ) {      
-        return $this->act->CountVideoUrl(
-        $url
-        );
-    }
-        
-#------------------------------------------------------------------------------                    
-    public function CountVideoUrlExternalId(
-        $url
-        , $external_id
-    ) {      
-        return $this->act->CountVideoUrlExternalId(
-        $url
-        , $external_id
-        );
-    }
-        
-#------------------------------------------------------------------------------                    
-    public function CountVideoUuidExternalId(
-        $uuid
-        , $external_id
-    ) {      
-        return $this->act->CountVideoUuidExternalId(
-        $uuid
-        , $external_id
-        );
-    }
-        
-#------------------------------------------------------------------------------                    
-    public function BrowseVideoListFilter($filter_obj) {
-        return $this->act->BrowseVideoListFilter($filter_obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetVideoUuid($set_type, $obj) {
-        return $this->act->SetVideoUuid($set_type, $obj);
-    }
-               
-    public function SetVideoUuidFull($obj) {
-        return $this->act->SetVideoUuid('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetVideoExternalId($set_type, $obj) {
-        return $this->act->SetVideoExternalId($set_type, $obj);
-    }
-               
-    public function SetVideoExternalIdFull($obj) {
-        return $this->act->SetVideoExternalId('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetVideoUrl($set_type, $obj) {
-        return $this->act->SetVideoUrl($set_type, $obj);
-    }
-               
-    public function SetVideoUrlFull($obj) {
-        return $this->act->SetVideoUrl('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetVideoUrlExternalId($set_type, $obj) {
-        return $this->act->SetVideoUrlExternalId($set_type, $obj);
-    }
-               
-    public function SetVideoUrlExternalIdFull($obj) {
-        return $this->act->SetVideoUrlExternalId('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function SetVideoUuidExternalId($set_type, $obj) {
-        return $this->act->SetVideoUuidExternalId($set_type, $obj);
-    }
-               
-    public function SetVideoUuidExternalIdFull($obj) {
-        return $this->act->SetVideoUuidExternalId('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
-    public function DelVideoUuid(
-        $uuid
-    ) {         
-        return $this->act->DelVideoUuid(
-        $uuid
-        );
-    }
-#------------------------------------------------------------------------------                    
-    public function DelVideoExternalId(
-        $external_id
-    ) {         
-        return $this->act->DelVideoExternalId(
+        return $this->act->CountVideoByExternalId(
         $external_id
         );
     }
+        
 #------------------------------------------------------------------------------                    
-    public function DelVideoUrl(
+    public function CountVideoByUrl(
+        $url
+    ) {      
+        return $this->act->CountVideoByUrl(
+        $url
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountVideoByUrlByExternalId(
+        $url
+        , $external_id
+    ) {      
+        return $this->act->CountVideoByUrlByExternalId(
+        $url
+        , $external_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountVideoByUuidByExternalId(
+        $uuid
+        , $external_id
+    ) {      
+        return $this->act->CountVideoByUuidByExternalId(
+        $uuid
+        , $external_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseVideoListByFilter($filter_obj) {
+        return $this->act->BrowseVideoListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetVideoByUuid($set_type, $obj) {
+        return $this->act->SetVideoByUuid($set_type, $obj);
+    }
+               
+    public function SetVideoByUuidFull($obj) {
+        return $this->act->SetVideoByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetVideoByExternalId($set_type, $obj) {
+        return $this->act->SetVideoByExternalId($set_type, $obj);
+    }
+               
+    public function SetVideoByExternalIdFull($obj) {
+        return $this->act->SetVideoByExternalId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetVideoByUrl($set_type, $obj) {
+        return $this->act->SetVideoByUrl($set_type, $obj);
+    }
+               
+    public function SetVideoByUrlFull($obj) {
+        return $this->act->SetVideoByUrl('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetVideoByUrlByExternalId($set_type, $obj) {
+        return $this->act->SetVideoByUrlByExternalId($set_type, $obj);
+    }
+               
+    public function SetVideoByUrlByExternalIdFull($obj) {
+        return $this->act->SetVideoByUrlByExternalId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetVideoByUuidByExternalId($set_type, $obj) {
+        return $this->act->SetVideoByUuidByExternalId($set_type, $obj);
+    }
+               
+    public function SetVideoByUuidByExternalIdFull($obj) {
+        return $this->act->SetVideoByUuidByExternalId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelVideoByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelVideoByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelVideoByExternalId(
+        $external_id
+    ) {         
+        return $this->act->DelVideoByExternalId(
+        $external_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelVideoByUrl(
         $url
     ) {         
-        return $this->act->DelVideoUrl(
+        return $this->act->DelVideoByUrl(
         $url
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelVideoUrlExternalId(
+    public function DelVideoByUrlByExternalId(
         $url
         , $external_id
     ) {         
-        return $this->act->DelVideoUrlExternalId(
+        return $this->act->DelVideoByUrlByExternalId(
         $url
         , $external_id
         );
     }
 #------------------------------------------------------------------------------                    
-    public function DelVideoUuidExternalId(
+    public function DelVideoByUuidByExternalId(
         $uuid
         , $external_id
     ) {         
-        return $this->act->DelVideoUuidExternalId(
+        return $this->act->DelVideoByUuidByExternalId(
         $uuid
         , $external_id
         );
@@ -13476,18 +13476,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetVideoListUuid(
+    public function GetVideoListByUuid(
         $uuid
         ) {
-            return $this->act->GetVideoListUuid(
+            return $this->act->GetVideoListByUuid(
                 $uuid
             );
         }
         
-    public function GetVideoUuid(
+    public function GetVideoByUuid(
         $uuid
     ) {
-        foreach($this->act->GetVideoListUuid(
+        foreach($this->act->GetVideoListByUuid(
         $uuid
         ) as $item) {
             return $item;
@@ -13496,10 +13496,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetVideoListUuid(
+    public function CachedGetVideoListByUuid(
         $uuid
     ) {
-        return $this->CachedGetVideoListUuid(
+        return $this->CachedGetVideoListByUuid(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -13507,7 +13507,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetVideoListUuid(
+    public function CachedGetVideoListByUuid(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -13515,7 +13515,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetVideoListUuid";
+        $method_name = "CachedGetVideoListByUuid";
 
         $sb = "";
         $sb += $method_name;
@@ -13530,7 +13530,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetVideoListUuid(
+            $objs = $this->GetVideoListByUuid(
                 $uuid
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13539,18 +13539,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetVideoListExternalId(
+    public function GetVideoListByExternalId(
         $external_id
         ) {
-            return $this->act->GetVideoListExternalId(
+            return $this->act->GetVideoListByExternalId(
                 $external_id
             );
         }
         
-    public function GetVideoExternalId(
+    public function GetVideoByExternalId(
         $external_id
     ) {
-        foreach($this->act->GetVideoListExternalId(
+        foreach($this->act->GetVideoListByExternalId(
         $external_id
         ) as $item) {
             return $item;
@@ -13559,10 +13559,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetVideoListExternalId(
+    public function CachedGetVideoListByExternalId(
         $external_id
     ) {
-        return $this->CachedGetVideoListExternalId(
+        return $this->CachedGetVideoListByExternalId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $external_id
@@ -13570,7 +13570,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetVideoListExternalId(
+    public function CachedGetVideoListByExternalId(
         $overrideCache
         , $cacheHours
         , $external_id
@@ -13578,7 +13578,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetVideoListExternalId";
+        $method_name = "CachedGetVideoListByExternalId";
 
         $sb = "";
         $sb += $method_name;
@@ -13593,7 +13593,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetVideoListExternalId(
+            $objs = $this->GetVideoListByExternalId(
                 $external_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13602,18 +13602,18 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetVideoListUrl(
+    public function GetVideoListByUrl(
         $url
         ) {
-            return $this->act->GetVideoListUrl(
+            return $this->act->GetVideoListByUrl(
                 $url
             );
         }
         
-    public function GetVideoUrl(
+    public function GetVideoByUrl(
         $url
     ) {
-        foreach($this->act->GetVideoListUrl(
+        foreach($this->act->GetVideoListByUrl(
         $url
         ) as $item) {
             return $item;
@@ -13622,10 +13622,10 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetVideoListUrl(
+    public function CachedGetVideoListByUrl(
         $url
     ) {
-        return $this->CachedGetVideoListUrl(
+        return $this->CachedGetVideoListByUrl(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $url
@@ -13633,7 +13633,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetVideoListUrl(
+    public function CachedGetVideoListByUrl(
         $overrideCache
         , $cacheHours
         , $url
@@ -13641,7 +13641,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetVideoListUrl";
+        $method_name = "CachedGetVideoListByUrl";
 
         $sb = "";
         $sb += $method_name;
@@ -13656,7 +13656,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetVideoListUrl(
+            $objs = $this->GetVideoListByUrl(
                 $url
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
@@ -13665,21 +13665,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetVideoListUrlExternalId(
+    public function GetVideoListByUrlByExternalId(
         $url
         , $external_id
         ) {
-            return $this->act->GetVideoListUrlExternalId(
+            return $this->act->GetVideoListByUrlByExternalId(
                 $url
                 , $external_id
             );
         }
         
-    public function GetVideoUrlExternalId(
+    public function GetVideoByUrlByExternalId(
         $url
         , $external_id
     ) {
-        foreach($this->act->GetVideoListUrlExternalId(
+        foreach($this->act->GetVideoListByUrlByExternalId(
         $url
         , $external_id
         ) as $item) {
@@ -13689,11 +13689,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetVideoListUrlExternalId(
+    public function CachedGetVideoListByUrlByExternalId(
         $url
         , $external_id
     ) {
-        return $this->CachedGetVideoListUrlExternalId(
+        return $this->CachedGetVideoListByUrlByExternalId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $url
@@ -13702,7 +13702,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetVideoListUrlExternalId(
+    public function CachedGetVideoListByUrlByExternalId(
         $overrideCache
         , $cacheHours
         , $url
@@ -13711,7 +13711,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetVideoListUrlExternalId";
+        $method_name = "CachedGetVideoListByUrlByExternalId";
 
         $sb = "";
         $sb += $method_name;
@@ -13730,7 +13730,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetVideoListUrlExternalId(
+            $objs = $this->GetVideoListByUrlByExternalId(
                 $url
                 , $external_id
             );
@@ -13740,21 +13740,21 @@ class BasePlatformAPI {
     }
               
 #------------------------------------------------------------------------------                    
-    public function GetVideoListUuidExternalId(
+    public function GetVideoListByUuidByExternalId(
         $uuid
         , $external_id
         ) {
-            return $this->act->GetVideoListUuidExternalId(
+            return $this->act->GetVideoListByUuidByExternalId(
                 $uuid
                 , $external_id
             );
         }
         
-    public function GetVideoUuidExternalId(
+    public function GetVideoByUuidByExternalId(
         $uuid
         , $external_id
     ) {
-        foreach($this->act->GetVideoListUuidExternalId(
+        foreach($this->act->GetVideoListByUuidByExternalId(
         $uuid
         , $external_id
         ) as $item) {
@@ -13764,11 +13764,11 @@ class BasePlatformAPI {
     }
     
     /*
-    public function CachedGetVideoListUuidExternalId(
+    public function CachedGetVideoListByUuidByExternalId(
         $uuid
         , $external_id
     ) {
-        return $this->CachedGetVideoListUuidExternalId(
+        return $this->CachedGetVideoListByUuidByExternalId(
             FALSE
             , $this->CACHE_DEFAULT_HOURS
             , $uuid
@@ -13777,7 +13777,7 @@ class BasePlatformAPI {
     }
     */
         
-    public function CachedGetVideoListUuidExternalId(
+    public function CachedGetVideoListByUuidByExternalId(
         $overrideCache
         , $cacheHours
         , $uuid
@@ -13786,7 +13786,7 @@ class BasePlatformAPI {
 
         $objs = array();
 
-        $method_name = "CachedGetVideoListUuidExternalId";
+        $method_name = "CachedGetVideoListByUuidByExternalId";
 
         $sb = "";
         $sb += $method_name;
@@ -13805,7 +13805,7 @@ class BasePlatformAPI {
 
         if ($objs == NULL || $overrideCache) // if object not cached, get and cache
         {
-            $objs = $this->GetVideoListUuidExternalId(
+            $objs = $this->GetVideoListByUuidByExternalId(
                 $uuid
                 , $external_id
             );

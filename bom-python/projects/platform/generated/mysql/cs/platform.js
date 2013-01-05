@@ -267,7 +267,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -310,7 +310,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -353,7 +353,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'count'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -397,7 +397,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'count'
-                + "/code/type-id"
+                + "/by-code/by-type-id"
                 + "/code/" + code            
                 + "/type_id/" + type_id            
                 ;
@@ -442,7 +442,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'count'
-                + "/platform/type-id"
+                + "/by-platform/by-type-id"
                 + "/platform/" + platform            
                 + "/type_id/" + type_id            
                 ;
@@ -486,7 +486,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'count'
-                + "/platform"
+                + "/by-platform"
                 + "/platform/" + platform            
                 ;
 
@@ -531,7 +531,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -587,7 +587,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -656,7 +656,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -714,7 +714,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -757,7 +757,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -842,7 +842,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -886,7 +886,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -930,7 +930,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'get'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -975,7 +975,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'get'
-                + "/code/type-id"
+                + "/by-code/by-type-id"
                 + "/code/" + code            
                 + "/type_id/" + type_id            
                 ;
@@ -1021,7 +1021,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'get'
-                + "/platform/type-id"
+                + "/by-platform/by-type-id"
                 + "/platform/" + platform            
                 + "/type_id/" + type_id            
                 ;
@@ -1066,7 +1066,7 @@ platform.app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_service + 'get'
-                + "/platform"
+                + "/by-platform"
                 + "/platform/" + platform            
                 ;
 
@@ -1164,7 +1164,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_type_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -1207,7 +1207,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_type_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -1252,7 +1252,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_type_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -1306,7 +1306,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_type_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -1371,7 +1371,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_type_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -1427,7 +1427,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_type_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -1470,7 +1470,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_type_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -1555,7 +1555,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_type_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -1599,7 +1599,7 @@ platform.app_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.app_type_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -1697,7 +1697,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -1740,7 +1740,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -1783,7 +1783,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'count'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -1827,7 +1827,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'count'
-                + "/code/type-id"
+                + "/by-code/by-type-id"
                 + "/code/" + code            
                 + "/type_id/" + type_id            
                 ;
@@ -1872,7 +1872,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'count'
-                + "/domain/type-id"
+                + "/by-domain/by-type-id"
                 + "/domain/" + domain            
                 + "/type_id/" + type_id            
                 ;
@@ -1916,7 +1916,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'count'
-                + "/domain"
+                + "/by-domain"
                 + "/domain/" + domain            
                 ;
 
@@ -1961,7 +1961,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -2017,7 +2017,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -2086,7 +2086,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -2144,7 +2144,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -2187,7 +2187,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -2272,7 +2272,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -2316,7 +2316,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -2360,7 +2360,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'get'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -2405,7 +2405,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'get'
-                + "/code/type-id"
+                + "/by-code/by-type-id"
                 + "/code/" + code            
                 + "/type_id/" + type_id            
                 ;
@@ -2451,7 +2451,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'get'
-                + "/domain/type-id"
+                + "/by-domain/by-type-id"
                 + "/domain/" + domain            
                 + "/type_id/" + type_id            
                 ;
@@ -2496,7 +2496,7 @@ platform.site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_service + 'get'
-                + "/domain"
+                + "/by-domain"
                 + "/domain/" + domain            
                 ;
 
@@ -2594,7 +2594,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_type_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -2637,7 +2637,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_type_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -2682,7 +2682,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_type_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -2736,7 +2736,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_type_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -2801,7 +2801,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_type_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -2857,7 +2857,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_type_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -2900,7 +2900,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_type_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -2985,7 +2985,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_type_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3029,7 +3029,7 @@ platform.site_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_type_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -3127,7 +3127,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3170,7 +3170,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -3213,7 +3213,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -3258,7 +3258,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -3313,7 +3313,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -3370,7 +3370,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3455,7 +3455,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3499,7 +3499,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -3543,7 +3543,7 @@ platform.org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -3641,7 +3641,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_type_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3684,7 +3684,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_type_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -3729,7 +3729,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_type_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -3783,7 +3783,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_type_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -3848,7 +3848,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_type_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -3904,7 +3904,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_type_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3947,7 +3947,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_type_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -4032,7 +4032,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_type_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -4076,7 +4076,7 @@ platform.org_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_type_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -4174,7 +4174,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -4217,7 +4217,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -4260,7 +4260,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -4303,7 +4303,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'count'
-                + "/path"
+                + "/by-path"
                 + "/path/" + path            
                 ;
 
@@ -4348,7 +4348,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -4407,7 +4407,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -4468,7 +4468,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -4511,7 +4511,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'del'
-                + "/path"
+                + "/by-path"
                 + "/path/" + path            
                 ;
 
@@ -4596,7 +4596,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -4640,7 +4640,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -4684,7 +4684,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -4728,7 +4728,7 @@ platform.content_item.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_service + 'get'
-                + "/path"
+                + "/by-path"
                 + "/path/" + path            
                 ;
 
@@ -4826,7 +4826,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_type_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -4869,7 +4869,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_type_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -4914,7 +4914,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_type_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -4968,7 +4968,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_type_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -5033,7 +5033,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_type_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -5089,7 +5089,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_type_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5132,7 +5132,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_type_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5217,7 +5217,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_type_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5261,7 +5261,7 @@ platform.content_item_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_item_type_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5359,7 +5359,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5402,7 +5402,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5445,7 +5445,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -5488,7 +5488,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'count'
-                + "/path"
+                + "/by-path"
                 + "/path/" + path            
                 ;
 
@@ -5533,7 +5533,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -5578,6 +5578,7 @@ platform.content_page.prototype = {
         display_name,
         name,
         date_modified,
+        data,
         date_end,
         date_start,
         site_id,
@@ -5592,7 +5593,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -5606,6 +5607,7 @@ platform.content_page.prototype = {
             , "display_name": display_name
             , "name": name
             , "date_modified": date_modified
+            , "data": data
             , "date_end": date_end
             , "date_start": date_start
             , "site_id": site_id
@@ -5653,7 +5655,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5697,7 +5699,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'del'
-                + "/path/site-id"
+                + "/by-path/by-site-id"
                 + "/path/" + path            
                 + "/site_id/" + site_id            
                 ;
@@ -5741,7 +5743,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'del'
-                + "/path"
+                + "/by-path"
                 + "/path/" + path            
                 ;
 
@@ -5826,7 +5828,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5870,7 +5872,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5914,7 +5916,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -5958,7 +5960,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'get'
-                + "/path"
+                + "/by-path"
                 + "/path/" + path            
                 ;
 
@@ -6002,7 +6004,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'get'
-                + "/site-id"
+                + "/by-site-id"
                 + "/site_id/" + site_id            
                 ;
 
@@ -6047,7 +6049,7 @@ platform.content_page.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.content_page_service + 'get'
-                + "/site-id/path"
+                + "/by-site-id/by-path"
                 + "/site_id/" + site_id            
                 + "/path/" + path            
                 ;
@@ -6146,7 +6148,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.message_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -6191,7 +6193,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.message_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -6238,6 +6240,7 @@ platform.message.prototype = {
         profile_to_token,
         app_id,
         active,
+        data,
         subject,
         uuid,
         date_modified,
@@ -6250,7 +6253,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.message_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -6266,6 +6269,7 @@ platform.message.prototype = {
             , "profile_to_token": profile_to_token
             , "app_id": app_id
             , "active": active
+            , "data": data
             , "subject": subject
             , "uuid": uuid
             , "date_modified": date_modified
@@ -6311,7 +6315,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.message_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -6396,7 +6400,7 @@ platform.message.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.message_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -6494,7 +6498,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -6537,7 +6541,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -6580,7 +6584,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -6623,7 +6627,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'count'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -6668,7 +6672,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -6714,6 +6718,7 @@ platform.offer.prototype = {
         name,
         date_modified,
         url,
+        data,
         type_id,
         org_id,
         uuid,
@@ -6726,7 +6731,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -6741,6 +6746,7 @@ platform.offer.prototype = {
             , "name": name
             , "date_modified": date_modified
             , "url": url
+            , "data": data
             , "type_id": type_id
             , "org_id": org_id
             , "uuid": uuid
@@ -6786,7 +6792,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -6829,7 +6835,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'del'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -6914,7 +6920,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -6958,7 +6964,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -7002,7 +7008,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -7046,7 +7052,7 @@ platform.offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_service + 'get'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -7144,7 +7150,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_type_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -7187,7 +7193,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_type_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -7230,7 +7236,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_type_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -7275,7 +7281,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_type_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -7329,7 +7335,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_type_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -7385,7 +7391,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_type_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -7470,7 +7476,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_type_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -7514,7 +7520,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_type_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -7558,7 +7564,7 @@ platform.offer_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_type_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -7656,7 +7662,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -7699,7 +7705,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'count'
-                + "/offer-id"
+                + "/by-offer-id"
                 + "/offer_id/" + offer_id            
                 ;
 
@@ -7742,7 +7748,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'count'
-                + "/city"
+                + "/by-city"
                 + "/city/" + city            
                 ;
 
@@ -7785,7 +7791,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'count'
-                + "/country-code"
+                + "/by-country-code"
                 + "/country_code/" + country_code            
                 ;
 
@@ -7828,7 +7834,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'count'
-                + "/postal-code"
+                + "/by-postal-code"
                 + "/postal_code/" + postal_code            
                 ;
 
@@ -7873,7 +7879,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -7925,6 +7931,7 @@ platform.offer_location.prototype = {
         country_code,
         date_created,
         active,
+        data,
         uuid,
         state_province,
         city,
@@ -7944,7 +7951,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -7965,6 +7972,7 @@ platform.offer_location.prototype = {
             , "country_code": country_code
             , "date_created": date_created
             , "active": active
+            , "data": data
             , "uuid": uuid
             , "state_province": state_province
             , "city": city
@@ -8017,7 +8025,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -8102,7 +8110,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -8146,7 +8154,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'get'
-                + "/offer-id"
+                + "/by-offer-id"
                 + "/offer_id/" + offer_id            
                 ;
 
@@ -8190,7 +8198,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'get'
-                + "/city"
+                + "/by-city"
                 + "/city/" + city            
                 ;
 
@@ -8234,7 +8242,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'get'
-                + "/country-code"
+                + "/by-country-code"
                 + "/country_code/" + country_code            
                 ;
 
@@ -8278,7 +8286,7 @@ platform.offer_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_location_service + 'get'
-                + "/postal-code"
+                + "/by-postal-code"
                 + "/postal_code/" + postal_code            
                 ;
 
@@ -8376,7 +8384,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -8419,7 +8427,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -8462,7 +8470,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -8505,7 +8513,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'count'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -8548,7 +8556,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'count'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -8592,7 +8600,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'count'
-                + "/org-id/type-id"
+                + "/by-org-id/by-type-id"
                 + "/org_id/" + org_id            
                 + "/type_id/" + type_id            
                 ;
@@ -8638,7 +8646,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -8683,6 +8691,7 @@ platform.offer_category.prototype = {
         display_name,
         name,
         date_modified,
+        data,
         type_id,
         org_id,
         uuid,
@@ -8694,7 +8703,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -8708,6 +8717,7 @@ platform.offer_category.prototype = {
             , "display_name": display_name
             , "name": name
             , "date_modified": date_modified
+            , "data": data
             , "type_id": type_id
             , "org_id": org_id
             , "uuid": uuid
@@ -8752,7 +8762,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -8796,7 +8806,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'del'
-                + "/code/org-id"
+                + "/by-code/by-org-id"
                 + "/code/" + code            
                 + "/org_id/" + org_id            
                 ;
@@ -8842,7 +8852,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'del'
-                + "/code/org-id/type-id"
+                + "/by-code/by-org-id/by-type-id"
                 + "/code/" + code            
                 + "/org_id/" + org_id            
                 + "/type_id/" + type_id            
@@ -8929,7 +8939,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -8973,7 +8983,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -9017,7 +9027,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -9061,7 +9071,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'get'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -9105,7 +9115,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'get'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -9150,7 +9160,7 @@ platform.offer_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_service + 'get'
-                + "/org-id/type-id"
+                + "/by-org-id/by-type-id"
                 + "/org_id/" + org_id            
                 + "/type_id/" + type_id            
                 ;
@@ -9249,7 +9259,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -9292,7 +9302,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'count'
-                + "/parent-id"
+                + "/by-parent-id"
                 + "/parent_id/" + parent_id            
                 ;
 
@@ -9335,7 +9345,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'count'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -9379,7 +9389,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'count'
-                + "/parent-id/category-id"
+                + "/by-parent-id/by-category-id"
                 + "/parent_id/" + parent_id            
                 + "/category_id/" + category_id            
                 ;
@@ -9425,7 +9435,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -9477,7 +9487,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -9531,7 +9541,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -9574,7 +9584,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'del'
-                + "/parent-id"
+                + "/by-parent-id"
                 + "/parent_id/" + parent_id            
                 ;
 
@@ -9617,7 +9627,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'del'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -9661,7 +9671,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'del'
-                + "/parent-id/category-id"
+                + "/by-parent-id/by-category-id"
                 + "/parent_id/" + parent_id            
                 + "/category_id/" + category_id            
                 ;
@@ -9747,7 +9757,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -9791,7 +9801,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'get'
-                + "/parent-id"
+                + "/by-parent-id"
                 + "/parent_id/" + parent_id            
                 ;
 
@@ -9835,7 +9845,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'get'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -9880,7 +9890,7 @@ platform.offer_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_tree_service + 'get'
-                + "/parent-id/category-id"
+                + "/by-parent-id/by-category-id"
                 + "/parent_id/" + parent_id            
                 + "/category_id/" + category_id            
                 ;
@@ -9979,7 +9989,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -10022,7 +10032,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'count'
-                + "/offer-id"
+                + "/by-offer-id"
                 + "/offer_id/" + offer_id            
                 ;
 
@@ -10065,7 +10075,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'count'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -10109,7 +10119,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'count'
-                + "/offer-id/category-id"
+                + "/by-offer-id/by-category-id"
                 + "/offer_id/" + offer_id            
                 + "/category_id/" + category_id            
                 ;
@@ -10155,7 +10165,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -10207,7 +10217,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -10261,7 +10271,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -10346,7 +10356,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -10390,7 +10400,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'get'
-                + "/offer-id"
+                + "/by-offer-id"
                 + "/offer_id/" + offer_id            
                 ;
 
@@ -10434,7 +10444,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'get'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -10479,7 +10489,7 @@ platform.offer_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_category_assoc_service + 'get'
-                + "/offer-id/category-id"
+                + "/by-offer-id/by-category-id"
                 + "/offer_id/" + offer_id            
                 + "/category_id/" + category_id            
                 ;
@@ -10578,7 +10588,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -10621,7 +10631,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'count'
-                + "/game-location-id"
+                + "/by-game-location-id"
                 + "/game_location_id/" + game_location_id            
                 ;
 
@@ -10664,7 +10674,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'count'
-                + "/offer-id"
+                + "/by-offer-id"
                 + "/offer_id/" + offer_id            
                 ;
 
@@ -10708,7 +10718,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'count'
-                + "/offer-id/game-location-id"
+                + "/by-offer-id/by-game-location-id"
                 + "/offer_id/" + offer_id            
                 + "/game_location_id/" + game_location_id            
                 ;
@@ -10754,7 +10764,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -10803,11 +10813,12 @@ platform.offer_game_location.prototype = {
         offer_id,
         type_id,
         type,
+        data,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -10825,6 +10836,7 @@ platform.offer_game_location.prototype = {
             , "offer_id": offer_id
             , "type_id": type_id
             , "type": type
+            , "data": data
         }
 
         _log("obj to submit::", obj);
@@ -10862,7 +10874,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -10947,7 +10959,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -10991,7 +11003,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'get'
-                + "/game-location-id"
+                + "/by-game-location-id"
                 + "/game_location_id/" + game_location_id            
                 ;
 
@@ -11035,7 +11047,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'get'
-                + "/offer-id"
+                + "/by-offer-id"
                 + "/offer_id/" + offer_id            
                 ;
 
@@ -11080,7 +11092,7 @@ platform.offer_game_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.offer_game_location_service + 'get'
-                + "/offer-id/game-location-id"
+                + "/by-offer-id/by-game-location-id"
                 + "/offer_id/" + offer_id            
                 + "/game_location_id/" + game_location_id            
                 ;
@@ -11179,7 +11191,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -11222,7 +11234,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -11265,7 +11277,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -11308,7 +11320,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'count'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -11353,7 +11365,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -11399,6 +11411,7 @@ platform.event_info.prototype = {
         name,
         date_modified,
         url,
+        data,
         org_id,
         uuid,
         usage_count,
@@ -11410,7 +11423,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -11425,6 +11438,7 @@ platform.event_info.prototype = {
             , "name": name
             , "date_modified": date_modified
             , "url": url
+            , "data": data
             , "org_id": org_id
             , "uuid": uuid
             , "usage_count": usage_count
@@ -11469,7 +11483,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -11512,7 +11526,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'del'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -11597,7 +11611,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -11641,7 +11655,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -11685,7 +11699,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -11729,7 +11743,7 @@ platform.event_info.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_info_service + 'get'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -11827,7 +11841,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -11870,7 +11884,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'count'
-                + "/event-id"
+                + "/by-event-id"
                 + "/event_id/" + event_id            
                 ;
 
@@ -11913,7 +11927,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'count'
-                + "/city"
+                + "/by-city"
                 + "/city/" + city            
                 ;
 
@@ -11956,7 +11970,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'count'
-                + "/country-code"
+                + "/by-country-code"
                 + "/country_code/" + country_code            
                 ;
 
@@ -11999,7 +12013,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'count'
-                + "/postal-code"
+                + "/by-postal-code"
                 + "/postal_code/" + postal_code            
                 ;
 
@@ -12044,7 +12058,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -12095,6 +12109,7 @@ platform.event_location.prototype = {
         country_code,
         date_created,
         active,
+        data,
         uuid,
         state_province,
         city,
@@ -12115,7 +12130,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -12135,6 +12150,7 @@ platform.event_location.prototype = {
             , "country_code": country_code
             , "date_created": date_created
             , "active": active
+            , "data": data
             , "uuid": uuid
             , "state_province": state_province
             , "city": city
@@ -12188,7 +12204,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -12273,7 +12289,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -12317,7 +12333,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'get'
-                + "/event-id"
+                + "/by-event-id"
                 + "/event_id/" + event_id            
                 ;
 
@@ -12361,7 +12377,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'get'
-                + "/city"
+                + "/by-city"
                 + "/city/" + city            
                 ;
 
@@ -12405,7 +12421,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'get'
-                + "/country-code"
+                + "/by-country-code"
                 + "/country_code/" + country_code            
                 ;
 
@@ -12449,7 +12465,7 @@ platform.event_location.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_location_service + 'get'
-                + "/postal-code"
+                + "/by-postal-code"
                 + "/postal_code/" + postal_code            
                 ;
 
@@ -12547,7 +12563,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -12590,7 +12606,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -12633,7 +12649,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -12676,7 +12692,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'count'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -12719,7 +12735,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'count'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -12763,7 +12779,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'count'
-                + "/org-id/type-id"
+                + "/by-org-id/by-type-id"
                 + "/org_id/" + org_id            
                 + "/type_id/" + type_id            
                 ;
@@ -12809,7 +12825,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -12854,6 +12870,7 @@ platform.event_category.prototype = {
         display_name,
         name,
         date_modified,
+        data,
         type_id,
         org_id,
         uuid,
@@ -12865,7 +12882,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -12879,6 +12896,7 @@ platform.event_category.prototype = {
             , "display_name": display_name
             , "name": name
             , "date_modified": date_modified
+            , "data": data
             , "type_id": type_id
             , "org_id": org_id
             , "uuid": uuid
@@ -12923,7 +12941,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -12967,7 +12985,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'del'
-                + "/code/org-id"
+                + "/by-code/by-org-id"
                 + "/code/" + code            
                 + "/org_id/" + org_id            
                 ;
@@ -13013,7 +13031,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'del'
-                + "/code/org-id/type-id"
+                + "/by-code/by-org-id/by-type-id"
                 + "/code/" + code            
                 + "/org_id/" + org_id            
                 + "/type_id/" + type_id            
@@ -13100,7 +13118,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -13144,7 +13162,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -13188,7 +13206,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -13232,7 +13250,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'get'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -13276,7 +13294,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'get'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -13321,7 +13339,7 @@ platform.event_category.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_service + 'get'
-                + "/org-id/type-id"
+                + "/by-org-id/by-type-id"
                 + "/org_id/" + org_id            
                 + "/type_id/" + type_id            
                 ;
@@ -13420,7 +13438,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -13463,7 +13481,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'count'
-                + "/parent-id"
+                + "/by-parent-id"
                 + "/parent_id/" + parent_id            
                 ;
 
@@ -13506,7 +13524,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'count'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -13550,7 +13568,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'count'
-                + "/parent-id/category-id"
+                + "/by-parent-id/by-category-id"
                 + "/parent_id/" + parent_id            
                 + "/category_id/" + category_id            
                 ;
@@ -13596,7 +13614,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -13648,7 +13666,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -13702,7 +13720,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -13745,7 +13763,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'del'
-                + "/parent-id"
+                + "/by-parent-id"
                 + "/parent_id/" + parent_id            
                 ;
 
@@ -13788,7 +13806,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'del'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -13832,7 +13850,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'del'
-                + "/parent-id/category-id"
+                + "/by-parent-id/by-category-id"
                 + "/parent_id/" + parent_id            
                 + "/category_id/" + category_id            
                 ;
@@ -13918,7 +13936,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -13962,7 +13980,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'get'
-                + "/parent-id"
+                + "/by-parent-id"
                 + "/parent_id/" + parent_id            
                 ;
 
@@ -14006,7 +14024,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'get'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -14051,7 +14069,7 @@ platform.event_category_tree.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_tree_service + 'get'
-                + "/parent-id/category-id"
+                + "/by-parent-id/by-category-id"
                 + "/parent_id/" + parent_id            
                 + "/category_id/" + category_id            
                 ;
@@ -14150,7 +14168,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -14193,7 +14211,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'count'
-                + "/event-id"
+                + "/by-event-id"
                 + "/event_id/" + event_id            
                 ;
 
@@ -14236,7 +14254,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'count'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -14280,7 +14298,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'count'
-                + "/event-id/category-id"
+                + "/by-event-id/by-category-id"
                 + "/event_id/" + event_id            
                 + "/category_id/" + category_id            
                 ;
@@ -14326,7 +14344,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -14378,7 +14396,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -14432,7 +14450,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -14517,7 +14535,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -14561,7 +14579,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'get'
-                + "/event-id"
+                + "/by-event-id"
                 + "/event_id/" + event_id            
                 ;
 
@@ -14605,7 +14623,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'get'
-                + "/category-id"
+                + "/by-category-id"
                 + "/category_id/" + category_id            
                 ;
 
@@ -14650,7 +14668,7 @@ platform.event_category_assoc.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.event_category_assoc_service + 'get'
-                + "/event-id/category-id"
+                + "/by-event-id/by-category-id"
                 + "/event_id/" + event_id            
                 + "/category_id/" + category_id            
                 ;
@@ -14749,7 +14767,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -14792,7 +14810,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -14835,7 +14853,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -14878,7 +14896,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'count'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -14921,7 +14939,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'count'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -14965,7 +14983,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'count'
-                + "/org-id/type-id"
+                + "/by-org-id/by-type-id"
                 + "/org_id/" + org_id            
                 + "/type_id/" + type_id            
                 ;
@@ -15011,7 +15029,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -15056,6 +15074,7 @@ platform.channel.prototype = {
         display_name,
         name,
         date_modified,
+        data,
         type_id,
         org_id,
         uuid,
@@ -15067,7 +15086,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -15081,6 +15100,7 @@ platform.channel.prototype = {
             , "display_name": display_name
             , "name": name
             , "date_modified": date_modified
+            , "data": data
             , "type_id": type_id
             , "org_id": org_id
             , "uuid": uuid
@@ -15125,7 +15145,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -15169,7 +15189,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'del'
-                + "/code/org-id"
+                + "/by-code/by-org-id"
                 + "/code/" + code            
                 + "/org_id/" + org_id            
                 ;
@@ -15215,7 +15235,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'del'
-                + "/code/org-id/type-id"
+                + "/by-code/by-org-id/by-type-id"
                 + "/code/" + code            
                 + "/org_id/" + org_id            
                 + "/type_id/" + type_id            
@@ -15302,7 +15322,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -15346,7 +15366,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -15390,7 +15410,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -15434,7 +15454,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'get'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -15478,7 +15498,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'get'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -15523,7 +15543,7 @@ platform.channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_service + 'get'
-                + "/org-id/type-id"
+                + "/by-org-id/by-type-id"
                 + "/org_id/" + org_id            
                 + "/type_id/" + type_id            
                 ;
@@ -15622,7 +15642,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_type_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -15665,7 +15685,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_type_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -15708,7 +15728,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_type_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -15753,7 +15773,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_type_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -15798,6 +15818,7 @@ platform.channel_type.prototype = {
         display_name,
         name,
         date_modified,
+        data,
         uuid,
         active,
         date_created,
@@ -15807,7 +15828,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_type_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -15821,6 +15842,7 @@ platform.channel_type.prototype = {
             , "display_name": display_name
             , "name": name
             , "date_modified": date_modified
+            , "data": data
             , "uuid": uuid
             , "active": active
             , "date_created": date_created
@@ -15863,7 +15885,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_type_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -15948,7 +15970,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_type_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -15992,7 +16014,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_type_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -16036,7 +16058,7 @@ platform.channel_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.channel_type_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -16134,7 +16156,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -16177,7 +16199,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -16220,7 +16242,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'count'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -16263,7 +16285,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'count'
-                + "/channel-id"
+                + "/by-channel-id"
                 + "/channel_id/" + channel_id            
                 ;
 
@@ -16306,7 +16328,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'count'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -16350,7 +16372,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'count'
-                + "/channel-id/org-id"
+                + "/by-channel-id/by-org-id"
                 + "/channel_id/" + channel_id            
                 + "/org_id/" + org_id            
                 ;
@@ -16395,7 +16417,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'count'
-                + "/channel-id/code"
+                + "/by-channel-id/by-code"
                 + "/channel_id/" + channel_id            
                 + "/code/" + code            
                 ;
@@ -16441,7 +16463,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -16486,6 +16508,7 @@ platform.question.prototype = {
         display_name,
         name,
         date_modified,
+        data,
         org_id,
         uuid,
         choices,
@@ -16498,7 +16521,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -16512,6 +16535,7 @@ platform.question.prototype = {
             , "display_name": display_name
             , "name": name
             , "date_modified": date_modified
+            , "data": data
             , "org_id": org_id
             , "uuid": uuid
             , "choices": choices
@@ -16557,6 +16581,7 @@ platform.question.prototype = {
         display_name,
         name,
         date_modified,
+        data,
         org_id,
         uuid,
         choices,
@@ -16569,7 +16594,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'set'
-                + "/channel-id/code"
+                + "/by-channel-id/by-code"
                 + "/channel_id/" + channel_id            
                 + "/code/" + code            
                         
@@ -16584,6 +16609,7 @@ platform.question.prototype = {
             , "display_name": display_name
             , "name": name
             , "date_modified": date_modified
+            , "data": data
             , "org_id": org_id
             , "uuid": uuid
             , "choices": choices
@@ -16629,7 +16655,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -16673,7 +16699,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'del'
-                + "/channel-id/org-id"
+                + "/by-channel-id/by-org-id"
                 + "/channel_id/" + channel_id            
                 + "/org_id/" + org_id            
                 ;
@@ -16759,7 +16785,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -16803,7 +16829,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -16847,7 +16873,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'get'
-                + "/name"
+                + "/by-name"
                 + "/name/" + name            
                 ;
 
@@ -16891,7 +16917,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'get'
-                + "/type"
+                + "/by-type"
                 + "/type/" + type            
                 ;
 
@@ -16935,7 +16961,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'get'
-                + "/channel-id"
+                + "/by-channel-id"
                 + "/channel_id/" + channel_id            
                 ;
 
@@ -16979,7 +17005,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'get'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -17024,7 +17050,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'get'
-                + "/channel-id/org-id"
+                + "/by-channel-id/by-org-id"
                 + "/channel_id/" + channel_id            
                 + "/org_id/" + org_id            
                 ;
@@ -17070,7 +17096,7 @@ platform.question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.question_service + 'get'
-                + "/channel-id/code"
+                + "/by-channel-id/by-code"
                 + "/channel_id/" + channel_id            
                 + "/code/" + code            
                 ;
@@ -17169,7 +17195,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_offer_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -17212,7 +17238,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_offer_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -17257,7 +17283,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_offer_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -17302,6 +17328,7 @@ platform.profile_offer.prototype = {
         offer_id,
         profile_id,
         active,
+        data,
         uuid,
         redeemed,
         url,
@@ -17312,7 +17339,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_offer_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -17326,6 +17353,7 @@ platform.profile_offer.prototype = {
             , "offer_id": offer_id
             , "profile_id": profile_id
             , "active": active
+            , "data": data
             , "uuid": uuid
             , "redeemed": redeemed
             , "url": url
@@ -17369,7 +17397,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_offer_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -17412,7 +17440,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_offer_service + 'del'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -17497,7 +17525,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_offer_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -17541,7 +17569,7 @@ platform.profile_offer.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_offer_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -17639,7 +17667,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -17683,7 +17711,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'count'
-                + "/profile-id/app-id"
+                + "/by-profile-id/by-app-id"
                 + "/profile_id/" + profile_id            
                 + "/app_id/" + app_id            
                 ;
@@ -17729,7 +17757,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -17777,11 +17805,12 @@ platform.profile_app.prototype = {
         profile_id,
         type,
         app_id,
+        data,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -17798,6 +17827,7 @@ platform.profile_app.prototype = {
             , "profile_id": profile_id
             , "type": type
             , "app_id": app_id
+            , "data": data
         }
 
         _log("obj to submit::", obj);
@@ -17838,11 +17868,12 @@ platform.profile_app.prototype = {
         profile_id,
         type,
         app_id,
+        data,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'set'
-                + "/profile-id/app-id"
+                + "/by-profile-id/by-app-id"
                 + "/profile_id/" + profile_id            
                 + "/app_id/" + app_id            
                         
@@ -17860,6 +17891,7 @@ platform.profile_app.prototype = {
             , "profile_id": profile_id
             , "type": type
             , "app_id": app_id
+            , "data": data
         }
 
         _log("obj to submit::", obj);
@@ -17897,7 +17929,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -17941,7 +17973,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'del'
-                + "/profile-id/app-id"
+                + "/by-profile-id/by-app-id"
                 + "/profile_id/" + profile_id            
                 + "/app_id/" + app_id            
                 ;
@@ -18027,7 +18059,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -18071,7 +18103,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'get'
-                + "/app-id"
+                + "/by-app-id"
                 + "/app_id/" + app_id            
                 ;
 
@@ -18115,7 +18147,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -18160,7 +18192,7 @@ platform.profile_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_app_service + 'get'
-                + "/profile-id/app-id"
+                + "/by-profile-id/by-app-id"
                 + "/profile_id/" + profile_id            
                 + "/app_id/" + app_id            
                 ;
@@ -18259,7 +18291,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_org_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -18302,7 +18334,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_org_service + 'count'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -18345,7 +18377,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_org_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -18390,7 +18422,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_org_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -18439,11 +18471,12 @@ platform.profile_org.prototype = {
         profile_id,
         type,
         org_id,
+        data,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_org_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -18461,6 +18494,7 @@ platform.profile_org.prototype = {
             , "profile_id": profile_id
             , "type": type
             , "org_id": org_id
+            , "data": data
         }
 
         _log("obj to submit::", obj);
@@ -18498,7 +18532,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_org_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -18583,7 +18617,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_org_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -18627,7 +18661,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_org_service + 'get'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -18671,7 +18705,7 @@ platform.profile_org.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_org_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -18769,7 +18803,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -18812,7 +18846,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'count'
-                + "/channel-id"
+                + "/by-channel-id"
                 + "/channel_id/" + channel_id            
                 ;
 
@@ -18855,7 +18889,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'count'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -18898,7 +18932,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -18941,7 +18975,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'count'
-                + "/question-id"
+                + "/by-question-id"
                 + "/question_id/" + question_id            
                 ;
 
@@ -18985,7 +19019,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'count'
-                + "/channel-id/org-id"
+                + "/by-channel-id/by-org-id"
                 + "/channel_id/" + channel_id            
                 + "/org_id/" + org_id            
                 ;
@@ -19030,7 +19064,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'count'
-                + "/channel-id/profile-id"
+                + "/by-channel-id/by-profile-id"
                 + "/channel_id/" + channel_id            
                 + "/profile_id/" + profile_id            
                 ;
@@ -19075,7 +19109,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'count'
-                + "/question-id/profile-id"
+                + "/by-question-id/by-profile-id"
                 + "/question_id/" + question_id            
                 + "/profile_id/" + profile_id            
                 ;
@@ -19121,7 +19155,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -19177,7 +19211,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -19246,7 +19280,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'set'
-                + "/channel-id/profile-id"
+                + "/by-channel-id/by-profile-id"
                 + "/channel_id/" + channel_id            
                 + "/profile_id/" + profile_id            
                         
@@ -19316,7 +19350,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'set'
-                + "/question-id/profile-id"
+                + "/by-question-id/by-profile-id"
                 + "/question_id/" + question_id            
                 + "/profile_id/" + profile_id            
                         
@@ -19386,7 +19420,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'set'
-                + "/channel-id/question-id/profile-id"
+                + "/by-channel-id/by-question-id/by-profile-id"
                 + "/channel_id/" + channel_id            
                 + "/question_id/" + question_id            
                 + "/profile_id/" + profile_id            
@@ -19446,7 +19480,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -19490,7 +19524,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'del'
-                + "/channel-id/org-id"
+                + "/by-channel-id/by-org-id"
                 + "/channel_id/" + channel_id            
                 + "/org_id/" + org_id            
                 ;
@@ -19576,7 +19610,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -19620,7 +19654,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'get'
-                + "/channel-id"
+                + "/by-channel-id"
                 + "/channel_id/" + channel_id            
                 ;
 
@@ -19664,7 +19698,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'get'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -19708,7 +19742,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -19752,7 +19786,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'get'
-                + "/question-id"
+                + "/by-question-id"
                 + "/question_id/" + question_id            
                 ;
 
@@ -19797,7 +19831,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'get'
-                + "/channel-id/org-id"
+                + "/by-channel-id/by-org-id"
                 + "/channel_id/" + channel_id            
                 + "/org_id/" + org_id            
                 ;
@@ -19843,7 +19877,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'get'
-                + "/channel-id/profile-id"
+                + "/by-channel-id/by-profile-id"
                 + "/channel_id/" + channel_id            
                 + "/profile_id/" + profile_id            
                 ;
@@ -19889,7 +19923,7 @@ platform.profile_question.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_question_service + 'get'
-                + "/question-id/profile-id"
+                + "/by-question-id/by-profile-id"
                 + "/question_id/" + question_id            
                 + "/profile_id/" + profile_id            
                 ;
@@ -19988,7 +20022,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -20031,7 +20065,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'count'
-                + "/channel-id"
+                + "/by-channel-id"
                 + "/channel_id/" + channel_id            
                 ;
 
@@ -20074,7 +20108,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -20118,7 +20152,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'count'
-                + "/channel-id/profile-id"
+                + "/by-channel-id/by-profile-id"
                 + "/channel_id/" + channel_id            
                 + "/profile_id/" + profile_id            
                 ;
@@ -20164,7 +20198,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -20216,7 +20250,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -20277,7 +20311,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'set'
-                + "/channel-id/profile-id"
+                + "/by-channel-id/by-profile-id"
                 + "/channel_id/" + channel_id            
                 + "/profile_id/" + profile_id            
                         
@@ -20332,7 +20366,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -20376,7 +20410,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'del'
-                + "/channel-id/profile-id"
+                + "/by-channel-id/by-profile-id"
                 + "/channel_id/" + channel_id            
                 + "/profile_id/" + profile_id            
                 ;
@@ -20462,7 +20496,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -20506,7 +20540,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'get'
-                + "/channel-id"
+                + "/by-channel-id"
                 + "/channel_id/" + channel_id            
                 ;
 
@@ -20550,7 +20584,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -20595,7 +20629,7 @@ platform.profile_channel.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.profile_channel_service + 'get'
-                + "/channel-id/profile-id"
+                + "/by-channel-id/by-profile-id"
                 + "/channel_id/" + channel_id            
                 + "/profile_id/" + profile_id            
                 ;
@@ -20694,7 +20728,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -20737,7 +20771,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'count'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -20780,7 +20814,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'count'
-                + "/site-id"
+                + "/by-site-id"
                 + "/site_id/" + site_id            
                 ;
 
@@ -20824,7 +20858,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'count'
-                + "/org-id/site-id"
+                + "/by-org-id/by-site-id"
                 + "/org_id/" + org_id            
                 + "/site_id/" + site_id            
                 ;
@@ -20870,7 +20904,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -20922,7 +20956,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -20983,7 +21017,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'set'
-                + "/org-id/site-id"
+                + "/by-org-id/by-site-id"
                 + "/org_id/" + org_id            
                 + "/site_id/" + site_id            
                         
@@ -21038,7 +21072,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -21082,7 +21116,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'del'
-                + "/org-id/site-id"
+                + "/by-org-id/by-site-id"
                 + "/org_id/" + org_id            
                 + "/site_id/" + site_id            
                 ;
@@ -21168,7 +21202,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -21212,7 +21246,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'get'
-                + "/org-id"
+                + "/by-org-id"
                 + "/org_id/" + org_id            
                 ;
 
@@ -21256,7 +21290,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'get'
-                + "/site-id"
+                + "/by-site-id"
                 + "/site_id/" + site_id            
                 ;
 
@@ -21301,7 +21335,7 @@ platform.org_site.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.org_site_service + 'get'
-                + "/org-id/site-id"
+                + "/by-org-id/by-site-id"
                 + "/org_id/" + org_id            
                 + "/site_id/" + site_id            
                 ;
@@ -21400,7 +21434,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -21443,7 +21477,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'count'
-                + "/app-id"
+                + "/by-app-id"
                 + "/app_id/" + app_id            
                 ;
 
@@ -21486,7 +21520,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'count'
-                + "/site-id"
+                + "/by-site-id"
                 + "/site_id/" + site_id            
                 ;
 
@@ -21530,7 +21564,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'count'
-                + "/app-id/site-id"
+                + "/by-app-id/by-site-id"
                 + "/app_id/" + app_id            
                 + "/site_id/" + site_id            
                 ;
@@ -21576,7 +21610,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -21628,7 +21662,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -21689,7 +21723,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'set'
-                + "/app-id/site-id"
+                + "/by-app-id/by-site-id"
                 + "/app_id/" + app_id            
                 + "/site_id/" + site_id            
                         
@@ -21744,7 +21778,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -21788,7 +21822,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'del'
-                + "/app-id/site-id"
+                + "/by-app-id/by-site-id"
                 + "/app_id/" + app_id            
                 + "/site_id/" + site_id            
                 ;
@@ -21874,7 +21908,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -21918,7 +21952,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'get'
-                + "/app-id"
+                + "/by-app-id"
                 + "/app_id/" + app_id            
                 ;
 
@@ -21962,7 +21996,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'get'
-                + "/site-id"
+                + "/by-site-id"
                 + "/site_id/" + site_id            
                 ;
 
@@ -22007,7 +22041,7 @@ platform.site_app.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.site_app_service + 'get'
-                + "/app-id/site-id"
+                + "/by-app-id/by-site-id"
                 + "/app_id/" + app_id            
                 + "/site_id/" + site_id            
                 ;
@@ -22106,7 +22140,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -22149,7 +22183,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'count'
-                + "/external-id"
+                + "/by-external-id"
                 + "/external_id/" + external_id            
                 ;
 
@@ -22192,7 +22226,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'count'
-                + "/url"
+                + "/by-url"
                 + "/url/" + url            
                 ;
 
@@ -22236,7 +22270,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'count'
-                + "/url/external-id"
+                + "/by-url/by-external-id"
                 + "/url/" + url            
                 + "/external_id/" + external_id            
                 ;
@@ -22281,7 +22315,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'count'
-                + "/uuid/external-id"
+                + "/by-uuid/by-external-id"
                 + "/uuid/" + uuid            
                 + "/external_id/" + external_id            
                 ;
@@ -22327,7 +22361,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -22376,6 +22410,7 @@ platform.photo.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -22388,7 +22423,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -22406,6 +22441,7 @@ platform.photo.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -22455,6 +22491,7 @@ platform.photo.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -22467,7 +22504,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'set'
-                + "/external-id"
+                + "/by-external-id"
                 + "/external_id/" + external_id            
                         
                 ;
@@ -22485,6 +22522,7 @@ platform.photo.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -22534,6 +22572,7 @@ platform.photo.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -22546,7 +22585,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'set'
-                + "/url"
+                + "/by-url"
                 + "/url/" + url            
                         
                 ;
@@ -22564,6 +22603,7 @@ platform.photo.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -22613,6 +22653,7 @@ platform.photo.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -22625,7 +22666,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'set'
-                + "/url/external-id"
+                + "/by-url/by-external-id"
                 + "/url/" + url            
                 + "/external_id/" + external_id            
                         
@@ -22644,6 +22685,7 @@ platform.photo.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -22693,6 +22735,7 @@ platform.photo.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -22705,7 +22748,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'set'
-                + "/uuid/external-id"
+                + "/by-uuid/by-external-id"
                 + "/uuid/" + uuid            
                 + "/external_id/" + external_id            
                         
@@ -22724,6 +22767,7 @@ platform.photo.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -22769,7 +22813,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -22812,7 +22856,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'del'
-                + "/external-id"
+                + "/by-external-id"
                 + "/external_id/" + external_id            
                 ;
 
@@ -22855,7 +22899,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'del'
-                + "/url"
+                + "/by-url"
                 + "/url/" + url            
                 ;
 
@@ -22899,7 +22943,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'del'
-                + "/url/external-id"
+                + "/by-url/by-external-id"
                 + "/url/" + url            
                 + "/external_id/" + external_id            
                 ;
@@ -22944,7 +22988,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'del'
-                + "/uuid/external-id"
+                + "/by-uuid/by-external-id"
                 + "/uuid/" + uuid            
                 + "/external_id/" + external_id            
                 ;
@@ -23030,7 +23074,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -23074,7 +23118,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'get'
-                + "/external-id"
+                + "/by-external-id"
                 + "/external_id/" + external_id            
                 ;
 
@@ -23118,7 +23162,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'get'
-                + "/url"
+                + "/by-url"
                 + "/url/" + url            
                 ;
 
@@ -23163,7 +23207,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'get'
-                + "/url/external-id"
+                + "/by-url/by-external-id"
                 + "/url/" + url            
                 + "/external_id/" + external_id            
                 ;
@@ -23209,7 +23253,7 @@ platform.photo.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.photo_service + 'get'
-                + "/uuid/external-id"
+                + "/by-uuid/by-external-id"
                 + "/uuid/" + uuid            
                 + "/external_id/" + external_id            
                 ;
@@ -23308,7 +23352,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -23351,7 +23395,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'count'
-                + "/external-id"
+                + "/by-external-id"
                 + "/external_id/" + external_id            
                 ;
 
@@ -23394,7 +23438,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'count'
-                + "/url"
+                + "/by-url"
                 + "/url/" + url            
                 ;
 
@@ -23438,7 +23482,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'count'
-                + "/url/external-id"
+                + "/by-url/by-external-id"
                 + "/url/" + url            
                 + "/external_id/" + external_id            
                 ;
@@ -23483,7 +23527,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'count'
-                + "/uuid/external-id"
+                + "/by-uuid/by-external-id"
                 + "/uuid/" + uuid            
                 + "/external_id/" + external_id            
                 ;
@@ -23529,7 +23573,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -23578,6 +23622,7 @@ platform.video.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -23590,7 +23635,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -23608,6 +23653,7 @@ platform.video.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -23657,6 +23703,7 @@ platform.video.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -23669,7 +23716,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'set'
-                + "/external-id"
+                + "/by-external-id"
                 + "/external_id/" + external_id            
                         
                 ;
@@ -23687,6 +23734,7 @@ platform.video.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -23736,6 +23784,7 @@ platform.video.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -23748,7 +23797,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'set'
-                + "/url"
+                + "/by-url"
                 + "/url/" + url            
                         
                 ;
@@ -23766,6 +23815,7 @@ platform.video.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -23815,6 +23865,7 @@ platform.video.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -23827,7 +23878,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'set'
-                + "/url/external-id"
+                + "/by-url/by-external-id"
                 + "/url/" + url            
                 + "/external_id/" + external_id            
                         
@@ -23846,6 +23897,7 @@ platform.video.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -23895,6 +23947,7 @@ platform.video.prototype = {
         url,
         third_party_data,
         uuid,
+        data,
         third_party_url,
         third_party_id,
         content_type,
@@ -23907,7 +23960,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'set'
-                + "/uuid/external-id"
+                + "/by-uuid/by-external-id"
                 + "/uuid/" + uuid            
                 + "/external_id/" + external_id            
                         
@@ -23926,6 +23979,7 @@ platform.video.prototype = {
             , "url": url
             , "third_party_data": third_party_data
             , "uuid": uuid
+            , "data": data
             , "third_party_url": third_party_url
             , "third_party_id": third_party_id
             , "content_type": content_type
@@ -23971,7 +24025,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -24014,7 +24068,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'del'
-                + "/external-id"
+                + "/by-external-id"
                 + "/external_id/" + external_id            
                 ;
 
@@ -24057,7 +24111,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'del'
-                + "/url"
+                + "/by-url"
                 + "/url/" + url            
                 ;
 
@@ -24101,7 +24155,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'del'
-                + "/url/external-id"
+                + "/by-url/by-external-id"
                 + "/url/" + url            
                 + "/external_id/" + external_id            
                 ;
@@ -24146,7 +24200,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'del'
-                + "/uuid/external-id"
+                + "/by-uuid/by-external-id"
                 + "/uuid/" + uuid            
                 + "/external_id/" + external_id            
                 ;
@@ -24232,7 +24286,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -24276,7 +24330,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'get'
-                + "/external-id"
+                + "/by-external-id"
                 + "/external_id/" + external_id            
                 ;
 
@@ -24320,7 +24374,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'get'
-                + "/url"
+                + "/by-url"
                 + "/url/" + url            
                 ;
 
@@ -24365,7 +24419,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'get'
-                + "/url/external-id"
+                + "/by-url/by-external-id"
                 + "/url/" + url            
                 + "/external_id/" + external_id            
                 ;
@@ -24411,7 +24465,7 @@ platform.video.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_platform_global.video_service + 'get'
-                + "/uuid/external-id"
+                + "/by-uuid/by-external-id"
                 + "/uuid/" + uuid            
                 + "/external_id/" + external_id            
                 ;

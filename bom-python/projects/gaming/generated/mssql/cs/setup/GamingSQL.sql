@@ -89,16 +89,16 @@ IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_produ
 DROP TABLE [dbo].[game_product]
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_statistic_leaderboard]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-DROP TABLE [dbo].[game_statistic_leaderboard]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_leaderboard]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_statistic_leaderboard_item]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-DROP TABLE [dbo].[game_statistic_leaderboard_item]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_leaderboard_item]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_statistic_leaderboard_rollup]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-DROP TABLE [dbo].[game_statistic_leaderboard_rollup]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_leaderboard_rollup]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[game_leaderboard_rollup]
 GO
 -- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_live_queue]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
@@ -135,6 +135,66 @@ GO
 -- -----------------------------------------------------------------------------
 IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[game_achievement_meta]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
 DROP TABLE [dbo].[game_achievement_meta]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[profile_reward]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[profile_reward]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[coupon]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[coupon]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[profile_coupon]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[profile_coupon]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[org]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[org]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[channel]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[channel]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[channel_type]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[channel_type]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[reward]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[reward]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[reward_type]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[reward_type]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[reward_condition]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[reward_condition]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[reward_condition_type]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[reward_condition_type]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[question]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[question]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[profile_question]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[profile_question]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[profile_channel]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[profile_channel]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[profile_reward_points]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[profile_reward_points]
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[reward_competition]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[reward_competition]
 GO
 */
 
@@ -737,7 +797,7 @@ ALTER TABLE [dbo].[game_product] ADD
             [uuid]
     )
 GO
-CREATE TABLE [dbo].[game_statistic_leaderboard] 
+CREATE TABLE [dbo].[game_leaderboard] 
 (
     [status] varchar (255)
     , [username] varchar (500)
@@ -748,7 +808,7 @@ CREATE TABLE [dbo].[game_statistic_leaderboard]
     , [rank_change] int
     , [game_id] uniqueidentifier
     , [active] bit
-                CONSTRAINT DF_game_statistic_leaderboard_active_bool DEFAULT 1
+                CONSTRAINT DF_game_leaderboard_active_bool DEFAULT 1
     , [rank_total_count] int
     , [absolute_value] float
     , [data] ntext
@@ -756,21 +816,21 @@ CREATE TABLE [dbo].[game_statistic_leaderboard]
     , [network] varchar (500)
     , [uuid] uniqueidentifier NOT NULL
     , [date_modified] DATETIME
-                CONSTRAINT DF_game_statistic_leaderboard_date_modified DEFAULT GETDATE()
+                CONSTRAINT DF_game_leaderboard_date_modified DEFAULT GETDATE()
     , [level] varchar (500)
     , [stat_value_formatted] varchar (500)
     , [date_created] DATETIME
-                CONSTRAINT DF_game_statistic_leaderboard_date_created DEFAULT GETDATE()
+                CONSTRAINT DF_game_leaderboard_date_created DEFAULT GETDATE()
     , [type] varchar (500)
 )
 GO
-ALTER TABLE [dbo].[game_statistic_leaderboard] ADD 
-    CONSTRAINT [PK_game_statistic_leaderboard] PRIMARY KEY CLUSTERED 
+ALTER TABLE [dbo].[game_leaderboard] ADD 
+    CONSTRAINT [PK_game_leaderboard] PRIMARY KEY CLUSTERED 
     (
             [uuid]
     )
 GO
-CREATE TABLE [dbo].[game_statistic_leaderboard_item] 
+CREATE TABLE [dbo].[game_leaderboard_item] 
 (
     [status] varchar (255)
     , [username] varchar (500)
@@ -781,7 +841,7 @@ CREATE TABLE [dbo].[game_statistic_leaderboard_item]
     , [rank_change] int
     , [game_id] uniqueidentifier
     , [active] bit
-                CONSTRAINT DF_game_statistic_leaderboard_item_active_bool DEFAULT 1
+                CONSTRAINT DF_game_leaderboard_item_active_bool DEFAULT 1
     , [rank_total_count] int
     , [absolute_value] float
     , [data] ntext
@@ -789,21 +849,21 @@ CREATE TABLE [dbo].[game_statistic_leaderboard_item]
     , [network] varchar (500)
     , [uuid] uniqueidentifier NOT NULL
     , [date_modified] DATETIME
-                CONSTRAINT DF_game_statistic_leaderboard_item_date_modified DEFAULT GETDATE()
+                CONSTRAINT DF_game_leaderboard_item_date_modified DEFAULT GETDATE()
     , [level] varchar (500)
     , [stat_value_formatted] varchar (500)
     , [date_created] DATETIME
-                CONSTRAINT DF_game_statistic_leaderboard_item_date_created DEFAULT GETDATE()
+                CONSTRAINT DF_game_leaderboard_item_date_created DEFAULT GETDATE()
     , [type] varchar (500)
 )
 GO
-ALTER TABLE [dbo].[game_statistic_leaderboard_item] ADD 
-    CONSTRAINT [PK_game_statistic_leaderboard_item] PRIMARY KEY CLUSTERED 
+ALTER TABLE [dbo].[game_leaderboard_item] ADD 
+    CONSTRAINT [PK_game_leaderboard_item] PRIMARY KEY CLUSTERED 
     (
             [uuid]
     )
 GO
-CREATE TABLE [dbo].[game_statistic_leaderboard_rollup] 
+CREATE TABLE [dbo].[game_leaderboard_rollup] 
 (
     [status] varchar (255)
     , [username] varchar (500)
@@ -814,7 +874,7 @@ CREATE TABLE [dbo].[game_statistic_leaderboard_rollup]
     , [rank_change] int
     , [game_id] uniqueidentifier
     , [active] bit
-                CONSTRAINT DF_game_statistic_leaderboard_rollup_active_bool DEFAULT 1
+                CONSTRAINT DF_game_leaderboard_rollup_active_bool DEFAULT 1
     , [rank_total_count] int
     , [absolute_value] float
     , [data] ntext
@@ -822,16 +882,16 @@ CREATE TABLE [dbo].[game_statistic_leaderboard_rollup]
     , [network] varchar (500)
     , [uuid] uniqueidentifier NOT NULL
     , [date_modified] DATETIME
-                CONSTRAINT DF_game_statistic_leaderboard_rollup_date_modified DEFAULT GETDATE()
+                CONSTRAINT DF_game_leaderboard_rollup_date_modified DEFAULT GETDATE()
     , [level] varchar (500)
     , [stat_value_formatted] varchar (500)
     , [date_created] DATETIME
-                CONSTRAINT DF_game_statistic_leaderboard_rollup_date_created DEFAULT GETDATE()
+                CONSTRAINT DF_game_leaderboard_rollup_date_created DEFAULT GETDATE()
     , [type] varchar (500)
 )
 GO
-ALTER TABLE [dbo].[game_statistic_leaderboard_rollup] ADD 
-    CONSTRAINT [PK_game_statistic_leaderboard_rollup] PRIMARY KEY CLUSTERED 
+ALTER TABLE [dbo].[game_leaderboard_rollup] ADD 
+    CONSTRAINT [PK_game_leaderboard_rollup] PRIMARY KEY CLUSTERED 
     (
             [uuid]
     )
@@ -1095,6 +1155,420 @@ ALTER TABLE [dbo].[game_achievement_meta] ADD
             [uuid]
     )
 GO
+CREATE TABLE [dbo].[profile_reward] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [viewed] bit NOT NULL
+                CONSTRAINT DF_profile_reward_viewed_bool DEFAULT 1
+    , [date_modified] DATETIME
+                CONSTRAINT DF_profile_reward_date_modified DEFAULT GETDATE()
+    , [data] ntext
+    , [profile_id] uniqueidentifier NOT NULL
+    , [uuid] uniqueidentifier NOT NULL
+    , [downloaded] bit NOT NULL
+                CONSTRAINT DF_profile_reward_downloaded_bool DEFAULT 1
+    , [channel_id] uniqueidentifier
+    , [reward_id] uniqueidentifier NOT NULL
+    , [usage_count] int
+    , [active] bit
+                CONSTRAINT DF_profile_reward_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_profile_reward_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+    , [blurb] varchar (2000)
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[profile_reward] ADD 
+    CONSTRAINT [PK_profile_reward] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[coupon] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_coupon_date_modified DEFAULT GETDATE()
+    , [url] varchar (500)
+    , [data] ntext
+    , [org_id] uniqueidentifier NOT NULL
+    , [uuid] uniqueidentifier NOT NULL
+    , [usage_count] int
+    , [active] bit
+                CONSTRAINT DF_coupon_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_coupon_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[coupon] ADD 
+    CONSTRAINT [PK_coupon] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[profile_coupon] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_profile_coupon_date_modified DEFAULT GETDATE()
+    , [url] varchar (50)
+    , [data] ntext
+    , [profile_id] uniqueidentifier NOT NULL
+    , [uuid] uniqueidentifier NOT NULL
+    , [active] bit
+                CONSTRAINT DF_profile_coupon_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_profile_coupon_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[profile_coupon] ADD 
+    CONSTRAINT [PK_profile_coupon] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[org] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_org_date_modified DEFAULT GETDATE()
+    , [data] ntext
+    , [uuid] uniqueidentifier NOT NULL
+    , [active] bit
+                CONSTRAINT DF_org_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_org_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[org] ADD 
+    CONSTRAINT [PK_org] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[channel] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_channel_date_modified DEFAULT GETDATE()
+    , [data] ntext
+    , [type_id] uniqueidentifier NOT NULL
+    , [org_id] uniqueidentifier NOT NULL
+    , [uuid] uniqueidentifier NOT NULL
+    , [active] bit
+                CONSTRAINT DF_channel_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_channel_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[channel] ADD 
+    CONSTRAINT [PK_channel] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[channel_type] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_channel_type_date_modified DEFAULT GETDATE()
+    , [data] ntext
+    , [uuid] uniqueidentifier NOT NULL
+    , [active] bit
+                CONSTRAINT DF_channel_type_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_channel_type_date_created DEFAULT GETDATE()
+    , [type] varchar (50) NOT NULL
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[channel_type] ADD 
+    CONSTRAINT [PK_channel_type] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[reward] 
+(
+    [status] varchar (255)
+    , [type_url] varchar (50)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_reward_date_modified DEFAULT GETDATE()
+    , [url] varchar (500)
+    , [data] ntext
+    , [org_id] uniqueidentifier NOT NULL
+    , [uuid] uniqueidentifier NOT NULL
+    , [channel_id] uniqueidentifier NOT NULL
+    , [usage_count] int
+    , [external_id] varchar (50) NOT NULL
+    , [active] bit
+                CONSTRAINT DF_reward_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_reward_date_created DEFAULT GETDATE()
+    , [type] varchar (50) NOT NULL
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[reward] ADD 
+    CONSTRAINT [PK_reward] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[reward_type] 
+(
+    [status] varchar (255)
+    , [type_url] varchar (50) NOT NULL
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_reward_type_date_modified DEFAULT GETDATE()
+    , [data] ntext
+    , [uuid] uniqueidentifier NOT NULL
+    , [active] bit
+                CONSTRAINT DF_reward_type_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_reward_type_date_created DEFAULT GETDATE()
+    , [type] varchar (50) NOT NULL
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[reward_type] ADD 
+    CONSTRAINT [PK_reward_type] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[reward_condition] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [end_date] DATETIME
+                CONSTRAINT DF_reward_condition_end_date DEFAULT GETDATE()
+    , [date_modified] DATETIME
+                CONSTRAINT DF_reward_condition_date_modified DEFAULT GETDATE()
+    , [data] ntext
+    , [org_id] uniqueidentifier
+    , [uuid] uniqueidentifier NOT NULL
+    , [channel_id] uniqueidentifier
+    , [amount] int
+    , [global_reward] bit
+                CONSTRAINT DF_reward_condition_global_reward_bool DEFAULT 1
+    , [condition] varchar (50)
+    , [active] bit
+                CONSTRAINT DF_reward_condition_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_reward_condition_date_created DEFAULT GETDATE()
+    , [type] varchar (50)
+    , [start_date] DATETIME
+                CONSTRAINT DF_reward_condition_start_date DEFAULT GETDATE()
+    , [reward_id] uniqueidentifier
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[reward_condition] ADD 
+    CONSTRAINT [PK_reward_condition] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[reward_condition_type] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_reward_condition_type_date_modified DEFAULT GETDATE()
+    , [data] ntext
+    , [uuid] uniqueidentifier NOT NULL
+    , [active] bit
+                CONSTRAINT DF_reward_condition_type_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_reward_condition_type_date_created DEFAULT GETDATE()
+    , [type] varchar (50) NOT NULL
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[reward_condition_type] ADD 
+    CONSTRAINT [PK_reward_condition_type] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[question] 
+(
+    [status] varchar (255)
+    , [code] varchar (255)
+    , [display_name] varchar (255)
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_question_date_modified DEFAULT GETDATE()
+    , [data] ntext
+    , [org_id] uniqueidentifier NOT NULL
+    , [uuid] uniqueidentifier NOT NULL
+    , [choices] ntext
+    , [channel_id] uniqueidentifier NOT NULL
+    , [active] bit
+                CONSTRAINT DF_question_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_question_date_created DEFAULT GETDATE()
+    , [type] varchar (50) NOT NULL
+    , [description] varchar (255)
+)
+GO
+ALTER TABLE [dbo].[question] ADD 
+    CONSTRAINT [PK_question] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[profile_question] 
+(
+    [status] varchar (255)
+    , [profile_id] uniqueidentifier NOT NULL
+    , [active] bit
+                CONSTRAINT DF_profile_question_active_bool DEFAULT 1
+    , [data] ntext NOT NULL
+    , [uuid] uniqueidentifier NOT NULL
+    , [date_modified] DATETIME
+                CONSTRAINT DF_profile_question_date_modified DEFAULT GETDATE()
+    , [org_id] uniqueidentifier NOT NULL
+    , [channel_id] uniqueidentifier NOT NULL
+    , [answer] varchar (1000) NOT NULL
+    , [date_created] DATETIME
+                CONSTRAINT DF_profile_question_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+    , [question_id] uniqueidentifier NOT NULL
+)
+GO
+ALTER TABLE [dbo].[profile_question] ADD 
+    CONSTRAINT [PK_profile_question] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[profile_channel] 
+(
+    [status] varchar (255)
+    , [channel_id] uniqueidentifier NOT NULL
+    , [uuid] uniqueidentifier NOT NULL
+    , [date_modified] DATETIME
+                CONSTRAINT DF_profile_channel_date_modified DEFAULT GETDATE()
+    , [active] bit
+                CONSTRAINT DF_profile_channel_active_bool DEFAULT 1
+    , [date_created] DATETIME
+                CONSTRAINT DF_profile_channel_date_created DEFAULT GETDATE()
+    , [profile_id] uniqueidentifier NOT NULL
+    , [type] varchar (500)
+    , [data] ntext
+)
+GO
+ALTER TABLE [dbo].[profile_channel] ADD 
+    CONSTRAINT [PK_profile_channel] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[profile_reward_points] 
+(
+    [status] varchar (255)
+    , [profile_id] uniqueidentifier NOT NULL
+    , [active] bit
+                CONSTRAINT DF_profile_reward_points_active_bool DEFAULT 1
+    , [data] ntext
+    , [uuid] uniqueidentifier NOT NULL
+    , [date_modified] DATETIME
+                CONSTRAINT DF_profile_reward_points_date_modified DEFAULT GETDATE()
+    , [org_id] uniqueidentifier NOT NULL
+    , [channel_id] uniqueidentifier NOT NULL
+    , [points] int NOT NULL
+    , [date_created] DATETIME
+                CONSTRAINT DF_profile_reward_points_date_created DEFAULT GETDATE()
+    , [type] varchar (500)
+)
+GO
+ALTER TABLE [dbo].[profile_reward_points] ADD 
+    CONSTRAINT [PK_profile_reward_points] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
+CREATE TABLE [dbo].[reward_competition] 
+(
+    [sort] int
+    , [code] varchar (255)
+    , [date_end] DATETIME
+                CONSTRAINT DF_reward_competition_date_end DEFAULT GETDATE()
+    , [results] ntext
+    , [visible] bit
+                CONSTRAINT DF_reward_competition_visible_bool DEFAULT 1
+    , [display_name] varchar (255)
+    , [uuid] uniqueidentifier NOT NULL
+    , [date_start] DATETIME
+                CONSTRAINT DF_reward_competition_date_start DEFAULT GETDATE()
+    , [winners] ntext
+    , [template] ntext
+    , [type] varchar (500)
+    , [trigger_data] ntext
+    , [status] varchar (255)
+    , [description] varchar (255)
+    , [completed] bit
+                CONSTRAINT DF_reward_competition_completed_bool DEFAULT 1
+    , [template_url] varchar (500)
+    , [active] bit
+                CONSTRAINT DF_reward_competition_active_bool DEFAULT 1
+    , [path] varchar (500)
+    , [data] ntext
+    , [name] varchar (255)
+    , [date_modified] DATETIME
+                CONSTRAINT DF_reward_competition_date_modified DEFAULT GETDATE()
+    , [fulfilled] bit
+                CONSTRAINT DF_reward_competition_fulfilled_bool DEFAULT 1
+    , [channel_id] uniqueidentifier
+    , [date_created] DATETIME
+                CONSTRAINT DF_reward_competition_date_created DEFAULT GETDATE()
+)
+GO
+ALTER TABLE [dbo].[reward_competition] ADD 
+    CONSTRAINT [PK_reward_competition] PRIMARY KEY CLUSTERED 
+    (
+            [uuid]
+    )
+GO
 
    
 -- -----------------------------------------------------------------------------
@@ -1173,137 +1647,68 @@ GO
 
 -- INDEX DROPS        
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code')
-DROP INDEX [IX_game_statistic_leaderboard_code] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code')
+DROP INDEX [IX_game_leaderboard_code] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_profile_id')
-DROP INDEX [IX_game_statistic_leaderboard_profile_id] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_profile_id')
+DROP INDEX [IX_game_leaderboard_profile_id] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_username')
-DROP INDEX [IX_game_statistic_leaderboard_username] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_username')
+DROP INDEX [IX_game_leaderboard_username] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_game_id] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_game_id')
+DROP INDEX [IX_game_leaderboard_game_id] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_game_id_level')
-DROP INDEX [IX_game_statistic_leaderboard_code_game_id_level] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_game_id_level')
+DROP INDEX [IX_game_leaderboard_code_game_id_level] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_profile_id_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_profile_id_game_id] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_profile_id_game_id')
+DROP INDEX [IX_game_leaderboard_profile_id_game_id] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_username_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_username_game_id] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_username_game_id')
+DROP INDEX [IX_game_leaderboard_username_game_id] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_username')
-DROP INDEX [IX_game_statistic_leaderboard_code_username] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_username')
+DROP INDEX [IX_game_leaderboard_code_username] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_username_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_code_username_game_id] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_username_game_id')
+DROP INDEX [IX_game_leaderboard_code_username_game_id] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_username_game_id_type')
-DROP INDEX [IX_game_statistic_leaderboard_code_username_game_id_type] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_username_game_id_type')
+DROP INDEX [IX_game_leaderboard_code_username_game_id_type] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_profile_id')
-DROP INDEX [IX_game_statistic_leaderboard_code_profile_id] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_profile_id')
+DROP INDEX [IX_game_leaderboard_code_profile_id] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_profile_id_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_code_profile_id_game_id] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_profile_id_game_id')
+DROP INDEX [IX_game_leaderboard_code_profile_id_game_id] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_profile_id_game_id_type')
-DROP INDEX [IX_game_statistic_leaderboard_code_profile_id_game_id_type] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_profile_id_game_id_type')
+DROP INDEX [IX_game_leaderboard_code_profile_id_game_id_type] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_code_game_id] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_game_id')
+DROP INDEX [IX_game_leaderboard_code_game_id] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_game_id_profile_id')
-DROP INDEX [IX_game_statistic_leaderboard_code_game_id_profile_id] ON [dbo].[game_statistic_leaderboard]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_game_id_profile_id')
+DROP INDEX [IX_game_leaderboard_code_game_id_profile_id] ON [dbo].[game_leaderboard]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard]') AND name = N'IX_game_statistic_leaderboard_code_game_id_type')
-DROP INDEX [IX_game_statistic_leaderboard_code_game_id_type] ON [dbo].[game_statistic_leaderboard]
-GO
-   
--- -----------------------------------------------------------------------------
--- INDEXES
-
--- INDEX DROPS        
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code')
-DROP INDEX [IX_game_statistic_leaderboard_item_code] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_profile_id')
-DROP INDEX [IX_game_statistic_leaderboard_item_profile_id] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_username')
-DROP INDEX [IX_game_statistic_leaderboard_item_username] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_item_game_id] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_game_id_level')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_game_id_level] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_profile_id_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_item_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_username_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_item_username_game_id] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_username')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_username] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_username_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_username_game_id] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_username_game_id_type')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_username_game_id_type] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_profile_id')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_profile_id] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_profile_id_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_profile_id_game_id_type')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_profile_id_game_id_type] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_game_id] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_game_id_profile_id')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_game_id_profile_id] ON [dbo].[game_statistic_leaderboard_item]
-GO
--- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_item]') AND name = N'IX_game_statistic_leaderboard_item_code_game_id_type')
-DROP INDEX [IX_game_statistic_leaderboard_item_code_game_id_type] ON [dbo].[game_statistic_leaderboard_item]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard]') AND name = N'IX_game_leaderboard_code_game_id_type')
+DROP INDEX [IX_game_leaderboard_code_game_id_type] ON [dbo].[game_leaderboard]
 GO
    
 -- -----------------------------------------------------------------------------
@@ -1311,68 +1716,137 @@ GO
 
 -- INDEX DROPS        
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code')
+DROP INDEX [IX_game_leaderboard_item_code] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_profile_id')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_profile_id] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_profile_id')
+DROP INDEX [IX_game_leaderboard_item_profile_id] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_username')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_username] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_username')
+DROP INDEX [IX_game_leaderboard_item_username] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_game_id')
+DROP INDEX [IX_game_leaderboard_item_game_id] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_game_id_level')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_game_id_level] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_game_id_level')
+DROP INDEX [IX_game_leaderboard_item_code_game_id_level] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_profile_id_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_profile_id_game_id')
+DROP INDEX [IX_game_leaderboard_item_profile_id_game_id] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_username_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_username_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_username_game_id')
+DROP INDEX [IX_game_leaderboard_item_username_game_id] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_username')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_username] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_username')
+DROP INDEX [IX_game_leaderboard_item_code_username] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_username_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_username_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_username_game_id')
+DROP INDEX [IX_game_leaderboard_item_code_username_game_id] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_username_game_id_type')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_username_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_username_game_id_type')
+DROP INDEX [IX_game_leaderboard_item_code_username_game_id_type] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_profile_id')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_profile_id] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_profile_id')
+DROP INDEX [IX_game_leaderboard_item_code_profile_id] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_profile_id_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_profile_id_game_id')
+DROP INDEX [IX_game_leaderboard_item_code_profile_id_game_id] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_profile_id_game_id_type')
+DROP INDEX [IX_game_leaderboard_item_code_profile_id_game_id_type] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_game_id')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_game_id] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_game_id')
+DROP INDEX [IX_game_leaderboard_item_code_game_id] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_game_id_profile_id')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_game_id_profile_id] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_game_id_profile_id')
+DROP INDEX [IX_game_leaderboard_item_code_game_id_profile_id] ON [dbo].[game_leaderboard_item]
 GO
 -- -----------------------------------------------------------------------------                
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_statistic_leaderboard_rollup]') AND name = N'IX_game_statistic_leaderboard_rollup_code_game_id_type')
-DROP INDEX [IX_game_statistic_leaderboard_rollup_code_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup]
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_item]') AND name = N'IX_game_leaderboard_item_code_game_id_type')
+DROP INDEX [IX_game_leaderboard_item_code_game_id_type] ON [dbo].[game_leaderboard_item]
+GO
+   
+-- -----------------------------------------------------------------------------
+-- INDEXES
+
+-- INDEX DROPS        
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code')
+DROP INDEX [IX_game_leaderboard_rollup_code] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_profile_id')
+DROP INDEX [IX_game_leaderboard_rollup_profile_id] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_username')
+DROP INDEX [IX_game_leaderboard_rollup_username] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_game_id')
+DROP INDEX [IX_game_leaderboard_rollup_game_id] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_game_id_level')
+DROP INDEX [IX_game_leaderboard_rollup_code_game_id_level] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_profile_id_game_id')
+DROP INDEX [IX_game_leaderboard_rollup_profile_id_game_id] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_username_game_id')
+DROP INDEX [IX_game_leaderboard_rollup_username_game_id] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_username')
+DROP INDEX [IX_game_leaderboard_rollup_code_username] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_username_game_id')
+DROP INDEX [IX_game_leaderboard_rollup_code_username_game_id] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_username_game_id_type')
+DROP INDEX [IX_game_leaderboard_rollup_code_username_game_id_type] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_profile_id')
+DROP INDEX [IX_game_leaderboard_rollup_code_profile_id] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_profile_id_game_id')
+DROP INDEX [IX_game_leaderboard_rollup_code_profile_id_game_id] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_profile_id_game_id_type')
+DROP INDEX [IX_game_leaderboard_rollup_code_profile_id_game_id_type] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_game_id')
+DROP INDEX [IX_game_leaderboard_rollup_code_game_id] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_game_id_profile_id')
+DROP INDEX [IX_game_leaderboard_rollup_code_game_id_profile_id] ON [dbo].[game_leaderboard_rollup]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_leaderboard_rollup]') AND name = N'IX_game_leaderboard_rollup_code_game_id_type')
+DROP INDEX [IX_game_leaderboard_rollup_code_game_id_type] ON [dbo].[game_leaderboard_rollup]
 GO
    
 -- -----------------------------------------------------------------------------
@@ -1739,6 +2213,19 @@ GO
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[game_achievement_meta]') AND name = N'IX_game_achievement_meta_code_game_id_type')
 DROP INDEX [IX_game_achievement_meta_code_game_id_type] ON [dbo].[game_achievement_meta]
 GO
+   
+-- -----------------------------------------------------------------------------
+-- INDEXES
+
+-- INDEX DROPS        
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[reward_competition]') AND name = N'IX_reward_competition_path')
+DROP INDEX [IX_reward_competition_path] ON [dbo].[reward_competition]
+GO
+-- -----------------------------------------------------------------------------                
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[reward_competition]') AND name = N'IX_reward_competition_channel_id')
+DROP INDEX [IX_reward_competition_channel_id] ON [dbo].[reward_competition]
+GO
 
         
 -- INDEX CREATES
@@ -1816,31 +2303,31 @@ GO
         
 -- INDEX CREATES
 
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code] ON [dbo].[game_leaderboard] 
 (
                     
     [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_profile_id] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_profile_id] ON [dbo].[game_leaderboard] 
 (
                     
     [profile_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_username] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_username] ON [dbo].[game_leaderboard] 
 (
                     
     [username] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_game_id] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_game_id] ON [dbo].[game_leaderboard] 
 (
                     
     [game_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_game_id_level] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_game_id_level] ON [dbo].[game_leaderboard] 
 (
                     
     [game_id] ASC
@@ -1850,7 +2337,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_game_id_level] ON 
     , [level] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_profile_id_game_id] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_profile_id_game_id] ON [dbo].[game_leaderboard] 
 (
                     
     [game_id] ASC
@@ -1858,7 +2345,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_profile_id_game_id] ON 
     , [profile_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_username_game_id] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_username_game_id] ON [dbo].[game_leaderboard] 
 (
                     
     [username] ASC
@@ -1866,7 +2353,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_username_game_id] ON [d
     , [game_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_username] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_username] ON [dbo].[game_leaderboard] 
 (
                     
     [username] ASC
@@ -1874,7 +2361,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_username] ON [dbo]
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_username_game_id] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_username_game_id] ON [dbo].[game_leaderboard] 
 (
                     
     [username] ASC
@@ -1884,7 +2371,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_username_game_id] 
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_username_game_id_type] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_username_game_id_type] ON [dbo].[game_leaderboard] 
 (
                     
     [username] ASC
@@ -1896,7 +2383,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_username_game_id_t
     , [type] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_profile_id] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_profile_id] ON [dbo].[game_leaderboard] 
 (
                     
     [profile_id] ASC
@@ -1904,7 +2391,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_profile_id] ON [db
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_profile_id_game_id] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_profile_id_game_id] ON [dbo].[game_leaderboard] 
 (
                     
     [profile_id] ASC
@@ -1914,7 +2401,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_profile_id_game_id
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_profile_id_game_id_type] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_profile_id_game_id_type] ON [dbo].[game_leaderboard] 
 (
                     
     [profile_id] ASC
@@ -1926,7 +2413,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_profile_id_game_id
     , [type] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_game_id] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_game_id] ON [dbo].[game_leaderboard] 
 (
                     
     [game_id] ASC
@@ -1934,7 +2421,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_game_id] ON [dbo].
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_game_id_profile_id] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_game_id_profile_id] ON [dbo].[game_leaderboard] 
 (
                     
     [profile_id] ASC
@@ -1944,7 +2431,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_game_id_profile_id
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_code_game_id_type] ON [dbo].[game_statistic_leaderboard] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_code_game_id_type] ON [dbo].[game_leaderboard] 
 (
                     
     [game_id] ASC
@@ -1957,31 +2444,31 @@ GO
         
 -- INDEX CREATES
 
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code] ON [dbo].[game_leaderboard_item] 
 (
                     
     [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_profile_id] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_profile_id] ON [dbo].[game_leaderboard_item] 
 (
                     
     [profile_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_username] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_username] ON [dbo].[game_leaderboard_item] 
 (
                     
     [username] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_game_id] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_game_id] ON [dbo].[game_leaderboard_item] 
 (
                     
     [game_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_game_id_level] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_game_id_level] ON [dbo].[game_leaderboard_item] 
 (
                     
     [game_id] ASC
@@ -1991,7 +2478,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_game_id_level
     , [level] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_profile_id_game_id] ON [dbo].[game_leaderboard_item] 
 (
                     
     [game_id] ASC
@@ -1999,7 +2486,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_profile_id_game_id
     , [profile_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_username_game_id] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_username_game_id] ON [dbo].[game_leaderboard_item] 
 (
                     
     [username] ASC
@@ -2007,7 +2494,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_username_game_id] 
     , [game_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_username] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_username] ON [dbo].[game_leaderboard_item] 
 (
                     
     [username] ASC
@@ -2015,7 +2502,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_username] ON 
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_username_game_id] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_username_game_id] ON [dbo].[game_leaderboard_item] 
 (
                     
     [username] ASC
@@ -2025,7 +2512,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_username_game
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_username_game_id_type] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_username_game_id_type] ON [dbo].[game_leaderboard_item] 
 (
                     
     [username] ASC
@@ -2037,7 +2524,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_username_game
     , [type] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_profile_id] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_profile_id] ON [dbo].[game_leaderboard_item] 
 (
                     
     [profile_id] ASC
@@ -2045,7 +2532,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_profile_id] O
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_profile_id_game_id] ON [dbo].[game_leaderboard_item] 
 (
                     
     [profile_id] ASC
@@ -2055,7 +2542,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_profile_id_ga
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_profile_id_game_id_type] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_profile_id_game_id_type] ON [dbo].[game_leaderboard_item] 
 (
                     
     [profile_id] ASC
@@ -2067,7 +2554,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_profile_id_ga
     , [type] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_game_id] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_game_id] ON [dbo].[game_leaderboard_item] 
 (
                     
     [game_id] ASC
@@ -2075,7 +2562,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_game_id] ON [
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_game_id_profile_id] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_game_id_profile_id] ON [dbo].[game_leaderboard_item] 
 (
                     
     [profile_id] ASC
@@ -2085,7 +2572,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_game_id_profi
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_item_code_game_id_type] ON [dbo].[game_statistic_leaderboard_item] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_item_code_game_id_type] ON [dbo].[game_leaderboard_item] 
 (
                     
     [game_id] ASC
@@ -2098,31 +2585,31 @@ GO
         
 -- INDEX CREATES
 
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_profile_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_profile_id] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [profile_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_username] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_username] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [username] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_game_id] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [game_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_game_id_level] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_game_id_level] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [game_id] ASC
@@ -2132,7 +2619,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_game_id_lev
     , [level] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_profile_id_game_id] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [game_id] ASC
@@ -2140,7 +2627,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_profile_id_game_
     , [profile_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_username_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_username_game_id] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [username] ASC
@@ -2148,7 +2635,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_username_game_id
     , [game_id] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_username] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_username] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [username] ASC
@@ -2156,7 +2643,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_username] O
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_username_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_username_game_id] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [username] ASC
@@ -2166,7 +2653,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_username_ga
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_username_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_username_game_id_type] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [username] ASC
@@ -2178,7 +2665,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_username_ga
     , [type] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_profile_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_profile_id] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [profile_id] ASC
@@ -2186,7 +2673,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_profile_id]
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_profile_id_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_profile_id_game_id] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [profile_id] ASC
@@ -2196,7 +2683,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_profile_id_
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_profile_id_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_profile_id_game_id_type] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [profile_id] ASC
@@ -2208,7 +2695,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_profile_id_
     , [type] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_game_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_game_id] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [game_id] ASC
@@ -2216,7 +2703,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_game_id] ON
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_game_id_profile_id] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_game_id_profile_id] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [profile_id] ASC
@@ -2226,7 +2713,7 @@ CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_game_id_pro
     , [code] ASC
 )
 GO
-CREATE NONCLUSTERED INDEX [IX_game_statistic_leaderboard_rollup_code_game_id_type] ON [dbo].[game_statistic_leaderboard_rollup] 
+CREATE NONCLUSTERED INDEX [IX_game_leaderboard_rollup_code_game_id_type] ON [dbo].[game_leaderboard_rollup] 
 (
                     
     [game_id] ASC
@@ -2931,6 +3418,35 @@ CREATE NONCLUSTERED INDEX [IX_game_achievement_meta_code_game_id_type] ON [dbo].
     , [type] ASC
 )
 GO
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+-- INDEX CREATES
+
+CREATE NONCLUSTERED INDEX [IX_reward_competition_path] ON [dbo].[reward_competition] 
+(
+                    
+    [path] ASC
+)
+GO
+CREATE NONCLUSTERED INDEX [IX_reward_competition_channel_id] ON [dbo].[reward_competition] 
+(
+                    
+    [channel_id] ASC
+)
+GO
 
 -- -----------------------------------------------------------------------------
 -- PROCS
@@ -2957,12 +3473,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_count_uuid
+CREATE PROCEDURE usp_game_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -2976,12 +3492,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_count_code
+CREATE PROCEDURE usp_game_count_by_code
 (
     @code varchar (255) = NULL
 )
@@ -2995,12 +3511,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_count_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_count_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_count_name
+CREATE PROCEDURE usp_game_count_by_name
 (
     @name varchar (255) = NULL
 )
@@ -3014,12 +3530,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_count_org_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_count_by_org_id]
 
 GO
 
-CREATE PROCEDURE usp_game_count_org_id
+CREATE PROCEDURE usp_game_count_by_org_id
 (
     @org_id uniqueidentifier = NULL
 )
@@ -3033,12 +3549,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_count_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_count_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_count_app_id
+CREATE PROCEDURE usp_game_count_by_app_id
 (
     @app_id uniqueidentifier = NULL
 )
@@ -3052,12 +3568,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_org_id_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_count_org_id_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_count_by_org_id_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_count_by_org_id_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_count_org_id_app_id
+CREATE PROCEDURE usp_game_count_by_org_id_by_app_id
 (
     @org_id uniqueidentifier = NULL
     , @app_id uniqueidentifier = NULL
@@ -3079,12 +3595,12 @@ GO
 -- MODEL: Game - game
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_browse_filter
+CREATE PROCEDURE usp_game_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -3156,12 +3672,12 @@ GO
 -- MODEL: Game - game
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_set_uuid
+CREATE PROCEDURE usp_game_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -3269,12 +3785,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_set_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_set_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_set_code
+CREATE PROCEDURE usp_game_set_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -3382,12 +3898,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_set_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_set_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_set_name
+CREATE PROCEDURE usp_game_set_by_name
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -3495,12 +4011,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_set_org_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_set_by_org_id]
 
 GO
 
-CREATE PROCEDURE usp_game_set_org_id
+CREATE PROCEDURE usp_game_set_by_org_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -3608,12 +4124,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_set_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_set_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_set_app_id
+CREATE PROCEDURE usp_game_set_by_app_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -3721,12 +4237,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_org_id_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_set_org_id_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_set_by_org_id_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_set_by_org_id_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_set_org_id_app_id
+CREATE PROCEDURE usp_game_set_by_org_id_by_app_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -3842,12 +4358,12 @@ GO
 -- MODEL: Game - game
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_del_uuid
+CREATE PROCEDURE usp_game_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -3860,12 +4376,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_del_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_del_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_del_code
+CREATE PROCEDURE usp_game_del_by_code
 (
     @code varchar (255) = NULL
 )
@@ -3878,12 +4394,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_del_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_del_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_del_name
+CREATE PROCEDURE usp_game_del_by_name
 (
     @name varchar (255) = NULL
 )
@@ -3896,12 +4412,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_del_org_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_del_by_org_id]
 
 GO
 
-CREATE PROCEDURE usp_game_del_org_id
+CREATE PROCEDURE usp_game_del_by_org_id
 (
     @org_id uniqueidentifier = NULL
 )
@@ -3914,12 +4430,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_del_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_del_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_del_app_id
+CREATE PROCEDURE usp_game_del_by_app_id
 (
     @app_id uniqueidentifier = NULL
 )
@@ -3932,12 +4448,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_org_id_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_del_org_id_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_del_by_org_id_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_del_by_org_id_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_del_org_id_app_id
+CREATE PROCEDURE usp_game_del_by_org_id_by_app_id
 (
     @org_id uniqueidentifier = NULL
     , @app_id uniqueidentifier = NULL
@@ -3984,12 +4500,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_get_uuid
+CREATE PROCEDURE usp_game_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4014,12 +4530,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_get_code
+CREATE PROCEDURE usp_game_get_by_code
 (
     @code varchar (255) = NULL
 )
@@ -4044,12 +4560,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_get_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_get_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_get_name
+CREATE PROCEDURE usp_game_get_by_name
 (
     @name varchar (255) = NULL
 )
@@ -4074,12 +4590,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_get_org_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_get_by_org_id]
 
 GO
 
-CREATE PROCEDURE usp_game_get_org_id
+CREATE PROCEDURE usp_game_get_by_org_id
 (
     @org_id uniqueidentifier = NULL
 )
@@ -4104,12 +4620,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_get_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_get_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_get_app_id
+CREATE PROCEDURE usp_game_get_by_app_id
 (
     @app_id uniqueidentifier = NULL
 )
@@ -4134,12 +4650,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_org_id_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_get_org_id_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_get_by_org_id_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_get_by_org_id_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_get_org_id_app_id
+CREATE PROCEDURE usp_game_get_by_org_id_by_app_id
 (
     @org_id uniqueidentifier = NULL
     , @app_id uniqueidentifier = NULL
@@ -4190,12 +4706,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_count_uuid
+CREATE PROCEDURE usp_game_category_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4209,12 +4725,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_category_count_code
+CREATE PROCEDURE usp_game_category_count_by_code
 (
     @code varchar (255) = NULL
 )
@@ -4228,12 +4744,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_count_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_count_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_category_count_name
+CREATE PROCEDURE usp_game_category_count_by_name
 (
     @name varchar (255) = NULL
 )
@@ -4247,12 +4763,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_count_org_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_count_by_org_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_count_org_id
+CREATE PROCEDURE usp_game_category_count_by_org_id
 (
     @org_id uniqueidentifier 
 )
@@ -4266,12 +4782,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_count_type_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_count_by_type_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_count_type_id
+CREATE PROCEDURE usp_game_category_count_by_type_id
 (
     @type_id uniqueidentifier 
 )
@@ -4285,12 +4801,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_org_id_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_count_org_id_type_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_count_by_org_id_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_count_by_org_id_by_type_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_count_org_id_type_id
+CREATE PROCEDURE usp_game_category_count_by_org_id_by_type_id
 (
     @org_id uniqueidentifier 
     , @type_id uniqueidentifier 
@@ -4312,12 +4828,12 @@ GO
 -- MODEL: GameCategory - game_category
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_category_browse_filter
+CREATE PROCEDURE usp_game_category_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -4389,12 +4905,12 @@ GO
 -- MODEL: GameCategory - game_category
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_set_uuid
+CREATE PROCEDURE usp_game_category_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -4508,12 +5024,12 @@ GO
 -- MODEL: GameCategory - game_category
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_del_uuid
+CREATE PROCEDURE usp_game_category_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4526,12 +5042,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_del_code_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_del_code_org_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_del_by_code_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_del_by_code_by_org_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_del_code_org_id
+CREATE PROCEDURE usp_game_category_del_by_code_by_org_id
 (
     @code varchar (255) = NULL
     , @org_id uniqueidentifier 
@@ -4546,12 +5062,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_del_code_org_id_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_del_code_org_id_type_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_del_by_code_by_org_id_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_del_by_code_by_org_id_by_type_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_del_code_org_id_type_id
+CREATE PROCEDURE usp_game_category_del_by_code_by_org_id_by_type_id
 (
     @code varchar (255) = NULL
     , @org_id uniqueidentifier 
@@ -4600,12 +5116,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_get_uuid
+CREATE PROCEDURE usp_game_category_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4630,12 +5146,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_category_get_code
+CREATE PROCEDURE usp_game_category_get_by_code
 (
     @code varchar (255) = NULL
 )
@@ -4660,12 +5176,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_get_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_get_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_category_get_name
+CREATE PROCEDURE usp_game_category_get_by_name
 (
     @name varchar (255) = NULL
 )
@@ -4690,12 +5206,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_get_org_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_get_by_org_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_get_org_id
+CREATE PROCEDURE usp_game_category_get_by_org_id
 (
     @org_id uniqueidentifier 
 )
@@ -4720,12 +5236,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_get_type_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_get_by_type_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_get_type_id
+CREATE PROCEDURE usp_game_category_get_by_type_id
 (
     @type_id uniqueidentifier 
 )
@@ -4750,12 +5266,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_org_id_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_get_org_id_type_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_get_by_org_id_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_get_by_org_id_by_type_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_get_org_id_type_id
+CREATE PROCEDURE usp_game_category_get_by_org_id_by_type_id
 (
     @org_id uniqueidentifier 
     , @type_id uniqueidentifier 
@@ -4806,12 +5322,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_count_uuid
+CREATE PROCEDURE usp_game_category_tree_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -4825,12 +5341,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_count_parent_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_count_parent_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_count_by_parent_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_count_by_parent_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_count_parent_id
+CREATE PROCEDURE usp_game_category_tree_count_by_parent_id
 (
     @parent_id uniqueidentifier 
 )
@@ -4844,12 +5360,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_count_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_count_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_count_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_count_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_count_category_id
+CREATE PROCEDURE usp_game_category_tree_count_by_category_id
 (
     @category_id uniqueidentifier 
 )
@@ -4863,12 +5379,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_count_parent_id_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_count_parent_id_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_count_by_parent_id_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_count_by_parent_id_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_count_parent_id_category_id
+CREATE PROCEDURE usp_game_category_tree_count_by_parent_id_by_category_id
 (
     @parent_id uniqueidentifier 
     , @category_id uniqueidentifier 
@@ -4890,12 +5406,12 @@ GO
 -- MODEL: GameCategoryTree - game_category_tree
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_browse_filter
+CREATE PROCEDURE usp_game_category_tree_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -4963,12 +5479,12 @@ GO
 -- MODEL: GameCategoryTree - game_category_tree
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_set_uuid
+CREATE PROCEDURE usp_game_category_tree_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -5066,12 +5582,12 @@ GO
 -- MODEL: GameCategoryTree - game_category_tree
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_del_uuid
+CREATE PROCEDURE usp_game_category_tree_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5084,12 +5600,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_del_parent_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_del_parent_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_del_by_parent_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_del_by_parent_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_del_parent_id
+CREATE PROCEDURE usp_game_category_tree_del_by_parent_id
 (
     @parent_id uniqueidentifier 
 )
@@ -5102,12 +5618,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_del_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_del_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_del_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_del_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_del_category_id
+CREATE PROCEDURE usp_game_category_tree_del_by_category_id
 (
     @category_id uniqueidentifier 
 )
@@ -5120,12 +5636,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_del_parent_id_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_del_parent_id_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_del_by_parent_id_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_del_by_parent_id_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_del_parent_id_category_id
+CREATE PROCEDURE usp_game_category_tree_del_by_parent_id_by_category_id
 (
     @parent_id uniqueidentifier 
     , @category_id uniqueidentifier 
@@ -5168,12 +5684,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_get_uuid
+CREATE PROCEDURE usp_game_category_tree_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5194,12 +5710,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_get_parent_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_get_parent_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_get_by_parent_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_get_by_parent_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_get_parent_id
+CREATE PROCEDURE usp_game_category_tree_get_by_parent_id
 (
     @parent_id uniqueidentifier 
 )
@@ -5220,12 +5736,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_get_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_get_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_get_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_get_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_get_category_id
+CREATE PROCEDURE usp_game_category_tree_get_by_category_id
 (
     @category_id uniqueidentifier 
 )
@@ -5246,12 +5762,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_get_parent_id_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_tree_get_parent_id_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_tree_get_by_parent_id_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_tree_get_by_parent_id_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_tree_get_parent_id_category_id
+CREATE PROCEDURE usp_game_category_tree_get_by_parent_id_by_category_id
 (
     @parent_id uniqueidentifier 
     , @category_id uniqueidentifier 
@@ -5298,12 +5814,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_count_uuid
+CREATE PROCEDURE usp_game_category_assoc_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5317,12 +5833,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_count_game_id
+CREATE PROCEDURE usp_game_category_assoc_count_by_game_id
 (
     @game_id uniqueidentifier 
 )
@@ -5336,12 +5852,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_count_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_count_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_count_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_count_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_count_category_id
+CREATE PROCEDURE usp_game_category_assoc_count_by_category_id
 (
     @category_id uniqueidentifier 
 )
@@ -5355,12 +5871,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_count_game_id_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_count_game_id_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_count_by_game_id_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_count_by_game_id_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_count_game_id_category_id
+CREATE PROCEDURE usp_game_category_assoc_count_by_game_id_by_category_id
 (
     @game_id uniqueidentifier 
     , @category_id uniqueidentifier 
@@ -5382,12 +5898,12 @@ GO
 -- MODEL: GameCategoryAssoc - game_category_assoc
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_browse_filter
+CREATE PROCEDURE usp_game_category_assoc_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -5455,12 +5971,12 @@ GO
 -- MODEL: GameCategoryAssoc - game_category_assoc
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_set_uuid
+CREATE PROCEDURE usp_game_category_assoc_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -5558,12 +6074,12 @@ GO
 -- MODEL: GameCategoryAssoc - game_category_assoc
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_del_uuid
+CREATE PROCEDURE usp_game_category_assoc_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5604,12 +6120,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_get_uuid
+CREATE PROCEDURE usp_game_category_assoc_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5630,12 +6146,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_get_game_id
+CREATE PROCEDURE usp_game_category_assoc_get_by_game_id
 (
     @game_id uniqueidentifier 
 )
@@ -5656,12 +6172,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_get_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_get_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_get_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_get_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_get_category_id
+CREATE PROCEDURE usp_game_category_assoc_get_by_category_id
 (
     @category_id uniqueidentifier 
 )
@@ -5682,12 +6198,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_get_game_id_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_category_assoc_get_game_id_category_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_category_assoc_get_by_game_id_by_category_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_category_assoc_get_by_game_id_by_category_id]
 
 GO
 
-CREATE PROCEDURE usp_game_category_assoc_get_game_id_category_id
+CREATE PROCEDURE usp_game_category_assoc_get_by_game_id_by_category_id
 (
     @game_id uniqueidentifier 
     , @category_id uniqueidentifier 
@@ -5734,12 +6250,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_type_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_type_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_type_count_uuid
+CREATE PROCEDURE usp_game_type_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -5753,12 +6269,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_type_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_type_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_type_count_code
+CREATE PROCEDURE usp_game_type_count_by_code
 (
     @code varchar (255) = NULL
 )
@@ -5772,12 +6288,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_count_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_type_count_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_type_count_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_type_count_name
+CREATE PROCEDURE usp_game_type_count_by_name
 (
     @name varchar (255) = NULL
 )
@@ -5797,12 +6313,12 @@ GO
 -- MODEL: GameType - game_type
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_type_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_type_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_type_browse_filter
+CREATE PROCEDURE usp_game_type_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -5872,12 +6388,12 @@ GO
 -- MODEL: GameType - game_type
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_type_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_type_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_type_set_uuid
+CREATE PROCEDURE usp_game_type_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -5983,12 +6499,12 @@ GO
 -- MODEL: GameType - game_type
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_type_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_type_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_type_del_uuid
+CREATE PROCEDURE usp_game_type_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -6031,12 +6547,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_type_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_type_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_type_get_uuid
+CREATE PROCEDURE usp_game_type_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -6059,12 +6575,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_type_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_type_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_type_get_code
+CREATE PROCEDURE usp_game_type_get_by_code
 (
     @code varchar (255) = NULL
 )
@@ -6087,12 +6603,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_get_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_type_get_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_type_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_type_get_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_type_get_name
+CREATE PROCEDURE usp_game_type_get_by_name
 (
     @name varchar (255) = NULL
 )
@@ -6139,12 +6655,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_count_uuid
+CREATE PROCEDURE usp_profile_game_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -6158,12 +6674,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_count_game_id
+CREATE PROCEDURE usp_profile_game_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -6177,12 +6693,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_count_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_count_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_count_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_count_profile_id
+CREATE PROCEDURE usp_profile_game_count_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -6196,12 +6712,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_count_profile_id_game_id
+CREATE PROCEDURE usp_profile_game_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -6223,12 +6739,12 @@ GO
 -- MODEL: ProfileGame - profile_game
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_browse_filter
+CREATE PROCEDURE usp_profile_game_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -6299,12 +6815,12 @@ GO
 -- MODEL: ProfileGame - profile_game
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_set_uuid
+CREATE PROCEDURE usp_profile_game_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -6414,12 +6930,12 @@ GO
 -- MODEL: ProfileGame - profile_game
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_del_uuid
+CREATE PROCEDURE usp_profile_game_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -6463,12 +6979,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_get_uuid
+CREATE PROCEDURE usp_profile_game_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -6492,12 +7008,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_get_game_id
+CREATE PROCEDURE usp_profile_game_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -6521,12 +7037,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_get_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_get_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_get_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_get_profile_id
+CREATE PROCEDURE usp_profile_game_get_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -6550,12 +7066,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_get_profile_id_game_id
+CREATE PROCEDURE usp_profile_game_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -6605,12 +7121,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_network_count_uuid
+CREATE PROCEDURE usp_game_network_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -6624,12 +7140,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_network_count_code
+CREATE PROCEDURE usp_game_network_count_by_code
 (
     @code varchar (255) = NULL
 )
@@ -6643,12 +7159,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count_uuid_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_count_uuid_type]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_count_by_uuid_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_count_by_uuid_by_type]
 
 GO
 
-CREATE PROCEDURE usp_game_network_count_uuid_type
+CREATE PROCEDURE usp_game_network_count_by_uuid_by_type
 (
     @uuid uniqueidentifier 
     , @type varchar (500) = NULL
@@ -6670,12 +7186,12 @@ GO
 -- MODEL: GameNetwork - game_network
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_network_browse_filter
+CREATE PROCEDURE usp_game_network_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -6748,12 +7264,12 @@ GO
 -- MODEL: GameNetwork - game_network
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_network_set_uuid
+CREATE PROCEDURE usp_game_network_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -6865,12 +7381,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_set_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_set_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_network_set_code
+CREATE PROCEDURE usp_game_network_set_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -6988,12 +7504,12 @@ GO
 -- MODEL: GameNetwork - game_network
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_network_del_uuid
+CREATE PROCEDURE usp_game_network_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -7039,12 +7555,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_network_get_uuid
+CREATE PROCEDURE usp_game_network_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -7070,12 +7586,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_network_get_code
+CREATE PROCEDURE usp_game_network_get_by_code
 (
     @code varchar (255) = NULL
 )
@@ -7101,12 +7617,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get_uuid_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_get_uuid_type]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_get_by_uuid_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_get_by_uuid_by_type]
 
 GO
 
-CREATE PROCEDURE usp_game_network_get_uuid_type
+CREATE PROCEDURE usp_game_network_get_by_uuid_by_type
 (
     @uuid uniqueidentifier 
     , @type varchar (500) = NULL
@@ -7158,12 +7674,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_auth_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_network_auth_count_uuid
+CREATE PROCEDURE usp_game_network_auth_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -7177,12 +7693,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_count_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_auth_count_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_count_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_count_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_game_network_auth_count_game_id_game_network_id
+CREATE PROCEDURE usp_game_network_auth_count_by_game_id_by_game_network_id
 (
     @game_id uniqueidentifier = NULL
     , @game_network_id uniqueidentifier = NULL
@@ -7204,12 +7720,12 @@ GO
 -- MODEL: GameNetworkAuth - game_network_auth
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_auth_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_network_auth_browse_filter
+CREATE PROCEDURE usp_game_network_auth_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -7285,12 +7801,12 @@ GO
 -- MODEL: GameNetworkAuth - game_network_auth
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_auth_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_network_auth_set_uuid
+CREATE PROCEDURE usp_game_network_auth_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -7414,12 +7930,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_set_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_auth_set_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_set_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_set_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_game_network_auth_set_game_id_game_network_id
+CREATE PROCEDURE usp_game_network_auth_set_by_game_id_by_game_network_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -7551,12 +8067,12 @@ GO
 -- MODEL: GameNetworkAuth - game_network_auth
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_auth_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_network_auth_del_uuid
+CREATE PROCEDURE usp_game_network_auth_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -7605,12 +8121,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_auth_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_network_auth_get_uuid
+CREATE PROCEDURE usp_game_network_auth_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -7639,12 +8155,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_get_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_network_auth_get_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_network_auth_get_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_network_auth_get_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_game_network_auth_get_game_id_game_network_id
+CREATE PROCEDURE usp_game_network_auth_get_by_game_id_by_game_network_id
 (
     @game_id uniqueidentifier = NULL
     , @game_network_id uniqueidentifier = NULL
@@ -7699,12 +8215,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_count_uuid
+CREATE PROCEDURE usp_profile_game_network_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -7718,12 +8234,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_count_game_id
+CREATE PROCEDURE usp_profile_game_network_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -7737,12 +8253,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_count_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_count_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_count_profile_id
+CREATE PROCEDURE usp_profile_game_network_count_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -7756,33 +8272,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_count_profile_id_game_id
-(
-    @profile_id uniqueidentifier = NULL
-    , @game_id uniqueidentifier = NULL
-)
-AS
-BEGIN
-    SELECT
-        COUNT(*) as count
-    FROM [dbo].[profile_game_network]
-    WHERE 1=1
-    AND [profile_id] = @profile_id
-    AND [game_id] = @game_id
-END
-GO
--- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_count_profile_id_game_id]
-
-GO
-
-CREATE PROCEDURE usp_profile_game_network_count_profile_id_game_id
+CREATE PROCEDURE usp_profile_game_network_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -7798,12 +8293,33 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_profile_id_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_count_profile_id_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_count_profile_id_game_id_game_network_id
+CREATE PROCEDURE usp_profile_game_network_count_by_profile_id_by_game_id
+(
+    @profile_id uniqueidentifier = NULL
+    , @game_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_game_network]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_by_profile_id_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_count_by_profile_id_by_game_id_by_game_network_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_game_network_count_by_profile_id_by_game_id_by_game_network_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -7821,12 +8337,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_network_username_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_count_network_username_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_count_by_network_username_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_count_by_network_username_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_count_network_username_game_id_game_network_id
+CREATE PROCEDURE usp_profile_game_network_count_by_network_username_by_game_id_by_game_network_id
 (
     @network_username varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -7850,12 +8366,12 @@ GO
 -- MODEL: ProfileGameNetwork - profile_game_network
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_browse_filter
+CREATE PROCEDURE usp_profile_game_network_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -7932,12 +8448,12 @@ GO
 -- MODEL: ProfileGameNetwork - profile_game_network
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_set_uuid
+CREATE PROCEDURE usp_profile_game_network_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -8065,12 +8581,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_set_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_set_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_set_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_set_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_set_profile_id_game_id
+CREATE PROCEDURE usp_profile_game_network_set_by_profile_id_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -8200,12 +8716,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_set_profile_id_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_set_profile_id_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_set_by_profile_id_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_set_by_profile_id_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_set_profile_id_game_id_game_network_id
+CREATE PROCEDURE usp_profile_game_network_set_by_profile_id_by_game_id_by_game_network_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -8337,12 +8853,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_set_network_username_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_set_network_username_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_set_by_network_username_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_set_by_network_username_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_set_network_username_game_id_game_network_id
+CREATE PROCEDURE usp_profile_game_network_set_by_network_username_by_game_id_by_game_network_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -8480,12 +8996,12 @@ GO
 -- MODEL: ProfileGameNetwork - profile_game_network
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_del_uuid
+CREATE PROCEDURE usp_profile_game_network_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -8498,12 +9014,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_del_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_del_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_del_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_del_profile_id_game_id
+CREATE PROCEDURE usp_profile_game_network_del_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -8518,12 +9034,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_del_profile_id_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_del_profile_id_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_del_by_profile_id_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_del_by_profile_id_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_del_profile_id_game_id_game_network_id
+CREATE PROCEDURE usp_profile_game_network_del_by_profile_id_by_game_id_by_game_network_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -8540,12 +9056,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_del_network_username_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_del_network_username_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_del_by_network_username_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_del_by_network_username_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_del_network_username_game_id_game_network_id
+CREATE PROCEDURE usp_profile_game_network_del_by_network_username_by_game_id_by_game_network_id
 (
     @network_username varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -8599,12 +9115,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_get_uuid
+CREATE PROCEDURE usp_profile_game_network_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -8634,12 +9150,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_get_game_id
+CREATE PROCEDURE usp_profile_game_network_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -8669,12 +9185,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_get_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_get_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_get_profile_id
+CREATE PROCEDURE usp_profile_game_network_get_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -8704,12 +9220,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_get_profile_id_game_id
+CREATE PROCEDURE usp_profile_game_network_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -8741,12 +9257,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_profile_id_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_get_profile_id_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_by_profile_id_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_get_by_profile_id_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_get_profile_id_game_id_game_network_id
+CREATE PROCEDURE usp_profile_game_network_get_by_profile_id_by_game_id_by_game_network_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -8780,12 +9296,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_network_username_game_id_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_network_get_network_username_game_id_game_network_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_network_get_by_network_username_by_game_id_by_game_network_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_network_get_by_network_username_by_game_id_by_game_network_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_network_get_network_username_game_id_game_network_id
+CREATE PROCEDURE usp_profile_game_network_get_by_network_username_by_game_id_by_game_network_id
 (
     @network_username varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -8843,12 +9359,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_count_uuid
+CREATE PROCEDURE usp_profile_game_data_attribute_count_by_uuid
 (
     @uuid uniqueidentifier = NULL
 )
@@ -8862,12 +9378,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_count_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_count_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_count_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_count_profile_id
+CREATE PROCEDURE usp_profile_game_data_attribute_count_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -8881,12 +9397,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_count_profile_id_game_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_count_profile_id_game_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_count_by_profile_id_by_game_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_count_by_profile_id_by_game_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_count_profile_id_game_id_code
+CREATE PROCEDURE usp_profile_game_data_attribute_count_by_profile_id_by_game_id_by_code
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -8910,12 +9426,12 @@ GO
 -- MODEL: ProfileGameDataAttribute - profile_game_data_attribute
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_browse_filter
+CREATE PROCEDURE usp_profile_game_data_attribute_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -8987,12 +9503,12 @@ GO
 -- MODEL: ProfileGameDataAttribute - profile_game_data_attribute
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_set_uuid
+CREATE PROCEDURE usp_profile_game_data_attribute_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -9100,12 +9616,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_set_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_set_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_set_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_set_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_set_profile_id
+CREATE PROCEDURE usp_profile_game_data_attribute_set_by_profile_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -9213,12 +9729,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_set_profile_id_game_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_set_profile_id_game_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_set_by_profile_id_by_game_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_set_by_profile_id_by_game_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_set_profile_id_game_id_code
+CREATE PROCEDURE usp_profile_game_data_attribute_set_by_profile_id_by_game_id_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -9336,12 +9852,12 @@ GO
 -- MODEL: ProfileGameDataAttribute - profile_game_data_attribute
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_del_uuid
+CREATE PROCEDURE usp_profile_game_data_attribute_del_by_uuid
 (
     @uuid uniqueidentifier = NULL
 )
@@ -9354,12 +9870,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_del_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_del_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_del_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_del_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_del_profile_id
+CREATE PROCEDURE usp_profile_game_data_attribute_del_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -9372,12 +9888,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_del_profile_id_game_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_del_profile_id_game_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_del_by_profile_id_by_game_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_del_by_profile_id_by_game_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_del_profile_id_game_id_code
+CREATE PROCEDURE usp_profile_game_data_attribute_del_by_profile_id_by_game_id_by_code
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -9400,12 +9916,12 @@ GO
 -- MODEL: ProfileGameDataAttribute - profile_game_data_attribute
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_get_uuid
+CREATE PROCEDURE usp_profile_game_data_attribute_get_by_uuid
 (
     @uuid uniqueidentifier = NULL
 )
@@ -9430,12 +9946,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_get_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_get_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_get_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_get_profile_id
+CREATE PROCEDURE usp_profile_game_data_attribute_get_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -9460,12 +9976,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_get_profile_id_game_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_get_profile_id_game_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_data_attribute_get_by_profile_id_by_game_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_data_attribute_get_by_profile_id_by_game_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_data_attribute_get_profile_id_game_id_code
+CREATE PROCEDURE usp_profile_game_data_attribute_get_by_profile_id_by_game_id_by_code
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -9518,12 +10034,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_session_count_uuid
+CREATE PROCEDURE usp_game_session_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -9537,12 +10053,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_session_count_game_id
+CREATE PROCEDURE usp_game_session_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -9556,12 +10072,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_count_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_count_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_count_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_session_count_profile_id
+CREATE PROCEDURE usp_game_session_count_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -9575,12 +10091,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_session_count_profile_id_game_id
+CREATE PROCEDURE usp_game_session_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -9602,12 +10118,12 @@ GO
 -- MODEL: GameSession - game_session
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_session_browse_filter
+CREATE PROCEDURE usp_game_session_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -9699,12 +10215,12 @@ GO
 -- MODEL: GameSession - game_session
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_session_set_uuid
+CREATE PROCEDURE usp_game_session_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @game_area varchar (255) = NULL
@@ -9898,12 +10414,12 @@ GO
 -- MODEL: GameSession - game_session
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_session_del_uuid
+CREATE PROCEDURE usp_game_session_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -9968,12 +10484,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_session_get_uuid
+CREATE PROCEDURE usp_game_session_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -10018,12 +10534,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_session_get_game_id
+CREATE PROCEDURE usp_game_session_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -10068,12 +10584,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_get_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_get_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_get_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_session_get_profile_id
+CREATE PROCEDURE usp_game_session_get_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -10118,12 +10634,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_session_get_profile_id_game_id
+CREATE PROCEDURE usp_game_session_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -10194,12 +10710,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_data_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_data_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_session_data_count_uuid
+CREATE PROCEDURE usp_game_session_data_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -10219,12 +10735,12 @@ GO
 -- MODEL: GameSessionData - game_session_data
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_data_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_data_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_session_data_browse_filter
+CREATE PROCEDURE usp_game_session_data_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -10299,12 +10815,12 @@ GO
 -- MODEL: GameSessionData - game_session_data
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_data_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_data_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_session_data_set_uuid
+CREATE PROCEDURE usp_game_session_data_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -10430,12 +10946,12 @@ GO
 -- MODEL: GameSessionData - game_session_data
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_data_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_data_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_session_data_del_uuid
+CREATE PROCEDURE usp_game_session_data_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -10483,12 +10999,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_session_data_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_session_data_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_session_data_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_session_data_get_uuid
+CREATE PROCEDURE usp_game_session_data_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -10540,12 +11056,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_content_count_uuid
+CREATE PROCEDURE usp_game_content_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -10559,12 +11075,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_content_count_game_id
+CREATE PROCEDURE usp_game_content_count_by_game_id
 (
     @game_id uniqueidentifier 
 )
@@ -10578,12 +11094,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_game_id_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_count_game_id_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_by_game_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_count_by_game_id_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_content_count_game_id_path
+CREATE PROCEDURE usp_game_content_count_by_game_id_by_path
 (
     @game_id uniqueidentifier 
     , @path varchar (500) = NULL
@@ -10599,12 +11115,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_game_id_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_count_game_id_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_by_game_id_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_count_by_game_id_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_content_count_game_id_path_version
+CREATE PROCEDURE usp_game_content_count_by_game_id_by_path_by_version
 (
     @game_id uniqueidentifier 
     , @path varchar (500) = NULL
@@ -10622,12 +11138,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_game_id_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_count_game_id_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_count_by_game_id_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_count_by_game_id_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_content_count_game_id_path_version_platform_increment
+CREATE PROCEDURE usp_game_content_count_by_game_id_by_path_by_version_by_platform_by_increment
 (
     @game_id uniqueidentifier 
     , @path varchar (500) = NULL
@@ -10655,12 +11171,12 @@ GO
 -- MODEL: GameContent - game_content
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_content_browse_filter
+CREATE PROCEDURE usp_game_content_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -10741,12 +11257,12 @@ GO
 -- MODEL: GameContent - game_content
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_content_set_uuid
+CREATE PROCEDURE usp_game_content_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -10890,12 +11406,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_set_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_set_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_content_set_game_id
+CREATE PROCEDURE usp_game_content_set_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -11039,12 +11555,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_game_id_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_set_game_id_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_by_game_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_set_by_game_id_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_content_set_game_id_path
+CREATE PROCEDURE usp_game_content_set_by_game_id_by_path
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -11190,12 +11706,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_game_id_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_set_game_id_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_by_game_id_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_set_by_game_id_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_content_set_game_id_path_version
+CREATE PROCEDURE usp_game_content_set_by_game_id_by_path_by_version
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -11343,12 +11859,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_game_id_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_set_game_id_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_set_by_game_id_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_set_by_game_id_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_content_set_game_id_path_version_platform_increment
+CREATE PROCEDURE usp_game_content_set_by_game_id_by_path_by_version_by_platform_by_increment
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -11506,12 +12022,12 @@ GO
 -- MODEL: GameContent - game_content
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_content_del_uuid
+CREATE PROCEDURE usp_game_content_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -11524,12 +12040,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_del_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_del_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_content_del_game_id
+CREATE PROCEDURE usp_game_content_del_by_game_id
 (
     @game_id uniqueidentifier 
 )
@@ -11542,12 +12058,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_game_id_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_del_game_id_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_by_game_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_del_by_game_id_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_content_del_game_id_path
+CREATE PROCEDURE usp_game_content_del_by_game_id_by_path
 (
     @game_id uniqueidentifier 
     , @path varchar (500) = NULL
@@ -11562,12 +12078,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_game_id_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_del_game_id_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_by_game_id_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_del_by_game_id_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_content_del_game_id_path_version
+CREATE PROCEDURE usp_game_content_del_by_game_id_by_path_by_version
 (
     @game_id uniqueidentifier 
     , @path varchar (500) = NULL
@@ -11584,12 +12100,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_game_id_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_del_game_id_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_del_by_game_id_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_del_by_game_id_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_content_del_game_id_path_version_platform_increment
+CREATE PROCEDURE usp_game_content_del_by_game_id_by_path_by_version_by_platform_by_increment
 (
     @game_id uniqueidentifier 
     , @path varchar (500) = NULL
@@ -11651,12 +12167,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_content_get_uuid
+CREATE PROCEDURE usp_game_content_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -11690,12 +12206,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_content_get_game_id
+CREATE PROCEDURE usp_game_content_get_by_game_id
 (
     @game_id uniqueidentifier 
 )
@@ -11729,12 +12245,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_game_id_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_get_game_id_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_by_game_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_get_by_game_id_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_content_get_game_id_path
+CREATE PROCEDURE usp_game_content_get_by_game_id_by_path
 (
     @game_id uniqueidentifier 
     , @path varchar (500) = NULL
@@ -11770,12 +12286,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_game_id_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_get_game_id_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_by_game_id_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_get_by_game_id_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_content_get_game_id_path_version
+CREATE PROCEDURE usp_game_content_get_by_game_id_by_path_by_version
 (
     @game_id uniqueidentifier 
     , @path varchar (500) = NULL
@@ -11813,12 +12329,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_game_id_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_content_get_game_id_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_content_get_by_game_id_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_content_get_by_game_id_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_content_get_game_id_path_version_platform_increment
+CREATE PROCEDURE usp_game_content_get_by_game_id_by_path_by_version_by_platform_by_increment
 (
     @game_id uniqueidentifier 
     , @path varchar (500) = NULL
@@ -11884,12 +12400,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_uuid
+CREATE PROCEDURE usp_game_profile_content_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -11903,12 +12419,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_game_id_profile_id
+CREATE PROCEDURE usp_game_profile_content_count_by_game_id_by_profile_id
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -11924,12 +12440,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_game_id_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_game_id_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_game_id_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_game_id_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_game_id_username
+CREATE PROCEDURE usp_game_profile_content_count_by_game_id_by_username
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -11945,12 +12461,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_username
+CREATE PROCEDURE usp_game_profile_content_count_by_username
 (
     @username varchar (500) = NULL
 )
@@ -11964,12 +12480,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_game_id_profile_id_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_game_id_profile_id_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_game_id_by_profile_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_game_id_by_profile_id_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_game_id_profile_id_path
+CREATE PROCEDURE usp_game_profile_content_count_by_game_id_by_profile_id_by_path
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -11987,12 +12503,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_game_id_profile_id_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_game_id_profile_id_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_game_id_by_profile_id_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_game_id_by_profile_id_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_game_id_profile_id_path_version
+CREATE PROCEDURE usp_game_profile_content_count_by_game_id_by_profile_id_by_path_by_version
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -12012,12 +12528,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_game_id_profile_id_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_game_id_profile_id_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_game_id_profile_id_path_version_platform_increment
+CREATE PROCEDURE usp_game_profile_content_count_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -12041,12 +12557,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_game_id_username_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_game_id_username_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_game_id_by_username_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_game_id_by_username_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_game_id_username_path
+CREATE PROCEDURE usp_game_profile_content_count_by_game_id_by_username_by_path
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -12064,12 +12580,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_game_id_username_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_game_id_username_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_game_id_by_username_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_game_id_by_username_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_game_id_username_path_version
+CREATE PROCEDURE usp_game_profile_content_count_by_game_id_by_username_by_path_by_version
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -12089,12 +12605,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_game_id_username_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_count_game_id_username_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_count_by_game_id_by_username_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_count_by_game_id_by_username_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_count_game_id_username_path_version_platform_increment
+CREATE PROCEDURE usp_game_profile_content_count_by_game_id_by_username_by_path_by_version_by_platform_by_increment
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -12124,12 +12640,12 @@ GO
 -- MODEL: GameProfileContent - game_profile_content
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_browse_filter
+CREATE PROCEDURE usp_game_profile_content_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -12213,12 +12729,12 @@ GO
 -- MODEL: GameProfileContent - game_profile_content
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_uuid
+CREATE PROCEDURE usp_game_profile_content_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -12374,12 +12890,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_game_id_profile_id
+CREATE PROCEDURE usp_game_profile_content_set_by_game_id_by_profile_id
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -12537,12 +13053,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_game_id_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_game_id_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_game_id_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_game_id_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_game_id_username
+CREATE PROCEDURE usp_game_profile_content_set_by_game_id_by_username
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -12700,12 +13216,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_username
+CREATE PROCEDURE usp_game_profile_content_set_by_username
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -12861,12 +13377,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_game_id_profile_id_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_game_id_profile_id_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_game_id_by_profile_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_game_id_by_profile_id_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_game_id_profile_id_path
+CREATE PROCEDURE usp_game_profile_content_set_by_game_id_by_profile_id_by_path
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -13026,12 +13542,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_game_id_profile_id_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_game_id_profile_id_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_game_id_by_profile_id_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_game_id_by_profile_id_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_game_id_profile_id_path_version
+CREATE PROCEDURE usp_game_profile_content_set_by_game_id_by_profile_id_by_path_by_version
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -13193,12 +13709,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_game_id_profile_id_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_game_id_profile_id_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_game_id_profile_id_path_version_platform_increment
+CREATE PROCEDURE usp_game_profile_content_set_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -13364,12 +13880,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_game_id_username_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_game_id_username_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_game_id_by_username_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_game_id_by_username_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_game_id_username_path
+CREATE PROCEDURE usp_game_profile_content_set_by_game_id_by_username_by_path
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -13529,12 +14045,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_game_id_username_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_game_id_username_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_game_id_by_username_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_game_id_by_username_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_game_id_username_path_version
+CREATE PROCEDURE usp_game_profile_content_set_by_game_id_by_username_by_path_by_version
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -13696,12 +14212,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_game_id_username_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_set_game_id_username_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_set_by_game_id_by_username_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_set_by_game_id_by_username_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_set_game_id_username_path_version_platform_increment
+CREATE PROCEDURE usp_game_profile_content_set_by_game_id_by_username_by_path_by_version_by_platform_by_increment
 (
     @set_type varchar (50) = 'full'                        
     , @username varchar (500) = NULL
@@ -13873,12 +14389,12 @@ GO
 -- MODEL: GameProfileContent - game_profile_content
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_uuid
+CREATE PROCEDURE usp_game_profile_content_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -13891,12 +14407,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_game_id_profile_id
+CREATE PROCEDURE usp_game_profile_content_del_by_game_id_by_profile_id
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -13911,12 +14427,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_game_id_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_game_id_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_game_id_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_game_id_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_game_id_username
+CREATE PROCEDURE usp_game_profile_content_del_by_game_id_by_username
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -13931,12 +14447,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_username
+CREATE PROCEDURE usp_game_profile_content_del_by_username
 (
     @username varchar (500) = NULL
 )
@@ -13949,12 +14465,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_game_id_profile_id_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_game_id_profile_id_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_game_id_by_profile_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_game_id_by_profile_id_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_game_id_profile_id_path
+CREATE PROCEDURE usp_game_profile_content_del_by_game_id_by_profile_id_by_path
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -13971,12 +14487,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_game_id_profile_id_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_game_id_profile_id_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_game_id_by_profile_id_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_game_id_by_profile_id_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_game_id_profile_id_path_version
+CREATE PROCEDURE usp_game_profile_content_del_by_game_id_by_profile_id_by_path_by_version
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -13995,12 +14511,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_game_id_profile_id_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_game_id_profile_id_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_game_id_profile_id_path_version_platform_increment
+CREATE PROCEDURE usp_game_profile_content_del_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -14023,12 +14539,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_game_id_username_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_game_id_username_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_game_id_by_username_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_game_id_by_username_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_game_id_username_path
+CREATE PROCEDURE usp_game_profile_content_del_by_game_id_by_username_by_path
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -14045,12 +14561,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_game_id_username_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_game_id_username_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_game_id_by_username_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_game_id_by_username_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_game_id_username_path_version
+CREATE PROCEDURE usp_game_profile_content_del_by_game_id_by_username_by_path_by_version
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -14069,12 +14585,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_game_id_username_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_del_game_id_username_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_del_by_game_id_by_username_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_del_by_game_id_by_username_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_del_game_id_username_path_version_platform_increment
+CREATE PROCEDURE usp_game_profile_content_del_by_game_id_by_username_by_path_by_version_by_platform_by_increment
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -14141,12 +14657,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_uuid
+CREATE PROCEDURE usp_game_profile_content_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -14183,12 +14699,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_game_id_profile_id
+CREATE PROCEDURE usp_game_profile_content_get_by_game_id_by_profile_id
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -14227,12 +14743,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_game_id_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_game_id_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_game_id_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_game_id_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_game_id_username
+CREATE PROCEDURE usp_game_profile_content_get_by_game_id_by_username
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -14271,12 +14787,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_username
+CREATE PROCEDURE usp_game_profile_content_get_by_username
 (
     @username varchar (500) = NULL
 )
@@ -14313,12 +14829,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_game_id_profile_id_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_game_id_profile_id_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_game_id_by_profile_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_game_id_by_profile_id_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_game_id_profile_id_path
+CREATE PROCEDURE usp_game_profile_content_get_by_game_id_by_profile_id_by_path
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -14359,12 +14875,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_game_id_profile_id_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_game_id_profile_id_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_game_id_by_profile_id_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_game_id_by_profile_id_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_game_id_profile_id_path_version
+CREATE PROCEDURE usp_game_profile_content_get_by_game_id_by_profile_id_by_path_by_version
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -14407,12 +14923,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_game_id_profile_id_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_game_id_profile_id_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_game_id_profile_id_path_version_platform_increment
+CREATE PROCEDURE usp_game_profile_content_get_by_game_id_by_profile_id_by_path_by_version_by_platform_by_increment
 (
     @game_id uniqueidentifier 
     , @profile_id uniqueidentifier 
@@ -14459,12 +14975,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_game_id_username_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_game_id_username_path]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_game_id_by_username_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_game_id_by_username_by_path]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_game_id_username_path
+CREATE PROCEDURE usp_game_profile_content_get_by_game_id_by_username_by_path
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -14505,12 +15021,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_game_id_username_path_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_game_id_username_path_version]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_game_id_by_username_by_path_by_version]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_game_id_by_username_by_path_by_version]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_game_id_username_path_version
+CREATE PROCEDURE usp_game_profile_content_get_by_game_id_by_username_by_path_by_version
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -14553,12 +15069,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_game_id_username_path_version_platform_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_content_get_game_id_username_path_version_platform_increment]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_content_get_by_game_id_by_username_by_path_by_version_by_platform_by_increment]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_content_get_by_game_id_by_username_by_path_by_version_by_platform_by_increment]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_content_get_game_id_username_path_version_platform_increment
+CREATE PROCEDURE usp_game_profile_content_get_by_game_id_by_username_by_path_by_version_by_platform_by_increment
 (
     @game_id uniqueidentifier 
     , @username varchar (500) = NULL
@@ -14629,12 +15145,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_app_count_uuid
+CREATE PROCEDURE usp_game_app_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -14648,12 +15164,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_app_count_game_id
+CREATE PROCEDURE usp_game_app_count_by_game_id
 (
     @game_id uniqueidentifier 
 )
@@ -14667,12 +15183,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_count_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_count_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_count_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_count_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_app_count_app_id
+CREATE PROCEDURE usp_game_app_count_by_app_id
 (
     @app_id uniqueidentifier 
 )
@@ -14686,12 +15202,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_count_game_id_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_count_game_id_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_count_by_game_id_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_count_by_game_id_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_app_count_game_id_app_id
+CREATE PROCEDURE usp_game_app_count_by_game_id_by_app_id
 (
     @game_id uniqueidentifier 
     , @app_id uniqueidentifier 
@@ -14713,12 +15229,12 @@ GO
 -- MODEL: GameApp - game_app
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_app_browse_filter
+CREATE PROCEDURE usp_game_app_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -14786,12 +15302,12 @@ GO
 -- MODEL: GameApp - game_app
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_app_set_uuid
+CREATE PROCEDURE usp_game_app_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -14889,12 +15405,12 @@ GO
 -- MODEL: GameApp - game_app
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_app_del_uuid
+CREATE PROCEDURE usp_game_app_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -14935,12 +15451,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_app_get_uuid
+CREATE PROCEDURE usp_game_app_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -14961,12 +15477,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_app_get_game_id
+CREATE PROCEDURE usp_game_app_get_by_game_id
 (
     @game_id uniqueidentifier 
 )
@@ -14987,12 +15503,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_get_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_get_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_get_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_get_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_app_get_app_id
+CREATE PROCEDURE usp_game_app_get_by_app_id
 (
     @app_id uniqueidentifier 
 )
@@ -15013,12 +15529,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_get_game_id_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_app_get_game_id_app_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_app_get_by_game_id_by_app_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_app_get_by_game_id_by_app_id]
 
 GO
 
-CREATE PROCEDURE usp_game_app_get_game_id_app_id
+CREATE PROCEDURE usp_game_app_get_by_game_id_by_app_id
 (
     @game_id uniqueidentifier 
     , @app_id uniqueidentifier 
@@ -15065,12 +15581,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_count_uuid
+CREATE PROCEDURE usp_profile_game_location_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -15084,12 +15600,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_count_game_location_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_count_game_location_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_count_by_game_location_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_count_by_game_location_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_count_game_location_id
+CREATE PROCEDURE usp_profile_game_location_count_by_game_location_id
 (
     @game_location_id uniqueidentifier = NULL
 )
@@ -15103,12 +15619,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_count_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_count_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_count_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_count_profile_id
+CREATE PROCEDURE usp_profile_game_location_count_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -15122,12 +15638,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_count_profile_id_game_location_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_count_profile_id_game_location_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_count_by_profile_id_by_game_location_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_count_by_profile_id_by_game_location_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_count_profile_id_game_location_id
+CREATE PROCEDURE usp_profile_game_location_count_by_profile_id_by_game_location_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_location_id uniqueidentifier = NULL
@@ -15149,12 +15665,12 @@ GO
 -- MODEL: ProfileGameLocation - profile_game_location
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_browse_filter
+CREATE PROCEDURE usp_profile_game_location_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -15223,12 +15739,12 @@ GO
 -- MODEL: ProfileGameLocation - profile_game_location
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_set_uuid
+CREATE PROCEDURE usp_profile_game_location_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -15330,12 +15846,12 @@ GO
 -- MODEL: ProfileGameLocation - profile_game_location
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_del_uuid
+CREATE PROCEDURE usp_profile_game_location_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -15377,12 +15893,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_get_uuid
+CREATE PROCEDURE usp_profile_game_location_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -15404,12 +15920,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_get_game_location_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_get_game_location_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_get_by_game_location_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_get_by_game_location_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_get_game_location_id
+CREATE PROCEDURE usp_profile_game_location_get_by_game_location_id
 (
     @game_location_id uniqueidentifier = NULL
 )
@@ -15431,12 +15947,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_get_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_get_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_get_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_get_profile_id
+CREATE PROCEDURE usp_profile_game_location_get_by_profile_id
 (
     @profile_id uniqueidentifier = NULL
 )
@@ -15458,12 +15974,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_get_profile_id_game_location_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_profile_game_location_get_profile_id_game_location_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_game_location_get_by_profile_id_by_game_location_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_game_location_get_by_profile_id_by_game_location_id]
 
 GO
 
-CREATE PROCEDURE usp_profile_game_location_get_profile_id_game_location_id
+CREATE PROCEDURE usp_profile_game_location_get_by_profile_id_by_game_location_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_location_id uniqueidentifier = NULL
@@ -15511,12 +16027,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_count_uuid
+CREATE PROCEDURE usp_game_photo_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -15530,12 +16046,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_count_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_count_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_count_external_id
+CREATE PROCEDURE usp_game_photo_count_by_external_id
 (
     @external_id uniqueidentifier = NULL
 )
@@ -15549,12 +16065,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_count_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_count_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_count_url
+CREATE PROCEDURE usp_game_photo_count_by_url
 (
     @url varchar (500) = NULL
 )
@@ -15568,12 +16084,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_url_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_count_url_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_by_url_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_count_by_url_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_count_url_external_id
+CREATE PROCEDURE usp_game_photo_count_by_url_by_external_id
 (
     @url varchar (500) = NULL
     , @external_id uniqueidentifier = NULL
@@ -15589,12 +16105,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_uuid_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_count_uuid_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_count_by_uuid_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_count_by_uuid_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_count_uuid_external_id
+CREATE PROCEDURE usp_game_photo_count_by_uuid_by_external_id
 (
     @uuid uniqueidentifier 
     , @external_id uniqueidentifier = NULL
@@ -15616,12 +16132,12 @@ GO
 -- MODEL: GamePhoto - game_photo
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_browse_filter
+CREATE PROCEDURE usp_game_photo_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -15698,12 +16214,12 @@ GO
 -- MODEL: GamePhoto - game_photo
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_set_uuid
+CREATE PROCEDURE usp_game_photo_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -15831,12 +16347,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_set_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_set_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_set_external_id
+CREATE PROCEDURE usp_game_photo_set_by_external_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -15964,12 +16480,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_set_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_set_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_set_url
+CREATE PROCEDURE usp_game_photo_set_by_url
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -16097,12 +16613,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_url_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_set_url_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_by_url_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_set_by_url_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_set_url_external_id
+CREATE PROCEDURE usp_game_photo_set_by_url_by_external_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -16232,12 +16748,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_uuid_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_set_uuid_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_set_by_uuid_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_set_by_uuid_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_set_uuid_external_id
+CREATE PROCEDURE usp_game_photo_set_by_uuid_by_external_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -16373,12 +16889,12 @@ GO
 -- MODEL: GamePhoto - game_photo
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_del_uuid
+CREATE PROCEDURE usp_game_photo_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -16391,12 +16907,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_del_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_del_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_del_external_id
+CREATE PROCEDURE usp_game_photo_del_by_external_id
 (
     @external_id uniqueidentifier = NULL
 )
@@ -16409,12 +16925,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_del_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_del_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_del_url
+CREATE PROCEDURE usp_game_photo_del_by_url
 (
     @url varchar (500) = NULL
 )
@@ -16427,12 +16943,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_url_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_del_url_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_by_url_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_del_by_url_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_del_url_external_id
+CREATE PROCEDURE usp_game_photo_del_by_url_by_external_id
 (
     @url varchar (500) = NULL
     , @external_id uniqueidentifier = NULL
@@ -16447,12 +16963,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_uuid_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_del_uuid_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_del_by_uuid_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_del_by_uuid_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_del_uuid_external_id
+CREATE PROCEDURE usp_game_photo_del_by_uuid_by_external_id
 (
     @uuid uniqueidentifier 
     , @external_id uniqueidentifier = NULL
@@ -16504,12 +17020,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_get_uuid
+CREATE PROCEDURE usp_game_photo_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -16539,12 +17055,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_get_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_get_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_get_external_id
+CREATE PROCEDURE usp_game_photo_get_by_external_id
 (
     @external_id uniqueidentifier = NULL
 )
@@ -16574,12 +17090,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_get_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_get_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_get_url
+CREATE PROCEDURE usp_game_photo_get_by_url
 (
     @url varchar (500) = NULL
 )
@@ -16609,12 +17125,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_url_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_get_url_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_by_url_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_get_by_url_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_get_url_external_id
+CREATE PROCEDURE usp_game_photo_get_by_url_by_external_id
 (
     @url varchar (500) = NULL
     , @external_id uniqueidentifier = NULL
@@ -16646,12 +17162,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_uuid_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_photo_get_uuid_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_photo_get_by_uuid_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_photo_get_by_uuid_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_photo_get_uuid_external_id
+CREATE PROCEDURE usp_game_photo_get_by_uuid_by_external_id
 (
     @uuid uniqueidentifier 
     , @external_id uniqueidentifier = NULL
@@ -16707,12 +17223,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_video_count_uuid
+CREATE PROCEDURE usp_game_video_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -16726,12 +17242,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_count_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_count_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_count_external_id
+CREATE PROCEDURE usp_game_video_count_by_external_id
 (
     @external_id uniqueidentifier = NULL
 )
@@ -16745,12 +17261,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_count_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_count_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_video_count_url
+CREATE PROCEDURE usp_game_video_count_by_url
 (
     @url varchar (500) = NULL
 )
@@ -16764,12 +17280,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_url_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_count_url_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_by_url_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_count_by_url_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_count_url_external_id
+CREATE PROCEDURE usp_game_video_count_by_url_by_external_id
 (
     @url varchar (500) = NULL
     , @external_id uniqueidentifier = NULL
@@ -16785,12 +17301,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_uuid_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_count_uuid_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_count_by_uuid_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_count_by_uuid_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_count_uuid_external_id
+CREATE PROCEDURE usp_game_video_count_by_uuid_by_external_id
 (
     @uuid uniqueidentifier 
     , @external_id uniqueidentifier = NULL
@@ -16812,12 +17328,12 @@ GO
 -- MODEL: GameVideo - game_video
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_video_browse_filter
+CREATE PROCEDURE usp_game_video_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -16894,12 +17410,12 @@ GO
 -- MODEL: GameVideo - game_video
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_video_set_uuid
+CREATE PROCEDURE usp_game_video_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -17027,12 +17543,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_set_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_set_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_set_external_id
+CREATE PROCEDURE usp_game_video_set_by_external_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -17160,12 +17676,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_set_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_set_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_video_set_url
+CREATE PROCEDURE usp_game_video_set_by_url
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -17293,12 +17809,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_url_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_set_url_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_by_url_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_set_by_url_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_set_url_external_id
+CREATE PROCEDURE usp_game_video_set_by_url_by_external_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -17428,12 +17944,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_uuid_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_set_uuid_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_set_by_uuid_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_set_by_uuid_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_set_uuid_external_id
+CREATE PROCEDURE usp_game_video_set_by_uuid_by_external_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -17569,12 +18085,12 @@ GO
 -- MODEL: GameVideo - game_video
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_video_del_uuid
+CREATE PROCEDURE usp_game_video_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -17587,12 +18103,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_del_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_del_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_del_external_id
+CREATE PROCEDURE usp_game_video_del_by_external_id
 (
     @external_id uniqueidentifier = NULL
 )
@@ -17605,12 +18121,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_del_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_del_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_video_del_url
+CREATE PROCEDURE usp_game_video_del_by_url
 (
     @url varchar (500) = NULL
 )
@@ -17623,12 +18139,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_url_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_del_url_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_by_url_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_del_by_url_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_del_url_external_id
+CREATE PROCEDURE usp_game_video_del_by_url_by_external_id
 (
     @url varchar (500) = NULL
     , @external_id uniqueidentifier = NULL
@@ -17643,12 +18159,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_uuid_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_del_uuid_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_del_by_uuid_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_del_by_uuid_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_del_uuid_external_id
+CREATE PROCEDURE usp_game_video_del_by_uuid_by_external_id
 (
     @uuid uniqueidentifier 
     , @external_id uniqueidentifier = NULL
@@ -17700,12 +18216,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_video_get_uuid
+CREATE PROCEDURE usp_game_video_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -17735,12 +18251,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_get_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_get_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_get_external_id
+CREATE PROCEDURE usp_game_video_get_by_external_id
 (
     @external_id uniqueidentifier = NULL
 )
@@ -17770,12 +18286,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_get_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_get_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_video_get_url
+CREATE PROCEDURE usp_game_video_get_by_url
 (
     @url varchar (500) = NULL
 )
@@ -17805,12 +18321,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_url_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_get_url_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_by_url_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_get_by_url_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_get_url_external_id
+CREATE PROCEDURE usp_game_video_get_by_url_by_external_id
 (
     @url varchar (500) = NULL
     , @external_id uniqueidentifier = NULL
@@ -17842,12 +18358,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_uuid_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_video_get_uuid_external_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_video_get_by_uuid_by_external_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_video_get_by_uuid_by_external_id]
 
 GO
 
-CREATE PROCEDURE usp_game_video_get_uuid_external_id
+CREATE PROCEDURE usp_game_video_get_by_uuid_by_external_id
 (
     @uuid uniqueidentifier 
     , @external_id uniqueidentifier = NULL
@@ -17903,12 +18419,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_count_uuid
+CREATE PROCEDURE usp_game_rpg_item_weapon_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -17922,12 +18438,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_count_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -17941,12 +18457,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_count_url
+CREATE PROCEDURE usp_game_rpg_item_weapon_count_by_url
 (
     @url varchar (500) = NULL
 )
@@ -17960,12 +18476,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_count_url_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_count_by_url_by_game_id
 (
     @url varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -17981,12 +18497,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_count_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_count_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_count_uuid_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_count_by_uuid_by_game_id
 (
     @uuid uniqueidentifier 
     , @game_id uniqueidentifier = NULL
@@ -18008,12 +18524,12 @@ GO
 -- MODEL: GameRpgItemWeapon - game_rpg_item_weapon
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_browse_filter
+CREATE PROCEDURE usp_game_rpg_item_weapon_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -18098,12 +18614,12 @@ GO
 -- MODEL: GameRpgItemWeapon - game_rpg_item_weapon
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_set_uuid
+CREATE PROCEDURE usp_game_rpg_item_weapon_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -18263,12 +18779,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_set_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_set_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -18428,12 +18944,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_set_url
+CREATE PROCEDURE usp_game_rpg_item_weapon_set_by_url
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -18593,12 +19109,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_set_url_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_set_by_url_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -18760,12 +19276,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_set_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_set_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_set_uuid_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_set_by_uuid_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -18933,12 +19449,12 @@ GO
 -- MODEL: GameRpgItemWeapon - game_rpg_item_weapon
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_del_uuid
+CREATE PROCEDURE usp_game_rpg_item_weapon_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -18951,12 +19467,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_del_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_del_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -18969,12 +19485,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_del_url
+CREATE PROCEDURE usp_game_rpg_item_weapon_del_by_url
 (
     @url varchar (500) = NULL
 )
@@ -18987,12 +19503,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_del_url_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_del_by_url_by_game_id
 (
     @url varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -19007,12 +19523,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_del_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_del_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_del_uuid_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_del_by_uuid_by_game_id
 (
     @uuid uniqueidentifier 
     , @game_id uniqueidentifier = NULL
@@ -19072,12 +19588,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_get_uuid
+CREATE PROCEDURE usp_game_rpg_item_weapon_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -19115,12 +19631,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_get_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -19158,12 +19674,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_get_url
+CREATE PROCEDURE usp_game_rpg_item_weapon_get_by_url
 (
     @url varchar (500) = NULL
 )
@@ -19201,12 +19717,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_get_url_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_get_by_url_by_game_id
 (
     @url varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -19246,12 +19762,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_weapon_get_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_weapon_get_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_weapon_get_uuid_game_id
+CREATE PROCEDURE usp_game_rpg_item_weapon_get_by_uuid_by_game_id
 (
     @uuid uniqueidentifier 
     , @game_id uniqueidentifier = NULL
@@ -19315,12 +19831,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_count_uuid
+CREATE PROCEDURE usp_game_rpg_item_skill_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -19334,12 +19850,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_count_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -19353,12 +19869,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_count_url
+CREATE PROCEDURE usp_game_rpg_item_skill_count_by_url
 (
     @url varchar (500) = NULL
 )
@@ -19372,12 +19888,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_count_url_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_count_by_url_by_game_id
 (
     @url varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -19393,12 +19909,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_count_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_count_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_count_uuid_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_count_by_uuid_by_game_id
 (
     @uuid uniqueidentifier 
     , @game_id uniqueidentifier = NULL
@@ -19420,12 +19936,12 @@ GO
 -- MODEL: GameRpgItemSkill - game_rpg_item_skill
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_browse_filter
+CREATE PROCEDURE usp_game_rpg_item_skill_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -19510,12 +20026,12 @@ GO
 -- MODEL: GameRpgItemSkill - game_rpg_item_skill
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_set_uuid
+CREATE PROCEDURE usp_game_rpg_item_skill_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -19675,12 +20191,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_set_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_set_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -19840,12 +20356,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_set_url
+CREATE PROCEDURE usp_game_rpg_item_skill_set_by_url
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -20005,12 +20521,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_set_url_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_set_by_url_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -20172,12 +20688,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_set_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_set_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_set_uuid_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_set_by_uuid_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -20345,12 +20861,12 @@ GO
 -- MODEL: GameRpgItemSkill - game_rpg_item_skill
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_del_uuid
+CREATE PROCEDURE usp_game_rpg_item_skill_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -20363,12 +20879,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_del_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_del_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -20381,12 +20897,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_del_url
+CREATE PROCEDURE usp_game_rpg_item_skill_del_by_url
 (
     @url varchar (500) = NULL
 )
@@ -20399,12 +20915,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_del_url_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_del_by_url_by_game_id
 (
     @url varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -20419,12 +20935,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_del_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_del_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_del_uuid_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_del_by_uuid_by_game_id
 (
     @uuid uniqueidentifier 
     , @game_id uniqueidentifier = NULL
@@ -20484,12 +21000,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_get_uuid
+CREATE PROCEDURE usp_game_rpg_item_skill_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -20527,12 +21043,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_get_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -20570,12 +21086,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_get_url
+CREATE PROCEDURE usp_game_rpg_item_skill_get_by_url
 (
     @url varchar (500) = NULL
 )
@@ -20613,12 +21129,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_get_url_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_get_by_url_by_game_id
 (
     @url varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -20658,12 +21174,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_rpg_item_skill_get_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_rpg_item_skill_get_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_rpg_item_skill_get_uuid_game_id
+CREATE PROCEDURE usp_game_rpg_item_skill_get_by_uuid_by_game_id
 (
     @uuid uniqueidentifier 
     , @game_id uniqueidentifier = NULL
@@ -20727,12 +21243,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_product_count_uuid
+CREATE PROCEDURE usp_game_product_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -20746,12 +21262,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_count_game_id
+CREATE PROCEDURE usp_game_product_count_by_game_id
 (
     @game_id varchar (100) = NULL
 )
@@ -20765,12 +21281,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_count_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_count_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_product_count_url
+CREATE PROCEDURE usp_game_product_count_by_url
 (
     @url varchar (255) = NULL
 )
@@ -20784,12 +21300,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_count_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_count_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_count_url_game_id
+CREATE PROCEDURE usp_game_product_count_by_url_by_game_id
 (
     @url varchar (255) = NULL
     , @game_id varchar (100) = NULL
@@ -20805,12 +21321,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_count_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_count_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_count_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_count_uuid_game_id
+CREATE PROCEDURE usp_game_product_count_by_uuid_by_game_id
 (
     @uuid uniqueidentifier 
     , @game_id varchar (100) = NULL
@@ -20832,12 +21348,12 @@ GO
 -- MODEL: GameProduct - game_product
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_product_browse_filter
+CREATE PROCEDURE usp_game_product_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -20909,12 +21425,12 @@ GO
 -- MODEL: GameProduct - game_product
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_product_set_uuid
+CREATE PROCEDURE usp_game_product_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -21022,12 +21538,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_set_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_set_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_set_game_id
+CREATE PROCEDURE usp_game_product_set_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -21135,12 +21651,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_set_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_set_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_product_set_url
+CREATE PROCEDURE usp_game_product_set_by_url
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -21248,12 +21764,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_set_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_set_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_set_url_game_id
+CREATE PROCEDURE usp_game_product_set_by_url_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -21363,12 +21879,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_set_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_set_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_set_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_set_uuid_game_id
+CREATE PROCEDURE usp_game_product_set_by_uuid_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -21484,12 +22000,12 @@ GO
 -- MODEL: GameProduct - game_product
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_product_del_uuid
+CREATE PROCEDURE usp_game_product_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -21502,12 +22018,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_del_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_del_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_del_game_id
+CREATE PROCEDURE usp_game_product_del_by_game_id
 (
     @game_id varchar (100) = NULL
 )
@@ -21520,12 +22036,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_del_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_del_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_product_del_url
+CREATE PROCEDURE usp_game_product_del_by_url
 (
     @url varchar (255) = NULL
 )
@@ -21538,12 +22054,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_del_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_del_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_del_url_game_id
+CREATE PROCEDURE usp_game_product_del_by_url_by_game_id
 (
     @url varchar (255) = NULL
     , @game_id varchar (100) = NULL
@@ -21558,12 +22074,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_del_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_del_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_del_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_del_uuid_game_id
+CREATE PROCEDURE usp_game_product_del_by_uuid_by_game_id
 (
     @uuid uniqueidentifier 
     , @game_id varchar (100) = NULL
@@ -21610,12 +22126,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_product_get_uuid
+CREATE PROCEDURE usp_game_product_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -21640,12 +22156,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_get_game_id
+CREATE PROCEDURE usp_game_product_get_by_game_id
 (
     @game_id varchar (100) = NULL
 )
@@ -21670,12 +22186,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_get_url]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_by_url]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_get_by_url]
 
 GO
 
-CREATE PROCEDURE usp_game_product_get_url
+CREATE PROCEDURE usp_game_product_get_by_url
 (
     @url varchar (255) = NULL
 )
@@ -21700,12 +22216,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_url_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_get_url_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_by_url_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_get_by_url_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_get_url_game_id
+CREATE PROCEDURE usp_game_product_get_by_url_by_game_id
 (
     @url varchar (255) = NULL
     , @game_id varchar (100) = NULL
@@ -21732,12 +22248,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_uuid_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_product_get_uuid_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_product_get_by_uuid_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_product_get_by_uuid_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_product_get_uuid_game_id
+CREATE PROCEDURE usp_game_product_get_by_uuid_by_game_id
 (
     @uuid uniqueidentifier 
     , @game_id varchar (100) = NULL
@@ -21770,30 +22286,30 @@ GO
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_count]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_count
+CREATE PROCEDURE usp_game_leaderboard_count
 AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_count_uuid
+CREATE PROCEDURE usp_game_leaderboard_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -21801,18 +22317,18 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_count_game_id
+CREATE PROCEDURE usp_game_leaderboard_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -21820,18 +22336,18 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_count_code
+CREATE PROCEDURE usp_game_leaderboard_count_by_code
 (
     @code varchar (500) = NULL
 )
@@ -21839,18 +22355,18 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_count_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_count_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_count_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -21859,19 +22375,19 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_count_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_count_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_count_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_count_by_code_by_game_id_by_profile_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -21881,7 +22397,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -21889,12 +22405,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_count_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_count_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_count_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_count_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -21905,7 +22421,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -21914,12 +22430,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_count_profile_id_game_id
+CREATE PROCEDURE usp_game_leaderboard_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -21928,7 +22444,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
@@ -21938,15 +22454,15 @@ GO
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_browse_filter
+CREATE PROCEDURE usp_game_leaderboard_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -21992,7 +22508,7 @@ BEGIN
     SET @sql = @sql + ', [date_created]'
     SET @sql = @sql + ', [type]'
 
-    SET @sql = @sql + ' FROM [dbo].[game_statistic_leaderboard] WHERE 1=1 '
+    SET @sql = @sql + ' FROM [dbo].[game_leaderboard] WHERE 1=1 '
     BEGIN
         IF @filter IS NOT NULL AND @filter != ''
         SET @sql = @sql + ' ' + @filter + ' '			
@@ -22023,15 +22539,15 @@ GO
 -- SET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_set_uuid
+CREATE PROCEDURE usp_game_leaderboard_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -22075,7 +22591,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard]  
+                FROM  [dbo].[game_leaderboard]  
                 WHERE 1=1
                 AND [uuid] = @uuid
 	    END
@@ -22086,155 +22602,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard] 
-                SET
-                    [status] = @status
-                    , [username] = @username
-                    , [code] = @code
-                    , [timestamp] = @timestamp
-                    , [profile_id] = @profile_id
-                    , [rank] = @rank
-                    , [rank_change] = @rank_change
-                    , [game_id] = @game_id
-                    , [active] = @active
-                    , [rank_total_count] = @rank_total_count
-                    , [absolute_value] = @absolute_value
-                    , [data] = @data
-                    , [stat_value] = @stat_value
-                    , [network] = @network
-                    , [uuid] = @uuid
-                    , [date_modified] = @date_modified
-                    , [level] = @level
-                    , [stat_value_formatted] = @stat_value_formatted
-                    , [date_created] = @date_created
-                    , [type] = @type
-                WHERE 1=1
-                AND [uuid] = @uuid
-                SET @id=1
-            END
-        END
-        BEGIN
-            --INSERT
-            IF @CountItems = 0 AND @set_type != 'updateonly' 			
-            BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard]
-                (
-                    [status]
-                    , [username]
-                    , [code]
-                    , [timestamp]
-                    , [profile_id]
-                    , [rank]
-                    , [rank_change]
-                    , [game_id]
-                    , [active]
-                    , [rank_total_count]
-                    , [absolute_value]
-                    , [data]
-                    , [stat_value]
-                    , [network]
-                    , [uuid]
-                    , [date_modified]
-                    , [level]
-                    , [stat_value_formatted]
-                    , [date_created]
-                    , [type]
-                )
-                VALUES
-                (
-                    @status
-                    , @username
-                    , @code
-                    , @timestamp
-                    , @profile_id
-                    , @rank
-                    , @rank_change
-                    , @game_id
-                    , @active
-                    , @rank_total_count
-                    , @absolute_value
-                    , @data
-                    , @stat_value
-                    , @network
-                    , @uuid
-                    , @date_modified
-                    , @level
-                    , @stat_value_formatted
-                    , @date_created
-                    , @type
-                )                    
-                SET @id=1                    
-            END
-        END     
-        SELECT @id as id
-    END 
-END
-GO
--- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_timestamp]
-
-GO
-
-CREATE PROCEDURE usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_timestamp
-(
-    @set_type varchar (50) = 'full'                        
-    , @status varchar (255) = NULL
-    , @username varchar (500) = NULL
-    , @code varchar (500) = NULL
-    , @timestamp float = NULL
-    , @profile_id uniqueidentifier = NULL
-    , @rank int = NULL
-    , @rank_change int = NULL
-    , @game_id uniqueidentifier = NULL
-    , @active bit = NULL
-    , @rank_total_count int = NULL
-    , @absolute_value float = NULL
-    , @data ntext = NULL
-    , @stat_value float = NULL
-    , @network varchar (500) = NULL
-    , @uuid uniqueidentifier 
-    , @date_modified DATETIME = GETDATE
-    , @level varchar (500) = NULL
-    , @stat_value_formatted varchar (500) = NULL
-    , @date_created DATETIME = GETDATE
-    , @type varchar (500) = NULL
-)
-AS
-BEGIN
-    BEGIN
-        DECLARE @CountItems int
-        SET @CountItems = 0
-        
-        DECLARE @id bit
-        
-        BEGIN
-            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
-                SET @set_type = 'full'
-        END
-
-	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	-- GET COUNT TO CHECK
-	BEGIN
-	    IF @set_type = 'full'
-	    BEGIN
-		-- CHECK COUNT
-                SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard]  
-                WHERE 1=1
-                AND [uuid] = @uuid
-                AND [profile_id] = @profile_id
-                AND [game_id] = @game_id
-                AND [timestamp] = @timestamp
-	    END
-	END
-
-        BEGIN
-            -- UPDATE
-            IF (@CountItems > 0 AND @set_type != 'insertonly')
-                OR (@CountItems = 0 AND @set_type = 'updateonly')
-            BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard] 
+                UPDATE [dbo].[game_leaderboard] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -22258,6 +22626,154 @@ BEGIN
                     , [type] = @type
                 WHERE 1=1
                 AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_leaderboard]
+                (
+                    [status]
+                    , [username]
+                    , [code]
+                    , [timestamp]
+                    , [profile_id]
+                    , [rank]
+                    , [rank_change]
+                    , [game_id]
+                    , [active]
+                    , [rank_total_count]
+                    , [absolute_value]
+                    , [data]
+                    , [stat_value]
+                    , [network]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [stat_value_formatted]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @code
+                    , @timestamp
+                    , @profile_id
+                    , @rank
+                    , @rank_change
+                    , @game_id
+                    , @active
+                    , @rank_total_count
+                    , @absolute_value
+                    , @data
+                    , @stat_value
+                    , @network
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @stat_value_formatted
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_set_by_uuid_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_set_by_uuid_by_profile_id_by_game_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_leaderboard_set_by_uuid_by_profile_id_by_game_id_by_timestamp
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @code varchar (500) = NULL
+    , @timestamp float = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @rank int = NULL
+    , @rank_change int = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @rank_total_count int = NULL
+    , @absolute_value float = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @network varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_leaderboard]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_leaderboard] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [absolute_value] = @absolute_value
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [uuid] = @uuid
                 AND [profile_id] = @profile_id
                 AND [game_id] = @game_id
                 AND [timestamp] = @timestamp
@@ -22268,7 +22784,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard]
+                INSERT INTO [dbo].[game_leaderboard]
                 (
                     [status]
                     , [username]
@@ -22322,12 +22838,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_set_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_set_code
+CREATE PROCEDURE usp_game_leaderboard_set_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -22371,7 +22887,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard]  
+                FROM  [dbo].[game_leaderboard]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
 	    END
@@ -22382,7 +22898,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard] 
+                UPDATE [dbo].[game_leaderboard] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -22413,7 +22929,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard]
+                INSERT INTO [dbo].[game_leaderboard]
                 (
                     [status]
                     , [username]
@@ -22467,12 +22983,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_set_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_set_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_set_by_code_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -22516,7 +23032,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard]  
+                FROM  [dbo].[game_leaderboard]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [game_id] = @game_id
@@ -22528,7 +23044,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard] 
+                UPDATE [dbo].[game_leaderboard] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -22560,7 +23076,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard]
+                INSERT INTO [dbo].[game_leaderboard]
                 (
                     [status]
                     , [username]
@@ -22614,12 +23130,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_set_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_set_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_set_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_set_by_code_by_game_id_by_profile_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -22663,7 +23179,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard]  
+                FROM  [dbo].[game_leaderboard]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [game_id] = @game_id
@@ -22676,7 +23192,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard] 
+                UPDATE [dbo].[game_leaderboard] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -22709,7 +23225,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard]
+                INSERT INTO [dbo].[game_leaderboard]
                 (
                     [status]
                     , [username]
@@ -22763,12 +23279,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_set_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_set_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_set_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_set_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_set_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_set_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -22812,47 +23328,47 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard]  
-                WHERE 1=1
-                AND LOWER([code]) = LOWER(@code)
-                AND [game_id] = @game_id
-                AND [profile_id] = @profile_id
-                AND [timestamp] = @timestamp
-	    END
-	END
-
-        BEGIN
-            -- UPDATE
-            IF (@CountItems > 0 AND @set_type != 'insertonly')
-                OR (@CountItems = 0 AND @set_type = 'updateonly')
-            BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard] 
-                SET
-                    [status] = @status
-                    , [username] = @username
-                    , [code] = @code
-                    , [timestamp] = @timestamp
-                    , [profile_id] = @profile_id
-                    , [rank] = @rank
-                    , [rank_change] = @rank_change
-                    , [game_id] = @game_id
-                    , [active] = @active
-                    , [rank_total_count] = @rank_total_count
-                    , [absolute_value] = @absolute_value
-                    , [data] = @data
-                    , [stat_value] = @stat_value
-                    , [network] = @network
-                    , [uuid] = @uuid
-                    , [date_modified] = @date_modified
-                    , [level] = @level
-                    , [stat_value_formatted] = @stat_value_formatted
-                    , [date_created] = @date_created
-                    , [type] = @type
+                FROM  [dbo].[game_leaderboard]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [game_id] = @game_id
                 AND [profile_id] = @profile_id
                 AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_leaderboard] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [absolute_value] = @absolute_value
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+                AND [profile_id] = @profile_id
+                AND [timestamp] = @timestamp
                 SET @id=1
             END
         END
@@ -22860,7 +23376,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard]
+                INSERT INTO [dbo].[game_leaderboard]
                 (
                     [status]
                     , [username]
@@ -22917,51 +23433,51 @@ GO
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_del_uuid
+CREATE PROCEDURE usp_game_leaderboard_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1                        
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_del_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_del_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_del_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_del_code
+CREATE PROCEDURE usp_game_leaderboard_del_by_code
 (
     @code varchar (500) = NULL
 )
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_del_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_del_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_del_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_del_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -22969,19 +23485,19 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_del_code_game_id
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_del_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_del_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_del_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_del_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_del_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_del_by_code_by_game_id_by_profile_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -22990,7 +23506,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_del_code_game_id_profile_id
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -22998,12 +23514,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_del_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_del_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_del_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_del_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_del_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_del_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -23013,7 +23529,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_del_code_game_id_profile_id_time
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -23022,12 +23538,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_del_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_del_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_del_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_del_profile_id_game_id
+CREATE PROCEDURE usp_game_leaderboard_del_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -23035,7 +23551,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_del_profile_id_game_id
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1                        
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
@@ -23045,15 +23561,15 @@ GO
 -- GET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboard - game_statistic_leaderboard
+-- MODEL: GameLeaderboard - game_leaderboard
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_get]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get
+CREATE PROCEDURE usp_game_leaderboard_get
 AS
 BEGIN
     SELECT
@@ -23077,17 +23593,17 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_uuid
+CREATE PROCEDURE usp_game_leaderboard_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -23114,18 +23630,18 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_game_id
+CREATE PROCEDURE usp_game_leaderboard_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -23152,18 +23668,18 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_code
+CREATE PROCEDURE usp_game_leaderboard_get_by_code
 (
     @code varchar (500) = NULL
 )
@@ -23190,18 +23706,18 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_get_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -23229,19 +23745,19 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_get_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_get_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_get_by_code_by_game_id_by_profile_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -23270,7 +23786,7 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -23278,12 +23794,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_get_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_get_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_get_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -23313,7 +23829,7 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -23322,12 +23838,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_profile_id_game_id
+CREATE PROCEDURE usp_game_leaderboard_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -23355,19 +23871,19 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_get_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_get_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_get_by_profile_id_by_game_id_by_timestamp
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -23396,7 +23912,7 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard]
+    FROM [dbo].[game_leaderboard]
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
@@ -23410,30 +23926,30 @@ GO
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_count]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_count]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_count
+CREATE PROCEDURE usp_game_leaderboard_item_count
 AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_count_uuid
+CREATE PROCEDURE usp_game_leaderboard_item_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -23441,18 +23957,18 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_count_game_id
+CREATE PROCEDURE usp_game_leaderboard_item_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -23460,18 +23976,18 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_count_code
+CREATE PROCEDURE usp_game_leaderboard_item_count_by_code
 (
     @code varchar (500) = NULL
 )
@@ -23479,18 +23995,18 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_count_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_count_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_count_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_item_count_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -23499,19 +24015,19 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_count_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_count_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_count_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_count_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_count_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_item_count_by_code_by_game_id_by_profile_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -23521,7 +24037,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -23529,12 +24045,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_count_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_count_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_count_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_count_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_count_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_item_count_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -23545,7 +24061,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -23554,12 +24070,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_count_profile_id_game_id
+CREATE PROCEDURE usp_game_leaderboard_item_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -23568,7 +24084,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
@@ -23578,15 +24094,15 @@ GO
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_browse_filter
+CREATE PROCEDURE usp_game_leaderboard_item_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -23632,7 +24148,7 @@ BEGIN
     SET @sql = @sql + ', [date_created]'
     SET @sql = @sql + ', [type]'
 
-    SET @sql = @sql + ' FROM [dbo].[game_statistic_leaderboard_item] WHERE 1=1 '
+    SET @sql = @sql + ' FROM [dbo].[game_leaderboard_item] WHERE 1=1 '
     BEGIN
         IF @filter IS NOT NULL AND @filter != ''
         SET @sql = @sql + ' ' + @filter + ' '			
@@ -23663,15 +24179,15 @@ GO
 -- SET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_set_uuid
+CREATE PROCEDURE usp_game_leaderboard_item_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -23715,7 +24231,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_item]  
+                FROM  [dbo].[game_leaderboard_item]  
                 WHERE 1=1
                 AND [uuid] = @uuid
 	    END
@@ -23726,155 +24242,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_item] 
-                SET
-                    [status] = @status
-                    , [username] = @username
-                    , [code] = @code
-                    , [timestamp] = @timestamp
-                    , [profile_id] = @profile_id
-                    , [rank] = @rank
-                    , [rank_change] = @rank_change
-                    , [game_id] = @game_id
-                    , [active] = @active
-                    , [rank_total_count] = @rank_total_count
-                    , [absolute_value] = @absolute_value
-                    , [data] = @data
-                    , [stat_value] = @stat_value
-                    , [network] = @network
-                    , [uuid] = @uuid
-                    , [date_modified] = @date_modified
-                    , [level] = @level
-                    , [stat_value_formatted] = @stat_value_formatted
-                    , [date_created] = @date_created
-                    , [type] = @type
-                WHERE 1=1
-                AND [uuid] = @uuid
-                SET @id=1
-            END
-        END
-        BEGIN
-            --INSERT
-            IF @CountItems = 0 AND @set_type != 'updateonly' 			
-            BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_item]
-                (
-                    [status]
-                    , [username]
-                    , [code]
-                    , [timestamp]
-                    , [profile_id]
-                    , [rank]
-                    , [rank_change]
-                    , [game_id]
-                    , [active]
-                    , [rank_total_count]
-                    , [absolute_value]
-                    , [data]
-                    , [stat_value]
-                    , [network]
-                    , [uuid]
-                    , [date_modified]
-                    , [level]
-                    , [stat_value_formatted]
-                    , [date_created]
-                    , [type]
-                )
-                VALUES
-                (
-                    @status
-                    , @username
-                    , @code
-                    , @timestamp
-                    , @profile_id
-                    , @rank
-                    , @rank_change
-                    , @game_id
-                    , @active
-                    , @rank_total_count
-                    , @absolute_value
-                    , @data
-                    , @stat_value
-                    , @network
-                    , @uuid
-                    , @date_modified
-                    , @level
-                    , @stat_value_formatted
-                    , @date_created
-                    , @type
-                )                    
-                SET @id=1                    
-            END
-        END     
-        SELECT @id as id
-    END 
-END
-GO
--- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id_timestamp]
-
-GO
-
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id_timestamp
-(
-    @set_type varchar (50) = 'full'                        
-    , @status varchar (255) = NULL
-    , @username varchar (500) = NULL
-    , @code varchar (500) = NULL
-    , @timestamp float = NULL
-    , @profile_id uniqueidentifier = NULL
-    , @rank int = NULL
-    , @rank_change int = NULL
-    , @game_id uniqueidentifier = NULL
-    , @active bit = NULL
-    , @rank_total_count int = NULL
-    , @absolute_value float = NULL
-    , @data ntext = NULL
-    , @stat_value float = NULL
-    , @network varchar (500) = NULL
-    , @uuid uniqueidentifier 
-    , @date_modified DATETIME = GETDATE
-    , @level varchar (500) = NULL
-    , @stat_value_formatted varchar (500) = NULL
-    , @date_created DATETIME = GETDATE
-    , @type varchar (500) = NULL
-)
-AS
-BEGIN
-    BEGIN
-        DECLARE @CountItems int
-        SET @CountItems = 0
-        
-        DECLARE @id bit
-        
-        BEGIN
-            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
-                SET @set_type = 'full'
-        END
-
-	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	-- GET COUNT TO CHECK
-	BEGIN
-	    IF @set_type = 'full'
-	    BEGIN
-		-- CHECK COUNT
-                SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_item]  
-                WHERE 1=1
-                AND [uuid] = @uuid
-                AND [profile_id] = @profile_id
-                AND [game_id] = @game_id
-                AND [timestamp] = @timestamp
-	    END
-	END
-
-        BEGIN
-            -- UPDATE
-            IF (@CountItems > 0 AND @set_type != 'insertonly')
-                OR (@CountItems = 0 AND @set_type = 'updateonly')
-            BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_item] 
+                UPDATE [dbo].[game_leaderboard_item] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -23898,6 +24266,154 @@ BEGIN
                     , [type] = @type
                 WHERE 1=1
                 AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_leaderboard_item]
+                (
+                    [status]
+                    , [username]
+                    , [code]
+                    , [timestamp]
+                    , [profile_id]
+                    , [rank]
+                    , [rank_change]
+                    , [game_id]
+                    , [active]
+                    , [rank_total_count]
+                    , [absolute_value]
+                    , [data]
+                    , [stat_value]
+                    , [network]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [stat_value_formatted]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @code
+                    , @timestamp
+                    , @profile_id
+                    , @rank
+                    , @rank_change
+                    , @game_id
+                    , @active
+                    , @rank_total_count
+                    , @absolute_value
+                    , @data
+                    , @stat_value
+                    , @network
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @stat_value_formatted
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_set_by_uuid_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_set_by_uuid_by_profile_id_by_game_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_leaderboard_item_set_by_uuid_by_profile_id_by_game_id_by_timestamp
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @code varchar (500) = NULL
+    , @timestamp float = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @rank int = NULL
+    , @rank_change int = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @rank_total_count int = NULL
+    , @absolute_value float = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @network varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_leaderboard_item]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_leaderboard_item] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [absolute_value] = @absolute_value
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [uuid] = @uuid
                 AND [profile_id] = @profile_id
                 AND [game_id] = @game_id
                 AND [timestamp] = @timestamp
@@ -23908,7 +24424,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_item]
+                INSERT INTO [dbo].[game_leaderboard_item]
                 (
                     [status]
                     , [username]
@@ -23962,12 +24478,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_set_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_set_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_set_code
+CREATE PROCEDURE usp_game_leaderboard_item_set_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -24011,7 +24527,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_item]  
+                FROM  [dbo].[game_leaderboard_item]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
 	    END
@@ -24022,7 +24538,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_item] 
+                UPDATE [dbo].[game_leaderboard_item] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -24053,7 +24569,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_item]
+                INSERT INTO [dbo].[game_leaderboard_item]
                 (
                     [status]
                     , [username]
@@ -24107,12 +24623,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_set_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_set_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_set_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_set_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_item_set_by_code_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -24156,7 +24672,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_item]  
+                FROM  [dbo].[game_leaderboard_item]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [game_id] = @game_id
@@ -24168,7 +24684,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_item] 
+                UPDATE [dbo].[game_leaderboard_item] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -24200,7 +24716,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_item]
+                INSERT INTO [dbo].[game_leaderboard_item]
                 (
                     [status]
                     , [username]
@@ -24254,12 +24770,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_set_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_set_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_set_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_set_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_set_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_item_set_by_code_by_game_id_by_profile_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -24303,7 +24819,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_item]  
+                FROM  [dbo].[game_leaderboard_item]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [game_id] = @game_id
@@ -24316,7 +24832,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_item] 
+                UPDATE [dbo].[game_leaderboard_item] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -24349,7 +24865,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_item]
+                INSERT INTO [dbo].[game_leaderboard_item]
                 (
                     [status]
                     , [username]
@@ -24403,12 +24919,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_set_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_set_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_set_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_set_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_set_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_item_set_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -24452,47 +24968,47 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_item]  
-                WHERE 1=1
-                AND LOWER([code]) = LOWER(@code)
-                AND [game_id] = @game_id
-                AND [profile_id] = @profile_id
-                AND [timestamp] = @timestamp
-	    END
-	END
-
-        BEGIN
-            -- UPDATE
-            IF (@CountItems > 0 AND @set_type != 'insertonly')
-                OR (@CountItems = 0 AND @set_type = 'updateonly')
-            BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_item] 
-                SET
-                    [status] = @status
-                    , [username] = @username
-                    , [code] = @code
-                    , [timestamp] = @timestamp
-                    , [profile_id] = @profile_id
-                    , [rank] = @rank
-                    , [rank_change] = @rank_change
-                    , [game_id] = @game_id
-                    , [active] = @active
-                    , [rank_total_count] = @rank_total_count
-                    , [absolute_value] = @absolute_value
-                    , [data] = @data
-                    , [stat_value] = @stat_value
-                    , [network] = @network
-                    , [uuid] = @uuid
-                    , [date_modified] = @date_modified
-                    , [level] = @level
-                    , [stat_value_formatted] = @stat_value_formatted
-                    , [date_created] = @date_created
-                    , [type] = @type
+                FROM  [dbo].[game_leaderboard_item]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [game_id] = @game_id
                 AND [profile_id] = @profile_id
                 AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_leaderboard_item] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [absolute_value] = @absolute_value
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+                AND [profile_id] = @profile_id
+                AND [timestamp] = @timestamp
                 SET @id=1
             END
         END
@@ -24500,7 +25016,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_item]
+                INSERT INTO [dbo].[game_leaderboard_item]
                 (
                     [status]
                     , [username]
@@ -24557,51 +25073,51 @@ GO
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_uuid
+CREATE PROCEDURE usp_game_leaderboard_item_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1                        
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_del_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_del_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_del_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_code
+CREATE PROCEDURE usp_game_leaderboard_item_del_by_code
 (
     @code varchar (500) = NULL
 )
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_del_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_del_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_item_del_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -24609,19 +25125,19 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_code_game_id
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_del_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_del_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_del_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_del_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_item_del_by_code_by_game_id_by_profile_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -24630,7 +25146,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -24638,12 +25154,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_del_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_del_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_del_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_del_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_item_del_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -24653,7 +25169,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_code_game_id_profile_id
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -24662,12 +25178,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_del_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_del_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_del_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_profile_id_game_id
+CREATE PROCEDURE usp_game_leaderboard_item_del_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -24675,7 +25191,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_item_del_profile_id_game_id
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1                        
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
@@ -24685,15 +25201,15 @@ GO
 -- GET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardItem - game_statistic_leaderboard_item
+-- MODEL: GameLeaderboardItem - game_leaderboard_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_get]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_get]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_get
+CREATE PROCEDURE usp_game_leaderboard_item_get
 AS
 BEGIN
     SELECT
@@ -24717,17 +25233,17 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_get_uuid
+CREATE PROCEDURE usp_game_leaderboard_item_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -24754,18 +25270,18 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_get_game_id
+CREATE PROCEDURE usp_game_leaderboard_item_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -24792,18 +25308,18 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_get_code
+CREATE PROCEDURE usp_game_leaderboard_item_get_by_code
 (
     @code varchar (500) = NULL
 )
@@ -24830,18 +25346,18 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_get_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_item_get_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -24869,19 +25385,19 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_get_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_get_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_get_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_get_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_get_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_item_get_by_code_by_game_id_by_profile_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -24910,7 +25426,7 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -24918,12 +25434,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_get_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_get_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_get_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_get_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_get_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_item_get_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -24953,7 +25469,7 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -24962,12 +25478,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_get_profile_id_game_id
+CREATE PROCEDURE usp_game_leaderboard_item_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -24995,19 +25511,19 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_item_get_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_item_get_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_item_get_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_item_get_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_item_get_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_item_get_by_profile_id_by_game_id_by_timestamp
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -25036,7 +25552,7 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_item]
+    FROM [dbo].[game_leaderboard_item]
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
@@ -25050,30 +25566,30 @@ GO
 -- COUNT
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_count]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count
+CREATE PROCEDURE usp_game_leaderboard_rollup_count
 AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_uuid
+CREATE PROCEDURE usp_game_leaderboard_rollup_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -25081,18 +25597,18 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_game_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -25100,18 +25616,18 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_code
+CREATE PROCEDURE usp_game_leaderboard_rollup_count_by_code
 (
     @code varchar (500) = NULL
 )
@@ -25119,18 +25635,18 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_count_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_count_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -25139,19 +25655,19 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_count_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_count_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_count_by_code_by_game_id_by_profile_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -25161,7 +25677,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -25169,12 +25685,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_count_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_count_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_rollup_count_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -25185,7 +25701,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -25194,12 +25710,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_count_profile_id_game_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -25208,7 +25724,7 @@ AS
 BEGIN
     SELECT
         COUNT(*) as count
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
@@ -25218,15 +25734,15 @@ GO
 -- BROWSE
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_browse_filter
+CREATE PROCEDURE usp_game_leaderboard_rollup_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -25272,7 +25788,7 @@ BEGIN
     SET @sql = @sql + ', [date_created]'
     SET @sql = @sql + ', [type]'
 
-    SET @sql = @sql + ' FROM [dbo].[game_statistic_leaderboard_rollup] WHERE 1=1 '
+    SET @sql = @sql + ' FROM [dbo].[game_leaderboard_rollup] WHERE 1=1 '
     BEGIN
         IF @filter IS NOT NULL AND @filter != ''
         SET @sql = @sql + ' ' + @filter + ' '			
@@ -25303,15 +25819,15 @@ GO
 -- SET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_uuid
+CREATE PROCEDURE usp_game_leaderboard_rollup_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -25355,7 +25871,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                FROM  [dbo].[game_leaderboard_rollup]  
                 WHERE 1=1
                 AND [uuid] = @uuid
 	    END
@@ -25366,155 +25882,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
-                SET
-                    [status] = @status
-                    , [username] = @username
-                    , [code] = @code
-                    , [timestamp] = @timestamp
-                    , [profile_id] = @profile_id
-                    , [rank] = @rank
-                    , [rank_change] = @rank_change
-                    , [game_id] = @game_id
-                    , [active] = @active
-                    , [rank_total_count] = @rank_total_count
-                    , [absolute_value] = @absolute_value
-                    , [data] = @data
-                    , [stat_value] = @stat_value
-                    , [network] = @network
-                    , [uuid] = @uuid
-                    , [date_modified] = @date_modified
-                    , [level] = @level
-                    , [stat_value_formatted] = @stat_value_formatted
-                    , [date_created] = @date_created
-                    , [type] = @type
-                WHERE 1=1
-                AND [uuid] = @uuid
-                SET @id=1
-            END
-        END
-        BEGIN
-            --INSERT
-            IF @CountItems = 0 AND @set_type != 'updateonly' 			
-            BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
-                (
-                    [status]
-                    , [username]
-                    , [code]
-                    , [timestamp]
-                    , [profile_id]
-                    , [rank]
-                    , [rank_change]
-                    , [game_id]
-                    , [active]
-                    , [rank_total_count]
-                    , [absolute_value]
-                    , [data]
-                    , [stat_value]
-                    , [network]
-                    , [uuid]
-                    , [date_modified]
-                    , [level]
-                    , [stat_value_formatted]
-                    , [date_created]
-                    , [type]
-                )
-                VALUES
-                (
-                    @status
-                    , @username
-                    , @code
-                    , @timestamp
-                    , @profile_id
-                    , @rank
-                    , @rank_change
-                    , @game_id
-                    , @active
-                    , @rank_total_count
-                    , @absolute_value
-                    , @data
-                    , @stat_value
-                    , @network
-                    , @uuid
-                    , @date_modified
-                    , @level
-                    , @stat_value_formatted
-                    , @date_created
-                    , @type
-                )                    
-                SET @id=1                    
-            END
-        END     
-        SELECT @id as id
-    END 
-END
-GO
--- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_id_timestamp]
-
-GO
-
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_id_timestamp
-(
-    @set_type varchar (50) = 'full'                        
-    , @status varchar (255) = NULL
-    , @username varchar (500) = NULL
-    , @code varchar (500) = NULL
-    , @timestamp float = NULL
-    , @profile_id uniqueidentifier = NULL
-    , @rank int = NULL
-    , @rank_change int = NULL
-    , @game_id uniqueidentifier = NULL
-    , @active bit = NULL
-    , @rank_total_count int = NULL
-    , @absolute_value float = NULL
-    , @data ntext = NULL
-    , @stat_value float = NULL
-    , @network varchar (500) = NULL
-    , @uuid uniqueidentifier 
-    , @date_modified DATETIME = GETDATE
-    , @level varchar (500) = NULL
-    , @stat_value_formatted varchar (500) = NULL
-    , @date_created DATETIME = GETDATE
-    , @type varchar (500) = NULL
-)
-AS
-BEGIN
-    BEGIN
-        DECLARE @CountItems int
-        SET @CountItems = 0
-        
-        DECLARE @id bit
-        
-        BEGIN
-            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
-                SET @set_type = 'full'
-        END
-
-	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
-	-- GET COUNT TO CHECK
-	BEGIN
-	    IF @set_type = 'full'
-	    BEGIN
-		-- CHECK COUNT
-                SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_rollup]  
-                WHERE 1=1
-                AND [uuid] = @uuid
-                AND [profile_id] = @profile_id
-                AND [game_id] = @game_id
-                AND [timestamp] = @timestamp
-	    END
-	END
-
-        BEGIN
-            -- UPDATE
-            IF (@CountItems > 0 AND @set_type != 'insertonly')
-                OR (@CountItems = 0 AND @set_type = 'updateonly')
-            BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                UPDATE [dbo].[game_leaderboard_rollup] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -25538,6 +25906,154 @@ BEGIN
                     , [type] = @type
                 WHERE 1=1
                 AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[game_leaderboard_rollup]
+                (
+                    [status]
+                    , [username]
+                    , [code]
+                    , [timestamp]
+                    , [profile_id]
+                    , [rank]
+                    , [rank_change]
+                    , [game_id]
+                    , [active]
+                    , [rank_total_count]
+                    , [absolute_value]
+                    , [data]
+                    , [stat_value]
+                    , [network]
+                    , [uuid]
+                    , [date_modified]
+                    , [level]
+                    , [stat_value_formatted]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @username
+                    , @code
+                    , @timestamp
+                    , @profile_id
+                    , @rank
+                    , @rank_change
+                    , @game_id
+                    , @active
+                    , @rank_total_count
+                    , @absolute_value
+                    , @data
+                    , @stat_value
+                    , @network
+                    , @uuid
+                    , @date_modified
+                    , @level
+                    , @stat_value_formatted
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_set_by_uuid_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_set_by_uuid_by_profile_id_by_game_id_by_timestamp]
+
+GO
+
+CREATE PROCEDURE usp_game_leaderboard_rollup_set_by_uuid_by_profile_id_by_game_id_by_timestamp
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @username varchar (500) = NULL
+    , @code varchar (500) = NULL
+    , @timestamp float = NULL
+    , @profile_id uniqueidentifier = NULL
+    , @rank int = NULL
+    , @rank_change int = NULL
+    , @game_id uniqueidentifier = NULL
+    , @active bit = NULL
+    , @rank_total_count int = NULL
+    , @absolute_value float = NULL
+    , @data ntext = NULL
+    , @stat_value float = NULL
+    , @network varchar (500) = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @level varchar (500) = NULL
+    , @stat_value_formatted varchar (500) = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[game_leaderboard_rollup]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
+                AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_leaderboard_rollup] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [absolute_value] = @absolute_value
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [uuid] = @uuid
                 AND [profile_id] = @profile_id
                 AND [game_id] = @game_id
                 AND [timestamp] = @timestamp
@@ -25548,7 +26064,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                INSERT INTO [dbo].[game_leaderboard_rollup]
                 (
                     [status]
                     , [username]
@@ -25602,12 +26118,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_set_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_set_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_code
+CREATE PROCEDURE usp_game_leaderboard_rollup_set_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -25651,7 +26167,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                FROM  [dbo].[game_leaderboard_rollup]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
 	    END
@@ -25662,7 +26178,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                UPDATE [dbo].[game_leaderboard_rollup] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -25693,7 +26209,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                INSERT INTO [dbo].[game_leaderboard_rollup]
                 (
                     [status]
                     , [username]
@@ -25747,12 +26263,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_set_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_set_by_code_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -25796,7 +26312,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                FROM  [dbo].[game_leaderboard_rollup]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [game_id] = @game_id
@@ -25808,7 +26324,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                UPDATE [dbo].[game_leaderboard_rollup] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -25840,7 +26356,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                INSERT INTO [dbo].[game_leaderboard_rollup]
                 (
                     [status]
                     , [username]
@@ -25894,12 +26410,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_set_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_set_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_set_by_code_by_game_id_by_profile_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -25943,7 +26459,7 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_rollup]  
+                FROM  [dbo].[game_leaderboard_rollup]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [game_id] = @game_id
@@ -25956,7 +26472,7 @@ BEGIN
             IF (@CountItems > 0 AND @set_type != 'insertonly')
                 OR (@CountItems = 0 AND @set_type = 'updateonly')
             BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
+                UPDATE [dbo].[game_leaderboard_rollup] 
                 SET
                     [status] = @status
                     , [username] = @username
@@ -25989,7 +26505,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                INSERT INTO [dbo].[game_leaderboard_rollup]
                 (
                     [status]
                     , [username]
@@ -26043,12 +26559,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_set_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_set_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_rollup_set_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -26092,47 +26608,47 @@ BEGIN
 	    BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
-                FROM  [dbo].[game_statistic_leaderboard_rollup]  
-                WHERE 1=1
-                AND LOWER([code]) = LOWER(@code)
-                AND [game_id] = @game_id
-                AND [profile_id] = @profile_id
-                AND [timestamp] = @timestamp
-	    END
-	END
-
-        BEGIN
-            -- UPDATE
-            IF (@CountItems > 0 AND @set_type != 'insertonly')
-                OR (@CountItems = 0 AND @set_type = 'updateonly')
-            BEGIN		
-                UPDATE [dbo].[game_statistic_leaderboard_rollup] 
-                SET
-                    [status] = @status
-                    , [username] = @username
-                    , [code] = @code
-                    , [timestamp] = @timestamp
-                    , [profile_id] = @profile_id
-                    , [rank] = @rank
-                    , [rank_change] = @rank_change
-                    , [game_id] = @game_id
-                    , [active] = @active
-                    , [rank_total_count] = @rank_total_count
-                    , [absolute_value] = @absolute_value
-                    , [data] = @data
-                    , [stat_value] = @stat_value
-                    , [network] = @network
-                    , [uuid] = @uuid
-                    , [date_modified] = @date_modified
-                    , [level] = @level
-                    , [stat_value_formatted] = @stat_value_formatted
-                    , [date_created] = @date_created
-                    , [type] = @type
+                FROM  [dbo].[game_leaderboard_rollup]  
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [game_id] = @game_id
                 AND [profile_id] = @profile_id
                 AND [timestamp] = @timestamp
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_leaderboard_rollup] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [timestamp] = @timestamp
+                    , [profile_id] = @profile_id
+                    , [rank] = @rank
+                    , [rank_change] = @rank_change
+                    , [game_id] = @game_id
+                    , [active] = @active
+                    , [rank_total_count] = @rank_total_count
+                    , [absolute_value] = @absolute_value
+                    , [data] = @data
+                    , [stat_value] = @stat_value
+                    , [network] = @network
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [stat_value_formatted] = @stat_value_formatted
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [game_id] = @game_id
+                AND [profile_id] = @profile_id
+                AND [timestamp] = @timestamp
                 SET @id=1
             END
         END
@@ -26140,7 +26656,7 @@ BEGIN
             --INSERT
             IF @CountItems = 0 AND @set_type != 'updateonly' 			
             BEGIN			
-                INSERT INTO [dbo].[game_statistic_leaderboard_rollup]
+                INSERT INTO [dbo].[game_leaderboard_rollup]
                 (
                     [status]
                     , [username]
@@ -26197,51 +26713,51 @@ GO
 -- DEL
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_uuid
+CREATE PROCEDURE usp_game_leaderboard_rollup_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1                        
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_del_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_code
+CREATE PROCEDURE usp_game_leaderboard_rollup_del_by_code
 (
     @code varchar (500) = NULL
 )
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_del_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_del_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -26249,19 +26765,19 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_code_game_id
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_del_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_del_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_del_by_code_by_game_id_by_profile_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -26270,7 +26786,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -26278,12 +26794,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_del_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_del_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_rollup_del_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -26293,7 +26809,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1                        
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -26302,12 +26818,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_del_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_del_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_del_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_profile_id_game_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_del_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -26315,7 +26831,7 @@ CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_del_profile_id_game_id
 AS
 BEGIN
     DELETE 
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1                        
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
@@ -26325,15 +26841,15 @@ GO
 -- GET
 
 -- ------------------------------------
--- MODEL: GameStatisticLeaderboardRollup - game_statistic_leaderboard_rollup
+-- MODEL: GameLeaderboardRollup - game_leaderboard_rollup
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_get]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get
+CREATE PROCEDURE usp_game_leaderboard_rollup_get
 AS
 BEGIN
     SELECT
@@ -26357,17 +26873,17 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_uuid
+CREATE PROCEDURE usp_game_leaderboard_rollup_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -26394,18 +26910,18 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND [uuid] = @uuid
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_game_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -26432,18 +26948,18 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_code
+CREATE PROCEDURE usp_game_leaderboard_rollup_get_by_code
 (
     @code varchar (500) = NULL
 )
@@ -26470,18 +26986,18 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_code_game_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_get_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -26509,19 +27025,19 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_get_by_code_by_game_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_get_by_code_by_game_id_by_profile_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_get_by_code_by_game_id_by_profile_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -26550,7 +27066,7 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -26558,12 +27074,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_get_by_code_by_game_id_by_profile_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_get_by_code_by_game_id_by_profile_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_rollup_get_by_code_by_game_id_by_profile_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -26593,7 +27109,7 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND LOWER([code]) = LOWER(@code)
     AND [game_id] = @game_id
@@ -26602,12 +27118,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_profile_id_game_id
+CREATE PROCEDURE usp_game_leaderboard_rollup_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -26635,19 +27151,19 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_leaderboard_rollup_get_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_leaderboard_rollup_get_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_leaderboard_rollup_get_by_profile_id_by_game_id_by_timestamp
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -26676,7 +27192,7 @@ BEGIN
         , [stat_value_formatted]
         , [date_created]
         , [type]
-    FROM [dbo].[game_statistic_leaderboard_rollup]
+    FROM [dbo].[game_leaderboard_rollup]
     WHERE 1=1
     AND [profile_id] = @profile_id
     AND [game_id] = @game_id
@@ -26708,12 +27224,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_count_uuid
+CREATE PROCEDURE usp_game_live_queue_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -26727,12 +27243,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_count_profile_id_game_id
+CREATE PROCEDURE usp_game_live_queue_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -26754,12 +27270,12 @@ GO
 -- MODEL: GameLiveQueue - game_live_queue
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_browse_filter
+CREATE PROCEDURE usp_game_live_queue_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -26829,12 +27345,12 @@ GO
 -- MODEL: GameLiveQueue - game_live_queue
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_set_uuid
+CREATE PROCEDURE usp_game_live_queue_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -26934,12 +27450,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_set_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_set_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_set_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_set_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_set_profile_id_game_id
+CREATE PROCEDURE usp_game_live_queue_set_by_profile_id_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -27047,12 +27563,12 @@ GO
 -- MODEL: GameLiveQueue - game_live_queue
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_del_uuid
+CREATE PROCEDURE usp_game_live_queue_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -27065,12 +27581,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_del_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_del_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_del_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_del_profile_id_game_id
+CREATE PROCEDURE usp_game_live_queue_del_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -27115,12 +27631,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_get_uuid
+CREATE PROCEDURE usp_game_live_queue_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -27143,12 +27659,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_get_game_id
+CREATE PROCEDURE usp_game_live_queue_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -27171,12 +27687,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_queue_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_queue_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_queue_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_queue_get_profile_id_game_id
+CREATE PROCEDURE usp_game_live_queue_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -27225,12 +27741,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_count_uuid
+CREATE PROCEDURE usp_game_live_recent_queue_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -27244,12 +27760,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_count_profile_id_game_id
+CREATE PROCEDURE usp_game_live_recent_queue_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -27271,12 +27787,12 @@ GO
 -- MODEL: GameLiveRecentQueue - game_live_recent_queue
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_browse_filter
+CREATE PROCEDURE usp_game_live_recent_queue_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -27351,12 +27867,12 @@ GO
 -- MODEL: GameLiveRecentQueue - game_live_recent_queue
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_set_uuid
+CREATE PROCEDURE usp_game_live_recent_queue_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -27476,12 +27992,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_set_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_set_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_set_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_set_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_set_profile_id_game_id
+CREATE PROCEDURE usp_game_live_recent_queue_set_by_profile_id_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -27609,12 +28125,12 @@ GO
 -- MODEL: GameLiveRecentQueue - game_live_recent_queue
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_del_uuid
+CREATE PROCEDURE usp_game_live_recent_queue_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -27627,12 +28143,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_del_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_del_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_del_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_del_profile_id_game_id
+CREATE PROCEDURE usp_game_live_recent_queue_del_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -27682,12 +28198,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_get_uuid
+CREATE PROCEDURE usp_game_live_recent_queue_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -27715,12 +28231,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_get_game_id
+CREATE PROCEDURE usp_game_live_recent_queue_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -27748,12 +28264,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_live_recent_queue_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_live_recent_queue_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_live_recent_queue_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_live_recent_queue_get_profile_id_game_id
+CREATE PROCEDURE usp_game_live_recent_queue_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -27807,12 +28323,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_count_uuid
+CREATE PROCEDURE usp_game_profile_statistic_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -27826,12 +28342,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_count_code
+CREATE PROCEDURE usp_game_profile_statistic_count_by_code
 (
     @code varchar (500) = NULL
 )
@@ -27845,12 +28361,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_count_game_id
+CREATE PROCEDURE usp_game_profile_statistic_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -27864,12 +28380,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_count_code_game_id
+CREATE PROCEDURE usp_game_profile_statistic_count_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -27885,12 +28401,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_count_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -27906,12 +28422,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_count_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -27929,12 +28445,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_count_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_count_by_code_by_profile_id_by_game_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -27960,12 +28476,12 @@ GO
 -- MODEL: GameProfileStatistic - game_profile_statistic
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_browse_filter
+CREATE PROCEDURE usp_game_profile_statistic_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -28041,12 +28557,12 @@ GO
 -- MODEL: GameProfileStatistic - game_profile_statistic
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_set_uuid
+CREATE PROCEDURE usp_game_profile_statistic_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -28170,12 +28686,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_uuid_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_uuid_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_by_uuid_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_by_uuid_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_set_uuid_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_set_by_uuid_by_profile_id_by_game_id_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -28305,12 +28821,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_profile_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_profile_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_by_profile_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_by_profile_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_set_profile_id_code
+CREATE PROCEDURE usp_game_profile_statistic_set_by_profile_id_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -28436,12 +28952,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_profile_id_code_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_profile_id_code_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_by_profile_id_by_code_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_by_profile_id_by_code_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_set_profile_id_code_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_set_by_profile_id_by_code_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -28569,12 +29085,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_set_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -28704,12 +29220,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_set_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_set_by_code_by_profile_id_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -28843,12 +29359,12 @@ GO
 -- MODEL: GameProfileStatistic - game_profile_statistic
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_del_uuid
+CREATE PROCEDURE usp_game_profile_statistic_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -28861,12 +29377,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_del_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_del_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_del_code_game_id
+CREATE PROCEDURE usp_game_profile_statistic_del_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -28881,12 +29397,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_del_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_del_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_del_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_del_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_del_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -28901,12 +29417,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_del_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_del_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_del_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_del_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_del_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_del_by_code_by_profile_id_by_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -28929,12 +29445,12 @@ GO
 -- MODEL: GameProfileStatistic - game_profile_statistic
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_get_uuid
+CREATE PROCEDURE usp_game_profile_statistic_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -28963,12 +29479,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_get_code
+CREATE PROCEDURE usp_game_profile_statistic_get_by_code
 (
     @code varchar (500) = NULL
 )
@@ -28997,12 +29513,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_get_game_id
+CREATE PROCEDURE usp_game_profile_statistic_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -29031,12 +29547,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_get_code_game_id
+CREATE PROCEDURE usp_game_profile_statistic_get_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -29067,12 +29583,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_get_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -29103,12 +29619,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_get_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_get_by_profile_id_by_game_id_by_timestamp
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -29141,12 +29657,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_get_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -29179,12 +29695,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_get_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_get_by_code_by_profile_id_by_game_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -29243,12 +29759,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_count_uuid
+CREATE PROCEDURE usp_game_statistic_meta_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -29262,12 +29778,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_count_code
+CREATE PROCEDURE usp_game_statistic_meta_count_by_code
 (
     @code varchar (255) = NULL
 )
@@ -29281,12 +29797,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_count_code_game_id
+CREATE PROCEDURE usp_game_statistic_meta_count_by_code_by_game_id
 (
     @code varchar (255) = NULL
     , @game_id uniqueidentifier = NULL
@@ -29302,12 +29818,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_count_name
+CREATE PROCEDURE usp_game_statistic_meta_count_by_name
 (
     @name varchar (255) = NULL
 )
@@ -29321,12 +29837,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_count_game_id
+CREATE PROCEDURE usp_game_statistic_meta_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -29346,12 +29862,12 @@ GO
 -- MODEL: GameStatisticMeta - game_statistic_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_browse_filter
+CREATE PROCEDURE usp_game_statistic_meta_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -29427,12 +29943,12 @@ GO
 -- MODEL: GameStatisticMeta - game_statistic_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_set_uuid
+CREATE PROCEDURE usp_game_statistic_meta_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -29556,12 +30072,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_set_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_set_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_set_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_set_code_game_id
+CREATE PROCEDURE usp_game_statistic_meta_set_by_code_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -29693,12 +30209,12 @@ GO
 -- MODEL: GameStatisticMeta - game_statistic_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_del_uuid
+CREATE PROCEDURE usp_game_statistic_meta_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -29711,12 +30227,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_del_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_del_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_del_code_game_id
+CREATE PROCEDURE usp_game_statistic_meta_del_by_code_by_game_id
 (
     @code varchar (255) = NULL
     , @game_id uniqueidentifier = NULL
@@ -29737,12 +30253,12 @@ GO
 -- MODEL: GameStatisticMeta - game_statistic_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_get_uuid
+CREATE PROCEDURE usp_game_statistic_meta_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -29771,12 +30287,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_get_code
+CREATE PROCEDURE usp_game_statistic_meta_get_by_code
 (
     @code varchar (255) = NULL
 )
@@ -29805,12 +30321,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_get_name
+CREATE PROCEDURE usp_game_statistic_meta_get_by_name
 (
     @name varchar (255) = NULL
 )
@@ -29839,12 +30355,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_get_game_id
+CREATE PROCEDURE usp_game_statistic_meta_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -29873,12 +30389,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_statistic_meta_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_statistic_meta_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_statistic_meta_get_code_game_id
+CREATE PROCEDURE usp_game_statistic_meta_get_by_code_by_game_id
 (
     @code varchar (255) = NULL
     , @game_id uniqueidentifier = NULL
@@ -29933,12 +30449,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_count_uuid
+CREATE PROCEDURE usp_game_profile_statistic_item_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -29952,12 +30468,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_count_code
+CREATE PROCEDURE usp_game_profile_statistic_item_count_by_code
 (
     @code varchar (500) = NULL
 )
@@ -29971,12 +30487,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_count_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -29990,12 +30506,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_count_code_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_count_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -30011,12 +30527,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_count_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_count_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -30032,12 +30548,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_count_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_count_by_code_by_profile_id_by_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -30055,12 +30571,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_count_by_code_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_count_by_code_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_count_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_count_by_code_by_profile_id_by_game_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -30086,12 +30602,12 @@ GO
 -- MODEL: GameProfileStatisticItem - game_profile_statistic_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_browse_filter
+CREATE PROCEDURE usp_game_profile_statistic_item_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -30167,12 +30683,12 @@ GO
 -- MODEL: GameProfileStatisticItem - game_profile_statistic_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_set_uuid
+CREATE PROCEDURE usp_game_profile_statistic_item_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -30296,12 +30812,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_uuid_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_uuid_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_by_uuid_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_by_uuid_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_set_uuid_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_set_by_uuid_by_profile_id_by_game_id_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -30431,12 +30947,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_profile_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_profile_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_by_profile_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_by_profile_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_set_profile_id_code
+CREATE PROCEDURE usp_game_profile_statistic_item_set_by_profile_id_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -30562,12 +31078,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_profile_id_code_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_profile_id_code_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_by_profile_id_by_code_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_by_profile_id_by_code_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_set_profile_id_code_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_set_by_profile_id_by_code_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -30695,12 +31211,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_by_code_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_by_code_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_set_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_set_by_code_by_profile_id_by_game_id_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -30830,12 +31346,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_set_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_set_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_set_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_set_by_code_by_profile_id_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -30969,12 +31485,12 @@ GO
 -- MODEL: GameProfileStatisticItem - game_profile_statistic_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_del_uuid
+CREATE PROCEDURE usp_game_profile_statistic_item_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -30987,12 +31503,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_del_code_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_del_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -31007,12 +31523,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_del_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_del_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -31027,12 +31543,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_del_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_del_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_del_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_del_by_code_by_profile_id_by_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -31055,12 +31571,12 @@ GO
 -- MODEL: GameProfileStatisticItem - game_profile_statistic_item
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_get_uuid
+CREATE PROCEDURE usp_game_profile_statistic_item_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -31089,12 +31605,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_get_code
+CREATE PROCEDURE usp_game_profile_statistic_item_get_by_code
 (
     @code varchar (500) = NULL
 )
@@ -31123,12 +31639,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_get_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -31157,12 +31673,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_get_code_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_get_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -31193,12 +31709,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_get_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -31229,12 +31745,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_get_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_get_by_profile_id_by_game_id_by_timestamp
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -31267,12 +31783,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_get_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_statistic_item_get_by_code_by_profile_id_by_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -31305,12 +31821,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_statistic_item_get_by_code_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_statistic_item_get_by_code_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_statistic_item_get_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_statistic_item_get_by_code_by_profile_id_by_game_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -31369,12 +31885,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_count_uuid
+CREATE PROCEDURE usp_game_key_meta_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -31388,12 +31904,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_count_code
+CREATE PROCEDURE usp_game_key_meta_count_by_code
 (
     @code varchar (255) = NULL
 )
@@ -31407,12 +31923,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_count_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_count_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_count_code_game_id
+CREATE PROCEDURE usp_game_key_meta_count_by_code_by_game_id
 (
     @code varchar (255) = NULL
     , @game_id uniqueidentifier = NULL
@@ -31428,12 +31944,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_count_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_count_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_count_name
+CREATE PROCEDURE usp_game_key_meta_count_by_name
 (
     @name varchar (255) = NULL
 )
@@ -31447,12 +31963,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_key]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_count_key]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_by_key]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_count_by_key]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_count_key
+CREATE PROCEDURE usp_game_key_meta_count_by_key
 (
     @key varchar (50) = NULL
 )
@@ -31466,12 +31982,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_count_game_id
+CREATE PROCEDURE usp_game_key_meta_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -31485,12 +32001,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_key_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_count_key_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_count_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_count_by_key_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_count_key_game_id
+CREATE PROCEDURE usp_game_key_meta_count_by_key_by_game_id
 (
     @key varchar (50) = NULL
     , @game_id uniqueidentifier = NULL
@@ -31512,12 +32028,12 @@ GO
 -- MODEL: GameKeyMeta - game_key_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_browse_filter
+CREATE PROCEDURE usp_game_key_meta_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -31596,12 +32112,12 @@ GO
 -- MODEL: GameKeyMeta - game_key_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_set_uuid
+CREATE PROCEDURE usp_game_key_meta_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -31737,12 +32253,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_set_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_set_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_set_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_set_code_game_id
+CREATE PROCEDURE usp_game_key_meta_set_by_code_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -31880,12 +32396,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_set_key_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_set_key_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_set_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_set_by_key_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_set_key_game_id
+CREATE PROCEDURE usp_game_key_meta_set_by_key_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -32023,12 +32539,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_set_key_game_id_level]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_set_key_game_id_level]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_set_by_key_by_game_id_by_level]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_set_by_key_by_game_id_by_level]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_set_key_game_id_level
+CREATE PROCEDURE usp_game_key_meta_set_by_key_by_game_id_by_level
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -32174,12 +32690,12 @@ GO
 -- MODEL: GameKeyMeta - game_key_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_del_uuid
+CREATE PROCEDURE usp_game_key_meta_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -32192,12 +32708,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_del_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_del_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_del_code_game_id
+CREATE PROCEDURE usp_game_key_meta_del_by_code_by_game_id
 (
     @code varchar (255) = NULL
     , @game_id uniqueidentifier = NULL
@@ -32212,12 +32728,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_del_key_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_del_key_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_del_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_del_by_key_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_del_key_game_id
+CREATE PROCEDURE usp_game_key_meta_del_by_key_by_game_id
 (
     @key varchar (50) = NULL
     , @game_id uniqueidentifier = NULL
@@ -32238,12 +32754,12 @@ GO
 -- MODEL: GameKeyMeta - game_key_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_get_uuid
+CREATE PROCEDURE usp_game_key_meta_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -32275,12 +32791,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_get_code
+CREATE PROCEDURE usp_game_key_meta_get_by_code
 (
     @code varchar (255) = NULL
 )
@@ -32312,12 +32828,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_get_code_game_id
+CREATE PROCEDURE usp_game_key_meta_get_by_code_by_game_id
 (
     @code varchar (255) = NULL
     , @game_id uniqueidentifier = NULL
@@ -32351,12 +32867,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_get_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_get_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_get_name
+CREATE PROCEDURE usp_game_key_meta_get_by_name
 (
     @name varchar (255) = NULL
 )
@@ -32388,12 +32904,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_key]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_get_key]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_by_key]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_get_by_key]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_get_key
+CREATE PROCEDURE usp_game_key_meta_get_by_key
 (
     @key varchar (50) = NULL
 )
@@ -32425,12 +32941,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_get_game_id
+CREATE PROCEDURE usp_game_key_meta_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -32462,12 +32978,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_key_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_get_key_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_by_key_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_get_by_key_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_get_key_game_id
+CREATE PROCEDURE usp_game_key_meta_get_by_key_by_game_id
 (
     @key varchar (50) = NULL
     , @game_id uniqueidentifier = NULL
@@ -32501,12 +33017,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_code_level]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_key_meta_get_code_level]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_key_meta_get_by_code_by_level]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_key_meta_get_by_code_by_level]
 
 GO
 
-CREATE PROCEDURE usp_game_key_meta_get_code_level
+CREATE PROCEDURE usp_game_key_meta_get_by_code_by_level
 (
     @code varchar (255) = NULL
     , @level varchar (500) = NULL
@@ -32564,12 +33080,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_level_count_uuid
+CREATE PROCEDURE usp_game_level_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -32583,12 +33099,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_level_count_code
+CREATE PROCEDURE usp_game_level_count_by_code
 (
     @code varchar (500) = NULL
 )
@@ -32602,12 +33118,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_count_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_count_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_level_count_code_game_id
+CREATE PROCEDURE usp_game_level_count_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -32623,12 +33139,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_count_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_count_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_level_count_name
+CREATE PROCEDURE usp_game_level_count_by_name
 (
     @name varchar (255) = NULL
 )
@@ -32642,12 +33158,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_level_count_game_id
+CREATE PROCEDURE usp_game_level_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -32667,12 +33183,12 @@ GO
 -- MODEL: GameLevel - game_level
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_level_browse_filter
+CREATE PROCEDURE usp_game_level_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -32746,12 +33262,12 @@ GO
 -- MODEL: GameLevel - game_level
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_level_set_uuid
+CREATE PROCEDURE usp_game_level_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -32867,12 +33383,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_set_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_set_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_set_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_level_set_code_game_id
+CREATE PROCEDURE usp_game_level_set_by_code_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -32996,12 +33512,12 @@ GO
 -- MODEL: GameLevel - game_level
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_level_del_uuid
+CREATE PROCEDURE usp_game_level_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -33014,12 +33530,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_del_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_del_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_level_del_code_game_id
+CREATE PROCEDURE usp_game_level_del_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -33040,12 +33556,12 @@ GO
 -- MODEL: GameLevel - game_level
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_level_get_uuid
+CREATE PROCEDURE usp_game_level_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -33072,12 +33588,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_level_get_code
+CREATE PROCEDURE usp_game_level_get_by_code
 (
     @code varchar (500) = NULL
 )
@@ -33104,12 +33620,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_level_get_code_game_id
+CREATE PROCEDURE usp_game_level_get_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -33138,12 +33654,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_get_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_get_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_level_get_name
+CREATE PROCEDURE usp_game_level_get_by_name
 (
     @name varchar (255) = NULL
 )
@@ -33170,12 +33686,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_level_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_level_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_level_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_level_get_game_id
+CREATE PROCEDURE usp_game_level_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -33226,12 +33742,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_count_uuid
+CREATE PROCEDURE usp_game_profile_achievement_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -33245,12 +33761,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_profile_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_profile_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_by_profile_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_by_profile_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_count_profile_id_code
+CREATE PROCEDURE usp_game_profile_achievement_count_by_profile_id_by_code
 (
     @profile_id uniqueidentifier = NULL
     , @code varchar (500) = NULL
@@ -33266,12 +33782,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_count_username
+CREATE PROCEDURE usp_game_profile_achievement_count_by_username
 (
     @username varchar (500) = NULL
 )
@@ -33285,12 +33801,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_count_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -33308,12 +33824,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_count_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_achievement_count_by_code_by_profile_id_by_game_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -33339,12 +33855,12 @@ GO
 -- MODEL: GameProfileAchievement - game_profile_achievement
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_browse_filter
+CREATE PROCEDURE usp_game_profile_achievement_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -33419,12 +33935,12 @@ GO
 -- MODEL: GameProfileAchievement - game_profile_achievement
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_set_uuid
+CREATE PROCEDURE usp_game_profile_achievement_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -33544,12 +34060,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_uuid_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_uuid_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_by_uuid_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_by_uuid_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_set_uuid_code
+CREATE PROCEDURE usp_game_profile_achievement_set_by_uuid_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -33671,12 +34187,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_profile_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_profile_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_by_profile_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_by_profile_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_set_profile_id_code
+CREATE PROCEDURE usp_game_profile_achievement_set_by_profile_id_by_code
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -33798,12 +34314,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_set_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -33843,39 +34359,39 @@ BEGIN
 		-- CHECK COUNT
                 SELECT @CountItems =  COUNT(*)
                 FROM  [dbo].[game_profile_achievement]  
-                WHERE 1=1
-                AND LOWER([code]) = LOWER(@code)
-                AND [profile_id] = @profile_id
-                AND [game_id] = @game_id
-	    END
-	END
-
-        BEGIN
-            -- UPDATE
-            IF (@CountItems > 0 AND @set_type != 'insertonly')
-                OR (@CountItems = 0 AND @set_type = 'updateonly')
-            BEGIN		
-                UPDATE [dbo].[game_profile_achievement] 
-                SET
-                    [status] = @status
-                    , [username] = @username
-                    , [code] = @code
-                    , [timestamp] = @timestamp
-                    , [completed] = @completed
-                    , [profile_id] = @profile_id
-                    , [active] = @active
-                    , [game_id] = @game_id
-                    , [achievement_value] = @achievement_value
-                    , [data] = @data
-                    , [uuid] = @uuid
-                    , [date_modified] = @date_modified
-                    , [level] = @level
-                    , [date_created] = @date_created
-                    , [type] = @type
                 WHERE 1=1
                 AND LOWER([code]) = LOWER(@code)
                 AND [profile_id] = @profile_id
                 AND [game_id] = @game_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[game_profile_achievement] 
+                SET
+                    [status] = @status
+                    , [username] = @username
+                    , [code] = @code
+                    , [timestamp] = @timestamp
+                    , [completed] = @completed
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [game_id] = @game_id
+                    , [achievement_value] = @achievement_value
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [level] = @level
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND LOWER([code]) = LOWER(@code)
+                AND [profile_id] = @profile_id
+                AND [game_id] = @game_id
                 SET @id=1
             END
         END
@@ -33927,12 +34443,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_set_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_achievement_set_by_code_by_profile_id_by_game_id_by_timestamp
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -34064,12 +34580,12 @@ GO
 -- MODEL: GameProfileAchievement - game_profile_achievement
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_del_uuid
+CREATE PROCEDURE usp_game_profile_achievement_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -34082,12 +34598,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_del_profile_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_del_profile_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_del_by_profile_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_del_by_profile_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_del_profile_id_code
+CREATE PROCEDURE usp_game_profile_achievement_del_by_profile_id_by_code
 (
     @profile_id uniqueidentifier = NULL
     , @code varchar (500) = NULL
@@ -34102,12 +34618,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_del_uuid_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_del_uuid_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_del_by_uuid_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_del_by_uuid_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_del_uuid_code
+CREATE PROCEDURE usp_game_profile_achievement_del_by_uuid_by_code
 (
     @uuid uniqueidentifier 
     , @code varchar (500) = NULL
@@ -34128,12 +34644,12 @@ GO
 -- MODEL: GameProfileAchievement - game_profile_achievement
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_uuid
+CREATE PROCEDURE usp_game_profile_achievement_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -34161,12 +34677,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_profile_id_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_profile_id_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_profile_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_profile_id_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_profile_id_code
+CREATE PROCEDURE usp_game_profile_achievement_get_by_profile_id_by_code
 (
     @profile_id uniqueidentifier = NULL
     , @code varchar (500) = NULL
@@ -34196,12 +34712,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_username]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_username]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_username]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_username
+CREATE PROCEDURE usp_game_profile_achievement_get_by_username
 (
     @username varchar (500) = NULL
 )
@@ -34229,12 +34745,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_code
+CREATE PROCEDURE usp_game_profile_achievement_get_by_code
 (
     @code varchar (500) = NULL
 )
@@ -34262,12 +34778,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_game_id
+CREATE PROCEDURE usp_game_profile_achievement_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -34295,12 +34811,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_code_game_id
+CREATE PROCEDURE usp_game_profile_achievement_get_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -34330,12 +34846,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_achievement_get_by_profile_id_by_game_id
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -34365,12 +34881,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_achievement_get_by_profile_id_by_game_id_by_timestamp
 (
     @profile_id uniqueidentifier = NULL
     , @game_id uniqueidentifier = NULL
@@ -34402,12 +34918,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_code_profile_id_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_code_profile_id_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_code_profile_id_game_id
+CREATE PROCEDURE usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -34439,12 +34955,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_code_profile_id_game_id_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_code_profile_id_game_id_timestamp]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id_by_timestamp]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id_by_timestamp]
 
 GO
 
-CREATE PROCEDURE usp_game_profile_achievement_get_code_profile_id_game_id_timestamp
+CREATE PROCEDURE usp_game_profile_achievement_get_by_code_by_profile_id_by_game_id_by_timestamp
 (
     @code varchar (500) = NULL
     , @profile_id uniqueidentifier = NULL
@@ -34502,12 +35018,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_count_uuid
+CREATE PROCEDURE usp_game_achievement_meta_count_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -34521,12 +35037,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_count_code
+CREATE PROCEDURE usp_game_achievement_meta_count_by_code
 (
     @code varchar (500) = NULL
 )
@@ -34540,12 +35056,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_count_code_game_id
+CREATE PROCEDURE usp_game_achievement_meta_count_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -34561,12 +35077,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_count_name
+CREATE PROCEDURE usp_game_achievement_meta_count_by_name
 (
     @name varchar (255) = NULL
 )
@@ -34580,12 +35096,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_count_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_count_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_count_game_id
+CREATE PROCEDURE usp_game_achievement_meta_count_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -34605,12 +35121,12 @@ GO
 -- MODEL: GameAchievementMeta - game_achievement_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_browse_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_browse_filter]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_browse_by_filter]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_browse_filter
+CREATE PROCEDURE usp_game_achievement_meta_browse_by_filter
 (
     @page int = 1,
     @page_size int = 10,
@@ -34688,12 +35204,12 @@ GO
 -- MODEL: GameAchievementMeta - game_achievement_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_set_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_set_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_set_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_set_uuid
+CREATE PROCEDURE usp_game_achievement_meta_set_by_uuid
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -34825,12 +35341,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_set_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_set_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_set_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_set_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_set_code_game_id
+CREATE PROCEDURE usp_game_achievement_meta_set_by_code_by_game_id
 (
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
@@ -34970,12 +35486,12 @@ GO
 -- MODEL: GameAchievementMeta - game_achievement_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_del_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_del_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_del_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_del_uuid
+CREATE PROCEDURE usp_game_achievement_meta_del_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -34988,12 +35504,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_del_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_del_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_del_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_del_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_del_code_game_id
+CREATE PROCEDURE usp_game_achievement_meta_del_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -35014,12 +35530,12 @@ GO
 -- MODEL: GameAchievementMeta - game_achievement_meta
                        
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_uuid]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_by_uuid]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_get_uuid
+CREATE PROCEDURE usp_game_achievement_meta_get_by_uuid
 (
     @uuid uniqueidentifier 
 )
@@ -35050,12 +35566,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_code]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_by_code]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_get_code
+CREATE PROCEDURE usp_game_achievement_meta_get_by_code
 (
     @code varchar (500) = NULL
 )
@@ -35086,12 +35602,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_code_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_code_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_by_code_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_by_code_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_get_code_game_id
+CREATE PROCEDURE usp_game_achievement_meta_get_by_code_by_game_id
 (
     @code varchar (500) = NULL
     , @game_id uniqueidentifier = NULL
@@ -35124,12 +35640,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_name]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_by_name]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_get_name
+CREATE PROCEDURE usp_game_achievement_meta_get_by_name
 (
     @name varchar (255) = NULL
 )
@@ -35160,12 +35676,12 @@ BEGIN
 END
 GO
 -- -----------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_game_id]
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_game_achievement_meta_get_by_game_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_game_achievement_meta_get_by_game_id]
 
 GO
 
-CREATE PROCEDURE usp_game_achievement_meta_get_game_id
+CREATE PROCEDURE usp_game_achievement_meta_get_by_game_id
 (
     @game_id uniqueidentifier = NULL
 )
@@ -35193,6 +35709,9013 @@ BEGIN
     FROM [dbo].[game_achievement_meta]
     WHERE 1=1
     AND [game_id] = @game_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_count]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_count_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_count_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_count_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_count_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_count_by_reward_id
+(
+    @reward_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [reward_id] = @reward_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_count_by_profile_id_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_count_by_profile_id_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_count_by_profile_id_by_reward_id
+(
+    @profile_id uniqueidentifier 
+    , @reward_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [reward_id] = @reward_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_count_by_profile_id_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_count_by_profile_id_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_count_by_profile_id_by_channel_id
+(
+    @profile_id uniqueidentifier 
+    , @channel_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_count_by_profile_id_by_channel_id_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_count_by_profile_id_by_channel_id_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_count_by_profile_id_by_channel_id_by_reward_id
+(
+    @profile_id uniqueidentifier 
+    , @channel_id uniqueidentifier = NULL
+    , @reward_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [channel_id] = @channel_id
+    AND [reward_id] = @reward_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [viewed]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [profile_id]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [downloaded]'
+    SET @sql = @sql + ', [channel_id]'
+    SET @sql = @sql + ', [reward_id]'
+    SET @sql = @sql + ', [usage_count]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [blurb]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[profile_reward] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @viewed bit 
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @profile_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @downloaded bit 
+    , @channel_id uniqueidentifier = NULL
+    , @reward_id uniqueidentifier 
+    , @usage_count int = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @blurb varchar (2000) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_reward]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_reward] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [viewed] = @viewed
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [profile_id] = @profile_id
+                    , [uuid] = @uuid
+                    , [downloaded] = @downloaded
+                    , [channel_id] = @channel_id
+                    , [reward_id] = @reward_id
+                    , [usage_count] = @usage_count
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [blurb] = @blurb
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_reward]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [viewed]
+                    , [date_modified]
+                    , [data]
+                    , [profile_id]
+                    , [uuid]
+                    , [downloaded]
+                    , [channel_id]
+                    , [reward_id]
+                    , [usage_count]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [blurb]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @viewed
+                    , @date_modified
+                    , @data
+                    , @profile_id
+                    , @uuid
+                    , @downloaded
+                    , @channel_id
+                    , @reward_id
+                    , @usage_count
+                    , @active
+                    , @date_created
+                    , @type
+                    , @blurb
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_set_by_profile_id_by_channel_id_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_set_by_profile_id_by_channel_id_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_set_by_profile_id_by_channel_id_by_reward_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @viewed bit 
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @profile_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @downloaded bit 
+    , @channel_id uniqueidentifier = NULL
+    , @reward_id uniqueidentifier 
+    , @usage_count int = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @blurb varchar (2000) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_reward]  
+                WHERE 1=1
+                AND [profile_id] = @profile_id
+                AND [channel_id] = @channel_id
+                AND [reward_id] = @reward_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_reward] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [viewed] = @viewed
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [profile_id] = @profile_id
+                    , [uuid] = @uuid
+                    , [downloaded] = @downloaded
+                    , [channel_id] = @channel_id
+                    , [reward_id] = @reward_id
+                    , [usage_count] = @usage_count
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [blurb] = @blurb
+                    , [description] = @description
+                WHERE 1=1
+                AND [profile_id] = @profile_id
+                AND [channel_id] = @channel_id
+                AND [reward_id] = @reward_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_reward]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [viewed]
+                    , [date_modified]
+                    , [data]
+                    , [profile_id]
+                    , [uuid]
+                    , [downloaded]
+                    , [channel_id]
+                    , [reward_id]
+                    , [usage_count]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [blurb]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @viewed
+                    , @date_modified
+                    , @data
+                    , @profile_id
+                    , @uuid
+                    , @downloaded
+                    , @channel_id
+                    , @reward_id
+                    , @usage_count
+                    , @active
+                    , @date_created
+                    , @type
+                    , @blurb
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_reward]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_del_by_profile_id_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_del_by_profile_id_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_del_by_profile_id_by_reward_id
+(
+    @profile_id uniqueidentifier 
+    , @reward_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_reward]
+    WHERE 1=1                        
+    AND [profile_id] = @profile_id
+    AND [reward_id] = @reward_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileReward - profile_reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [viewed]
+        , [date_modified]
+        , [data]
+        , [profile_id]
+        , [uuid]
+        , [downloaded]
+        , [channel_id]
+        , [reward_id]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [blurb]
+        , [description]
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_get_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_get_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [viewed]
+        , [date_modified]
+        , [data]
+        , [profile_id]
+        , [uuid]
+        , [downloaded]
+        , [channel_id]
+        , [reward_id]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [blurb]
+        , [description]
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_get_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_get_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_get_by_reward_id
+(
+    @reward_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [viewed]
+        , [date_modified]
+        , [data]
+        , [profile_id]
+        , [uuid]
+        , [downloaded]
+        , [channel_id]
+        , [reward_id]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [blurb]
+        , [description]
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [reward_id] = @reward_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_get_by_profile_id_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_get_by_profile_id_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_get_by_profile_id_by_reward_id
+(
+    @profile_id uniqueidentifier 
+    , @reward_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [viewed]
+        , [date_modified]
+        , [data]
+        , [profile_id]
+        , [uuid]
+        , [downloaded]
+        , [channel_id]
+        , [reward_id]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [blurb]
+        , [description]
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [reward_id] = @reward_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_get_by_profile_id_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_get_by_profile_id_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_get_by_profile_id_by_channel_id
+(
+    @profile_id uniqueidentifier 
+    , @channel_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [viewed]
+        , [date_modified]
+        , [data]
+        , [profile_id]
+        , [uuid]
+        , [downloaded]
+        , [channel_id]
+        , [reward_id]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [blurb]
+        , [description]
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_get_by_profile_id_by_channel_id_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_get_by_profile_id_by_channel_id_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_get_by_profile_id_by_channel_id_by_reward_id
+(
+    @profile_id uniqueidentifier 
+    , @channel_id uniqueidentifier = NULL
+    , @reward_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [viewed]
+        , [date_modified]
+        , [data]
+        , [profile_id]
+        , [uuid]
+        , [downloaded]
+        , [channel_id]
+        , [reward_id]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [blurb]
+        , [description]
+    FROM [dbo].[profile_reward]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+    AND [channel_id] = @channel_id
+    AND [reward_id] = @reward_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_count]
+
+GO
+
+CREATE PROCEDURE usp_coupon_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[coupon]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_coupon_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[coupon]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_coupon_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[coupon]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_coupon_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[coupon]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_count_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_count_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_coupon_count_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[coupon]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_coupon_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [url]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [org_id]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [usage_count]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[coupon] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_coupon_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @url varchar (500) = NULL
+    , @data ntext = NULL
+    , @org_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @usage_count int = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[coupon]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[coupon] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [url] = @url
+                    , [data] = @data
+                    , [org_id] = @org_id
+                    , [uuid] = @uuid
+                    , [usage_count] = @usage_count
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[coupon]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [url]
+                    , [data]
+                    , [org_id]
+                    , [uuid]
+                    , [usage_count]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @url
+                    , @data
+                    , @org_id
+                    , @uuid
+                    , @usage_count
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_coupon_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[coupon]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_del_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_del_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_coupon_del_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[coupon]
+    WHERE 1=1                        
+    AND [org_id] = @org_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Coupon - coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_coupon_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[coupon]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_coupon_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[coupon]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_coupon_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[coupon]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_coupon_get_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_coupon_get_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_coupon_get_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [usage_count]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[coupon]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_coupon_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_coupon_count]
+
+GO
+
+CREATE PROCEDURE usp_profile_coupon_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_coupon]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_coupon_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_coupon_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_coupon_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_coupon]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_coupon_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_coupon_count_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_coupon_count_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_coupon]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_coupon_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_coupon_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_profile_coupon_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [url]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [profile_id]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[profile_coupon] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_coupon_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_coupon_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_coupon_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @url varchar (50) = NULL
+    , @data ntext = NULL
+    , @profile_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_coupon]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_coupon] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [url] = @url
+                    , [data] = @data
+                    , [profile_id] = @profile_id
+                    , [uuid] = @uuid
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_coupon]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [url]
+                    , [data]
+                    , [profile_id]
+                    , [uuid]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @url
+                    , @data
+                    , @profile_id
+                    , @uuid
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_coupon_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_coupon_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_coupon_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_coupon]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_coupon_del_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_coupon_del_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_coupon_del_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_coupon]
+    WHERE 1=1                        
+    AND [profile_id] = @profile_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileCoupon - profile_coupon
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_coupon_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_coupon_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_coupon_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [profile_id]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[profile_coupon]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_coupon_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_coupon_get_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_coupon_get_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [profile_id]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[profile_coupon]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Org - org
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_count]
+
+GO
+
+CREATE PROCEDURE usp_org_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[org]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_org_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[org]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_org_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[org]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_org_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[org]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Org - org
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_org_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[org] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Org - org
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_org_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[org]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[org] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[org]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [uuid]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @uuid
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Org - org
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_org_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[org]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Org - org
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_org_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[org]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_org_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[org]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_org_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_org_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_org_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[org]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_count]
+
+GO
+
+CREATE PROCEDURE usp_channel_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_channel_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_channel_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_channel_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_count_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_count_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_channel_count_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_count_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_count_by_type_id]
+
+GO
+
+CREATE PROCEDURE usp_channel_count_by_type_id
+(
+    @type_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND [type_id] = @type_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_count_by_org_id_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_count_by_org_id_by_type_id]
+
+GO
+
+CREATE PROCEDURE usp_channel_count_by_org_id_by_type_id
+(
+    @org_id uniqueidentifier 
+    , @type_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND [org_id] = @org_id
+    AND [type_id] = @type_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_channel_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [type_id]'
+    SET @sql = @sql + ', [org_id]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[channel] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_channel_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @type_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[channel]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[channel] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [type_id] = @type_id
+                    , [org_id] = @org_id
+                    , [uuid] = @uuid
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[channel]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [type_id]
+                    , [org_id]
+                    , [uuid]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @type_id
+                    , @org_id
+                    , @uuid
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_channel_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[channel]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_del_by_code_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_del_by_code_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_channel_del_by_code_by_org_id
+(
+    @code varchar (255) = NULL
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[channel]
+    WHERE 1=1                        
+    AND LOWER([code]) = LOWER(@code)
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_del_by_code_by_org_id_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_del_by_code_by_org_id_by_type_id]
+
+GO
+
+CREATE PROCEDURE usp_channel_del_by_code_by_org_id_by_type_id
+(
+    @code varchar (255) = NULL
+    , @org_id uniqueidentifier 
+    , @type_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[channel]
+    WHERE 1=1                        
+    AND LOWER([code]) = LOWER(@code)
+    AND [org_id] = @org_id
+    AND [type_id] = @type_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Channel - channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_channel_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [type_id]
+        , [org_id]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_channel_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [type_id]
+        , [org_id]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_channel_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [type_id]
+        , [org_id]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_get_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_get_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_channel_get_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [type_id]
+        , [org_id]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_get_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_get_by_type_id]
+
+GO
+
+CREATE PROCEDURE usp_channel_get_by_type_id
+(
+    @type_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [type_id]
+        , [org_id]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND [type_id] = @type_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_get_by_org_id_by_type_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_get_by_org_id_by_type_id]
+
+GO
+
+CREATE PROCEDURE usp_channel_get_by_org_id_by_type_id
+(
+    @org_id uniqueidentifier 
+    , @type_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [type_id]
+        , [org_id]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[channel]
+    WHERE 1=1
+    AND [org_id] = @org_id
+    AND [type_id] = @type_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_count]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel_type]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel_type]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel_type]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[channel_type]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[channel_type] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (50) 
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[channel_type]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[channel_type] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[channel_type]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [uuid]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @uuid
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[channel_type]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ChannelType - channel_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[channel_type]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[channel_type]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_channel_type_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_channel_type_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_channel_type_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[channel_type]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_count]
+
+GO
+
+CREATE PROCEDURE usp_reward_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_count_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_count_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_count_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_count_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_count_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_count_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_count_by_org_id_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_count_by_org_id_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_count_by_org_id_by_channel_id
+(
+    @org_id uniqueidentifier 
+    , @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND [org_id] = @org_id
+    AND [channel_id] = @channel_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_reward_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [type_url]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [url]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [org_id]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [channel_id]'
+    SET @sql = @sql + ', [usage_count]'
+    SET @sql = @sql + ', [external_id]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[reward] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @type_url varchar (50) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @url varchar (500) = NULL
+    , @data ntext = NULL
+    , @org_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @channel_id uniqueidentifier 
+    , @usage_count int = NULL
+    , @external_id varchar (50) 
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (50) 
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[reward]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[reward] 
+                SET
+                    [status] = @status
+                    , [type_url] = @type_url
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [url] = @url
+                    , [data] = @data
+                    , [org_id] = @org_id
+                    , [uuid] = @uuid
+                    , [channel_id] = @channel_id
+                    , [usage_count] = @usage_count
+                    , [external_id] = @external_id
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[reward]
+                (
+                    [status]
+                    , [type_url]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [url]
+                    , [data]
+                    , [org_id]
+                    , [uuid]
+                    , [channel_id]
+                    , [usage_count]
+                    , [external_id]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @type_url
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @url
+                    , @data
+                    , @org_id
+                    , @uuid
+                    , @channel_id
+                    , @usage_count
+                    , @external_id
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_del_by_org_id_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_del_by_org_id_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_del_by_org_id_by_channel_id
+(
+    @org_id uniqueidentifier 
+    , @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward]
+    WHERE 1=1                        
+    AND [org_id] = @org_id
+    AND [channel_id] = @channel_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Reward - reward
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [usage_count]
+        , [external_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [usage_count]
+        , [external_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [usage_count]
+        , [external_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_get_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_get_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_get_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [usage_count]
+        , [external_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_get_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_get_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_get_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [usage_count]
+        , [external_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_get_by_org_id_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_get_by_org_id_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_get_by_org_id_by_channel_id
+(
+    @org_id uniqueidentifier 
+    , @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [url]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [usage_count]
+        , [external_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward]
+    WHERE 1=1
+    AND [org_id] = @org_id
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_count]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_type]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_type]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_type]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_type]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_count_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_count_by_type]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_count_by_type
+(
+    @type varchar (50) 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_type]
+    WHERE 1=1
+    AND LOWER([type]) = LOWER(@type)
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [type_url]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[reward_type] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @type_url varchar (50) 
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (50) 
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[reward_type]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[reward_type] 
+                SET
+                    [status] = @status
+                    , [type_url] = @type_url
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[reward_type]
+                (
+                    [status]
+                    , [type_url]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [uuid]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @type_url
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @uuid
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward_type]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardType - reward_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward_type]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward_type]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward_type]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_type_get_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_type_get_by_type]
+
+GO
+
+CREATE PROCEDURE usp_reward_type_get_by_type
+(
+    @type varchar (50) 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [type_url]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward_type]
+    WHERE 1=1
+    AND LOWER([type]) = LOWER(@type)
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_count]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_count_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_count_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_count_by_org_id
+(
+    @org_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_count_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_count_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_count_by_channel_id
+(
+    @channel_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_count_by_org_id_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_count_by_org_id_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_count_by_org_id_by_channel_id
+(
+    @org_id uniqueidentifier = NULL
+    , @channel_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [org_id] = @org_id
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_count_by_org_id_by_channel_id_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_count_by_org_id_by_channel_id_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_count_by_org_id_by_channel_id_by_reward_id
+(
+    @org_id uniqueidentifier = NULL
+    , @channel_id uniqueidentifier = NULL
+    , @reward_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [org_id] = @org_id
+    AND [channel_id] = @channel_id
+    AND [reward_id] = @reward_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_count_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_count_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_count_by_reward_id
+(
+    @reward_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [reward_id] = @reward_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [end_date]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [org_id]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [channel_id]'
+    SET @sql = @sql + ', [amount]'
+    SET @sql = @sql + ', [global_reward]'
+    SET @sql = @sql + ', [condition]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [start_date]'
+    SET @sql = @sql + ', [reward_id]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[reward_condition] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @end_date DATETIME = GETDATE
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @org_id uniqueidentifier = NULL
+    , @uuid uniqueidentifier 
+    , @channel_id uniqueidentifier = NULL
+    , @amount int = NULL
+    , @global_reward bit = 1
+    , @condition varchar (50) = NULL
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (50) = NULL
+    , @start_date DATETIME = GETDATE
+    , @reward_id uniqueidentifier = NULL
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[reward_condition]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[reward_condition] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [end_date] = @end_date
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [org_id] = @org_id
+                    , [uuid] = @uuid
+                    , [channel_id] = @channel_id
+                    , [amount] = @amount
+                    , [global_reward] = @global_reward
+                    , [condition] = @condition
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [start_date] = @start_date
+                    , [reward_id] = @reward_id
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[reward_condition]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [end_date]
+                    , [date_modified]
+                    , [data]
+                    , [org_id]
+                    , [uuid]
+                    , [channel_id]
+                    , [amount]
+                    , [global_reward]
+                    , [condition]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [start_date]
+                    , [reward_id]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @end_date
+                    , @date_modified
+                    , @data
+                    , @org_id
+                    , @uuid
+                    , @channel_id
+                    , @amount
+                    , @global_reward
+                    , @condition
+                    , @active
+                    , @date_created
+                    , @type
+                    , @start_date
+                    , @reward_id
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward_condition]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_del_by_org_id_by_channel_id_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_del_by_org_id_by_channel_id_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_del_by_org_id_by_channel_id_by_reward_id
+(
+    @org_id uniqueidentifier = NULL
+    , @channel_id uniqueidentifier = NULL
+    , @reward_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward_condition]
+    WHERE 1=1                        
+    AND [org_id] = @org_id
+    AND [channel_id] = @channel_id
+    AND [reward_id] = @reward_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardCondition - reward_condition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [end_date]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [amount]
+        , [global_reward]
+        , [condition]
+        , [active]
+        , [date_created]
+        , [type]
+        , [start_date]
+        , [reward_id]
+        , [description]
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [end_date]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [amount]
+        , [global_reward]
+        , [condition]
+        , [active]
+        , [date_created]
+        , [type]
+        , [start_date]
+        , [reward_id]
+        , [description]
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [end_date]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [amount]
+        , [global_reward]
+        , [condition]
+        , [active]
+        , [date_created]
+        , [type]
+        , [start_date]
+        , [reward_id]
+        , [description]
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_get_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_get_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_get_by_org_id
+(
+    @org_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [end_date]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [amount]
+        , [global_reward]
+        , [condition]
+        , [active]
+        , [date_created]
+        , [type]
+        , [start_date]
+        , [reward_id]
+        , [description]
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_get_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_get_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_get_by_channel_id
+(
+    @channel_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [end_date]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [amount]
+        , [global_reward]
+        , [condition]
+        , [active]
+        , [date_created]
+        , [type]
+        , [start_date]
+        , [reward_id]
+        , [description]
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_get_by_org_id_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_get_by_org_id_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_get_by_org_id_by_channel_id
+(
+    @org_id uniqueidentifier = NULL
+    , @channel_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [end_date]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [amount]
+        , [global_reward]
+        , [condition]
+        , [active]
+        , [date_created]
+        , [type]
+        , [start_date]
+        , [reward_id]
+        , [description]
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [org_id] = @org_id
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_get_by_org_id_by_channel_id_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_get_by_org_id_by_channel_id_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_get_by_org_id_by_channel_id_by_reward_id
+(
+    @org_id uniqueidentifier = NULL
+    , @channel_id uniqueidentifier = NULL
+    , @reward_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [end_date]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [amount]
+        , [global_reward]
+        , [condition]
+        , [active]
+        , [date_created]
+        , [type]
+        , [start_date]
+        , [reward_id]
+        , [description]
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [org_id] = @org_id
+    AND [channel_id] = @channel_id
+    AND [reward_id] = @reward_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_get_by_reward_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_get_by_reward_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_get_by_reward_id
+(
+    @reward_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [end_date]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [channel_id]
+        , [amount]
+        , [global_reward]
+        , [condition]
+        , [active]
+        , [date_created]
+        , [type]
+        , [start_date]
+        , [reward_id]
+        , [description]
+    FROM [dbo].[reward_condition]
+    WHERE 1=1
+    AND [reward_id] = @reward_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_count]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_count_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_count_by_type]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_count_by_type
+(
+    @type varchar (50) 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1
+    AND LOWER([type]) = LOWER(@type)
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[reward_condition_type] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (50) 
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[reward_condition_type]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[reward_condition_type] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[reward_condition_type]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [uuid]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @uuid
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardConditionType - reward_condition_type
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_condition_type_get_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_condition_type_get_by_type]
+
+GO
+
+CREATE PROCEDURE usp_reward_condition_type_get_by_type
+(
+    @type varchar (50) 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [uuid]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[reward_condition_type]
+    WHERE 1=1
+    AND LOWER([type]) = LOWER(@type)
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: Question - question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_count]
+
+GO
+
+CREATE PROCEDURE usp_question_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[question]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_question_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_question_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_question_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_count_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_count_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_question_count_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_count_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_count_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_question_count_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_count_by_channel_id_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_count_by_channel_id_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_question_count_by_channel_id_by_org_id
+(
+    @channel_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_count_by_channel_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_count_by_channel_id_by_code]
+
+GO
+
+CREATE PROCEDURE usp_question_count_by_channel_id_by_code
+(
+    @channel_id uniqueidentifier 
+    , @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: Question - question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_question_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [org_id]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [choices]'
+    SET @sql = @sql + ', [channel_id]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [description]'
+
+    SET @sql = @sql + ' FROM [dbo].[question] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: Question - question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_question_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @org_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @choices ntext = NULL
+    , @channel_id uniqueidentifier 
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (50) 
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[question]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[question] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [org_id] = @org_id
+                    , [uuid] = @uuid
+                    , [choices] = @choices
+                    , [channel_id] = @channel_id
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[question]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [org_id]
+                    , [uuid]
+                    , [choices]
+                    , [channel_id]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @org_id
+                    , @uuid
+                    , @choices
+                    , @channel_id
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_set_by_channel_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_set_by_channel_id_by_code]
+
+GO
+
+CREATE PROCEDURE usp_question_set_by_channel_id_by_code
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @code varchar (255) = NULL
+    , @display_name varchar (255) = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @data ntext = NULL
+    , @org_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @choices ntext = NULL
+    , @channel_id uniqueidentifier 
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @type varchar (50) 
+    , @description varchar (255) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[question]  
+                WHERE 1=1
+                AND [channel_id] = @channel_id
+                AND LOWER([code]) = LOWER(@code)
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[question] 
+                SET
+                    [status] = @status
+                    , [code] = @code
+                    , [display_name] = @display_name
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [data] = @data
+                    , [org_id] = @org_id
+                    , [uuid] = @uuid
+                    , [choices] = @choices
+                    , [channel_id] = @channel_id
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [description] = @description
+                WHERE 1=1
+                AND [channel_id] = @channel_id
+                AND LOWER([code]) = LOWER(@code)
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[question]
+                (
+                    [status]
+                    , [code]
+                    , [display_name]
+                    , [name]
+                    , [date_modified]
+                    , [data]
+                    , [org_id]
+                    , [uuid]
+                    , [choices]
+                    , [channel_id]
+                    , [active]
+                    , [date_created]
+                    , [type]
+                    , [description]
+                )
+                VALUES
+                (
+                    @status
+                    , @code
+                    , @display_name
+                    , @name
+                    , @date_modified
+                    , @data
+                    , @org_id
+                    , @uuid
+                    , @choices
+                    , @channel_id
+                    , @active
+                    , @date_created
+                    , @type
+                    , @description
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: Question - question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_question_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[question]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_del_by_channel_id_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_del_by_channel_id_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_question_del_by_channel_id_by_org_id
+(
+    @channel_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[question]
+    WHERE 1=1                        
+    AND [channel_id] = @channel_id
+    AND [org_id] = @org_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: Question - question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_question_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [choices]
+        , [channel_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_question_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [choices]
+        , [channel_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_question_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [choices]
+        , [channel_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_get_by_type]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_get_by_type]
+
+GO
+
+CREATE PROCEDURE usp_question_get_by_type
+(
+    @type varchar (50) 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [choices]
+        , [channel_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND LOWER([type]) = LOWER(@type)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_get_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_get_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_question_get_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [choices]
+        , [channel_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_get_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_get_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_question_get_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [choices]
+        , [channel_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_get_by_channel_id_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_get_by_channel_id_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_question_get_by_channel_id_by_org_id
+(
+    @channel_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [choices]
+        , [channel_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_question_get_by_channel_id_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_question_get_by_channel_id_by_code]
+
+GO
+
+CREATE PROCEDURE usp_question_get_by_channel_id_by_code
+(
+    @channel_id uniqueidentifier 
+    , @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [code]
+        , [display_name]
+        , [name]
+        , [date_modified]
+        , [data]
+        , [org_id]
+        , [uuid]
+        , [choices]
+        , [channel_id]
+        , [active]
+        , [date_created]
+        , [type]
+        , [description]
+    FROM [dbo].[question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_count]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_count_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_count_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_count_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_count_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_count_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_count_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_count_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_count_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_count_by_question_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_count_by_question_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_count_by_question_id
+(
+    @question_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [question_id] = @question_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_count_by_channel_id_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_count_by_channel_id_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_count_by_channel_id_by_org_id
+(
+    @channel_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_count_by_channel_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_count_by_channel_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_count_by_channel_id_by_profile_id
+(
+    @channel_id uniqueidentifier 
+    , @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_count_by_question_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_count_by_question_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_count_by_question_id_by_profile_id
+(
+    @question_id uniqueidentifier 
+    , @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [question_id] = @question_id
+    AND [profile_id] = @profile_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [profile_id]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [org_id]'
+    SET @sql = @sql + ', [channel_id]'
+    SET @sql = @sql + ', [answer]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [question_id]'
+
+    SET @sql = @sql + ' FROM [dbo].[profile_question] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @profile_id uniqueidentifier 
+    , @active bit = NULL
+    , @data ntext 
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @org_id uniqueidentifier 
+    , @channel_id uniqueidentifier 
+    , @answer varchar (1000) 
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @question_id uniqueidentifier 
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_question]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_question] 
+                SET
+                    [status] = @status
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [org_id] = @org_id
+                    , [channel_id] = @channel_id
+                    , [answer] = @answer
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [question_id] = @question_id
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_question]
+                (
+                    [status]
+                    , [profile_id]
+                    , [active]
+                    , [data]
+                    , [uuid]
+                    , [date_modified]
+                    , [org_id]
+                    , [channel_id]
+                    , [answer]
+                    , [date_created]
+                    , [type]
+                    , [question_id]
+                )
+                VALUES
+                (
+                    @status
+                    , @profile_id
+                    , @active
+                    , @data
+                    , @uuid
+                    , @date_modified
+                    , @org_id
+                    , @channel_id
+                    , @answer
+                    , @date_created
+                    , @type
+                    , @question_id
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_set_by_channel_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_set_by_channel_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_set_by_channel_id_by_profile_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @profile_id uniqueidentifier 
+    , @active bit = NULL
+    , @data ntext 
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @org_id uniqueidentifier 
+    , @channel_id uniqueidentifier 
+    , @answer varchar (1000) 
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @question_id uniqueidentifier 
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_question]  
+                WHERE 1=1
+                AND [channel_id] = @channel_id
+                AND [profile_id] = @profile_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_question] 
+                SET
+                    [status] = @status
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [org_id] = @org_id
+                    , [channel_id] = @channel_id
+                    , [answer] = @answer
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [question_id] = @question_id
+                WHERE 1=1
+                AND [channel_id] = @channel_id
+                AND [profile_id] = @profile_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_question]
+                (
+                    [status]
+                    , [profile_id]
+                    , [active]
+                    , [data]
+                    , [uuid]
+                    , [date_modified]
+                    , [org_id]
+                    , [channel_id]
+                    , [answer]
+                    , [date_created]
+                    , [type]
+                    , [question_id]
+                )
+                VALUES
+                (
+                    @status
+                    , @profile_id
+                    , @active
+                    , @data
+                    , @uuid
+                    , @date_modified
+                    , @org_id
+                    , @channel_id
+                    , @answer
+                    , @date_created
+                    , @type
+                    , @question_id
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_set_by_question_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_set_by_question_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_set_by_question_id_by_profile_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @profile_id uniqueidentifier 
+    , @active bit = NULL
+    , @data ntext 
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @org_id uniqueidentifier 
+    , @channel_id uniqueidentifier 
+    , @answer varchar (1000) 
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @question_id uniqueidentifier 
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_question]  
+                WHERE 1=1
+                AND [question_id] = @question_id
+                AND [profile_id] = @profile_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_question] 
+                SET
+                    [status] = @status
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [org_id] = @org_id
+                    , [channel_id] = @channel_id
+                    , [answer] = @answer
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [question_id] = @question_id
+                WHERE 1=1
+                AND [question_id] = @question_id
+                AND [profile_id] = @profile_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_question]
+                (
+                    [status]
+                    , [profile_id]
+                    , [active]
+                    , [data]
+                    , [uuid]
+                    , [date_modified]
+                    , [org_id]
+                    , [channel_id]
+                    , [answer]
+                    , [date_created]
+                    , [type]
+                    , [question_id]
+                )
+                VALUES
+                (
+                    @status
+                    , @profile_id
+                    , @active
+                    , @data
+                    , @uuid
+                    , @date_modified
+                    , @org_id
+                    , @channel_id
+                    , @answer
+                    , @date_created
+                    , @type
+                    , @question_id
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_set_by_channel_id_by_question_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_set_by_channel_id_by_question_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_set_by_channel_id_by_question_id_by_profile_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @profile_id uniqueidentifier 
+    , @active bit = NULL
+    , @data ntext 
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @org_id uniqueidentifier 
+    , @channel_id uniqueidentifier 
+    , @answer varchar (1000) 
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+    , @question_id uniqueidentifier 
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_question]  
+                WHERE 1=1
+                AND [channel_id] = @channel_id
+                AND [question_id] = @question_id
+                AND [profile_id] = @profile_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_question] 
+                SET
+                    [status] = @status
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [org_id] = @org_id
+                    , [channel_id] = @channel_id
+                    , [answer] = @answer
+                    , [date_created] = @date_created
+                    , [type] = @type
+                    , [question_id] = @question_id
+                WHERE 1=1
+                AND [channel_id] = @channel_id
+                AND [question_id] = @question_id
+                AND [profile_id] = @profile_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_question]
+                (
+                    [status]
+                    , [profile_id]
+                    , [active]
+                    , [data]
+                    , [uuid]
+                    , [date_modified]
+                    , [org_id]
+                    , [channel_id]
+                    , [answer]
+                    , [date_created]
+                    , [type]
+                    , [question_id]
+                )
+                VALUES
+                (
+                    @status
+                    , @profile_id
+                    , @active
+                    , @data
+                    , @uuid
+                    , @date_modified
+                    , @org_id
+                    , @channel_id
+                    , @answer
+                    , @date_created
+                    , @type
+                    , @question_id
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_question]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_del_by_channel_id_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_del_by_channel_id_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_del_by_channel_id_by_org_id
+(
+    @channel_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_question]
+    WHERE 1=1                        
+    AND [channel_id] = @channel_id
+    AND [org_id] = @org_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileQuestion - profile_question
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [answer]
+        , [date_created]
+        , [type]
+        , [question_id]
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_get_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_get_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_get_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [answer]
+        , [date_created]
+        , [type]
+        , [question_id]
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_get_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_get_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_get_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [answer]
+        , [date_created]
+        , [type]
+        , [question_id]
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_get_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_get_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [answer]
+        , [date_created]
+        , [type]
+        , [question_id]
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_get_by_question_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_get_by_question_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_get_by_question_id
+(
+    @question_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [answer]
+        , [date_created]
+        , [type]
+        , [question_id]
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [question_id] = @question_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_get_by_channel_id_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_get_by_channel_id_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_get_by_channel_id_by_org_id
+(
+    @channel_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [answer]
+        , [date_created]
+        , [type]
+        , [question_id]
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_get_by_channel_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_get_by_channel_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_get_by_channel_id_by_profile_id
+(
+    @channel_id uniqueidentifier 
+    , @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [answer]
+        , [date_created]
+        , [type]
+        , [question_id]
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_question_get_by_question_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_question_get_by_question_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_question_get_by_question_id_by_profile_id
+(
+    @question_id uniqueidentifier 
+    , @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [answer]
+        , [date_created]
+        , [type]
+        , [question_id]
+    FROM [dbo].[profile_question]
+    WHERE 1=1
+    AND [question_id] = @question_id
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_count]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_channel]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_channel]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_count_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_count_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_count_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_channel]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_count_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_count_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_channel]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_count_by_channel_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_count_by_channel_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_count_by_channel_id_by_profile_id
+(
+    @channel_id uniqueidentifier 
+    , @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_channel]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [profile_id] = @profile_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [channel_id]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [profile_id]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [data]'
+
+    SET @sql = @sql + ' FROM [dbo].[profile_channel] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @channel_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @profile_id uniqueidentifier 
+    , @type varchar (500) = NULL
+    , @data ntext = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_channel]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_channel] 
+                SET
+                    [status] = @status
+                    , [channel_id] = @channel_id
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [profile_id] = @profile_id
+                    , [type] = @type
+                    , [data] = @data
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_channel]
+                (
+                    [status]
+                    , [channel_id]
+                    , [uuid]
+                    , [date_modified]
+                    , [active]
+                    , [date_created]
+                    , [profile_id]
+                    , [type]
+                    , [data]
+                )
+                VALUES
+                (
+                    @status
+                    , @channel_id
+                    , @uuid
+                    , @date_modified
+                    , @active
+                    , @date_created
+                    , @profile_id
+                    , @type
+                    , @data
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_set_by_channel_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_set_by_channel_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_set_by_channel_id_by_profile_id
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @channel_id uniqueidentifier 
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @active bit = NULL
+    , @date_created DATETIME = GETDATE
+    , @profile_id uniqueidentifier 
+    , @type varchar (500) = NULL
+    , @data ntext = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_channel]  
+                WHERE 1=1
+                AND [channel_id] = @channel_id
+                AND [profile_id] = @profile_id
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_channel] 
+                SET
+                    [status] = @status
+                    , [channel_id] = @channel_id
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [active] = @active
+                    , [date_created] = @date_created
+                    , [profile_id] = @profile_id
+                    , [type] = @type
+                    , [data] = @data
+                WHERE 1=1
+                AND [channel_id] = @channel_id
+                AND [profile_id] = @profile_id
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_channel]
+                (
+                    [status]
+                    , [channel_id]
+                    , [uuid]
+                    , [date_modified]
+                    , [active]
+                    , [date_created]
+                    , [profile_id]
+                    , [type]
+                    , [data]
+                )
+                VALUES
+                (
+                    @status
+                    , @channel_id
+                    , @uuid
+                    , @date_modified
+                    , @active
+                    , @date_created
+                    , @profile_id
+                    , @type
+                    , @data
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_channel]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_del_by_channel_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_del_by_channel_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_del_by_channel_id_by_profile_id
+(
+    @channel_id uniqueidentifier 
+    , @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_channel]
+    WHERE 1=1                        
+    AND [channel_id] = @channel_id
+    AND [profile_id] = @profile_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileChannel - profile_channel
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [channel_id]
+        , [uuid]
+        , [date_modified]
+        , [active]
+        , [date_created]
+        , [profile_id]
+        , [type]
+        , [data]
+    FROM [dbo].[profile_channel]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_get_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_get_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_get_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [channel_id]
+        , [uuid]
+        , [date_modified]
+        , [active]
+        , [date_created]
+        , [profile_id]
+        , [type]
+        , [data]
+    FROM [dbo].[profile_channel]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_get_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_get_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [channel_id]
+        , [uuid]
+        , [date_modified]
+        , [active]
+        , [date_created]
+        , [profile_id]
+        , [type]
+        , [data]
+    FROM [dbo].[profile_channel]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_channel_get_by_channel_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_channel_get_by_channel_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_channel_get_by_channel_id_by_profile_id
+(
+    @channel_id uniqueidentifier 
+    , @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [channel_id]
+        , [uuid]
+        , [date_modified]
+        , [active]
+        , [date_created]
+        , [profile_id]
+        , [type]
+        , [data]
+    FROM [dbo].[profile_channel]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_count]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_count]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_count
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_count_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_count_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_count_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_count_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_count_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_count_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_count_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_count_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_count_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_count_by_channel_id_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_count_by_channel_id_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_count_by_channel_id_by_org_id
+(
+    @channel_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_count_by_channel_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_count_by_channel_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_count_by_channel_id_by_profile_id
+(
+    @channel_id uniqueidentifier 
+    , @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [profile_id] = @profile_id
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [profile_id]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [org_id]'
+    SET @sql = @sql + ', [channel_id]'
+    SET @sql = @sql + ', [points]'
+    SET @sql = @sql + ', [date_created]'
+    SET @sql = @sql + ', [type]'
+
+    SET @sql = @sql + ' FROM [dbo].[profile_reward_points] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @status varchar (255) = NULL
+    , @profile_id uniqueidentifier 
+    , @active bit = NULL
+    , @data ntext = NULL
+    , @uuid uniqueidentifier 
+    , @date_modified DATETIME = GETDATE
+    , @org_id uniqueidentifier 
+    , @channel_id uniqueidentifier 
+    , @points int 
+    , @date_created DATETIME = GETDATE
+    , @type varchar (500) = NULL
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[profile_reward_points]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[profile_reward_points] 
+                SET
+                    [status] = @status
+                    , [profile_id] = @profile_id
+                    , [active] = @active
+                    , [data] = @data
+                    , [uuid] = @uuid
+                    , [date_modified] = @date_modified
+                    , [org_id] = @org_id
+                    , [channel_id] = @channel_id
+                    , [points] = @points
+                    , [date_created] = @date_created
+                    , [type] = @type
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[profile_reward_points]
+                (
+                    [status]
+                    , [profile_id]
+                    , [active]
+                    , [data]
+                    , [uuid]
+                    , [date_modified]
+                    , [org_id]
+                    , [channel_id]
+                    , [points]
+                    , [date_created]
+                    , [type]
+                )
+                VALUES
+                (
+                    @status
+                    , @profile_id
+                    , @active
+                    , @data
+                    , @uuid
+                    , @date_modified
+                    , @org_id
+                    , @channel_id
+                    , @points
+                    , @date_created
+                    , @type
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_del_by_channel_id_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_del_by_channel_id_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_del_by_channel_id_by_org_id
+(
+    @channel_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1                        
+    AND [channel_id] = @channel_id
+    AND [org_id] = @org_id
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: ProfileRewardPoints - profile_reward_points
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [points]
+        , [date_created]
+        , [type]
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_get_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_get_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_get_by_channel_id
+(
+    @channel_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [points]
+        , [date_created]
+        , [type]
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_get_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_get_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_get_by_org_id
+(
+    @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [points]
+        , [date_created]
+        , [type]
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_get_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_get_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_get_by_profile_id
+(
+    @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [points]
+        , [date_created]
+        , [type]
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_get_by_channel_id_by_org_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_get_by_channel_id_by_org_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_get_by_channel_id_by_org_id
+(
+    @channel_id uniqueidentifier 
+    , @org_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [points]
+        , [date_created]
+        , [type]
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [org_id] = @org_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_profile_reward_points_get_by_channel_id_by_profile_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_profile_reward_points_get_by_channel_id_by_profile_id]
+
+GO
+
+CREATE PROCEDURE usp_profile_reward_points_get_by_channel_id_by_profile_id
+(
+    @channel_id uniqueidentifier 
+    , @profile_id uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [status]
+        , [profile_id]
+        , [active]
+        , [data]
+        , [uuid]
+        , [date_modified]
+        , [org_id]
+        , [channel_id]
+        , [points]
+        , [date_created]
+        , [type]
+    FROM [dbo].[profile_reward_points]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [profile_id] = @profile_id
+END
+GO
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_count_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_count_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_count_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_count_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_count_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_count_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_count_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_count_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_count_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_count_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_count_by_path]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_count_by_path
+(
+    @path varchar (500) = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND LOWER([path]) = LOWER(@path)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_count_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_count_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_count_by_channel_id
+(
+    @channel_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_count_by_channel_id_by_completed]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_count_by_channel_id_by_completed]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_count_by_channel_id_by_completed
+(
+    @channel_id uniqueidentifier = NULL
+    , @completed bit = 1
+)
+AS
+BEGIN
+    SELECT
+        COUNT(*) as count
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [completed] = @completed
+END
+GO
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_browse_by_filter]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_browse_by_filter]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_browse_by_filter
+(
+    @page int = 1,
+    @page_size int = 10,
+    @sort VARCHAR(500) = 'date_modified ASC',
+    @filter nvarchar(4000) = NULL
+    
+)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(4000)
+    SET NOCOUNT ON	
+
+    IF @page = 0
+            SET @page = 1
+    IF @page_size = 0
+            SET @page_size = 10
+    
+    SET @sql = 'WITH pagedtable AS'
+    SET @sql = @sql + '(
+                           SELECT ROW_NUMBER()
+                           OVER(
+                           ORDER BY '
+    SET @sql = @sql + @sort
+    SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
+    SET @sql = @sql + ', [sort]'
+    SET @sql = @sql + ', [code]'
+    SET @sql = @sql + ', [date_end]'
+    SET @sql = @sql + ', [results]'
+    SET @sql = @sql + ', [visible]'
+    SET @sql = @sql + ', [display_name]'
+    SET @sql = @sql + ', [uuid]'
+    SET @sql = @sql + ', [date_start]'
+    SET @sql = @sql + ', [winners]'
+    SET @sql = @sql + ', [template]'
+    SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [trigger_data]'
+    SET @sql = @sql + ', [status]'
+    SET @sql = @sql + ', [description]'
+    SET @sql = @sql + ', [completed]'
+    SET @sql = @sql + ', [template_url]'
+    SET @sql = @sql + ', [active]'
+    SET @sql = @sql + ', [path]'
+    SET @sql = @sql + ', [data]'
+    SET @sql = @sql + ', [name]'
+    SET @sql = @sql + ', [date_modified]'
+    SET @sql = @sql + ', [fulfilled]'
+    SET @sql = @sql + ', [channel_id]'
+    SET @sql = @sql + ', [date_created]'
+
+    SET @sql = @sql + ' FROM [dbo].[reward_competition] WHERE 1=1 '
+    BEGIN
+        IF @filter IS NOT NULL AND @filter != ''
+        SET @sql = @sql + ' ' + @filter + ' '			
+    END
+    SET @sql = @sql + ')'    
+    
+    SET @sql = @sql + ' SELECT * '
+    SET @sql = @sql + ' FROM pagedtable '
+    SET @sql = @sql + ' WHERE row_num BETWEEN ('
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' - 1) * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' + 1 AND '
+    SET @sql = @sql + convert(varchar,@page)
+    SET @sql = @sql + ' * '
+    SET @sql = @sql + convert(varchar,@page_size)
+    SET @sql = @sql + ' ORDER BY '
+    SET @sql = @sql + @sort
+    
+    PRINT @sql
+    PRINT @@rowcount
+    EXECUTE sp_executesql @sql 
+    
+
+END
+GO
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_set_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_set_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_set_by_uuid
+(
+    @set_type varchar (50) = 'full'                        
+    , @sort int = NULL
+    , @code varchar (255) = NULL
+    , @date_end DATETIME = GETDATE
+    , @results ntext = NULL
+    , @visible bit = 1
+    , @display_name varchar (255) = NULL
+    , @uuid uniqueidentifier 
+    , @date_start DATETIME = GETDATE
+    , @winners ntext = NULL
+    , @template ntext = NULL
+    , @type varchar (500) = NULL
+    , @trigger_data ntext = NULL
+    , @status varchar (255) = NULL
+    , @description varchar (255) = NULL
+    , @completed bit = 1
+    , @template_url varchar (500) = NULL
+    , @active bit = NULL
+    , @path varchar (500) = NULL
+    , @data ntext = NULL
+    , @name varchar (255) = NULL
+    , @date_modified DATETIME = GETDATE
+    , @fulfilled bit = 1
+    , @channel_id uniqueidentifier = NULL
+    , @date_created DATETIME = GETDATE
+)
+AS
+BEGIN
+    BEGIN
+        DECLARE @CountItems int
+        SET @CountItems = 0
+        
+        DECLARE @id bit
+        
+        BEGIN
+            IF @set_type != 'full' AND @set_type != 'insertonly' AND @set_type != 'updateonly'
+                SET @set_type = 'full'
+        END
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF @set_type = 'full'
+	    BEGIN
+		-- CHECK COUNT
+                SELECT @CountItems =  COUNT(*)
+                FROM  [dbo].[reward_competition]  
+                WHERE 1=1
+                AND [uuid] = @uuid
+	    END
+	END
+
+        BEGIN
+            -- UPDATE
+            IF (@CountItems > 0 AND @set_type != 'insertonly')
+                OR (@CountItems = 0 AND @set_type = 'updateonly')
+            BEGIN		
+                UPDATE [dbo].[reward_competition] 
+                SET
+                    [sort] = @sort
+                    , [code] = @code
+                    , [date_end] = @date_end
+                    , [results] = @results
+                    , [visible] = @visible
+                    , [display_name] = @display_name
+                    , [uuid] = @uuid
+                    , [date_start] = @date_start
+                    , [winners] = @winners
+                    , [template] = @template
+                    , [type] = @type
+                    , [trigger_data] = @trigger_data
+                    , [status] = @status
+                    , [description] = @description
+                    , [completed] = @completed
+                    , [template_url] = @template_url
+                    , [active] = @active
+                    , [path] = @path
+                    , [data] = @data
+                    , [name] = @name
+                    , [date_modified] = @date_modified
+                    , [fulfilled] = @fulfilled
+                    , [channel_id] = @channel_id
+                    , [date_created] = @date_created
+                WHERE 1=1
+                AND [uuid] = @uuid
+                SET @id=1
+            END
+        END
+        BEGIN
+            --INSERT
+            IF @CountItems = 0 AND @set_type != 'updateonly' 			
+            BEGIN			
+                INSERT INTO [dbo].[reward_competition]
+                (
+                    [sort]
+                    , [code]
+                    , [date_end]
+                    , [results]
+                    , [visible]
+                    , [display_name]
+                    , [uuid]
+                    , [date_start]
+                    , [winners]
+                    , [template]
+                    , [type]
+                    , [trigger_data]
+                    , [status]
+                    , [description]
+                    , [completed]
+                    , [template_url]
+                    , [active]
+                    , [path]
+                    , [data]
+                    , [name]
+                    , [date_modified]
+                    , [fulfilled]
+                    , [channel_id]
+                    , [date_created]
+                )
+                VALUES
+                (
+                    @sort
+                    , @code
+                    , @date_end
+                    , @results
+                    , @visible
+                    , @display_name
+                    , @uuid
+                    , @date_start
+                    , @winners
+                    , @template
+                    , @type
+                    , @trigger_data
+                    , @status
+                    , @description
+                    , @completed
+                    , @template_url
+                    , @active
+                    , @path
+                    , @data
+                    , @name
+                    , @date_modified
+                    , @fulfilled
+                    , @channel_id
+                    , @date_created
+                )                    
+                SET @id=1                    
+            END
+        END     
+        SELECT @id as id
+    END 
+END
+GO
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_del_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_del_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_del_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward_competition]
+    WHERE 1=1                        
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_del_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_del_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_del_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward_competition]
+    WHERE 1=1                        
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_del_by_path_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_del_by_path_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_del_by_path_by_channel_id
+(
+    @path varchar (500) = NULL
+    , @channel_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward_competition]
+    WHERE 1=1                        
+    AND LOWER([path]) = LOWER(@path)
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_del_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_del_by_path]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_del_by_path
+(
+    @path varchar (500) = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward_competition]
+    WHERE 1=1                        
+    AND LOWER([path]) = LOWER(@path)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_del_by_channel_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_del_by_channel_id_by_path]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_del_by_channel_id_by_path
+(
+    @channel_id uniqueidentifier = NULL
+    , @path varchar (500) = NULL
+)
+AS
+BEGIN
+    DELETE 
+    FROM [dbo].[reward_competition]
+    WHERE 1=1                        
+    AND [channel_id] = @channel_id
+    AND LOWER([path]) = LOWER(@path)
+END
+GO
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: RewardCompetition - reward_competition
+                       
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_get_by_uuid]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_get_by_uuid]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_get_by_uuid
+(
+    @uuid uniqueidentifier 
+)
+AS
+BEGIN
+    SELECT
+        [sort]
+        , [code]
+        , [date_end]
+        , [results]
+        , [visible]
+        , [display_name]
+        , [uuid]
+        , [date_start]
+        , [winners]
+        , [template]
+        , [type]
+        , [trigger_data]
+        , [status]
+        , [description]
+        , [completed]
+        , [template_url]
+        , [active]
+        , [path]
+        , [data]
+        , [name]
+        , [date_modified]
+        , [fulfilled]
+        , [channel_id]
+        , [date_created]
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND [uuid] = @uuid
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_get_by_code]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_get_by_code]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_get_by_code
+(
+    @code varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [sort]
+        , [code]
+        , [date_end]
+        , [results]
+        , [visible]
+        , [display_name]
+        , [uuid]
+        , [date_start]
+        , [winners]
+        , [template]
+        , [type]
+        , [trigger_data]
+        , [status]
+        , [description]
+        , [completed]
+        , [template_url]
+        , [active]
+        , [path]
+        , [data]
+        , [name]
+        , [date_modified]
+        , [fulfilled]
+        , [channel_id]
+        , [date_created]
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND LOWER([code]) = LOWER(@code)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_get_by_name]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_get_by_name]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_get_by_name
+(
+    @name varchar (255) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [sort]
+        , [code]
+        , [date_end]
+        , [results]
+        , [visible]
+        , [display_name]
+        , [uuid]
+        , [date_start]
+        , [winners]
+        , [template]
+        , [type]
+        , [trigger_data]
+        , [status]
+        , [description]
+        , [completed]
+        , [template_url]
+        , [active]
+        , [path]
+        , [data]
+        , [name]
+        , [date_modified]
+        , [fulfilled]
+        , [channel_id]
+        , [date_created]
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND LOWER([name]) = LOWER(@name)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_get_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_get_by_path]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_get_by_path
+(
+    @path varchar (500) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [sort]
+        , [code]
+        , [date_end]
+        , [results]
+        , [visible]
+        , [display_name]
+        , [uuid]
+        , [date_start]
+        , [winners]
+        , [template]
+        , [type]
+        , [trigger_data]
+        , [status]
+        , [description]
+        , [completed]
+        , [template_url]
+        , [active]
+        , [path]
+        , [data]
+        , [name]
+        , [date_modified]
+        , [fulfilled]
+        , [channel_id]
+        , [date_created]
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND LOWER([path]) = LOWER(@path)
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_get_by_channel_id]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_get_by_channel_id]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_get_by_channel_id
+(
+    @channel_id uniqueidentifier = NULL
+)
+AS
+BEGIN
+    SELECT
+        [sort]
+        , [code]
+        , [date_end]
+        , [results]
+        , [visible]
+        , [display_name]
+        , [uuid]
+        , [date_start]
+        , [winners]
+        , [template]
+        , [type]
+        , [trigger_data]
+        , [status]
+        , [description]
+        , [completed]
+        , [template_url]
+        , [active]
+        , [path]
+        , [data]
+        , [name]
+        , [date_modified]
+        , [fulfilled]
+        , [channel_id]
+        , [date_created]
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_get_by_channel_id_by_completed]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_get_by_channel_id_by_completed]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_get_by_channel_id_by_completed
+(
+    @channel_id uniqueidentifier = NULL
+    , @completed bit = 1
+)
+AS
+BEGIN
+    SELECT
+        [sort]
+        , [code]
+        , [date_end]
+        , [results]
+        , [visible]
+        , [display_name]
+        , [uuid]
+        , [date_start]
+        , [winners]
+        , [template]
+        , [type]
+        , [trigger_data]
+        , [status]
+        , [description]
+        , [completed]
+        , [template_url]
+        , [active]
+        , [path]
+        , [data]
+        , [name]
+        , [date_modified]
+        , [fulfilled]
+        , [channel_id]
+        , [date_created]
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND [completed] = @completed
+END
+GO
+-- -----------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM dbo.sysobjects where id = object_id(N'[dbo].[usp_reward_competition_get_by_channel_id_by_path]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[usp_reward_competition_get_by_channel_id_by_path]
+
+GO
+
+CREATE PROCEDURE usp_reward_competition_get_by_channel_id_by_path
+(
+    @channel_id uniqueidentifier = NULL
+    , @path varchar (500) = NULL
+)
+AS
+BEGIN
+    SELECT
+        [sort]
+        , [code]
+        , [date_end]
+        , [results]
+        , [visible]
+        , [display_name]
+        , [uuid]
+        , [date_start]
+        , [winners]
+        , [template]
+        , [type]
+        , [trigger_data]
+        , [status]
+        , [description]
+        , [completed]
+        , [template_url]
+        , [active]
+        , [path]
+        , [data]
+        , [name]
+        , [date_modified]
+        , [fulfilled]
+        , [channel_id]
+        , [date_created]
+    FROM [dbo].[reward_competition]
+    WHERE 1=1
+    AND [channel_id] = @channel_id
+    AND LOWER([path]) = LOWER(@path)
 END
 GO
 

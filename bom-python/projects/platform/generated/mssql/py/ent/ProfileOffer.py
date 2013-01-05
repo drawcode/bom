@@ -62,11 +62,12 @@ class ProfileOffer(BaseEntity):
   def __init__(self):
     super(ProfileOffer, self).__init__()
     #self.__dict__.update(entries)
-    self.redeem_code = None
-    self.url = None
-    self.offer_id = None
     self.profile_id = None
     self.redeemed = None
+    self.url = None
+    self.offer_id = None
+    self.redeem_code = None
+    self.data = None
         
   def to_dict_obj(self):
     return self.to_dict(self)

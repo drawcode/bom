@@ -147,14 +147,14 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_uuid: function
+    count_profile_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -167,7 +167,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_uuid_callback: function(data) {
+    count_profile_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -178,19 +178,19 @@ profile.profile.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_count_profile_uuid_callback", true);
+            _log("ERRORS::profile_count_profile_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_uuid(data);} catch(e) { _log("Error calling: error_count_profile_uuid: " + e);}
+            try {error_count_profile_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_count_profile_uuid_callback", false);
+            _log("SUCCESS::profile_count_profile_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_uuid: " + e);}
+            try {handle_count_profile_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_username_hash: function
+    count_profile_by_username_by_hash: function
     (
         username,
         hash,
@@ -198,7 +198,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'count'
-                + "/username/hash"
+                + "/by-username/by-hash"
                 + "/username/" + username            
                 + "/hash/" + hash            
                 ;
@@ -212,7 +212,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_username_hash_callback: function(data) {
+    count_profile_by_username_by_hash_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -223,26 +223,26 @@ profile.profile.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_count_profile_username_hash_callback", true);
+            _log("ERRORS::profile_count_profile_by_username_by_hash_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_username_hash(data);} catch(e) { _log("Error calling: error_count_profile_username_hash: " + e);}
+            try {error_count_profile_by_username_by_hash(data);} catch(e) { _log("Error calling: error_count_profile_by_username_by_hash: " + e);}
         }
         else {
-            _log("SUCCESS::profile_count_profile_username_hash_callback", false);
+            _log("SUCCESS::profile_count_profile_by_username_by_hash_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_username_hash(data);} catch(e) { _log("Error calling: handle_count_profile_username_hash: " + e);}
+            try {handle_count_profile_by_username_by_hash(data);} catch(e) { _log("Error calling: handle_count_profile_by_username_by_hash: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_username: function
+    count_profile_by_username: function
     (
         username,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'count'
-                + "/username"
+                + "/by-username"
                 + "/username/" + username            
                 ;
 
@@ -255,7 +255,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_username_callback: function(data) {
+    count_profile_by_username_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -266,19 +266,19 @@ profile.profile.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_count_profile_username_callback", true);
+            _log("ERRORS::profile_count_profile_by_username_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_username(data);} catch(e) { _log("Error calling: error_count_profile_username: " + e);}
+            try {error_count_profile_by_username(data);} catch(e) { _log("Error calling: error_count_profile_by_username: " + e);}
         }
         else {
-            _log("SUCCESS::profile_count_profile_username_callback", false);
+            _log("SUCCESS::profile_count_profile_by_username_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_username(data);} catch(e) { _log("Error calling: handle_count_profile_username: " + e);}
+            try {handle_count_profile_by_username(data);} catch(e) { _log("Error calling: handle_count_profile_by_username: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_list_filter: function
+    browse_profile_list_by_filter: function
     (
         page,
         page_size,
@@ -287,7 +287,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -302,7 +302,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_list_filter_callback: function(data) {
+    browse_profile_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -312,20 +312,20 @@ profile.profile.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_browse_profile_list_filter_callback", true);
+            _log("ERRORS::profile_browse_profile_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_list_filter: " + e);}
+            try {error_browse_profile_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_browse_profile_list_filter_callback", false);
+            _log("SUCCESS::profile_browse_profile_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_list_filter: " + e);}
+            try {handle_browse_profile_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_uuid: function
+    set_profile_by_uuid: function
     (
         status,
         username,
@@ -342,7 +342,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -370,7 +370,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_uuid_callback: function(data) {
+    set_profile_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -380,19 +380,19 @@ profile.profile.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_set_profile_uuid_callback", true);
+            _log("ERRORS::profile_set_profile_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_uuid(data);} catch(e) { _log("Error calling: error_set_profile_uuid: " + e);}
+            try {error_set_profile_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_set_profile_uuid_callback", false);
+            _log("SUCCESS::profile_set_profile_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_uuid: " + e);}
+            try {handle_set_profile_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_username: function
+    set_profile_by_username: function
     (
         status,
         username,
@@ -409,7 +409,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'set'
-                + "/username"
+                + "/by-username"
                 + "/username/" + username            
                         
                 ;
@@ -437,7 +437,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_username_callback: function(data) {
+    set_profile_by_username_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -447,26 +447,26 @@ profile.profile.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_set_profile_username_callback", true);
+            _log("ERRORS::profile_set_profile_by_username_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_username(data);} catch(e) { _log("Error calling: error_set_profile_username: " + e);}
+            try {error_set_profile_by_username(data);} catch(e) { _log("Error calling: error_set_profile_by_username: " + e);}
         }
         else {
-            _log("SUCCESS::profile_set_profile_username_callback", false);
+            _log("SUCCESS::profile_set_profile_by_username_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_username(data);} catch(e) { _log("Error calling: handle_set_profile_username: " + e);}
+            try {handle_set_profile_by_username(data);} catch(e) { _log("Error calling: handle_set_profile_by_username: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_uuid: function
+    del_profile_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -479,7 +479,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_uuid_callback: function(data) {
+    del_profile_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -489,27 +489,27 @@ profile.profile.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_del_profile_uuid_callback", true);
+            _log("ERRORS::profile_del_profile_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_uuid(data);} catch(e) { _log("Error calling: error_del_profile_uuid: " + e);}
+            try {error_del_profile_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_del_profile_uuid_callback", false);
+            _log("SUCCESS::profile_del_profile_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_uuid: " + e);}
+            try {handle_del_profile_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_username: function
+    del_profile_by_username: function
     (
         username,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'del'
-                + "/username"
+                + "/by-username"
                 + "/username/" + username            
                 ;
 
@@ -522,7 +522,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_username_callback: function(data) {
+    del_profile_by_username_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -532,27 +532,27 @@ profile.profile.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_del_profile_username_callback", true);
+            _log("ERRORS::profile_del_profile_by_username_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_username(data);} catch(e) { _log("Error calling: error_del_profile_username: " + e);}
+            try {error_del_profile_by_username(data);} catch(e) { _log("Error calling: error_del_profile_by_username: " + e);}
         }
         else {
-            _log("SUCCESS::profile_del_profile_username_callback", false);
+            _log("SUCCESS::profile_del_profile_by_username_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_username(data);} catch(e) { _log("Error calling: handle_del_profile_username: " + e);}
+            try {handle_del_profile_by_username(data);} catch(e) { _log("Error calling: handle_del_profile_by_username: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_list_uuid: function
+    get_profile_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -566,7 +566,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_list_uuid_callback: function(data) {
+    get_profile_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -576,20 +576,20 @@ profile.profile.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_get_profile_list_uuid_callback", true);
+            _log("ERRORS::profile_get_profile_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_list_uuid: " + e);}
+            try {error_get_profile_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_get_profile_list_uuid_callback", false);
+            _log("SUCCESS::profile_get_profile_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_list_uuid: " + e);}
+            try {handle_get_profile_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_list_username_list_hash: function
+    get_profile_list_by_username_list_by_hash: function
     (
         username,
         hash,
@@ -597,7 +597,7 @@ profile.profile.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'get'
-                + "/username/hash"
+                + "/by-username/by-hash"
                 + "/username/" + username            
                 + "/hash/" + hash            
                 ;
@@ -612,7 +612,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_list_username_list_hash_callback: function(data) {
+    get_profile_list_by_username_list_by_hash_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -622,27 +622,27 @@ profile.profile.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_get_profile_list_username_list_hash_callback", true);
+            _log("ERRORS::profile_get_profile_list_by_username_list_by_hash_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_list_username_list_hash(data);} catch(e) { _log("Error calling: error_get_profile_list_username_list_hash: " + e);}
+            try {error_get_profile_list_by_username_list_by_hash(data);} catch(e) { _log("Error calling: error_get_profile_list_by_username_list_by_hash: " + e);}
         }
         else {
-            _log("SUCCESS::profile_get_profile_list_username_list_hash_callback", false);
+            _log("SUCCESS::profile_get_profile_list_by_username_list_by_hash_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_list_username_list_hash(data);} catch(e) { _log("Error calling: handle_get_profile_list_username_list_hash: " + e);}
+            try {handle_get_profile_list_by_username_list_by_hash(data);} catch(e) { _log("Error calling: handle_get_profile_list_by_username_list_by_hash: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_list_username: function
+    get_profile_list_by_username: function
     (
         username,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_service + 'get'
-                + "/username"
+                + "/by-username"
                 + "/username/" + username            
                 ;
 
@@ -656,7 +656,7 @@ profile.profile.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_list_username_callback: function(data) {
+    get_profile_list_by_username_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -666,14 +666,14 @@ profile.profile.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_get_profile_list_username_callback", true);
+            _log("ERRORS::profile_get_profile_list_by_username_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_list_username(data);} catch(e) { _log("Error calling: error_get_profile_list_username: " + e);}
+            try {error_get_profile_list_by_username(data);} catch(e) { _log("Error calling: error_get_profile_list_by_username: " + e);}
         }
         else {
-            _log("SUCCESS::profile_get_profile_list_username_callback", false);
+            _log("SUCCESS::profile_get_profile_list_by_username_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_list_username(data);} catch(e) { _log("Error calling: handle_get_profile_list_username: " + e);}
+            try {handle_get_profile_list_by_username(data);} catch(e) { _log("Error calling: handle_get_profile_list_by_username: " + e);}
         }
         
     }
@@ -733,14 +733,14 @@ profile.profile_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_type_uuid: function
+    count_profile_type_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_type_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -753,7 +753,7 @@ profile.profile_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_type_uuid_callback: function(data) {
+    count_profile_type_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -764,26 +764,26 @@ profile.profile_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_type_count_profile_type_uuid_callback", true);
+            _log("ERRORS::profile_type_count_profile_type_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_type_uuid(data);} catch(e) { _log("Error calling: error_count_profile_type_uuid: " + e);}
+            try {error_count_profile_type_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_type_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_type_count_profile_type_uuid_callback", false);
+            _log("SUCCESS::profile_type_count_profile_type_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_type_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_type_uuid: " + e);}
+            try {handle_count_profile_type_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_type_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_type_type_id: function
+    count_profile_type_by_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_type_service + 'count'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -796,7 +796,7 @@ profile.profile_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_type_type_id_callback: function(data) {
+    count_profile_type_by_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -807,19 +807,19 @@ profile.profile_type.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_type_count_profile_type_type_id_callback", true);
+            _log("ERRORS::profile_type_count_profile_type_by_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_type_type_id(data);} catch(e) { _log("Error calling: error_count_profile_type_type_id: " + e);}
+            try {error_count_profile_type_by_type_id(data);} catch(e) { _log("Error calling: error_count_profile_type_by_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_type_count_profile_type_type_id_callback", false);
+            _log("SUCCESS::profile_type_count_profile_type_by_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_type_type_id(data);} catch(e) { _log("Error calling: handle_count_profile_type_type_id: " + e);}
+            try {handle_count_profile_type_by_type_id(data);} catch(e) { _log("Error calling: handle_count_profile_type_by_type_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_type_list_filter: function
+    browse_profile_type_list_by_filter: function
     (
         page,
         page_size,
@@ -828,7 +828,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_type_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -843,7 +843,7 @@ profile.profile_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_type_list_filter_callback: function(data) {
+    browse_profile_type_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -853,20 +853,20 @@ profile.profile_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_type_browse_profile_type_list_filter_callback", true);
+            _log("ERRORS::profile_type_browse_profile_type_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_type_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_type_list_filter: " + e);}
+            try {error_browse_profile_type_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_type_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_type_browse_profile_type_list_filter_callback", false);
+            _log("SUCCESS::profile_type_browse_profile_type_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_type_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_type_list_filter: " + e);}
+            try {handle_browse_profile_type_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_type_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_type_uuid: function
+    set_profile_type_by_uuid: function
     (
         status,
         code,
@@ -882,7 +882,7 @@ profile.profile_type.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_type_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -909,7 +909,7 @@ profile.profile_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_type_uuid_callback: function(data) {
+    set_profile_type_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -919,26 +919,26 @@ profile.profile_type.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_type_set_profile_type_uuid_callback", true);
+            _log("ERRORS::profile_type_set_profile_type_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_type_uuid(data);} catch(e) { _log("Error calling: error_set_profile_type_uuid: " + e);}
+            try {error_set_profile_type_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_type_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_type_set_profile_type_uuid_callback", false);
+            _log("SUCCESS::profile_type_set_profile_type_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_type_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_type_uuid: " + e);}
+            try {handle_set_profile_type_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_type_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_type_uuid: function
+    del_profile_type_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_type_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -951,7 +951,7 @@ profile.profile_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_type_uuid_callback: function(data) {
+    del_profile_type_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -961,27 +961,27 @@ profile.profile_type.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_type_del_profile_type_uuid_callback", true);
+            _log("ERRORS::profile_type_del_profile_type_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_type_uuid(data);} catch(e) { _log("Error calling: error_del_profile_type_uuid: " + e);}
+            try {error_del_profile_type_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_type_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_type_del_profile_type_uuid_callback", false);
+            _log("SUCCESS::profile_type_del_profile_type_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_type_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_type_uuid: " + e);}
+            try {handle_del_profile_type_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_type_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_type_list_uuid: function
+    get_profile_type_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_type_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -995,7 +995,7 @@ profile.profile_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_type_list_uuid_callback: function(data) {
+    get_profile_type_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1005,27 +1005,27 @@ profile.profile_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_type_get_profile_type_list_uuid_callback", true);
+            _log("ERRORS::profile_type_get_profile_type_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_type_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_type_list_uuid: " + e);}
+            try {error_get_profile_type_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_type_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_type_get_profile_type_list_uuid_callback", false);
+            _log("SUCCESS::profile_type_get_profile_type_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_type_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_type_list_uuid: " + e);}
+            try {handle_get_profile_type_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_type_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_type_list_code: function
+    get_profile_type_list_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_type_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -1039,7 +1039,7 @@ profile.profile_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_type_list_code_callback: function(data) {
+    get_profile_type_list_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1049,27 +1049,27 @@ profile.profile_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_type_get_profile_type_list_code_callback", true);
+            _log("ERRORS::profile_type_get_profile_type_list_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_type_list_code(data);} catch(e) { _log("Error calling: error_get_profile_type_list_code: " + e);}
+            try {error_get_profile_type_list_by_code(data);} catch(e) { _log("Error calling: error_get_profile_type_list_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::profile_type_get_profile_type_list_code_callback", false);
+            _log("SUCCESS::profile_type_get_profile_type_list_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_type_list_code(data);} catch(e) { _log("Error calling: handle_get_profile_type_list_code: " + e);}
+            try {handle_get_profile_type_list_by_code(data);} catch(e) { _log("Error calling: handle_get_profile_type_list_by_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_type_list_type_id: function
+    get_profile_type_list_by_type_id: function
     (
         type_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_type_service + 'get'
-                + "/type-id"
+                + "/by-type-id"
                 + "/type_id/" + type_id            
                 ;
 
@@ -1083,7 +1083,7 @@ profile.profile_type.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_type_list_type_id_callback: function(data) {
+    get_profile_type_list_by_type_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1093,14 +1093,14 @@ profile.profile_type.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_type_get_profile_type_list_type_id_callback", true);
+            _log("ERRORS::profile_type_get_profile_type_list_by_type_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_type_list_type_id(data);} catch(e) { _log("Error calling: error_get_profile_type_list_type_id: " + e);}
+            try {error_get_profile_type_list_by_type_id(data);} catch(e) { _log("Error calling: error_get_profile_type_list_by_type_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_type_get_profile_type_list_type_id_callback", false);
+            _log("SUCCESS::profile_type_get_profile_type_list_by_type_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_type_list_type_id(data);} catch(e) { _log("Error calling: handle_get_profile_type_list_type_id: " + e);}
+            try {handle_get_profile_type_list_by_type_id(data);} catch(e) { _log("Error calling: handle_get_profile_type_list_by_type_id: " + e);}
         }
         
     }
@@ -1160,14 +1160,14 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_uuid: function
+    count_profile_attribute_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -1180,7 +1180,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_uuid_callback: function(data) {
+    count_profile_attribute_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1191,26 +1191,26 @@ profile.profile_attribute.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_count_profile_attribute_uuid_callback", true);
+            _log("ERRORS::profile_attribute_count_profile_attribute_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_uuid(data);} catch(e) { _log("Error calling: error_count_profile_attribute_uuid: " + e);}
+            try {error_count_profile_attribute_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_attribute_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_count_profile_attribute_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_count_profile_attribute_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_uuid: " + e);}
+            try {handle_count_profile_attribute_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_code: function
+    count_profile_attribute_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -1223,7 +1223,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_code_callback: function(data) {
+    count_profile_attribute_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1234,26 +1234,26 @@ profile.profile_attribute.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_count_profile_attribute_code_callback", true);
+            _log("ERRORS::profile_attribute_count_profile_attribute_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_code(data);} catch(e) { _log("Error calling: error_count_profile_attribute_code: " + e);}
+            try {error_count_profile_attribute_by_code(data);} catch(e) { _log("Error calling: error_count_profile_attribute_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_count_profile_attribute_code_callback", false);
+            _log("SUCCESS::profile_attribute_count_profile_attribute_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_code(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_code: " + e);}
+            try {handle_count_profile_attribute_by_code(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_by_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_type: function
+    count_profile_attribute_by_type: function
     (
         type,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'count'
-                + "/type"
+                + "/by-type"
                 + "/type/" + type            
                 ;
 
@@ -1266,7 +1266,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_type_callback: function(data) {
+    count_profile_attribute_by_type_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1277,26 +1277,26 @@ profile.profile_attribute.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_count_profile_attribute_type_callback", true);
+            _log("ERRORS::profile_attribute_count_profile_attribute_by_type_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_type(data);} catch(e) { _log("Error calling: error_count_profile_attribute_type: " + e);}
+            try {error_count_profile_attribute_by_type(data);} catch(e) { _log("Error calling: error_count_profile_attribute_by_type: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_count_profile_attribute_type_callback", false);
+            _log("SUCCESS::profile_attribute_count_profile_attribute_by_type_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_type(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_type: " + e);}
+            try {handle_count_profile_attribute_by_type(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_by_type: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_group: function
+    count_profile_attribute_by_group: function
     (
         group,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'count'
-                + "/group"
+                + "/by-group"
                 + "/group/" + group            
                 ;
 
@@ -1309,7 +1309,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_group_callback: function(data) {
+    count_profile_attribute_by_group_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1320,19 +1320,19 @@ profile.profile_attribute.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_count_profile_attribute_group_callback", true);
+            _log("ERRORS::profile_attribute_count_profile_attribute_by_group_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_group(data);} catch(e) { _log("Error calling: error_count_profile_attribute_group: " + e);}
+            try {error_count_profile_attribute_by_group(data);} catch(e) { _log("Error calling: error_count_profile_attribute_by_group: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_count_profile_attribute_group_callback", false);
+            _log("SUCCESS::profile_attribute_count_profile_attribute_by_group_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_group(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_group: " + e);}
+            try {handle_count_profile_attribute_by_group(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_by_group: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_code_type: function
+    count_profile_attribute_by_code_by_type: function
     (
         code,
         type,
@@ -1340,7 +1340,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'count'
-                + "/code/type"
+                + "/by-code/by-type"
                 + "/code/" + code            
                 + "/type/" + type            
                 ;
@@ -1354,7 +1354,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_code_type_callback: function(data) {
+    count_profile_attribute_by_code_by_type_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1365,19 +1365,19 @@ profile.profile_attribute.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_count_profile_attribute_code_type_callback", true);
+            _log("ERRORS::profile_attribute_count_profile_attribute_by_code_by_type_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_code_type(data);} catch(e) { _log("Error calling: error_count_profile_attribute_code_type: " + e);}
+            try {error_count_profile_attribute_by_code_by_type(data);} catch(e) { _log("Error calling: error_count_profile_attribute_by_code_by_type: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_count_profile_attribute_code_type_callback", false);
+            _log("SUCCESS::profile_attribute_count_profile_attribute_by_code_by_type_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_code_type(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_code_type: " + e);}
+            try {handle_count_profile_attribute_by_code_by_type(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_by_code_by_type: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_attribute_list_filter: function
+    browse_profile_attribute_list_by_filter: function
     (
         page,
         page_size,
@@ -1386,7 +1386,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -1401,7 +1401,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_attribute_list_filter_callback: function(data) {
+    browse_profile_attribute_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1411,20 +1411,20 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_browse_profile_attribute_list_filter_callback", true);
+            _log("ERRORS::profile_attribute_browse_profile_attribute_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_attribute_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_attribute_list_filter: " + e);}
+            try {error_browse_profile_attribute_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_attribute_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_browse_profile_attribute_list_filter_callback", false);
+            _log("SUCCESS::profile_attribute_browse_profile_attribute_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_attribute_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_attribute_list_filter: " + e);}
+            try {handle_browse_profile_attribute_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_attribute_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_uuid: function
+    set_profile_attribute_by_uuid: function
     (
         status,
         sort,
@@ -1443,7 +1443,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -1473,7 +1473,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_uuid_callback: function(data) {
+    set_profile_attribute_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1483,19 +1483,19 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_set_profile_attribute_uuid_callback", true);
+            _log("ERRORS::profile_attribute_set_profile_attribute_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_attribute_uuid(data);} catch(e) { _log("Error calling: error_set_profile_attribute_uuid: " + e);}
+            try {error_set_profile_attribute_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_attribute_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_set_profile_attribute_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_set_profile_attribute_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_attribute_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_uuid: " + e);}
+            try {handle_set_profile_attribute_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_attribute_code: function
+    set_profile_attribute_by_code: function
     (
         status,
         sort,
@@ -1514,7 +1514,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -1544,7 +1544,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_code_callback: function(data) {
+    set_profile_attribute_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1554,26 +1554,26 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_set_profile_attribute_code_callback", true);
+            _log("ERRORS::profile_attribute_set_profile_attribute_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_attribute_code(data);} catch(e) { _log("Error calling: error_set_profile_attribute_code: " + e);}
+            try {error_set_profile_attribute_by_code(data);} catch(e) { _log("Error calling: error_set_profile_attribute_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_set_profile_attribute_code_callback", false);
+            _log("SUCCESS::profile_attribute_set_profile_attribute_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_attribute_code(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_code: " + e);}
+            try {handle_set_profile_attribute_by_code(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_by_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_attribute_uuid: function
+    del_profile_attribute_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -1586,7 +1586,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_uuid_callback: function(data) {
+    del_profile_attribute_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1596,27 +1596,27 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_del_profile_attribute_uuid_callback", true);
+            _log("ERRORS::profile_attribute_del_profile_attribute_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_attribute_uuid(data);} catch(e) { _log("Error calling: error_del_profile_attribute_uuid: " + e);}
+            try {error_del_profile_attribute_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_attribute_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_del_profile_attribute_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_del_profile_attribute_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_attribute_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_uuid: " + e);}
+            try {handle_del_profile_attribute_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_code: function
+    del_profile_attribute_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -1629,7 +1629,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_code_callback: function(data) {
+    del_profile_attribute_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1639,27 +1639,27 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_del_profile_attribute_code_callback", true);
+            _log("ERRORS::profile_attribute_del_profile_attribute_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_attribute_code(data);} catch(e) { _log("Error calling: error_del_profile_attribute_code: " + e);}
+            try {error_del_profile_attribute_by_code(data);} catch(e) { _log("Error calling: error_del_profile_attribute_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_del_profile_attribute_code_callback", false);
+            _log("SUCCESS::profile_attribute_del_profile_attribute_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_attribute_code(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_code: " + e);}
+            try {handle_del_profile_attribute_by_code(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_by_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_uuid: function
+    get_profile_attribute_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -1673,7 +1673,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_uuid_callback: function(data) {
+    get_profile_attribute_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1683,27 +1683,27 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_get_profile_attribute_list_uuid_callback", true);
+            _log("ERRORS::profile_attribute_get_profile_attribute_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_uuid: " + e);}
+            try {error_get_profile_attribute_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_get_profile_attribute_list_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_get_profile_attribute_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_uuid: " + e);}
+            try {handle_get_profile_attribute_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_code: function
+    get_profile_attribute_list_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -1717,7 +1717,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_code_callback: function(data) {
+    get_profile_attribute_list_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1727,27 +1727,27 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_get_profile_attribute_list_code_callback", true);
+            _log("ERRORS::profile_attribute_get_profile_attribute_list_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_list_code(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_code: " + e);}
+            try {error_get_profile_attribute_list_by_code(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_get_profile_attribute_list_code_callback", false);
+            _log("SUCCESS::profile_attribute_get_profile_attribute_list_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_list_code(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_code: " + e);}
+            try {handle_get_profile_attribute_list_by_code(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_by_code: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_type: function
+    get_profile_attribute_list_by_type: function
     (
         type,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'get'
-                + "/type"
+                + "/by-type"
                 + "/type/" + type            
                 ;
 
@@ -1761,7 +1761,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_type_callback: function(data) {
+    get_profile_attribute_list_by_type_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1771,27 +1771,27 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_get_profile_attribute_list_type_callback", true);
+            _log("ERRORS::profile_attribute_get_profile_attribute_list_by_type_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_list_type(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_type: " + e);}
+            try {error_get_profile_attribute_list_by_type(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_by_type: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_get_profile_attribute_list_type_callback", false);
+            _log("SUCCESS::profile_attribute_get_profile_attribute_list_by_type_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_list_type(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_type: " + e);}
+            try {handle_get_profile_attribute_list_by_type(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_by_type: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_group: function
+    get_profile_attribute_list_by_group: function
     (
         group,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'get'
-                + "/group"
+                + "/by-group"
                 + "/group/" + group            
                 ;
 
@@ -1805,7 +1805,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_group_callback: function(data) {
+    get_profile_attribute_list_by_group_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1815,20 +1815,20 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_get_profile_attribute_list_group_callback", true);
+            _log("ERRORS::profile_attribute_get_profile_attribute_list_by_group_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_list_group(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_group: " + e);}
+            try {error_get_profile_attribute_list_by_group(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_by_group: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_get_profile_attribute_list_group_callback", false);
+            _log("SUCCESS::profile_attribute_get_profile_attribute_list_by_group_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_list_group(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_group: " + e);}
+            try {handle_get_profile_attribute_list_by_group(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_by_group: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_code_list_type: function
+    get_profile_attribute_list_by_code_list_by_type: function
     (
         code,
         type,
@@ -1836,7 +1836,7 @@ profile.profile_attribute.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_service + 'get'
-                + "/code/type"
+                + "/by-code/by-type"
                 + "/code/" + code            
                 + "/type/" + type            
                 ;
@@ -1851,7 +1851,7 @@ profile.profile_attribute.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_list_code_list_type_callback: function(data) {
+    get_profile_attribute_list_by_code_list_by_type_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1861,14 +1861,14 @@ profile.profile_attribute.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_get_profile_attribute_list_code_list_type_callback", true);
+            _log("ERRORS::profile_attribute_get_profile_attribute_list_by_code_list_by_type_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_list_code_list_type(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_code_list_type: " + e);}
+            try {error_get_profile_attribute_list_by_code_list_by_type(data);} catch(e) { _log("Error calling: error_get_profile_attribute_list_by_code_list_by_type: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_get_profile_attribute_list_code_list_type_callback", false);
+            _log("SUCCESS::profile_attribute_get_profile_attribute_list_by_code_list_by_type_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_list_code_list_type(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_code_list_type: " + e);}
+            try {handle_get_profile_attribute_list_by_code_list_by_type(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_list_by_code_list_by_type: " + e);}
         }
         
     }
@@ -1928,14 +1928,14 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_text_uuid: function
+    count_profile_attribute_text_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -1948,7 +1948,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_text_uuid_callback: function(data) {
+    count_profile_attribute_text_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -1959,26 +1959,26 @@ profile.profile_attribute_text.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_count_profile_attribute_text_uuid_callback", true);
+            _log("ERRORS::profile_attribute_text_count_profile_attribute_text_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_text_uuid(data);} catch(e) { _log("Error calling: error_count_profile_attribute_text_uuid: " + e);}
+            try {error_count_profile_attribute_text_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_attribute_text_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_count_profile_attribute_text_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_text_count_profile_attribute_text_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_text_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_text_uuid: " + e);}
+            try {handle_count_profile_attribute_text_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_text_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_text_profile_id: function
+    count_profile_attribute_text_by_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -1991,7 +1991,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_text_profile_id_callback: function(data) {
+    count_profile_attribute_text_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2002,19 +2002,19 @@ profile.profile_attribute_text.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_count_profile_attribute_text_profile_id_callback", true);
+            _log("ERRORS::profile_attribute_text_count_profile_attribute_text_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_text_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_attribute_text_profile_id: " + e);}
+            try {error_count_profile_attribute_text_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_attribute_text_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_count_profile_attribute_text_profile_id_callback", false);
+            _log("SUCCESS::profile_attribute_text_count_profile_attribute_text_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_text_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_text_profile_id: " + e);}
+            try {handle_count_profile_attribute_text_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_text_by_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_text_profile_id_attribute_id: function
+    count_profile_attribute_text_by_profile_id_by_attribute_id: function
     (
         profile_id,
         attribute_id,
@@ -2022,7 +2022,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'count'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/profile_id/" + profile_id            
                 + "/attribute_id/" + attribute_id            
                 ;
@@ -2036,7 +2036,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_text_profile_id_attribute_id_callback: function(data) {
+    count_profile_attribute_text_by_profile_id_by_attribute_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2047,19 +2047,19 @@ profile.profile_attribute_text.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_count_profile_attribute_text_profile_id_attribute_id_callback", true);
+            _log("ERRORS::profile_attribute_text_count_profile_attribute_text_by_profile_id_by_attribute_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_text_profile_id_attribute_id(data);} catch(e) { _log("Error calling: error_count_profile_attribute_text_profile_id_attribute_id: " + e);}
+            try {error_count_profile_attribute_text_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: error_count_profile_attribute_text_by_profile_id_by_attribute_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_count_profile_attribute_text_profile_id_attribute_id_callback", false);
+            _log("SUCCESS::profile_attribute_text_count_profile_attribute_text_by_profile_id_by_attribute_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_text_profile_id_attribute_id(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_text_profile_id_attribute_id: " + e);}
+            try {handle_count_profile_attribute_text_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_text_by_profile_id_by_attribute_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_attribute_text_list_filter: function
+    browse_profile_attribute_text_list_by_filter: function
     (
         page,
         page_size,
@@ -2068,7 +2068,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -2083,7 +2083,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_attribute_text_list_filter_callback: function(data) {
+    browse_profile_attribute_text_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2093,20 +2093,20 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_browse_profile_attribute_text_list_filter_callback", true);
+            _log("ERRORS::profile_attribute_text_browse_profile_attribute_text_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_attribute_text_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_attribute_text_list_filter: " + e);}
+            try {error_browse_profile_attribute_text_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_attribute_text_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_browse_profile_attribute_text_list_filter_callback", false);
+            _log("SUCCESS::profile_attribute_text_browse_profile_attribute_text_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_attribute_text_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_attribute_text_list_filter: " + e);}
+            try {handle_browse_profile_attribute_text_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_attribute_text_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_text_uuid: function
+    set_profile_attribute_text_by_uuid: function
     (
         status,
         sort,
@@ -2124,7 +2124,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -2153,7 +2153,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_text_uuid_callback: function(data) {
+    set_profile_attribute_text_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2163,19 +2163,19 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_set_profile_attribute_text_uuid_callback", true);
+            _log("ERRORS::profile_attribute_text_set_profile_attribute_text_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_attribute_text_uuid(data);} catch(e) { _log("Error calling: error_set_profile_attribute_text_uuid: " + e);}
+            try {error_set_profile_attribute_text_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_attribute_text_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_set_profile_attribute_text_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_text_set_profile_attribute_text_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_attribute_text_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_text_uuid: " + e);}
+            try {handle_set_profile_attribute_text_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_text_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_attribute_text_profile_id: function
+    set_profile_attribute_text_by_profile_id: function
     (
         status,
         sort,
@@ -2193,7 +2193,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'set'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                         
                 ;
@@ -2222,7 +2222,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_text_profile_id_callback: function(data) {
+    set_profile_attribute_text_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2232,19 +2232,19 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_set_profile_attribute_text_profile_id_callback", true);
+            _log("ERRORS::profile_attribute_text_set_profile_attribute_text_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_attribute_text_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_attribute_text_profile_id: " + e);}
+            try {error_set_profile_attribute_text_by_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_attribute_text_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_set_profile_attribute_text_profile_id_callback", false);
+            _log("SUCCESS::profile_attribute_text_set_profile_attribute_text_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_attribute_text_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_text_profile_id: " + e);}
+            try {handle_set_profile_attribute_text_by_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_text_by_profile_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_attribute_text_profile_id_attribute_id: function
+    set_profile_attribute_text_by_profile_id_by_attribute_id: function
     (
         status,
         sort,
@@ -2262,7 +2262,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'set'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/profile_id/" + profile_id            
                 + "/attribute_id/" + attribute_id            
                         
@@ -2292,7 +2292,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_text_profile_id_attribute_id_callback: function(data) {
+    set_profile_attribute_text_by_profile_id_by_attribute_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2302,26 +2302,26 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_set_profile_attribute_text_profile_id_attribute_id_callback", true);
+            _log("ERRORS::profile_attribute_text_set_profile_attribute_text_by_profile_id_by_attribute_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_attribute_text_profile_id_attribute_id(data);} catch(e) { _log("Error calling: error_set_profile_attribute_text_profile_id_attribute_id: " + e);}
+            try {error_set_profile_attribute_text_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: error_set_profile_attribute_text_by_profile_id_by_attribute_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_set_profile_attribute_text_profile_id_attribute_id_callback", false);
+            _log("SUCCESS::profile_attribute_text_set_profile_attribute_text_by_profile_id_by_attribute_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_attribute_text_profile_id_attribute_id(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_text_profile_id_attribute_id: " + e);}
+            try {handle_set_profile_attribute_text_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_text_by_profile_id_by_attribute_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_attribute_text_uuid: function
+    del_profile_attribute_text_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -2334,7 +2334,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_text_uuid_callback: function(data) {
+    del_profile_attribute_text_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2344,27 +2344,27 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_del_profile_attribute_text_uuid_callback", true);
+            _log("ERRORS::profile_attribute_text_del_profile_attribute_text_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_attribute_text_uuid(data);} catch(e) { _log("Error calling: error_del_profile_attribute_text_uuid: " + e);}
+            try {error_del_profile_attribute_text_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_attribute_text_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_del_profile_attribute_text_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_text_del_profile_attribute_text_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_attribute_text_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_text_uuid: " + e);}
+            try {handle_del_profile_attribute_text_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_text_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_text_profile_id: function
+    del_profile_attribute_text_by_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'del'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -2377,7 +2377,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_text_profile_id_callback: function(data) {
+    del_profile_attribute_text_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2387,20 +2387,20 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_del_profile_attribute_text_profile_id_callback", true);
+            _log("ERRORS::profile_attribute_text_del_profile_attribute_text_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_attribute_text_profile_id(data);} catch(e) { _log("Error calling: error_del_profile_attribute_text_profile_id: " + e);}
+            try {error_del_profile_attribute_text_by_profile_id(data);} catch(e) { _log("Error calling: error_del_profile_attribute_text_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_del_profile_attribute_text_profile_id_callback", false);
+            _log("SUCCESS::profile_attribute_text_del_profile_attribute_text_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_attribute_text_profile_id(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_text_profile_id: " + e);}
+            try {handle_del_profile_attribute_text_by_profile_id(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_text_by_profile_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_text_profile_id_attribute_id: function
+    del_profile_attribute_text_by_profile_id_by_attribute_id: function
     (
         profile_id,
         attribute_id,
@@ -2408,7 +2408,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'del'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/profile_id/" + profile_id            
                 + "/attribute_id/" + attribute_id            
                 ;
@@ -2422,7 +2422,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_text_profile_id_attribute_id_callback: function(data) {
+    del_profile_attribute_text_by_profile_id_by_attribute_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2432,27 +2432,27 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_del_profile_attribute_text_profile_id_attribute_id_callback", true);
+            _log("ERRORS::profile_attribute_text_del_profile_attribute_text_by_profile_id_by_attribute_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_attribute_text_profile_id_attribute_id(data);} catch(e) { _log("Error calling: error_del_profile_attribute_text_profile_id_attribute_id: " + e);}
+            try {error_del_profile_attribute_text_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: error_del_profile_attribute_text_by_profile_id_by_attribute_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_del_profile_attribute_text_profile_id_attribute_id_callback", false);
+            _log("SUCCESS::profile_attribute_text_del_profile_attribute_text_by_profile_id_by_attribute_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_attribute_text_profile_id_attribute_id(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_text_profile_id_attribute_id: " + e);}
+            try {handle_del_profile_attribute_text_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_text_by_profile_id_by_attribute_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_text_list_uuid: function
+    get_profile_attribute_text_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -2466,7 +2466,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_text_list_uuid_callback: function(data) {
+    get_profile_attribute_text_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2476,27 +2476,27 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_get_profile_attribute_text_list_uuid_callback", true);
+            _log("ERRORS::profile_attribute_text_get_profile_attribute_text_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_text_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_attribute_text_list_uuid: " + e);}
+            try {error_get_profile_attribute_text_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_attribute_text_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_get_profile_attribute_text_list_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_text_get_profile_attribute_text_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_text_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_text_list_uuid: " + e);}
+            try {handle_get_profile_attribute_text_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_text_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_text_list_profile_id: function
+    get_profile_attribute_text_list_by_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -2510,7 +2510,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_text_list_profile_id_callback: function(data) {
+    get_profile_attribute_text_list_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2520,20 +2520,20 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_get_profile_attribute_text_list_profile_id_callback", true);
+            _log("ERRORS::profile_attribute_text_get_profile_attribute_text_list_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_text_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_attribute_text_list_profile_id: " + e);}
+            try {error_get_profile_attribute_text_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_attribute_text_list_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_get_profile_attribute_text_list_profile_id_callback", false);
+            _log("SUCCESS::profile_attribute_text_get_profile_attribute_text_list_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_text_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_text_list_profile_id: " + e);}
+            try {handle_get_profile_attribute_text_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_text_list_by_profile_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_text_list_profile_id_list_attribute_id: function
+    get_profile_attribute_text_list_by_profile_id_list_by_attribute_id: function
     (
         profile_id,
         attribute_id,
@@ -2541,7 +2541,7 @@ profile.profile_attribute_text.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_text_service + 'get'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/profile_id/" + profile_id            
                 + "/attribute_id/" + attribute_id            
                 ;
@@ -2556,7 +2556,7 @@ profile.profile_attribute_text.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_text_list_profile_id_list_attribute_id_callback: function(data) {
+    get_profile_attribute_text_list_by_profile_id_list_by_attribute_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2566,14 +2566,14 @@ profile.profile_attribute_text.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_text_get_profile_attribute_text_list_profile_id_list_attribute_id_callback", true);
+            _log("ERRORS::profile_attribute_text_get_profile_attribute_text_list_by_profile_id_list_by_attribute_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_text_list_profile_id_list_attribute_id(data);} catch(e) { _log("Error calling: error_get_profile_attribute_text_list_profile_id_list_attribute_id: " + e);}
+            try {error_get_profile_attribute_text_list_by_profile_id_list_by_attribute_id(data);} catch(e) { _log("Error calling: error_get_profile_attribute_text_list_by_profile_id_list_by_attribute_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_text_get_profile_attribute_text_list_profile_id_list_attribute_id_callback", false);
+            _log("SUCCESS::profile_attribute_text_get_profile_attribute_text_list_by_profile_id_list_by_attribute_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_text_list_profile_id_list_attribute_id(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_text_list_profile_id_list_attribute_id: " + e);}
+            try {handle_get_profile_attribute_text_list_by_profile_id_list_by_attribute_id(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_text_list_by_profile_id_list_by_attribute_id: " + e);}
         }
         
     }
@@ -2633,14 +2633,14 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_data_uuid: function
+    count_profile_attribute_data_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -2653,7 +2653,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_data_uuid_callback: function(data) {
+    count_profile_attribute_data_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2664,26 +2664,26 @@ profile.profile_attribute_data.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_count_profile_attribute_data_uuid_callback", true);
+            _log("ERRORS::profile_attribute_data_count_profile_attribute_data_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_data_uuid(data);} catch(e) { _log("Error calling: error_count_profile_attribute_data_uuid: " + e);}
+            try {error_count_profile_attribute_data_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_attribute_data_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_count_profile_attribute_data_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_data_count_profile_attribute_data_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_data_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_data_uuid: " + e);}
+            try {handle_count_profile_attribute_data_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_data_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_data_profile_id: function
+    count_profile_attribute_data_by_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -2696,7 +2696,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_data_profile_id_callback: function(data) {
+    count_profile_attribute_data_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2707,19 +2707,19 @@ profile.profile_attribute_data.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_count_profile_attribute_data_profile_id_callback", true);
+            _log("ERRORS::profile_attribute_data_count_profile_attribute_data_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_data_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_attribute_data_profile_id: " + e);}
+            try {error_count_profile_attribute_data_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_attribute_data_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_count_profile_attribute_data_profile_id_callback", false);
+            _log("SUCCESS::profile_attribute_data_count_profile_attribute_data_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_data_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_data_profile_id: " + e);}
+            try {handle_count_profile_attribute_data_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_data_by_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_data_profile_id_attribute_id: function
+    count_profile_attribute_data_by_profile_id_by_attribute_id: function
     (
         profile_id,
         attribute_id,
@@ -2727,7 +2727,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'count'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/profile_id/" + profile_id            
                 + "/attribute_id/" + attribute_id            
                 ;
@@ -2741,7 +2741,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_attribute_data_profile_id_attribute_id_callback: function(data) {
+    count_profile_attribute_data_by_profile_id_by_attribute_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2752,19 +2752,19 @@ profile.profile_attribute_data.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_count_profile_attribute_data_profile_id_attribute_id_callback", true);
+            _log("ERRORS::profile_attribute_data_count_profile_attribute_data_by_profile_id_by_attribute_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_attribute_data_profile_id_attribute_id(data);} catch(e) { _log("Error calling: error_count_profile_attribute_data_profile_id_attribute_id: " + e);}
+            try {error_count_profile_attribute_data_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: error_count_profile_attribute_data_by_profile_id_by_attribute_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_count_profile_attribute_data_profile_id_attribute_id_callback", false);
+            _log("SUCCESS::profile_attribute_data_count_profile_attribute_data_by_profile_id_by_attribute_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_attribute_data_profile_id_attribute_id(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_data_profile_id_attribute_id: " + e);}
+            try {handle_count_profile_attribute_data_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: handle_count_profile_attribute_data_by_profile_id_by_attribute_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_attribute_data_list_filter: function
+    browse_profile_attribute_data_list_by_filter: function
     (
         page,
         page_size,
@@ -2773,7 +2773,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -2788,7 +2788,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_attribute_data_list_filter_callback: function(data) {
+    browse_profile_attribute_data_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2798,20 +2798,20 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_browse_profile_attribute_data_list_filter_callback", true);
+            _log("ERRORS::profile_attribute_data_browse_profile_attribute_data_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_attribute_data_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_attribute_data_list_filter: " + e);}
+            try {error_browse_profile_attribute_data_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_attribute_data_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_browse_profile_attribute_data_list_filter_callback", false);
+            _log("SUCCESS::profile_attribute_data_browse_profile_attribute_data_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_attribute_data_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_attribute_data_list_filter: " + e);}
+            try {handle_browse_profile_attribute_data_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_attribute_data_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_data_uuid: function
+    set_profile_attribute_data_by_uuid: function
     (
         status,
         sort,
@@ -2829,7 +2829,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -2858,7 +2858,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_data_uuid_callback: function(data) {
+    set_profile_attribute_data_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2868,19 +2868,19 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_set_profile_attribute_data_uuid_callback", true);
+            _log("ERRORS::profile_attribute_data_set_profile_attribute_data_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_attribute_data_uuid(data);} catch(e) { _log("Error calling: error_set_profile_attribute_data_uuid: " + e);}
+            try {error_set_profile_attribute_data_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_attribute_data_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_set_profile_attribute_data_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_data_set_profile_attribute_data_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_attribute_data_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_data_uuid: " + e);}
+            try {handle_set_profile_attribute_data_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_data_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_attribute_data_profile_id: function
+    set_profile_attribute_data_by_profile_id: function
     (
         status,
         sort,
@@ -2898,7 +2898,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'set'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                         
                 ;
@@ -2927,7 +2927,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_data_profile_id_callback: function(data) {
+    set_profile_attribute_data_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -2937,19 +2937,19 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_set_profile_attribute_data_profile_id_callback", true);
+            _log("ERRORS::profile_attribute_data_set_profile_attribute_data_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_attribute_data_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_attribute_data_profile_id: " + e);}
+            try {error_set_profile_attribute_data_by_profile_id(data);} catch(e) { _log("Error calling: error_set_profile_attribute_data_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_set_profile_attribute_data_profile_id_callback", false);
+            _log("SUCCESS::profile_attribute_data_set_profile_attribute_data_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_attribute_data_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_data_profile_id: " + e);}
+            try {handle_set_profile_attribute_data_by_profile_id(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_data_by_profile_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_profile_attribute_data_profile_id_attribute_id: function
+    set_profile_attribute_data_by_profile_id_by_attribute_id: function
     (
         status,
         sort,
@@ -2967,7 +2967,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'set'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/profile_id/" + profile_id            
                 + "/attribute_id/" + attribute_id            
                         
@@ -2997,7 +2997,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_attribute_data_profile_id_attribute_id_callback: function(data) {
+    set_profile_attribute_data_by_profile_id_by_attribute_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3007,26 +3007,26 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_set_profile_attribute_data_profile_id_attribute_id_callback", true);
+            _log("ERRORS::profile_attribute_data_set_profile_attribute_data_by_profile_id_by_attribute_id_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_attribute_data_profile_id_attribute_id(data);} catch(e) { _log("Error calling: error_set_profile_attribute_data_profile_id_attribute_id: " + e);}
+            try {error_set_profile_attribute_data_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: error_set_profile_attribute_data_by_profile_id_by_attribute_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_set_profile_attribute_data_profile_id_attribute_id_callback", false);
+            _log("SUCCESS::profile_attribute_data_set_profile_attribute_data_by_profile_id_by_attribute_id_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_attribute_data_profile_id_attribute_id(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_data_profile_id_attribute_id: " + e);}
+            try {handle_set_profile_attribute_data_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: handle_set_profile_attribute_data_by_profile_id_by_attribute_id: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_attribute_data_uuid: function
+    del_profile_attribute_data_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3039,7 +3039,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_data_uuid_callback: function(data) {
+    del_profile_attribute_data_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3049,27 +3049,27 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_del_profile_attribute_data_uuid_callback", true);
+            _log("ERRORS::profile_attribute_data_del_profile_attribute_data_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_attribute_data_uuid(data);} catch(e) { _log("Error calling: error_del_profile_attribute_data_uuid: " + e);}
+            try {error_del_profile_attribute_data_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_attribute_data_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_del_profile_attribute_data_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_data_del_profile_attribute_data_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_attribute_data_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_data_uuid: " + e);}
+            try {handle_del_profile_attribute_data_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_data_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_data_profile_id: function
+    del_profile_attribute_data_by_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'del'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -3082,7 +3082,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_data_profile_id_callback: function(data) {
+    del_profile_attribute_data_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3092,20 +3092,20 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_del_profile_attribute_data_profile_id_callback", true);
+            _log("ERRORS::profile_attribute_data_del_profile_attribute_data_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_attribute_data_profile_id(data);} catch(e) { _log("Error calling: error_del_profile_attribute_data_profile_id: " + e);}
+            try {error_del_profile_attribute_data_by_profile_id(data);} catch(e) { _log("Error calling: error_del_profile_attribute_data_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_del_profile_attribute_data_profile_id_callback", false);
+            _log("SUCCESS::profile_attribute_data_del_profile_attribute_data_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_attribute_data_profile_id(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_data_profile_id: " + e);}
+            try {handle_del_profile_attribute_data_by_profile_id(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_data_by_profile_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_data_profile_id_attribute_id: function
+    del_profile_attribute_data_by_profile_id_by_attribute_id: function
     (
         profile_id,
         attribute_id,
@@ -3113,7 +3113,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'del'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/profile_id/" + profile_id            
                 + "/attribute_id/" + attribute_id            
                 ;
@@ -3127,7 +3127,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_attribute_data_profile_id_attribute_id_callback: function(data) {
+    del_profile_attribute_data_by_profile_id_by_attribute_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3137,27 +3137,27 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_del_profile_attribute_data_profile_id_attribute_id_callback", true);
+            _log("ERRORS::profile_attribute_data_del_profile_attribute_data_by_profile_id_by_attribute_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_attribute_data_profile_id_attribute_id(data);} catch(e) { _log("Error calling: error_del_profile_attribute_data_profile_id_attribute_id: " + e);}
+            try {error_del_profile_attribute_data_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: error_del_profile_attribute_data_by_profile_id_by_attribute_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_del_profile_attribute_data_profile_id_attribute_id_callback", false);
+            _log("SUCCESS::profile_attribute_data_del_profile_attribute_data_by_profile_id_by_attribute_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_attribute_data_profile_id_attribute_id(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_data_profile_id_attribute_id: " + e);}
+            try {handle_del_profile_attribute_data_by_profile_id_by_attribute_id(data);} catch(e) { _log("Error calling: handle_del_profile_attribute_data_by_profile_id_by_attribute_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_data_list_uuid: function
+    get_profile_attribute_data_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3171,7 +3171,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_data_list_uuid_callback: function(data) {
+    get_profile_attribute_data_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3181,27 +3181,27 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_get_profile_attribute_data_list_uuid_callback", true);
+            _log("ERRORS::profile_attribute_data_get_profile_attribute_data_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_data_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_attribute_data_list_uuid: " + e);}
+            try {error_get_profile_attribute_data_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_attribute_data_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_get_profile_attribute_data_list_uuid_callback", false);
+            _log("SUCCESS::profile_attribute_data_get_profile_attribute_data_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_data_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_data_list_uuid: " + e);}
+            try {handle_get_profile_attribute_data_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_data_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_data_list_profile_id: function
+    get_profile_attribute_data_list_by_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -3215,7 +3215,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_data_list_profile_id_callback: function(data) {
+    get_profile_attribute_data_list_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3225,20 +3225,20 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_get_profile_attribute_data_list_profile_id_callback", true);
+            _log("ERRORS::profile_attribute_data_get_profile_attribute_data_list_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_data_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_attribute_data_list_profile_id: " + e);}
+            try {error_get_profile_attribute_data_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_attribute_data_list_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_get_profile_attribute_data_list_profile_id_callback", false);
+            _log("SUCCESS::profile_attribute_data_get_profile_attribute_data_list_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_data_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_data_list_profile_id: " + e);}
+            try {handle_get_profile_attribute_data_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_data_list_by_profile_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_data_list_profile_id_list_attribute_id: function
+    get_profile_attribute_data_list_by_profile_id_list_by_attribute_id: function
     (
         profile_id,
         attribute_id,
@@ -3246,7 +3246,7 @@ profile.profile_attribute_data.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_attribute_data_service + 'get'
-                + "/profile-id/attribute-id"
+                + "/by-profile-id/by-attribute-id"
                 + "/profile_id/" + profile_id            
                 + "/attribute_id/" + attribute_id            
                 ;
@@ -3261,7 +3261,7 @@ profile.profile_attribute_data.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_attribute_data_list_profile_id_list_attribute_id_callback: function(data) {
+    get_profile_attribute_data_list_by_profile_id_list_by_attribute_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3271,14 +3271,14 @@ profile.profile_attribute_data.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_attribute_data_get_profile_attribute_data_list_profile_id_list_attribute_id_callback", true);
+            _log("ERRORS::profile_attribute_data_get_profile_attribute_data_list_by_profile_id_list_by_attribute_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_attribute_data_list_profile_id_list_attribute_id(data);} catch(e) { _log("Error calling: error_get_profile_attribute_data_list_profile_id_list_attribute_id: " + e);}
+            try {error_get_profile_attribute_data_list_by_profile_id_list_by_attribute_id(data);} catch(e) { _log("Error calling: error_get_profile_attribute_data_list_by_profile_id_list_by_attribute_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_attribute_data_get_profile_attribute_data_list_profile_id_list_attribute_id_callback", false);
+            _log("SUCCESS::profile_attribute_data_get_profile_attribute_data_list_by_profile_id_list_by_attribute_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_attribute_data_list_profile_id_list_attribute_id(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_data_list_profile_id_list_attribute_id: " + e);}
+            try {handle_get_profile_attribute_data_list_by_profile_id_list_by_attribute_id(data);} catch(e) { _log("Error calling: handle_get_profile_attribute_data_list_by_profile_id_list_by_attribute_id: " + e);}
         }
         
     }
@@ -3338,14 +3338,14 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_device_uuid: function
+    count_profile_device_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3358,7 +3358,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_device_uuid_callback: function(data) {
+    count_profile_device_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3369,19 +3369,19 @@ profile.profile_device.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_count_profile_device_uuid_callback", true);
+            _log("ERRORS::profile_device_count_profile_device_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_device_uuid(data);} catch(e) { _log("Error calling: error_count_profile_device_uuid: " + e);}
+            try {error_count_profile_device_by_uuid(data);} catch(e) { _log("Error calling: error_count_profile_device_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_count_profile_device_uuid_callback", false);
+            _log("SUCCESS::profile_device_count_profile_device_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_device_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_device_uuid: " + e);}
+            try {handle_count_profile_device_by_uuid(data);} catch(e) { _log("Error calling: handle_count_profile_device_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_device_profile_id_device_id: function
+    count_profile_device_by_profile_id_by_device_id: function
     (
         profile_id,
         device_id,
@@ -3389,7 +3389,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'count'
-                + "/profile-id/device-id"
+                + "/by-profile-id/by-device-id"
                 + "/profile_id/" + profile_id            
                 + "/device_id/" + device_id            
                 ;
@@ -3403,7 +3403,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_device_profile_id_device_id_callback: function(data) {
+    count_profile_device_by_profile_id_by_device_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3414,19 +3414,19 @@ profile.profile_device.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_count_profile_device_profile_id_device_id_callback", true);
+            _log("ERRORS::profile_device_count_profile_device_by_profile_id_by_device_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_device_profile_id_device_id(data);} catch(e) { _log("Error calling: error_count_profile_device_profile_id_device_id: " + e);}
+            try {error_count_profile_device_by_profile_id_by_device_id(data);} catch(e) { _log("Error calling: error_count_profile_device_by_profile_id_by_device_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_count_profile_device_profile_id_device_id_callback", false);
+            _log("SUCCESS::profile_device_count_profile_device_by_profile_id_by_device_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_device_profile_id_device_id(data);} catch(e) { _log("Error calling: handle_count_profile_device_profile_id_device_id: " + e);}
+            try {handle_count_profile_device_by_profile_id_by_device_id(data);} catch(e) { _log("Error calling: handle_count_profile_device_by_profile_id_by_device_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_device_profile_id_token: function
+    count_profile_device_by_profile_id_by_token: function
     (
         profile_id,
         token,
@@ -3434,7 +3434,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'count'
-                + "/profile-id/token"
+                + "/by-profile-id/by-token"
                 + "/profile_id/" + profile_id            
                 + "/token/" + token            
                 ;
@@ -3448,7 +3448,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_device_profile_id_token_callback: function(data) {
+    count_profile_device_by_profile_id_by_token_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3459,26 +3459,26 @@ profile.profile_device.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_count_profile_device_profile_id_token_callback", true);
+            _log("ERRORS::profile_device_count_profile_device_by_profile_id_by_token_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_device_profile_id_token(data);} catch(e) { _log("Error calling: error_count_profile_device_profile_id_token: " + e);}
+            try {error_count_profile_device_by_profile_id_by_token(data);} catch(e) { _log("Error calling: error_count_profile_device_by_profile_id_by_token: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_count_profile_device_profile_id_token_callback", false);
+            _log("SUCCESS::profile_device_count_profile_device_by_profile_id_by_token_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_device_profile_id_token(data);} catch(e) { _log("Error calling: handle_count_profile_device_profile_id_token: " + e);}
+            try {handle_count_profile_device_by_profile_id_by_token(data);} catch(e) { _log("Error calling: handle_count_profile_device_by_profile_id_by_token: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_device_profile_id: function
+    count_profile_device_by_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'count'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -3491,7 +3491,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_device_profile_id_callback: function(data) {
+    count_profile_device_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3502,26 +3502,26 @@ profile.profile_device.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_count_profile_device_profile_id_callback", true);
+            _log("ERRORS::profile_device_count_profile_device_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_device_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_device_profile_id: " + e);}
+            try {error_count_profile_device_by_profile_id(data);} catch(e) { _log("Error calling: error_count_profile_device_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_count_profile_device_profile_id_callback", false);
+            _log("SUCCESS::profile_device_count_profile_device_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_device_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_device_profile_id: " + e);}
+            try {handle_count_profile_device_by_profile_id(data);} catch(e) { _log("Error calling: handle_count_profile_device_by_profile_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_device_device_id: function
+    count_profile_device_by_device_id: function
     (
         device_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'count'
-                + "/device-id"
+                + "/by-device-id"
                 + "/device_id/" + device_id            
                 ;
 
@@ -3534,7 +3534,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_device_device_id_callback: function(data) {
+    count_profile_device_by_device_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3545,26 +3545,26 @@ profile.profile_device.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_count_profile_device_device_id_callback", true);
+            _log("ERRORS::profile_device_count_profile_device_by_device_id_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_device_device_id(data);} catch(e) { _log("Error calling: error_count_profile_device_device_id: " + e);}
+            try {error_count_profile_device_by_device_id(data);} catch(e) { _log("Error calling: error_count_profile_device_by_device_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_count_profile_device_device_id_callback", false);
+            _log("SUCCESS::profile_device_count_profile_device_by_device_id_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_device_device_id(data);} catch(e) { _log("Error calling: handle_count_profile_device_device_id: " + e);}
+            try {handle_count_profile_device_by_device_id(data);} catch(e) { _log("Error calling: handle_count_profile_device_by_device_id: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_profile_device_token: function
+    count_profile_device_by_token: function
     (
         token,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'count'
-                + "/token"
+                + "/by-token"
                 + "/token/" + token            
                 ;
 
@@ -3577,7 +3577,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_profile_device_token_callback: function(data) {
+    count_profile_device_by_token_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3588,19 +3588,19 @@ profile.profile_device.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_count_profile_device_token_callback", true);
+            _log("ERRORS::profile_device_count_profile_device_by_token_callback", true);
             // call a method that can be inline callback
-            try {error_count_profile_device_token(data);} catch(e) { _log("Error calling: error_count_profile_device_token: " + e);}
+            try {error_count_profile_device_by_token(data);} catch(e) { _log("Error calling: error_count_profile_device_by_token: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_count_profile_device_token_callback", false);
+            _log("SUCCESS::profile_device_count_profile_device_by_token_callback", false);
             // call a method that can be inline callback
-            try {handle_count_profile_device_token(data);} catch(e) { _log("Error calling: handle_count_profile_device_token: " + e);}
+            try {handle_count_profile_device_by_token(data);} catch(e) { _log("Error calling: handle_count_profile_device_by_token: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_profile_device_list_filter: function
+    browse_profile_device_list_by_filter: function
     (
         page,
         page_size,
@@ -3609,7 +3609,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -3624,7 +3624,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_profile_device_list_filter_callback: function(data) {
+    browse_profile_device_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3634,20 +3634,20 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_browse_profile_device_list_filter_callback", true);
+            _log("ERRORS::profile_device_browse_profile_device_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_profile_device_list_filter(data);} catch(e) { _log("Error calling: error_browse_profile_device_list_filter: " + e);}
+            try {error_browse_profile_device_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_profile_device_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_browse_profile_device_list_filter_callback", false);
+            _log("SUCCESS::profile_device_browse_profile_device_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_profile_device_list_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_device_list_filter: " + e);}
+            try {handle_browse_profile_device_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_profile_device_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_profile_device_uuid: function
+    set_profile_device_by_uuid: function
     (
         status,
         uuid,
@@ -3666,7 +3666,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -3696,7 +3696,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_profile_device_uuid_callback: function(data) {
+    set_profile_device_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3706,26 +3706,26 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_set_profile_device_uuid_callback", true);
+            _log("ERRORS::profile_device_set_profile_device_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_profile_device_uuid(data);} catch(e) { _log("Error calling: error_set_profile_device_uuid: " + e);}
+            try {error_set_profile_device_by_uuid(data);} catch(e) { _log("Error calling: error_set_profile_device_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_set_profile_device_uuid_callback", false);
+            _log("SUCCESS::profile_device_set_profile_device_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_profile_device_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_device_uuid: " + e);}
+            try {handle_set_profile_device_by_uuid(data);} catch(e) { _log("Error calling: handle_set_profile_device_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_profile_device_uuid: function
+    del_profile_device_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3738,7 +3738,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_device_uuid_callback: function(data) {
+    del_profile_device_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3748,20 +3748,20 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_del_profile_device_uuid_callback", true);
+            _log("ERRORS::profile_device_del_profile_device_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_device_uuid(data);} catch(e) { _log("Error calling: error_del_profile_device_uuid: " + e);}
+            try {error_del_profile_device_by_uuid(data);} catch(e) { _log("Error calling: error_del_profile_device_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_del_profile_device_uuid_callback", false);
+            _log("SUCCESS::profile_device_del_profile_device_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_device_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_device_uuid: " + e);}
+            try {handle_del_profile_device_by_uuid(data);} catch(e) { _log("Error calling: handle_del_profile_device_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_device_profile_id_device_id: function
+    del_profile_device_by_profile_id_by_device_id: function
     (
         profile_id,
         device_id,
@@ -3769,7 +3769,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'del'
-                + "/profile-id/device-id"
+                + "/by-profile-id/by-device-id"
                 + "/profile_id/" + profile_id            
                 + "/device_id/" + device_id            
                 ;
@@ -3783,7 +3783,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_device_profile_id_device_id_callback: function(data) {
+    del_profile_device_by_profile_id_by_device_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3793,20 +3793,20 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_del_profile_device_profile_id_device_id_callback", true);
+            _log("ERRORS::profile_device_del_profile_device_by_profile_id_by_device_id_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_device_profile_id_device_id(data);} catch(e) { _log("Error calling: error_del_profile_device_profile_id_device_id: " + e);}
+            try {error_del_profile_device_by_profile_id_by_device_id(data);} catch(e) { _log("Error calling: error_del_profile_device_by_profile_id_by_device_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_del_profile_device_profile_id_device_id_callback", false);
+            _log("SUCCESS::profile_device_del_profile_device_by_profile_id_by_device_id_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_device_profile_id_device_id(data);} catch(e) { _log("Error calling: handle_del_profile_device_profile_id_device_id: " + e);}
+            try {handle_del_profile_device_by_profile_id_by_device_id(data);} catch(e) { _log("Error calling: handle_del_profile_device_by_profile_id_by_device_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_device_profile_id_token: function
+    del_profile_device_by_profile_id_by_token: function
     (
         profile_id,
         token,
@@ -3814,7 +3814,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'del'
-                + "/profile-id/token"
+                + "/by-profile-id/by-token"
                 + "/profile_id/" + profile_id            
                 + "/token/" + token            
                 ;
@@ -3828,7 +3828,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_device_profile_id_token_callback: function(data) {
+    del_profile_device_by_profile_id_by_token_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3838,27 +3838,27 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_del_profile_device_profile_id_token_callback", true);
+            _log("ERRORS::profile_device_del_profile_device_by_profile_id_by_token_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_device_profile_id_token(data);} catch(e) { _log("Error calling: error_del_profile_device_profile_id_token: " + e);}
+            try {error_del_profile_device_by_profile_id_by_token(data);} catch(e) { _log("Error calling: error_del_profile_device_by_profile_id_by_token: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_del_profile_device_profile_id_token_callback", false);
+            _log("SUCCESS::profile_device_del_profile_device_by_profile_id_by_token_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_device_profile_id_token(data);} catch(e) { _log("Error calling: handle_del_profile_device_profile_id_token: " + e);}
+            try {handle_del_profile_device_by_profile_id_by_token(data);} catch(e) { _log("Error calling: handle_del_profile_device_by_profile_id_by_token: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_profile_device_token: function
+    del_profile_device_by_token: function
     (
         token,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'del'
-                + "/token"
+                + "/by-token"
                 + "/token/" + token            
                 ;
 
@@ -3871,7 +3871,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_profile_device_token_callback: function(data) {
+    del_profile_device_by_token_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3881,27 +3881,27 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_del_profile_device_token_callback", true);
+            _log("ERRORS::profile_device_del_profile_device_by_token_callback", true);
             // call a method that can be inline callback
-            try {error_del_profile_device_token(data);} catch(e) { _log("Error calling: error_del_profile_device_token: " + e);}
+            try {error_del_profile_device_by_token(data);} catch(e) { _log("Error calling: error_del_profile_device_by_token: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_del_profile_device_token_callback", false);
+            _log("SUCCESS::profile_device_del_profile_device_by_token_callback", false);
             // call a method that can be inline callback
-            try {handle_del_profile_device_token(data);} catch(e) { _log("Error calling: handle_del_profile_device_token: " + e);}
+            try {handle_del_profile_device_by_token(data);} catch(e) { _log("Error calling: handle_del_profile_device_by_token: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_uuid: function
+    get_profile_device_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -3915,7 +3915,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_uuid_callback: function(data) {
+    get_profile_device_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3925,20 +3925,20 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_get_profile_device_list_uuid_callback", true);
+            _log("ERRORS::profile_device_get_profile_device_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_device_list_uuid(data);} catch(e) { _log("Error calling: error_get_profile_device_list_uuid: " + e);}
+            try {error_get_profile_device_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_profile_device_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_get_profile_device_list_uuid_callback", false);
+            _log("SUCCESS::profile_device_get_profile_device_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_device_list_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_uuid: " + e);}
+            try {handle_get_profile_device_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_profile_id_list_device_id: function
+    get_profile_device_list_by_profile_id_list_by_device_id: function
     (
         profile_id,
         device_id,
@@ -3946,7 +3946,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'get'
-                + "/profile-id/device-id"
+                + "/by-profile-id/by-device-id"
                 + "/profile_id/" + profile_id            
                 + "/device_id/" + device_id            
                 ;
@@ -3961,7 +3961,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_profile_id_list_device_id_callback: function(data) {
+    get_profile_device_list_by_profile_id_list_by_device_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -3971,20 +3971,20 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_get_profile_device_list_profile_id_list_device_id_callback", true);
+            _log("ERRORS::profile_device_get_profile_device_list_by_profile_id_list_by_device_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_device_list_profile_id_list_device_id(data);} catch(e) { _log("Error calling: error_get_profile_device_list_profile_id_list_device_id: " + e);}
+            try {error_get_profile_device_list_by_profile_id_list_by_device_id(data);} catch(e) { _log("Error calling: error_get_profile_device_list_by_profile_id_list_by_device_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_get_profile_device_list_profile_id_list_device_id_callback", false);
+            _log("SUCCESS::profile_device_get_profile_device_list_by_profile_id_list_by_device_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_device_list_profile_id_list_device_id(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_profile_id_list_device_id: " + e);}
+            try {handle_get_profile_device_list_by_profile_id_list_by_device_id(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_by_profile_id_list_by_device_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_profile_id_list_token: function
+    get_profile_device_list_by_profile_id_list_by_token: function
     (
         profile_id,
         token,
@@ -3992,7 +3992,7 @@ profile.profile_device.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'get'
-                + "/profile-id/token"
+                + "/by-profile-id/by-token"
                 + "/profile_id/" + profile_id            
                 + "/token/" + token            
                 ;
@@ -4007,7 +4007,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_profile_id_list_token_callback: function(data) {
+    get_profile_device_list_by_profile_id_list_by_token_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4017,27 +4017,27 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_get_profile_device_list_profile_id_list_token_callback", true);
+            _log("ERRORS::profile_device_get_profile_device_list_by_profile_id_list_by_token_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_device_list_profile_id_list_token(data);} catch(e) { _log("Error calling: error_get_profile_device_list_profile_id_list_token: " + e);}
+            try {error_get_profile_device_list_by_profile_id_list_by_token(data);} catch(e) { _log("Error calling: error_get_profile_device_list_by_profile_id_list_by_token: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_get_profile_device_list_profile_id_list_token_callback", false);
+            _log("SUCCESS::profile_device_get_profile_device_list_by_profile_id_list_by_token_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_device_list_profile_id_list_token(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_profile_id_list_token: " + e);}
+            try {handle_get_profile_device_list_by_profile_id_list_by_token(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_by_profile_id_list_by_token: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_profile_id: function
+    get_profile_device_list_by_profile_id: function
     (
         profile_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'get'
-                + "/profile-id"
+                + "/by-profile-id"
                 + "/profile_id/" + profile_id            
                 ;
 
@@ -4051,7 +4051,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_profile_id_callback: function(data) {
+    get_profile_device_list_by_profile_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4061,27 +4061,27 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_get_profile_device_list_profile_id_callback", true);
+            _log("ERRORS::profile_device_get_profile_device_list_by_profile_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_device_list_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_device_list_profile_id: " + e);}
+            try {error_get_profile_device_list_by_profile_id(data);} catch(e) { _log("Error calling: error_get_profile_device_list_by_profile_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_get_profile_device_list_profile_id_callback", false);
+            _log("SUCCESS::profile_device_get_profile_device_list_by_profile_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_device_list_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_profile_id: " + e);}
+            try {handle_get_profile_device_list_by_profile_id(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_by_profile_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_device_id: function
+    get_profile_device_list_by_device_id: function
     (
         device_id,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'get'
-                + "/device-id"
+                + "/by-device-id"
                 + "/device_id/" + device_id            
                 ;
 
@@ -4095,7 +4095,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_device_id_callback: function(data) {
+    get_profile_device_list_by_device_id_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4105,27 +4105,27 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_get_profile_device_list_device_id_callback", true);
+            _log("ERRORS::profile_device_get_profile_device_list_by_device_id_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_device_list_device_id(data);} catch(e) { _log("Error calling: error_get_profile_device_list_device_id: " + e);}
+            try {error_get_profile_device_list_by_device_id(data);} catch(e) { _log("Error calling: error_get_profile_device_list_by_device_id: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_get_profile_device_list_device_id_callback", false);
+            _log("SUCCESS::profile_device_get_profile_device_list_by_device_id_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_device_list_device_id(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_device_id: " + e);}
+            try {handle_get_profile_device_list_by_device_id(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_by_device_id: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_token: function
+    get_profile_device_list_by_token: function
     (
         token,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.profile_device_service + 'get'
-                + "/token"
+                + "/by-token"
                 + "/token/" + token            
                 ;
 
@@ -4139,7 +4139,7 @@ profile.profile_device.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_profile_device_list_token_callback: function(data) {
+    get_profile_device_list_by_token_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4149,14 +4149,14 @@ profile.profile_device.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::profile_device_get_profile_device_list_token_callback", true);
+            _log("ERRORS::profile_device_get_profile_device_list_by_token_callback", true);
             // call a method that can be inline callback
-            try {error_get_profile_device_list_token(data);} catch(e) { _log("Error calling: error_get_profile_device_list_token: " + e);}
+            try {error_get_profile_device_list_by_token(data);} catch(e) { _log("Error calling: error_get_profile_device_list_by_token: " + e);}
         }
         else {
-            _log("SUCCESS::profile_device_get_profile_device_list_token_callback", false);
+            _log("SUCCESS::profile_device_get_profile_device_list_by_token_callback", false);
             // call a method that can be inline callback
-            try {handle_get_profile_device_list_token(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_token: " + e);}
+            try {handle_get_profile_device_list_by_token(data);} catch(e) { _log("Error calling: handle_get_profile_device_list_by_token: " + e);}
         }
         
     }
@@ -4216,14 +4216,14 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_country_uuid: function
+    count_country_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.country_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -4236,7 +4236,7 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_country_uuid_callback: function(data) {
+    count_country_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4247,26 +4247,26 @@ profile.country.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::country_count_country_uuid_callback", true);
+            _log("ERRORS::country_count_country_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_country_uuid(data);} catch(e) { _log("Error calling: error_count_country_uuid: " + e);}
+            try {error_count_country_by_uuid(data);} catch(e) { _log("Error calling: error_count_country_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::country_count_country_uuid_callback", false);
+            _log("SUCCESS::country_count_country_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_country_uuid(data);} catch(e) { _log("Error calling: handle_count_country_uuid: " + e);}
+            try {handle_count_country_by_uuid(data);} catch(e) { _log("Error calling: handle_count_country_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_country_code: function
+    count_country_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.country_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -4279,7 +4279,7 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_country_code_callback: function(data) {
+    count_country_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4290,19 +4290,19 @@ profile.country.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::country_count_country_code_callback", true);
+            _log("ERRORS::country_count_country_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_country_code(data);} catch(e) { _log("Error calling: error_count_country_code: " + e);}
+            try {error_count_country_by_code(data);} catch(e) { _log("Error calling: error_count_country_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::country_count_country_code_callback", false);
+            _log("SUCCESS::country_count_country_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_country_code(data);} catch(e) { _log("Error calling: handle_count_country_code: " + e);}
+            try {handle_count_country_by_code(data);} catch(e) { _log("Error calling: handle_count_country_by_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_country_list_filter: function
+    browse_country_list_by_filter: function
     (
         page,
         page_size,
@@ -4311,7 +4311,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.country_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -4326,7 +4326,7 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_country_list_filter_callback: function(data) {
+    browse_country_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4336,20 +4336,20 @@ profile.country.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::country_browse_country_list_filter_callback", true);
+            _log("ERRORS::country_browse_country_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_country_list_filter(data);} catch(e) { _log("Error calling: error_browse_country_list_filter: " + e);}
+            try {error_browse_country_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_country_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::country_browse_country_list_filter_callback", false);
+            _log("SUCCESS::country_browse_country_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_country_list_filter(data);} catch(e) { _log("Error calling: handle_browse_country_list_filter: " + e);}
+            try {handle_browse_country_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_country_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_country_uuid: function
+    set_country_by_uuid: function
     (
         status,
         code,
@@ -4364,7 +4364,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.country_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -4390,7 +4390,7 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_country_uuid_callback: function(data) {
+    set_country_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4400,19 +4400,19 @@ profile.country.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::country_set_country_uuid_callback", true);
+            _log("ERRORS::country_set_country_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_country_uuid(data);} catch(e) { _log("Error calling: error_set_country_uuid: " + e);}
+            try {error_set_country_by_uuid(data);} catch(e) { _log("Error calling: error_set_country_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::country_set_country_uuid_callback", false);
+            _log("SUCCESS::country_set_country_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_country_uuid(data);} catch(e) { _log("Error calling: handle_set_country_uuid: " + e);}
+            try {handle_set_country_by_uuid(data);} catch(e) { _log("Error calling: handle_set_country_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_country_code: function
+    set_country_by_code: function
     (
         status,
         code,
@@ -4427,7 +4427,7 @@ profile.country.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.country_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -4453,7 +4453,7 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_country_code_callback: function(data) {
+    set_country_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4463,26 +4463,26 @@ profile.country.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::country_set_country_code_callback", true);
+            _log("ERRORS::country_set_country_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_country_code(data);} catch(e) { _log("Error calling: error_set_country_code: " + e);}
+            try {error_set_country_by_code(data);} catch(e) { _log("Error calling: error_set_country_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::country_set_country_code_callback", false);
+            _log("SUCCESS::country_set_country_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_country_code(data);} catch(e) { _log("Error calling: handle_set_country_code: " + e);}
+            try {handle_set_country_by_code(data);} catch(e) { _log("Error calling: handle_set_country_by_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_country_uuid: function
+    del_country_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.country_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -4495,7 +4495,7 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_country_uuid_callback: function(data) {
+    del_country_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4505,27 +4505,27 @@ profile.country.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::country_del_country_uuid_callback", true);
+            _log("ERRORS::country_del_country_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_country_uuid(data);} catch(e) { _log("Error calling: error_del_country_uuid: " + e);}
+            try {error_del_country_by_uuid(data);} catch(e) { _log("Error calling: error_del_country_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::country_del_country_uuid_callback", false);
+            _log("SUCCESS::country_del_country_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_country_uuid(data);} catch(e) { _log("Error calling: handle_del_country_uuid: " + e);}
+            try {handle_del_country_by_uuid(data);} catch(e) { _log("Error calling: handle_del_country_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_country_code: function
+    del_country_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.country_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -4538,7 +4538,7 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_country_code_callback: function(data) {
+    del_country_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4548,14 +4548,14 @@ profile.country.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::country_del_country_code_callback", true);
+            _log("ERRORS::country_del_country_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_country_code(data);} catch(e) { _log("Error calling: error_del_country_code: " + e);}
+            try {error_del_country_by_code(data);} catch(e) { _log("Error calling: error_del_country_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::country_del_country_code_callback", false);
+            _log("SUCCESS::country_del_country_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_country_code(data);} catch(e) { _log("Error calling: handle_del_country_code: " + e);}
+            try {handle_del_country_by_code(data);} catch(e) { _log("Error calling: handle_del_country_by_code: " + e);}
         }
         
     }
@@ -4603,14 +4603,14 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_country_list_uuid: function
+    get_country_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.country_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -4624,7 +4624,7 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_country_list_uuid_callback: function(data) {
+    get_country_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4634,27 +4634,27 @@ profile.country.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::country_get_country_list_uuid_callback", true);
+            _log("ERRORS::country_get_country_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_country_list_uuid(data);} catch(e) { _log("Error calling: error_get_country_list_uuid: " + e);}
+            try {error_get_country_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_country_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::country_get_country_list_uuid_callback", false);
+            _log("SUCCESS::country_get_country_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_country_list_uuid(data);} catch(e) { _log("Error calling: handle_get_country_list_uuid: " + e);}
+            try {handle_get_country_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_country_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_country_list_code: function
+    get_country_list_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.country_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -4668,7 +4668,7 @@ profile.country.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_country_list_code_callback: function(data) {
+    get_country_list_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4678,14 +4678,14 @@ profile.country.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::country_get_country_list_code_callback", true);
+            _log("ERRORS::country_get_country_list_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_country_list_code(data);} catch(e) { _log("Error calling: error_get_country_list_code: " + e);}
+            try {error_get_country_list_by_code(data);} catch(e) { _log("Error calling: error_get_country_list_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::country_get_country_list_code_callback", false);
+            _log("SUCCESS::country_get_country_list_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_country_list_code(data);} catch(e) { _log("Error calling: handle_get_country_list_code: " + e);}
+            try {handle_get_country_list_by_code(data);} catch(e) { _log("Error calling: handle_get_country_list_by_code: " + e);}
         }
         
     }
@@ -4745,14 +4745,14 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_state_uuid: function
+    count_state_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.state_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -4765,7 +4765,7 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_state_uuid_callback: function(data) {
+    count_state_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4776,26 +4776,26 @@ profile.state.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::state_count_state_uuid_callback", true);
+            _log("ERRORS::state_count_state_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_state_uuid(data);} catch(e) { _log("Error calling: error_count_state_uuid: " + e);}
+            try {error_count_state_by_uuid(data);} catch(e) { _log("Error calling: error_count_state_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::state_count_state_uuid_callback", false);
+            _log("SUCCESS::state_count_state_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_state_uuid(data);} catch(e) { _log("Error calling: handle_count_state_uuid: " + e);}
+            try {handle_count_state_by_uuid(data);} catch(e) { _log("Error calling: handle_count_state_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_state_code: function
+    count_state_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.state_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -4808,7 +4808,7 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_state_code_callback: function(data) {
+    count_state_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4819,19 +4819,19 @@ profile.state.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::state_count_state_code_callback", true);
+            _log("ERRORS::state_count_state_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_state_code(data);} catch(e) { _log("Error calling: error_count_state_code: " + e);}
+            try {error_count_state_by_code(data);} catch(e) { _log("Error calling: error_count_state_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::state_count_state_code_callback", false);
+            _log("SUCCESS::state_count_state_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_state_code(data);} catch(e) { _log("Error calling: handle_count_state_code: " + e);}
+            try {handle_count_state_by_code(data);} catch(e) { _log("Error calling: handle_count_state_by_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_state_list_filter: function
+    browse_state_list_by_filter: function
     (
         page,
         page_size,
@@ -4840,7 +4840,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.state_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -4855,7 +4855,7 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_state_list_filter_callback: function(data) {
+    browse_state_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4865,20 +4865,20 @@ profile.state.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::state_browse_state_list_filter_callback", true);
+            _log("ERRORS::state_browse_state_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_state_list_filter(data);} catch(e) { _log("Error calling: error_browse_state_list_filter: " + e);}
+            try {error_browse_state_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_state_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::state_browse_state_list_filter_callback", false);
+            _log("SUCCESS::state_browse_state_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_state_list_filter(data);} catch(e) { _log("Error calling: handle_browse_state_list_filter: " + e);}
+            try {handle_browse_state_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_state_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_state_uuid: function
+    set_state_by_uuid: function
     (
         status,
         code,
@@ -4893,7 +4893,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.state_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -4919,7 +4919,7 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_state_uuid_callback: function(data) {
+    set_state_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4929,19 +4929,19 @@ profile.state.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::state_set_state_uuid_callback", true);
+            _log("ERRORS::state_set_state_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_state_uuid(data);} catch(e) { _log("Error calling: error_set_state_uuid: " + e);}
+            try {error_set_state_by_uuid(data);} catch(e) { _log("Error calling: error_set_state_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::state_set_state_uuid_callback", false);
+            _log("SUCCESS::state_set_state_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_state_uuid(data);} catch(e) { _log("Error calling: handle_set_state_uuid: " + e);}
+            try {handle_set_state_by_uuid(data);} catch(e) { _log("Error calling: handle_set_state_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_state_code: function
+    set_state_by_code: function
     (
         status,
         code,
@@ -4956,7 +4956,7 @@ profile.state.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.state_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -4982,7 +4982,7 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_state_code_callback: function(data) {
+    set_state_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -4992,26 +4992,26 @@ profile.state.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::state_set_state_code_callback", true);
+            _log("ERRORS::state_set_state_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_state_code(data);} catch(e) { _log("Error calling: error_set_state_code: " + e);}
+            try {error_set_state_by_code(data);} catch(e) { _log("Error calling: error_set_state_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::state_set_state_code_callback", false);
+            _log("SUCCESS::state_set_state_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_state_code(data);} catch(e) { _log("Error calling: handle_set_state_code: " + e);}
+            try {handle_set_state_by_code(data);} catch(e) { _log("Error calling: handle_set_state_by_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_state_uuid: function
+    del_state_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.state_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5024,7 +5024,7 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_state_uuid_callback: function(data) {
+    del_state_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5034,27 +5034,27 @@ profile.state.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::state_del_state_uuid_callback", true);
+            _log("ERRORS::state_del_state_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_state_uuid(data);} catch(e) { _log("Error calling: error_del_state_uuid: " + e);}
+            try {error_del_state_by_uuid(data);} catch(e) { _log("Error calling: error_del_state_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::state_del_state_uuid_callback", false);
+            _log("SUCCESS::state_del_state_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_state_uuid(data);} catch(e) { _log("Error calling: handle_del_state_uuid: " + e);}
+            try {handle_del_state_by_uuid(data);} catch(e) { _log("Error calling: handle_del_state_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_state_code: function
+    del_state_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.state_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5067,7 +5067,7 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_state_code_callback: function(data) {
+    del_state_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5077,14 +5077,14 @@ profile.state.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::state_del_state_code_callback", true);
+            _log("ERRORS::state_del_state_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_state_code(data);} catch(e) { _log("Error calling: error_del_state_code: " + e);}
+            try {error_del_state_by_code(data);} catch(e) { _log("Error calling: error_del_state_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::state_del_state_code_callback", false);
+            _log("SUCCESS::state_del_state_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_state_code(data);} catch(e) { _log("Error calling: handle_del_state_code: " + e);}
+            try {handle_del_state_by_code(data);} catch(e) { _log("Error calling: handle_del_state_by_code: " + e);}
         }
         
     }
@@ -5132,14 +5132,14 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_state_list_uuid: function
+    get_state_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.state_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5153,7 +5153,7 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_state_list_uuid_callback: function(data) {
+    get_state_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5163,27 +5163,27 @@ profile.state.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::state_get_state_list_uuid_callback", true);
+            _log("ERRORS::state_get_state_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_state_list_uuid(data);} catch(e) { _log("Error calling: error_get_state_list_uuid: " + e);}
+            try {error_get_state_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_state_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::state_get_state_list_uuid_callback", false);
+            _log("SUCCESS::state_get_state_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_state_list_uuid(data);} catch(e) { _log("Error calling: handle_get_state_list_uuid: " + e);}
+            try {handle_get_state_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_state_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_state_list_code: function
+    get_state_list_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.state_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5197,7 +5197,7 @@ profile.state.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_state_list_code_callback: function(data) {
+    get_state_list_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5207,14 +5207,14 @@ profile.state.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::state_get_state_list_code_callback", true);
+            _log("ERRORS::state_get_state_list_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_state_list_code(data);} catch(e) { _log("Error calling: error_get_state_list_code: " + e);}
+            try {error_get_state_list_by_code(data);} catch(e) { _log("Error calling: error_get_state_list_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::state_get_state_list_code_callback", false);
+            _log("SUCCESS::state_get_state_list_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_state_list_code(data);} catch(e) { _log("Error calling: handle_get_state_list_code: " + e);}
+            try {handle_get_state_list_by_code(data);} catch(e) { _log("Error calling: handle_get_state_list_by_code: " + e);}
         }
         
     }
@@ -5274,14 +5274,14 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_city_uuid: function
+    count_city_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.city_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5294,7 +5294,7 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_city_uuid_callback: function(data) {
+    count_city_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5305,26 +5305,26 @@ profile.city.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::city_count_city_uuid_callback", true);
+            _log("ERRORS::city_count_city_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_city_uuid(data);} catch(e) { _log("Error calling: error_count_city_uuid: " + e);}
+            try {error_count_city_by_uuid(data);} catch(e) { _log("Error calling: error_count_city_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::city_count_city_uuid_callback", false);
+            _log("SUCCESS::city_count_city_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_city_uuid(data);} catch(e) { _log("Error calling: handle_count_city_uuid: " + e);}
+            try {handle_count_city_by_uuid(data);} catch(e) { _log("Error calling: handle_count_city_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_city_code: function
+    count_city_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.city_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5337,7 +5337,7 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_city_code_callback: function(data) {
+    count_city_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5348,19 +5348,19 @@ profile.city.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::city_count_city_code_callback", true);
+            _log("ERRORS::city_count_city_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_city_code(data);} catch(e) { _log("Error calling: error_count_city_code: " + e);}
+            try {error_count_city_by_code(data);} catch(e) { _log("Error calling: error_count_city_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::city_count_city_code_callback", false);
+            _log("SUCCESS::city_count_city_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_city_code(data);} catch(e) { _log("Error calling: handle_count_city_code: " + e);}
+            try {handle_count_city_by_code(data);} catch(e) { _log("Error calling: handle_count_city_by_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_city_list_filter: function
+    browse_city_list_by_filter: function
     (
         page,
         page_size,
@@ -5369,7 +5369,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.city_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -5384,7 +5384,7 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_city_list_filter_callback: function(data) {
+    browse_city_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5394,20 +5394,20 @@ profile.city.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::city_browse_city_list_filter_callback", true);
+            _log("ERRORS::city_browse_city_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_city_list_filter(data);} catch(e) { _log("Error calling: error_browse_city_list_filter: " + e);}
+            try {error_browse_city_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_city_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::city_browse_city_list_filter_callback", false);
+            _log("SUCCESS::city_browse_city_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_city_list_filter(data);} catch(e) { _log("Error calling: handle_browse_city_list_filter: " + e);}
+            try {handle_browse_city_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_city_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_city_uuid: function
+    set_city_by_uuid: function
     (
         status,
         code,
@@ -5422,7 +5422,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.city_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -5448,7 +5448,7 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_city_uuid_callback: function(data) {
+    set_city_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5458,19 +5458,19 @@ profile.city.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::city_set_city_uuid_callback", true);
+            _log("ERRORS::city_set_city_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_city_uuid(data);} catch(e) { _log("Error calling: error_set_city_uuid: " + e);}
+            try {error_set_city_by_uuid(data);} catch(e) { _log("Error calling: error_set_city_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::city_set_city_uuid_callback", false);
+            _log("SUCCESS::city_set_city_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_city_uuid(data);} catch(e) { _log("Error calling: handle_set_city_uuid: " + e);}
+            try {handle_set_city_by_uuid(data);} catch(e) { _log("Error calling: handle_set_city_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_city_code: function
+    set_city_by_code: function
     (
         status,
         code,
@@ -5485,7 +5485,7 @@ profile.city.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.city_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -5511,7 +5511,7 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_city_code_callback: function(data) {
+    set_city_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5521,26 +5521,26 @@ profile.city.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::city_set_city_code_callback", true);
+            _log("ERRORS::city_set_city_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_city_code(data);} catch(e) { _log("Error calling: error_set_city_code: " + e);}
+            try {error_set_city_by_code(data);} catch(e) { _log("Error calling: error_set_city_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::city_set_city_code_callback", false);
+            _log("SUCCESS::city_set_city_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_city_code(data);} catch(e) { _log("Error calling: handle_set_city_code: " + e);}
+            try {handle_set_city_by_code(data);} catch(e) { _log("Error calling: handle_set_city_by_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_city_uuid: function
+    del_city_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.city_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5553,7 +5553,7 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_city_uuid_callback: function(data) {
+    del_city_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5563,27 +5563,27 @@ profile.city.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::city_del_city_uuid_callback", true);
+            _log("ERRORS::city_del_city_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_city_uuid(data);} catch(e) { _log("Error calling: error_del_city_uuid: " + e);}
+            try {error_del_city_by_uuid(data);} catch(e) { _log("Error calling: error_del_city_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::city_del_city_uuid_callback", false);
+            _log("SUCCESS::city_del_city_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_city_uuid(data);} catch(e) { _log("Error calling: handle_del_city_uuid: " + e);}
+            try {handle_del_city_by_uuid(data);} catch(e) { _log("Error calling: handle_del_city_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_city_code: function
+    del_city_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.city_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5596,7 +5596,7 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_city_code_callback: function(data) {
+    del_city_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5606,14 +5606,14 @@ profile.city.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::city_del_city_code_callback", true);
+            _log("ERRORS::city_del_city_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_city_code(data);} catch(e) { _log("Error calling: error_del_city_code: " + e);}
+            try {error_del_city_by_code(data);} catch(e) { _log("Error calling: error_del_city_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::city_del_city_code_callback", false);
+            _log("SUCCESS::city_del_city_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_city_code(data);} catch(e) { _log("Error calling: handle_del_city_code: " + e);}
+            try {handle_del_city_by_code(data);} catch(e) { _log("Error calling: handle_del_city_by_code: " + e);}
         }
         
     }
@@ -5661,14 +5661,14 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_city_list_uuid: function
+    get_city_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.city_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5682,7 +5682,7 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_city_list_uuid_callback: function(data) {
+    get_city_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5692,27 +5692,27 @@ profile.city.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::city_get_city_list_uuid_callback", true);
+            _log("ERRORS::city_get_city_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_city_list_uuid(data);} catch(e) { _log("Error calling: error_get_city_list_uuid: " + e);}
+            try {error_get_city_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_city_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::city_get_city_list_uuid_callback", false);
+            _log("SUCCESS::city_get_city_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_city_list_uuid(data);} catch(e) { _log("Error calling: handle_get_city_list_uuid: " + e);}
+            try {handle_get_city_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_city_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_city_list_code: function
+    get_city_list_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.city_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5726,7 +5726,7 @@ profile.city.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_city_list_code_callback: function(data) {
+    get_city_list_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5736,14 +5736,14 @@ profile.city.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::city_get_city_list_code_callback", true);
+            _log("ERRORS::city_get_city_list_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_city_list_code(data);} catch(e) { _log("Error calling: error_get_city_list_code: " + e);}
+            try {error_get_city_list_by_code(data);} catch(e) { _log("Error calling: error_get_city_list_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::city_get_city_list_code_callback", false);
+            _log("SUCCESS::city_get_city_list_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_city_list_code(data);} catch(e) { _log("Error calling: handle_get_city_list_code: " + e);}
+            try {handle_get_city_list_by_code(data);} catch(e) { _log("Error calling: handle_get_city_list_by_code: " + e);}
         }
         
     }
@@ -5803,14 +5803,14 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_postal_code_uuid: function
+    count_postal_code_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.postal_code_service + 'count'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -5823,7 +5823,7 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_postal_code_uuid_callback: function(data) {
+    count_postal_code_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5834,26 +5834,26 @@ profile.postal_code.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::postal_code_count_postal_code_uuid_callback", true);
+            _log("ERRORS::postal_code_count_postal_code_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_count_postal_code_uuid(data);} catch(e) { _log("Error calling: error_count_postal_code_uuid: " + e);}
+            try {error_count_postal_code_by_uuid(data);} catch(e) { _log("Error calling: error_count_postal_code_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::postal_code_count_postal_code_uuid_callback", false);
+            _log("SUCCESS::postal_code_count_postal_code_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_count_postal_code_uuid(data);} catch(e) { _log("Error calling: handle_count_postal_code_uuid: " + e);}
+            try {handle_count_postal_code_by_uuid(data);} catch(e) { _log("Error calling: handle_count_postal_code_by_uuid: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    count_postal_code_code: function
+    count_postal_code_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.postal_code_service + 'count'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -5866,7 +5866,7 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    count_postal_code_code_callback: function(data) {
+    count_postal_code_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5877,19 +5877,19 @@ profile.postal_code.prototype = {
       
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::postal_code_count_postal_code_code_callback", true);
+            _log("ERRORS::postal_code_count_postal_code_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_count_postal_code_code(data);} catch(e) { _log("Error calling: error_count_postal_code_code: " + e);}
+            try {error_count_postal_code_by_code(data);} catch(e) { _log("Error calling: error_count_postal_code_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::postal_code_count_postal_code_code_callback", false);
+            _log("SUCCESS::postal_code_count_postal_code_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_count_postal_code_code(data);} catch(e) { _log("Error calling: handle_count_postal_code_code: " + e);}
+            try {handle_count_postal_code_by_code(data);} catch(e) { _log("Error calling: handle_count_postal_code_by_code: " + e);}
         }
     }
     ,
     //-------------------------------------------------
-    browse_postal_code_list_filter: function
+    browse_postal_code_list_by_filter: function
     (
         page,
         page_size,
@@ -5898,7 +5898,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.postal_code_service + 'browse'
-                + "/filter"
+                + "/by-filter"
                 + "/page/" + page
                 + "/page_size/" + page_size
                 + "/filter/" + filter
@@ -5913,7 +5913,7 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    browse_postal_code_list_filter_callback: function(data) {
+    browse_postal_code_list_by_filter_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5923,20 +5923,20 @@ profile.postal_code.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::postal_code_browse_postal_code_list_filter_callback", true);
+            _log("ERRORS::postal_code_browse_postal_code_list_by_filter_callback", true);
             // call a method that can be inline callback
-            try {error_browse_postal_code_list_filter(data);} catch(e) { _log("Error calling: error_browse_postal_code_list_filter: " + e);}
+            try {error_browse_postal_code_list_by_filter(data);} catch(e) { _log("Error calling: error_browse_postal_code_list_by_filter: " + e);}
         }
         else {
-            _log("SUCCESS::postal_code_browse_postal_code_list_filter_callback", false);
+            _log("SUCCESS::postal_code_browse_postal_code_list_by_filter_callback", false);
             // call a method that can be inline callback
-            try {handle_browse_postal_code_list_filter(data);} catch(e) { _log("Error calling: handle_browse_postal_code_list_filter: " + e);}
+            try {handle_browse_postal_code_list_by_filter(data);} catch(e) { _log("Error calling: handle_browse_postal_code_list_by_filter: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    set_postal_code_uuid: function
+    set_postal_code_by_uuid: function
     (
         status,
         code,
@@ -5951,7 +5951,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.postal_code_service + 'set'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                         
                 ;
@@ -5977,7 +5977,7 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_postal_code_uuid_callback: function(data) {
+    set_postal_code_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -5987,19 +5987,19 @@ profile.postal_code.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::postal_code_set_postal_code_uuid_callback", true);
+            _log("ERRORS::postal_code_set_postal_code_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_set_postal_code_uuid(data);} catch(e) { _log("Error calling: error_set_postal_code_uuid: " + e);}
+            try {error_set_postal_code_by_uuid(data);} catch(e) { _log("Error calling: error_set_postal_code_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::postal_code_set_postal_code_uuid_callback", false);
+            _log("SUCCESS::postal_code_set_postal_code_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_set_postal_code_uuid(data);} catch(e) { _log("Error calling: handle_set_postal_code_uuid: " + e);}
+            try {handle_set_postal_code_by_uuid(data);} catch(e) { _log("Error calling: handle_set_postal_code_by_uuid: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    set_postal_code_code: function
+    set_postal_code_by_code: function
     (
         status,
         code,
@@ -6014,7 +6014,7 @@ profile.postal_code.prototype = {
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.postal_code_service + 'set'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                         
                 ;
@@ -6040,7 +6040,7 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    set_postal_code_code_callback: function(data) {
+    set_postal_code_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6050,26 +6050,26 @@ profile.postal_code.prototype = {
         _log("data.action", data.action);
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::postal_code_set_postal_code_code_callback", true);
+            _log("ERRORS::postal_code_set_postal_code_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_set_postal_code_code(data);} catch(e) { _log("Error calling: error_set_postal_code_code: " + e);}
+            try {error_set_postal_code_by_code(data);} catch(e) { _log("Error calling: error_set_postal_code_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::postal_code_set_postal_code_code_callback", false);
+            _log("SUCCESS::postal_code_set_postal_code_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_set_postal_code_code(data);} catch(e) { _log("Error calling: handle_set_postal_code_code: " + e);}
+            try {handle_set_postal_code_by_code(data);} catch(e) { _log("Error calling: handle_set_postal_code_by_code: " + e);}
         }
     }                    
     ,
     //-------------------------------------------------
-    del_postal_code_uuid: function
+    del_postal_code_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.postal_code_service + 'del'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -6082,7 +6082,7 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_postal_code_uuid_callback: function(data) {
+    del_postal_code_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6092,27 +6092,27 @@ profile.postal_code.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::postal_code_del_postal_code_uuid_callback", true);
+            _log("ERRORS::postal_code_del_postal_code_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_del_postal_code_uuid(data);} catch(e) { _log("Error calling: error_del_postal_code_uuid: " + e);}
+            try {error_del_postal_code_by_uuid(data);} catch(e) { _log("Error calling: error_del_postal_code_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::postal_code_del_postal_code_uuid_callback", false);
+            _log("SUCCESS::postal_code_del_postal_code_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_del_postal_code_uuid(data);} catch(e) { _log("Error calling: handle_del_postal_code_uuid: " + e);}
+            try {handle_del_postal_code_by_uuid(data);} catch(e) { _log("Error calling: handle_del_postal_code_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    del_postal_code_code: function
+    del_postal_code_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.postal_code_service + 'del'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -6125,7 +6125,7 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    del_postal_code_code_callback: function(data) {
+    del_postal_code_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6135,14 +6135,14 @@ profile.postal_code.prototype = {
         _log("data.action", data.action);      
       
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::postal_code_del_postal_code_code_callback", true);
+            _log("ERRORS::postal_code_del_postal_code_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_del_postal_code_code(data);} catch(e) { _log("Error calling: error_del_postal_code_code: " + e);}
+            try {error_del_postal_code_by_code(data);} catch(e) { _log("Error calling: error_del_postal_code_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::postal_code_del_postal_code_code_callback", false);
+            _log("SUCCESS::postal_code_del_postal_code_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_del_postal_code_code(data);} catch(e) { _log("Error calling: handle_del_postal_code_code: " + e);}
+            try {handle_del_postal_code_by_code(data);} catch(e) { _log("Error calling: handle_del_postal_code_by_code: " + e);}
         }
         
     }
@@ -6190,14 +6190,14 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_postal_code_list_uuid: function
+    get_postal_code_list_by_uuid: function
     (
         uuid,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.postal_code_service + 'get'
-                + "/uuid"
+                + "/by-uuid"
                 + "/uuid/" + uuid            
                 ;
 
@@ -6211,7 +6211,7 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_postal_code_list_uuid_callback: function(data) {
+    get_postal_code_list_by_uuid_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6221,27 +6221,27 @@ profile.postal_code.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::postal_code_get_postal_code_list_uuid_callback", true);
+            _log("ERRORS::postal_code_get_postal_code_list_by_uuid_callback", true);
             // call a method that can be inline callback
-            try {error_get_postal_code_list_uuid(data);} catch(e) { _log("Error calling: error_get_postal_code_list_uuid: " + e);}
+            try {error_get_postal_code_list_by_uuid(data);} catch(e) { _log("Error calling: error_get_postal_code_list_by_uuid: " + e);}
         }
         else {
-            _log("SUCCESS::postal_code_get_postal_code_list_uuid_callback", false);
+            _log("SUCCESS::postal_code_get_postal_code_list_by_uuid_callback", false);
             // call a method that can be inline callback
-            try {handle_get_postal_code_list_uuid(data);} catch(e) { _log("Error calling: handle_get_postal_code_list_uuid: " + e);}
+            try {handle_get_postal_code_list_by_uuid(data);} catch(e) { _log("Error calling: handle_get_postal_code_list_by_uuid: " + e);}
         }
         
     }
     ,
     //-------------------------------------------------
-    get_postal_code_list_code: function
+    get_postal_code_list_by_code: function
     (
         code,
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_profile_global.postal_code_service + 'get'
-                + "/code"
+                + "/by-code"
                 + "/code/" + code            
                 ;
 
@@ -6255,7 +6255,7 @@ profile.postal_code.prototype = {
     }
     ,
     //-------------------------------------------------
-    get_postal_code_list_code_callback: function(data) {
+    get_postal_code_list_by_code_callback: function(data) {
 
         _log("data", data);
         _log("data.message", data.message);
@@ -6265,14 +6265,14 @@ profile.postal_code.prototype = {
         _log("data.action", data.action);
             
         if (data.error > 0 || data.error.length > 1) {
-            _log("ERRORS::postal_code_get_postal_code_list_code_callback", true);
+            _log("ERRORS::postal_code_get_postal_code_list_by_code_callback", true);
             // call a method that can be inline callback
-            try {error_get_postal_code_list_code(data);} catch(e) { _log("Error calling: error_get_postal_code_list_code: " + e);}
+            try {error_get_postal_code_list_by_code(data);} catch(e) { _log("Error calling: error_get_postal_code_list_by_code: " + e);}
         }
         else {
-            _log("SUCCESS::postal_code_get_postal_code_list_code_callback", false);
+            _log("SUCCESS::postal_code_get_postal_code_list_by_code_callback", false);
             // call a method that can be inline callback
-            try {handle_get_postal_code_list_code(data);} catch(e) { _log("Error calling: handle_get_postal_code_list_code: " + e);}
+            try {handle_get_postal_code_list_by_code(data);} catch(e) { _log("Error calling: handle_get_postal_code_list_by_code: " + e);}
         }
         
     }

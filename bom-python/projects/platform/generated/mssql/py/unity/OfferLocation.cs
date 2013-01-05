@@ -51,6 +51,7 @@ public class OfferLocation : BaseLocation {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public  offer_id { get; set; }
+    public  data { get; set; }
 
     public OfferLocation() {
         Reset();
@@ -65,6 +66,9 @@ public class OfferLocation : BaseLocation {
 	if (offer_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "offer_id", offer_id);
 	}
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
          return dict;
     }
 
@@ -72,6 +76,11 @@ public class OfferLocation : BaseLocation {
 	if(dict.ContainsKey("offer_id")) {
 	    if(dict["offer_id"] != null) {
 	    	offer_id = DataType.Instance.Fill(dict["offer_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.Fill(dict["data"]);
 	    }		
 	}
     }

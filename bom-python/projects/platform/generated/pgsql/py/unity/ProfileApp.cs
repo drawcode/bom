@@ -51,6 +51,7 @@ public class ProfileApp : BaseEntity {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
     public  profile_id { get; set; }
+    public  data { get; set; }
     public  app_id { get; set; }
 
     public ProfileApp() {
@@ -66,6 +67,9 @@ public class ProfileApp : BaseEntity {
 	if (profile_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "profile_id", profile_id);
 	}
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
 	if (app_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "app_id", app_id);
 	}
@@ -76,6 +80,11 @@ public class ProfileApp : BaseEntity {
 	if(dict.ContainsKey("profile_id")) {
 	    if(dict["profile_id"] != null) {
 	    	profile_id = DataType.Instance.Fill(dict["profile_id"]);
+	    }		
+	}
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.Fill(dict["data"]);
 	    }		
 	}
 	if(dict.ContainsKey("app_id")) {

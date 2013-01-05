@@ -53,6 +53,7 @@ public class Video : BaseMeta {
     public  third_party_oembed { get; set; }
     public  url { get; set; }
     public  third_party_data { get; set; }
+    public  data { get; set; }
     public  third_party_url { get; set; }
     public  third_party_id { get; set; }
     public  content_type { get; set; }
@@ -76,6 +77,9 @@ public class Video : BaseMeta {
 	}
 	if (third_party_data != null) {
 	    dict = DataUtil.SetDictValue(dict, "third_party_data", third_party_data);
+	}
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
 	}
 	if (third_party_url != null) {
 	    dict = DataUtil.SetDictValue(dict, "third_party_url", third_party_url);
@@ -106,6 +110,11 @@ public class Video : BaseMeta {
 	if(dict.ContainsKey("third_party_data")) {
 	    if(dict["third_party_data"] != null) {
 	    	third_party_data = DataType.Instance.Fill(dict["third_party_data"]);
+	    }		
+	}
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.Fill(dict["data"]);
 	    }		
 	}
 	if(dict.ContainsKey("third_party_url")) {

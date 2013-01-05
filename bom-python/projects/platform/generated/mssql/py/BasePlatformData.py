@@ -59,7 +59,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppUuid(
+        public virtual int CountAppByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -69,7 +69,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_count_uuid"
+                , "usp_app_count_by_uuid"
                 , parameters
                 );          
             }
@@ -79,7 +79,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppCode(
+        public virtual int CountAppByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -89,7 +89,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_count_code"
+                , "usp_app_count_by_code"
                 , parameters
                 );          
             }
@@ -99,7 +99,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppTypeId(
+        public virtual int CountAppByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -109,7 +109,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_count_type_id"
+                , "usp_app_count_by_type_id"
                 , parameters
                 );          
             }
@@ -119,7 +119,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppCodeTypeId(
+        public virtual int CountAppByCodeByTypeId(
              code
             ,  type_id
         )  {
@@ -131,7 +131,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_count_code_type_id"
+                , "usp_app_count_by_code_by_type_id"
                 , parameters
                 );          
             }
@@ -141,7 +141,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppPlatformTypeId(
+        public virtual int CountAppByPlatformByTypeId(
              platform
             ,  type_id
         )  {
@@ -153,7 +153,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_count_platform_type_id"
+                , "usp_app_count_by_platform_by_type_id"
                 , parameters
                 );          
             }
@@ -163,7 +163,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppPlatform(
+        public virtual int CountAppByPlatform(
              platform
         )  {
             List<SqlParameter> parameters 
@@ -173,7 +173,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_count_platform"
+                , "usp_app_count_by_platform"
                 , parameters
                 );          
             }
@@ -183,7 +183,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseAppListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseAppListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -195,7 +195,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_browse_filter"
+                , "usp_app_browse_by_filter"
                 , "app"
                 , parameters
                 );         
@@ -207,7 +207,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppUuid(string set_type, App obj)  {
+        public virtual bool SetAppByUuid(string set_type, App obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -228,7 +228,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_set_uuid"
+                , "usp_app_set_by_uuid"
                 , parameters
                 );          
             }
@@ -239,7 +239,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppCode(string set_type, App obj)  {
+        public virtual bool SetAppByCode(string set_type, App obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -260,7 +260,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_set_code"
+                , "usp_app_set_by_code"
                 , parameters
                 );          
             }
@@ -271,7 +271,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppUuid(
+        public virtual bool DelAppByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -281,7 +281,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_app_del_uuid"
+                    , "usp_app_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -292,7 +292,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppCode(
+        public virtual bool DelAppByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -302,7 +302,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_app_del_code"
+                    , "usp_app_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -332,7 +332,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListUuid(
+        public virtual DataSet GetAppListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -342,7 +342,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_get_uuid"
+                , "usp_app_get_by_uuid"
                 , "app"
                 , parameters
                 );           
@@ -353,7 +353,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListCode(
+        public virtual DataSet GetAppListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -363,7 +363,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_get_code"
+                , "usp_app_get_by_code"
                 , "app"
                 , parameters
                 );           
@@ -374,7 +374,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListTypeId(
+        public virtual DataSet GetAppListByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -384,7 +384,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_get_type_id"
+                , "usp_app_get_by_type_id"
                 , "app"
                 , parameters
                 );           
@@ -395,7 +395,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListCodeTypeId(
+        public virtual DataSet GetAppListByCodeByTypeId(
              code
             ,  type_id
         )  {
@@ -407,7 +407,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_get_code_type_id"
+                , "usp_app_get_by_code_by_type_id"
                 , "app"
                 , parameters
                 );           
@@ -418,7 +418,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListPlatformTypeId(
+        public virtual DataSet GetAppListByPlatformByTypeId(
              platform
             ,  type_id
         )  {
@@ -430,7 +430,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_get_platform_type_id"
+                , "usp_app_get_by_platform_by_type_id"
                 , "app"
                 , parameters
                 );           
@@ -441,7 +441,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppListPlatform(
+        public virtual DataSet GetAppListByPlatform(
              platform
         )  {
             List<SqlParameter> parameters 
@@ -451,7 +451,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_get_platform"
+                , "usp_app_get_by_platform"
                 , "app"
                 , parameters
                 );           
@@ -480,7 +480,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppTypeUuid(
+        public virtual int CountAppTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -490,7 +490,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_type_count_uuid"
+                , "usp_app_type_count_by_uuid"
                 , parameters
                 );          
             }
@@ -500,7 +500,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountAppTypeCode(
+        public virtual int CountAppTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -510,7 +510,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_type_count_code"
+                , "usp_app_type_count_by_code"
                 , parameters
                 );          
             }
@@ -520,7 +520,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseAppTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseAppTypeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -532,7 +532,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_type_browse_filter"
+                , "usp_app_type_browse_by_filter"
                 , "app_type"
                 , parameters
                 );         
@@ -544,7 +544,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppTypeUuid(string set_type, AppType obj)  {
+        public virtual bool SetAppTypeByUuid(string set_type, AppType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -563,7 +563,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_type_set_uuid"
+                , "usp_app_type_set_by_uuid"
                 , parameters
                 );          
             }
@@ -574,7 +574,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetAppTypeCode(string set_type, AppType obj)  {
+        public virtual bool SetAppTypeByCode(string set_type, AppType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -593,7 +593,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_type_set_code"
+                , "usp_app_type_set_by_code"
                 , parameters
                 );          
             }
@@ -604,7 +604,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppTypeUuid(
+        public virtual bool DelAppTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -614,7 +614,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_app_type_del_uuid"
+                    , "usp_app_type_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -625,7 +625,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelAppTypeCode(
+        public virtual bool DelAppTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -635,7 +635,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_app_type_del_code"
+                    , "usp_app_type_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -665,7 +665,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppTypeListUuid(
+        public virtual DataSet GetAppTypeListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -675,7 +675,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_type_get_uuid"
+                , "usp_app_type_get_by_uuid"
                 , "app_type"
                 , parameters
                 );           
@@ -686,7 +686,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetAppTypeListCode(
+        public virtual DataSet GetAppTypeListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -696,7 +696,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_app_type_get_code"
+                , "usp_app_type_get_by_code"
                 , "app_type"
                 , parameters
                 );           
@@ -725,7 +725,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteUuid(
+        public virtual int CountSiteByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -735,7 +735,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_count_uuid"
+                , "usp_site_count_by_uuid"
                 , parameters
                 );          
             }
@@ -745,7 +745,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteCode(
+        public virtual int CountSiteByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -755,7 +755,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_count_code"
+                , "usp_site_count_by_code"
                 , parameters
                 );          
             }
@@ -765,7 +765,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteTypeId(
+        public virtual int CountSiteByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -775,7 +775,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_count_type_id"
+                , "usp_site_count_by_type_id"
                 , parameters
                 );          
             }
@@ -785,7 +785,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteCodeTypeId(
+        public virtual int CountSiteByCodeByTypeId(
              code
             ,  type_id
         )  {
@@ -797,7 +797,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_count_code_type_id"
+                , "usp_site_count_by_code_by_type_id"
                 , parameters
                 );          
             }
@@ -807,7 +807,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteDomainTypeId(
+        public virtual int CountSiteByDomainByTypeId(
              domain
             ,  type_id
         )  {
@@ -819,7 +819,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_count_domain_type_id"
+                , "usp_site_count_by_domain_by_type_id"
                 , parameters
                 );          
             }
@@ -829,7 +829,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteDomain(
+        public virtual int CountSiteByDomain(
              domain
         )  {
             List<SqlParameter> parameters 
@@ -839,7 +839,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_count_domain"
+                , "usp_site_count_by_domain"
                 , parameters
                 );          
             }
@@ -849,7 +849,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseSiteListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseSiteListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -861,7 +861,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_browse_filter"
+                , "usp_site_browse_by_filter"
                 , "site"
                 , parameters
                 );         
@@ -873,7 +873,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteUuid(string set_type, Site obj)  {
+        public virtual bool SetSiteByUuid(string set_type, Site obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -894,7 +894,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_set_uuid"
+                , "usp_site_set_by_uuid"
                 , parameters
                 );          
             }
@@ -905,7 +905,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteCode(string set_type, Site obj)  {
+        public virtual bool SetSiteByCode(string set_type, Site obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -926,7 +926,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_set_code"
+                , "usp_site_set_by_code"
                 , parameters
                 );          
             }
@@ -937,7 +937,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteUuid(
+        public virtual bool DelSiteByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -947,7 +947,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_site_del_uuid"
+                    , "usp_site_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -958,7 +958,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteCode(
+        public virtual bool DelSiteByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -968,7 +968,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_site_del_code"
+                    , "usp_site_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -998,7 +998,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListUuid(
+        public virtual DataSet GetSiteListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1008,7 +1008,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_get_uuid"
+                , "usp_site_get_by_uuid"
                 , "site"
                 , parameters
                 );           
@@ -1019,7 +1019,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListCode(
+        public virtual DataSet GetSiteListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1029,7 +1029,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_get_code"
+                , "usp_site_get_by_code"
                 , "site"
                 , parameters
                 );           
@@ -1040,7 +1040,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListTypeId(
+        public virtual DataSet GetSiteListByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -1050,7 +1050,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_get_type_id"
+                , "usp_site_get_by_type_id"
                 , "site"
                 , parameters
                 );           
@@ -1061,7 +1061,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListCodeTypeId(
+        public virtual DataSet GetSiteListByCodeByTypeId(
              code
             ,  type_id
         )  {
@@ -1073,7 +1073,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_get_code_type_id"
+                , "usp_site_get_by_code_by_type_id"
                 , "site"
                 , parameters
                 );           
@@ -1084,7 +1084,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListDomainTypeId(
+        public virtual DataSet GetSiteListByDomainByTypeId(
              domain
             ,  type_id
         )  {
@@ -1096,7 +1096,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_get_domain_type_id"
+                , "usp_site_get_by_domain_by_type_id"
                 , "site"
                 , parameters
                 );           
@@ -1107,7 +1107,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteListDomain(
+        public virtual DataSet GetSiteListByDomain(
              domain
         )  {
             List<SqlParameter> parameters 
@@ -1117,7 +1117,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_get_domain"
+                , "usp_site_get_by_domain"
                 , "site"
                 , parameters
                 );           
@@ -1146,7 +1146,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteTypeUuid(
+        public virtual int CountSiteTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1156,7 +1156,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_type_count_uuid"
+                , "usp_site_type_count_by_uuid"
                 , parameters
                 );          
             }
@@ -1166,7 +1166,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteTypeCode(
+        public virtual int CountSiteTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1176,7 +1176,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_type_count_code"
+                , "usp_site_type_count_by_code"
                 , parameters
                 );          
             }
@@ -1186,7 +1186,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseSiteTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseSiteTypeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -1198,7 +1198,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_type_browse_filter"
+                , "usp_site_type_browse_by_filter"
                 , "site_type"
                 , parameters
                 );         
@@ -1210,7 +1210,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteTypeUuid(string set_type, SiteType obj)  {
+        public virtual bool SetSiteTypeByUuid(string set_type, SiteType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1229,7 +1229,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_type_set_uuid"
+                , "usp_site_type_set_by_uuid"
                 , parameters
                 );          
             }
@@ -1240,7 +1240,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteTypeCode(string set_type, SiteType obj)  {
+        public virtual bool SetSiteTypeByCode(string set_type, SiteType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1259,7 +1259,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_type_set_code"
+                , "usp_site_type_set_by_code"
                 , parameters
                 );          
             }
@@ -1270,7 +1270,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteTypeUuid(
+        public virtual bool DelSiteTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1280,7 +1280,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_site_type_del_uuid"
+                    , "usp_site_type_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -1291,7 +1291,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteTypeCode(
+        public virtual bool DelSiteTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1301,7 +1301,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_site_type_del_code"
+                    , "usp_site_type_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -1331,7 +1331,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteTypeListUuid(
+        public virtual DataSet GetSiteTypeListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1341,7 +1341,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_type_get_uuid"
+                , "usp_site_type_get_by_uuid"
                 , "site_type"
                 , parameters
                 );           
@@ -1352,7 +1352,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteTypeListCode(
+        public virtual DataSet GetSiteTypeListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1362,7 +1362,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_type_get_code"
+                , "usp_site_type_get_by_code"
                 , "site_type"
                 , parameters
                 );           
@@ -1391,7 +1391,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgUuid(
+        public virtual int CountOrgByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1401,7 +1401,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_count_uuid"
+                , "usp_org_count_by_uuid"
                 , parameters
                 );          
             }
@@ -1411,7 +1411,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgCode(
+        public virtual int CountOrgByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1421,7 +1421,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_count_code"
+                , "usp_org_count_by_code"
                 , parameters
                 );          
             }
@@ -1431,7 +1431,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgName(
+        public virtual int CountOrgByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -1441,7 +1441,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_count_name"
+                , "usp_org_count_by_name"
                 , parameters
                 );          
             }
@@ -1451,7 +1451,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOrgListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOrgListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -1463,7 +1463,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_browse_filter"
+                , "usp_org_browse_by_filter"
                 , "org"
                 , parameters
                 );         
@@ -1475,7 +1475,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgUuid(string set_type, Org obj)  {
+        public virtual bool SetOrgByUuid(string set_type, Org obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1495,7 +1495,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_set_uuid"
+                , "usp_org_set_by_uuid"
                 , parameters
                 );          
             }
@@ -1506,7 +1506,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgUuid(
+        public virtual bool DelOrgByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1516,7 +1516,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_org_del_uuid"
+                    , "usp_org_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -1546,7 +1546,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgListUuid(
+        public virtual DataSet GetOrgListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1556,7 +1556,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_get_uuid"
+                , "usp_org_get_by_uuid"
                 , "org"
                 , parameters
                 );           
@@ -1567,7 +1567,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgListCode(
+        public virtual DataSet GetOrgListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1577,7 +1577,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_get_code"
+                , "usp_org_get_by_code"
                 , "org"
                 , parameters
                 );           
@@ -1588,7 +1588,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgListName(
+        public virtual DataSet GetOrgListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -1598,7 +1598,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_get_name"
+                , "usp_org_get_by_name"
                 , "org"
                 , parameters
                 );           
@@ -1627,7 +1627,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgTypeUuid(
+        public virtual int CountOrgTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1637,7 +1637,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_type_count_uuid"
+                , "usp_org_type_count_by_uuid"
                 , parameters
                 );          
             }
@@ -1647,7 +1647,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgTypeCode(
+        public virtual int CountOrgTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1657,7 +1657,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_type_count_code"
+                , "usp_org_type_count_by_code"
                 , parameters
                 );          
             }
@@ -1667,7 +1667,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOrgTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOrgTypeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -1679,7 +1679,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_type_browse_filter"
+                , "usp_org_type_browse_by_filter"
                 , "org_type"
                 , parameters
                 );         
@@ -1691,7 +1691,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgTypeUuid(string set_type, OrgType obj)  {
+        public virtual bool SetOrgTypeByUuid(string set_type, OrgType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1710,7 +1710,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_type_set_uuid"
+                , "usp_org_type_set_by_uuid"
                 , parameters
                 );          
             }
@@ -1721,7 +1721,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgTypeCode(string set_type, OrgType obj)  {
+        public virtual bool SetOrgTypeByCode(string set_type, OrgType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -1740,7 +1740,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_type_set_code"
+                , "usp_org_type_set_by_code"
                 , parameters
                 );          
             }
@@ -1751,7 +1751,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgTypeUuid(
+        public virtual bool DelOrgTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1761,7 +1761,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_org_type_del_uuid"
+                    , "usp_org_type_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -1772,7 +1772,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgTypeCode(
+        public virtual bool DelOrgTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1782,7 +1782,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_org_type_del_code"
+                    , "usp_org_type_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -1812,7 +1812,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgTypeListUuid(
+        public virtual DataSet GetOrgTypeListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1822,7 +1822,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_type_get_uuid"
+                , "usp_org_type_get_by_uuid"
                 , "org_type"
                 , parameters
                 );           
@@ -1833,7 +1833,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgTypeListCode(
+        public virtual DataSet GetOrgTypeListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1843,7 +1843,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_type_get_code"
+                , "usp_org_type_get_by_code"
                 , "org_type"
                 , parameters
                 );           
@@ -1872,7 +1872,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemUuid(
+        public virtual int CountContentItemByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -1882,7 +1882,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_count_uuid"
+                , "usp_content_item_count_by_uuid"
                 , parameters
                 );          
             }
@@ -1892,7 +1892,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemCode(
+        public virtual int CountContentItemByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -1902,7 +1902,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_count_code"
+                , "usp_content_item_count_by_code"
                 , parameters
                 );          
             }
@@ -1912,7 +1912,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemName(
+        public virtual int CountContentItemByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -1922,7 +1922,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_count_name"
+                , "usp_content_item_count_by_name"
                 , parameters
                 );          
             }
@@ -1932,7 +1932,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemPath(
+        public virtual int CountContentItemByPath(
              path
         )  {
             List<SqlParameter> parameters 
@@ -1942,7 +1942,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_count_path"
+                , "usp_content_item_count_by_path"
                 , parameters
                 );          
             }
@@ -1952,7 +1952,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseContentItemListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseContentItemListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -1964,7 +1964,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_browse_filter"
+                , "usp_content_item_browse_by_filter"
                 , "content_item"
                 , parameters
                 );         
@@ -1976,7 +1976,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentItemUuid(string set_type, ContentItem obj)  {
+        public virtual bool SetContentItemByUuid(string set_type, ContentItem obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2000,7 +2000,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_set_uuid"
+                , "usp_content_item_set_by_uuid"
                 , parameters
                 );          
             }
@@ -2011,7 +2011,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemUuid(
+        public virtual bool DelContentItemByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2021,7 +2021,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_content_item_del_uuid"
+                    , "usp_content_item_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -2032,7 +2032,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemPath(
+        public virtual bool DelContentItemByPath(
              path
         )  {
             List<SqlParameter> parameters 
@@ -2042,7 +2042,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_content_item_del_path"
+                    , "usp_content_item_del_by_path"
                     , parameters
                     );
                 return true;            
@@ -2072,7 +2072,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemListUuid(
+        public virtual DataSet GetContentItemListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2082,7 +2082,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_get_uuid"
+                , "usp_content_item_get_by_uuid"
                 , "content_item"
                 , parameters
                 );           
@@ -2093,7 +2093,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemListCode(
+        public virtual DataSet GetContentItemListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -2103,7 +2103,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_get_code"
+                , "usp_content_item_get_by_code"
                 , "content_item"
                 , parameters
                 );           
@@ -2114,7 +2114,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemListName(
+        public virtual DataSet GetContentItemListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -2124,7 +2124,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_get_name"
+                , "usp_content_item_get_by_name"
                 , "content_item"
                 , parameters
                 );           
@@ -2135,7 +2135,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemListPath(
+        public virtual DataSet GetContentItemListByPath(
              path
         )  {
             List<SqlParameter> parameters 
@@ -2145,7 +2145,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_get_path"
+                , "usp_content_item_get_by_path"
                 , "content_item"
                 , parameters
                 );           
@@ -2174,7 +2174,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemTypeUuid(
+        public virtual int CountContentItemTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2184,7 +2184,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_type_count_uuid"
+                , "usp_content_item_type_count_by_uuid"
                 , parameters
                 );          
             }
@@ -2194,7 +2194,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentItemTypeCode(
+        public virtual int CountContentItemTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -2204,7 +2204,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_type_count_code"
+                , "usp_content_item_type_count_by_code"
                 , parameters
                 );          
             }
@@ -2214,7 +2214,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseContentItemTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseContentItemTypeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2226,7 +2226,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_type_browse_filter"
+                , "usp_content_item_type_browse_by_filter"
                 , "content_item_type"
                 , parameters
                 );         
@@ -2238,7 +2238,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentItemTypeUuid(string set_type, ContentItemType obj)  {
+        public virtual bool SetContentItemTypeByUuid(string set_type, ContentItemType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2257,7 +2257,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_type_set_uuid"
+                , "usp_content_item_type_set_by_uuid"
                 , parameters
                 );          
             }
@@ -2268,7 +2268,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentItemTypeCode(string set_type, ContentItemType obj)  {
+        public virtual bool SetContentItemTypeByCode(string set_type, ContentItemType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2287,7 +2287,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_type_set_code"
+                , "usp_content_item_type_set_by_code"
                 , parameters
                 );          
             }
@@ -2298,7 +2298,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemTypeUuid(
+        public virtual bool DelContentItemTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2308,7 +2308,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_content_item_type_del_uuid"
+                    , "usp_content_item_type_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -2319,7 +2319,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentItemTypeCode(
+        public virtual bool DelContentItemTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -2329,7 +2329,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_content_item_type_del_code"
+                    , "usp_content_item_type_del_by_code"
                     , parameters
                     );
                 return true;            
@@ -2359,7 +2359,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemTypeListUuid(
+        public virtual DataSet GetContentItemTypeListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2369,7 +2369,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_type_get_uuid"
+                , "usp_content_item_type_get_by_uuid"
                 , "content_item_type"
                 , parameters
                 );           
@@ -2380,7 +2380,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentItemTypeListCode(
+        public virtual DataSet GetContentItemTypeListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -2390,7 +2390,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_item_type_get_code"
+                , "usp_content_item_type_get_by_code"
                 , "content_item_type"
                 , parameters
                 );           
@@ -2419,7 +2419,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageUuid(
+        public virtual int CountContentPageByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2429,7 +2429,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_count_uuid"
+                , "usp_content_page_count_by_uuid"
                 , parameters
                 );          
             }
@@ -2439,7 +2439,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageCode(
+        public virtual int CountContentPageByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -2449,7 +2449,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_count_code"
+                , "usp_content_page_count_by_code"
                 , parameters
                 );          
             }
@@ -2459,7 +2459,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPageName(
+        public virtual int CountContentPageByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -2469,7 +2469,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_count_name"
+                , "usp_content_page_count_by_name"
                 , parameters
                 );          
             }
@@ -2479,7 +2479,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountContentPagePath(
+        public virtual int CountContentPageByPath(
              path
         )  {
             List<SqlParameter> parameters 
@@ -2489,7 +2489,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_count_path"
+                , "usp_content_page_count_by_path"
                 , parameters
                 );          
             }
@@ -2499,7 +2499,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseContentPageListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseContentPageListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2511,7 +2511,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_browse_filter"
+                , "usp_content_page_browse_by_filter"
                 , "content_page"
                 , parameters
                 );         
@@ -2523,7 +2523,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetContentPageUuid(string set_type, ContentPage obj)  {
+        public virtual bool SetContentPageByUuid(string set_type, ContentPage obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2532,6 +2532,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@display_name", obj.display_name));
             parameters.Add(new SqlParameter("@name", obj.name));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@date_end", obj.date_end));
             parameters.Add(new SqlParameter("@date_start", obj.date_start));
             parameters.Add(new SqlParameter("@site_id", obj.site_id));
@@ -2547,7 +2548,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_set_uuid"
+                , "usp_content_page_set_by_uuid"
                 , parameters
                 );          
             }
@@ -2558,7 +2559,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentPageUuid(
+        public virtual bool DelContentPageByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2568,7 +2569,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_content_page_del_uuid"
+                    , "usp_content_page_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -2579,7 +2580,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentPagePathSiteId(
+        public virtual bool DelContentPageByPathBySiteId(
              path
             ,  site_id
         )  {
@@ -2591,7 +2592,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_content_page_del_path_site_id"
+                    , "usp_content_page_del_by_path_by_site_id"
                     , parameters
                     );
                 return true;            
@@ -2602,7 +2603,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelContentPagePath(
+        public virtual bool DelContentPageByPath(
              path
         )  {
             List<SqlParameter> parameters 
@@ -2612,7 +2613,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_content_page_del_path"
+                    , "usp_content_page_del_by_path"
                     , parameters
                     );
                 return true;            
@@ -2642,7 +2643,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListUuid(
+        public virtual DataSet GetContentPageListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2652,7 +2653,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_get_uuid"
+                , "usp_content_page_get_by_uuid"
                 , "content_page"
                 , parameters
                 );           
@@ -2663,7 +2664,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListCode(
+        public virtual DataSet GetContentPageListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -2673,7 +2674,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_get_code"
+                , "usp_content_page_get_by_code"
                 , "content_page"
                 , parameters
                 );           
@@ -2684,7 +2685,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListName(
+        public virtual DataSet GetContentPageListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -2694,7 +2695,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_get_name"
+                , "usp_content_page_get_by_name"
                 , "content_page"
                 , parameters
                 );           
@@ -2705,7 +2706,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListPath(
+        public virtual DataSet GetContentPageListByPath(
              path
         )  {
             List<SqlParameter> parameters 
@@ -2715,7 +2716,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_get_path"
+                , "usp_content_page_get_by_path"
                 , "content_page"
                 , parameters
                 );           
@@ -2726,7 +2727,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListSiteId(
+        public virtual DataSet GetContentPageListBySiteId(
              site_id
         )  {
             List<SqlParameter> parameters 
@@ -2736,7 +2737,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_get_site_id"
+                , "usp_content_page_get_by_site_id"
                 , "content_page"
                 , parameters
                 );           
@@ -2747,7 +2748,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetContentPageListSiteIdPath(
+        public virtual DataSet GetContentPageListBySiteIdByPath(
              site_id
             ,  path
         )  {
@@ -2759,7 +2760,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_content_page_get_site_id_path"
+                , "usp_content_page_get_by_site_id_by_path"
                 , "content_page"
                 , parameters
                 );           
@@ -2788,7 +2789,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountMessageUuid(
+        public virtual int CountMessageByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2798,7 +2799,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_message_count_uuid"
+                , "usp_message_count_by_uuid"
                 , parameters
                 );          
             }
@@ -2808,7 +2809,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseMessageListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseMessageListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -2820,7 +2821,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_message_browse_filter"
+                , "usp_message_browse_by_filter"
                 , "message"
                 , parameters
                 );         
@@ -2832,7 +2833,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetMessageUuid(string set_type, Message obj)  {
+        public virtual bool SetMessageByUuid(string set_type, Message obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -2843,6 +2844,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@profile_to_token", obj.profile_to_token));
             parameters.Add(new SqlParameter("@app_id", obj.app_id));
             parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@subject", obj.subject));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
@@ -2856,7 +2858,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_message_set_uuid"
+                , "usp_message_set_by_uuid"
                 , parameters
                 );          
             }
@@ -2867,7 +2869,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelMessageUuid(
+        public virtual bool DelMessageByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2877,7 +2879,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_message_del_uuid"
+                    , "usp_message_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -2907,7 +2909,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetMessageListUuid(
+        public virtual DataSet GetMessageListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2917,7 +2919,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_message_get_uuid"
+                , "usp_message_get_by_uuid"
                 , "message"
                 , parameters
                 );           
@@ -2946,7 +2948,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferUuid(
+        public virtual int CountOfferByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -2956,7 +2958,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_count_uuid"
+                , "usp_offer_count_by_uuid"
                 , parameters
                 );          
             }
@@ -2966,7 +2968,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCode(
+        public virtual int CountOfferByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -2976,7 +2978,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_count_code"
+                , "usp_offer_count_by_code"
                 , parameters
                 );          
             }
@@ -2986,7 +2988,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferName(
+        public virtual int CountOfferByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -2996,7 +2998,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_count_name"
+                , "usp_offer_count_by_name"
                 , parameters
                 );          
             }
@@ -3006,7 +3008,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferOrgId(
+        public virtual int CountOfferByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -3016,7 +3018,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_count_org_id"
+                , "usp_offer_count_by_org_id"
                 , parameters
                 );          
             }
@@ -3026,7 +3028,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -3038,7 +3040,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_browse_filter"
+                , "usp_offer_browse_by_filter"
                 , "offer"
                 , parameters
                 );         
@@ -3050,7 +3052,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferUuid(string set_type, Offer obj)  {
+        public virtual bool SetOfferByUuid(string set_type, Offer obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3060,6 +3062,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@name", obj.name));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@url", obj.url));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@type_id", obj.type_id));
             parameters.Add(new SqlParameter("@org_id", obj.org_id));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
@@ -3073,7 +3076,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_set_uuid"
+                , "usp_offer_set_by_uuid"
                 , parameters
                 );          
             }
@@ -3084,7 +3087,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferUuid(
+        public virtual bool DelOfferByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3094,7 +3097,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_del_uuid"
+                    , "usp_offer_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -3105,7 +3108,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferOrgId(
+        public virtual bool DelOfferByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -3115,7 +3118,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_del_org_id"
+                    , "usp_offer_del_by_org_id"
                     , parameters
                     );
                 return true;            
@@ -3145,7 +3148,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferListUuid(
+        public virtual DataSet GetOfferListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3155,7 +3158,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_get_uuid"
+                , "usp_offer_get_by_uuid"
                 , "offer"
                 , parameters
                 );           
@@ -3166,7 +3169,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferListCode(
+        public virtual DataSet GetOfferListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -3176,7 +3179,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_get_code"
+                , "usp_offer_get_by_code"
                 , "offer"
                 , parameters
                 );           
@@ -3187,7 +3190,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferListName(
+        public virtual DataSet GetOfferListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -3197,7 +3200,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_get_name"
+                , "usp_offer_get_by_name"
                 , "offer"
                 , parameters
                 );           
@@ -3208,7 +3211,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferListOrgId(
+        public virtual DataSet GetOfferListByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -3218,7 +3221,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_get_org_id"
+                , "usp_offer_get_by_org_id"
                 , "offer"
                 , parameters
                 );           
@@ -3247,7 +3250,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferTypeUuid(
+        public virtual int CountOfferTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3257,7 +3260,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_type_count_uuid"
+                , "usp_offer_type_count_by_uuid"
                 , parameters
                 );          
             }
@@ -3267,7 +3270,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferTypeCode(
+        public virtual int CountOfferTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -3277,7 +3280,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_type_count_code"
+                , "usp_offer_type_count_by_code"
                 , parameters
                 );          
             }
@@ -3287,7 +3290,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferTypeName(
+        public virtual int CountOfferTypeByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -3297,7 +3300,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_type_count_name"
+                , "usp_offer_type_count_by_name"
                 , parameters
                 );          
             }
@@ -3307,7 +3310,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferTypeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -3319,7 +3322,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_type_browse_filter"
+                , "usp_offer_type_browse_by_filter"
                 , "offer_type"
                 , parameters
                 );         
@@ -3331,7 +3334,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferTypeUuid(string set_type, OfferType obj)  {
+        public virtual bool SetOfferTypeByUuid(string set_type, OfferType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3350,7 +3353,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_type_set_uuid"
+                , "usp_offer_type_set_by_uuid"
                 , parameters
                 );          
             }
@@ -3361,7 +3364,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferTypeUuid(
+        public virtual bool DelOfferTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3371,7 +3374,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_type_del_uuid"
+                    , "usp_offer_type_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -3401,7 +3404,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferTypeListUuid(
+        public virtual DataSet GetOfferTypeListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3411,7 +3414,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_type_get_uuid"
+                , "usp_offer_type_get_by_uuid"
                 , "offer_type"
                 , parameters
                 );           
@@ -3422,7 +3425,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferTypeListCode(
+        public virtual DataSet GetOfferTypeListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -3432,7 +3435,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_type_get_code"
+                , "usp_offer_type_get_by_code"
                 , "offer_type"
                 , parameters
                 );           
@@ -3443,7 +3446,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferTypeListName(
+        public virtual DataSet GetOfferTypeListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -3453,7 +3456,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_type_get_name"
+                , "usp_offer_type_get_by_name"
                 , "offer_type"
                 , parameters
                 );           
@@ -3482,7 +3485,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationUuid(
+        public virtual int CountOfferLocationByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3492,7 +3495,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_count_uuid"
+                , "usp_offer_location_count_by_uuid"
                 , parameters
                 );          
             }
@@ -3502,7 +3505,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationOfferId(
+        public virtual int CountOfferLocationByOfferId(
              offer_id
         )  {
             List<SqlParameter> parameters 
@@ -3512,7 +3515,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_count_offer_id"
+                , "usp_offer_location_count_by_offer_id"
                 , parameters
                 );          
             }
@@ -3522,7 +3525,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationCity(
+        public virtual int CountOfferLocationByCity(
              city
         )  {
             List<SqlParameter> parameters 
@@ -3532,7 +3535,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_count_city"
+                , "usp_offer_location_count_by_city"
                 , parameters
                 );          
             }
@@ -3542,7 +3545,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationCountryCode(
+        public virtual int CountOfferLocationByCountryCode(
              country_code
         )  {
             List<SqlParameter> parameters 
@@ -3552,7 +3555,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_count_country_code"
+                , "usp_offer_location_count_by_country_code"
                 , parameters
                 );          
             }
@@ -3562,7 +3565,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferLocationPostalCode(
+        public virtual int CountOfferLocationByPostalCode(
              postal_code
         )  {
             List<SqlParameter> parameters 
@@ -3572,7 +3575,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_count_postal_code"
+                , "usp_offer_location_count_by_postal_code"
                 , parameters
                 );          
             }
@@ -3582,7 +3585,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferLocationListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferLocationListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -3594,7 +3597,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_browse_filter"
+                , "usp_offer_location_browse_by_filter"
                 , "offer_location"
                 , parameters
                 );         
@@ -3606,7 +3609,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferLocationUuid(string set_type, OfferLocation obj)  {
+        public virtual bool SetOfferLocationByUuid(string set_type, OfferLocation obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3622,6 +3625,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@country_code", obj.country_code));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@state_province", obj.state_province));
             parameters.Add(new SqlParameter("@city", obj.city));
@@ -3642,7 +3646,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_set_uuid"
+                , "usp_offer_location_set_by_uuid"
                 , parameters
                 );          
             }
@@ -3653,7 +3657,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferLocationUuid(
+        public virtual bool DelOfferLocationByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3663,7 +3667,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_location_del_uuid"
+                    , "usp_offer_location_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -3693,7 +3697,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListUuid(
+        public virtual DataSet GetOfferLocationListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3703,7 +3707,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_get_uuid"
+                , "usp_offer_location_get_by_uuid"
                 , "offer_location"
                 , parameters
                 );           
@@ -3714,7 +3718,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListOfferId(
+        public virtual DataSet GetOfferLocationListByOfferId(
              offer_id
         )  {
             List<SqlParameter> parameters 
@@ -3724,7 +3728,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_get_offer_id"
+                , "usp_offer_location_get_by_offer_id"
                 , "offer_location"
                 , parameters
                 );           
@@ -3735,7 +3739,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListCity(
+        public virtual DataSet GetOfferLocationListByCity(
              city
         )  {
             List<SqlParameter> parameters 
@@ -3745,7 +3749,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_get_city"
+                , "usp_offer_location_get_by_city"
                 , "offer_location"
                 , parameters
                 );           
@@ -3756,7 +3760,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListCountryCode(
+        public virtual DataSet GetOfferLocationListByCountryCode(
              country_code
         )  {
             List<SqlParameter> parameters 
@@ -3766,7 +3770,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_get_country_code"
+                , "usp_offer_location_get_by_country_code"
                 , "offer_location"
                 , parameters
                 );           
@@ -3777,7 +3781,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferLocationListPostalCode(
+        public virtual DataSet GetOfferLocationListByPostalCode(
              postal_code
         )  {
             List<SqlParameter> parameters 
@@ -3787,7 +3791,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_location_get_postal_code"
+                , "usp_offer_location_get_by_postal_code"
                 , "offer_location"
                 , parameters
                 );           
@@ -3816,7 +3820,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryUuid(
+        public virtual int CountOfferCategoryByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -3826,7 +3830,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_count_uuid"
+                , "usp_offer_category_count_by_uuid"
                 , parameters
                 );          
             }
@@ -3836,7 +3840,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryCode(
+        public virtual int CountOfferCategoryByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -3846,7 +3850,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_count_code"
+                , "usp_offer_category_count_by_code"
                 , parameters
                 );          
             }
@@ -3856,7 +3860,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryName(
+        public virtual int CountOfferCategoryByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -3866,7 +3870,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_count_name"
+                , "usp_offer_category_count_by_name"
                 , parameters
                 );          
             }
@@ -3876,7 +3880,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryOrgId(
+        public virtual int CountOfferCategoryByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -3886,7 +3890,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_count_org_id"
+                , "usp_offer_category_count_by_org_id"
                 , parameters
                 );          
             }
@@ -3896,7 +3900,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTypeId(
+        public virtual int CountOfferCategoryByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -3906,7 +3910,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_count_type_id"
+                , "usp_offer_category_count_by_type_id"
                 , parameters
                 );          
             }
@@ -3916,7 +3920,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryOrgIdTypeId(
+        public virtual int CountOfferCategoryByOrgIdByTypeId(
              org_id
             ,  type_id
         )  {
@@ -3928,7 +3932,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_count_org_id_type_id"
+                , "usp_offer_category_count_by_org_id_by_type_id"
                 , parameters
                 );          
             }
@@ -3938,7 +3942,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferCategoryListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferCategoryListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -3950,7 +3954,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_browse_filter"
+                , "usp_offer_category_browse_by_filter"
                 , "offer_category"
                 , parameters
                 );         
@@ -3962,7 +3966,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferCategoryUuid(string set_type, OfferCategory obj)  {
+        public virtual bool SetOfferCategoryByUuid(string set_type, OfferCategory obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -3971,6 +3975,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@display_name", obj.display_name));
             parameters.Add(new SqlParameter("@name", obj.name));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@type_id", obj.type_id));
             parameters.Add(new SqlParameter("@org_id", obj.org_id));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
@@ -3983,7 +3988,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_set_uuid"
+                , "usp_offer_category_set_by_uuid"
                 , parameters
                 );          
             }
@@ -3994,7 +3999,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryUuid(
+        public virtual bool DelOfferCategoryByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4004,7 +4009,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_category_del_uuid"
+                    , "usp_offer_category_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -4015,7 +4020,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryCodeOrgId(
+        public virtual bool DelOfferCategoryByCodeByOrgId(
              code
             ,  org_id
         )  {
@@ -4027,7 +4032,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_category_del_code_org_id"
+                    , "usp_offer_category_del_by_code_by_org_id"
                     , parameters
                     );
                 return true;            
@@ -4038,7 +4043,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryCodeOrgIdTypeId(
+        public virtual bool DelOfferCategoryByCodeByOrgIdByTypeId(
              code
             ,  org_id
             ,  type_id
@@ -4052,7 +4057,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_category_del_code_org_id_type_id"
+                    , "usp_offer_category_del_by_code_by_org_id_by_type_id"
                     , parameters
                     );
                 return true;            
@@ -4082,7 +4087,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListUuid(
+        public virtual DataSet GetOfferCategoryListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4092,7 +4097,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_get_uuid"
+                , "usp_offer_category_get_by_uuid"
                 , "offer_category"
                 , parameters
                 );           
@@ -4103,7 +4108,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListCode(
+        public virtual DataSet GetOfferCategoryListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -4113,7 +4118,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_get_code"
+                , "usp_offer_category_get_by_code"
                 , "offer_category"
                 , parameters
                 );           
@@ -4124,7 +4129,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListName(
+        public virtual DataSet GetOfferCategoryListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -4134,7 +4139,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_get_name"
+                , "usp_offer_category_get_by_name"
                 , "offer_category"
                 , parameters
                 );           
@@ -4145,7 +4150,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListOrgId(
+        public virtual DataSet GetOfferCategoryListByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -4155,7 +4160,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_get_org_id"
+                , "usp_offer_category_get_by_org_id"
                 , "offer_category"
                 , parameters
                 );           
@@ -4166,7 +4171,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListTypeId(
+        public virtual DataSet GetOfferCategoryListByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -4176,7 +4181,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_get_type_id"
+                , "usp_offer_category_get_by_type_id"
                 , "offer_category"
                 , parameters
                 );           
@@ -4187,7 +4192,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryListOrgIdTypeId(
+        public virtual DataSet GetOfferCategoryListByOrgIdByTypeId(
              org_id
             ,  type_id
         )  {
@@ -4199,7 +4204,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_get_org_id_type_id"
+                , "usp_offer_category_get_by_org_id_by_type_id"
                 , "offer_category"
                 , parameters
                 );           
@@ -4228,7 +4233,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeUuid(
+        public virtual int CountOfferCategoryTreeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4238,7 +4243,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_count_uuid"
+                , "usp_offer_category_tree_count_by_uuid"
                 , parameters
                 );          
             }
@@ -4248,7 +4253,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeParentId(
+        public virtual int CountOfferCategoryTreeByParentId(
              parent_id
         )  {
             List<SqlParameter> parameters 
@@ -4258,7 +4263,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_count_parent_id"
+                , "usp_offer_category_tree_count_by_parent_id"
                 , parameters
                 );          
             }
@@ -4268,7 +4273,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeCategoryId(
+        public virtual int CountOfferCategoryTreeByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -4278,7 +4283,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_count_category_id"
+                , "usp_offer_category_tree_count_by_category_id"
                 , parameters
                 );          
             }
@@ -4288,7 +4293,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryTreeParentIdCategoryId(
+        public virtual int CountOfferCategoryTreeByParentIdByCategoryId(
              parent_id
             ,  category_id
         )  {
@@ -4300,7 +4305,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_count_parent_id_category_id"
+                , "usp_offer_category_tree_count_by_parent_id_by_category_id"
                 , parameters
                 );          
             }
@@ -4310,7 +4315,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferCategoryTreeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferCategoryTreeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -4322,7 +4327,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_browse_filter"
+                , "usp_offer_category_tree_browse_by_filter"
                 , "offer_category_tree"
                 , parameters
                 );         
@@ -4334,7 +4339,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferCategoryTreeUuid(string set_type, OfferCategoryTree obj)  {
+        public virtual bool SetOfferCategoryTreeByUuid(string set_type, OfferCategoryTree obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -4351,7 +4356,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_set_uuid"
+                , "usp_offer_category_tree_set_by_uuid"
                 , parameters
                 );          
             }
@@ -4362,7 +4367,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeUuid(
+        public virtual bool DelOfferCategoryTreeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4372,7 +4377,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_category_tree_del_uuid"
+                    , "usp_offer_category_tree_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -4383,7 +4388,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeParentId(
+        public virtual bool DelOfferCategoryTreeByParentId(
              parent_id
         )  {
             List<SqlParameter> parameters 
@@ -4393,7 +4398,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_category_tree_del_parent_id"
+                    , "usp_offer_category_tree_del_by_parent_id"
                     , parameters
                     );
                 return true;            
@@ -4404,7 +4409,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeCategoryId(
+        public virtual bool DelOfferCategoryTreeByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -4414,7 +4419,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_category_tree_del_category_id"
+                    , "usp_offer_category_tree_del_by_category_id"
                     , parameters
                     );
                 return true;            
@@ -4425,7 +4430,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryTreeParentIdCategoryId(
+        public virtual bool DelOfferCategoryTreeByParentIdByCategoryId(
              parent_id
             ,  category_id
         )  {
@@ -4437,7 +4442,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_category_tree_del_parent_id_category_id"
+                    , "usp_offer_category_tree_del_by_parent_id_by_category_id"
                     , parameters
                     );
                 return true;            
@@ -4467,7 +4472,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryTreeListUuid(
+        public virtual DataSet GetOfferCategoryTreeListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4477,7 +4482,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_get_uuid"
+                , "usp_offer_category_tree_get_by_uuid"
                 , "offer_category_tree"
                 , parameters
                 );           
@@ -4488,7 +4493,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryTreeListParentId(
+        public virtual DataSet GetOfferCategoryTreeListByParentId(
              parent_id
         )  {
             List<SqlParameter> parameters 
@@ -4498,7 +4503,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_get_parent_id"
+                , "usp_offer_category_tree_get_by_parent_id"
                 , "offer_category_tree"
                 , parameters
                 );           
@@ -4509,7 +4514,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryTreeListCategoryId(
+        public virtual DataSet GetOfferCategoryTreeListByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -4519,7 +4524,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_get_category_id"
+                , "usp_offer_category_tree_get_by_category_id"
                 , "offer_category_tree"
                 , parameters
                 );           
@@ -4530,7 +4535,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryTreeListParentIdCategoryId(
+        public virtual DataSet GetOfferCategoryTreeListByParentIdByCategoryId(
              parent_id
             ,  category_id
         )  {
@@ -4542,7 +4547,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_tree_get_parent_id_category_id"
+                , "usp_offer_category_tree_get_by_parent_id_by_category_id"
                 , "offer_category_tree"
                 , parameters
                 );           
@@ -4571,7 +4576,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocUuid(
+        public virtual int CountOfferCategoryAssocByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4581,7 +4586,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_count_uuid"
+                , "usp_offer_category_assoc_count_by_uuid"
                 , parameters
                 );          
             }
@@ -4591,7 +4596,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocOfferId(
+        public virtual int CountOfferCategoryAssocByOfferId(
              offer_id
         )  {
             List<SqlParameter> parameters 
@@ -4601,7 +4606,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_count_offer_id"
+                , "usp_offer_category_assoc_count_by_offer_id"
                 , parameters
                 );          
             }
@@ -4611,7 +4616,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocCategoryId(
+        public virtual int CountOfferCategoryAssocByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -4621,7 +4626,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_count_category_id"
+                , "usp_offer_category_assoc_count_by_category_id"
                 , parameters
                 );          
             }
@@ -4631,7 +4636,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferCategoryAssocOfferIdCategoryId(
+        public virtual int CountOfferCategoryAssocByOfferIdByCategoryId(
              offer_id
             ,  category_id
         )  {
@@ -4643,7 +4648,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_count_offer_id_category_id"
+                , "usp_offer_category_assoc_count_by_offer_id_by_category_id"
                 , parameters
                 );          
             }
@@ -4653,7 +4658,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferCategoryAssocListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferCategoryAssocListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -4665,7 +4670,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_browse_filter"
+                , "usp_offer_category_assoc_browse_by_filter"
                 , "offer_category_assoc"
                 , parameters
                 );         
@@ -4677,7 +4682,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferCategoryAssocUuid(string set_type, OfferCategoryAssoc obj)  {
+        public virtual bool SetOfferCategoryAssocByUuid(string set_type, OfferCategoryAssoc obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -4694,7 +4699,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_set_uuid"
+                , "usp_offer_category_assoc_set_by_uuid"
                 , parameters
                 );          
             }
@@ -4705,7 +4710,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferCategoryAssocUuid(
+        public virtual bool DelOfferCategoryAssocByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4715,7 +4720,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_category_assoc_del_uuid"
+                    , "usp_offer_category_assoc_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -4745,7 +4750,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryAssocListUuid(
+        public virtual DataSet GetOfferCategoryAssocListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4755,7 +4760,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_get_uuid"
+                , "usp_offer_category_assoc_get_by_uuid"
                 , "offer_category_assoc"
                 , parameters
                 );           
@@ -4766,7 +4771,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryAssocListOfferId(
+        public virtual DataSet GetOfferCategoryAssocListByOfferId(
              offer_id
         )  {
             List<SqlParameter> parameters 
@@ -4776,7 +4781,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_get_offer_id"
+                , "usp_offer_category_assoc_get_by_offer_id"
                 , "offer_category_assoc"
                 , parameters
                 );           
@@ -4787,7 +4792,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryAssocListCategoryId(
+        public virtual DataSet GetOfferCategoryAssocListByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -4797,7 +4802,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_get_category_id"
+                , "usp_offer_category_assoc_get_by_category_id"
                 , "offer_category_assoc"
                 , parameters
                 );           
@@ -4808,7 +4813,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferCategoryAssocListOfferIdCategoryId(
+        public virtual DataSet GetOfferCategoryAssocListByOfferIdByCategoryId(
              offer_id
             ,  category_id
         )  {
@@ -4820,7 +4825,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_category_assoc_get_offer_id_category_id"
+                , "usp_offer_category_assoc_get_by_offer_id_by_category_id"
                 , "offer_category_assoc"
                 , parameters
                 );           
@@ -4849,7 +4854,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationUuid(
+        public virtual int CountOfferGameLocationByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4859,7 +4864,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_count_uuid"
+                , "usp_offer_game_location_count_by_uuid"
                 , parameters
                 );          
             }
@@ -4869,7 +4874,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationGameLocationId(
+        public virtual int CountOfferGameLocationByGameLocationId(
              game_location_id
         )  {
             List<SqlParameter> parameters 
@@ -4879,7 +4884,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_count_game_location_id"
+                , "usp_offer_game_location_count_by_game_location_id"
                 , parameters
                 );          
             }
@@ -4889,7 +4894,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationOfferId(
+        public virtual int CountOfferGameLocationByOfferId(
              offer_id
         )  {
             List<SqlParameter> parameters 
@@ -4899,7 +4904,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_count_offer_id"
+                , "usp_offer_game_location_count_by_offer_id"
                 , parameters
                 );          
             }
@@ -4909,7 +4914,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOfferGameLocationOfferIdGameLocationId(
+        public virtual int CountOfferGameLocationByOfferIdByGameLocationId(
              offer_id
             ,  game_location_id
         )  {
@@ -4921,7 +4926,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_count_offer_id_game_location_id"
+                , "usp_offer_game_location_count_by_offer_id_by_game_location_id"
                 , parameters
                 );          
             }
@@ -4931,7 +4936,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOfferGameLocationListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOfferGameLocationListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -4943,7 +4948,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_browse_filter"
+                , "usp_offer_game_location_browse_by_filter"
                 , "offer_game_location"
                 , parameters
                 );         
@@ -4955,7 +4960,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOfferGameLocationUuid(string set_type, OfferGameLocation obj)  {
+        public virtual bool SetOfferGameLocationByUuid(string set_type, OfferGameLocation obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -4968,12 +4973,13 @@ namespace platform {
             parameters.Add(new SqlParameter("@offer_id", obj.offer_id));
             parameters.Add(new SqlParameter("@type_id", obj.type_id));
             parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@data", obj.data));
                         
             try { 
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_set_uuid"
+                , "usp_offer_game_location_set_by_uuid"
                 , parameters
                 );          
             }
@@ -4984,7 +4990,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOfferGameLocationUuid(
+        public virtual bool DelOfferGameLocationByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -4994,7 +5000,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_offer_game_location_del_uuid"
+                    , "usp_offer_game_location_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -5024,7 +5030,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferGameLocationListUuid(
+        public virtual DataSet GetOfferGameLocationListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5034,7 +5040,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_get_uuid"
+                , "usp_offer_game_location_get_by_uuid"
                 , "offer_game_location"
                 , parameters
                 );           
@@ -5045,7 +5051,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferGameLocationListGameLocationId(
+        public virtual DataSet GetOfferGameLocationListByGameLocationId(
              game_location_id
         )  {
             List<SqlParameter> parameters 
@@ -5055,7 +5061,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_get_game_location_id"
+                , "usp_offer_game_location_get_by_game_location_id"
                 , "offer_game_location"
                 , parameters
                 );           
@@ -5066,7 +5072,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferGameLocationListOfferId(
+        public virtual DataSet GetOfferGameLocationListByOfferId(
              offer_id
         )  {
             List<SqlParameter> parameters 
@@ -5076,7 +5082,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_get_offer_id"
+                , "usp_offer_game_location_get_by_offer_id"
                 , "offer_game_location"
                 , parameters
                 );           
@@ -5087,7 +5093,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOfferGameLocationListOfferIdGameLocationId(
+        public virtual DataSet GetOfferGameLocationListByOfferIdByGameLocationId(
              offer_id
             ,  game_location_id
         )  {
@@ -5099,7 +5105,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_offer_game_location_get_offer_id_game_location_id"
+                , "usp_offer_game_location_get_by_offer_id_by_game_location_id"
                 , "offer_game_location"
                 , parameters
                 );           
@@ -5128,7 +5134,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoUuid(
+        public virtual int CountEventInfoByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5138,7 +5144,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_count_uuid"
+                , "usp_event_info_count_by_uuid"
                 , parameters
                 );          
             }
@@ -5148,7 +5154,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoCode(
+        public virtual int CountEventInfoByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -5158,7 +5164,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_count_code"
+                , "usp_event_info_count_by_code"
                 , parameters
                 );          
             }
@@ -5168,7 +5174,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoName(
+        public virtual int CountEventInfoByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -5178,7 +5184,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_count_name"
+                , "usp_event_info_count_by_name"
                 , parameters
                 );          
             }
@@ -5188,7 +5194,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventInfoOrgId(
+        public virtual int CountEventInfoByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -5198,7 +5204,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_count_org_id"
+                , "usp_event_info_count_by_org_id"
                 , parameters
                 );          
             }
@@ -5208,7 +5214,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventInfoListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventInfoListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -5220,7 +5226,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_browse_filter"
+                , "usp_event_info_browse_by_filter"
                 , "event_info"
                 , parameters
                 );         
@@ -5232,7 +5238,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventInfoUuid(string set_type, EventInfo obj)  {
+        public virtual bool SetEventInfoByUuid(string set_type, EventInfo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5242,6 +5248,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@name", obj.name));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@url", obj.url));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@org_id", obj.org_id));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@usage_count", obj.usage_count));
@@ -5254,7 +5261,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_set_uuid"
+                , "usp_event_info_set_by_uuid"
                 , parameters
                 );          
             }
@@ -5265,7 +5272,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventInfoUuid(
+        public virtual bool DelEventInfoByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5275,7 +5282,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_info_del_uuid"
+                    , "usp_event_info_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -5286,7 +5293,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventInfoOrgId(
+        public virtual bool DelEventInfoByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -5296,7 +5303,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_info_del_org_id"
+                    , "usp_event_info_del_by_org_id"
                     , parameters
                     );
                 return true;            
@@ -5326,7 +5333,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventInfoListUuid(
+        public virtual DataSet GetEventInfoListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5336,7 +5343,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_get_uuid"
+                , "usp_event_info_get_by_uuid"
                 , "event_info"
                 , parameters
                 );           
@@ -5347,7 +5354,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventInfoListCode(
+        public virtual DataSet GetEventInfoListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -5357,7 +5364,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_get_code"
+                , "usp_event_info_get_by_code"
                 , "event_info"
                 , parameters
                 );           
@@ -5368,7 +5375,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventInfoListName(
+        public virtual DataSet GetEventInfoListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -5378,7 +5385,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_get_name"
+                , "usp_event_info_get_by_name"
                 , "event_info"
                 , parameters
                 );           
@@ -5389,7 +5396,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventInfoListOrgId(
+        public virtual DataSet GetEventInfoListByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -5399,7 +5406,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_info_get_org_id"
+                , "usp_event_info_get_by_org_id"
                 , "event_info"
                 , parameters
                 );           
@@ -5428,7 +5435,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationUuid(
+        public virtual int CountEventLocationByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5438,7 +5445,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_count_uuid"
+                , "usp_event_location_count_by_uuid"
                 , parameters
                 );          
             }
@@ -5448,7 +5455,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationEventId(
+        public virtual int CountEventLocationByEventId(
              event_id
         )  {
             List<SqlParameter> parameters 
@@ -5458,7 +5465,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_count_event_id"
+                , "usp_event_location_count_by_event_id"
                 , parameters
                 );          
             }
@@ -5468,7 +5475,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationCity(
+        public virtual int CountEventLocationByCity(
              city
         )  {
             List<SqlParameter> parameters 
@@ -5478,7 +5485,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_count_city"
+                , "usp_event_location_count_by_city"
                 , parameters
                 );          
             }
@@ -5488,7 +5495,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationCountryCode(
+        public virtual int CountEventLocationByCountryCode(
              country_code
         )  {
             List<SqlParameter> parameters 
@@ -5498,7 +5505,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_count_country_code"
+                , "usp_event_location_count_by_country_code"
                 , parameters
                 );          
             }
@@ -5508,7 +5515,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventLocationPostalCode(
+        public virtual int CountEventLocationByPostalCode(
              postal_code
         )  {
             List<SqlParameter> parameters 
@@ -5518,7 +5525,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_count_postal_code"
+                , "usp_event_location_count_by_postal_code"
                 , parameters
                 );          
             }
@@ -5528,7 +5535,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventLocationListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventLocationListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -5540,7 +5547,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_browse_filter"
+                , "usp_event_location_browse_by_filter"
                 , "event_location"
                 , parameters
                 );         
@@ -5552,7 +5559,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventLocationUuid(string set_type, EventLocation obj)  {
+        public virtual bool SetEventLocationByUuid(string set_type, EventLocation obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5567,6 +5574,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@country_code", obj.country_code));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@state_province", obj.state_province));
             parameters.Add(new SqlParameter("@city", obj.city));
@@ -5588,7 +5596,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_set_uuid"
+                , "usp_event_location_set_by_uuid"
                 , parameters
                 );          
             }
@@ -5599,7 +5607,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventLocationUuid(
+        public virtual bool DelEventLocationByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5609,7 +5617,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_location_del_uuid"
+                    , "usp_event_location_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -5639,7 +5647,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListUuid(
+        public virtual DataSet GetEventLocationListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5649,7 +5657,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_get_uuid"
+                , "usp_event_location_get_by_uuid"
                 , "event_location"
                 , parameters
                 );           
@@ -5660,7 +5668,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListEventId(
+        public virtual DataSet GetEventLocationListByEventId(
              event_id
         )  {
             List<SqlParameter> parameters 
@@ -5670,7 +5678,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_get_event_id"
+                , "usp_event_location_get_by_event_id"
                 , "event_location"
                 , parameters
                 );           
@@ -5681,7 +5689,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListCity(
+        public virtual DataSet GetEventLocationListByCity(
              city
         )  {
             List<SqlParameter> parameters 
@@ -5691,7 +5699,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_get_city"
+                , "usp_event_location_get_by_city"
                 , "event_location"
                 , parameters
                 );           
@@ -5702,7 +5710,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListCountryCode(
+        public virtual DataSet GetEventLocationListByCountryCode(
              country_code
         )  {
             List<SqlParameter> parameters 
@@ -5712,7 +5720,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_get_country_code"
+                , "usp_event_location_get_by_country_code"
                 , "event_location"
                 , parameters
                 );           
@@ -5723,7 +5731,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventLocationListPostalCode(
+        public virtual DataSet GetEventLocationListByPostalCode(
              postal_code
         )  {
             List<SqlParameter> parameters 
@@ -5733,7 +5741,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_location_get_postal_code"
+                , "usp_event_location_get_by_postal_code"
                 , "event_location"
                 , parameters
                 );           
@@ -5762,7 +5770,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryUuid(
+        public virtual int CountEventCategoryByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5772,7 +5780,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_count_uuid"
+                , "usp_event_category_count_by_uuid"
                 , parameters
                 );          
             }
@@ -5782,7 +5790,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryCode(
+        public virtual int CountEventCategoryByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -5792,7 +5800,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_count_code"
+                , "usp_event_category_count_by_code"
                 , parameters
                 );          
             }
@@ -5802,7 +5810,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryName(
+        public virtual int CountEventCategoryByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -5812,7 +5820,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_count_name"
+                , "usp_event_category_count_by_name"
                 , parameters
                 );          
             }
@@ -5822,7 +5830,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryOrgId(
+        public virtual int CountEventCategoryByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -5832,7 +5840,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_count_org_id"
+                , "usp_event_category_count_by_org_id"
                 , parameters
                 );          
             }
@@ -5842,7 +5850,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTypeId(
+        public virtual int CountEventCategoryByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -5852,7 +5860,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_count_type_id"
+                , "usp_event_category_count_by_type_id"
                 , parameters
                 );          
             }
@@ -5862,7 +5870,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryOrgIdTypeId(
+        public virtual int CountEventCategoryByOrgIdByTypeId(
              org_id
             ,  type_id
         )  {
@@ -5874,7 +5882,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_count_org_id_type_id"
+                , "usp_event_category_count_by_org_id_by_type_id"
                 , parameters
                 );          
             }
@@ -5884,7 +5892,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventCategoryListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventCategoryListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -5896,7 +5904,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_browse_filter"
+                , "usp_event_category_browse_by_filter"
                 , "event_category"
                 , parameters
                 );         
@@ -5908,7 +5916,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventCategoryUuid(string set_type, EventCategory obj)  {
+        public virtual bool SetEventCategoryByUuid(string set_type, EventCategory obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -5917,6 +5925,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@display_name", obj.display_name));
             parameters.Add(new SqlParameter("@name", obj.name));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@type_id", obj.type_id));
             parameters.Add(new SqlParameter("@org_id", obj.org_id));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
@@ -5929,7 +5938,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_set_uuid"
+                , "usp_event_category_set_by_uuid"
                 , parameters
                 );          
             }
@@ -5940,7 +5949,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryUuid(
+        public virtual bool DelEventCategoryByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -5950,7 +5959,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_category_del_uuid"
+                    , "usp_event_category_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -5961,7 +5970,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryCodeOrgId(
+        public virtual bool DelEventCategoryByCodeByOrgId(
              code
             ,  org_id
         )  {
@@ -5973,7 +5982,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_category_del_code_org_id"
+                    , "usp_event_category_del_by_code_by_org_id"
                     , parameters
                     );
                 return true;            
@@ -5984,7 +5993,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryCodeOrgIdTypeId(
+        public virtual bool DelEventCategoryByCodeByOrgIdByTypeId(
              code
             ,  org_id
             ,  type_id
@@ -5998,7 +6007,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_category_del_code_org_id_type_id"
+                    , "usp_event_category_del_by_code_by_org_id_by_type_id"
                     , parameters
                     );
                 return true;            
@@ -6028,7 +6037,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListUuid(
+        public virtual DataSet GetEventCategoryListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6038,7 +6047,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_get_uuid"
+                , "usp_event_category_get_by_uuid"
                 , "event_category"
                 , parameters
                 );           
@@ -6049,7 +6058,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListCode(
+        public virtual DataSet GetEventCategoryListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -6059,7 +6068,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_get_code"
+                , "usp_event_category_get_by_code"
                 , "event_category"
                 , parameters
                 );           
@@ -6070,7 +6079,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListName(
+        public virtual DataSet GetEventCategoryListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -6080,7 +6089,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_get_name"
+                , "usp_event_category_get_by_name"
                 , "event_category"
                 , parameters
                 );           
@@ -6091,7 +6100,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListOrgId(
+        public virtual DataSet GetEventCategoryListByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -6101,7 +6110,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_get_org_id"
+                , "usp_event_category_get_by_org_id"
                 , "event_category"
                 , parameters
                 );           
@@ -6112,7 +6121,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListTypeId(
+        public virtual DataSet GetEventCategoryListByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -6122,7 +6131,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_get_type_id"
+                , "usp_event_category_get_by_type_id"
                 , "event_category"
                 , parameters
                 );           
@@ -6133,7 +6142,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryListOrgIdTypeId(
+        public virtual DataSet GetEventCategoryListByOrgIdByTypeId(
              org_id
             ,  type_id
         )  {
@@ -6145,7 +6154,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_get_org_id_type_id"
+                , "usp_event_category_get_by_org_id_by_type_id"
                 , "event_category"
                 , parameters
                 );           
@@ -6174,7 +6183,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeUuid(
+        public virtual int CountEventCategoryTreeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6184,7 +6193,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_count_uuid"
+                , "usp_event_category_tree_count_by_uuid"
                 , parameters
                 );          
             }
@@ -6194,7 +6203,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeParentId(
+        public virtual int CountEventCategoryTreeByParentId(
              parent_id
         )  {
             List<SqlParameter> parameters 
@@ -6204,7 +6213,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_count_parent_id"
+                , "usp_event_category_tree_count_by_parent_id"
                 , parameters
                 );          
             }
@@ -6214,7 +6223,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeCategoryId(
+        public virtual int CountEventCategoryTreeByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -6224,7 +6233,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_count_category_id"
+                , "usp_event_category_tree_count_by_category_id"
                 , parameters
                 );          
             }
@@ -6234,7 +6243,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryTreeParentIdCategoryId(
+        public virtual int CountEventCategoryTreeByParentIdByCategoryId(
              parent_id
             ,  category_id
         )  {
@@ -6246,7 +6255,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_count_parent_id_category_id"
+                , "usp_event_category_tree_count_by_parent_id_by_category_id"
                 , parameters
                 );          
             }
@@ -6256,7 +6265,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventCategoryTreeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventCategoryTreeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -6268,7 +6277,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_browse_filter"
+                , "usp_event_category_tree_browse_by_filter"
                 , "event_category_tree"
                 , parameters
                 );         
@@ -6280,7 +6289,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventCategoryTreeUuid(string set_type, EventCategoryTree obj)  {
+        public virtual bool SetEventCategoryTreeByUuid(string set_type, EventCategoryTree obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6297,7 +6306,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_set_uuid"
+                , "usp_event_category_tree_set_by_uuid"
                 , parameters
                 );          
             }
@@ -6308,7 +6317,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeUuid(
+        public virtual bool DelEventCategoryTreeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6318,7 +6327,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_category_tree_del_uuid"
+                    , "usp_event_category_tree_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -6329,7 +6338,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeParentId(
+        public virtual bool DelEventCategoryTreeByParentId(
              parent_id
         )  {
             List<SqlParameter> parameters 
@@ -6339,7 +6348,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_category_tree_del_parent_id"
+                    , "usp_event_category_tree_del_by_parent_id"
                     , parameters
                     );
                 return true;            
@@ -6350,7 +6359,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeCategoryId(
+        public virtual bool DelEventCategoryTreeByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -6360,7 +6369,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_category_tree_del_category_id"
+                    , "usp_event_category_tree_del_by_category_id"
                     , parameters
                     );
                 return true;            
@@ -6371,7 +6380,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryTreeParentIdCategoryId(
+        public virtual bool DelEventCategoryTreeByParentIdByCategoryId(
              parent_id
             ,  category_id
         )  {
@@ -6383,7 +6392,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_category_tree_del_parent_id_category_id"
+                    , "usp_event_category_tree_del_by_parent_id_by_category_id"
                     , parameters
                     );
                 return true;            
@@ -6413,7 +6422,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryTreeListUuid(
+        public virtual DataSet GetEventCategoryTreeListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6423,7 +6432,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_get_uuid"
+                , "usp_event_category_tree_get_by_uuid"
                 , "event_category_tree"
                 , parameters
                 );           
@@ -6434,7 +6443,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryTreeListParentId(
+        public virtual DataSet GetEventCategoryTreeListByParentId(
              parent_id
         )  {
             List<SqlParameter> parameters 
@@ -6444,7 +6453,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_get_parent_id"
+                , "usp_event_category_tree_get_by_parent_id"
                 , "event_category_tree"
                 , parameters
                 );           
@@ -6455,7 +6464,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryTreeListCategoryId(
+        public virtual DataSet GetEventCategoryTreeListByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -6465,7 +6474,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_get_category_id"
+                , "usp_event_category_tree_get_by_category_id"
                 , "event_category_tree"
                 , parameters
                 );           
@@ -6476,7 +6485,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryTreeListParentIdCategoryId(
+        public virtual DataSet GetEventCategoryTreeListByParentIdByCategoryId(
              parent_id
             ,  category_id
         )  {
@@ -6488,7 +6497,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_tree_get_parent_id_category_id"
+                , "usp_event_category_tree_get_by_parent_id_by_category_id"
                 , "event_category_tree"
                 , parameters
                 );           
@@ -6517,7 +6526,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocUuid(
+        public virtual int CountEventCategoryAssocByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6527,7 +6536,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_count_uuid"
+                , "usp_event_category_assoc_count_by_uuid"
                 , parameters
                 );          
             }
@@ -6537,7 +6546,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocEventId(
+        public virtual int CountEventCategoryAssocByEventId(
              event_id
         )  {
             List<SqlParameter> parameters 
@@ -6547,7 +6556,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_count_event_id"
+                , "usp_event_category_assoc_count_by_event_id"
                 , parameters
                 );          
             }
@@ -6557,7 +6566,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocCategoryId(
+        public virtual int CountEventCategoryAssocByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -6567,7 +6576,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_count_category_id"
+                , "usp_event_category_assoc_count_by_category_id"
                 , parameters
                 );          
             }
@@ -6577,7 +6586,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountEventCategoryAssocEventIdCategoryId(
+        public virtual int CountEventCategoryAssocByEventIdByCategoryId(
              event_id
             ,  category_id
         )  {
@@ -6589,7 +6598,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_count_event_id_category_id"
+                , "usp_event_category_assoc_count_by_event_id_by_category_id"
                 , parameters
                 );          
             }
@@ -6599,7 +6608,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseEventCategoryAssocListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseEventCategoryAssocListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -6611,7 +6620,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_browse_filter"
+                , "usp_event_category_assoc_browse_by_filter"
                 , "event_category_assoc"
                 , parameters
                 );         
@@ -6623,7 +6632,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetEventCategoryAssocUuid(string set_type, EventCategoryAssoc obj)  {
+        public virtual bool SetEventCategoryAssocByUuid(string set_type, EventCategoryAssoc obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6640,7 +6649,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_set_uuid"
+                , "usp_event_category_assoc_set_by_uuid"
                 , parameters
                 );          
             }
@@ -6651,7 +6660,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelEventCategoryAssocUuid(
+        public virtual bool DelEventCategoryAssocByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6661,7 +6670,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_event_category_assoc_del_uuid"
+                    , "usp_event_category_assoc_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -6691,7 +6700,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryAssocListUuid(
+        public virtual DataSet GetEventCategoryAssocListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6701,7 +6710,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_get_uuid"
+                , "usp_event_category_assoc_get_by_uuid"
                 , "event_category_assoc"
                 , parameters
                 );           
@@ -6712,7 +6721,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryAssocListEventId(
+        public virtual DataSet GetEventCategoryAssocListByEventId(
              event_id
         )  {
             List<SqlParameter> parameters 
@@ -6722,7 +6731,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_get_event_id"
+                , "usp_event_category_assoc_get_by_event_id"
                 , "event_category_assoc"
                 , parameters
                 );           
@@ -6733,7 +6742,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryAssocListCategoryId(
+        public virtual DataSet GetEventCategoryAssocListByCategoryId(
              category_id
         )  {
             List<SqlParameter> parameters 
@@ -6743,7 +6752,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_get_category_id"
+                , "usp_event_category_assoc_get_by_category_id"
                 , "event_category_assoc"
                 , parameters
                 );           
@@ -6754,7 +6763,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetEventCategoryAssocListEventIdCategoryId(
+        public virtual DataSet GetEventCategoryAssocListByEventIdByCategoryId(
              event_id
             ,  category_id
         )  {
@@ -6766,7 +6775,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_event_category_assoc_get_event_id_category_id"
+                , "usp_event_category_assoc_get_by_event_id_by_category_id"
                 , "event_category_assoc"
                 , parameters
                 );           
@@ -6795,7 +6804,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelUuid(
+        public virtual int CountChannelByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6805,7 +6814,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_count_uuid"
+                , "usp_channel_count_by_uuid"
                 , parameters
                 );          
             }
@@ -6815,7 +6824,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelCode(
+        public virtual int CountChannelByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -6825,7 +6834,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_count_code"
+                , "usp_channel_count_by_code"
                 , parameters
                 );          
             }
@@ -6835,7 +6844,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelName(
+        public virtual int CountChannelByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -6845,7 +6854,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_count_name"
+                , "usp_channel_count_by_name"
                 , parameters
                 );          
             }
@@ -6855,7 +6864,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelOrgId(
+        public virtual int CountChannelByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -6865,7 +6874,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_count_org_id"
+                , "usp_channel_count_by_org_id"
                 , parameters
                 );          
             }
@@ -6875,7 +6884,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeId(
+        public virtual int CountChannelByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -6885,7 +6894,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_count_type_id"
+                , "usp_channel_count_by_type_id"
                 , parameters
                 );          
             }
@@ -6895,7 +6904,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelOrgIdTypeId(
+        public virtual int CountChannelByOrgIdByTypeId(
              org_id
             ,  type_id
         )  {
@@ -6907,7 +6916,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_count_org_id_type_id"
+                , "usp_channel_count_by_org_id_by_type_id"
                 , parameters
                 );          
             }
@@ -6917,7 +6926,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseChannelListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseChannelListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -6929,7 +6938,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_browse_filter"
+                , "usp_channel_browse_by_filter"
                 , "channel"
                 , parameters
                 );         
@@ -6941,7 +6950,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetChannelUuid(string set_type, Channel obj)  {
+        public virtual bool SetChannelByUuid(string set_type, Channel obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -6950,6 +6959,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@display_name", obj.display_name));
             parameters.Add(new SqlParameter("@name", obj.name));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@type_id", obj.type_id));
             parameters.Add(new SqlParameter("@org_id", obj.org_id));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
@@ -6962,7 +6972,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_set_uuid"
+                , "usp_channel_set_by_uuid"
                 , parameters
                 );          
             }
@@ -6973,7 +6983,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelUuid(
+        public virtual bool DelChannelByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -6983,7 +6993,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_channel_del_uuid"
+                    , "usp_channel_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -6994,7 +7004,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelCodeOrgId(
+        public virtual bool DelChannelByCodeByOrgId(
              code
             ,  org_id
         )  {
@@ -7006,7 +7016,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_channel_del_code_org_id"
+                    , "usp_channel_del_by_code_by_org_id"
                     , parameters
                     );
                 return true;            
@@ -7017,7 +7027,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelCodeOrgIdTypeId(
+        public virtual bool DelChannelByCodeByOrgIdByTypeId(
              code
             ,  org_id
             ,  type_id
@@ -7031,7 +7041,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_channel_del_code_org_id_type_id"
+                    , "usp_channel_del_by_code_by_org_id_by_type_id"
                     , parameters
                     );
                 return true;            
@@ -7061,7 +7071,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListUuid(
+        public virtual DataSet GetChannelListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7071,7 +7081,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_get_uuid"
+                , "usp_channel_get_by_uuid"
                 , "channel"
                 , parameters
                 );           
@@ -7082,7 +7092,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListCode(
+        public virtual DataSet GetChannelListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -7092,7 +7102,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_get_code"
+                , "usp_channel_get_by_code"
                 , "channel"
                 , parameters
                 );           
@@ -7103,7 +7113,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListName(
+        public virtual DataSet GetChannelListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -7113,7 +7123,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_get_name"
+                , "usp_channel_get_by_name"
                 , "channel"
                 , parameters
                 );           
@@ -7124,7 +7134,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListOrgId(
+        public virtual DataSet GetChannelListByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -7134,7 +7144,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_get_org_id"
+                , "usp_channel_get_by_org_id"
                 , "channel"
                 , parameters
                 );           
@@ -7145,7 +7155,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListTypeId(
+        public virtual DataSet GetChannelListByTypeId(
              type_id
         )  {
             List<SqlParameter> parameters 
@@ -7155,7 +7165,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_get_type_id"
+                , "usp_channel_get_by_type_id"
                 , "channel"
                 , parameters
                 );           
@@ -7166,7 +7176,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelListOrgIdTypeId(
+        public virtual DataSet GetChannelListByOrgIdByTypeId(
              org_id
             ,  type_id
         )  {
@@ -7178,7 +7188,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_get_org_id_type_id"
+                , "usp_channel_get_by_org_id_by_type_id"
                 , "channel"
                 , parameters
                 );           
@@ -7207,7 +7217,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeUuid(
+        public virtual int CountChannelTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7217,7 +7227,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_type_count_uuid"
+                , "usp_channel_type_count_by_uuid"
                 , parameters
                 );          
             }
@@ -7227,7 +7237,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeCode(
+        public virtual int CountChannelTypeByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -7237,7 +7247,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_type_count_code"
+                , "usp_channel_type_count_by_code"
                 , parameters
                 );          
             }
@@ -7247,7 +7257,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountChannelTypeName(
+        public virtual int CountChannelTypeByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -7257,7 +7267,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_type_count_name"
+                , "usp_channel_type_count_by_name"
                 , parameters
                 );          
             }
@@ -7267,7 +7277,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseChannelTypeListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseChannelTypeListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -7279,7 +7289,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_type_browse_filter"
+                , "usp_channel_type_browse_by_filter"
                 , "channel_type"
                 , parameters
                 );         
@@ -7291,7 +7301,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetChannelTypeUuid(string set_type, ChannelType obj)  {
+        public virtual bool SetChannelTypeByUuid(string set_type, ChannelType obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7300,6 +7310,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@display_name", obj.display_name));
             parameters.Add(new SqlParameter("@name", obj.name));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
@@ -7310,7 +7321,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_type_set_uuid"
+                , "usp_channel_type_set_by_uuid"
                 , parameters
                 );          
             }
@@ -7321,7 +7332,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelChannelTypeUuid(
+        public virtual bool DelChannelTypeByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7331,7 +7342,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_channel_type_del_uuid"
+                    , "usp_channel_type_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -7361,7 +7372,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelTypeListUuid(
+        public virtual DataSet GetChannelTypeListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7371,7 +7382,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_type_get_uuid"
+                , "usp_channel_type_get_by_uuid"
                 , "channel_type"
                 , parameters
                 );           
@@ -7382,7 +7393,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelTypeListCode(
+        public virtual DataSet GetChannelTypeListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -7392,7 +7403,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_type_get_code"
+                , "usp_channel_type_get_by_code"
                 , "channel_type"
                 , parameters
                 );           
@@ -7403,7 +7414,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetChannelTypeListName(
+        public virtual DataSet GetChannelTypeListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -7413,7 +7424,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_channel_type_get_name"
+                , "usp_channel_type_get_by_name"
                 , "channel_type"
                 , parameters
                 );           
@@ -7442,7 +7453,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionUuid(
+        public virtual int CountQuestionByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7452,7 +7463,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_count_uuid"
+                , "usp_question_count_by_uuid"
                 , parameters
                 );          
             }
@@ -7462,7 +7473,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionCode(
+        public virtual int CountQuestionByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -7472,7 +7483,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_count_code"
+                , "usp_question_count_by_code"
                 , parameters
                 );          
             }
@@ -7482,7 +7493,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionName(
+        public virtual int CountQuestionByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -7492,7 +7503,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_count_name"
+                , "usp_question_count_by_name"
                 , parameters
                 );          
             }
@@ -7502,7 +7513,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionChannelId(
+        public virtual int CountQuestionByChannelId(
              channel_id
         )  {
             List<SqlParameter> parameters 
@@ -7512,7 +7523,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_count_channel_id"
+                , "usp_question_count_by_channel_id"
                 , parameters
                 );          
             }
@@ -7522,7 +7533,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionOrgId(
+        public virtual int CountQuestionByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -7532,7 +7543,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_count_org_id"
+                , "usp_question_count_by_org_id"
                 , parameters
                 );          
             }
@@ -7542,7 +7553,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionChannelIdOrgId(
+        public virtual int CountQuestionByChannelIdByOrgId(
              channel_id
             ,  org_id
         )  {
@@ -7554,7 +7565,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_count_channel_id_org_id"
+                , "usp_question_count_by_channel_id_by_org_id"
                 , parameters
                 );          
             }
@@ -7564,7 +7575,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountQuestionChannelIdCode(
+        public virtual int CountQuestionByChannelIdByCode(
              channel_id
             ,  code
         )  {
@@ -7576,7 +7587,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_count_channel_id_code"
+                , "usp_question_count_by_channel_id_by_code"
                 , parameters
                 );          
             }
@@ -7586,7 +7597,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseQuestionListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseQuestionListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -7598,7 +7609,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_browse_filter"
+                , "usp_question_browse_by_filter"
                 , "question"
                 , parameters
                 );         
@@ -7610,7 +7621,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetQuestionUuid(string set_type, Question obj)  {
+        public virtual bool SetQuestionByUuid(string set_type, Question obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7619,6 +7630,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@display_name", obj.display_name));
             parameters.Add(new SqlParameter("@name", obj.name));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@org_id", obj.org_id));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@choices", obj.choices));
@@ -7632,7 +7644,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_set_uuid"
+                , "usp_question_set_by_uuid"
                 , parameters
                 );          
             }
@@ -7643,7 +7655,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetQuestionChannelIdCode(string set_type, Question obj)  {
+        public virtual bool SetQuestionByChannelIdByCode(string set_type, Question obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -7652,6 +7664,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@display_name", obj.display_name));
             parameters.Add(new SqlParameter("@name", obj.name));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@org_id", obj.org_id));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@choices", obj.choices));
@@ -7665,7 +7678,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_set_channel_id_code"
+                , "usp_question_set_by_channel_id_by_code"
                 , parameters
                 );          
             }
@@ -7676,7 +7689,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelQuestionUuid(
+        public virtual bool DelQuestionByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7686,7 +7699,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_question_del_uuid"
+                    , "usp_question_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -7697,7 +7710,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelQuestionChannelIdOrgId(
+        public virtual bool DelQuestionByChannelIdByOrgId(
              channel_id
             ,  org_id
         )  {
@@ -7709,7 +7722,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_question_del_channel_id_org_id"
+                    , "usp_question_del_by_channel_id_by_org_id"
                     , parameters
                     );
                 return true;            
@@ -7739,7 +7752,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListUuid(
+        public virtual DataSet GetQuestionListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7749,7 +7762,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_get_uuid"
+                , "usp_question_get_by_uuid"
                 , "question"
                 , parameters
                 );           
@@ -7760,7 +7773,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListCode(
+        public virtual DataSet GetQuestionListByCode(
              code
         )  {
             List<SqlParameter> parameters 
@@ -7770,7 +7783,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_get_code"
+                , "usp_question_get_by_code"
                 , "question"
                 , parameters
                 );           
@@ -7781,7 +7794,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListName(
+        public virtual DataSet GetQuestionListByName(
              name
         )  {
             List<SqlParameter> parameters 
@@ -7791,7 +7804,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_get_name"
+                , "usp_question_get_by_name"
                 , "question"
                 , parameters
                 );           
@@ -7802,7 +7815,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListType(
+        public virtual DataSet GetQuestionListByType(
              type
         )  {
             List<SqlParameter> parameters 
@@ -7812,7 +7825,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_get_type"
+                , "usp_question_get_by_type"
                 , "question"
                 , parameters
                 );           
@@ -7823,7 +7836,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListChannelId(
+        public virtual DataSet GetQuestionListByChannelId(
              channel_id
         )  {
             List<SqlParameter> parameters 
@@ -7833,7 +7846,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_get_channel_id"
+                , "usp_question_get_by_channel_id"
                 , "question"
                 , parameters
                 );           
@@ -7844,7 +7857,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListOrgId(
+        public virtual DataSet GetQuestionListByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -7854,7 +7867,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_get_org_id"
+                , "usp_question_get_by_org_id"
                 , "question"
                 , parameters
                 );           
@@ -7865,7 +7878,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListChannelIdOrgId(
+        public virtual DataSet GetQuestionListByChannelIdByOrgId(
              channel_id
             ,  org_id
         )  {
@@ -7877,7 +7890,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_get_channel_id_org_id"
+                , "usp_question_get_by_channel_id_by_org_id"
                 , "question"
                 , parameters
                 );           
@@ -7888,7 +7901,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetQuestionListChannelIdCode(
+        public virtual DataSet GetQuestionListByChannelIdByCode(
              channel_id
             ,  code
         )  {
@@ -7900,7 +7913,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_question_get_channel_id_code"
+                , "usp_question_get_by_channel_id_by_code"
                 , "question"
                 , parameters
                 );           
@@ -7929,7 +7942,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOfferUuid(
+        public virtual int CountProfileOfferByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -7939,7 +7952,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_offer_count_uuid"
+                , "usp_profile_offer_count_by_uuid"
                 , parameters
                 );          
             }
@@ -7949,7 +7962,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOfferProfileId(
+        public virtual int CountProfileOfferByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -7959,7 +7972,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_offer_count_profile_id"
+                , "usp_profile_offer_count_by_profile_id"
                 , parameters
                 );          
             }
@@ -7969,7 +7982,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileOfferListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileOfferListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -7981,7 +7994,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_offer_browse_filter"
+                , "usp_profile_offer_browse_by_filter"
                 , "profile_offer"
                 , parameters
                 );         
@@ -7993,7 +8006,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileOfferUuid(string set_type, ProfileOffer obj)  {
+        public virtual bool SetProfileOfferByUuid(string set_type, ProfileOffer obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8002,6 +8015,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@offer_id", obj.offer_id));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@redeemed", obj.redeemed));
             parameters.Add(new SqlParameter("@url", obj.url));
@@ -8013,7 +8027,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_offer_set_uuid"
+                , "usp_profile_offer_set_by_uuid"
                 , parameters
                 );          
             }
@@ -8024,7 +8038,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileOfferUuid(
+        public virtual bool DelProfileOfferByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8034,7 +8048,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_offer_del_uuid"
+                    , "usp_profile_offer_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -8045,7 +8059,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileOfferProfileId(
+        public virtual bool DelProfileOfferByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -8055,7 +8069,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_offer_del_profile_id"
+                    , "usp_profile_offer_del_by_profile_id"
                     , parameters
                     );
                 return true;            
@@ -8085,7 +8099,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOfferListUuid(
+        public virtual DataSet GetProfileOfferListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8095,7 +8109,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_offer_get_uuid"
+                , "usp_profile_offer_get_by_uuid"
                 , "profile_offer"
                 , parameters
                 );           
@@ -8106,7 +8120,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOfferListProfileId(
+        public virtual DataSet GetProfileOfferListByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -8116,7 +8130,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_offer_get_profile_id"
+                , "usp_profile_offer_get_by_profile_id"
                 , "profile_offer"
                 , parameters
                 );           
@@ -8145,7 +8159,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAppUuid(
+        public virtual int CountProfileAppByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8155,7 +8169,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_app_count_uuid"
+                , "usp_profile_app_count_by_uuid"
                 , parameters
                 );          
             }
@@ -8165,7 +8179,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileAppProfileIdAppId(
+        public virtual int CountProfileAppByProfileIdByAppId(
              profile_id
             ,  app_id
         )  {
@@ -8177,7 +8191,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_app_count_profile_id_app_id"
+                , "usp_profile_app_count_by_profile_id_by_app_id"
                 , parameters
                 );          
             }
@@ -8187,7 +8201,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileAppListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileAppListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -8199,7 +8213,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_app_browse_filter"
+                , "usp_profile_app_browse_by_filter"
                 , "profile_app"
                 , parameters
                 );         
@@ -8211,7 +8225,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAppUuid(string set_type, ProfileApp obj)  {
+        public virtual bool SetProfileAppByUuid(string set_type, ProfileApp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8223,12 +8237,13 @@ namespace platform {
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@type", obj.type));
             parameters.Add(new SqlParameter("@app_id", obj.app_id));
+            parameters.Add(new SqlParameter("@data", obj.data));
                         
             try { 
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_app_set_uuid"
+                , "usp_profile_app_set_by_uuid"
                 , parameters
                 );          
             }
@@ -8239,7 +8254,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileAppProfileIdAppId(string set_type, ProfileApp obj)  {
+        public virtual bool SetProfileAppByProfileIdByAppId(string set_type, ProfileApp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8251,12 +8266,13 @@ namespace platform {
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@type", obj.type));
             parameters.Add(new SqlParameter("@app_id", obj.app_id));
+            parameters.Add(new SqlParameter("@data", obj.data));
                         
             try { 
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_app_set_profile_id_app_id"
+                , "usp_profile_app_set_by_profile_id_by_app_id"
                 , parameters
                 );          
             }
@@ -8267,7 +8283,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAppUuid(
+        public virtual bool DelProfileAppByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8277,7 +8293,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_app_del_uuid"
+                    , "usp_profile_app_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -8288,7 +8304,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileAppProfileIdAppId(
+        public virtual bool DelProfileAppByProfileIdByAppId(
              profile_id
             ,  app_id
         )  {
@@ -8300,7 +8316,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_app_del_profile_id_app_id"
+                    , "usp_profile_app_del_by_profile_id_by_app_id"
                     , parameters
                     );
                 return true;            
@@ -8330,7 +8346,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAppListUuid(
+        public virtual DataSet GetProfileAppListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8340,7 +8356,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_app_get_uuid"
+                , "usp_profile_app_get_by_uuid"
                 , "profile_app"
                 , parameters
                 );           
@@ -8351,7 +8367,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAppListAppId(
+        public virtual DataSet GetProfileAppListByAppId(
              app_id
         )  {
             List<SqlParameter> parameters 
@@ -8361,7 +8377,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_app_get_app_id"
+                , "usp_profile_app_get_by_app_id"
                 , "profile_app"
                 , parameters
                 );           
@@ -8372,7 +8388,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAppListProfileId(
+        public virtual DataSet GetProfileAppListByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -8382,7 +8398,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_app_get_profile_id"
+                , "usp_profile_app_get_by_profile_id"
                 , "profile_app"
                 , parameters
                 );           
@@ -8393,7 +8409,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileAppListProfileIdAppId(
+        public virtual DataSet GetProfileAppListByProfileIdByAppId(
              profile_id
             ,  app_id
         )  {
@@ -8405,7 +8421,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_app_get_profile_id_app_id"
+                , "usp_profile_app_get_by_profile_id_by_app_id"
                 , "profile_app"
                 , parameters
                 );           
@@ -8434,7 +8450,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOrgUuid(
+        public virtual int CountProfileOrgByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8444,7 +8460,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_org_count_uuid"
+                , "usp_profile_org_count_by_uuid"
                 , parameters
                 );          
             }
@@ -8454,7 +8470,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOrgOrgId(
+        public virtual int CountProfileOrgByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -8464,7 +8480,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_org_count_org_id"
+                , "usp_profile_org_count_by_org_id"
                 , parameters
                 );          
             }
@@ -8474,7 +8490,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileOrgProfileId(
+        public virtual int CountProfileOrgByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -8484,7 +8500,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_org_count_profile_id"
+                , "usp_profile_org_count_by_profile_id"
                 , parameters
                 );          
             }
@@ -8494,7 +8510,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileOrgListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileOrgListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -8506,7 +8522,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_org_browse_filter"
+                , "usp_profile_org_browse_by_filter"
                 , "profile_org"
                 , parameters
                 );         
@@ -8518,7 +8534,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileOrgUuid(string set_type, ProfileOrg obj)  {
+        public virtual bool SetProfileOrgByUuid(string set_type, ProfileOrg obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8531,12 +8547,13 @@ namespace platform {
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@type", obj.type));
             parameters.Add(new SqlParameter("@org_id", obj.org_id));
+            parameters.Add(new SqlParameter("@data", obj.data));
                         
             try { 
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_org_set_uuid"
+                , "usp_profile_org_set_by_uuid"
                 , parameters
                 );          
             }
@@ -8547,7 +8564,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileOrgUuid(
+        public virtual bool DelProfileOrgByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8557,7 +8574,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_org_del_uuid"
+                    , "usp_profile_org_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -8587,7 +8604,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOrgListUuid(
+        public virtual DataSet GetProfileOrgListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8597,7 +8614,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_org_get_uuid"
+                , "usp_profile_org_get_by_uuid"
                 , "profile_org"
                 , parameters
                 );           
@@ -8608,7 +8625,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOrgListOrgId(
+        public virtual DataSet GetProfileOrgListByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -8618,7 +8635,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_org_get_org_id"
+                , "usp_profile_org_get_by_org_id"
                 , "profile_org"
                 , parameters
                 );           
@@ -8629,7 +8646,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileOrgListProfileId(
+        public virtual DataSet GetProfileOrgListByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -8639,7 +8656,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_org_get_profile_id"
+                , "usp_profile_org_get_by_profile_id"
                 , "profile_org"
                 , parameters
                 );           
@@ -8668,7 +8685,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionUuid(
+        public virtual int CountProfileQuestionByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8678,7 +8695,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_count_uuid"
+                , "usp_profile_question_count_by_uuid"
                 , parameters
                 );          
             }
@@ -8688,7 +8705,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionChannelId(
+        public virtual int CountProfileQuestionByChannelId(
              channel_id
         )  {
             List<SqlParameter> parameters 
@@ -8698,7 +8715,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_count_channel_id"
+                , "usp_profile_question_count_by_channel_id"
                 , parameters
                 );          
             }
@@ -8708,7 +8725,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionOrgId(
+        public virtual int CountProfileQuestionByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -8718,7 +8735,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_count_org_id"
+                , "usp_profile_question_count_by_org_id"
                 , parameters
                 );          
             }
@@ -8728,7 +8745,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionProfileId(
+        public virtual int CountProfileQuestionByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -8738,7 +8755,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_count_profile_id"
+                , "usp_profile_question_count_by_profile_id"
                 , parameters
                 );          
             }
@@ -8748,7 +8765,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionQuestionId(
+        public virtual int CountProfileQuestionByQuestionId(
              question_id
         )  {
             List<SqlParameter> parameters 
@@ -8758,7 +8775,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_count_question_id"
+                , "usp_profile_question_count_by_question_id"
                 , parameters
                 );          
             }
@@ -8768,7 +8785,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionChannelIdOrgId(
+        public virtual int CountProfileQuestionByChannelIdByOrgId(
              channel_id
             ,  org_id
         )  {
@@ -8780,7 +8797,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_count_channel_id_org_id"
+                , "usp_profile_question_count_by_channel_id_by_org_id"
                 , parameters
                 );          
             }
@@ -8790,7 +8807,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionChannelIdProfileId(
+        public virtual int CountProfileQuestionByChannelIdByProfileId(
              channel_id
             ,  profile_id
         )  {
@@ -8802,7 +8819,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_count_channel_id_profile_id"
+                , "usp_profile_question_count_by_channel_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -8812,7 +8829,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileQuestionQuestionIdProfileId(
+        public virtual int CountProfileQuestionByQuestionIdByProfileId(
              question_id
             ,  profile_id
         )  {
@@ -8824,7 +8841,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_count_question_id_profile_id"
+                , "usp_profile_question_count_by_question_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -8834,7 +8851,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileQuestionListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileQuestionListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -8846,7 +8863,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_browse_filter"
+                , "usp_profile_question_browse_by_filter"
                 , "profile_question"
                 , parameters
                 );         
@@ -8858,7 +8875,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionUuid(string set_type, ProfileQuestion obj)  {
+        public virtual bool SetProfileQuestionByUuid(string set_type, ProfileQuestion obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8879,7 +8896,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_set_uuid"
+                , "usp_profile_question_set_by_uuid"
                 , parameters
                 );          
             }
@@ -8890,7 +8907,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionChannelIdProfileId(string set_type, ProfileQuestion obj)  {
+        public virtual bool SetProfileQuestionByChannelIdByProfileId(string set_type, ProfileQuestion obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8911,7 +8928,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_set_channel_id_profile_id"
+                , "usp_profile_question_set_by_channel_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -8922,7 +8939,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionQuestionIdProfileId(string set_type, ProfileQuestion obj)  {
+        public virtual bool SetProfileQuestionByQuestionIdByProfileId(string set_type, ProfileQuestion obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8943,7 +8960,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_set_question_id_profile_id"
+                , "usp_profile_question_set_by_question_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -8954,7 +8971,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileQuestionChannelIdQuestionIdProfileId(string set_type, ProfileQuestion obj)  {
+        public virtual bool SetProfileQuestionByChannelIdByQuestionIdByProfileId(string set_type, ProfileQuestion obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -8975,7 +8992,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_set_channel_id_question_id_profile_id"
+                , "usp_profile_question_set_by_channel_id_by_question_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -8986,7 +9003,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileQuestionUuid(
+        public virtual bool DelProfileQuestionByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -8996,7 +9013,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_question_del_uuid"
+                    , "usp_profile_question_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -9007,7 +9024,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileQuestionChannelIdOrgId(
+        public virtual bool DelProfileQuestionByChannelIdByOrgId(
              channel_id
             ,  org_id
         )  {
@@ -9019,7 +9036,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_question_del_channel_id_org_id"
+                    , "usp_profile_question_del_by_channel_id_by_org_id"
                     , parameters
                     );
                 return true;            
@@ -9049,7 +9066,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListUuid(
+        public virtual DataSet GetProfileQuestionListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9059,7 +9076,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_get_uuid"
+                , "usp_profile_question_get_by_uuid"
                 , "profile_question"
                 , parameters
                 );           
@@ -9070,7 +9087,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListChannelId(
+        public virtual DataSet GetProfileQuestionListByChannelId(
              channel_id
         )  {
             List<SqlParameter> parameters 
@@ -9080,7 +9097,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_get_channel_id"
+                , "usp_profile_question_get_by_channel_id"
                 , "profile_question"
                 , parameters
                 );           
@@ -9091,7 +9108,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListOrgId(
+        public virtual DataSet GetProfileQuestionListByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -9101,7 +9118,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_get_org_id"
+                , "usp_profile_question_get_by_org_id"
                 , "profile_question"
                 , parameters
                 );           
@@ -9112,7 +9129,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListProfileId(
+        public virtual DataSet GetProfileQuestionListByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -9122,7 +9139,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_get_profile_id"
+                , "usp_profile_question_get_by_profile_id"
                 , "profile_question"
                 , parameters
                 );           
@@ -9133,7 +9150,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListQuestionId(
+        public virtual DataSet GetProfileQuestionListByQuestionId(
              question_id
         )  {
             List<SqlParameter> parameters 
@@ -9143,7 +9160,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_get_question_id"
+                , "usp_profile_question_get_by_question_id"
                 , "profile_question"
                 , parameters
                 );           
@@ -9154,7 +9171,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListChannelIdOrgId(
+        public virtual DataSet GetProfileQuestionListByChannelIdByOrgId(
              channel_id
             ,  org_id
         )  {
@@ -9166,7 +9183,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_get_channel_id_org_id"
+                , "usp_profile_question_get_by_channel_id_by_org_id"
                 , "profile_question"
                 , parameters
                 );           
@@ -9177,7 +9194,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListChannelIdProfileId(
+        public virtual DataSet GetProfileQuestionListByChannelIdByProfileId(
              channel_id
             ,  profile_id
         )  {
@@ -9189,7 +9206,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_get_channel_id_profile_id"
+                , "usp_profile_question_get_by_channel_id_by_profile_id"
                 , "profile_question"
                 , parameters
                 );           
@@ -9200,7 +9217,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileQuestionListQuestionIdProfileId(
+        public virtual DataSet GetProfileQuestionListByQuestionIdByProfileId(
              question_id
             ,  profile_id
         )  {
@@ -9212,7 +9229,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_question_get_question_id_profile_id"
+                , "usp_profile_question_get_by_question_id_by_profile_id"
                 , "profile_question"
                 , parameters
                 );           
@@ -9241,7 +9258,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelUuid(
+        public virtual int CountProfileChannelByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9251,7 +9268,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_count_uuid"
+                , "usp_profile_channel_count_by_uuid"
                 , parameters
                 );          
             }
@@ -9261,7 +9278,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelChannelId(
+        public virtual int CountProfileChannelByChannelId(
              channel_id
         )  {
             List<SqlParameter> parameters 
@@ -9271,7 +9288,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_count_channel_id"
+                , "usp_profile_channel_count_by_channel_id"
                 , parameters
                 );          
             }
@@ -9281,7 +9298,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelProfileId(
+        public virtual int CountProfileChannelByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -9291,7 +9308,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_count_profile_id"
+                , "usp_profile_channel_count_by_profile_id"
                 , parameters
                 );          
             }
@@ -9301,7 +9318,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountProfileChannelChannelIdProfileId(
+        public virtual int CountProfileChannelByChannelIdByProfileId(
              channel_id
             ,  profile_id
         )  {
@@ -9313,7 +9330,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_count_channel_id_profile_id"
+                , "usp_profile_channel_count_by_channel_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -9323,7 +9340,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseProfileChannelListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseProfileChannelListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -9335,7 +9352,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_browse_filter"
+                , "usp_profile_channel_browse_by_filter"
                 , "profile_channel"
                 , parameters
                 );         
@@ -9347,7 +9364,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileChannelUuid(string set_type, ProfileChannel obj)  {
+        public virtual bool SetProfileChannelByUuid(string set_type, ProfileChannel obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9364,7 +9381,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_set_uuid"
+                , "usp_profile_channel_set_by_uuid"
                 , parameters
                 );          
             }
@@ -9375,7 +9392,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetProfileChannelChannelIdProfileId(string set_type, ProfileChannel obj)  {
+        public virtual bool SetProfileChannelByChannelIdByProfileId(string set_type, ProfileChannel obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9392,7 +9409,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_set_channel_id_profile_id"
+                , "usp_profile_channel_set_by_channel_id_by_profile_id"
                 , parameters
                 );          
             }
@@ -9403,7 +9420,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileChannelUuid(
+        public virtual bool DelProfileChannelByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9413,7 +9430,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_channel_del_uuid"
+                    , "usp_profile_channel_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -9424,7 +9441,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelProfileChannelChannelIdProfileId(
+        public virtual bool DelProfileChannelByChannelIdByProfileId(
              channel_id
             ,  profile_id
         )  {
@@ -9436,7 +9453,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_profile_channel_del_channel_id_profile_id"
+                    , "usp_profile_channel_del_by_channel_id_by_profile_id"
                     , parameters
                     );
                 return true;            
@@ -9466,7 +9483,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileChannelListUuid(
+        public virtual DataSet GetProfileChannelListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9476,7 +9493,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_get_uuid"
+                , "usp_profile_channel_get_by_uuid"
                 , "profile_channel"
                 , parameters
                 );           
@@ -9487,7 +9504,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileChannelListChannelId(
+        public virtual DataSet GetProfileChannelListByChannelId(
              channel_id
         )  {
             List<SqlParameter> parameters 
@@ -9497,7 +9514,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_get_channel_id"
+                , "usp_profile_channel_get_by_channel_id"
                 , "profile_channel"
                 , parameters
                 );           
@@ -9508,7 +9525,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileChannelListProfileId(
+        public virtual DataSet GetProfileChannelListByProfileId(
              profile_id
         )  {
             List<SqlParameter> parameters 
@@ -9518,7 +9535,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_get_profile_id"
+                , "usp_profile_channel_get_by_profile_id"
                 , "profile_channel"
                 , parameters
                 );           
@@ -9529,7 +9546,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetProfileChannelListChannelIdProfileId(
+        public virtual DataSet GetProfileChannelListByChannelIdByProfileId(
              channel_id
             ,  profile_id
         )  {
@@ -9541,7 +9558,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_profile_channel_get_channel_id_profile_id"
+                , "usp_profile_channel_get_by_channel_id_by_profile_id"
                 , "profile_channel"
                 , parameters
                 );           
@@ -9570,7 +9587,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteUuid(
+        public virtual int CountOrgSiteByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9580,7 +9597,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_count_uuid"
+                , "usp_org_site_count_by_uuid"
                 , parameters
                 );          
             }
@@ -9590,7 +9607,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteOrgId(
+        public virtual int CountOrgSiteByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -9600,7 +9617,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_count_org_id"
+                , "usp_org_site_count_by_org_id"
                 , parameters
                 );          
             }
@@ -9610,7 +9627,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteSiteId(
+        public virtual int CountOrgSiteBySiteId(
              site_id
         )  {
             List<SqlParameter> parameters 
@@ -9620,7 +9637,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_count_site_id"
+                , "usp_org_site_count_by_site_id"
                 , parameters
                 );          
             }
@@ -9630,7 +9647,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountOrgSiteOrgIdSiteId(
+        public virtual int CountOrgSiteByOrgIdBySiteId(
              org_id
             ,  site_id
         )  {
@@ -9642,7 +9659,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_count_org_id_site_id"
+                , "usp_org_site_count_by_org_id_by_site_id"
                 , parameters
                 );          
             }
@@ -9652,7 +9669,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseOrgSiteListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseOrgSiteListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -9664,7 +9681,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_browse_filter"
+                , "usp_org_site_browse_by_filter"
                 , "org_site"
                 , parameters
                 );         
@@ -9676,7 +9693,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgSiteUuid(string set_type, OrgSite obj)  {
+        public virtual bool SetOrgSiteByUuid(string set_type, OrgSite obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9693,7 +9710,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_set_uuid"
+                , "usp_org_site_set_by_uuid"
                 , parameters
                 );          
             }
@@ -9704,7 +9721,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetOrgSiteOrgIdSiteId(string set_type, OrgSite obj)  {
+        public virtual bool SetOrgSiteByOrgIdBySiteId(string set_type, OrgSite obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -9721,7 +9738,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_set_org_id_site_id"
+                , "usp_org_site_set_by_org_id_by_site_id"
                 , parameters
                 );          
             }
@@ -9732,7 +9749,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgSiteUuid(
+        public virtual bool DelOrgSiteByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9742,7 +9759,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_org_site_del_uuid"
+                    , "usp_org_site_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -9753,7 +9770,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelOrgSiteOrgIdSiteId(
+        public virtual bool DelOrgSiteByOrgIdBySiteId(
              org_id
             ,  site_id
         )  {
@@ -9765,7 +9782,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_org_site_del_org_id_site_id"
+                    , "usp_org_site_del_by_org_id_by_site_id"
                     , parameters
                     );
                 return true;            
@@ -9795,7 +9812,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgSiteListUuid(
+        public virtual DataSet GetOrgSiteListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9805,7 +9822,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_get_uuid"
+                , "usp_org_site_get_by_uuid"
                 , "org_site"
                 , parameters
                 );           
@@ -9816,7 +9833,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgSiteListOrgId(
+        public virtual DataSet GetOrgSiteListByOrgId(
              org_id
         )  {
             List<SqlParameter> parameters 
@@ -9826,7 +9843,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_get_org_id"
+                , "usp_org_site_get_by_org_id"
                 , "org_site"
                 , parameters
                 );           
@@ -9837,7 +9854,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgSiteListSiteId(
+        public virtual DataSet GetOrgSiteListBySiteId(
              site_id
         )  {
             List<SqlParameter> parameters 
@@ -9847,7 +9864,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_get_site_id"
+                , "usp_org_site_get_by_site_id"
                 , "org_site"
                 , parameters
                 );           
@@ -9858,7 +9875,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetOrgSiteListOrgIdSiteId(
+        public virtual DataSet GetOrgSiteListByOrgIdBySiteId(
              org_id
             ,  site_id
         )  {
@@ -9870,7 +9887,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_org_site_get_org_id_site_id"
+                , "usp_org_site_get_by_org_id_by_site_id"
                 , "org_site"
                 , parameters
                 );           
@@ -9899,7 +9916,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppUuid(
+        public virtual int CountSiteAppByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -9909,7 +9926,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_count_uuid"
+                , "usp_site_app_count_by_uuid"
                 , parameters
                 );          
             }
@@ -9919,7 +9936,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppAppId(
+        public virtual int CountSiteAppByAppId(
              app_id
         )  {
             List<SqlParameter> parameters 
@@ -9929,7 +9946,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_count_app_id"
+                , "usp_site_app_count_by_app_id"
                 , parameters
                 );          
             }
@@ -9939,7 +9956,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppSiteId(
+        public virtual int CountSiteAppBySiteId(
              site_id
         )  {
             List<SqlParameter> parameters 
@@ -9949,7 +9966,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_count_site_id"
+                , "usp_site_app_count_by_site_id"
                 , parameters
                 );          
             }
@@ -9959,7 +9976,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountSiteAppAppIdSiteId(
+        public virtual int CountSiteAppByAppIdBySiteId(
              app_id
             ,  site_id
         )  {
@@ -9971,7 +9988,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_count_app_id_site_id"
+                , "usp_site_app_count_by_app_id_by_site_id"
                 , parameters
                 );          
             }
@@ -9981,7 +9998,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseSiteAppListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseSiteAppListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -9993,7 +10010,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_browse_filter"
+                , "usp_site_app_browse_by_filter"
                 , "site_app"
                 , parameters
                 );         
@@ -10005,7 +10022,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteAppUuid(string set_type, SiteApp obj)  {
+        public virtual bool SetSiteAppByUuid(string set_type, SiteApp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10022,7 +10039,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_set_uuid"
+                , "usp_site_app_set_by_uuid"
                 , parameters
                 );          
             }
@@ -10033,7 +10050,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetSiteAppAppIdSiteId(string set_type, SiteApp obj)  {
+        public virtual bool SetSiteAppByAppIdBySiteId(string set_type, SiteApp obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10050,7 +10067,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_set_app_id_site_id"
+                , "usp_site_app_set_by_app_id_by_site_id"
                 , parameters
                 );          
             }
@@ -10061,7 +10078,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteAppUuid(
+        public virtual bool DelSiteAppByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10071,7 +10088,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_site_app_del_uuid"
+                    , "usp_site_app_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -10082,7 +10099,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelSiteAppAppIdSiteId(
+        public virtual bool DelSiteAppByAppIdBySiteId(
              app_id
             ,  site_id
         )  {
@@ -10094,7 +10111,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_site_app_del_app_id_site_id"
+                    , "usp_site_app_del_by_app_id_by_site_id"
                     , parameters
                     );
                 return true;            
@@ -10124,7 +10141,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteAppListUuid(
+        public virtual DataSet GetSiteAppListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10134,7 +10151,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_get_uuid"
+                , "usp_site_app_get_by_uuid"
                 , "site_app"
                 , parameters
                 );           
@@ -10145,7 +10162,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteAppListAppId(
+        public virtual DataSet GetSiteAppListByAppId(
              app_id
         )  {
             List<SqlParameter> parameters 
@@ -10155,7 +10172,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_get_app_id"
+                , "usp_site_app_get_by_app_id"
                 , "site_app"
                 , parameters
                 );           
@@ -10166,7 +10183,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteAppListSiteId(
+        public virtual DataSet GetSiteAppListBySiteId(
              site_id
         )  {
             List<SqlParameter> parameters 
@@ -10176,7 +10193,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_get_site_id"
+                , "usp_site_app_get_by_site_id"
                 , "site_app"
                 , parameters
                 );           
@@ -10187,7 +10204,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetSiteAppListAppIdSiteId(
+        public virtual DataSet GetSiteAppListByAppIdBySiteId(
              app_id
             ,  site_id
         )  {
@@ -10199,7 +10216,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_site_app_get_app_id_site_id"
+                , "usp_site_app_get_by_app_id_by_site_id"
                 , "site_app"
                 , parameters
                 );           
@@ -10228,7 +10245,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoUuid(
+        public virtual int CountPhotoByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10238,7 +10255,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_count_uuid"
+                , "usp_photo_count_by_uuid"
                 , parameters
                 );          
             }
@@ -10248,7 +10265,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoExternalId(
+        public virtual int CountPhotoByExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -10258,7 +10275,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_count_external_id"
+                , "usp_photo_count_by_external_id"
                 , parameters
                 );          
             }
@@ -10268,7 +10285,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoUrl(
+        public virtual int CountPhotoByUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -10278,7 +10295,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_count_url"
+                , "usp_photo_count_by_url"
                 , parameters
                 );          
             }
@@ -10288,7 +10305,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoUrlExternalId(
+        public virtual int CountPhotoByUrlByExternalId(
              url
             ,  external_id
         )  {
@@ -10300,7 +10317,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_count_url_external_id"
+                , "usp_photo_count_by_url_by_external_id"
                 , parameters
                 );          
             }
@@ -10310,7 +10327,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountPhotoUuidExternalId(
+        public virtual int CountPhotoByUuidByExternalId(
              uuid
             ,  external_id
         )  {
@@ -10322,7 +10339,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_count_uuid_external_id"
+                , "usp_photo_count_by_uuid_by_external_id"
                 , parameters
                 );          
             }
@@ -10332,7 +10349,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowsePhotoListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowsePhotoListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -10344,7 +10361,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_browse_filter"
+                , "usp_photo_browse_by_filter"
                 , "photo"
                 , parameters
                 );         
@@ -10356,7 +10373,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoUuid(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByUuid(string set_type, Photo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10369,6 +10386,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -10382,7 +10400,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_set_uuid"
+                , "usp_photo_set_by_uuid"
                 , parameters
                 );          
             }
@@ -10393,7 +10411,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoExternalId(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByExternalId(string set_type, Photo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10406,6 +10424,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -10419,7 +10438,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_set_external_id"
+                , "usp_photo_set_by_external_id"
                 , parameters
                 );          
             }
@@ -10430,7 +10449,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoUrl(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByUrl(string set_type, Photo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10443,6 +10462,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -10456,7 +10476,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_set_url"
+                , "usp_photo_set_by_url"
                 , parameters
                 );          
             }
@@ -10467,7 +10487,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoUrlExternalId(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByUrlByExternalId(string set_type, Photo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10480,6 +10500,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -10493,7 +10514,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_set_url_external_id"
+                , "usp_photo_set_by_url_by_external_id"
                 , parameters
                 );          
             }
@@ -10504,7 +10525,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetPhotoUuidExternalId(string set_type, Photo obj)  {
+        public virtual bool SetPhotoByUuidByExternalId(string set_type, Photo obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10517,6 +10538,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -10530,7 +10552,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_set_uuid_external_id"
+                , "usp_photo_set_by_uuid_by_external_id"
                 , parameters
                 );          
             }
@@ -10541,7 +10563,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoUuid(
+        public virtual bool DelPhotoByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10551,7 +10573,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_photo_del_uuid"
+                    , "usp_photo_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -10562,7 +10584,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoExternalId(
+        public virtual bool DelPhotoByExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -10572,7 +10594,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_photo_del_external_id"
+                    , "usp_photo_del_by_external_id"
                     , parameters
                     );
                 return true;            
@@ -10583,7 +10605,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoUrl(
+        public virtual bool DelPhotoByUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -10593,7 +10615,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_photo_del_url"
+                    , "usp_photo_del_by_url"
                     , parameters
                     );
                 return true;            
@@ -10604,7 +10626,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoUrlExternalId(
+        public virtual bool DelPhotoByUrlByExternalId(
              url
             ,  external_id
         )  {
@@ -10616,7 +10638,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_photo_del_url_external_id"
+                    , "usp_photo_del_by_url_by_external_id"
                     , parameters
                     );
                 return true;            
@@ -10627,7 +10649,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelPhotoUuidExternalId(
+        public virtual bool DelPhotoByUuidByExternalId(
              uuid
             ,  external_id
         )  {
@@ -10639,7 +10661,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_photo_del_uuid_external_id"
+                    , "usp_photo_del_by_uuid_by_external_id"
                     , parameters
                     );
                 return true;            
@@ -10669,7 +10691,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListUuid(
+        public virtual DataSet GetPhotoListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10679,7 +10701,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_get_uuid"
+                , "usp_photo_get_by_uuid"
                 , "photo"
                 , parameters
                 );           
@@ -10690,7 +10712,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListExternalId(
+        public virtual DataSet GetPhotoListByExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -10700,7 +10722,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_get_external_id"
+                , "usp_photo_get_by_external_id"
                 , "photo"
                 , parameters
                 );           
@@ -10711,7 +10733,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListUrl(
+        public virtual DataSet GetPhotoListByUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -10721,7 +10743,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_get_url"
+                , "usp_photo_get_by_url"
                 , "photo"
                 , parameters
                 );           
@@ -10732,7 +10754,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListUrlExternalId(
+        public virtual DataSet GetPhotoListByUrlByExternalId(
              url
             ,  external_id
         )  {
@@ -10744,7 +10766,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_get_url_external_id"
+                , "usp_photo_get_by_url_by_external_id"
                 , "photo"
                 , parameters
                 );           
@@ -10755,7 +10777,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetPhotoListUuidExternalId(
+        public virtual DataSet GetPhotoListByUuidByExternalId(
              uuid
             ,  external_id
         )  {
@@ -10767,7 +10789,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_photo_get_uuid_external_id"
+                , "usp_photo_get_by_uuid_by_external_id"
                 , "photo"
                 , parameters
                 );           
@@ -10796,7 +10818,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoUuid(
+        public virtual int CountVideoByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -10806,7 +10828,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_count_uuid"
+                , "usp_video_count_by_uuid"
                 , parameters
                 );          
             }
@@ -10816,7 +10838,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoExternalId(
+        public virtual int CountVideoByExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -10826,7 +10848,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_count_external_id"
+                , "usp_video_count_by_external_id"
                 , parameters
                 );          
             }
@@ -10836,7 +10858,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoUrl(
+        public virtual int CountVideoByUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -10846,7 +10868,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_count_url"
+                , "usp_video_count_by_url"
                 , parameters
                 );          
             }
@@ -10856,7 +10878,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoUrlExternalId(
+        public virtual int CountVideoByUrlByExternalId(
              url
             ,  external_id
         )  {
@@ -10868,7 +10890,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_count_url_external_id"
+                , "usp_video_count_by_url_by_external_id"
                 , parameters
                 );          
             }
@@ -10878,7 +10900,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual int CountVideoUuidExternalId(
+        public virtual int CountVideoByUuidByExternalId(
              uuid
             ,  external_id
         )  {
@@ -10890,7 +10912,7 @@ namespace platform {
                 return (int)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_count_uuid_external_id"
+                , "usp_video_count_by_uuid_by_external_id"
                 , parameters
                 );          
             }
@@ -10900,7 +10922,7 @@ namespace platform {
             }    
         }       
 //------------------------------------------------------------------------------                    
-        public virtual DataSet BrowseVideoListFilter(SearchFilter obj)  {
+        public virtual DataSet BrowseVideoListByFilter(SearchFilter obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@page", obj.page));
@@ -10912,7 +10934,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_browse_filter"
+                , "usp_video_browse_by_filter"
                 , "video"
                 , parameters
                 );         
@@ -10924,7 +10946,7 @@ namespace platform {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoUuid(string set_type, Video obj)  {
+        public virtual bool SetVideoByUuid(string set_type, Video obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10937,6 +10959,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -10950,7 +10973,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_set_uuid"
+                , "usp_video_set_by_uuid"
                 , parameters
                 );          
             }
@@ -10961,7 +10984,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoExternalId(string set_type, Video obj)  {
+        public virtual bool SetVideoByExternalId(string set_type, Video obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -10974,6 +10997,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -10987,7 +11011,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_set_external_id"
+                , "usp_video_set_by_external_id"
                 , parameters
                 );          
             }
@@ -10998,7 +11022,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoUrl(string set_type, Video obj)  {
+        public virtual bool SetVideoByUrl(string set_type, Video obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -11011,6 +11035,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -11024,7 +11049,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_set_url"
+                , "usp_video_set_by_url"
                 , parameters
                 );          
             }
@@ -11035,7 +11060,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoUrlExternalId(string set_type, Video obj)  {
+        public virtual bool SetVideoByUrlByExternalId(string set_type, Video obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -11048,6 +11073,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -11061,7 +11087,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_set_url_external_id"
+                , "usp_video_set_by_url_by_external_id"
                 , parameters
                 );          
             }
@@ -11072,7 +11098,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool SetVideoUuidExternalId(string set_type, Video obj)  {
+        public virtual bool SetVideoByUuidByExternalId(string set_type, Video obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@set_type", set_type));
@@ -11085,6 +11111,7 @@ namespace platform {
             parameters.Add(new SqlParameter("@url", obj.url));
             parameters.Add(new SqlParameter("@third_party_data", obj.third_party_data));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@data", obj.data));
             parameters.Add(new SqlParameter("@third_party_url", obj.third_party_url));
             parameters.Add(new SqlParameter("@third_party_id", obj.third_party_id));
             parameters.Add(new SqlParameter("@content_type", obj.content_type));
@@ -11098,7 +11125,7 @@ namespace platform {
                 return (bool)data.ExecuteScalar(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_set_uuid_external_id"
+                , "usp_video_set_by_uuid_by_external_id"
                 , parameters
                 );          
             }
@@ -11109,7 +11136,7 @@ namespace platform {
             
         }    
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoUuid(
+        public virtual bool DelVideoByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11119,7 +11146,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_video_del_uuid"
+                    , "usp_video_del_by_uuid"
                     , parameters
                     );
                 return true;            
@@ -11130,7 +11157,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoExternalId(
+        public virtual bool DelVideoByExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -11140,7 +11167,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_video_del_external_id"
+                    , "usp_video_del_by_external_id"
                     , parameters
                     );
                 return true;            
@@ -11151,7 +11178,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoUrl(
+        public virtual bool DelVideoByUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -11161,7 +11188,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_video_del_url"
+                    , "usp_video_del_by_url"
                     , parameters
                     );
                 return true;            
@@ -11172,7 +11199,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoUrlExternalId(
+        public virtual bool DelVideoByUrlByExternalId(
              url
             ,  external_id
         )  {
@@ -11184,7 +11211,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_video_del_url_external_id"
+                    , "usp_video_del_by_url_by_external_id"
                     , parameters
                     );
                 return true;            
@@ -11195,7 +11222,7 @@ namespace platform {
             }
         }                     
 //------------------------------------------------------------------------------                    
-        public virtual bool DelVideoUuidExternalId(
+        public virtual bool DelVideoByUuidByExternalId(
              uuid
             ,  external_id
         )  {
@@ -11207,7 +11234,7 @@ namespace platform {
                 data.ExecuteNonQuery(
                     BasePlatformData.connectionString
                     , CommandType.StoredProcedure
-                    , "usp_video_del_uuid_external_id"
+                    , "usp_video_del_by_uuid_by_external_id"
                     , parameters
                     );
                 return true;            
@@ -11237,7 +11264,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListUuid(
+        public virtual DataSet GetVideoListByUuid(
              uuid
         )  {
             List<SqlParameter> parameters 
@@ -11247,7 +11274,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_get_uuid"
+                , "usp_video_get_by_uuid"
                 , "video"
                 , parameters
                 );           
@@ -11258,7 +11285,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListExternalId(
+        public virtual DataSet GetVideoListByExternalId(
              external_id
         )  {
             List<SqlParameter> parameters 
@@ -11268,7 +11295,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_get_external_id"
+                , "usp_video_get_by_external_id"
                 , "video"
                 , parameters
                 );           
@@ -11279,7 +11306,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListUrl(
+        public virtual DataSet GetVideoListByUrl(
              url
         )  {
             List<SqlParameter> parameters 
@@ -11289,7 +11316,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_get_url"
+                , "usp_video_get_by_url"
                 , "video"
                 , parameters
                 );           
@@ -11300,7 +11327,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListUrlExternalId(
+        public virtual DataSet GetVideoListByUrlByExternalId(
              url
             ,  external_id
         )  {
@@ -11312,7 +11339,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_get_url_external_id"
+                , "usp_video_get_by_url_by_external_id"
                 , "video"
                 , parameters
                 );           
@@ -11323,7 +11350,7 @@ namespace platform {
             }
         } 
 //------------------------------------------------------------------------------                    
-        public virtual DataSet GetVideoListUuidExternalId(
+        public virtual DataSet GetVideoListByUuidByExternalId(
              uuid
             ,  external_id
         )  {
@@ -11335,7 +11362,7 @@ namespace platform {
                 return data.ExecuteDataSet(
                 BasePlatformData.connectionString
                 , CommandType.StoredProcedure
-                , "usp_video_get_uuid_external_id"
+                , "usp_video_get_by_uuid_by_external_id"
                 , "video"
                 , parameters
                 );           

@@ -81,6 +81,7 @@ namespace platform.ent {
         public string app_id { get; set; }
         public string profile_to_id { get; set; }
         public string profile_to_name { get; set; }
+        public string data { get; set; }
         public bool sent { get; set; }
         public string subject { get; set; }
 
@@ -104,6 +105,9 @@ namespace platform.ent {
 	    	}
 	    	if (profile_to_name != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "profile_to_name", profile_to_name);
+	    	}
+	    	if (data != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "data", data);
 	    	}
 	    	dict = DataUtil.SetDictValue(dict, "sent", sent);
 	    	if (subject != null) {
@@ -146,6 +150,11 @@ namespace platform.ent {
 	    	if(dict.ContainsKey("profile_to_name")) {
 	    	    if(dict["profile_to_name"] != null) {
 	    	    	profile_to_name = DataType.Instance.FillString(dict["profile_to_name"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("data")) {
+	    	    if(dict["data"] != null) {
+	    	    	data = DataType.Instance.FillString(dict["data"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("sent")) {

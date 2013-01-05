@@ -27,7 +27,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameUuid(self
+    def CountGameByUuid(self
         , uuid
     ) :
         parameters = []
@@ -46,7 +46,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCode(self
+    def CountGameByCode(self
         , code
     ) :
         parameters = []
@@ -65,7 +65,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameName(self
+    def CountGameByName(self
         , name
     ) :
         parameters = []
@@ -84,7 +84,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameOrgId(self
+    def CountGameByOrgId(self
         , org_id
     ) :
         parameters = []
@@ -103,7 +103,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAppId(self
+    def CountGameByAppId(self
         , app_id
     ) :
         parameters = []
@@ -122,7 +122,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameOrgIdAppId(self
+    def CountGameByOrgIdByAppId(self
         , org_id
         , app_id
     ) :
@@ -143,7 +143,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameListFilter(self, filter_obj) :
+    def BrowseGameListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -163,7 +163,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameUuid(self, set_type, obj) :
+    def SetGameByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -193,7 +193,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameCode(self, set_type, obj) :
+    def SetGameByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -223,7 +223,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameName(self, set_type, obj) :
+    def SetGameByName(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -253,7 +253,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameOrgId(self, set_type, obj) :
+    def SetGameByOrgId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -283,7 +283,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameAppId(self, set_type, obj) :
+    def SetGameByAppId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -313,7 +313,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameOrgIdAppId(self, set_type, obj) :
+    def SetGameByOrgIdByAppId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -343,7 +343,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameUuid(self
+    def DelGameByUuid(self
         , uuid
     ) :
         parameters = []
@@ -362,7 +362,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCode(self
+    def DelGameByCode(self
         , code
     ) :
         parameters = []
@@ -381,7 +381,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameName(self
+    def DelGameByName(self
         , name
     ) :
         parameters = []
@@ -400,7 +400,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameOrgId(self
+    def DelGameByOrgId(self
         , org_id
     ) :
         parameters = []
@@ -419,7 +419,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameAppId(self
+    def DelGameByAppId(self
         , app_id
     ) :
         parameters = []
@@ -438,7 +438,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameOrgIdAppId(self
+    def DelGameByOrgIdByAppId(self
         , org_id
         , app_id
     ) :
@@ -478,7 +478,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListUuid(self
+    def GetGameListByUuid(self
         , uuid
     ) :
             
@@ -499,7 +499,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListCode(self
+    def GetGameListByCode(self
         , code
     ) :
             
@@ -520,7 +520,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListName(self
+    def GetGameListByName(self
         , name
     ) :
             
@@ -541,7 +541,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListOrgId(self
+    def GetGameListByOrgId(self
         , org_id
     ) :
             
@@ -562,7 +562,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListAppId(self
+    def GetGameListByAppId(self
         , app_id
     ) :
             
@@ -583,7 +583,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameListOrgIdAppId(self
+    def GetGameListByOrgIdByAppId(self
         , org_id
         , app_id
     ) :
@@ -623,7 +623,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryUuid(self
+    def CountGameCategoryByUuid(self
         , uuid
     ) :
         parameters = []
@@ -642,7 +642,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryCode(self
+    def CountGameCategoryByCode(self
         , code
     ) :
         parameters = []
@@ -661,7 +661,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryName(self
+    def CountGameCategoryByName(self
         , name
     ) :
         parameters = []
@@ -680,7 +680,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryOrgId(self
+    def CountGameCategoryByOrgId(self
         , org_id
     ) :
         parameters = []
@@ -699,7 +699,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryTypeId(self
+    def CountGameCategoryByTypeId(self
         , type_id
     ) :
         parameters = []
@@ -718,7 +718,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryOrgIdTypeId(self
+    def CountGameCategoryByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :
@@ -739,7 +739,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameCategoryListFilter(self, filter_obj) :
+    def BrowseGameCategoryListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -759,7 +759,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameCategoryUuid(self, set_type, obj) :
+    def SetGameCategoryByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -789,7 +789,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameCategoryUuid(self
+    def DelGameCategoryByUuid(self
         , uuid
     ) :
         parameters = []
@@ -808,7 +808,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryCodeOrgId(self
+    def DelGameCategoryByCodeByOrgId(self
         , code
         , org_id
     ) :
@@ -829,7 +829,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryCodeOrgIdTypeId(self
+    def DelGameCategoryByCodeByOrgIdByTypeId(self
         , code
         , org_id
         , type_id
@@ -871,7 +871,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListUuid(self
+    def GetGameCategoryListByUuid(self
         , uuid
     ) :
             
@@ -892,7 +892,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListCode(self
+    def GetGameCategoryListByCode(self
         , code
     ) :
             
@@ -913,7 +913,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListName(self
+    def GetGameCategoryListByName(self
         , name
     ) :
             
@@ -934,7 +934,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListOrgId(self
+    def GetGameCategoryListByOrgId(self
         , org_id
     ) :
             
@@ -955,7 +955,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListTypeId(self
+    def GetGameCategoryListByTypeId(self
         , type_id
     ) :
             
@@ -976,7 +976,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryListOrgIdTypeId(self
+    def GetGameCategoryListByOrgIdByTypeId(self
         , org_id
         , type_id
     ) :
@@ -1016,7 +1016,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryTreeUuid(self
+    def CountGameCategoryTreeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1035,7 +1035,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryTreeParentId(self
+    def CountGameCategoryTreeByParentId(self
         , parent_id
     ) :
         parameters = []
@@ -1054,7 +1054,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryTreeCategoryId(self
+    def CountGameCategoryTreeByCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -1073,7 +1073,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryTreeParentIdCategoryId(self
+    def CountGameCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -1094,7 +1094,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameCategoryTreeListFilter(self, filter_obj) :
+    def BrowseGameCategoryTreeListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1114,7 +1114,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameCategoryTreeUuid(self, set_type, obj) :
+    def SetGameCategoryTreeByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1140,7 +1140,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameCategoryTreeUuid(self
+    def DelGameCategoryTreeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1159,7 +1159,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryTreeParentId(self
+    def DelGameCategoryTreeByParentId(self
         , parent_id
     ) :
         parameters = []
@@ -1178,7 +1178,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryTreeCategoryId(self
+    def DelGameCategoryTreeByCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -1197,7 +1197,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameCategoryTreeParentIdCategoryId(self
+    def DelGameCategoryTreeByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -1237,7 +1237,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryTreeListUuid(self
+    def GetGameCategoryTreeListByUuid(self
         , uuid
     ) :
             
@@ -1258,7 +1258,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryTreeListParentId(self
+    def GetGameCategoryTreeListByParentId(self
         , parent_id
     ) :
             
@@ -1279,7 +1279,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryTreeListCategoryId(self
+    def GetGameCategoryTreeListByCategoryId(self
         , category_id
     ) :
             
@@ -1300,7 +1300,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryTreeListParentIdCategoryId(self
+    def GetGameCategoryTreeListByParentIdByCategoryId(self
         , parent_id
         , category_id
     ) :
@@ -1340,7 +1340,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryAssocUuid(self
+    def CountGameCategoryAssocByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1359,7 +1359,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryAssocGameId(self
+    def CountGameCategoryAssocByGameId(self
         , game_id
     ) :
         parameters = []
@@ -1378,7 +1378,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryAssocCategoryId(self
+    def CountGameCategoryAssocByCategoryId(self
         , category_id
     ) :
         parameters = []
@@ -1397,7 +1397,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameCategoryAssocGameIdCategoryId(self
+    def CountGameCategoryAssocByGameIdByCategoryId(self
         , game_id
         , category_id
     ) :
@@ -1418,7 +1418,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameCategoryAssocListFilter(self, filter_obj) :
+    def BrowseGameCategoryAssocListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1438,7 +1438,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameCategoryAssocUuid(self, set_type, obj) :
+    def SetGameCategoryAssocByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1464,7 +1464,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameCategoryAssocUuid(self
+    def DelGameCategoryAssocByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1502,7 +1502,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryAssocListUuid(self
+    def GetGameCategoryAssocListByUuid(self
         , uuid
     ) :
             
@@ -1523,7 +1523,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryAssocListGameId(self
+    def GetGameCategoryAssocListByGameId(self
         , game_id
     ) :
             
@@ -1544,7 +1544,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryAssocListCategoryId(self
+    def GetGameCategoryAssocListByCategoryId(self
         , category_id
     ) :
             
@@ -1565,7 +1565,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameCategoryAssocListGameIdCategoryId(self
+    def GetGameCategoryAssocListByGameIdByCategoryId(self
         , game_id
         , category_id
     ) :
@@ -1605,7 +1605,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameTypeUuid(self
+    def CountGameTypeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1624,7 +1624,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameTypeCode(self
+    def CountGameTypeByCode(self
         , code
     ) :
         parameters = []
@@ -1643,7 +1643,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameTypeName(self
+    def CountGameTypeByName(self
         , name
     ) :
         parameters = []
@@ -1662,7 +1662,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameTypeListFilter(self, filter_obj) :
+    def BrowseGameTypeListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1682,7 +1682,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameTypeUuid(self, set_type, obj) :
+    def SetGameTypeByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1710,7 +1710,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameTypeUuid(self
+    def DelGameTypeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1748,7 +1748,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameTypeListUuid(self
+    def GetGameTypeListByUuid(self
         , uuid
     ) :
             
@@ -1769,7 +1769,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameTypeListCode(self
+    def GetGameTypeListByCode(self
         , code
     ) :
             
@@ -1790,7 +1790,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameTypeListName(self
+    def GetGameTypeListByName(self
         , name
     ) :
             
@@ -1828,7 +1828,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameUuid(self
+    def CountProfileGameByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1847,7 +1847,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameGameId(self
+    def CountProfileGameByGameId(self
         , game_id
     ) :
         parameters = []
@@ -1866,7 +1866,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameProfileId(self
+    def CountProfileGameByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -1885,7 +1885,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameProfileIdGameId(self
+    def CountProfileGameByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -1906,7 +1906,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseProfileGameListFilter(self, filter_obj) :
+    def BrowseProfileGameListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -1926,7 +1926,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetProfileGameUuid(self, set_type, obj) :
+    def SetProfileGameByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -1955,7 +1955,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelProfileGameUuid(self
+    def DelProfileGameByUuid(self
         , uuid
     ) :
         parameters = []
@@ -1993,7 +1993,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameListUuid(self
+    def GetProfileGameListByUuid(self
         , uuid
     ) :
             
@@ -2014,7 +2014,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameListGameId(self
+    def GetProfileGameListByGameId(self
         , game_id
     ) :
             
@@ -2035,7 +2035,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameListProfileId(self
+    def GetProfileGameListByProfileId(self
         , profile_id
     ) :
             
@@ -2056,7 +2056,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameListProfileIdGameId(self
+    def GetProfileGameListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -2096,7 +2096,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkUuid(self
+    def CountGameNetworkByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2115,7 +2115,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkCode(self
+    def CountGameNetworkByCode(self
         , code
     ) :
         parameters = []
@@ -2134,7 +2134,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkUuidType(self
+    def CountGameNetworkByUuidByType(self
         , uuid
         , type
     ) :
@@ -2155,7 +2155,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameNetworkListFilter(self, filter_obj) :
+    def BrowseGameNetworkListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2175,7 +2175,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameNetworkUuid(self, set_type, obj) :
+    def SetGameNetworkByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2206,7 +2206,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameNetworkCode(self, set_type, obj) :
+    def SetGameNetworkByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2237,7 +2237,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameNetworkUuid(self
+    def DelGameNetworkByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2275,7 +2275,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkListUuid(self
+    def GetGameNetworkListByUuid(self
         , uuid
     ) :
             
@@ -2296,7 +2296,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkListCode(self
+    def GetGameNetworkListByCode(self
         , code
     ) :
             
@@ -2317,7 +2317,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkListUuidType(self
+    def GetGameNetworkListByUuidByType(self
         , uuid
         , type
     ) :
@@ -2357,7 +2357,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkAuthUuid(self
+    def CountGameNetworkAuthByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2376,7 +2376,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameNetworkAuthGameIdGameNetworkId(self
+    def CountGameNetworkAuthByGameIdByGameNetworkId(self
         , game_id
         , game_network_id
     ) :
@@ -2397,7 +2397,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameNetworkAuthListFilter(self, filter_obj) :
+    def BrowseGameNetworkAuthListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2417,7 +2417,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameNetworkAuthUuid(self, set_type, obj) :
+    def SetGameNetworkAuthByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2451,7 +2451,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameNetworkAuthGameIdGameNetworkId(self, set_type, obj) :
+    def SetGameNetworkAuthByGameIdByGameNetworkId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2485,7 +2485,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameNetworkAuthUuid(self
+    def DelGameNetworkAuthByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2523,7 +2523,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkAuthListUuid(self
+    def GetGameNetworkAuthListByUuid(self
         , uuid
     ) :
             
@@ -2544,7 +2544,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameNetworkAuthListGameIdGameNetworkId(self
+    def GetGameNetworkAuthListByGameIdByGameNetworkId(self
         , game_id
         , game_network_id
     ) :
@@ -2584,7 +2584,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkUuid(self
+    def CountProfileGameNetworkByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2603,7 +2603,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkGameId(self
+    def CountProfileGameNetworkByGameId(self
         , game_id
     ) :
         parameters = []
@@ -2622,7 +2622,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkProfileId(self
+    def CountProfileGameNetworkByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -2641,7 +2641,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkProfileIdGameId(self
+    def CountProfileGameNetworkByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -2662,7 +2662,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkProfileIdGameId(self
+    def CountProfileGameNetworkByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -2683,7 +2683,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkProfileIdGameIdGameNetworkId(self
+    def CountProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
@@ -2706,7 +2706,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self
+    def CountProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
@@ -2729,7 +2729,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseProfileGameNetworkListFilter(self, filter_obj) :
+    def BrowseProfileGameNetworkListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -2749,7 +2749,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetProfileGameNetworkUuid(self, set_type, obj) :
+    def SetProfileGameNetworkByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2784,7 +2784,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameNetworkProfileIdGameId(self, set_type, obj) :
+    def SetProfileGameNetworkByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2819,7 +2819,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameNetworkProfileIdGameIdGameNetworkId(self, set_type, obj) :
+    def SetProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2854,7 +2854,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self, set_type, obj) :
+    def SetProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -2889,7 +2889,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelProfileGameNetworkUuid(self
+    def DelProfileGameNetworkByUuid(self
         , uuid
     ) :
         parameters = []
@@ -2908,7 +2908,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameNetworkProfileIdGameId(self
+    def DelProfileGameNetworkByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -2929,7 +2929,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameNetworkProfileIdGameIdGameNetworkId(self
+    def DelProfileGameNetworkByProfileIdByGameIdByGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
@@ -2952,7 +2952,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameNetworkNetworkUsernameGameIdGameNetworkId(self
+    def DelProfileGameNetworkByNetworkUsernameByGameIdByGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
@@ -2994,7 +2994,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListUuid(self
+    def GetProfileGameNetworkListByUuid(self
         , uuid
     ) :
             
@@ -3015,7 +3015,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListGameId(self
+    def GetProfileGameNetworkListByGameId(self
         , game_id
     ) :
             
@@ -3036,7 +3036,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListProfileId(self
+    def GetProfileGameNetworkListByProfileId(self
         , profile_id
     ) :
             
@@ -3057,7 +3057,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListProfileIdGameId(self
+    def GetProfileGameNetworkListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -3080,7 +3080,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListProfileIdGameIdGameNetworkId(self
+    def GetProfileGameNetworkListByProfileIdByGameIdByGameNetworkId(self
         , profile_id
         , game_id
         , game_network_id
@@ -3105,7 +3105,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameNetworkListNetworkUsernameGameIdGameNetworkId(self
+    def GetProfileGameNetworkListByNetworkUsernameByGameIdByGameNetworkId(self
         , network_username
         , game_id
         , game_network_id
@@ -3147,7 +3147,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameDataAttributeUuid(self
+    def CountProfileGameDataAttributeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -3166,7 +3166,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameDataAttributeProfileId(self
+    def CountProfileGameDataAttributeByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -3185,7 +3185,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameDataAttributeProfileIdGameIdCode(self
+    def CountProfileGameDataAttributeByProfileIdByGameIdByCode(self
         , profile_id
         , game_id
         , code
@@ -3208,7 +3208,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseProfileGameDataAttributeListFilter(self, filter_obj) :
+    def BrowseProfileGameDataAttributeListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -3228,7 +3228,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetProfileGameDataAttributeUuid(self, set_type, obj) :
+    def SetProfileGameDataAttributeByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3258,7 +3258,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameDataAttributeProfileId(self, set_type, obj) :
+    def SetProfileGameDataAttributeByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3288,7 +3288,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetProfileGameDataAttributeProfileIdGameIdCode(self, set_type, obj) :
+    def SetProfileGameDataAttributeByProfileIdByGameIdByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3318,7 +3318,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelProfileGameDataAttributeUuid(self
+    def DelProfileGameDataAttributeByUuid(self
         , uuid
     ) :
         parameters = []
@@ -3337,7 +3337,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameDataAttributeProfileId(self
+    def DelProfileGameDataAttributeByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -3356,7 +3356,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelProfileGameDataAttributeProfileIdGameIdCode(self
+    def DelProfileGameDataAttributeByProfileIdByGameIdByCode(self
         , profile_id
         , game_id
         , code
@@ -3379,7 +3379,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetProfileGameDataAttributeListUuid(self
+    def GetProfileGameDataAttributeListByUuid(self
         , uuid
     ) :
             
@@ -3400,7 +3400,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameDataAttributeListProfileId(self
+    def GetProfileGameDataAttributeListByProfileId(self
         , profile_id
     ) :
             
@@ -3421,7 +3421,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameDataAttributeListProfileIdGameIdCode(self
+    def GetProfileGameDataAttributeListByProfileIdByGameIdByCode(self
         , profile_id
         , game_id
         , code
@@ -3463,7 +3463,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionUuid(self
+    def CountGameSessionByUuid(self
         , uuid
     ) :
         parameters = []
@@ -3482,7 +3482,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionGameId(self
+    def CountGameSessionByGameId(self
         , game_id
     ) :
         parameters = []
@@ -3501,7 +3501,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionProfileId(self
+    def CountGameSessionByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -3520,7 +3520,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionProfileIdGameId(self
+    def CountGameSessionByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -3541,7 +3541,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameSessionListFilter(self, filter_obj) :
+    def BrowseGameSessionListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -3561,7 +3561,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameSessionUuid(self, set_type, obj) :
+    def SetGameSessionByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.game_area) #"in_game_area"
@@ -3611,7 +3611,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameSessionUuid(self
+    def DelGameSessionByUuid(self
         , uuid
     ) :
         parameters = []
@@ -3649,7 +3649,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionListUuid(self
+    def GetGameSessionListByUuid(self
         , uuid
     ) :
             
@@ -3670,7 +3670,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionListGameId(self
+    def GetGameSessionListByGameId(self
         , game_id
     ) :
             
@@ -3691,7 +3691,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionListProfileId(self
+    def GetGameSessionListByProfileId(self
         , profile_id
     ) :
             
@@ -3712,7 +3712,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionListProfileIdGameId(self
+    def GetGameSessionListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -3752,7 +3752,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameSessionDataUuid(self
+    def CountGameSessionDataByUuid(self
         , uuid
     ) :
         parameters = []
@@ -3771,7 +3771,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameSessionDataListFilter(self, filter_obj) :
+    def BrowseGameSessionDataListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -3791,7 +3791,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameSessionDataUuid(self, set_type, obj) :
+    def SetGameSessionDataByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -3824,7 +3824,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameSessionDataUuid(self
+    def DelGameSessionDataByUuid(self
         , uuid
     ) :
         parameters = []
@@ -3862,7 +3862,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameSessionDataListUuid(self
+    def GetGameSessionDataListByUuid(self
         , uuid
     ) :
             
@@ -3900,7 +3900,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentUuid(self
+    def CountGameContentByUuid(self
         , uuid
     ) :
         parameters = []
@@ -3919,7 +3919,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentGameId(self
+    def CountGameContentByGameId(self
         , game_id
     ) :
         parameters = []
@@ -3938,7 +3938,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentGameIdPath(self
+    def CountGameContentByGameIdByPath(self
         , game_id
         , path
     ) :
@@ -3959,7 +3959,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentGameIdPathVersion(self
+    def CountGameContentByGameIdByPathByVersion(self
         , game_id
         , path
         , version
@@ -3982,7 +3982,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameContentGameIdPathVersionPlatformIncrement(self
+    def CountGameContentByGameIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , path
         , version
@@ -4009,7 +4009,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameContentListFilter(self, filter_obj) :
+    def BrowseGameContentListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -4029,7 +4029,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameContentUuid(self, set_type, obj) :
+    def SetGameContentByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4068,7 +4068,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameContentGameId(self, set_type, obj) :
+    def SetGameContentByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4107,7 +4107,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameContentGameIdPath(self, set_type, obj) :
+    def SetGameContentByGameIdByPath(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4146,7 +4146,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameContentGameIdPathVersion(self, set_type, obj) :
+    def SetGameContentByGameIdByPathByVersion(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4185,7 +4185,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameContentGameIdPathVersionPlatformIncrement(self, set_type, obj) :
+    def SetGameContentByGameIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -4224,7 +4224,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameContentUuid(self
+    def DelGameContentByUuid(self
         , uuid
     ) :
         parameters = []
@@ -4243,7 +4243,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameContentGameId(self
+    def DelGameContentByGameId(self
         , game_id
     ) :
         parameters = []
@@ -4262,7 +4262,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameContentGameIdPath(self
+    def DelGameContentByGameIdByPath(self
         , game_id
         , path
     ) :
@@ -4283,7 +4283,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameContentGameIdPathVersion(self
+    def DelGameContentByGameIdByPathByVersion(self
         , game_id
         , path
         , version
@@ -4306,7 +4306,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameContentGameIdPathVersionPlatformIncrement(self
+    def DelGameContentByGameIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , path
         , version
@@ -4352,7 +4352,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListUuid(self
+    def GetGameContentListByUuid(self
         , uuid
     ) :
             
@@ -4373,7 +4373,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListGameId(self
+    def GetGameContentListByGameId(self
         , game_id
     ) :
             
@@ -4394,7 +4394,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListGameIdPath(self
+    def GetGameContentListByGameIdByPath(self
         , game_id
         , path
     ) :
@@ -4417,7 +4417,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListGameIdPathVersion(self
+    def GetGameContentListByGameIdByPathByVersion(self
         , game_id
         , path
         , version
@@ -4442,7 +4442,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameContentListGameIdPathVersionPlatformIncrement(self
+    def GetGameContentListByGameIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , path
         , version
@@ -4488,7 +4488,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentUuid(self
+    def CountGameProfileContentByUuid(self
         , uuid
     ) :
         parameters = []
@@ -4507,7 +4507,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentGameIdProfileId(self
+    def CountGameProfileContentByGameIdByProfileId(self
         , game_id
         , profile_id
     ) :
@@ -4528,7 +4528,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentGameIdUsername(self
+    def CountGameProfileContentByGameIdByUsername(self
         , game_id
         , username
     ) :
@@ -4549,7 +4549,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentUsername(self
+    def CountGameProfileContentByUsername(self
         , username
     ) :
         parameters = []
@@ -4568,7 +4568,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentGameIdProfileIdPath(self
+    def CountGameProfileContentByGameIdByProfileIdByPath(self
         , game_id
         , profile_id
         , path
@@ -4591,7 +4591,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentGameIdProfileIdPathVersion(self
+    def CountGameProfileContentByGameIdByProfileIdByPathByVersion(self
         , game_id
         , profile_id
         , path
@@ -4616,7 +4616,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self
+    def CountGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , profile_id
         , path
@@ -4645,7 +4645,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentGameIdUsernamePath(self
+    def CountGameProfileContentByGameIdByUsernameByPath(self
         , game_id
         , username
         , path
@@ -4668,7 +4668,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentGameIdUsernamePathVersion(self
+    def CountGameProfileContentByGameIdByUsernameByPathByVersion(self
         , game_id
         , username
         , path
@@ -4693,7 +4693,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self
+    def CountGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
         , game_id
         , username
         , path
@@ -4722,7 +4722,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProfileContentListFilter(self, filter_obj) :
+    def BrowseGameProfileContentListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -4742,7 +4742,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProfileContentUuid(self, set_type, obj) :
+    def SetGameProfileContentByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4784,7 +4784,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentGameIdProfileId(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4826,7 +4826,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentGameIdUsername(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsername(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4868,7 +4868,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentUsername(self, set_type, obj) :
+    def SetGameProfileContentByUsername(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4910,7 +4910,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentGameIdProfileIdPath(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdByPath(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4952,7 +4952,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentGameIdProfileIdPathVersion(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdByPathByVersion(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -4994,7 +4994,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -5036,7 +5036,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentGameIdUsernamePath(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameByPath(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -5078,7 +5078,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentGameIdUsernamePathVersion(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameByPathByVersion(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -5120,7 +5120,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self, set_type, obj) :
+    def SetGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.username) #"in_username"
@@ -5162,7 +5162,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProfileContentUuid(self
+    def DelGameProfileContentByUuid(self
         , uuid
     ) :
         parameters = []
@@ -5181,7 +5181,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentGameIdProfileId(self
+    def DelGameProfileContentByGameIdByProfileId(self
         , game_id
         , profile_id
     ) :
@@ -5202,7 +5202,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentGameIdUsername(self
+    def DelGameProfileContentByGameIdByUsername(self
         , game_id
         , username
     ) :
@@ -5223,7 +5223,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentUsername(self
+    def DelGameProfileContentByUsername(self
         , username
     ) :
         parameters = []
@@ -5242,7 +5242,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentGameIdProfileIdPath(self
+    def DelGameProfileContentByGameIdByProfileIdByPath(self
         , game_id
         , profile_id
         , path
@@ -5265,7 +5265,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentGameIdProfileIdPathVersion(self
+    def DelGameProfileContentByGameIdByProfileIdByPathByVersion(self
         , game_id
         , profile_id
         , path
@@ -5290,7 +5290,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentGameIdProfileIdPathVersionPlatformIncrement(self
+    def DelGameProfileContentByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , profile_id
         , path
@@ -5319,7 +5319,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentGameIdUsernamePath(self
+    def DelGameProfileContentByGameIdByUsernameByPath(self
         , game_id
         , username
         , path
@@ -5342,7 +5342,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentGameIdUsernamePathVersion(self
+    def DelGameProfileContentByGameIdByUsernameByPathByVersion(self
         , game_id
         , username
         , path
@@ -5367,7 +5367,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileContentGameIdUsernamePathVersionPlatformIncrement(self
+    def DelGameProfileContentByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
         , game_id
         , username
         , path
@@ -5415,7 +5415,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListUuid(self
+    def GetGameProfileContentListByUuid(self
         , uuid
     ) :
             
@@ -5436,7 +5436,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListGameIdProfileId(self
+    def GetGameProfileContentListByGameIdByProfileId(self
         , game_id
         , profile_id
     ) :
@@ -5459,7 +5459,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListGameIdUsername(self
+    def GetGameProfileContentListByGameIdByUsername(self
         , game_id
         , username
     ) :
@@ -5482,7 +5482,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListUsername(self
+    def GetGameProfileContentListByUsername(self
         , username
     ) :
             
@@ -5503,7 +5503,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListGameIdProfileIdPath(self
+    def GetGameProfileContentListByGameIdByProfileIdByPath(self
         , game_id
         , profile_id
         , path
@@ -5528,7 +5528,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListGameIdProfileIdPathVersion(self
+    def GetGameProfileContentListByGameIdByProfileIdByPathByVersion(self
         , game_id
         , profile_id
         , path
@@ -5555,7 +5555,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListGameIdProfileIdPathVersionPlatformIncrement(self
+    def GetGameProfileContentListByGameIdByProfileIdByPathByVersionByPlatformByIncrement(self
         , game_id
         , profile_id
         , path
@@ -5586,7 +5586,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListGameIdUsernamePath(self
+    def GetGameProfileContentListByGameIdByUsernameByPath(self
         , game_id
         , username
         , path
@@ -5611,7 +5611,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListGameIdUsernamePathVersion(self
+    def GetGameProfileContentListByGameIdByUsernameByPathByVersion(self
         , game_id
         , username
         , path
@@ -5638,7 +5638,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileContentListGameIdUsernamePathVersionPlatformIncrement(self
+    def GetGameProfileContentListByGameIdByUsernameByPathByVersionByPlatformByIncrement(self
         , game_id
         , username
         , path
@@ -5686,7 +5686,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAppUuid(self
+    def CountGameAppByUuid(self
         , uuid
     ) :
         parameters = []
@@ -5705,7 +5705,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAppGameId(self
+    def CountGameAppByGameId(self
         , game_id
     ) :
         parameters = []
@@ -5724,7 +5724,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAppAppId(self
+    def CountGameAppByAppId(self
         , app_id
     ) :
         parameters = []
@@ -5743,7 +5743,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAppGameIdAppId(self
+    def CountGameAppByGameIdByAppId(self
         , game_id
         , app_id
     ) :
@@ -5764,7 +5764,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameAppListFilter(self, filter_obj) :
+    def BrowseGameAppListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -5784,7 +5784,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameAppUuid(self, set_type, obj) :
+    def SetGameAppByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -5810,7 +5810,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameAppUuid(self
+    def DelGameAppByUuid(self
         , uuid
     ) :
         parameters = []
@@ -5848,7 +5848,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAppListUuid(self
+    def GetGameAppListByUuid(self
         , uuid
     ) :
             
@@ -5869,7 +5869,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAppListGameId(self
+    def GetGameAppListByGameId(self
         , game_id
     ) :
             
@@ -5890,7 +5890,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAppListAppId(self
+    def GetGameAppListByAppId(self
         , app_id
     ) :
             
@@ -5911,7 +5911,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAppListGameIdAppId(self
+    def GetGameAppListByGameIdByAppId(self
         , game_id
         , app_id
     ) :
@@ -5951,7 +5951,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameLocationUuid(self
+    def CountProfileGameLocationByUuid(self
         , uuid
     ) :
         parameters = []
@@ -5970,7 +5970,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameLocationGameLocationId(self
+    def CountProfileGameLocationByGameLocationId(self
         , game_location_id
     ) :
         parameters = []
@@ -5989,7 +5989,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameLocationProfileId(self
+    def CountProfileGameLocationByProfileId(self
         , profile_id
     ) :
         parameters = []
@@ -6008,7 +6008,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountProfileGameLocationProfileIdGameLocationId(self
+    def CountProfileGameLocationByProfileIdByGameLocationId(self
         , profile_id
         , game_location_id
     ) :
@@ -6029,7 +6029,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseProfileGameLocationListFilter(self, filter_obj) :
+    def BrowseProfileGameLocationListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -6049,7 +6049,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetProfileGameLocationUuid(self, set_type, obj) :
+    def SetProfileGameLocationByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6076,7 +6076,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelProfileGameLocationUuid(self
+    def DelProfileGameLocationByUuid(self
         , uuid
     ) :
         parameters = []
@@ -6114,7 +6114,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameLocationListUuid(self
+    def GetProfileGameLocationListByUuid(self
         , uuid
     ) :
             
@@ -6135,7 +6135,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameLocationListGameLocationId(self
+    def GetProfileGameLocationListByGameLocationId(self
         , game_location_id
     ) :
             
@@ -6156,7 +6156,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameLocationListProfileId(self
+    def GetProfileGameLocationListByProfileId(self
         , profile_id
     ) :
             
@@ -6177,7 +6177,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetProfileGameLocationListProfileIdGameLocationId(self
+    def GetProfileGameLocationListByProfileIdByGameLocationId(self
         , profile_id
         , game_location_id
     ) :
@@ -6217,7 +6217,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoUuid(self
+    def CountGamePhotoByUuid(self
         , uuid
     ) :
         parameters = []
@@ -6236,7 +6236,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoExternalId(self
+    def CountGamePhotoByExternalId(self
         , external_id
     ) :
         parameters = []
@@ -6255,7 +6255,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoUrl(self
+    def CountGamePhotoByUrl(self
         , url
     ) :
         parameters = []
@@ -6274,7 +6274,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoUrlExternalId(self
+    def CountGamePhotoByUrlByExternalId(self
         , url
         , external_id
     ) :
@@ -6295,7 +6295,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGamePhotoUuidExternalId(self
+    def CountGamePhotoByUuidByExternalId(self
         , uuid
         , external_id
     ) :
@@ -6316,7 +6316,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGamePhotoListFilter(self, filter_obj) :
+    def BrowseGamePhotoListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -6336,7 +6336,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGamePhotoUuid(self, set_type, obj) :
+    def SetGamePhotoByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6371,7 +6371,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGamePhotoExternalId(self, set_type, obj) :
+    def SetGamePhotoByExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6406,7 +6406,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGamePhotoUrl(self, set_type, obj) :
+    def SetGamePhotoByUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6441,7 +6441,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGamePhotoUrlExternalId(self, set_type, obj) :
+    def SetGamePhotoByUrlByExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6476,7 +6476,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGamePhotoUuidExternalId(self, set_type, obj) :
+    def SetGamePhotoByUuidByExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6511,7 +6511,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGamePhotoUuid(self
+    def DelGamePhotoByUuid(self
         , uuid
     ) :
         parameters = []
@@ -6530,7 +6530,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGamePhotoExternalId(self
+    def DelGamePhotoByExternalId(self
         , external_id
     ) :
         parameters = []
@@ -6549,7 +6549,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGamePhotoUrl(self
+    def DelGamePhotoByUrl(self
         , url
     ) :
         parameters = []
@@ -6568,7 +6568,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGamePhotoUrlExternalId(self
+    def DelGamePhotoByUrlByExternalId(self
         , url
         , external_id
     ) :
@@ -6589,7 +6589,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGamePhotoUuidExternalId(self
+    def DelGamePhotoByUuidByExternalId(self
         , uuid
         , external_id
     ) :
@@ -6629,7 +6629,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListUuid(self
+    def GetGamePhotoListByUuid(self
         , uuid
     ) :
             
@@ -6650,7 +6650,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListExternalId(self
+    def GetGamePhotoListByExternalId(self
         , external_id
     ) :
             
@@ -6671,7 +6671,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListUrl(self
+    def GetGamePhotoListByUrl(self
         , url
     ) :
             
@@ -6692,7 +6692,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListUrlExternalId(self
+    def GetGamePhotoListByUrlByExternalId(self
         , url
         , external_id
     ) :
@@ -6715,7 +6715,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGamePhotoListUuidExternalId(self
+    def GetGamePhotoListByUuidByExternalId(self
         , uuid
         , external_id
     ) :
@@ -6755,7 +6755,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoUuid(self
+    def CountGameVideoByUuid(self
         , uuid
     ) :
         parameters = []
@@ -6774,7 +6774,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoExternalId(self
+    def CountGameVideoByExternalId(self
         , external_id
     ) :
         parameters = []
@@ -6793,7 +6793,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoUrl(self
+    def CountGameVideoByUrl(self
         , url
     ) :
         parameters = []
@@ -6812,7 +6812,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoUrlExternalId(self
+    def CountGameVideoByUrlByExternalId(self
         , url
         , external_id
     ) :
@@ -6833,7 +6833,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameVideoUuidExternalId(self
+    def CountGameVideoByUuidByExternalId(self
         , uuid
         , external_id
     ) :
@@ -6854,7 +6854,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameVideoListFilter(self, filter_obj) :
+    def BrowseGameVideoListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -6874,7 +6874,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameVideoUuid(self, set_type, obj) :
+    def SetGameVideoByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6909,7 +6909,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameVideoExternalId(self, set_type, obj) :
+    def SetGameVideoByExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6944,7 +6944,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameVideoUrl(self, set_type, obj) :
+    def SetGameVideoByUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -6979,7 +6979,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameVideoUrlExternalId(self, set_type, obj) :
+    def SetGameVideoByUrlByExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7014,7 +7014,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameVideoUuidExternalId(self, set_type, obj) :
+    def SetGameVideoByUuidByExternalId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7049,7 +7049,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameVideoUuid(self
+    def DelGameVideoByUuid(self
         , uuid
     ) :
         parameters = []
@@ -7068,7 +7068,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameVideoExternalId(self
+    def DelGameVideoByExternalId(self
         , external_id
     ) :
         parameters = []
@@ -7087,7 +7087,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameVideoUrl(self
+    def DelGameVideoByUrl(self
         , url
     ) :
         parameters = []
@@ -7106,7 +7106,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameVideoUrlExternalId(self
+    def DelGameVideoByUrlByExternalId(self
         , url
         , external_id
     ) :
@@ -7127,7 +7127,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameVideoUuidExternalId(self
+    def DelGameVideoByUuidByExternalId(self
         , uuid
         , external_id
     ) :
@@ -7167,7 +7167,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListUuid(self
+    def GetGameVideoListByUuid(self
         , uuid
     ) :
             
@@ -7188,7 +7188,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListExternalId(self
+    def GetGameVideoListByExternalId(self
         , external_id
     ) :
             
@@ -7209,7 +7209,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListUrl(self
+    def GetGameVideoListByUrl(self
         , url
     ) :
             
@@ -7230,7 +7230,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListUrlExternalId(self
+    def GetGameVideoListByUrlByExternalId(self
         , url
         , external_id
     ) :
@@ -7253,7 +7253,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameVideoListUuidExternalId(self
+    def GetGameVideoListByUuidByExternalId(self
         , uuid
         , external_id
     ) :
@@ -7293,7 +7293,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponUuid(self
+    def CountGameRpgItemWeaponByUuid(self
         , uuid
     ) :
         parameters = []
@@ -7312,7 +7312,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponGameId(self
+    def CountGameRpgItemWeaponByGameId(self
         , game_id
     ) :
         parameters = []
@@ -7331,7 +7331,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponUrl(self
+    def CountGameRpgItemWeaponByUrl(self
         , url
     ) :
         parameters = []
@@ -7350,7 +7350,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponUrlGameId(self
+    def CountGameRpgItemWeaponByUrlByGameId(self
         , url
         , game_id
     ) :
@@ -7371,7 +7371,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemWeaponUuidGameId(self
+    def CountGameRpgItemWeaponByUuidByGameId(self
         , uuid
         , game_id
     ) :
@@ -7392,7 +7392,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameRpgItemWeaponListFilter(self, filter_obj) :
+    def BrowseGameRpgItemWeaponListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -7412,7 +7412,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameRpgItemWeaponUuid(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7455,7 +7455,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemWeaponGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7498,7 +7498,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemWeaponUrl(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7541,7 +7541,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemWeaponUrlGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUrlByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7584,7 +7584,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemWeaponUuidGameId(self, set_type, obj) :
+    def SetGameRpgItemWeaponByUuidByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -7627,7 +7627,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameRpgItemWeaponUuid(self
+    def DelGameRpgItemWeaponByUuid(self
         , uuid
     ) :
         parameters = []
@@ -7646,7 +7646,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemWeaponGameId(self
+    def DelGameRpgItemWeaponByGameId(self
         , game_id
     ) :
         parameters = []
@@ -7665,7 +7665,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemWeaponUrl(self
+    def DelGameRpgItemWeaponByUrl(self
         , url
     ) :
         parameters = []
@@ -7684,7 +7684,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemWeaponUrlGameId(self
+    def DelGameRpgItemWeaponByUrlByGameId(self
         , url
         , game_id
     ) :
@@ -7705,7 +7705,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemWeaponUuidGameId(self
+    def DelGameRpgItemWeaponByUuidByGameId(self
         , uuid
         , game_id
     ) :
@@ -7745,7 +7745,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListUuid(self
+    def GetGameRpgItemWeaponListByUuid(self
         , uuid
     ) :
             
@@ -7766,7 +7766,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListGameId(self
+    def GetGameRpgItemWeaponListByGameId(self
         , game_id
     ) :
             
@@ -7787,7 +7787,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListUrl(self
+    def GetGameRpgItemWeaponListByUrl(self
         , url
     ) :
             
@@ -7808,7 +7808,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListUrlGameId(self
+    def GetGameRpgItemWeaponListByUrlByGameId(self
         , url
         , game_id
     ) :
@@ -7831,7 +7831,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemWeaponListUuidGameId(self
+    def GetGameRpgItemWeaponListByUuidByGameId(self
         , uuid
         , game_id
     ) :
@@ -7871,7 +7871,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillUuid(self
+    def CountGameRpgItemSkillByUuid(self
         , uuid
     ) :
         parameters = []
@@ -7890,7 +7890,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillGameId(self
+    def CountGameRpgItemSkillByGameId(self
         , game_id
     ) :
         parameters = []
@@ -7909,7 +7909,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillUrl(self
+    def CountGameRpgItemSkillByUrl(self
         , url
     ) :
         parameters = []
@@ -7928,7 +7928,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillUrlGameId(self
+    def CountGameRpgItemSkillByUrlByGameId(self
         , url
         , game_id
     ) :
@@ -7949,7 +7949,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameRpgItemSkillUuidGameId(self
+    def CountGameRpgItemSkillByUuidByGameId(self
         , uuid
         , game_id
     ) :
@@ -7970,7 +7970,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameRpgItemSkillListFilter(self, filter_obj) :
+    def BrowseGameRpgItemSkillListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -7990,7 +7990,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameRpgItemSkillUuid(self, set_type, obj) :
+    def SetGameRpgItemSkillByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8033,7 +8033,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemSkillGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8076,7 +8076,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemSkillUrl(self, set_type, obj) :
+    def SetGameRpgItemSkillByUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8119,7 +8119,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemSkillUrlGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillByUrlByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8162,7 +8162,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameRpgItemSkillUuidGameId(self, set_type, obj) :
+    def SetGameRpgItemSkillByUuidByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8205,7 +8205,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameRpgItemSkillUuid(self
+    def DelGameRpgItemSkillByUuid(self
         , uuid
     ) :
         parameters = []
@@ -8224,7 +8224,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemSkillGameId(self
+    def DelGameRpgItemSkillByGameId(self
         , game_id
     ) :
         parameters = []
@@ -8243,7 +8243,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemSkillUrl(self
+    def DelGameRpgItemSkillByUrl(self
         , url
     ) :
         parameters = []
@@ -8262,7 +8262,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemSkillUrlGameId(self
+    def DelGameRpgItemSkillByUrlByGameId(self
         , url
         , game_id
     ) :
@@ -8283,7 +8283,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameRpgItemSkillUuidGameId(self
+    def DelGameRpgItemSkillByUuidByGameId(self
         , uuid
         , game_id
     ) :
@@ -8323,7 +8323,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListUuid(self
+    def GetGameRpgItemSkillListByUuid(self
         , uuid
     ) :
             
@@ -8344,7 +8344,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListGameId(self
+    def GetGameRpgItemSkillListByGameId(self
         , game_id
     ) :
             
@@ -8365,7 +8365,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListUrl(self
+    def GetGameRpgItemSkillListByUrl(self
         , url
     ) :
             
@@ -8386,7 +8386,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListUrlGameId(self
+    def GetGameRpgItemSkillListByUrlByGameId(self
         , url
         , game_id
     ) :
@@ -8409,7 +8409,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameRpgItemSkillListUuidGameId(self
+    def GetGameRpgItemSkillListByUuidByGameId(self
         , uuid
         , game_id
     ) :
@@ -8449,7 +8449,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductUuid(self
+    def CountGameProductByUuid(self
         , uuid
     ) :
         parameters = []
@@ -8468,7 +8468,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductGameId(self
+    def CountGameProductByGameId(self
         , game_id
     ) :
         parameters = []
@@ -8487,7 +8487,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductUrl(self
+    def CountGameProductByUrl(self
         , url
     ) :
         parameters = []
@@ -8506,7 +8506,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductUrlGameId(self
+    def CountGameProductByUrlByGameId(self
         , url
         , game_id
     ) :
@@ -8527,7 +8527,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProductUuidGameId(self
+    def CountGameProductByUuidByGameId(self
         , uuid
         , game_id
     ) :
@@ -8548,7 +8548,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProductListFilter(self, filter_obj) :
+    def BrowseGameProductListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -8568,7 +8568,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProductUuid(self, set_type, obj) :
+    def SetGameProductByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8598,7 +8598,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProductGameId(self, set_type, obj) :
+    def SetGameProductByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8628,7 +8628,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProductUrl(self, set_type, obj) :
+    def SetGameProductByUrl(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8658,7 +8658,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProductUrlGameId(self, set_type, obj) :
+    def SetGameProductByUrlByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8688,7 +8688,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProductUuidGameId(self, set_type, obj) :
+    def SetGameProductByUuidByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -8718,7 +8718,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProductUuid(self
+    def DelGameProductByUuid(self
         , uuid
     ) :
         parameters = []
@@ -8737,7 +8737,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProductGameId(self
+    def DelGameProductByGameId(self
         , game_id
     ) :
         parameters = []
@@ -8756,7 +8756,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProductUrl(self
+    def DelGameProductByUrl(self
         , url
     ) :
         parameters = []
@@ -8775,7 +8775,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProductUrlGameId(self
+    def DelGameProductByUrlByGameId(self
         , url
         , game_id
     ) :
@@ -8796,7 +8796,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProductUuidGameId(self
+    def DelGameProductByUuidByGameId(self
         , uuid
         , game_id
     ) :
@@ -8836,7 +8836,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListUuid(self
+    def GetGameProductListByUuid(self
         , uuid
     ) :
             
@@ -8857,7 +8857,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListGameId(self
+    def GetGameProductListByGameId(self
         , game_id
     ) :
             
@@ -8878,7 +8878,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListUrl(self
+    def GetGameProductListByUrl(self
         , url
     ) :
             
@@ -8899,7 +8899,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListUrlGameId(self
+    def GetGameProductListByUrlByGameId(self
         , url
         , game_id
     ) :
@@ -8922,7 +8922,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProductListUuidGameId(self
+    def GetGameProductListByUuidByGameId(self
         , uuid
         , game_id
     ) :
@@ -8945,7 +8945,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def CountGameStatisticLeaderboard(self
+    def CountGameLeaderboard(self
     ) :
         parameters = []
                         
@@ -8953,7 +8953,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count"
+            , "usp_game_leaderboard_count"
             , parameters
             )
         except Exception as err: 
@@ -8962,7 +8962,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardUuid(self
+    def CountGameLeaderboardByUuid(self
         , uuid
     ) :
         parameters = []
@@ -8972,7 +8972,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_uuid"
+            , "usp_game_leaderboard_count_uuid"
             , parameters
             )
         except Exception as err: 
@@ -8981,7 +8981,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardGameId(self
+    def CountGameLeaderboardByGameId(self
         , game_id
     ) :
         parameters = []
@@ -8991,7 +8991,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_game_id"
+            , "usp_game_leaderboard_count_game_id"
             , parameters
             )
         except Exception as err: 
@@ -9000,7 +9000,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardCode(self
+    def CountGameLeaderboardByCode(self
         , code
     ) :
         parameters = []
@@ -9010,7 +9010,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_code"
+            , "usp_game_leaderboard_count_code"
             , parameters
             )
         except Exception as err: 
@@ -9019,7 +9019,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardCodeGameId(self
+    def CountGameLeaderboardByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -9031,7 +9031,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_code_game_id"
+            , "usp_game_leaderboard_count_code_game_id"
             , parameters
             )
         except Exception as err: 
@@ -9040,7 +9040,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardCodeGameIdProfileId(self
+    def CountGameLeaderboardByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
@@ -9054,7 +9054,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_code_game_id_profile_id"
+            , "usp_game_leaderboard_count_code_game_id_profile_id"
             , parameters
             )
         except Exception as err: 
@@ -9063,7 +9063,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self
+    def CountGameLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -9079,7 +9079,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_code_game_id_profile_id_ti"
+            , "usp_game_leaderboard_count_code_game_id_profile_id_timestamp"
             , parameters
             )
         except Exception as err: 
@@ -9088,7 +9088,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardProfileIdGameId(self
+    def CountGameLeaderboardByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -9100,7 +9100,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_count_profile_id_game_id"
+            , "usp_game_leaderboard_count_profile_id_game_id"
             , parameters
             )
         except Exception as err: 
@@ -9109,7 +9109,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameStatisticLeaderboardListFilter(self, filter_obj) :
+    def BrowseGameLeaderboardListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -9121,7 +9121,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_browse_filter"
+            , "usp_game_leaderboard_browse_filter"
             , parameters
             )
         except Exception: 
@@ -9129,7 +9129,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameStatisticLeaderboardUuid(self, set_type, obj) :
+    def SetGameLeaderboardByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9157,7 +9157,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_uuid"
+            , "usp_game_leaderboard_set_uuid"
             , parameters
             ))
         except Exception: 
@@ -9167,7 +9167,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardUuidProfileIdGameIdTimestamp(self, set_type, obj) :
+    def SetGameLeaderboardByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9195,7 +9195,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_uuid_profile_id_game_id_time"
+            , "usp_game_leaderboard_set_uuid_profile_id_game_id_timestamp"
             , parameters
             ))
         except Exception: 
@@ -9205,7 +9205,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardCode(self, set_type, obj) :
+    def SetGameLeaderboardByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9233,7 +9233,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_code"
+            , "usp_game_leaderboard_set_code"
             , parameters
             ))
         except Exception: 
@@ -9243,7 +9243,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardCodeGameId(self, set_type, obj) :
+    def SetGameLeaderboardByCodeByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9271,7 +9271,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_code_game_id"
+            , "usp_game_leaderboard_set_code_game_id"
             , parameters
             ))
         except Exception: 
@@ -9281,7 +9281,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardCodeGameIdProfileId(self, set_type, obj) :
+    def SetGameLeaderboardByCodeByGameIdByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9309,7 +9309,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_code_game_id_profile_id"
+            , "usp_game_leaderboard_set_code_game_id_profile_id"
             , parameters
             ))
         except Exception: 
@@ -9319,7 +9319,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self, set_type, obj) :
+    def SetGameLeaderboardByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9347,7 +9347,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_set_code_game_id_profile_id_time"
+            , "usp_game_leaderboard_set_code_game_id_profile_id_timestamp"
             , parameters
             ))
         except Exception: 
@@ -9357,7 +9357,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameStatisticLeaderboardUuid(self
+    def DelGameLeaderboardByUuid(self
         , uuid
     ) :
         parameters = []
@@ -9367,7 +9367,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_del_uuid"
+            , "usp_game_leaderboard_del_uuid"
             , parameters
             )
             return True
@@ -9376,7 +9376,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardCode(self
+    def DelGameLeaderboardByCode(self
         , code
     ) :
         parameters = []
@@ -9386,7 +9386,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_del_code"
+            , "usp_game_leaderboard_del_code"
             , parameters
             )
             return True
@@ -9395,7 +9395,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardCodeGameId(self
+    def DelGameLeaderboardByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -9407,7 +9407,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_del_code_game_id"
+            , "usp_game_leaderboard_del_code_game_id"
             , parameters
             )
             return True
@@ -9416,7 +9416,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardCodeGameIdProfileId(self
+    def DelGameLeaderboardByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
@@ -9430,7 +9430,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_del_code_game_id_profile_id"
+            , "usp_game_leaderboard_del_code_game_id_profile_id"
             , parameters
             )
             return True
@@ -9439,7 +9439,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardCodeGameIdProfileIdTimestamp(self
+    def DelGameLeaderboardByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -9455,7 +9455,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_del_code_game_id_profile_id_time"
+            , "usp_game_leaderboard_del_code_game_id_profile_id_timestamp"
             , parameters
             )
             return True
@@ -9464,7 +9464,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardProfileIdGameId(self
+    def DelGameLeaderboardByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -9476,7 +9476,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_del_profile_id_game_id"
+            , "usp_game_leaderboard_del_profile_id_game_id"
             , parameters
             )
             return True
@@ -9485,7 +9485,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameStatisticLeaderboardList(self
+    def GetGameLeaderboardList(self
     ) :
             
         parameters = []
@@ -9494,7 +9494,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get"
+            , "usp_game_leaderboard_get"
             , parameters
             )
         except Exception: 
@@ -9504,7 +9504,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListUuid(self
+    def GetGameLeaderboardListByUuid(self
         , uuid
     ) :
             
@@ -9515,7 +9515,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_uuid"
+            , "usp_game_leaderboard_get_uuid"
             , parameters
             )
         except Exception: 
@@ -9525,7 +9525,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListGameId(self
+    def GetGameLeaderboardListByGameId(self
         , game_id
     ) :
             
@@ -9536,7 +9536,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_game_id"
+            , "usp_game_leaderboard_get_game_id"
             , parameters
             )
         except Exception: 
@@ -9546,7 +9546,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListCode(self
+    def GetGameLeaderboardListByCode(self
         , code
     ) :
             
@@ -9557,7 +9557,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_code"
+            , "usp_game_leaderboard_get_code"
             , parameters
             )
         except Exception: 
@@ -9567,7 +9567,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListCodeGameId(self
+    def GetGameLeaderboardListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -9580,7 +9580,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_code_game_id"
+            , "usp_game_leaderboard_get_code_game_id"
             , parameters
             )
         except Exception: 
@@ -9590,7 +9590,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListCodeGameIdProfileId(self
+    def GetGameLeaderboardListByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
@@ -9605,7 +9605,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_code_game_id_profile_id"
+            , "usp_game_leaderboard_get_code_game_id_profile_id"
             , parameters
             )
         except Exception: 
@@ -9615,7 +9615,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListCodeGameIdProfileIdTimestamp(self
+    def GetGameLeaderboardListByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -9632,7 +9632,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_code_game_id_profile_id_time"
+            , "usp_game_leaderboard_get_code_game_id_profile_id_timestamp"
             , parameters
             )
         except Exception: 
@@ -9642,7 +9642,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListProfileIdGameId(self
+    def GetGameLeaderboardListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -9655,7 +9655,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_profile_id_game_id"
+            , "usp_game_leaderboard_get_profile_id_game_id"
             , parameters
             )
         except Exception: 
@@ -9665,7 +9665,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardListProfileIdGameIdTimestamp(self
+    def GetGameLeaderboardListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -9680,7 +9680,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_get_profile_id_game_id_timestamp"
+            , "usp_game_leaderboard_get_profile_id_game_id_timestamp"
             , parameters
             )
         except Exception: 
@@ -9690,7 +9690,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def CountGameStatisticLeaderboardItem(self
+    def CountGameLeaderboardItem(self
     ) :
         parameters = []
                         
@@ -9698,7 +9698,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_count"
+            , "usp_game_leaderboard_item_count"
             , parameters
             )
         except Exception as err: 
@@ -9707,7 +9707,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardItemUuid(self
+    def CountGameLeaderboardItemByUuid(self
         , uuid
     ) :
         parameters = []
@@ -9717,7 +9717,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_count_uuid"
+            , "usp_game_leaderboard_item_count_uuid"
             , parameters
             )
         except Exception as err: 
@@ -9726,7 +9726,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardItemGameId(self
+    def CountGameLeaderboardItemByGameId(self
         , game_id
     ) :
         parameters = []
@@ -9736,7 +9736,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_count_game_id"
+            , "usp_game_leaderboard_item_count_game_id"
             , parameters
             )
         except Exception as err: 
@@ -9745,7 +9745,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardItemCode(self
+    def CountGameLeaderboardItemByCode(self
         , code
     ) :
         parameters = []
@@ -9755,7 +9755,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_count_code"
+            , "usp_game_leaderboard_item_count_code"
             , parameters
             )
         except Exception as err: 
@@ -9764,7 +9764,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardItemCodeGameId(self
+    def CountGameLeaderboardItemByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -9776,7 +9776,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_count_code_game_id"
+            , "usp_game_leaderboard_item_count_code_game_id"
             , parameters
             )
         except Exception as err: 
@@ -9785,7 +9785,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardItemCodeGameIdProfileId(self
+    def CountGameLeaderboardItemByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
@@ -9799,7 +9799,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_count_code_game_id_profile_"
+            , "usp_game_leaderboard_item_count_code_game_id_profile_id"
             , parameters
             )
         except Exception as err: 
@@ -9808,7 +9808,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self
+    def CountGameLeaderboardItemByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -9824,7 +9824,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_count_code_game_id_profile_"
+            , "usp_game_leaderboard_item_count_code_game_id_profile_id_timesta"
             , parameters
             )
         except Exception as err: 
@@ -9833,7 +9833,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardItemProfileIdGameId(self
+    def CountGameLeaderboardItemByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -9845,7 +9845,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_count_profile_id_game_id"
+            , "usp_game_leaderboard_item_count_profile_id_game_id"
             , parameters
             )
         except Exception as err: 
@@ -9854,7 +9854,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameStatisticLeaderboardItemListFilter(self, filter_obj) :
+    def BrowseGameLeaderboardItemListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -9866,7 +9866,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_browse_filter"
+            , "usp_game_leaderboard_item_browse_filter"
             , parameters
             )
         except Exception: 
@@ -9874,7 +9874,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameStatisticLeaderboardItemUuid(self, set_type, obj) :
+    def SetGameLeaderboardItemByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9902,7 +9902,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_set_uuid"
+            , "usp_game_leaderboard_item_set_uuid"
             , parameters
             ))
         except Exception: 
@@ -9912,7 +9912,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardItemUuidProfileIdGameIdTimestamp(self, set_type, obj) :
+    def SetGameLeaderboardItemByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9940,7 +9940,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_set_uuid_profile_id_game_id"
+            , "usp_game_leaderboard_item_set_uuid_profile_id_game_id_timestamp"
             , parameters
             ))
         except Exception: 
@@ -9950,7 +9950,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardItemCode(self, set_type, obj) :
+    def SetGameLeaderboardItemByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -9978,7 +9978,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_set_code"
+            , "usp_game_leaderboard_item_set_code"
             , parameters
             ))
         except Exception: 
@@ -9988,7 +9988,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardItemCodeGameId(self, set_type, obj) :
+    def SetGameLeaderboardItemByCodeByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10016,7 +10016,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_set_code_game_id"
+            , "usp_game_leaderboard_item_set_code_game_id"
             , parameters
             ))
         except Exception: 
@@ -10026,7 +10026,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardItemCodeGameIdProfileId(self, set_type, obj) :
+    def SetGameLeaderboardItemByCodeByGameIdByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10054,7 +10054,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_set_code_game_id_profile_id"
+            , "usp_game_leaderboard_item_set_code_game_id_profile_id"
             , parameters
             ))
         except Exception: 
@@ -10064,7 +10064,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self, set_type, obj) :
+    def SetGameLeaderboardItemByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10092,7 +10092,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_set_code_game_id_profile_id"
+            , "usp_game_leaderboard_item_set_code_game_id_profile_id_timestamp"
             , parameters
             ))
         except Exception: 
@@ -10102,7 +10102,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameStatisticLeaderboardItemUuid(self
+    def DelGameLeaderboardItemByUuid(self
         , uuid
     ) :
         parameters = []
@@ -10112,7 +10112,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_del_uuid"
+            , "usp_game_leaderboard_item_del_uuid"
             , parameters
             )
             return True
@@ -10121,7 +10121,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardItemCode(self
+    def DelGameLeaderboardItemByCode(self
         , code
     ) :
         parameters = []
@@ -10131,7 +10131,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_del_code"
+            , "usp_game_leaderboard_item_del_code"
             , parameters
             )
             return True
@@ -10140,7 +10140,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardItemCodeGameId(self
+    def DelGameLeaderboardItemByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -10152,7 +10152,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_del_code_game_id"
+            , "usp_game_leaderboard_item_del_code_game_id"
             , parameters
             )
             return True
@@ -10161,7 +10161,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardItemCodeGameIdProfileId(self
+    def DelGameLeaderboardItemByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
@@ -10175,7 +10175,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_del_code_game_id_profile_id"
+            , "usp_game_leaderboard_item_del_code_game_id_profile_id"
             , parameters
             )
             return True
@@ -10184,7 +10184,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardItemCodeGameIdProfileIdTimestamp(self
+    def DelGameLeaderboardItemByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -10200,7 +10200,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_del_code_game_id_profile_id"
+            , "usp_game_leaderboard_item_del_code_game_id_profile_id_timestamp"
             , parameters
             )
             return True
@@ -10209,7 +10209,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardItemProfileIdGameId(self
+    def DelGameLeaderboardItemByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -10221,7 +10221,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_del_profile_id_game_id"
+            , "usp_game_leaderboard_item_del_profile_id_game_id"
             , parameters
             )
             return True
@@ -10230,7 +10230,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameStatisticLeaderboardItemList(self
+    def GetGameLeaderboardItemList(self
     ) :
             
         parameters = []
@@ -10239,7 +10239,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_get"
+            , "usp_game_leaderboard_item_get"
             , parameters
             )
         except Exception: 
@@ -10249,7 +10249,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardItemListUuid(self
+    def GetGameLeaderboardItemListByUuid(self
         , uuid
     ) :
             
@@ -10260,7 +10260,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_get_uuid"
+            , "usp_game_leaderboard_item_get_uuid"
             , parameters
             )
         except Exception: 
@@ -10270,7 +10270,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardItemListGameId(self
+    def GetGameLeaderboardItemListByGameId(self
         , game_id
     ) :
             
@@ -10281,7 +10281,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_get_game_id"
+            , "usp_game_leaderboard_item_get_game_id"
             , parameters
             )
         except Exception: 
@@ -10291,7 +10291,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardItemListCode(self
+    def GetGameLeaderboardItemListByCode(self
         , code
     ) :
             
@@ -10302,7 +10302,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_get_code"
+            , "usp_game_leaderboard_item_get_code"
             , parameters
             )
         except Exception: 
@@ -10312,7 +10312,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardItemListCodeGameId(self
+    def GetGameLeaderboardItemListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -10325,7 +10325,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_get_code_game_id"
+            , "usp_game_leaderboard_item_get_code_game_id"
             , parameters
             )
         except Exception: 
@@ -10335,7 +10335,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardItemListCodeGameIdProfileId(self
+    def GetGameLeaderboardItemListByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
@@ -10350,7 +10350,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_get_code_game_id_profile_id"
+            , "usp_game_leaderboard_item_get_code_game_id_profile_id"
             , parameters
             )
         except Exception: 
@@ -10360,7 +10360,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardItemListCodeGameIdProfileIdTimestamp(self
+    def GetGameLeaderboardItemListByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -10377,7 +10377,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_get_code_game_id_profile_id"
+            , "usp_game_leaderboard_item_get_code_game_id_profile_id_timestamp"
             , parameters
             )
         except Exception: 
@@ -10387,7 +10387,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardItemListProfileIdGameId(self
+    def GetGameLeaderboardItemListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -10400,7 +10400,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_get_profile_id_game_id"
+            , "usp_game_leaderboard_item_get_profile_id_game_id"
             , parameters
             )
         except Exception: 
@@ -10410,7 +10410,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardItemListProfileIdGameIdTimestamp(self
+    def GetGameLeaderboardItemListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -10425,7 +10425,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_item_get_profile_id_game_id_time"
+            , "usp_game_leaderboard_item_get_profile_id_game_id_timestamp"
             , parameters
             )
         except Exception: 
@@ -10435,7 +10435,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def CountGameStatisticLeaderboardRollup(self
+    def CountGameLeaderboardRollup(self
     ) :
         parameters = []
                         
@@ -10443,7 +10443,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count"
+            , "usp_game_leaderboard_rollup_count"
             , parameters
             )
         except Exception as err: 
@@ -10452,7 +10452,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupUuid(self
+    def CountGameLeaderboardRollupByUuid(self
         , uuid
     ) :
         parameters = []
@@ -10462,7 +10462,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_uuid"
+            , "usp_game_leaderboard_rollup_count_uuid"
             , parameters
             )
         except Exception as err: 
@@ -10471,7 +10471,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupGameId(self
+    def CountGameLeaderboardRollupByGameId(self
         , game_id
     ) :
         parameters = []
@@ -10481,7 +10481,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_game_id"
+            , "usp_game_leaderboard_rollup_count_game_id"
             , parameters
             )
         except Exception as err: 
@@ -10490,7 +10490,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupCode(self
+    def CountGameLeaderboardRollupByCode(self
         , code
     ) :
         parameters = []
@@ -10500,7 +10500,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_code"
+            , "usp_game_leaderboard_rollup_count_code"
             , parameters
             )
         except Exception as err: 
@@ -10509,7 +10509,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupCodeGameId(self
+    def CountGameLeaderboardRollupByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -10521,7 +10521,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_code_game_id"
+            , "usp_game_leaderboard_rollup_count_code_game_id"
             , parameters
             )
         except Exception as err: 
@@ -10530,7 +10530,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupCodeGameIdProfileId(self
+    def CountGameLeaderboardRollupByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
@@ -10544,7 +10544,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_code_game_id_profil"
+            , "usp_game_leaderboard_rollup_count_code_game_id_profile_id"
             , parameters
             )
         except Exception as err: 
@@ -10553,7 +10553,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self
+    def CountGameLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -10569,7 +10569,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_code_game_id_profil"
+            , "usp_game_leaderboard_rollup_count_code_game_id_profile_id_times"
             , parameters
             )
         except Exception as err: 
@@ -10578,7 +10578,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticLeaderboardRollupProfileIdGameId(self
+    def CountGameLeaderboardRollupByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -10590,7 +10590,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_count_profile_id_game_id"
+            , "usp_game_leaderboard_rollup_count_profile_id_game_id"
             , parameters
             )
         except Exception as err: 
@@ -10599,7 +10599,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameStatisticLeaderboardRollupListFilter(self, filter_obj) :
+    def BrowseGameLeaderboardRollupListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -10611,7 +10611,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_browse_filter"
+            , "usp_game_leaderboard_rollup_browse_filter"
             , parameters
             )
         except Exception: 
@@ -10619,7 +10619,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameStatisticLeaderboardRollupUuid(self, set_type, obj) :
+    def SetGameLeaderboardRollupByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10647,7 +10647,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_uuid"
+            , "usp_game_leaderboard_rollup_set_uuid"
             , parameters
             ))
         except Exception: 
@@ -10657,7 +10657,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupUuidProfileIdGameIdTimestamp(self, set_type, obj) :
+    def SetGameLeaderboardRollupByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10685,7 +10685,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_uuid_profile_id_game_"
+            , "usp_game_leaderboard_rollup_set_uuid_profile_id_game_id_timesta"
             , parameters
             ))
         except Exception: 
@@ -10695,7 +10695,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupCode(self, set_type, obj) :
+    def SetGameLeaderboardRollupByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10723,7 +10723,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_code"
+            , "usp_game_leaderboard_rollup_set_code"
             , parameters
             ))
         except Exception: 
@@ -10733,7 +10733,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupCodeGameId(self, set_type, obj) :
+    def SetGameLeaderboardRollupByCodeByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10761,7 +10761,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_code_game_id"
+            , "usp_game_leaderboard_rollup_set_code_game_id"
             , parameters
             ))
         except Exception: 
@@ -10771,7 +10771,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupCodeGameIdProfileId(self, set_type, obj) :
+    def SetGameLeaderboardRollupByCodeByGameIdByProfileId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10799,7 +10799,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_"
+            , "usp_game_leaderboard_rollup_set_code_game_id_profile_id"
             , parameters
             ))
         except Exception: 
@@ -10809,7 +10809,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self, set_type, obj) :
+    def SetGameLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -10837,7 +10837,7 @@ class BaseGamingData(object):
             return bool(self.data_provider.execute_scalar(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_set_code_game_id_profile_"
+            , "usp_game_leaderboard_rollup_set_code_game_id_profile_id_timesta"
             , parameters
             ))
         except Exception: 
@@ -10847,7 +10847,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameStatisticLeaderboardRollupUuid(self
+    def DelGameLeaderboardRollupByUuid(self
         , uuid
     ) :
         parameters = []
@@ -10857,7 +10857,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_del_uuid"
+            , "usp_game_leaderboard_rollup_del_uuid"
             , parameters
             )
             return True
@@ -10866,7 +10866,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupCode(self
+    def DelGameLeaderboardRollupByCode(self
         , code
     ) :
         parameters = []
@@ -10876,7 +10876,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_del_code"
+            , "usp_game_leaderboard_rollup_del_code"
             , parameters
             )
             return True
@@ -10885,7 +10885,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupCodeGameId(self
+    def DelGameLeaderboardRollupByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -10897,7 +10897,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_del_code_game_id"
+            , "usp_game_leaderboard_rollup_del_code_game_id"
             , parameters
             )
             return True
@@ -10906,7 +10906,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupCodeGameIdProfileId(self
+    def DelGameLeaderboardRollupByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
@@ -10920,7 +10920,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_"
+            , "usp_game_leaderboard_rollup_del_code_game_id_profile_id"
             , parameters
             )
             return True
@@ -10929,7 +10929,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupCodeGameIdProfileIdTimestamp(self
+    def DelGameLeaderboardRollupByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -10945,7 +10945,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_del_code_game_id_profile_"
+            , "usp_game_leaderboard_rollup_del_code_game_id_profile_id_timesta"
             , parameters
             )
             return True
@@ -10954,7 +10954,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticLeaderboardRollupProfileIdGameId(self
+    def DelGameLeaderboardRollupByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -10966,7 +10966,7 @@ class BaseGamingData(object):
             self.data_provider.execute_no_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_del_profile_id_game_id"
+            , "usp_game_leaderboard_rollup_del_profile_id_game_id"
             , parameters
             )
             return True
@@ -10975,7 +10975,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameStatisticLeaderboardRollupList(self
+    def GetGameLeaderboardRollupList(self
     ) :
             
         parameters = []
@@ -10984,7 +10984,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get"
+            , "usp_game_leaderboard_rollup_get"
             , parameters
             )
         except Exception: 
@@ -10994,7 +10994,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListUuid(self
+    def GetGameLeaderboardRollupListByUuid(self
         , uuid
     ) :
             
@@ -11005,7 +11005,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_uuid"
+            , "usp_game_leaderboard_rollup_get_uuid"
             , parameters
             )
         except Exception: 
@@ -11015,7 +11015,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListGameId(self
+    def GetGameLeaderboardRollupListByGameId(self
         , game_id
     ) :
             
@@ -11026,7 +11026,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_game_id"
+            , "usp_game_leaderboard_rollup_get_game_id"
             , parameters
             )
         except Exception: 
@@ -11036,7 +11036,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListCode(self
+    def GetGameLeaderboardRollupListByCode(self
         , code
     ) :
             
@@ -11047,7 +11047,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_code"
+            , "usp_game_leaderboard_rollup_get_code"
             , parameters
             )
         except Exception: 
@@ -11057,7 +11057,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListCodeGameId(self
+    def GetGameLeaderboardRollupListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -11070,7 +11070,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_code_game_id"
+            , "usp_game_leaderboard_rollup_get_code_game_id"
             , parameters
             )
         except Exception: 
@@ -11080,7 +11080,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListCodeGameIdProfileId(self
+    def GetGameLeaderboardRollupListByCodeByGameIdByProfileId(self
         , code
         , game_id
         , profile_id
@@ -11095,7 +11095,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_"
+            , "usp_game_leaderboard_rollup_get_code_game_id_profile_id"
             , parameters
             )
         except Exception: 
@@ -11105,7 +11105,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListCodeGameIdProfileIdTimestamp(self
+    def GetGameLeaderboardRollupListByCodeByGameIdByProfileIdByTimestamp(self
         , code
         , game_id
         , profile_id
@@ -11122,7 +11122,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_code_game_id_profile_"
+            , "usp_game_leaderboard_rollup_get_code_game_id_profile_id_timesta"
             , parameters
             )
         except Exception: 
@@ -11132,7 +11132,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListProfileIdGameId(self
+    def GetGameLeaderboardRollupListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -11145,7 +11145,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_profile_id_game_id"
+            , "usp_game_leaderboard_rollup_get_profile_id_game_id"
             , parameters
             )
         except Exception: 
@@ -11155,7 +11155,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticLeaderboardRollupListProfileIdGameIdTimestamp(self
+    def GetGameLeaderboardRollupListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -11170,7 +11170,7 @@ class BaseGamingData(object):
             return self.data_provider.execute_results(
             self.connection_string
             , CommandType.StoredProcedure
-            , "usp_game_statistic_leaderboard_rollup_get_profile_id_game_id_ti"
+            , "usp_game_leaderboard_rollup_get_profile_id_game_id_timestamp"
             , parameters
             )
         except Exception: 
@@ -11197,7 +11197,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLiveQueueUuid(self
+    def CountGameLiveQueueByUuid(self
         , uuid
     ) :
         parameters = []
@@ -11216,7 +11216,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLiveQueueProfileIdGameId(self
+    def CountGameLiveQueueByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -11237,7 +11237,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameLiveQueueListFilter(self, filter_obj) :
+    def BrowseGameLiveQueueListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -11257,7 +11257,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameLiveQueueUuid(self, set_type, obj) :
+    def SetGameLiveQueueByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -11285,7 +11285,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameLiveQueueProfileIdGameId(self, set_type, obj) :
+    def SetGameLiveQueueByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -11313,7 +11313,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameLiveQueueUuid(self
+    def DelGameLiveQueueByUuid(self
         , uuid
     ) :
         parameters = []
@@ -11332,7 +11332,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameLiveQueueProfileIdGameId(self
+    def DelGameLiveQueueByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -11372,7 +11372,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveQueueListUuid(self
+    def GetGameLiveQueueListByUuid(self
         , uuid
     ) :
             
@@ -11393,7 +11393,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveQueueListGameId(self
+    def GetGameLiveQueueListByGameId(self
         , game_id
     ) :
             
@@ -11414,7 +11414,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveQueueListProfileIdGameId(self
+    def GetGameLiveQueueListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -11454,7 +11454,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLiveRecentQueueUuid(self
+    def CountGameLiveRecentQueueByUuid(self
         , uuid
     ) :
         parameters = []
@@ -11473,7 +11473,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLiveRecentQueueProfileIdGameId(self
+    def CountGameLiveRecentQueueByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -11494,7 +11494,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameLiveRecentQueueListFilter(self, filter_obj) :
+    def BrowseGameLiveRecentQueueListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -11514,7 +11514,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameLiveRecentQueueUuid(self, set_type, obj) :
+    def SetGameLiveRecentQueueByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -11547,7 +11547,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameLiveRecentQueueProfileIdGameId(self, set_type, obj) :
+    def SetGameLiveRecentQueueByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -11580,7 +11580,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameLiveRecentQueueUuid(self
+    def DelGameLiveRecentQueueByUuid(self
         , uuid
     ) :
         parameters = []
@@ -11599,7 +11599,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameLiveRecentQueueProfileIdGameId(self
+    def DelGameLiveRecentQueueByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -11639,7 +11639,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveRecentQueueListUuid(self
+    def GetGameLiveRecentQueueListByUuid(self
         , uuid
     ) :
             
@@ -11660,7 +11660,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveRecentQueueListGameId(self
+    def GetGameLiveRecentQueueListByGameId(self
         , game_id
     ) :
             
@@ -11681,7 +11681,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLiveRecentQueueListProfileIdGameId(self
+    def GetGameLiveRecentQueueListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -11721,7 +11721,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticUuid(self
+    def CountGameProfileStatisticByUuid(self
         , uuid
     ) :
         parameters = []
@@ -11740,7 +11740,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticCode(self
+    def CountGameProfileStatisticByCode(self
         , code
     ) :
         parameters = []
@@ -11759,7 +11759,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticGameId(self
+    def CountGameProfileStatisticByGameId(self
         , game_id
     ) :
         parameters = []
@@ -11778,7 +11778,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticCodeGameId(self
+    def CountGameProfileStatisticByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -11799,7 +11799,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticProfileIdGameId(self
+    def CountGameProfileStatisticByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -11820,7 +11820,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticCodeProfileIdGameId(self
+    def CountGameProfileStatisticByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
@@ -11843,7 +11843,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticCodeProfileIdGameIdTimestamp(self
+    def CountGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
@@ -11868,7 +11868,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProfileStatisticListFilter(self, filter_obj) :
+    def BrowseGameProfileStatisticListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -11888,7 +11888,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProfileStatisticUuid(self, set_type, obj) :
+    def SetGameProfileStatisticByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -11922,7 +11922,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticUuidProfileIdGameIdTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -11956,7 +11956,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticProfileIdCode(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -11990,7 +11990,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticProfileIdCodeTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByProfileIdByCodeByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12024,7 +12024,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticCodeProfileIdGameIdTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12058,7 +12058,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticCodeProfileIdGameId(self, set_type, obj) :
+    def SetGameProfileStatisticByCodeByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12092,7 +12092,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProfileStatisticUuid(self
+    def DelGameProfileStatisticByUuid(self
         , uuid
     ) :
         parameters = []
@@ -12111,7 +12111,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticCodeGameId(self
+    def DelGameProfileStatisticByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -12132,7 +12132,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticProfileIdGameId(self
+    def DelGameProfileStatisticByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -12153,7 +12153,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticCodeProfileIdGameId(self
+    def DelGameProfileStatisticByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
@@ -12176,7 +12176,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameProfileStatisticListUuid(self
+    def GetGameProfileStatisticListByUuid(self
         , uuid
     ) :
             
@@ -12197,7 +12197,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListCode(self
+    def GetGameProfileStatisticListByCode(self
         , code
     ) :
             
@@ -12218,7 +12218,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListGameId(self
+    def GetGameProfileStatisticListByGameId(self
         , game_id
     ) :
             
@@ -12239,7 +12239,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListCodeGameId(self
+    def GetGameProfileStatisticListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -12262,7 +12262,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListProfileIdGameId(self
+    def GetGameProfileStatisticListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -12285,7 +12285,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -12310,7 +12310,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListCodeProfileIdGameId(self
+    def GetGameProfileStatisticListByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
@@ -12335,7 +12335,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticListCodeProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticListByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
@@ -12379,7 +12379,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaUuid(self
+    def CountGameStatisticMetaByUuid(self
         , uuid
     ) :
         parameters = []
@@ -12398,7 +12398,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaCode(self
+    def CountGameStatisticMetaByCode(self
         , code
     ) :
         parameters = []
@@ -12417,7 +12417,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaCodeGameId(self
+    def CountGameStatisticMetaByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -12438,7 +12438,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaName(self
+    def CountGameStatisticMetaByName(self
         , name
     ) :
         parameters = []
@@ -12457,7 +12457,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameStatisticMetaGameId(self
+    def CountGameStatisticMetaByGameId(self
         , game_id
     ) :
         parameters = []
@@ -12476,7 +12476,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameStatisticMetaListFilter(self, filter_obj) :
+    def BrowseGameStatisticMetaListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -12496,7 +12496,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameStatisticMetaUuid(self, set_type, obj) :
+    def SetGameStatisticMetaByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12530,7 +12530,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameStatisticMetaCodeGameId(self, set_type, obj) :
+    def SetGameStatisticMetaByCodeByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12564,7 +12564,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameStatisticMetaUuid(self
+    def DelGameStatisticMetaByUuid(self
         , uuid
     ) :
         parameters = []
@@ -12583,7 +12583,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameStatisticMetaCodeGameId(self
+    def DelGameStatisticMetaByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -12604,7 +12604,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameStatisticMetaListUuid(self
+    def GetGameStatisticMetaListByUuid(self
         , uuid
     ) :
             
@@ -12625,7 +12625,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListCode(self
+    def GetGameStatisticMetaListByCode(self
         , code
     ) :
             
@@ -12646,7 +12646,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListName(self
+    def GetGameStatisticMetaListByName(self
         , name
     ) :
             
@@ -12667,7 +12667,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListGameId(self
+    def GetGameStatisticMetaListByGameId(self
         , game_id
     ) :
             
@@ -12688,7 +12688,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameStatisticMetaListCodeGameId(self
+    def GetGameStatisticMetaListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -12728,7 +12728,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticItemUuid(self
+    def CountGameProfileStatisticItemByUuid(self
         , uuid
     ) :
         parameters = []
@@ -12747,7 +12747,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticItemCode(self
+    def CountGameProfileStatisticItemByCode(self
         , code
     ) :
         parameters = []
@@ -12766,7 +12766,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticItemGameId(self
+    def CountGameProfileStatisticItemByGameId(self
         , game_id
     ) :
         parameters = []
@@ -12785,7 +12785,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticItemCodeGameId(self
+    def CountGameProfileStatisticItemByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -12806,7 +12806,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticItemProfileIdGameId(self
+    def CountGameProfileStatisticItemByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -12827,7 +12827,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticItemCodeProfileIdGameId(self
+    def CountGameProfileStatisticItemByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
@@ -12850,7 +12850,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileStatisticItemCodeProfileIdGameIdTimestamp(self
+    def CountGameProfileStatisticItemByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
@@ -12875,7 +12875,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProfileStatisticItemListFilter(self, filter_obj) :
+    def BrowseGameProfileStatisticItemListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -12895,7 +12895,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProfileStatisticItemUuid(self, set_type, obj) :
+    def SetGameProfileStatisticItemByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12929,7 +12929,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticItemUuidProfileIdGameIdTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticItemByUuidByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12963,7 +12963,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticItemProfileIdCode(self, set_type, obj) :
+    def SetGameProfileStatisticItemByProfileIdByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -12997,7 +12997,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticItemProfileIdCodeTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticItemByProfileIdByCodeByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13031,7 +13031,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticItemCodeProfileIdGameIdTimestamp(self, set_type, obj) :
+    def SetGameProfileStatisticItemByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13065,7 +13065,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileStatisticItemCodeProfileIdGameId(self, set_type, obj) :
+    def SetGameProfileStatisticItemByCodeByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13099,7 +13099,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProfileStatisticItemUuid(self
+    def DelGameProfileStatisticItemByUuid(self
         , uuid
     ) :
         parameters = []
@@ -13118,7 +13118,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticItemCodeGameId(self
+    def DelGameProfileStatisticItemByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -13139,7 +13139,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticItemProfileIdGameId(self
+    def DelGameProfileStatisticItemByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -13160,7 +13160,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileStatisticItemCodeProfileIdGameId(self
+    def DelGameProfileStatisticItemByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
@@ -13183,7 +13183,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameProfileStatisticItemListUuid(self
+    def GetGameProfileStatisticItemListByUuid(self
         , uuid
     ) :
             
@@ -13204,7 +13204,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticItemListCode(self
+    def GetGameProfileStatisticItemListByCode(self
         , code
     ) :
             
@@ -13225,7 +13225,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticItemListGameId(self
+    def GetGameProfileStatisticItemListByGameId(self
         , game_id
     ) :
             
@@ -13246,7 +13246,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticItemListCodeGameId(self
+    def GetGameProfileStatisticItemListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -13269,7 +13269,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticItemListProfileIdGameId(self
+    def GetGameProfileStatisticItemListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -13292,7 +13292,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticItemListProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticItemListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -13317,7 +13317,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticItemListCodeProfileIdGameId(self
+    def GetGameProfileStatisticItemListByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
@@ -13342,7 +13342,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileStatisticItemListCodeProfileIdGameIdTimestamp(self
+    def GetGameProfileStatisticItemListByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
@@ -13386,7 +13386,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaUuid(self
+    def CountGameKeyMetaByUuid(self
         , uuid
     ) :
         parameters = []
@@ -13405,7 +13405,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaCode(self
+    def CountGameKeyMetaByCode(self
         , code
     ) :
         parameters = []
@@ -13424,7 +13424,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaCodeGameId(self
+    def CountGameKeyMetaByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -13445,7 +13445,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaName(self
+    def CountGameKeyMetaByName(self
         , name
     ) :
         parameters = []
@@ -13464,7 +13464,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaKey(self
+    def CountGameKeyMetaByKey(self
         , key
     ) :
         parameters = []
@@ -13483,7 +13483,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaGameId(self
+    def CountGameKeyMetaByGameId(self
         , game_id
     ) :
         parameters = []
@@ -13502,7 +13502,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameKeyMetaKeyGameId(self
+    def CountGameKeyMetaByKeyByGameId(self
         , key
         , game_id
     ) :
@@ -13523,7 +13523,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameKeyMetaListFilter(self, filter_obj) :
+    def BrowseGameKeyMetaListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -13543,7 +13543,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameKeyMetaUuid(self, set_type, obj) :
+    def SetGameKeyMetaByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13580,7 +13580,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameKeyMetaCodeGameId(self, set_type, obj) :
+    def SetGameKeyMetaByCodeByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13617,7 +13617,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameKeyMetaKeyGameId(self, set_type, obj) :
+    def SetGameKeyMetaByKeyByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13654,7 +13654,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameKeyMetaKeyGameIdLevel(self, set_type, obj) :
+    def SetGameKeyMetaByKeyByGameIdByLevel(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -13691,7 +13691,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameKeyMetaUuid(self
+    def DelGameKeyMetaByUuid(self
         , uuid
     ) :
         parameters = []
@@ -13710,7 +13710,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameKeyMetaCodeGameId(self
+    def DelGameKeyMetaByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -13731,7 +13731,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameKeyMetaKeyGameId(self
+    def DelGameKeyMetaByKeyByGameId(self
         , key
         , game_id
     ) :
@@ -13752,7 +13752,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameKeyMetaListUuid(self
+    def GetGameKeyMetaListByUuid(self
         , uuid
     ) :
             
@@ -13773,7 +13773,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListCode(self
+    def GetGameKeyMetaListByCode(self
         , code
     ) :
             
@@ -13794,7 +13794,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListCodeGameId(self
+    def GetGameKeyMetaListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -13817,7 +13817,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListName(self
+    def GetGameKeyMetaListByName(self
         , name
     ) :
             
@@ -13838,7 +13838,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListKey(self
+    def GetGameKeyMetaListByKey(self
         , key
     ) :
             
@@ -13859,7 +13859,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListGameId(self
+    def GetGameKeyMetaListByGameId(self
         , game_id
     ) :
             
@@ -13880,7 +13880,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListKeyGameId(self
+    def GetGameKeyMetaListByKeyByGameId(self
         , key
         , game_id
     ) :
@@ -13903,7 +13903,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameKeyMetaListCodeLevel(self
+    def GetGameKeyMetaListByCodeByLevel(self
         , code
         , level
     ) :
@@ -13943,7 +13943,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelUuid(self
+    def CountGameLevelByUuid(self
         , uuid
     ) :
         parameters = []
@@ -13962,7 +13962,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelCode(self
+    def CountGameLevelByCode(self
         , code
     ) :
         parameters = []
@@ -13981,7 +13981,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelCodeGameId(self
+    def CountGameLevelByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -14002,7 +14002,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelName(self
+    def CountGameLevelByName(self
         , name
     ) :
         parameters = []
@@ -14021,7 +14021,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameLevelGameId(self
+    def CountGameLevelByGameId(self
         , game_id
     ) :
         parameters = []
@@ -14040,7 +14040,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameLevelListFilter(self, filter_obj) :
+    def BrowseGameLevelListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -14060,7 +14060,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameLevelUuid(self, set_type, obj) :
+    def SetGameLevelByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -14092,7 +14092,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameLevelCodeGameId(self, set_type, obj) :
+    def SetGameLevelByCodeByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -14124,7 +14124,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameLevelUuid(self
+    def DelGameLevelByUuid(self
         , uuid
     ) :
         parameters = []
@@ -14143,7 +14143,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameLevelCodeGameId(self
+    def DelGameLevelByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -14164,7 +14164,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameLevelListUuid(self
+    def GetGameLevelListByUuid(self
         , uuid
     ) :
             
@@ -14185,7 +14185,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLevelListCode(self
+    def GetGameLevelListByCode(self
         , code
     ) :
             
@@ -14206,7 +14206,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLevelListCodeGameId(self
+    def GetGameLevelListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -14229,7 +14229,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLevelListName(self
+    def GetGameLevelListByName(self
         , name
     ) :
             
@@ -14250,7 +14250,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameLevelListGameId(self
+    def GetGameLevelListByGameId(self
         , game_id
     ) :
             
@@ -14288,7 +14288,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementUuid(self
+    def CountGameProfileAchievementByUuid(self
         , uuid
     ) :
         parameters = []
@@ -14307,7 +14307,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementProfileIdCode(self
+    def CountGameProfileAchievementByProfileIdByCode(self
         , profile_id
         , code
     ) :
@@ -14328,7 +14328,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementUsername(self
+    def CountGameProfileAchievementByUsername(self
         , username
     ) :
         parameters = []
@@ -14347,7 +14347,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementCodeProfileIdGameId(self
+    def CountGameProfileAchievementByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
@@ -14370,7 +14370,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameProfileAchievementCodeProfileIdGameIdTimestamp(self
+    def CountGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
@@ -14395,7 +14395,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameProfileAchievementListFilter(self, filter_obj) :
+    def BrowseGameProfileAchievementListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -14415,7 +14415,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameProfileAchievementUuid(self, set_type, obj) :
+    def SetGameProfileAchievementByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -14448,7 +14448,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementUuidCode(self, set_type, obj) :
+    def SetGameProfileAchievementByUuidByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -14481,7 +14481,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementProfileIdCode(self, set_type, obj) :
+    def SetGameProfileAchievementByProfileIdByCode(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -14514,7 +14514,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementCodeProfileIdGameId(self, set_type, obj) :
+    def SetGameProfileAchievementByCodeByProfileIdByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -14547,7 +14547,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameProfileAchievementCodeProfileIdGameIdTimestamp(self, set_type, obj) :
+    def SetGameProfileAchievementByCodeByProfileIdByGameIdByTimestamp(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -14580,7 +14580,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameProfileAchievementUuid(self
+    def DelGameProfileAchievementByUuid(self
         , uuid
     ) :
         parameters = []
@@ -14599,7 +14599,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileAchievementProfileIdCode(self
+    def DelGameProfileAchievementByProfileIdByCode(self
         , profile_id
         , code
     ) :
@@ -14620,7 +14620,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameProfileAchievementUuidCode(self
+    def DelGameProfileAchievementByUuidByCode(self
         , uuid
         , code
     ) :
@@ -14641,7 +14641,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameProfileAchievementListUuid(self
+    def GetGameProfileAchievementListByUuid(self
         , uuid
     ) :
             
@@ -14662,7 +14662,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListProfileIdCode(self
+    def GetGameProfileAchievementListByProfileIdByCode(self
         , profile_id
         , code
     ) :
@@ -14685,7 +14685,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListUsername(self
+    def GetGameProfileAchievementListByUsername(self
         , username
     ) :
             
@@ -14706,7 +14706,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListCode(self
+    def GetGameProfileAchievementListByCode(self
         , code
     ) :
             
@@ -14727,7 +14727,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListGameId(self
+    def GetGameProfileAchievementListByGameId(self
         , game_id
     ) :
             
@@ -14748,7 +14748,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListCodeGameId(self
+    def GetGameProfileAchievementListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -14771,7 +14771,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListProfileIdGameId(self
+    def GetGameProfileAchievementListByProfileIdByGameId(self
         , profile_id
         , game_id
     ) :
@@ -14794,7 +14794,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListProfileIdGameIdTimestamp(self
+    def GetGameProfileAchievementListByProfileIdByGameIdByTimestamp(self
         , profile_id
         , game_id
         , timestamp
@@ -14819,7 +14819,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListCodeProfileIdGameId(self
+    def GetGameProfileAchievementListByCodeByProfileIdByGameId(self
         , code
         , profile_id
         , game_id
@@ -14844,7 +14844,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameProfileAchievementListCodeProfileIdGameIdTimestamp(self
+    def GetGameProfileAchievementListByCodeByProfileIdByGameIdByTimestamp(self
         , code
         , profile_id
         , game_id
@@ -14888,7 +14888,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaUuid(self
+    def CountGameAchievementMetaByUuid(self
         , uuid
     ) :
         parameters = []
@@ -14907,7 +14907,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaCode(self
+    def CountGameAchievementMetaByCode(self
         , code
     ) :
         parameters = []
@@ -14926,7 +14926,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaCodeGameId(self
+    def CountGameAchievementMetaByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -14947,7 +14947,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaName(self
+    def CountGameAchievementMetaByName(self
         , name
     ) :
         parameters = []
@@ -14966,7 +14966,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def CountGameAchievementMetaGameId(self
+    def CountGameAchievementMetaByGameId(self
         , game_id
     ) :
         parameters = []
@@ -14985,7 +14985,7 @@ class BaseGamingData(object):
         finally :
             pass
             
-    def BrowseGameAchievementMetaListFilter(self, filter_obj) :
+    def BrowseGameAchievementMetaListByFilter(self, filter_obj) :
         parameters = []
             
         parameters.append(filter_obj.page) #"in_page"
@@ -15005,7 +15005,7 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameAchievementMetaUuid(self, set_type, obj) :
+    def SetGameAchievementMetaByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -15041,7 +15041,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def SetGameAchievementMetaCodeGameId(self, set_type, obj) :
+    def SetGameAchievementMetaByCodeByGameId(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
@@ -15077,7 +15077,7 @@ class BaseGamingData(object):
                 
         return False
 
-    def DelGameAchievementMetaUuid(self
+    def DelGameAchievementMetaByUuid(self
         , uuid
     ) :
         parameters = []
@@ -15096,7 +15096,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def DelGameAchievementMetaCodeGameId(self
+    def DelGameAchievementMetaByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -15117,7 +15117,7 @@ class BaseGamingData(object):
         finally :
             pass
              
-    def GetGameAchievementMetaListUuid(self
+    def GetGameAchievementMetaListByUuid(self
         , uuid
     ) :
             
@@ -15138,7 +15138,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAchievementMetaListCode(self
+    def GetGameAchievementMetaListByCode(self
         , code
     ) :
             
@@ -15159,7 +15159,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAchievementMetaListCodeGameId(self
+    def GetGameAchievementMetaListByCodeByGameId(self
         , code
         , game_id
     ) :
@@ -15182,7 +15182,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAchievementMetaListName(self
+    def GetGameAchievementMetaListByName(self
         , name
     ) :
             
@@ -15203,7 +15203,7 @@ class BaseGamingData(object):
                 
         return None
 
-    def GetGameAchievementMetaListGameId(self
+    def GetGameAchievementMetaListByGameId(self
         , game_id
     ) :
             
@@ -15215,6 +15215,5000 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_game_achievement_meta_get_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountProfileReward(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_count_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardByRewardId(self
+        , reward_id
+    ) :
+        parameters = []
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_count_reward_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardByProfileIdByRewardId(self
+        , profile_id
+        , reward_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_count_profile_id_reward_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardByProfileIdByChannelId(self
+        , profile_id
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_count_profile_id_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardByProfileIdByChannelIdByRewardId(self
+        , profile_id
+        , channel_id
+        , reward_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_count_profile_id_channel_id_reward_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseProfileRewardListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetProfileRewardByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.viewed) #"in_viewed"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.downloaded) #"in_downloaded"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.reward_id) #"in_reward_id"
+        parameters.append(obj.usage_count) #"in_usage_count"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.blurb) #"in_blurb"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileRewardByProfileIdByChannelIdByRewardId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.viewed) #"in_viewed"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.downloaded) #"in_downloaded"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.reward_id) #"in_reward_id"
+        parameters.append(obj.usage_count) #"in_usage_count"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.blurb) #"in_blurb"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_set_profile_id_channel_id_reward_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelProfileRewardByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileRewardByProfileIdByRewardId(self
+        , profile_id
+        , reward_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_del_profile_id_reward_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetProfileRewardListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardListByProfileId(self
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_get_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardListByRewardId(self
+        , reward_id
+    ) :
+            
+        parameters = []
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_get_reward_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardListByProfileIdByRewardId(self
+        , profile_id
+        , reward_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_get_profile_id_reward_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardListByProfileIdByChannelId(self
+        , profile_id
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_get_profile_id_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardListByProfileIdByChannelIdByRewardId(self
+        , profile_id
+        , channel_id
+        , reward_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_get_profile_id_channel_id_reward_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountCoupon(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountCouponByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountCouponByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountCouponByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountCouponByOrgId(self
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_count_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseCouponListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetCouponByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.url) #"in_url"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.usage_count) #"in_usage_count"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelCouponByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelCouponByOrgId(self
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_del_org_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetCouponListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetCouponListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetCouponListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetCouponListByOrgId(self
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_coupon_get_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountProfileCoupon(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_coupon_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileCouponByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_coupon_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileCouponByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_coupon_count_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseProfileCouponListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_coupon_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetProfileCouponByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.url) #"in_url"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_coupon_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelProfileCouponByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_coupon_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileCouponByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_coupon_del_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetProfileCouponListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_coupon_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileCouponListByProfileId(self
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_coupon_get_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountOrg(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountOrgByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountOrgByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountOrgByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseOrgListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetOrgByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelOrgByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetOrgListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetOrgListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetOrgListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_org_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountChannel(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountChannelByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountChannelByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountChannelByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountChannelByOrgId(self
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_count_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountChannelByTypeId(self
+        , type_id
+    ) :
+        parameters = []
+        parameters.append(type_id) #"in_type_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_count_type_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountChannelByOrgIdByTypeId(self
+        , org_id
+        , type_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(type_id) #"in_type_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_count_org_id_type_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseChannelListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetChannelByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.type_id) #"in_type_id"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelChannelByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelChannelByCodeByOrgId(self
+        , code
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_del_code_org_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelChannelByCodeByOrgIdByTypeId(self
+        , code
+        , org_id
+        , type_id
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(type_id) #"in_type_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_del_code_org_id_type_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetChannelListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetChannelListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetChannelListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetChannelListByOrgId(self
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_get_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetChannelListByTypeId(self
+        , type_id
+    ) :
+            
+        parameters = []
+        parameters.append(type_id) #"in_type_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_get_type_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetChannelListByOrgIdByTypeId(self
+        , org_id
+        , type_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(type_id) #"in_type_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_get_org_id_type_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountChannelType(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountChannelTypeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountChannelTypeByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountChannelTypeByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseChannelTypeListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetChannelTypeByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelChannelTypeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetChannelTypeListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetChannelTypeListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetChannelTypeListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_channel_type_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountReward(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardByOrgId(self
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_count_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardByChannelId(self
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_count_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_count_org_id_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseRewardListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetRewardByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.type_url) #"in_type_url"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.url) #"in_url"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.usage_count) #"in_usage_count"
+        parameters.append(obj.external_id) #"in_external_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelRewardByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelRewardByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_del_org_id_channel_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetRewardListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardListByOrgId(self
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_get_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardListByChannelId(self
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_get_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardListByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_get_org_id_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountRewardType(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardTypeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardTypeByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardTypeByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardTypeByType(self
+        , type
+    ) :
+        parameters = []
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_count_type"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseRewardTypeListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetRewardTypeByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.type_url) #"in_type_url"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelRewardTypeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetRewardTypeListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardTypeListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardTypeListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardTypeListByType(self
+        , type
+    ) :
+            
+        parameters = []
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_type_get_type"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountRewardCondition(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionByOrgId(self
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_count_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionByChannelId(self
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_count_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_count_org_id_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionByOrgIdByChannelIdByRewardId(self
+        , org_id
+        , channel_id
+        , reward_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_count_org_id_channel_id_reward_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionByRewardId(self
+        , reward_id
+    ) :
+        parameters = []
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_count_reward_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseRewardConditionListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetRewardConditionByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.end_date) #"in_end_date"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.amount) #"in_amount"
+        parameters.append(obj.global_reward) #"in_global_reward"
+        parameters.append(obj.condition) #"in_condition"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.start_date) #"in_start_date"
+        parameters.append(obj.reward_id) #"in_reward_id"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelRewardConditionByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelRewardConditionByOrgIdByChannelIdByRewardId(self
+        , org_id
+        , channel_id
+        , reward_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_del_org_id_channel_id_reward_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetRewardConditionListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionListByOrgId(self
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_get_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionListByChannelId(self
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_get_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionListByOrgIdByChannelId(self
+        , org_id
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_get_org_id_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionListByOrgIdByChannelIdByRewardId(self
+        , org_id
+        , channel_id
+        , reward_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_get_org_id_channel_id_reward_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionListByRewardId(self
+        , reward_id
+    ) :
+            
+        parameters = []
+        parameters.append(reward_id) #"in_reward_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_get_reward_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountRewardConditionType(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionTypeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionTypeByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionTypeByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardConditionTypeByType(self
+        , type
+    ) :
+        parameters = []
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_count_type"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseRewardConditionTypeListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetRewardConditionTypeByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelRewardConditionTypeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetRewardConditionTypeListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionTypeListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionTypeListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardConditionTypeListByType(self
+        , type
+    ) :
+            
+        parameters = []
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_condition_type_get_type"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountQuestion(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountQuestionByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountQuestionByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountQuestionByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountQuestionByChannelId(self
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_count_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountQuestionByOrgId(self
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_count_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountQuestionByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_count_channel_id_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountQuestionByChannelIdByCode(self
+        , channel_id
+        , code
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_count_channel_id_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseQuestionListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetQuestionByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.choices) #"in_choices"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetQuestionByChannelIdByCode(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.choices) #"in_choices"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_set_channel_id_code"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelQuestionByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelQuestionByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_del_channel_id_org_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetQuestionListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetQuestionListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetQuestionListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetQuestionListByType(self
+        , type
+    ) :
+            
+        parameters = []
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_get_type"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetQuestionListByChannelId(self
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_get_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetQuestionListByOrgId(self
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_get_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetQuestionListByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_get_channel_id_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetQuestionListByChannelIdByCode(self
+        , channel_id
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_question_get_channel_id_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountProfileQuestion(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileQuestionByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileQuestionByChannelId(self
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_count_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileQuestionByOrgId(self
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_count_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileQuestionByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_count_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileQuestionByQuestionId(self
+        , question_id
+    ) :
+        parameters = []
+        parameters.append(question_id) #"in_question_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_count_question_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileQuestionByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_count_channel_id_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileQuestionByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_count_channel_id_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileQuestionByQuestionIdByProfileId(self
+        , question_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(question_id) #"in_question_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_count_question_id_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseProfileQuestionListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetProfileQuestionByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.answer) #"in_answer"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.question_id) #"in_question_id"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileQuestionByChannelIdByProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.answer) #"in_answer"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.question_id) #"in_question_id"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_set_channel_id_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileQuestionByQuestionIdByProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.answer) #"in_answer"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.question_id) #"in_question_id"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_set_question_id_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileQuestionByChannelIdByQuestionIdByProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.answer) #"in_answer"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.question_id) #"in_question_id"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_set_channel_id_question_id_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelProfileQuestionByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileQuestionByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_del_channel_id_org_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetProfileQuestionListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileQuestionListByChannelId(self
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_get_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileQuestionListByOrgId(self
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_get_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileQuestionListByProfileId(self
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_get_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileQuestionListByQuestionId(self
+        , question_id
+    ) :
+            
+        parameters = []
+        parameters.append(question_id) #"in_question_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_get_question_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileQuestionListByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_get_channel_id_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileQuestionListByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_get_channel_id_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileQuestionListByQuestionIdByProfileId(self
+        , question_id
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(question_id) #"in_question_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_question_get_question_id_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountProfileChannel(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileChannelByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileChannelByChannelId(self
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_count_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileChannelByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_count_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileChannelByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_count_channel_id_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseProfileChannelListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetProfileChannelByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.data) #"in_data"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileChannelByChannelIdByProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.data) #"in_data"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_set_channel_id_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelProfileChannelByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileChannelByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_del_channel_id_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetProfileChannelListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileChannelListByChannelId(self
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_get_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileChannelListByProfileId(self
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_get_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileChannelListByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_channel_get_channel_id_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountProfileRewardPoints(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardPointsByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardPointsByChannelId(self
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_count_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardPointsByOrgId(self
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_count_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardPointsByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_count_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardPointsByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_count_channel_id_org_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountProfileRewardPointsByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_count_channel_id_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseProfileRewardPointsListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetProfileRewardPointsByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.org_id) #"in_org_id"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.points) #"in_points"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelProfileRewardPointsByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileRewardPointsByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_del_channel_id_org_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetProfileRewardPointsListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardPointsListByChannelId(self
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_get_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardPointsListByOrgId(self
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_get_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardPointsListByProfileId(self
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_get_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardPointsListByChannelIdByOrgId(self
+        , channel_id
+        , org_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(org_id) #"in_org_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_get_channel_id_org_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetProfileRewardPointsListByChannelIdByProfileId(self
+        , channel_id
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_reward_points_get_channel_id_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountRewardCompetitionByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardCompetitionByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardCompetitionByName(self
+        , name
+    ) :
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_count_name"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardCompetitionByPath(self
+        , path
+    ) :
+        parameters = []
+        parameters.append(path) #"in_path"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_count_path"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardCompetitionByChannelId(self
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_count_channel_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountRewardCompetitionByChannelIdByCompleted(self
+        , channel_id
+        , completed
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(completed) #"in_completed"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_count_channel_id_completed"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseRewardCompetitionListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetRewardCompetitionByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.date_end) #"in_date_end"
+        parameters.append(obj.results) #"in_results"
+        parameters.append(obj.visible) #"in_visible"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_start) #"in_date_start"
+        parameters.append(obj.winners) #"in_winners"
+        parameters.append(obj.template) #"in_template"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.trigger_data) #"in_trigger_data"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.description) #"in_description"
+        parameters.append(obj.completed) #"in_completed"
+        parameters.append(obj.template_url) #"in_template_url"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.path) #"in_path"
+        parameters.append(obj.data) #"in_data"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.fulfilled) #"in_fulfilled"
+        parameters.append(obj.channel_id) #"in_channel_id"
+        parameters.append(obj.date_created) #"in_date_created"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelRewardCompetitionByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelRewardCompetitionByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_del_code"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelRewardCompetitionByPathByChannelId(self
+        , path
+        , channel_id
+    ) :
+        parameters = []
+        parameters.append(path) #"in_path"
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_del_path_channel_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelRewardCompetitionByPath(self
+        , path
+    ) :
+        parameters = []
+        parameters.append(path) #"in_path"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_del_path"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelRewardCompetitionByChannelIdByPath(self
+        , channel_id
+        , path
+    ) :
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(path) #"in_path"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_del_channel_id_path"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetRewardCompetitionListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardCompetitionListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardCompetitionListByName(self
+        , name
+    ) :
+            
+        parameters = []
+        parameters.append(name) #"in_name"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_get_name"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardCompetitionListByPath(self
+        , path
+    ) :
+            
+        parameters = []
+        parameters.append(path) #"in_path"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_get_path"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardCompetitionListByChannelId(self
+        , channel_id
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_get_channel_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardCompetitionListByChannelIdByCompleted(self
+        , channel_id
+        , completed
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(completed) #"in_completed"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_get_channel_id_completed"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetRewardCompetitionListByChannelIdByPath(self
+        , channel_id
+        , path
+    ) :
+            
+        parameters = []
+        parameters.append(channel_id) #"in_channel_id"
+        parameters.append(path) #"in_path"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_reward_competition_get_channel_id_path"
             , parameters
             )
         except Exception: 

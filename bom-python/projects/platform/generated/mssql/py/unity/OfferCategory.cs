@@ -50,6 +50,7 @@ public class OfferCategorys<T> : DataObjects<T> where T : new() {
 public class OfferCategory : BaseMeta {
     // Attributes that are added or changed after launch should be like this to prevent
     // profile conversions.
+    public  data { get; set; }
     public  org_id { get; set; }
     public  type_id { get; set; }
 
@@ -63,6 +64,9 @@ public class OfferCategory : BaseMeta {
 
     public override Dictionary<string, object> ToDictionary(){
         dict = base.ToDictionary();
+	if (data != null) {
+	    dict = DataUtil.SetDictValue(dict, "data", data);
+	}
 	if (org_id != null) {
 	    dict = DataUtil.SetDictValue(dict, "org_id", org_id);
 	}
@@ -73,6 +77,11 @@ public class OfferCategory : BaseMeta {
     }
 
     public override void FillFromDictionary(Dictionary<string, object> dict){
+	if(dict.ContainsKey("data")) {
+	    if(dict["data"] != null) {
+	    	data = DataType.Instance.Fill(dict["data"]);
+	    }		
+	}
 	if(dict.ContainsKey("org_id")) {
 	    if(dict["org_id"] != null) {
 	    	org_id = DataType.Instance.Fill(dict["org_id"]);

@@ -75,6 +75,7 @@ namespace platform.ent {
         }
     
         public string url { get; set; }
+        public string data { get; set; }
         public string org_id { get; set; }
         public int usage_count { get; set; }
         public string type_id { get; set; }
@@ -83,6 +84,9 @@ namespace platform.ent {
             dict = base.ToDictionary();
 	    	if (url != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "url", url);
+	    	}
+	    	if (data != null) {
+	    	    dict = DataUtil.SetDictValue(dict, "data", data);
 	    	}
 	    	if (org_id != null) {
 	    	    dict = DataUtil.SetDictValue(dict, "org_id", org_id);
@@ -98,6 +102,11 @@ namespace platform.ent {
 	    	if(dict.ContainsKey("url")) {
 	    	    if(dict["url"] != null) {
 	    	    	url = DataType.Instance.FillString(dict["url"]);
+	    	    }		
+	    	}
+	    	if(dict.ContainsKey("data")) {
+	    	    if(dict["data"] != null) {
+	    	    	data = DataType.Instance.FillString(dict["data"]);
 	    	    }		
 	    	}
 	    	if(dict.ContainsKey("org_id")) {

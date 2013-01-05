@@ -36,6 +36,7 @@ class Offer extends BaseMeta {
     }
     
     public $url;
+    public $data;
     public $org_id;
     public $usage_count;
     public $type_id;

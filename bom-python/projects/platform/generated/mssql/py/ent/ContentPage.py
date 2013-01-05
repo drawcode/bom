@@ -62,11 +62,12 @@ class ContentPage(BaseMeta):
   def __init__(self):
     super(ContentPage, self).__init__()
     #self.__dict__.update(entries)
-    self.path = None
     self.date_end = None
     self.date_start = None
     self.site_id = None
     self.template = None
+    self.path = None
+    self.data = None
         
   def to_dict_obj(self):
     return self.to_dict(self)

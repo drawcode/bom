@@ -44,37 +44,37 @@ class BaseProfileACT(object):
         return self.data.CountProfile(
         )
                
-    def CountProfileUuid(self
+    def CountProfileByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileUuid(
+        return self.data.CountProfileByUuid(
             uuid
         )
                
-    def CountProfileUsernameHash(self
+    def CountProfileByUsernameByHash(self
         , username
         , hash
     ) :         
-        return self.data.CountProfileUsernameHash(
+        return self.data.CountProfileByUsernameByHash(
             username
             , hash
         )
                
-    def CountProfileUsername(self
+    def CountProfileByUsername(self
         , username
     ) :         
-        return self.data.CountProfileUsername(
+        return self.data.CountProfileByUsername(
             username
         )
                
-    def BrowseProfileListFilter(self, filter_obj) :
+    def BrowseProfileListByFilter(self, filter_obj) :
         result = ProfileResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileListFilter(filter_obj)
+        rows = self.data.BrowseProfileListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile = self.FillProfile(row)
@@ -84,32 +84,32 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetProfileUuid(self, set_type, obj) :            
-            return self.data.SetProfileUuid(set_type, obj)
+    def SetProfileByUuid(self, set_type, obj) :            
+            return self.data.SetProfileByUuid(set_type, obj)
             
-    def SetProfileUsername(self, set_type, obj) :            
-            return self.data.SetProfileUsername(set_type, obj)
+    def SetProfileByUsername(self, set_type, obj) :            
+            return self.data.SetProfileByUsername(set_type, obj)
             
-    def DelProfileUuid(self
+    def DelProfileByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileUuid(
+        return self.data.DelProfileByUuid(
             uuid
         )
         
-    def DelProfileUsername(self
+    def DelProfileByUsername(self
         , username
     ) :
-        return self.data.DelProfileUsername(
+        return self.data.DelProfileByUsername(
             username
         )
         
-    def GetProfileListUuid(self
+    def GetProfileListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileListUuid(
+        rows = self.data.GetProfileListByUuid(
             uuid
         )
         
@@ -119,13 +119,13 @@ class BaseProfileACT(object):
                 results.append(profile)
             return results        
         
-    def GetProfileListUsernameHash(self
+    def GetProfileListByUsernameByHash(self
         , username
         , hash
     ) :
 
         results = []
-        rows = self.data.GetProfileListUsernameHash(
+        rows = self.data.GetProfileListByUsernameByHash(
             username
             , hash
         )
@@ -136,12 +136,12 @@ class BaseProfileACT(object):
                 results.append(profile)
             return results        
         
-    def GetProfileListUsername(self
+    def GetProfileListByUsername(self
         , username
     ) :
 
         results = []
-        rows = self.data.GetProfileListUsername(
+        rows = self.data.GetProfileListByUsername(
             username
         )
         
@@ -183,28 +183,28 @@ class BaseProfileACT(object):
         return self.data.CountProfileType(
         )
                
-    def CountProfileTypeUuid(self
+    def CountProfileTypeByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileTypeUuid(
+        return self.data.CountProfileTypeByUuid(
             uuid
         )
                
-    def CountProfileTypeTypeId(self
+    def CountProfileTypeByTypeId(self
         , type_id
     ) :         
-        return self.data.CountProfileTypeTypeId(
+        return self.data.CountProfileTypeByTypeId(
             type_id
         )
                
-    def BrowseProfileTypeListFilter(self, filter_obj) :
+    def BrowseProfileTypeListByFilter(self, filter_obj) :
         result = ProfileTypeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileTypeListFilter(filter_obj)
+        rows = self.data.BrowseProfileTypeListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_type = self.FillProfileType(row)
@@ -214,22 +214,22 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetProfileTypeUuid(self, set_type, obj) :            
-            return self.data.SetProfileTypeUuid(set_type, obj)
+    def SetProfileTypeByUuid(self, set_type, obj) :            
+            return self.data.SetProfileTypeByUuid(set_type, obj)
             
-    def DelProfileTypeUuid(self
+    def DelProfileTypeByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileTypeUuid(
+        return self.data.DelProfileTypeByUuid(
             uuid
         )
         
-    def GetProfileTypeListUuid(self
+    def GetProfileTypeListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileTypeListUuid(
+        rows = self.data.GetProfileTypeListByUuid(
             uuid
         )
         
@@ -239,12 +239,12 @@ class BaseProfileACT(object):
                 results.append(profile_type)
             return results        
         
-    def GetProfileTypeListCode(self
+    def GetProfileTypeListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetProfileTypeListCode(
+        rows = self.data.GetProfileTypeListByCode(
             code
         )
         
@@ -254,12 +254,12 @@ class BaseProfileACT(object):
                 results.append(profile_type)
             return results        
         
-    def GetProfileTypeListTypeId(self
+    def GetProfileTypeListByTypeId(self
         , type_id
     ) :
 
         results = []
-        rows = self.data.GetProfileTypeListTypeId(
+        rows = self.data.GetProfileTypeListByTypeId(
             type_id
         )
         
@@ -307,51 +307,51 @@ class BaseProfileACT(object):
         return self.data.CountProfileAttribute(
         )
                
-    def CountProfileAttributeUuid(self
+    def CountProfileAttributeByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileAttributeUuid(
+        return self.data.CountProfileAttributeByUuid(
             uuid
         )
                
-    def CountProfileAttributeCode(self
+    def CountProfileAttributeByCode(self
         , code
     ) :         
-        return self.data.CountProfileAttributeCode(
+        return self.data.CountProfileAttributeByCode(
             code
         )
                
-    def CountProfileAttributeType(self
+    def CountProfileAttributeByType(self
         , type
     ) :         
-        return self.data.CountProfileAttributeType(
+        return self.data.CountProfileAttributeByType(
             type
         )
                
-    def CountProfileAttributeGroup(self
+    def CountProfileAttributeByGroup(self
         , group
     ) :         
-        return self.data.CountProfileAttributeGroup(
+        return self.data.CountProfileAttributeByGroup(
             group
         )
                
-    def CountProfileAttributeCodeType(self
+    def CountProfileAttributeByCodeByType(self
         , code
         , type
     ) :         
-        return self.data.CountProfileAttributeCodeType(
+        return self.data.CountProfileAttributeByCodeByType(
             code
             , type
         )
                
-    def BrowseProfileAttributeListFilter(self, filter_obj) :
+    def BrowseProfileAttributeListByFilter(self, filter_obj) :
         result = ProfileAttributeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileAttributeListFilter(filter_obj)
+        rows = self.data.BrowseProfileAttributeListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_attribute = self.FillProfileAttribute(row)
@@ -361,32 +361,32 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetProfileAttributeUuid(self, set_type, obj) :            
-            return self.data.SetProfileAttributeUuid(set_type, obj)
+    def SetProfileAttributeByUuid(self, set_type, obj) :            
+            return self.data.SetProfileAttributeByUuid(set_type, obj)
             
-    def SetProfileAttributeCode(self, set_type, obj) :            
-            return self.data.SetProfileAttributeCode(set_type, obj)
+    def SetProfileAttributeByCode(self, set_type, obj) :            
+            return self.data.SetProfileAttributeByCode(set_type, obj)
             
-    def DelProfileAttributeUuid(self
+    def DelProfileAttributeByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileAttributeUuid(
+        return self.data.DelProfileAttributeByUuid(
             uuid
         )
         
-    def DelProfileAttributeCode(self
+    def DelProfileAttributeByCode(self
         , code
     ) :
-        return self.data.DelProfileAttributeCode(
+        return self.data.DelProfileAttributeByCode(
             code
         )
         
-    def GetProfileAttributeListUuid(self
+    def GetProfileAttributeListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeListUuid(
+        rows = self.data.GetProfileAttributeListByUuid(
             uuid
         )
         
@@ -396,12 +396,12 @@ class BaseProfileACT(object):
                 results.append(profile_attribute)
             return results        
         
-    def GetProfileAttributeListCode(self
+    def GetProfileAttributeListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeListCode(
+        rows = self.data.GetProfileAttributeListByCode(
             code
         )
         
@@ -411,12 +411,12 @@ class BaseProfileACT(object):
                 results.append(profile_attribute)
             return results        
         
-    def GetProfileAttributeListType(self
+    def GetProfileAttributeListByType(self
         , type
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeListType(
+        rows = self.data.GetProfileAttributeListByType(
             type
         )
         
@@ -426,12 +426,12 @@ class BaseProfileACT(object):
                 results.append(profile_attribute)
             return results        
         
-    def GetProfileAttributeListGroup(self
+    def GetProfileAttributeListByGroup(self
         , group
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeListGroup(
+        rows = self.data.GetProfileAttributeListByGroup(
             group
         )
         
@@ -441,13 +441,13 @@ class BaseProfileACT(object):
                 results.append(profile_attribute)
             return results        
         
-    def GetProfileAttributeListCodeType(self
+    def GetProfileAttributeListByCodeByType(self
         , code
         , type
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeListCodeType(
+        rows = self.data.GetProfileAttributeListByCodeByType(
             code
             , type
         )
@@ -494,37 +494,37 @@ class BaseProfileACT(object):
         return self.data.CountProfileAttributeText(
         )
                
-    def CountProfileAttributeTextUuid(self
+    def CountProfileAttributeTextByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileAttributeTextUuid(
+        return self.data.CountProfileAttributeTextByUuid(
             uuid
         )
                
-    def CountProfileAttributeTextProfileId(self
+    def CountProfileAttributeTextByProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileAttributeTextProfileId(
+        return self.data.CountProfileAttributeTextByProfileId(
             profile_id
         )
                
-    def CountProfileAttributeTextProfileIdAttributeId(self
+    def CountProfileAttributeTextByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :         
-        return self.data.CountProfileAttributeTextProfileIdAttributeId(
+        return self.data.CountProfileAttributeTextByProfileIdByAttributeId(
             profile_id
             , attribute_id
         )
                
-    def BrowseProfileAttributeTextListFilter(self, filter_obj) :
+    def BrowseProfileAttributeTextListByFilter(self, filter_obj) :
         result = ProfileAttributeTextResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileAttributeTextListFilter(filter_obj)
+        rows = self.data.BrowseProfileAttributeTextListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_attribute_text = self.FillProfileAttributeText(row)
@@ -534,44 +534,44 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetProfileAttributeTextUuid(self, set_type, obj) :            
-            return self.data.SetProfileAttributeTextUuid(set_type, obj)
+    def SetProfileAttributeTextByUuid(self, set_type, obj) :            
+            return self.data.SetProfileAttributeTextByUuid(set_type, obj)
             
-    def SetProfileAttributeTextProfileId(self, set_type, obj) :            
-            return self.data.SetProfileAttributeTextProfileId(set_type, obj)
+    def SetProfileAttributeTextByProfileId(self, set_type, obj) :            
+            return self.data.SetProfileAttributeTextByProfileId(set_type, obj)
             
-    def SetProfileAttributeTextProfileIdAttributeId(self, set_type, obj) :            
-            return self.data.SetProfileAttributeTextProfileIdAttributeId(set_type, obj)
+    def SetProfileAttributeTextByProfileIdByAttributeId(self, set_type, obj) :            
+            return self.data.SetProfileAttributeTextByProfileIdByAttributeId(set_type, obj)
             
-    def DelProfileAttributeTextUuid(self
+    def DelProfileAttributeTextByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileAttributeTextUuid(
+        return self.data.DelProfileAttributeTextByUuid(
             uuid
         )
         
-    def DelProfileAttributeTextProfileId(self
+    def DelProfileAttributeTextByProfileId(self
         , profile_id
     ) :
-        return self.data.DelProfileAttributeTextProfileId(
+        return self.data.DelProfileAttributeTextByProfileId(
             profile_id
         )
         
-    def DelProfileAttributeTextProfileIdAttributeId(self
+    def DelProfileAttributeTextByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
-        return self.data.DelProfileAttributeTextProfileIdAttributeId(
+        return self.data.DelProfileAttributeTextByProfileIdByAttributeId(
             profile_id
             , attribute_id
         )
         
-    def GetProfileAttributeTextListUuid(self
+    def GetProfileAttributeTextListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeTextListUuid(
+        rows = self.data.GetProfileAttributeTextListByUuid(
             uuid
         )
         
@@ -581,12 +581,12 @@ class BaseProfileACT(object):
                 results.append(profile_attribute_text)
             return results        
         
-    def GetProfileAttributeTextListProfileId(self
+    def GetProfileAttributeTextListByProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeTextListProfileId(
+        rows = self.data.GetProfileAttributeTextListByProfileId(
             profile_id
         )
         
@@ -596,13 +596,13 @@ class BaseProfileACT(object):
                 results.append(profile_attribute_text)
             return results        
         
-    def GetProfileAttributeTextListProfileIdAttributeId(self
+    def GetProfileAttributeTextListByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeTextListProfileIdAttributeId(
+        rows = self.data.GetProfileAttributeTextListByProfileIdByAttributeId(
             profile_id
             , attribute_id
         )
@@ -649,37 +649,37 @@ class BaseProfileACT(object):
         return self.data.CountProfileAttributeData(
         )
                
-    def CountProfileAttributeDataUuid(self
+    def CountProfileAttributeDataByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileAttributeDataUuid(
+        return self.data.CountProfileAttributeDataByUuid(
             uuid
         )
                
-    def CountProfileAttributeDataProfileId(self
+    def CountProfileAttributeDataByProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileAttributeDataProfileId(
+        return self.data.CountProfileAttributeDataByProfileId(
             profile_id
         )
                
-    def CountProfileAttributeDataProfileIdAttributeId(self
+    def CountProfileAttributeDataByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :         
-        return self.data.CountProfileAttributeDataProfileIdAttributeId(
+        return self.data.CountProfileAttributeDataByProfileIdByAttributeId(
             profile_id
             , attribute_id
         )
                
-    def BrowseProfileAttributeDataListFilter(self, filter_obj) :
+    def BrowseProfileAttributeDataListByFilter(self, filter_obj) :
         result = ProfileAttributeDataResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileAttributeDataListFilter(filter_obj)
+        rows = self.data.BrowseProfileAttributeDataListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_attribute_data = self.FillProfileAttributeData(row)
@@ -689,44 +689,44 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetProfileAttributeDataUuid(self, set_type, obj) :            
-            return self.data.SetProfileAttributeDataUuid(set_type, obj)
+    def SetProfileAttributeDataByUuid(self, set_type, obj) :            
+            return self.data.SetProfileAttributeDataByUuid(set_type, obj)
             
-    def SetProfileAttributeDataProfileId(self, set_type, obj) :            
-            return self.data.SetProfileAttributeDataProfileId(set_type, obj)
+    def SetProfileAttributeDataByProfileId(self, set_type, obj) :            
+            return self.data.SetProfileAttributeDataByProfileId(set_type, obj)
             
-    def SetProfileAttributeDataProfileIdAttributeId(self, set_type, obj) :            
-            return self.data.SetProfileAttributeDataProfileIdAttributeId(set_type, obj)
+    def SetProfileAttributeDataByProfileIdByAttributeId(self, set_type, obj) :            
+            return self.data.SetProfileAttributeDataByProfileIdByAttributeId(set_type, obj)
             
-    def DelProfileAttributeDataUuid(self
+    def DelProfileAttributeDataByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileAttributeDataUuid(
+        return self.data.DelProfileAttributeDataByUuid(
             uuid
         )
         
-    def DelProfileAttributeDataProfileId(self
+    def DelProfileAttributeDataByProfileId(self
         , profile_id
     ) :
-        return self.data.DelProfileAttributeDataProfileId(
+        return self.data.DelProfileAttributeDataByProfileId(
             profile_id
         )
         
-    def DelProfileAttributeDataProfileIdAttributeId(self
+    def DelProfileAttributeDataByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
-        return self.data.DelProfileAttributeDataProfileIdAttributeId(
+        return self.data.DelProfileAttributeDataByProfileIdByAttributeId(
             profile_id
             , attribute_id
         )
         
-    def GetProfileAttributeDataListUuid(self
+    def GetProfileAttributeDataListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeDataListUuid(
+        rows = self.data.GetProfileAttributeDataListByUuid(
             uuid
         )
         
@@ -736,12 +736,12 @@ class BaseProfileACT(object):
                 results.append(profile_attribute_data)
             return results        
         
-    def GetProfileAttributeDataListProfileId(self
+    def GetProfileAttributeDataListByProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeDataListProfileId(
+        rows = self.data.GetProfileAttributeDataListByProfileId(
             profile_id
         )
         
@@ -751,13 +751,13 @@ class BaseProfileACT(object):
                 results.append(profile_attribute_data)
             return results        
         
-    def GetProfileAttributeDataListProfileIdAttributeId(self
+    def GetProfileAttributeDataListByProfileIdByAttributeId(self
         , profile_id
         , attribute_id
     ) :
 
         results = []
-        rows = self.data.GetProfileAttributeDataListProfileIdAttributeId(
+        rows = self.data.GetProfileAttributeDataListByProfileIdByAttributeId(
             profile_id
             , attribute_id
         )
@@ -806,60 +806,60 @@ class BaseProfileACT(object):
         return self.data.CountProfileDevice(
         )
                
-    def CountProfileDeviceUuid(self
+    def CountProfileDeviceByUuid(self
         , uuid
     ) :         
-        return self.data.CountProfileDeviceUuid(
+        return self.data.CountProfileDeviceByUuid(
             uuid
         )
                
-    def CountProfileDeviceProfileIdDeviceId(self
+    def CountProfileDeviceByProfileIdByDeviceId(self
         , profile_id
         , device_id
     ) :         
-        return self.data.CountProfileDeviceProfileIdDeviceId(
+        return self.data.CountProfileDeviceByProfileIdByDeviceId(
             profile_id
             , device_id
         )
                
-    def CountProfileDeviceProfileIdToken(self
+    def CountProfileDeviceByProfileIdByToken(self
         , profile_id
         , token
     ) :         
-        return self.data.CountProfileDeviceProfileIdToken(
+        return self.data.CountProfileDeviceByProfileIdByToken(
             profile_id
             , token
         )
                
-    def CountProfileDeviceProfileId(self
+    def CountProfileDeviceByProfileId(self
         , profile_id
     ) :         
-        return self.data.CountProfileDeviceProfileId(
+        return self.data.CountProfileDeviceByProfileId(
             profile_id
         )
                
-    def CountProfileDeviceDeviceId(self
+    def CountProfileDeviceByDeviceId(self
         , device_id
     ) :         
-        return self.data.CountProfileDeviceDeviceId(
+        return self.data.CountProfileDeviceByDeviceId(
             device_id
         )
                
-    def CountProfileDeviceToken(self
+    def CountProfileDeviceByToken(self
         , token
     ) :         
-        return self.data.CountProfileDeviceToken(
+        return self.data.CountProfileDeviceByToken(
             token
         )
                
-    def BrowseProfileDeviceListFilter(self, filter_obj) :
+    def BrowseProfileDeviceListByFilter(self, filter_obj) :
         result = ProfileDeviceResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseProfileDeviceListFilter(filter_obj)
+        rows = self.data.BrowseProfileDeviceListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 profile_device = self.FillProfileDevice(row)
@@ -869,47 +869,47 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetProfileDeviceUuid(self, set_type, obj) :            
-            return self.data.SetProfileDeviceUuid(set_type, obj)
+    def SetProfileDeviceByUuid(self, set_type, obj) :            
+            return self.data.SetProfileDeviceByUuid(set_type, obj)
             
-    def DelProfileDeviceUuid(self
+    def DelProfileDeviceByUuid(self
         , uuid
     ) :
-        return self.data.DelProfileDeviceUuid(
+        return self.data.DelProfileDeviceByUuid(
             uuid
         )
         
-    def DelProfileDeviceProfileIdDeviceId(self
+    def DelProfileDeviceByProfileIdByDeviceId(self
         , profile_id
         , device_id
     ) :
-        return self.data.DelProfileDeviceProfileIdDeviceId(
+        return self.data.DelProfileDeviceByProfileIdByDeviceId(
             profile_id
             , device_id
         )
         
-    def DelProfileDeviceProfileIdToken(self
+    def DelProfileDeviceByProfileIdByToken(self
         , profile_id
         , token
     ) :
-        return self.data.DelProfileDeviceProfileIdToken(
+        return self.data.DelProfileDeviceByProfileIdByToken(
             profile_id
             , token
         )
         
-    def DelProfileDeviceToken(self
+    def DelProfileDeviceByToken(self
         , token
     ) :
-        return self.data.DelProfileDeviceToken(
+        return self.data.DelProfileDeviceByToken(
             token
         )
         
-    def GetProfileDeviceListUuid(self
+    def GetProfileDeviceListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetProfileDeviceListUuid(
+        rows = self.data.GetProfileDeviceListByUuid(
             uuid
         )
         
@@ -919,13 +919,13 @@ class BaseProfileACT(object):
                 results.append(profile_device)
             return results        
         
-    def GetProfileDeviceListProfileIdDeviceId(self
+    def GetProfileDeviceListByProfileIdByDeviceId(self
         , profile_id
         , device_id
     ) :
 
         results = []
-        rows = self.data.GetProfileDeviceListProfileIdDeviceId(
+        rows = self.data.GetProfileDeviceListByProfileIdByDeviceId(
             profile_id
             , device_id
         )
@@ -936,13 +936,13 @@ class BaseProfileACT(object):
                 results.append(profile_device)
             return results        
         
-    def GetProfileDeviceListProfileIdToken(self
+    def GetProfileDeviceListByProfileIdByToken(self
         , profile_id
         , token
     ) :
 
         results = []
-        rows = self.data.GetProfileDeviceListProfileIdToken(
+        rows = self.data.GetProfileDeviceListByProfileIdByToken(
             profile_id
             , token
         )
@@ -953,12 +953,12 @@ class BaseProfileACT(object):
                 results.append(profile_device)
             return results        
         
-    def GetProfileDeviceListProfileId(self
+    def GetProfileDeviceListByProfileId(self
         , profile_id
     ) :
 
         results = []
-        rows = self.data.GetProfileDeviceListProfileId(
+        rows = self.data.GetProfileDeviceListByProfileId(
             profile_id
         )
         
@@ -968,12 +968,12 @@ class BaseProfileACT(object):
                 results.append(profile_device)
             return results        
         
-    def GetProfileDeviceListDeviceId(self
+    def GetProfileDeviceListByDeviceId(self
         , device_id
     ) :
 
         results = []
-        rows = self.data.GetProfileDeviceListDeviceId(
+        rows = self.data.GetProfileDeviceListByDeviceId(
             device_id
         )
         
@@ -983,12 +983,12 @@ class BaseProfileACT(object):
                 results.append(profile_device)
             return results        
         
-    def GetProfileDeviceListToken(self
+    def GetProfileDeviceListByToken(self
         , token
     ) :
 
         results = []
-        rows = self.data.GetProfileDeviceListToken(
+        rows = self.data.GetProfileDeviceListByToken(
             token
         )
         
@@ -1028,28 +1028,28 @@ class BaseProfileACT(object):
         return self.data.CountCountry(
         )
                
-    def CountCountryUuid(self
+    def CountCountryByUuid(self
         , uuid
     ) :         
-        return self.data.CountCountryUuid(
+        return self.data.CountCountryByUuid(
             uuid
         )
                
-    def CountCountryCode(self
+    def CountCountryByCode(self
         , code
     ) :         
-        return self.data.CountCountryCode(
+        return self.data.CountCountryByCode(
             code
         )
                
-    def BrowseCountryListFilter(self, filter_obj) :
+    def BrowseCountryListByFilter(self, filter_obj) :
         result = CountryResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseCountryListFilter(filter_obj)
+        rows = self.data.BrowseCountryListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 country = self.FillCountry(row)
@@ -1059,23 +1059,23 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetCountryUuid(self, set_type, obj) :            
-            return self.data.SetCountryUuid(set_type, obj)
+    def SetCountryByUuid(self, set_type, obj) :            
+            return self.data.SetCountryByUuid(set_type, obj)
             
-    def SetCountryCode(self, set_type, obj) :            
-            return self.data.SetCountryCode(set_type, obj)
+    def SetCountryByCode(self, set_type, obj) :            
+            return self.data.SetCountryByCode(set_type, obj)
             
-    def DelCountryUuid(self
+    def DelCountryByUuid(self
         , uuid
     ) :
-        return self.data.DelCountryUuid(
+        return self.data.DelCountryByUuid(
             uuid
         )
         
-    def DelCountryCode(self
+    def DelCountryByCode(self
         , code
     ) :
-        return self.data.DelCountryCode(
+        return self.data.DelCountryByCode(
             code
         )
         
@@ -1092,12 +1092,12 @@ class BaseProfileACT(object):
                 results.append(country)
             return results        
         
-    def GetCountryListUuid(self
+    def GetCountryListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetCountryListUuid(
+        rows = self.data.GetCountryListByUuid(
             uuid
         )
         
@@ -1107,12 +1107,12 @@ class BaseProfileACT(object):
                 results.append(country)
             return results        
         
-    def GetCountryListCode(self
+    def GetCountryListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetCountryListCode(
+        rows = self.data.GetCountryListByCode(
             code
         )
         
@@ -1152,28 +1152,28 @@ class BaseProfileACT(object):
         return self.data.CountState(
         )
                
-    def CountStateUuid(self
+    def CountStateByUuid(self
         , uuid
     ) :         
-        return self.data.CountStateUuid(
+        return self.data.CountStateByUuid(
             uuid
         )
                
-    def CountStateCode(self
+    def CountStateByCode(self
         , code
     ) :         
-        return self.data.CountStateCode(
+        return self.data.CountStateByCode(
             code
         )
                
-    def BrowseStateListFilter(self, filter_obj) :
+    def BrowseStateListByFilter(self, filter_obj) :
         result = StateResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseStateListFilter(filter_obj)
+        rows = self.data.BrowseStateListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 state = self.FillState(row)
@@ -1183,23 +1183,23 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetStateUuid(self, set_type, obj) :            
-            return self.data.SetStateUuid(set_type, obj)
+    def SetStateByUuid(self, set_type, obj) :            
+            return self.data.SetStateByUuid(set_type, obj)
             
-    def SetStateCode(self, set_type, obj) :            
-            return self.data.SetStateCode(set_type, obj)
+    def SetStateByCode(self, set_type, obj) :            
+            return self.data.SetStateByCode(set_type, obj)
             
-    def DelStateUuid(self
+    def DelStateByUuid(self
         , uuid
     ) :
-        return self.data.DelStateUuid(
+        return self.data.DelStateByUuid(
             uuid
         )
         
-    def DelStateCode(self
+    def DelStateByCode(self
         , code
     ) :
-        return self.data.DelStateCode(
+        return self.data.DelStateByCode(
             code
         )
         
@@ -1216,12 +1216,12 @@ class BaseProfileACT(object):
                 results.append(state)
             return results        
         
-    def GetStateListUuid(self
+    def GetStateListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetStateListUuid(
+        rows = self.data.GetStateListByUuid(
             uuid
         )
         
@@ -1231,12 +1231,12 @@ class BaseProfileACT(object):
                 results.append(state)
             return results        
         
-    def GetStateListCode(self
+    def GetStateListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetStateListCode(
+        rows = self.data.GetStateListByCode(
             code
         )
         
@@ -1276,28 +1276,28 @@ class BaseProfileACT(object):
         return self.data.CountCity(
         )
                
-    def CountCityUuid(self
+    def CountCityByUuid(self
         , uuid
     ) :         
-        return self.data.CountCityUuid(
+        return self.data.CountCityByUuid(
             uuid
         )
                
-    def CountCityCode(self
+    def CountCityByCode(self
         , code
     ) :         
-        return self.data.CountCityCode(
+        return self.data.CountCityByCode(
             code
         )
                
-    def BrowseCityListFilter(self, filter_obj) :
+    def BrowseCityListByFilter(self, filter_obj) :
         result = CityResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowseCityListFilter(filter_obj)
+        rows = self.data.BrowseCityListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 city = self.FillCity(row)
@@ -1307,23 +1307,23 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetCityUuid(self, set_type, obj) :            
-            return self.data.SetCityUuid(set_type, obj)
+    def SetCityByUuid(self, set_type, obj) :            
+            return self.data.SetCityByUuid(set_type, obj)
             
-    def SetCityCode(self, set_type, obj) :            
-            return self.data.SetCityCode(set_type, obj)
+    def SetCityByCode(self, set_type, obj) :            
+            return self.data.SetCityByCode(set_type, obj)
             
-    def DelCityUuid(self
+    def DelCityByUuid(self
         , uuid
     ) :
-        return self.data.DelCityUuid(
+        return self.data.DelCityByUuid(
             uuid
         )
         
-    def DelCityCode(self
+    def DelCityByCode(self
         , code
     ) :
-        return self.data.DelCityCode(
+        return self.data.DelCityByCode(
             code
         )
         
@@ -1340,12 +1340,12 @@ class BaseProfileACT(object):
                 results.append(city)
             return results        
         
-    def GetCityListUuid(self
+    def GetCityListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetCityListUuid(
+        rows = self.data.GetCityListByUuid(
             uuid
         )
         
@@ -1355,12 +1355,12 @@ class BaseProfileACT(object):
                 results.append(city)
             return results        
         
-    def GetCityListCode(self
+    def GetCityListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetCityListCode(
+        rows = self.data.GetCityListByCode(
             code
         )
         
@@ -1400,28 +1400,28 @@ class BaseProfileACT(object):
         return self.data.CountPostalCode(
         )
                
-    def CountPostalCodeUuid(self
+    def CountPostalCodeByUuid(self
         , uuid
     ) :         
-        return self.data.CountPostalCodeUuid(
+        return self.data.CountPostalCodeByUuid(
             uuid
         )
                
-    def CountPostalCodeCode(self
+    def CountPostalCodeByCode(self
         , code
     ) :         
-        return self.data.CountPostalCodeCode(
+        return self.data.CountPostalCodeByCode(
             code
         )
                
-    def BrowsePostalCodeListFilter(self, filter_obj) :
+    def BrowsePostalCodeListByFilter(self, filter_obj) :
         result = PostalCodeResult()
         result.page = filter_obj.page
         result.page_size = filter_obj.page_size
         result.data = []
         
         rows = []
-        rows = self.data.BrowsePostalCodeListFilter(filter_obj)
+        rows = self.data.BrowsePostalCodeListByFilter(filter_obj)
         if(rows != None) :
             for row in rows :
                 postal_code = self.FillPostalCode(row)
@@ -1431,23 +1431,23 @@ class BaseProfileACT(object):
         
         return result
 
-    def SetPostalCodeUuid(self, set_type, obj) :            
-            return self.data.SetPostalCodeUuid(set_type, obj)
+    def SetPostalCodeByUuid(self, set_type, obj) :            
+            return self.data.SetPostalCodeByUuid(set_type, obj)
             
-    def SetPostalCodeCode(self, set_type, obj) :            
-            return self.data.SetPostalCodeCode(set_type, obj)
+    def SetPostalCodeByCode(self, set_type, obj) :            
+            return self.data.SetPostalCodeByCode(set_type, obj)
             
-    def DelPostalCodeUuid(self
+    def DelPostalCodeByUuid(self
         , uuid
     ) :
-        return self.data.DelPostalCodeUuid(
+        return self.data.DelPostalCodeByUuid(
             uuid
         )
         
-    def DelPostalCodeCode(self
+    def DelPostalCodeByCode(self
         , code
     ) :
-        return self.data.DelPostalCodeCode(
+        return self.data.DelPostalCodeByCode(
             code
         )
         
@@ -1464,12 +1464,12 @@ class BaseProfileACT(object):
                 results.append(postal_code)
             return results        
         
-    def GetPostalCodeListUuid(self
+    def GetPostalCodeListByUuid(self
         , uuid
     ) :
 
         results = []
-        rows = self.data.GetPostalCodeListUuid(
+        rows = self.data.GetPostalCodeListByUuid(
             uuid
         )
         
@@ -1479,12 +1479,12 @@ class BaseProfileACT(object):
                 results.append(postal_code)
             return results        
         
-    def GetPostalCodeListCode(self
+    def GetPostalCodeListByCode(self
         , code
     ) :
 
         results = []
-        rows = self.data.GetPostalCodeListCode(
+        rows = self.data.GetPostalCodeListByCode(
             code
         )
         

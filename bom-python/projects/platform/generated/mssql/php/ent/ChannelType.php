@@ -35,6 +35,7 @@ class ChannelType extends BaseMeta {
     
     }
     
+    public $data;
     public $type;
 
     public function __construct() {

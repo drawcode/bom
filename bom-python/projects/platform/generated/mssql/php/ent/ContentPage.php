@@ -35,11 +35,12 @@ class ContentPage extends BaseMeta {
     
     }
     
-    public $path;
     public $date_end;
     public $date_start;
     public $site_id;
     public $template;
+    public $path;
+    public $data;
 
     public function __construct() {
         

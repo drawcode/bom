@@ -1271,36 +1271,6 @@ class BaseGamingData(object):
         finally :
             pass
 
-    def SetGameAttributeText(self, set_type, obj) :
-        parameters = []
-        parameters.append(set_type) #"in_set_type"
-        parameters.append(obj.status) #"in_status"
-        parameters.append(obj.sort) #"in_sort"
-        parameters.append(obj.attribute_value) #"in_attribute_value"
-        parameters.append(obj.active) #"in_active"
-        parameters.append(obj.game_id) #"in_game_id"
-        parameters.append(obj.group) #"in_group"
-        parameters.append(obj.uuid) #"in_uuid"
-        parameters.append(obj.date_modified) #"in_date_modified"
-        parameters.append(obj.attribute_id) #"in_attribute_id"
-        parameters.append(obj.date_created) #"in_date_created"
-        parameters.append(obj.type) #"in_type"
-        parameters.append(obj.order) #"in_order"
-                        
-        try:
-            return bool(self.data_provider.execute_scalar(
-            self.connection_string
-            , CommandType.StoredProcedure
-            , "usp_game_attribute_text_set"
-            , parameters
-            ))
-        except Exception: 
-            pass
-        finally :
-            pass
-                
-        return False
-
     def SetGameAttributeTextByUuid(self, set_type, obj) :
         parameters = []
         parameters.append(set_type) #"in_set_type"

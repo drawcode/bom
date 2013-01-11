@@ -625,9 +625,6 @@ class BaseGamingACT(object):
         
         return result
 
-    def SetGameAttributeText(self, set_type, obj) :            
-            return self.data.SetGameAttributeText(set_type, obj)
-            
     def SetGameAttributeTextByUuid(self, set_type, obj) :            
             return self.data.SetGameAttributeTextByUuid(set_type, obj)
             

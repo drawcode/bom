@@ -1173,12 +1173,6 @@ class BaseGamingAPI(object):
     def BrowseGameAttributeTextListByFilter(self, filter_obj) :
         return self.act.BrowseGameAttributeTextListByFilter(filter_obj)
 #------------------------------------------------------------------------------                    
-    def SetGameAttributeTextType(self, set_type, obj) :
-        return self.act.SetGameAttributeText(set_type, obj)
-               
-    def SetGameAttributeText(self, obj) :
-        return self.act.SetGameAttributeText('full', obj)
-#------------------------------------------------------------------------------                    
     def SetGameAttributeTextByUuidType(self, set_type, obj) :
         return self.act.SetGameAttributeTextByUuid(set_type, obj)
                

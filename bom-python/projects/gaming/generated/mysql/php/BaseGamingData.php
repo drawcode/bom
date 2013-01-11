@@ -1606,52 +1606,6 @@ class BaseGamingData {
         }
     }
 
-    public function SetGameAttributeText($set_type, $obj) {
-        $parameters = array();
-        $parameters['in_set_type'] = $set_type;
-        if($obj != NULL) {
-            if($obj->status != NULL)
-                $parameters['in_status'] = $obj->status; // #"in_status"
-            if($obj->sort != NULL)
-                $parameters['in_sort'] = $obj->sort; // #"in_sort"
-            if($obj->attribute_value != NULL)
-                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
-            if($obj->active != NULL)
-                $parameters['in_active'] = $obj->active; // #"in_active"
-            if($obj->game_id != NULL)
-                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
-            if($obj->group != NULL)
-                $parameters['in_group'] = $obj->group; // #"in_group"
-            if($obj->uuid != NULL)
-                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
-            if($obj->date_modified != NULL)
-                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
-            if($obj->attribute_id != NULL)
-                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
-            if($obj->date_created != NULL)
-                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
-            if($obj->type != NULL)
-                $parameters['in_type'] = $obj->type; // #"in_type"
-            if($obj->order != NULL)
-                $parameters['in_order'] = $obj->order; // #"in_order"
-
-            try {
-                return $this->data_provider->execute_scalar(
-                    $this->connection_string
-                    , CommandType::StoredProcedure
-                    , "CALL usp_game_attribute_text_set(".
-                    ")"
-                    , $parameters
-                );       
-            }
-            catch (Exception $e) {
-                echo "<!-- ERROR".$e."-->";
-            }
-        }
-                
-        return FALSE;
-    }
-    
     public function SetGameAttributeTextByUuid($set_type, $obj) {
         $parameters = array();
         $parameters['in_set_type'] = $set_type;

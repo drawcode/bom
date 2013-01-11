@@ -204,7 +204,6 @@
                 {"params":["game_id", "attribute_id"]}
             ],
             "set":[
-                {"scope":"public"},
                 {"params":["uuid"]},
                 {"params":["game_id"]},
                 {"params":["attribute_id"]},

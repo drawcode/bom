@@ -1377,37 +1377,6 @@ namespace gaming {
             }
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameAttributeText(string set_type, GameAttributeText obj)  {
-            List<NpgsqlParameter> parameters 
-                = new List<NpgsqlParameter>();
-            parameters.Add(new NpgsqlParameter("in_set_type", set_type));
-            parameters.Add(new NpgsqlParameter("in_status", obj.status));
-            parameters.Add(new NpgsqlParameter("in_sort", obj.sort));
-            parameters.Add(new NpgsqlParameter("in_attribute_value", obj.attribute_value));
-            parameters.Add(new NpgsqlParameter("in_active", obj.active));
-            parameters.Add(new NpgsqlParameter("in_game_id", obj.game_id));
-            parameters.Add(new NpgsqlParameter("in_group", obj.group));
-            parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
-            parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
-            parameters.Add(new NpgsqlParameter("in_attribute_id", obj.attribute_id));
-            parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
-            parameters.Add(new NpgsqlParameter("in_type", obj.type));
-            parameters.Add(new NpgsqlParameter("in_order", obj.order));
-            
-            try {
-                return Convert.ToBoolean(data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_attribute_text_set"
-                , parameters
-                ));           
-            }
-            catch (Exception e){  
-                log.Error(e);          
-                return false;
-            }    
-        }    
-//------------------------------------------------------------------------------                    
         public virtual bool SetGameAttributeTextByUuid(string set_type, GameAttributeText obj)  {
             List<NpgsqlParameter> parameters 
                 = new List<NpgsqlParameter>();

@@ -282,9 +282,6 @@ namespace gaming {
             else if(IsContext("game-attribute-text/browse/by-filter")){
                 BrowseGameAttributeTextListByFilter();
             }
-            else if(IsContext("game-attribute-text/set")){
-                SetGameAttributeText();
-            }
             else if(IsContext("game-attribute-text/set/by-uuid")){
                 SetGameAttributeTextByUuid();
             }
@@ -4941,74 +4938,6 @@ namespace gaming {
             wrapper.data = result.data;
                         
 	    util.SerializeTypeToResponse(_format, _context, wrapper);          
-        }
-//------------------------------------------------------------------------------                    
-        public virtual void SetGameAttributeText()  {
-        
-            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
-            wrapper.message = "Success";
-            wrapper.code = 0;
-            wrapper.action = "game-attribute-text/set";
-                        
-            GameAttributeText obj = new GameAttributeText();
-            
-            string _status = util.GetParamValue(_context, "status");
-            if(!String.IsNullOrEmpty(_status))
-                obj.status = (string)_status;
-            
-            string _sort = util.GetParamValue(_context, "sort");
-            if(!String.IsNullOrEmpty(_sort))
-                obj.sort = Convert.ToInt32(_sort);
-            
-            string _attribute_value = util.GetParamValue(_context, "attribute_value");
-            if(!String.IsNullOrEmpty(_attribute_value))
-                obj.attribute_value = (string)_attribute_value;
-            
-            string _active = util.GetParamValue(_context, "active");
-            if(!String.IsNullOrEmpty(_active))
-                obj.active = Convert.ToBoolean(_active);
-            
-            string _game_id = util.GetParamValue(_context, "game_id");
-            if(!String.IsNullOrEmpty(_game_id))
-                obj.game_id = (string)_game_id;
-            
-            string _group = util.GetParamValue(_context, "group");
-            if(!String.IsNullOrEmpty(_group))
-                obj.group = Convert.ToInt32(_group);
-            
-            string _uuid = util.GetParamValue(_context, "uuid");
-            if(!String.IsNullOrEmpty(_uuid))
-                obj.uuid = (string)_uuid;
-            
-            string _date_modified = util.GetParamValue(_context, "date_modified");
-            if(!String.IsNullOrEmpty(_date_modified))
-                obj.date_modified = Convert.ToDateTime(_date_modified);
-            else 
-                obj.date_modified = DateTime.Now;
-            
-            string _attribute_id = util.GetParamValue(_context, "attribute_id");
-            if(!String.IsNullOrEmpty(_attribute_id))
-                obj.attribute_id = (string)_attribute_id;
-            
-            string _date_created = util.GetParamValue(_context, "date_created");
-            if(!String.IsNullOrEmpty(_date_created))
-                obj.date_created = Convert.ToDateTime(_date_created);
-            else 
-                obj.date_created = DateTime.Now;
-            
-            string _type = util.GetParamValue(_context, "type");
-            if(!String.IsNullOrEmpty(_type))
-                obj.type = Convert.ToInt32(_type);
-            
-            string _order = util.GetParamValue(_context, "order");
-            if(!String.IsNullOrEmpty(_order))
-                obj.order = Convert.ToInt32(_order);
-            
-            
-            // get data
-            wrapper.data = api.SetGameAttributeText(obj);
-                        
-            util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
         public virtual void SetGameAttributeTextByUuid()  {

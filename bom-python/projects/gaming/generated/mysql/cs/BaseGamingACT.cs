@@ -697,9 +697,6 @@ namespace gaming {
             }
             return result;
         }
-        public virtual bool SetGameAttributeText(string set_type, GameAttributeText obj)  {            
-            return data.SetGameAttributeText(set_type, obj);
-        }    
         public virtual bool SetGameAttributeTextByUuid(string set_type, GameAttributeText obj)  {            
             return data.SetGameAttributeTextByUuid(set_type, obj);
         }    

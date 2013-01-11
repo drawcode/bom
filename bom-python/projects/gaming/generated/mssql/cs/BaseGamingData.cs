@@ -1363,38 +1363,6 @@ namespace gaming {
             
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameAttributeText(string set_type, GameAttributeText obj)  {
-            List<SqlParameter> parameters 
-                = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@set_type", set_type));
-            parameters.Add(new SqlParameter("@status", obj.status));
-            parameters.Add(new SqlParameter("@sort", obj.sort));
-            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
-            parameters.Add(new SqlParameter("@active", obj.active));
-            parameters.Add(new SqlParameter("@game_id", obj.game_id));
-            parameters.Add(new SqlParameter("@group", obj.group));
-            parameters.Add(new SqlParameter("@uuid", obj.uuid));
-            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
-            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
-            parameters.Add(new SqlParameter("@date_created", obj.date_created));
-            parameters.Add(new SqlParameter("@type", obj.type));
-            parameters.Add(new SqlParameter("@order", obj.order));
-                        
-            try { 
-                return (bool)data.ExecuteScalar(
-                BaseGamingData.connectionString
-                , CommandType.StoredProcedure
-                , "usp_game_attribute_text_set"
-                , parameters
-                );          
-            }
-            catch (Exception e){     
-                log.Error(e);       
-                return false;
-            }
-            
-        }    
-//------------------------------------------------------------------------------                    
         public virtual bool SetGameAttributeTextByUuid(string set_type, GameAttributeText obj)  {
             List<SqlParameter> parameters 
                 = new List<SqlParameter>();

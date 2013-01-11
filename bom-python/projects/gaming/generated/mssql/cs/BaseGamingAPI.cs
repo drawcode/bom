@@ -1282,18 +1282,6 @@ namespace gaming {
             return act.BrowseGameAttributeTextListByFilter(obj);
         }
 //------------------------------------------------------------------------------                    
-        public virtual bool SetGameAttributeText(string set_type, GameAttributeText obj)  {
-            return act.SetGameAttributeText(set_type, obj);
-        }
-        
-        public virtual bool SetGameAttributeText(SetType set_type, GameAttributeText obj)  {
-            return act.SetGameAttributeText(ConvertSetTypeToString(set_type), obj);
-        }
-        
-        public virtual bool SetGameAttributeText(GameAttributeText obj)  {
-            return act.SetGameAttributeText(DEFAULT_SET_TYPE, obj);
-        }
-//------------------------------------------------------------------------------                    
         public virtual bool SetGameAttributeTextByUuid(string set_type, GameAttributeText obj)  {
             return act.SetGameAttributeTextByUuid(set_type, obj);
         }

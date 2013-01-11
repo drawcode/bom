@@ -1288,14 +1288,6 @@ class BaseGamingAPI {
         return $this->act->BrowseGameAttributeTextListByFilter($filter_obj);
     }
 #------------------------------------------------------------------------------                    
-    public function SetGameAttributeText($set_type, $obj) {
-        return $this->act->SetGameAttributeText($set_type, $obj);
-    }
-               
-    public function SetGameAttributeTextFull($obj) {
-        return $this->act->SetGameAttributeText('full', $obj);
-    }
-#------------------------------------------------------------------------------                    
     public function SetGameAttributeTextByUuid($set_type, $obj) {
         return $this->act->SetGameAttributeTextByUuid($set_type, $obj);
     }

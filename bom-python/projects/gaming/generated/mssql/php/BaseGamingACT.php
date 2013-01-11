@@ -834,10 +834,6 @@ class BaseGamingACT {
         return $result;
     }
 
-    public function SetGameAttributeText($set_type, $obj) {           
-        return $this->data->SetGameAttributeText($set_type, $obj);
-    }
-            
     public function SetGameAttributeTextByUuid($set_type, $obj) {           
         return $this->data->SetGameAttributeTextByUuid($set_type, $obj);
     }

@@ -606,6 +606,1335 @@ class BaseGamingData(object):
                 
         return None
 
+    def CountGameAttribute(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeByType(self
+        , type
+    ) :
+        parameters = []
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_count_type"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeByGroup(self
+        , group
+    ) :
+        parameters = []
+        parameters.append(group) #"in_group"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_count_group"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeByCodeByType(self
+        , code
+        , type
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_count_code_type"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_count_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_count_game_id_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameAttributeListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameAttributeByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameAttributeByCode(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_set_code"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameAttributeByGameId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_set_game_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameAttributeByGameIdByCode(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_set_game_id_code"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameAttributeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_del_code"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeByCodeByType(self
+        , code
+        , type
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(type) #"in_type"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_del_code_type"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_del_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_del_game_id_code"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameAttributeList(self
+    ) :
+            
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_get"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeListByType(self
+        , type
+    ) :
+            
+        parameters = []
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_get_type"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeListByGroup(self
+        , group
+    ) :
+            
+        parameters = []
+        parameters.append(group) #"in_group"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_get_group"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeListByCodeByType(self
+        , code
+        , type
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_get_code_type"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeListByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_get_game_id_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountGameAttributeText(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeTextByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeTextByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_count_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeTextByAttributeId(self
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_count_attribute_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeTextByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_count_game_id_attribute_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameAttributeTextListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameAttributeText(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_set"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameAttributeTextByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameAttributeTextByGameId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_set_game_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameAttributeTextByAttributeId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_set_attribute_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameAttributeTextByGameIdByAttributeId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_set_game_id_attribute_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameAttributeText(self
+    ) :
+        parameters = []
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_del"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeTextByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeTextByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_del_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeTextByAttributeId(self
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_del_attribute_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeTextByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_del_game_id_attribute_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameAttributeTextList(self
+    ) :
+            
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_get"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeTextListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeTextListByGameId(self
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_get_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeTextListByAttributeId(self
+        , attribute_id
+    ) :
+            
+        parameters = []
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_get_attribute_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeTextListByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_text_get_game_id_attribute_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountGameAttributeData(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeDataByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeDataByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_count_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameAttributeDataByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_count_game_id_attribute_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameAttributeDataListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameAttributeDataByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameAttributeDataByGameIdByAttributeId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_set_game_id_attribute_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameAttributeData(self
+    ) :
+        parameters = []
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_del"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeDataByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeDataByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_del_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameAttributeDataByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_del_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameAttributeDataList(self
+    ) :
+            
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_get"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeDataListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeDataListByGameId(self
+        , game_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_get_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameAttributeDataListByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_attribute_data_get_game_id_attribute_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
     def CountGameCategory(self
     ) :
         parameters = []
@@ -1932,6 +3261,7 @@ class BaseGamingData(object):
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.type_id) #"in_type_id"
         parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.profile_iteration) #"in_profile_iteration"
         parameters.append(obj.game_profile) #"in_game_profile"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.game_id) #"in_game_id"
@@ -1955,6 +3285,96 @@ class BaseGamingData(object):
                 
         return False
 
+    def SetProfileGameByGameId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.type_id) #"in_type_id"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.profile_iteration) #"in_profile_iteration"
+        parameters.append(obj.game_profile) #"in_game_profile"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.profile_version) #"in_profile_version"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_set_game_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileGameByProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.type_id) #"in_type_id"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.profile_iteration) #"in_profile_iteration"
+        parameters.append(obj.game_profile) #"in_game_profile"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.profile_version) #"in_profile_version"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_set_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetProfileGameByProfileIdByGameId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.type_id) #"in_type_id"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.profile_iteration) #"in_profile_iteration"
+        parameters.append(obj.game_profile) #"in_game_profile"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.profile_version) #"in_profile_version"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_set_profile_id_game_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
     def DelProfileGameByUuid(self
         , uuid
     ) :
@@ -1966,6 +3386,65 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_profile_game_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileGameByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_del_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileGameByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_del_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelProfileGameByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_profile_game_del_profile_id_game_id"
             , parameters
             )
             return True
@@ -2070,6 +3549,1566 @@ class BaseGamingData(object):
             self.connection_string
             , CommandType.StoredProcedure
             , "usp_profile_game_get_profile_id_game_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountGameProfileAttribute(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_count_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeByType(self
+        , type
+    ) :
+        parameters = []
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_count_type"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeByGroup(self
+        , group
+    ) :
+        parameters = []
+        parameters.append(group) #"in_group"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_count_group"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeByCodeByType(self
+        , code
+        , type
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_count_code_type"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_count_game_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_count_game_id_code"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameProfileAttributeListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameProfileAttributeByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeByCode(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_set_code"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeByGameId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_set_game_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeByGameIdByCode(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.code) #"in_code"
+        parameters.append(obj.display_name) #"in_display_name"
+        parameters.append(obj.name) #"in_name"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+        parameters.append(obj.description) #"in_description"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_set_game_id_code"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameProfileAttributeByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeByCode(self
+        , code
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_del_code"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeByCodeByType(self
+        , code
+        , type
+    ) :
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(type) #"in_type"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_del_code_type"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeByGameId(self
+        , game_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_del_game_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_del_game_id_code"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameProfileAttributeList(self
+    ) :
+            
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_get"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeListByCode(self
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_get_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeListByType(self
+        , type
+    ) :
+            
+        parameters = []
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_get_type"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeListByGroup(self
+        , group
+    ) :
+            
+        parameters = []
+        parameters.append(group) #"in_group"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_get_group"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeListByCodeByType(self
+        , code
+        , type
+    ) :
+            
+        parameters = []
+        parameters.append(code) #"in_code"
+        parameters.append(type) #"in_type"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_get_code_type"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeListByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(code) #"in_code"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_get_game_id_code"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountGameProfileAttributeText(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeTextByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeTextByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_count_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeTextByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_count_profile_id_attribute_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeTextByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_count_game_id_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_count_game_id_profile_id_attrib"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameProfileAttributeTextListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameProfileAttributeTextByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeTextByProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_set_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeTextByProfileIdByAttributeId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_set_profile_id_attribute_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeTextByGameIdByProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_set_game_id_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_set_game_id_profile_id_attribut"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameProfileAttributeTextByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeTextByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_del_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeTextByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_del_profile_id_attribute_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeTextByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_del_game_id_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_del_game_id_profile_id_attribut"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameProfileAttributeTextListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeTextListByProfileId(self
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_get_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeTextListByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_get_profile_id_attribute_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeTextListByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_get_game_id_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_text_get_game_id_profile_id_attribut"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def CountGameProfileAttributeData(self
+    ) :
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_count"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeDataByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_count_uuid"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeDataByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_count_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeDataByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_count_profile_id_attribute_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeDataByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_count_game_id_profile_id"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_count_game_id_profile_id_attrib"
+            , parameters
+            )
+        except Exception as err: 
+            print err
+            return 0
+        finally :
+            pass
+            
+    def BrowseGameProfileAttributeDataListByFilter(self, filter_obj) :
+        parameters = []
+            
+        parameters.append(filter_obj.page) #"in_page"
+        parameters.append(filter_obj.page_size) #"in_page_size"
+        parameters.append(filter_obj.sort) #"in_sort"
+        parameters.append(filter_obj.filter) #"in_filter"
+                                    
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_browse_filter"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+
+    def SetGameProfileAttributeDataByUuid(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_set_uuid"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeDataByProfileIdByAttributeId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_set_profile_id_attribute_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeDataByGameIdByProfileId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_set_game_id_profile_id"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self, set_type, obj) :
+        parameters = []
+        parameters.append(set_type) #"in_set_type"
+        parameters.append(obj.status) #"in_status"
+        parameters.append(obj.sort) #"in_sort"
+        parameters.append(obj.profile_id) #"in_profile_id"
+        parameters.append(obj.game_id) #"in_game_id"
+        parameters.append(obj.active) #"in_active"
+        parameters.append(obj.attribute_value) #"in_attribute_value"
+        parameters.append(obj.group) #"in_group"
+        parameters.append(obj.uuid) #"in_uuid"
+        parameters.append(obj.date_modified) #"in_date_modified"
+        parameters.append(obj.attribute_id) #"in_attribute_id"
+        parameters.append(obj.date_created) #"in_date_created"
+        parameters.append(obj.type) #"in_type"
+        parameters.append(obj.order) #"in_order"
+                        
+        try:
+            return bool(self.data_provider.execute_scalar(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_set_game_id_profile_id_attribut"
+            , parameters
+            ))
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return False
+
+    def DelGameProfileAttributeDataByUuid(self
+        , uuid
+    ) :
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_del_uuid"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeDataByProfileId(self
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_del_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeDataByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_del_profile_id_attribute_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeDataByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_del_game_id_profile_id"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            self.data_provider.execute_no_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_del_game_id_profile_id_attribut"
+            , parameters
+            )
+            return True
+        except Exception: 
+            return False
+        finally :
+            pass
+             
+    def GetGameProfileAttributeDataList(self
+    ) :
+            
+        parameters = []
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_get"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeDataListByUuid(self
+        , uuid
+    ) :
+            
+        parameters = []
+        parameters.append(uuid) #"in_uuid"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_get_uuid"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeDataListByProfileId(self
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_get_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeDataListByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+            
+        parameters = []
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_get_profile_id_attribute_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeDataListByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_get_game_id_profile_id"
+            , parameters
+            )
+        except Exception: 
+            pass
+        finally :
+            pass
+                
+        return None
+
+    def GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+            
+        parameters = []
+        parameters.append(game_id) #"in_game_id"
+        parameters.append(profile_id) #"in_profile_id"
+        parameters.append(attribute_id) #"in_attribute_id"
+                        
+        try:
+            return self.data_provider.execute_results(
+            self.connection_string
+            , CommandType.StoredProcedure
+            , "usp_game_profile_attribute_data_get_game_id_profile_id_attribut"
             , parameters
             )
         except Exception: 

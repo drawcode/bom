@@ -92,6 +92,123 @@ class BaseResponse :
     
 //------------------------------------------------------------------------------
         
+    public class BaseResponseGameAttribute {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseGameAttributeString : BaseResponseGameAttribute {
+        public string data = "";
+    }
+    
+    public class ResponseGameAttributeBool : BaseResponseGameAttribute {
+        public bool data;
+    }
+    
+    public class ResponseGameAttributeInt : BaseResponseGameAttribute {
+        public int data;
+    }
+    
+    public class ResponseGameAttributeObject : BaseResponseGameAttribute {
+        public GameAttribute data = new GameAttribute();
+    }
+    
+    public class ResponseGameAttributeResult : BaseResponseGameAttribute {
+        public GameAttributeResult data = new GameAttributeResult();
+    }
+    
+    public class ResponseGameAttributeList : BaseResponseGameAttribute {
+        public List<GameAttribute> data = new List<GameAttribute>();
+    }
+    
+    public class ResponseGameAttributeDict : BaseResponseGameAttribute {
+        public Dictionary<string, GameAttribute> data
+            = new Dictionary<string, GameAttribute>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseGameAttributeText {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseGameAttributeTextString : BaseResponseGameAttributeText {
+        public string data = "";
+    }
+    
+    public class ResponseGameAttributeTextBool : BaseResponseGameAttributeText {
+        public bool data;
+    }
+    
+    public class ResponseGameAttributeTextInt : BaseResponseGameAttributeText {
+        public int data;
+    }
+    
+    public class ResponseGameAttributeTextObject : BaseResponseGameAttributeText {
+        public GameAttributeText data = new GameAttributeText();
+    }
+    
+    public class ResponseGameAttributeTextResult : BaseResponseGameAttributeText {
+        public GameAttributeTextResult data = new GameAttributeTextResult();
+    }
+    
+    public class ResponseGameAttributeTextList : BaseResponseGameAttributeText {
+        public List<GameAttributeText> data = new List<GameAttributeText>();
+    }
+    
+    public class ResponseGameAttributeTextDict : BaseResponseGameAttributeText {
+        public Dictionary<string, GameAttributeText> data
+            = new Dictionary<string, GameAttributeText>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseGameAttributeData {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseGameAttributeDataString : BaseResponseGameAttributeData {
+        public string data = "";
+    }
+    
+    public class ResponseGameAttributeDataBool : BaseResponseGameAttributeData {
+        public bool data;
+    }
+    
+    public class ResponseGameAttributeDataInt : BaseResponseGameAttributeData {
+        public int data;
+    }
+    
+    public class ResponseGameAttributeDataObject : BaseResponseGameAttributeData {
+        public GameAttributeData data = new GameAttributeData();
+    }
+    
+    public class ResponseGameAttributeDataResult : BaseResponseGameAttributeData {
+        public GameAttributeDataResult data = new GameAttributeDataResult();
+    }
+    
+    public class ResponseGameAttributeDataList : BaseResponseGameAttributeData {
+        public List<GameAttributeData> data = new List<GameAttributeData>();
+    }
+    
+    public class ResponseGameAttributeDataDict : BaseResponseGameAttributeData {
+        public Dictionary<string, GameAttributeData> data
+            = new Dictionary<string, GameAttributeData>();
+    }
+    
+//------------------------------------------------------------------------------
+        
     public class BaseResponseGameCategory {
         public string message = "Success";
         public int error = 0;
@@ -283,6 +400,123 @@ class BaseResponse :
     public class ResponseProfileGameDict : BaseResponseProfileGame {
         public Dictionary<string, ProfileGame> data
             = new Dictionary<string, ProfileGame>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseGameProfileAttribute {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseGameProfileAttributeString : BaseResponseGameProfileAttribute {
+        public string data = "";
+    }
+    
+    public class ResponseGameProfileAttributeBool : BaseResponseGameProfileAttribute {
+        public bool data;
+    }
+    
+    public class ResponseGameProfileAttributeInt : BaseResponseGameProfileAttribute {
+        public int data;
+    }
+    
+    public class ResponseGameProfileAttributeObject : BaseResponseGameProfileAttribute {
+        public GameProfileAttribute data = new GameProfileAttribute();
+    }
+    
+    public class ResponseGameProfileAttributeResult : BaseResponseGameProfileAttribute {
+        public GameProfileAttributeResult data = new GameProfileAttributeResult();
+    }
+    
+    public class ResponseGameProfileAttributeList : BaseResponseGameProfileAttribute {
+        public List<GameProfileAttribute> data = new List<GameProfileAttribute>();
+    }
+    
+    public class ResponseGameProfileAttributeDict : BaseResponseGameProfileAttribute {
+        public Dictionary<string, GameProfileAttribute> data
+            = new Dictionary<string, GameProfileAttribute>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseGameProfileAttributeText {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseGameProfileAttributeTextString : BaseResponseGameProfileAttributeText {
+        public string data = "";
+    }
+    
+    public class ResponseGameProfileAttributeTextBool : BaseResponseGameProfileAttributeText {
+        public bool data;
+    }
+    
+    public class ResponseGameProfileAttributeTextInt : BaseResponseGameProfileAttributeText {
+        public int data;
+    }
+    
+    public class ResponseGameProfileAttributeTextObject : BaseResponseGameProfileAttributeText {
+        public GameProfileAttributeText data = new GameProfileAttributeText();
+    }
+    
+    public class ResponseGameProfileAttributeTextResult : BaseResponseGameProfileAttributeText {
+        public GameProfileAttributeTextResult data = new GameProfileAttributeTextResult();
+    }
+    
+    public class ResponseGameProfileAttributeTextList : BaseResponseGameProfileAttributeText {
+        public List<GameProfileAttributeText> data = new List<GameProfileAttributeText>();
+    }
+    
+    public class ResponseGameProfileAttributeTextDict : BaseResponseGameProfileAttributeText {
+        public Dictionary<string, GameProfileAttributeText> data
+            = new Dictionary<string, GameProfileAttributeText>();
+    }
+    
+//------------------------------------------------------------------------------
+        
+    public class BaseResponseGameProfileAttributeData {
+        public string message = "Success";
+        public int error = 0;
+        public Dictionary<string, object> info
+            = new Dictionary<string, object>();
+        public string action = "";
+    }        
+
+    public class ResponseGameProfileAttributeDataString : BaseResponseGameProfileAttributeData {
+        public string data = "";
+    }
+    
+    public class ResponseGameProfileAttributeDataBool : BaseResponseGameProfileAttributeData {
+        public bool data;
+    }
+    
+    public class ResponseGameProfileAttributeDataInt : BaseResponseGameProfileAttributeData {
+        public int data;
+    }
+    
+    public class ResponseGameProfileAttributeDataObject : BaseResponseGameProfileAttributeData {
+        public GameProfileAttributeData data = new GameProfileAttributeData();
+    }
+    
+    public class ResponseGameProfileAttributeDataResult : BaseResponseGameProfileAttributeData {
+        public GameProfileAttributeDataResult data = new GameProfileAttributeDataResult();
+    }
+    
+    public class ResponseGameProfileAttributeDataList : BaseResponseGameProfileAttributeData {
+        public List<GameProfileAttributeData> data = new List<GameProfileAttributeData>();
+    }
+    
+    public class ResponseGameProfileAttributeDataDict : BaseResponseGameProfileAttributeData {
+        public Dictionary<string, GameProfileAttributeData> data
+            = new Dictionary<string, GameProfileAttributeData>();
     }
     
 //------------------------------------------------------------------------------

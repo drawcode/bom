@@ -8,6 +8,15 @@
 DROP TABLE IF EXISTS "game" CASCADE;
     
         
+DROP TABLE IF EXISTS "game_attribute" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "game_attribute_text" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "game_attribute_data" CASCADE;
+    
+        
 DROP TABLE IF EXISTS "game_category" CASCADE;
     
         
@@ -21,6 +30,15 @@ DROP TABLE IF EXISTS "game_type" CASCADE;
     
         
 DROP TABLE IF EXISTS "profile_game" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "game_profile_attribute" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "game_profile_attribute_text" CASCADE;
+    
+        
+DROP TABLE IF EXISTS "game_profile_attribute_data" CASCADE;
     
         
 DROP TABLE IF EXISTS "game_network" CASCADE;
@@ -173,6 +191,74 @@ CREATE TABLE "game"
 ALTER TABLE "game" ADD PRIMARY KEY ("uuid");
     
         
+CREATE TABLE "game_attribute" 
+(
+    "status" varchar (255)
+    , "sort" INTEGER
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_game_attribute_date_modified DEFAULT GETDATE()
+    , "uuid" uuid NOT NULL
+    , "group" INTEGER
+    , "game_id" uuid
+    , "active" boolean
+                --CONSTRAINT DF_game_attribute_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_game_attribute_date_created DEFAULT GETDATE()
+    , "type" INTEGER
+    , "order" INTEGER
+    , "description" varchar (255)
+);
+
+ALTER TABLE "game_attribute" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "game_attribute_text" 
+(
+    "status" varchar (255)
+    , "sort" INTEGER
+    , "attribute_value" varchar (1000)
+    , "active" boolean
+                --CONSTRAINT DF_game_attribute_text_active_bool DEFAULT 1
+    , "game_id" uuid
+    , "group" INTEGER
+    , "uuid" uuid NOT NULL
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_game_attribute_text_date_modified DEFAULT GETDATE()
+    , "attribute_id" uuid
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_game_attribute_text_date_created DEFAULT GETDATE()
+    , "type" INTEGER
+    , "order" INTEGER
+);
+
+ALTER TABLE "game_attribute_text" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "game_attribute_data" 
+(
+    "status" varchar (255)
+    , "sort" INTEGER
+    , "attribute_value" varchar
+    , "active" boolean
+                --CONSTRAINT DF_game_attribute_data_active_bool DEFAULT 1
+    , "game_id" uuid
+    , "group" INTEGER
+    , "uuid" uuid NOT NULL
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_game_attribute_data_date_modified DEFAULT GETDATE()
+    , "attribute_id" uuid
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_game_attribute_data_date_created DEFAULT GETDATE()
+    , "type" INTEGER
+    , "order" INTEGER
+);
+
+ALTER TABLE "game_attribute_data" ADD PRIMARY KEY ("uuid");
+    
+        
 CREATE TABLE "game_category" 
 (
     "status" varchar (255)
@@ -256,6 +342,7 @@ CREATE TABLE "profile_game"
     "status" varchar (255)
     , "type_id" uuid
     , "profile_id" uuid
+    , "profile_iteration" varchar (50)
     , "game_profile" varchar
     , "active" boolean
                 --CONSTRAINT DF_profile_game_active_bool DEFAULT 1
@@ -270,6 +357,76 @@ CREATE TABLE "profile_game"
 );
 
 ALTER TABLE "profile_game" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "game_profile_attribute" 
+(
+    "status" varchar (255)
+    , "sort" INTEGER
+    , "code" varchar (255)
+    , "display_name" varchar (255)
+    , "name" varchar (255)
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_game_profile_attribute_date_modified DEFAULT GETDATE()
+    , "uuid" uuid NOT NULL
+    , "group" INTEGER
+    , "game_id" uuid
+    , "active" boolean
+                --CONSTRAINT DF_game_profile_attribute_active_bool DEFAULT 1
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_game_profile_attribute_date_created DEFAULT GETDATE()
+    , "type" INTEGER
+    , "order" INTEGER
+    , "description" varchar (255)
+);
+
+ALTER TABLE "game_profile_attribute" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "game_profile_attribute_text" 
+(
+    "status" varchar (255)
+    , "sort" INTEGER
+    , "profile_id" uuid
+    , "game_id" uuid
+    , "active" boolean
+                --CONSTRAINT DF_game_profile_attribute_text_active_bool DEFAULT 1
+    , "attribute_value" varchar (1000)
+    , "group" INTEGER
+    , "uuid" uuid NOT NULL
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_game_profile_attribute_text_date_modified DEFAULT GETDATE()
+    , "attribute_id" uuid
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_game_profile_attribute_text_date_created DEFAULT GETDATE()
+    , "type" INTEGER
+    , "order" INTEGER
+);
+
+ALTER TABLE "game_profile_attribute_text" ADD PRIMARY KEY ("uuid");
+    
+        
+CREATE TABLE "game_profile_attribute_data" 
+(
+    "status" varchar (255)
+    , "sort" INTEGER
+    , "profile_id" uuid
+    , "game_id" uuid
+    , "active" boolean
+                --CONSTRAINT DF_game_profile_attribute_data_active_bool DEFAULT 1
+    , "attribute_value" varchar
+    , "group" INTEGER
+    , "uuid" uuid NOT NULL
+    , "date_modified" TIMESTAMP
+                --CONSTRAINT DF_game_profile_attribute_data_date_modified DEFAULT GETDATE()
+    , "attribute_id" uuid
+    , "date_created" TIMESTAMP
+                --CONSTRAINT DF_game_profile_attribute_data_date_created DEFAULT GETDATE()
+    , "type" INTEGER
+    , "order" INTEGER
+);
+
+ALTER TABLE "game_profile_attribute_data" ADD PRIMARY KEY ("uuid");
     
         
 CREATE TABLE "game_network" 
@@ -1384,6 +1541,15 @@ ALTER TABLE "reward_competition" ADD PRIMARY KEY ("uuid");
 DROP type IF EXISTS "game_result" CASCADE;
     
         
+DROP type IF EXISTS "game_attribute_result" CASCADE;
+    
+        
+DROP type IF EXISTS "game_attribute_text_result" CASCADE;
+    
+        
+DROP type IF EXISTS "game_attribute_data_result" CASCADE;
+    
+        
 DROP type IF EXISTS "game_category_result" CASCADE;
     
         
@@ -1397,6 +1563,15 @@ DROP type IF EXISTS "game_type_result" CASCADE;
     
         
 DROP type IF EXISTS "profile_game_result" CASCADE;
+    
+        
+DROP type IF EXISTS "game_profile_attribute_result" CASCADE;
+    
+        
+DROP type IF EXISTS "game_profile_attribute_text_result" CASCADE;
+    
+        
+DROP type IF EXISTS "game_profile_attribute_data_result" CASCADE;
     
         
 DROP type IF EXISTS "game_network_result" CASCADE;
@@ -1541,6 +1716,56 @@ CREATE TYPE "game_result" as
     , "type" varchar
     , "description" varchar
 );    
+CREATE TYPE "game_attribute_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "sort" INTEGER
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "uuid" uuid
+    , "group" INTEGER
+    , "game_id" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" INTEGER
+    , "order" INTEGER
+    , "description" varchar
+);    
+CREATE TYPE "game_attribute_text_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "sort" INTEGER
+    , "attribute_value" varchar
+    , "active" boolean
+    , "game_id" uuid
+    , "group" INTEGER
+    , "uuid" uuid
+    , "date_modified" TIMESTAMP
+    , "attribute_id" uuid
+    , "date_created" TIMESTAMP
+    , "type" INTEGER
+    , "order" INTEGER
+);    
+CREATE TYPE "game_attribute_data_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "sort" INTEGER
+    , "attribute_value" varchar
+    , "active" boolean
+    , "game_id" uuid
+    , "group" INTEGER
+    , "uuid" uuid
+    , "date_modified" TIMESTAMP
+    , "attribute_id" uuid
+    , "date_created" TIMESTAMP
+    , "type" INTEGER
+    , "order" INTEGER
+);    
 CREATE TYPE "game_category_result" as
 (
     total_rows bigint
@@ -1601,6 +1826,7 @@ CREATE TYPE "profile_game_result" as
     , "status" varchar
     , "type_id" uuid
     , "profile_id" uuid
+    , "profile_iteration" varchar
     , "game_profile" varchar
     , "active" boolean
     , "game_id" uuid
@@ -1609,6 +1835,58 @@ CREATE TYPE "profile_game_result" as
     , "profile_version" varchar
     , "date_created" TIMESTAMP
     , "type" varchar
+);    
+CREATE TYPE "game_profile_attribute_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "sort" INTEGER
+    , "code" varchar
+    , "display_name" varchar
+    , "name" varchar
+    , "date_modified" TIMESTAMP
+    , "uuid" uuid
+    , "group" INTEGER
+    , "game_id" uuid
+    , "active" boolean
+    , "date_created" TIMESTAMP
+    , "type" INTEGER
+    , "order" INTEGER
+    , "description" varchar
+);    
+CREATE TYPE "game_profile_attribute_text_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "sort" INTEGER
+    , "profile_id" uuid
+    , "game_id" uuid
+    , "active" boolean
+    , "attribute_value" varchar
+    , "group" INTEGER
+    , "uuid" uuid
+    , "date_modified" TIMESTAMP
+    , "attribute_id" uuid
+    , "date_created" TIMESTAMP
+    , "type" INTEGER
+    , "order" INTEGER
+);    
+CREATE TYPE "game_profile_attribute_data_result" as
+(
+    total_rows bigint
+    , "status" varchar
+    , "sort" INTEGER
+    , "profile_id" uuid
+    , "game_id" uuid
+    , "active" boolean
+    , "attribute_value" varchar
+    , "group" INTEGER
+    , "uuid" uuid
+    , "date_modified" TIMESTAMP
+    , "attribute_id" uuid
+    , "date_created" TIMESTAMP
+    , "type" INTEGER
+    , "order" INTEGER
 );    
 CREATE TYPE "game_network_result" as
 (
@@ -2454,12 +2732,192 @@ CREATE TYPE "reward_competition_result" as
 -- INDEX CREATES
 
         
+-- INDEX CREATES
+
+        
+-- INDEX CREATES
+
+                
+DROP INDEX IF EXISTS "IX_game_attribute_text_game_id";
+                
+CREATE INDEX IX_game_attribute_text_game_id ON game_attribute_text 
+(
+                    
+    "game_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_attribute_text_attribute_id";
+                
+CREATE INDEX IX_game_attribute_text_attribute_id ON game_attribute_text 
+(
+                    
+    "attribute_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_attribute_text_game_id_attribute_id";
+                
+CREATE INDEX IX_game_attribute_text_game_id_attribute_id ON game_attribute_text 
+(
+                    
+    "game_id" ASC
+                    
+    , "attribute_id" ASC
+);
+        
+-- INDEX CREATES
+
+                
+DROP INDEX IF EXISTS "IX_game_attribute_data_game_id";
+                
+CREATE INDEX IX_game_attribute_data_game_id ON game_attribute_data 
+(
+                    
+    "game_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_attribute_data_attribute_id";
+                
+CREATE INDEX IX_game_attribute_data_attribute_id ON game_attribute_data 
+(
+                    
+    "attribute_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_attribute_data_game_id_attribute_id";
+                
+CREATE INDEX IX_game_attribute_data_game_id_attribute_id ON game_attribute_data 
+(
+                    
+    "game_id" ASC
+                    
+    , "attribute_id" ASC
+);
+        
         
         
         
         
 -- INDEX CREATES
 
+        
+-- INDEX CREATES
+
+        
+-- INDEX CREATES
+
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_text_profile_id";
+                
+CREATE INDEX IX_game_profile_attribute_text_profile_id ON game_profile_attribute_text 
+(
+                    
+    "profile_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_text_attribute_id";
+                
+CREATE INDEX IX_game_profile_attribute_text_attribute_id ON game_profile_attribute_text 
+(
+                    
+    "attribute_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_text_profile_id_attribute_id";
+                
+CREATE INDEX IX_game_profile_attribute_text_profile_id_attribute_id ON game_profile_attribute_text 
+(
+                    
+    "profile_id" ASC
+                    
+    , "attribute_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_text_game_id_profile_id";
+                
+CREATE INDEX IX_game_profile_attribute_text_game_id_profile_id ON game_profile_attribute_text 
+(
+                    
+    "game_id" ASC
+                    
+    , "profile_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_text_game_id_profile_id_attribute_id";
+                
+CREATE INDEX IX_game_profile_attribute_text_game_id_profile_id_attribute_id ON game_profile_attribute_text 
+(
+                    
+    "game_id" ASC
+                    
+    , "profile_id" ASC
+                    
+    , "attribute_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_text_profile_id_attribute_id_sort";
+                
+CREATE INDEX IX_game_profile_attribute_text_profile_id_attribute_id_sort ON game_profile_attribute_text 
+(
+                    
+    "sort" ASC
+                    
+    , "profile_id" ASC
+                    
+    , "attribute_id" ASC
+);
+        
+-- INDEX CREATES
+
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_data_profile_id";
+                
+CREATE INDEX IX_game_profile_attribute_data_profile_id ON game_profile_attribute_data 
+(
+                    
+    "profile_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_data_attribute_id";
+                
+CREATE INDEX IX_game_profile_attribute_data_attribute_id ON game_profile_attribute_data 
+(
+                    
+    "attribute_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_data_profile_id_attribute_id";
+                
+CREATE INDEX IX_game_profile_attribute_data_profile_id_attribute_id ON game_profile_attribute_data 
+(
+                    
+    "profile_id" ASC
+                    
+    , "attribute_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_data_game_id_profile_id_attribute_id";
+                
+CREATE INDEX IX_game_profile_attribute_data_game_id_profile_id_attribute_id ON game_profile_attribute_data 
+(
+                    
+    "game_id" ASC
+                    
+    , "profile_id" ASC
+                    
+    , "attribute_id" ASC
+);
+                
+DROP INDEX IF EXISTS "IX_game_profile_attribute_data_profile_id_attribute_id_sort";
+                
+CREATE INDEX IX_game_profile_attribute_data_profile_id_attribute_id_sort ON game_profile_attribute_data 
+(
+                    
+    "sort" ASC
+                    
+    , "profile_id" ASC
+                    
+    , "attribute_id" ASC
+);
         
 -- INDEX CREATES
 
@@ -5678,6 +6136,3843 @@ $$ LANGUAGE plpgsql;
 -- COUNT
 
 -- ------------------------------------
+-- MODEL: GameAttribute - game_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_count
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_count_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_count_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_count_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_count_type
+(
+    in_type INTEGER = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute"
+    WHERE 1=1
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_count_group
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_count_group
+(
+    in_group INTEGER = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute"
+    WHERE 1=1
+    AND "group" = in_group
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_count_code_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_count_code_type
+(
+    in_code varchar (255) = NULL
+    , in_type INTEGER = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_count_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_count_game_id
+(
+    in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_count_game_id_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_count_game_id_code
+(
+    in_game_id uuid = NULL
+    , in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameAttribute - game_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_browse_filter
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "game_attribute_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "sort"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "uuid"'
+    || ', "group"'
+    || ', "game_id"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "order"'
+    || ', "description"'
+    || ' FROM "game_attribute" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "sort" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "uuid" '
+    || ', "group" '
+    || ', "game_id" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "order" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameAttribute - game_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_set_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_uuid uuid = NULL
+    , in_group INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "uuid" = in_uuid
+                        , "group" = in_group
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "uuid"
+                        , "group"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_uuid
+                        , in_group
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_set_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_set_code
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_uuid uuid = NULL
+    , in_group INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "uuid" = in_uuid
+                        , "group" = in_group
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "uuid"
+                        , "group"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_uuid
+                        , in_group
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_set_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_set_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_uuid uuid = NULL
+    , in_group INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "uuid" = in_uuid
+                        , "group" = in_group
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "uuid"
+                        , "group"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_uuid
+                        , in_group
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_set_game_id_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_set_game_id_code
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_uuid uuid = NULL
+    , in_group INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND lower("code") = lower(in_code)
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "uuid" = in_uuid
+                        , "group" = in_group
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND lower("code") = lower(in_code)
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "uuid"
+                        , "group"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_uuid
+                        , in_group
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameAttribute - game_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_del_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_del_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_del_code
+(
+    in_code varchar (255) = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_del_code_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_del_code_type
+(
+    in_code varchar (255) = NULL
+    , in_type INTEGER = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_del_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_del_game_id
+(
+    in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_del_game_id_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_del_game_id_code
+(
+    in_game_id uuid = NULL
+    , in_code varchar (255) = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameAttribute - game_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_get
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_get
+(
+)                        
+RETURNS setof "game_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_attribute"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_get_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "game_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_attribute"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_get_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "game_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_attribute"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_get_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_get_type
+(
+    in_type INTEGER = NULL
+)
+RETURNS setof "game_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_attribute"
+    WHERE 1=1
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_get_group
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_get_group
+(
+    in_group INTEGER = NULL
+)
+RETURNS setof "game_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_attribute"
+    WHERE 1=1
+    AND "group" = in_group
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_get_code_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_get_code_type
+(
+    in_code varchar (255) = NULL
+    , in_type INTEGER = NULL
+)
+RETURNS setof "game_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_attribute"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_get_game_id_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_get_game_id_code
+(
+    in_game_id uuid = NULL
+    , in_code varchar (255) = NULL
+)
+RETURNS setof "game_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_attribute"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameAttributeText - game_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_text_count
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute_text"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_count_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute_text"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_count_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_count_game_id
+(
+    in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute_text"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_count_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_count_attribute_id
+(
+    in_attribute_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute_text"
+    WHERE 1=1
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_count_game_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_count_game_id_attribute_id
+(
+    in_game_id uuid = NULL
+    , in_attribute_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute_text"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameAttributeText - game_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_text_browse_filter
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "game_attribute_text_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "sort"'
+    || ', "attribute_value"'
+    || ', "active"'
+    || ', "game_id"'
+    || ', "group"'
+    || ', "uuid"'
+    || ', "date_modified"'
+    || ', "attribute_id"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "order"'
+    || ' FROM "game_attribute_text" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "sort" '
+    || ', "attribute_value" '
+    || ', "active" '
+    || ', "game_id" '
+    || ', "group" '
+    || ', "uuid" '
+    || ', "date_modified" '
+    || ', "attribute_id" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "order" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameAttributeText - game_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_text_set
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_set
+(          
+    OUT out_id int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute_text"  
+                    WHERE 1=1
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "attribute_value" = in_attribute_value
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "attribute_value"
+                        , "active"
+                        , "game_id"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_attribute_value
+                        , in_active
+                        , in_game_id
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_set_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_attribute_value varchar (1000) = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute_text"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "attribute_value" = in_attribute_value
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "attribute_value"
+                        , "active"
+                        , "game_id"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_attribute_value
+                        , in_active
+                        , in_game_id
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_set_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_set_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_attribute_value varchar (1000) = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute_text"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "attribute_value" = in_attribute_value
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "attribute_value"
+                        , "active"
+                        , "game_id"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_attribute_value
+                        , in_active
+                        , in_game_id
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_set_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_set_attribute_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_attribute_value varchar (1000) = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute_text"  
+                    WHERE 1=1
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "attribute_value" = in_attribute_value
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "attribute_value"
+                        , "active"
+                        , "game_id"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_attribute_value
+                        , in_active
+                        , in_game_id
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_set_game_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_set_game_id_attribute_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_attribute_value varchar (1000) = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute_text"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "attribute_value" = in_attribute_value
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "attribute_value"
+                        , "active"
+                        , "game_id"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_attribute_value
+                        , in_active
+                        , in_game_id
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameAttributeText - game_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_text_del
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_del
+(
+)                        
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute_text"
+    WHERE 1=1                        
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_text_del_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute_text"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_text_del_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_del_game_id
+(
+    in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute_text"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_text_del_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_del_attribute_id
+(
+    in_attribute_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute_text"
+    WHERE 1=1                        
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_text_del_game_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_del_game_id_attribute_id
+(
+    in_game_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute_text"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameAttributeText - game_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_text_get
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_get
+(
+)                        
+RETURNS setof "game_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "attribute_value"
+        , "active"
+        , "game_id"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_attribute_text"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_get_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "game_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "attribute_value"
+        , "active"
+        , "game_id"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_attribute_text"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_get_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_get_game_id
+(
+    in_game_id uuid = NULL
+)
+RETURNS setof "game_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "attribute_value"
+        , "active"
+        , "game_id"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_attribute_text"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_get_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_get_attribute_id
+(
+    in_attribute_id uuid = NULL
+)
+RETURNS setof "game_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "attribute_value"
+        , "active"
+        , "game_id"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_attribute_text"
+    WHERE 1=1
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_text_get_game_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_text_get_game_id_attribute_id
+(
+    in_game_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+RETURNS setof "game_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "attribute_value"
+        , "active"
+        , "game_id"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_attribute_text"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameAttributeData - game_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_data_count
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute_data"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_data_count_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute_data"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_data_count_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_count_game_id
+(
+    in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute_data"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_data_count_game_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_count_game_id_attribute_id
+(
+    in_game_id uuid = NULL
+    , in_attribute_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_attribute_data"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameAttributeData - game_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_data_browse_filter
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "game_attribute_data_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "sort"'
+    || ', "attribute_value"'
+    || ', "active"'
+    || ', "game_id"'
+    || ', "group"'
+    || ', "uuid"'
+    || ', "date_modified"'
+    || ', "attribute_id"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "order"'
+    || ' FROM "game_attribute_data" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "sort" '
+    || ', "attribute_value" '
+    || ', "active" '
+    || ', "game_id" '
+    || ', "group" '
+    || ', "uuid" '
+    || ', "date_modified" '
+    || ', "attribute_id" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "order" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameAttributeData - game_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_data_set_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_attribute_value varchar = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute_data"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute_data" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "attribute_value" = in_attribute_value
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute_data"
+                    (
+                        "status"
+                        , "sort"
+                        , "attribute_value"
+                        , "active"
+                        , "game_id"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_attribute_value
+                        , in_active
+                        , in_game_id
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_data_set_game_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_set_game_id_attribute_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_attribute_value varchar = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_attribute_data"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_attribute_data" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "attribute_value" = in_attribute_value
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_attribute_data"
+                    (
+                        "status"
+                        , "sort"
+                        , "attribute_value"
+                        , "active"
+                        , "game_id"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_attribute_value
+                        , in_active
+                        , in_game_id
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameAttributeData - game_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_data_del
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_del
+(
+)                        
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute_data"
+    WHERE 1=1                        
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_data_del_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute_data"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_data_del_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_del_game_id
+(
+    in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute_data"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_attribute_data_del_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_del_game_id
+(
+    in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_attribute_data"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameAttributeData - game_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_attribute_data_get
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_get
+(
+)                        
+RETURNS setof "game_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "attribute_value"
+        , "active"
+        , "game_id"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_attribute_data"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_data_get_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "game_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "attribute_value"
+        , "active"
+        , "game_id"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_attribute_data"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_data_get_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_get_game_id
+(
+    in_game_id uuid = NULL
+)
+RETURNS setof "game_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "attribute_value"
+        , "active"
+        , "game_id"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_attribute_data"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_attribute_data_get_game_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , boolean
+    , uuid
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_attribute_data_get_game_id_attribute_id
+(
+    in_game_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+RETURNS setof "game_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "attribute_value"
+        , "active"
+        , "game_id"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_attribute_data"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
 -- MODEL: GameCategory - game_category
 
 /*
@@ -8609,6 +12904,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_count
     , uuid
     , uuid
     , varchar
+    , varchar
     , boolean
     , uuid
     , uuid
@@ -8640,6 +12936,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_count_uuid
     varchar
     , uuid
     , uuid
+    , varchar
     , varchar
     , boolean
     , uuid
@@ -8675,6 +12972,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_count_game_id
     , uuid
     , uuid
     , varchar
+    , varchar
     , boolean
     , uuid
     , uuid
@@ -8709,6 +13007,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_count_profile_id
     , uuid
     , uuid
     , varchar
+    , varchar
     , boolean
     , uuid
     , uuid
@@ -8742,6 +13041,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_count_profile_id_game_id
     varchar
     , uuid
     , uuid
+    , varchar
     , varchar
     , boolean
     , uuid
@@ -8793,6 +13093,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_browse_filter
     , uuid
     , uuid
     , varchar
+    , varchar
     , boolean
     , uuid
     , uuid
@@ -8827,6 +13128,7 @@ BEGIN
     || ', "status"'
     || ', "type_id"'
     || ', "profile_id"'
+    || ', "profile_iteration"'
     || ', "game_profile"'
     || ', "active"'
     || ', "game_id"'
@@ -8848,6 +13150,7 @@ BEGIN
     || '"status" '
     || ', "type_id" '
     || ', "profile_id" '
+    || ', "profile_iteration" '
     || ', "game_profile" '
     || ', "active" '
     || ', "game_id" '
@@ -8891,6 +13194,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_set_uuid
     , uuid
     , uuid
     , varchar
+    , varchar
     , boolean
     , uuid
     , uuid
@@ -8906,6 +13210,7 @@ CREATE OR REPLACE FUNCTION usp_profile_game_set_uuid
     , in_status varchar (255) = NULL
     , in_type_id uuid = NULL
     , in_profile_id uuid = NULL
+    , in_profile_iteration varchar (50) = NULL
     , in_game_profile varchar = NULL
     , in_active boolean = NULL
     , in_game_id uuid = NULL
@@ -8957,6 +13262,7 @@ BEGIN
                         "status" = in_status
                         , "type_id" = in_type_id
                         , "profile_id" = in_profile_id
+                        , "profile_iteration" = in_profile_iteration
                         , "game_profile" = in_game_profile
                         , "active" = in_active
                         , "game_id" = in_game_id
@@ -8981,6 +13287,7 @@ BEGIN
                         "status"
                         , "type_id"
                         , "profile_id"
+                        , "profile_iteration"
                         , "game_profile"
                         , "active"
                         , "game_id"
@@ -8995,6 +13302,414 @@ BEGIN
                         in_status
                         , in_type_id
                         , in_profile_id
+                        , in_profile_iteration
+                        , in_game_profile
+                        , in_active
+                        , in_game_id
+                        , in_uuid
+                        , in_date_modified
+                        , in_profile_version
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_game_set_game_id
+(
+    varchar
+    , uuid
+    , uuid
+    , varchar
+    , varchar
+    , boolean
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_game_set_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_type_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_profile_iteration varchar (50) = NULL
+    , in_game_profile varchar = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_profile_version varchar (50) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_game"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_game" 
+                    SET
+                        "status" = in_status
+                        , "type_id" = in_type_id
+                        , "profile_id" = in_profile_id
+                        , "profile_iteration" = in_profile_iteration
+                        , "game_profile" = in_game_profile
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "profile_version" = in_profile_version
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_game"
+                    (
+                        "status"
+                        , "type_id"
+                        , "profile_id"
+                        , "profile_iteration"
+                        , "game_profile"
+                        , "active"
+                        , "game_id"
+                        , "uuid"
+                        , "date_modified"
+                        , "profile_version"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_type_id
+                        , in_profile_id
+                        , in_profile_iteration
+                        , in_game_profile
+                        , in_active
+                        , in_game_id
+                        , in_uuid
+                        , in_date_modified
+                        , in_profile_version
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_game_set_profile_id
+(
+    varchar
+    , uuid
+    , uuid
+    , varchar
+    , varchar
+    , boolean
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_game_set_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_type_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_profile_iteration varchar (50) = NULL
+    , in_game_profile varchar = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_profile_version varchar (50) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_game"  
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_game" 
+                    SET
+                        "status" = in_status
+                        , "type_id" = in_type_id
+                        , "profile_id" = in_profile_id
+                        , "profile_iteration" = in_profile_iteration
+                        , "game_profile" = in_game_profile
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "profile_version" = in_profile_version
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_game"
+                    (
+                        "status"
+                        , "type_id"
+                        , "profile_id"
+                        , "profile_iteration"
+                        , "game_profile"
+                        , "active"
+                        , "game_id"
+                        , "uuid"
+                        , "date_modified"
+                        , "profile_version"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_type_id
+                        , in_profile_id
+                        , in_profile_iteration
+                        , in_game_profile
+                        , in_active
+                        , in_game_id
+                        , in_uuid
+                        , in_date_modified
+                        , in_profile_version
+                        , in_date_created
+                        , in_type
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_profile_game_set_profile_id_game_id
+(
+    varchar
+    , uuid
+    , uuid
+    , varchar
+    , varchar
+    , boolean
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_game_set_profile_id_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_type_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_profile_iteration varchar (50) = NULL
+    , in_game_profile varchar = NULL
+    , in_active boolean = NULL
+    , in_game_id uuid = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_profile_version varchar (50) = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type varchar (500) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "profile_game"  
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "profile_game" 
+                    SET
+                        "status" = in_status
+                        , "type_id" = in_type_id
+                        , "profile_id" = in_profile_id
+                        , "profile_iteration" = in_profile_iteration
+                        , "game_profile" = in_game_profile
+                        , "active" = in_active
+                        , "game_id" = in_game_id
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "profile_version" = in_profile_version
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "profile_game"
+                    (
+                        "status"
+                        , "type_id"
+                        , "profile_id"
+                        , "profile_iteration"
+                        , "game_profile"
+                        , "active"
+                        , "game_id"
+                        , "uuid"
+                        , "date_modified"
+                        , "profile_version"
+                        , "date_created"
+                        , "type"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_type_id
+                        , in_profile_id
+                        , in_profile_iteration
                         , in_game_profile
                         , in_active
                         , in_game_id
@@ -9035,6 +13750,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_del_uuid
     , uuid
     , uuid
     , varchar
+    , varchar
     , boolean
     , uuid
     , uuid
@@ -9061,6 +13777,107 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_profile_game_del_game_id
+(
+    varchar
+    , uuid
+    , uuid
+    , varchar
+    , varchar
+    , boolean
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_game_del_game_id
+(
+    in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_game"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_profile_game_del_profile_id
+(
+    varchar
+    , uuid
+    , uuid
+    , varchar
+    , varchar
+    , boolean
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_game_del_profile_id
+(
+    in_profile_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_game"
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_profile_game_del_profile_id_game_id
+(
+    varchar
+    , uuid
+    , uuid
+    , varchar
+    , varchar
+    , boolean
+    , uuid
+    , uuid
+    , TIMESTAMP
+    , varchar
+    , TIMESTAMP
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_profile_game_del_profile_id_game_id
+(
+    in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "profile_game"
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
 -- ------------------------------------
 -- GET
 
@@ -9080,6 +13897,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_get
     varchar
     , uuid
     , uuid
+    , varchar
     , varchar
     , boolean
     , uuid
@@ -9101,6 +13919,7 @@ BEGIN
         "status"
         , "type_id"
         , "profile_id"
+        , "profile_iteration"
         , "game_profile"
         , "active"
         , "game_id"
@@ -9121,6 +13940,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_get_uuid
     varchar
     , uuid
     , uuid
+    , varchar
     , varchar
     , boolean
     , uuid
@@ -9143,6 +13963,7 @@ BEGIN
         "status"
         , "type_id"
         , "profile_id"
+        , "profile_iteration"
         , "game_profile"
         , "active"
         , "game_id"
@@ -9165,6 +13986,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_get_game_id
     , uuid
     , uuid
     , varchar
+    , varchar
     , boolean
     , uuid
     , uuid
@@ -9186,6 +14008,7 @@ BEGIN
         "status"
         , "type_id"
         , "profile_id"
+        , "profile_iteration"
         , "game_profile"
         , "active"
         , "game_id"
@@ -9208,6 +14031,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_get_profile_id
     , uuid
     , uuid
     , varchar
+    , varchar
     , boolean
     , uuid
     , uuid
@@ -9229,6 +14053,7 @@ BEGIN
         "status"
         , "type_id"
         , "profile_id"
+        , "profile_iteration"
         , "game_profile"
         , "active"
         , "game_id"
@@ -9250,6 +14075,7 @@ DROP FUNCTION IF EXISTS usp_profile_game_get_profile_id_game_id
     varchar
     , uuid
     , uuid
+    , varchar
     , varchar
     , boolean
     , uuid
@@ -9273,6 +14099,7 @@ BEGIN
         "status"
         , "type_id"
         , "profile_id"
+        , "profile_iteration"
         , "game_profile"
         , "active"
         , "game_id"
@@ -9285,6 +14112,4509 @@ BEGIN
     WHERE 1=1
     AND "profile_id" = in_profile_id
     AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameProfileAttribute - game_profile_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_count
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_count_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_count_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_count_code
+(
+    in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_count_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_count_type
+(
+    in_type INTEGER = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_count_group
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_count_group
+(
+    in_group INTEGER = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND "group" = in_group
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_count_code_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_count_code_type
+(
+    in_code varchar (255) = NULL
+    , in_type INTEGER = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_count_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_count_game_id
+(
+    in_game_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_count_game_id_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_count_game_id_code
+(
+    in_game_id uuid = NULL
+    , in_code varchar (255) = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameProfileAttribute - game_profile_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_browse_filter
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "game_profile_attribute_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "sort"'
+    || ', "code"'
+    || ', "display_name"'
+    || ', "name"'
+    || ', "date_modified"'
+    || ', "uuid"'
+    || ', "group"'
+    || ', "game_id"'
+    || ', "active"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "order"'
+    || ', "description"'
+    || ' FROM "game_profile_attribute" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "sort" '
+    || ', "code" '
+    || ', "display_name" '
+    || ', "name" '
+    || ', "date_modified" '
+    || ', "uuid" '
+    || ', "group" '
+    || ', "game_id" '
+    || ', "active" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "order" '
+    || ', "description" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameProfileAttribute - game_profile_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_set_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_uuid uuid = NULL
+    , in_group INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "uuid" = in_uuid
+                        , "group" = in_group
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "uuid"
+                        , "group"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_uuid
+                        , in_group
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_set_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_set_code
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_uuid uuid = NULL
+    , in_group INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute"  
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "uuid" = in_uuid
+                        , "group" = in_group
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND lower("code") = lower(in_code)
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "uuid"
+                        , "group"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_uuid
+                        , in_group
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_set_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_set_game_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_uuid uuid = NULL
+    , in_group INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "uuid" = in_uuid
+                        , "group" = in_group
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "uuid"
+                        , "group"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_uuid
+                        , in_group
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_set_game_id_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_set_game_id_code
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_code varchar (255) = NULL
+    , in_display_name varchar (255) = NULL
+    , in_name varchar (255) = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_uuid uuid = NULL
+    , in_group INTEGER = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , in_description varchar (255) = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND lower("code") = lower(in_code)
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "code" = in_code
+                        , "display_name" = in_display_name
+                        , "name" = in_name
+                        , "date_modified" = in_date_modified
+                        , "uuid" = in_uuid
+                        , "group" = in_group
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                        , "description" = in_description
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND lower("code") = lower(in_code)
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute"
+                    (
+                        "status"
+                        , "sort"
+                        , "code"
+                        , "display_name"
+                        , "name"
+                        , "date_modified"
+                        , "uuid"
+                        , "group"
+                        , "game_id"
+                        , "active"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                        , "description"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_code
+                        , in_display_name
+                        , in_name
+                        , in_date_modified
+                        , in_uuid
+                        , in_group
+                        , in_game_id
+                        , in_active
+                        , in_date_created
+                        , in_type
+                        , in_order
+                        , in_description
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameProfileAttribute - game_profile_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_del_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_del_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_del_code
+(
+    in_code varchar (255) = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_del_code_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_del_code_type
+(
+    in_code varchar (255) = NULL
+    , in_type INTEGER = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute"
+    WHERE 1=1                        
+    AND lower("code") = lower(in_code)
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_del_game_id
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_del_game_id
+(
+    in_game_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_del_game_id_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_del_game_id_code
+(
+    in_game_id uuid = NULL
+    , in_code varchar (255) = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameProfileAttribute - game_profile_attribute
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_get
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_get
+(
+)                        
+RETURNS setof "game_profile_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_get_uuid
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "game_profile_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_get_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_get_code
+(
+    in_code varchar (255) = NULL
+)
+RETURNS setof "game_profile_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_get_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_get_type
+(
+    in_type INTEGER = NULL
+)
+RETURNS setof "game_profile_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_get_group
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_get_group
+(
+    in_group INTEGER = NULL
+)
+RETURNS setof "game_profile_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND "group" = in_group
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_get_code_type
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_get_code_type
+(
+    in_code varchar (255) = NULL
+    , in_type INTEGER = NULL
+)
+RETURNS setof "game_profile_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND lower("code") = lower(in_code)
+    AND "type" = in_type
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_get_game_id_code
+(
+    varchar
+    , INTEGER
+    , varchar
+    , varchar
+    , varchar
+    , TIMESTAMP
+    , uuid
+    , INTEGER
+    , uuid
+    , boolean
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+    , varchar
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_get_game_id_code
+(
+    in_game_id uuid = NULL
+    , in_code varchar (255) = NULL
+)
+RETURNS setof "game_profile_attribute"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "code"
+        , "display_name"
+        , "name"
+        , "date_modified"
+        , "uuid"
+        , "group"
+        , "game_id"
+        , "active"
+        , "date_created"
+        , "type"
+        , "order"
+        , "description"
+    FROM "game_profile_attribute"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND lower("code") = lower(in_code)
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeText - game_profile_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_count
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_count_uuid
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_count_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_count_profile_id
+(
+    in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_count_profile_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_count_profile_id_attribute_id
+(
+    in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_count_game_id_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_count_game_id_profile_id
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_count_game_id_profile_id_attrib
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_count_game_id_profile_id_attrib
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeText - game_profile_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_browse_filter
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "game_profile_attribute_text_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "sort"'
+    || ', "profile_id"'
+    || ', "game_id"'
+    || ', "active"'
+    || ', "attribute_value"'
+    || ', "group"'
+    || ', "uuid"'
+    || ', "date_modified"'
+    || ', "attribute_id"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "order"'
+    || ' FROM "game_profile_attribute_text" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "sort" '
+    || ', "profile_id" '
+    || ', "game_id" '
+    || ', "active" '
+    || ', "attribute_value" '
+    || ', "group" '
+    || ', "uuid" '
+    || ', "date_modified" '
+    || ', "attribute_id" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "order" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeText - game_profile_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_set_uuid
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_attribute_value varchar (1000) = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute_text"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "profile_id" = in_profile_id
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "attribute_value" = in_attribute_value
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "profile_id"
+                        , "game_id"
+                        , "active"
+                        , "attribute_value"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_profile_id
+                        , in_game_id
+                        , in_active
+                        , in_attribute_value
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_set_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_set_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_attribute_value varchar (1000) = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute_text"  
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "profile_id" = in_profile_id
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "attribute_value" = in_attribute_value
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "profile_id"
+                        , "game_id"
+                        , "active"
+                        , "attribute_value"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_profile_id
+                        , in_game_id
+                        , in_active
+                        , in_attribute_value
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_set_profile_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_set_profile_id_attribute_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_attribute_value varchar (1000) = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute_text"  
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "profile_id" = in_profile_id
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "attribute_value" = in_attribute_value
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "profile_id"
+                        , "game_id"
+                        , "active"
+                        , "attribute_value"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_profile_id
+                        , in_game_id
+                        , in_active
+                        , in_attribute_value
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_set_game_id_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_set_game_id_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_attribute_value varchar (1000) = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute_text"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "profile_id" = in_profile_id
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "attribute_value" = in_attribute_value
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "profile_id"
+                        , "game_id"
+                        , "active"
+                        , "attribute_value"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_profile_id
+                        , in_game_id
+                        , in_active
+                        , in_attribute_value
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_set_game_id_profile_id_attribut
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_set_game_id_profile_id_attribut
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_attribute_value varchar (1000) = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute_text"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute_text" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "profile_id" = in_profile_id
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "attribute_value" = in_attribute_value
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute_text"
+                    (
+                        "status"
+                        , "sort"
+                        , "profile_id"
+                        , "game_id"
+                        , "active"
+                        , "attribute_value"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_profile_id
+                        , in_game_id
+                        , in_active
+                        , in_attribute_value
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeText - game_profile_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_del_uuid
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_text"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_del_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_del_profile_id
+(
+    in_profile_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_text"
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_del_profile_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_del_profile_id_attribute_id
+(
+    in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_text"
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_del_game_id_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_del_game_id_profile_id
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_text"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_del_game_id_profile_id_attribut
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_del_game_id_profile_id_attribut
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_text"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeText - game_profile_attribute_text
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_get_uuid
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "game_profile_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_get_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_get_profile_id
+(
+    in_profile_id uuid = NULL
+)
+RETURNS setof "game_profile_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_get_profile_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_get_profile_id_attribute_id
+(
+    in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+RETURNS setof "game_profile_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_get_game_id_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_get_game_id_profile_id
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+RETURNS setof "game_profile_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_text_get_game_id_profile_id_attribut
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_text_get_game_id_profile_id_attribut
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+RETURNS setof "game_profile_attribute_text"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_text"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- -----------------------------------------------------------------------------
+-- PROCS
+
+-- ------------------------------------
+-- COUNT
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeData - game_profile_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_count
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_count
+(          
+    OUT out_count int                                                  
+)                        
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_count_uuid
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_count_uuid
+(
+    in_uuid uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_count_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_count_profile_id
+(
+    in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_count_profile_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_count_profile_id_attribute_id
+(
+    in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_count_game_id_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_count_game_id_profile_id
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_count_game_id_profile_id_attrib
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_count_game_id_profile_id_attrib
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+    , OUT out_count int
+)
+RETURNS int
+AS $$
+DECLARE
+BEGIN
+    SELECT
+        COUNT(*) INTO out_count
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- BROWSE
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeData - game_profile_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_browse_filter
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_browse_filter
+(
+    in_page int = 1,
+    in_page_size int = 10,
+    in_sort VARCHAR(500) = 'date_modified ASC',
+    in_filter VARCHAR(4000) = NULL
+    
+)
+RETURNS setof "game_profile_attribute_data_result"
+AS $$
+DECLARE
+    _sql VARCHAR(4000);
+BEGIN
+
+    IF (in_page = 0) THEN
+        in_page := 1;
+    END IF;
+    IF (in_page_size = 0) THEN
+        in_page_size := 10;
+    END IF;
+    
+    _sql := 'SELECT count(*) over () as total_rows'
+    || ', "status"'
+    || ', "sort"'
+    || ', "profile_id"'
+    || ', "game_id"'
+    || ', "active"'
+    || ', "attribute_value"'
+    || ', "group"'
+    || ', "uuid"'
+    || ', "date_modified"'
+    || ', "attribute_id"'
+    || ', "date_created"'
+    || ', "type"'
+    || ', "order"'
+    || ' FROM "game_profile_attribute_data" WHERE 1=1 ';
+    
+    BEGIN
+        IF in_filter IS NOT NULL AND in_filter != '' THEN
+            _sql := _sql || ' ' || in_filter || ' ';
+        END IF;
+    END;    
+    
+    _sql := _sql 
+    || ' GROUP BY '
+    || '"status" '
+    || ', "sort" '
+    || ', "profile_id" '
+    || ', "game_id" '
+    || ', "active" '
+    || ', "attribute_value" '
+    || ', "group" '
+    || ', "uuid" '
+    || ', "date_modified" '
+    || ', "attribute_id" '
+    || ', "date_created" '
+    || ', "type" '
+    || ', "order" '
+    ;
+    
+    _sql := _sql 
+    || ' ORDER BY '
+    || in_sort
+    || ' LIMIT '
+    || in_page_size
+    || ' OFFSET '
+    || (in_page_size * in_page) - in_page_size;
+    
+    RAISE INFO '%', _sql;
+    RETURN QUERY EXECUTE _sql;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- SET
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeData - game_profile_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_set_uuid
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_set_uuid
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_attribute_value varchar = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute_data"  
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute_data" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "profile_id" = in_profile_id
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "attribute_value" = in_attribute_value
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "uuid" = in_uuid
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute_data"
+                    (
+                        "status"
+                        , "sort"
+                        , "profile_id"
+                        , "game_id"
+                        , "active"
+                        , "attribute_value"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_profile_id
+                        , in_game_id
+                        , in_active
+                        , in_attribute_value
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_set_profile_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_set_profile_id_attribute_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_attribute_value varchar = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute_data"  
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute_data" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "profile_id" = in_profile_id
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "attribute_value" = in_attribute_value
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "profile_id" = in_profile_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute_data"
+                    (
+                        "status"
+                        , "sort"
+                        , "profile_id"
+                        , "game_id"
+                        , "active"
+                        , "attribute_value"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_profile_id
+                        , in_game_id
+                        , in_active
+                        , in_attribute_value
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_set_game_id_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_set_game_id_profile_id
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_attribute_value varchar = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute_data"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute_data" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "profile_id" = in_profile_id
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "attribute_value" = in_attribute_value
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute_data"
+                    (
+                        "status"
+                        , "sort"
+                        , "profile_id"
+                        , "game_id"
+                        , "active"
+                        , "attribute_value"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_profile_id
+                        , in_game_id
+                        , in_active
+                        , in_attribute_value
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_set_game_id_profile_id_attribut
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_set_game_id_profile_id_attribut
+(
+    in_set_type varchar (50) = 'full'                        
+    , in_status varchar (255) = NULL
+    , in_sort INTEGER = NULL
+    , in_profile_id uuid = NULL
+    , in_game_id uuid = NULL
+    , in_active boolean = NULL
+    , in_attribute_value varchar = NULL
+    , in_group INTEGER = NULL
+    , in_uuid uuid = NULL
+    , in_date_modified TIMESTAMP = now()
+    , in_attribute_id uuid = NULL
+    , in_date_created TIMESTAMP = now()
+    , in_type INTEGER = NULL
+    , in_order INTEGER = NULL
+    , OUT out_id int                        
+)
+RETURNS int
+AS $$
+DECLARE
+    _countItems int;
+    _id int;
+BEGIN
+    BEGIN
+        _countItems := 0;
+        _id := 0;
+        
+        BEGIN
+            IF (in_set_type != 'full' AND in_set_type != 'insertonly' AND in_set_type != 'updateonly') THEN
+                in_set_type := 'full';
+            END IF;
+        END;
+
+	-- IF TYPE IS FULL SET (COUNT CHECK, UPDATE, INSERT)
+	-- GET COUNT TO CHECK
+	BEGIN
+	    IF (in_set_type = 'full') THEN
+                BEGIN
+                    -- CHECK COUNT
+                    SELECT COUNT(*) INTO _countItems
+                    FROM  "game_profile_attribute_data"  
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                END;
+            END IF;
+	END;
+
+        BEGIN
+            -- UPDATE
+            IF (_countItems > 0 AND in_set_type != 'insertonly')
+                OR (_countItems = 0 AND in_set_type = 'updateonly') THEN
+                BEGIN		
+                    UPDATE "game_profile_attribute_data" 
+                    SET
+                        "status" = in_status
+                        , "sort" = in_sort
+                        , "profile_id" = in_profile_id
+                        , "game_id" = in_game_id
+                        , "active" = in_active
+                        , "attribute_value" = in_attribute_value
+                        , "group" = in_group
+                        , "uuid" = in_uuid
+                        , "date_modified" = in_date_modified
+                        , "attribute_id" = in_attribute_id
+                        , "date_created" = in_date_created
+                        , "type" = in_type
+                        , "order" = in_order
+                    WHERE 1=1
+                    AND "game_id" = in_game_id
+                    AND "profile_id" = in_profile_id
+                    AND "attribute_id" = in_attribute_id
+                    ;
+                    _id := 1;
+                END;
+            END IF;
+        END;
+        BEGIN
+            --INSERT
+            IF (_countItems = 0 AND in_set_type != 'updateonly') THEN 			
+                BEGIN			
+                    INSERT INTO "game_profile_attribute_data"
+                    (
+                        "status"
+                        , "sort"
+                        , "profile_id"
+                        , "game_id"
+                        , "active"
+                        , "attribute_value"
+                        , "group"
+                        , "uuid"
+                        , "date_modified"
+                        , "attribute_id"
+                        , "date_created"
+                        , "type"
+                        , "order"
+                    )
+                    VALUES
+                    (
+                        in_status
+                        , in_sort
+                        , in_profile_id
+                        , in_game_id
+                        , in_active
+                        , in_attribute_value
+                        , in_group
+                        , in_uuid
+                        , in_date_modified
+                        , in_attribute_id
+                        , in_date_created
+                        , in_type
+                        , in_order
+                    )
+                    ;
+                    _id := 1;                  
+                END;
+            END IF;
+        END;     
+        SELECT _id INTO out_id;
+    END;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ------------------------------------
+-- DEL
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeData - game_profile_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_del_uuid
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_del_uuid
+(
+    in_uuid uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_data"
+    WHERE 1=1                        
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_del_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_del_profile_id
+(
+    in_profile_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_data"
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_del_profile_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_del_profile_id_attribute_id
+(
+    in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_data"
+    WHERE 1=1                        
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_del_game_id_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_del_game_id_profile_id
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_data"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_del_game_id_profile_id_attribut
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_del_game_id_profile_id_attribut
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+
+RETURNS void
+AS $$
+DECLARE
+BEGIN
+    DELETE 
+    FROM "game_profile_attribute_data"
+    WHERE 1=1                        
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+-- ------------------------------------
+-- GET
+
+-- ------------------------------------
+-- MODEL: GameProfileAttributeData - game_profile_attribute_data
+
+/*
+CREATE OR REPLACE FUNCTION get_countries(country_code OUT text, country_name OUT text)
+RETURNS setof record
+AS $$ SELECT country_code, country_name FROM country_codes $$
+LANGUAGE sql;
+
+*/
+                       
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_get
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_get
+(
+)                        
+RETURNS setof "game_profile_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_get_uuid
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_get_uuid
+(
+    in_uuid uuid = NULL
+)
+RETURNS setof "game_profile_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "uuid" = in_uuid
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_get_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_get_profile_id
+(
+    in_profile_id uuid = NULL
+)
+RETURNS setof "game_profile_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_get_profile_id_attribute_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_get_profile_id_attribute_id
+(
+    in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+RETURNS setof "game_profile_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_get_game_id_profile_id
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_get_game_id_profile_id
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+)
+RETURNS setof "game_profile_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    ;
+    RETURN;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS usp_game_profile_attribute_data_get_game_id_profile_id_attribut
+(
+    varchar
+    , INTEGER
+    , uuid
+    , uuid
+    , boolean
+    , varchar
+    , INTEGER
+    , uuid
+    , TIMESTAMP
+    , uuid
+    , TIMESTAMP
+    , INTEGER
+    , INTEGER
+);
+
+CREATE OR REPLACE FUNCTION usp_game_profile_attribute_data_get_game_id_profile_id_attribut
+(
+    in_game_id uuid = NULL
+    , in_profile_id uuid = NULL
+    , in_attribute_id uuid = NULL
+)
+RETURNS setof "game_profile_attribute_data"
+AS $$
+DECLARE
+BEGIN
+    RETURN QUERY SELECT
+        "status"
+        , "sort"
+        , "profile_id"
+        , "game_id"
+        , "active"
+        , "attribute_value"
+        , "group"
+        , "uuid"
+        , "date_modified"
+        , "attribute_id"
+        , "date_created"
+        , "type"
+        , "order"
+    FROM "game_profile_attribute_data"
+    WHERE 1=1
+    AND "game_id" = in_game_id
+    AND "profile_id" = in_profile_id
+    AND "attribute_id" = in_attribute_id
     ;
     RETURN;
 END;

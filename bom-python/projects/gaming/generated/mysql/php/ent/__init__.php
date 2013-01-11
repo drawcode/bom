@@ -1,10 +1,16 @@
 <?php
 require_once('Game.php');
+require_once('GameAttribute.php');
+require_once('GameAttributeText.php');
+require_once('GameAttributeData.php');
 require_once('GameCategory.php');
 require_once('GameCategoryTree.php');
 require_once('GameCategoryAssoc.php');
 require_once('GameType.php');
 require_once('ProfileGame.php');
+require_once('GameProfileAttribute.php');
+require_once('GameProfileAttributeText.php');
+require_once('GameProfileAttributeData.php');
 require_once('GameNetwork.php');
 require_once('GameNetworkAuth.php');
 require_once('ProfileGameNetwork.php');

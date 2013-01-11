@@ -62,11 +62,12 @@ class ProfileGame(BaseEntity):
   def __init__(self):
     super(ProfileGame, self).__init__()
     #self.__dict__.update(entries)
-    self.game_id = None
-    self.profile_id = None
-    self.game_profile = None
-    self.profile_version = None
     self.type_id = None
+    self.profile_version = None
+    self.profile_id = None
+    self.profile_iteration = None
+    self.game_profile = None
+    self.game_id = None
         
   def to_dict_obj(self):
     return self.to_dict(self)

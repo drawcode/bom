@@ -317,6 +317,717 @@ namespace gaming {
         
         
         
+        public virtual GameAttribute FillGameAttribute(DataRow dr) {
+            GameAttribute obj = new GameAttribute();
+
+            if (dr["status"] != null)                    
+                    obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["sort"] != null)                    
+                    obj.sort = dataType.FillDataInt(dr, "sort");                
+            if (dr["code"] != null)                    
+                    obj.code = dataType.FillDataString(dr, "code");                
+            if (dr["display_name"] != null)                    
+                    obj.display_name = dataType.FillDataString(dr, "display_name");                
+            if (dr["name"] != null)                    
+                    obj.name = dataType.FillDataString(dr, "name");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["group"] != null)                    
+                    obj.group = dataType.FillDataInt(dr, "group");                
+            if (dr["game_id"] != null)                    
+                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["type"] != null)                    
+                    obj.type = dataType.FillDataInt(dr, "type");                
+            if (dr["order"] != null)                    
+                    obj.order = dataType.FillDataInt(dr, "order");                
+            if (dr["description"] != null)                    
+                    obj.description = dataType.FillDataString(dr, "description");                
+
+            return obj;
+        }
+        
+        public virtual int CountGameAttribute(
+        )  {            
+            return data.CountGameAttribute(
+            );
+        }       
+        public virtual int CountGameAttributeByUuid(
+            string uuid
+        )  {            
+            return data.CountGameAttributeByUuid(
+                uuid
+            );
+        }       
+        public virtual int CountGameAttributeByCode(
+            string code
+        )  {            
+            return data.CountGameAttributeByCode(
+                code
+            );
+        }       
+        public virtual int CountGameAttributeByType(
+            int type
+        )  {            
+            return data.CountGameAttributeByType(
+                type
+            );
+        }       
+        public virtual int CountGameAttributeByGroup(
+            int group
+        )  {            
+            return data.CountGameAttributeByGroup(
+                group
+            );
+        }       
+        public virtual int CountGameAttributeByCodeByType(
+            string code
+            , int type
+        )  {            
+            return data.CountGameAttributeByCodeByType(
+                code
+                , type
+            );
+        }       
+        public virtual int CountGameAttributeByGameId(
+            string game_id
+        )  {            
+            return data.CountGameAttributeByGameId(
+                game_id
+            );
+        }       
+        public virtual int CountGameAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {            
+            return data.CountGameAttributeByGameIdByCode(
+                game_id
+                , code
+            );
+        }       
+        public virtual GameAttributeResult BrowseGameAttributeListByFilter(SearchFilter obj)  {
+            GameAttributeResult result = new GameAttributeResult();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.BrowseGameAttributeListByFilter(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttribute game_attribute  = FillGameAttribute(dr);
+                        result.data.Add(game_attribute);
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+        public virtual bool SetGameAttributeByUuid(string set_type, GameAttribute obj)  {            
+            return data.SetGameAttributeByUuid(set_type, obj);
+        }    
+        public virtual bool SetGameAttributeByCode(string set_type, GameAttribute obj)  {            
+            return data.SetGameAttributeByCode(set_type, obj);
+        }    
+        public virtual bool SetGameAttributeByGameId(string set_type, GameAttribute obj)  {            
+            return data.SetGameAttributeByGameId(set_type, obj);
+        }    
+        public virtual bool SetGameAttributeByGameIdByCode(string set_type, GameAttribute obj)  {            
+            return data.SetGameAttributeByGameIdByCode(set_type, obj);
+        }    
+        public virtual bool DelGameAttributeByUuid(
+            string uuid
+        )  {
+            return data.DelGameAttributeByUuid(
+                uuid
+            );
+        }                     
+        public virtual bool DelGameAttributeByCode(
+            string code
+        )  {
+            return data.DelGameAttributeByCode(
+                code
+            );
+        }                     
+        public virtual bool DelGameAttributeByCodeByType(
+            string code
+            , int type
+        )  {
+            return data.DelGameAttributeByCodeByType(
+                code
+                , type
+            );
+        }                     
+        public virtual bool DelGameAttributeByGameId(
+            string game_id
+        )  {
+            return data.DelGameAttributeByGameId(
+                game_id
+            );
+        }                     
+        public virtual bool DelGameAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {
+            return data.DelGameAttributeByGameIdByCode(
+                game_id
+                , code
+            );
+        }                     
+        public virtual List<GameAttribute> GetGameAttributeList(
+        )  {
+            List<GameAttribute> list = new List<GameAttribute>();
+            DataSet ds = data.GetGameAttributeList(
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttribute game_attribute  = FillGameAttribute(dr);
+                        list.Add(game_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttribute> GetGameAttributeListByUuid(
+            string uuid
+        )  {
+            List<GameAttribute> list = new List<GameAttribute>();
+            DataSet ds = data.GetGameAttributeListByUuid(
+                uuid
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttribute game_attribute  = FillGameAttribute(dr);
+                        list.Add(game_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttribute> GetGameAttributeListByCode(
+            string code
+        )  {
+            List<GameAttribute> list = new List<GameAttribute>();
+            DataSet ds = data.GetGameAttributeListByCode(
+                code
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttribute game_attribute  = FillGameAttribute(dr);
+                        list.Add(game_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttribute> GetGameAttributeListByType(
+            int type
+        )  {
+            List<GameAttribute> list = new List<GameAttribute>();
+            DataSet ds = data.GetGameAttributeListByType(
+                type
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttribute game_attribute  = FillGameAttribute(dr);
+                        list.Add(game_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttribute> GetGameAttributeListByGroup(
+            int group
+        )  {
+            List<GameAttribute> list = new List<GameAttribute>();
+            DataSet ds = data.GetGameAttributeListByGroup(
+                group
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttribute game_attribute  = FillGameAttribute(dr);
+                        list.Add(game_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttribute> GetGameAttributeListByCodeByType(
+            string code
+            , int type
+        )  {
+            List<GameAttribute> list = new List<GameAttribute>();
+            DataSet ds = data.GetGameAttributeListByCodeByType(
+                code
+                , type
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttribute game_attribute  = FillGameAttribute(dr);
+                        list.Add(game_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttribute> GetGameAttributeListByGameIdByCode(
+            string game_id
+            , string code
+        )  {
+            List<GameAttribute> list = new List<GameAttribute>();
+            DataSet ds = data.GetGameAttributeListByGameIdByCode(
+                game_id
+                , code
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttribute game_attribute  = FillGameAttribute(dr);
+                        list.Add(game_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        
+        public virtual GameAttributeText FillGameAttributeText(DataRow dr) {
+            GameAttributeText obj = new GameAttributeText();
+
+            if (dr["status"] != null)                    
+                    obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["sort"] != null)                    
+                    obj.sort = dataType.FillDataInt(dr, "sort");                
+            if (dr["attribute_value"] != null)                    
+                    obj.attribute_value = dataType.FillDataString(dr, "attribute_value");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["game_id"] != null)                    
+                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["group"] != null)                    
+                    obj.group = dataType.FillDataInt(dr, "group");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["attribute_id"] != null)                    
+                    obj.attribute_id = dataType.FillDataString(dr, "attribute_id");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["type"] != null)                    
+                    obj.type = dataType.FillDataInt(dr, "type");                
+            if (dr["order"] != null)                    
+                    obj.order = dataType.FillDataInt(dr, "order");                
+
+            return obj;
+        }
+        
+        public virtual int CountGameAttributeText(
+        )  {            
+            return data.CountGameAttributeText(
+            );
+        }       
+        public virtual int CountGameAttributeTextByUuid(
+            string uuid
+        )  {            
+            return data.CountGameAttributeTextByUuid(
+                uuid
+            );
+        }       
+        public virtual int CountGameAttributeTextByGameId(
+            string game_id
+        )  {            
+            return data.CountGameAttributeTextByGameId(
+                game_id
+            );
+        }       
+        public virtual int CountGameAttributeTextByAttributeId(
+            string attribute_id
+        )  {            
+            return data.CountGameAttributeTextByAttributeId(
+                attribute_id
+            );
+        }       
+        public virtual int CountGameAttributeTextByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {            
+            return data.CountGameAttributeTextByGameIdByAttributeId(
+                game_id
+                , attribute_id
+            );
+        }       
+        public virtual GameAttributeTextResult BrowseGameAttributeTextListByFilter(SearchFilter obj)  {
+            GameAttributeTextResult result = new GameAttributeTextResult();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.BrowseGameAttributeTextListByFilter(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeText game_attribute_text  = FillGameAttributeText(dr);
+                        result.data.Add(game_attribute_text);
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+        public virtual bool SetGameAttributeText(string set_type, GameAttributeText obj)  {            
+            return data.SetGameAttributeText(set_type, obj);
+        }    
+        public virtual bool SetGameAttributeTextByUuid(string set_type, GameAttributeText obj)  {            
+            return data.SetGameAttributeTextByUuid(set_type, obj);
+        }    
+        public virtual bool SetGameAttributeTextByGameId(string set_type, GameAttributeText obj)  {            
+            return data.SetGameAttributeTextByGameId(set_type, obj);
+        }    
+        public virtual bool SetGameAttributeTextByAttributeId(string set_type, GameAttributeText obj)  {            
+            return data.SetGameAttributeTextByAttributeId(set_type, obj);
+        }    
+        public virtual bool SetGameAttributeTextByGameIdByAttributeId(string set_type, GameAttributeText obj)  {            
+            return data.SetGameAttributeTextByGameIdByAttributeId(set_type, obj);
+        }    
+        public virtual bool DelGameAttributeText(
+        )  {
+            return data.DelGameAttributeText(
+            );
+        }                     
+        public virtual bool DelGameAttributeTextByUuid(
+            string uuid
+        )  {
+            return data.DelGameAttributeTextByUuid(
+                uuid
+            );
+        }                     
+        public virtual bool DelGameAttributeTextByGameId(
+            string game_id
+        )  {
+            return data.DelGameAttributeTextByGameId(
+                game_id
+            );
+        }                     
+        public virtual bool DelGameAttributeTextByAttributeId(
+            string attribute_id
+        )  {
+            return data.DelGameAttributeTextByAttributeId(
+                attribute_id
+            );
+        }                     
+        public virtual bool DelGameAttributeTextByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {
+            return data.DelGameAttributeTextByGameIdByAttributeId(
+                game_id
+                , attribute_id
+            );
+        }                     
+        public virtual List<GameAttributeText> GetGameAttributeTextList(
+        )  {
+            List<GameAttributeText> list = new List<GameAttributeText>();
+            DataSet ds = data.GetGameAttributeTextList(
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeText game_attribute_text  = FillGameAttributeText(dr);
+                        list.Add(game_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttributeText> GetGameAttributeTextListByUuid(
+            string uuid
+        )  {
+            List<GameAttributeText> list = new List<GameAttributeText>();
+            DataSet ds = data.GetGameAttributeTextListByUuid(
+                uuid
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeText game_attribute_text  = FillGameAttributeText(dr);
+                        list.Add(game_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttributeText> GetGameAttributeTextListByGameId(
+            string game_id
+        )  {
+            List<GameAttributeText> list = new List<GameAttributeText>();
+            DataSet ds = data.GetGameAttributeTextListByGameId(
+                game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeText game_attribute_text  = FillGameAttributeText(dr);
+                        list.Add(game_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttributeText> GetGameAttributeTextListByAttributeId(
+            string attribute_id
+        )  {
+            List<GameAttributeText> list = new List<GameAttributeText>();
+            DataSet ds = data.GetGameAttributeTextListByAttributeId(
+                attribute_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeText game_attribute_text  = FillGameAttributeText(dr);
+                        list.Add(game_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttributeText> GetGameAttributeTextListByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {
+            List<GameAttributeText> list = new List<GameAttributeText>();
+            DataSet ds = data.GetGameAttributeTextListByGameIdByAttributeId(
+                game_id
+                , attribute_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeText game_attribute_text  = FillGameAttributeText(dr);
+                        list.Add(game_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        
+        public virtual GameAttributeData FillGameAttributeData(DataRow dr) {
+            GameAttributeData obj = new GameAttributeData();
+
+            if (dr["status"] != null)                    
+                    obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["sort"] != null)                    
+                    obj.sort = dataType.FillDataInt(dr, "sort");                
+            if (dr["attribute_value"] != null)                    
+                    obj.attribute_value = dataType.FillDataString(dr, "attribute_value");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["game_id"] != null)                    
+                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["group"] != null)                    
+                    obj.group = dataType.FillDataInt(dr, "group");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["attribute_id"] != null)                    
+                    obj.attribute_id = dataType.FillDataString(dr, "attribute_id");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["type"] != null)                    
+                    obj.type = dataType.FillDataInt(dr, "type");                
+            if (dr["order"] != null)                    
+                    obj.order = dataType.FillDataInt(dr, "order");                
+
+            return obj;
+        }
+        
+        public virtual int CountGameAttributeData(
+        )  {            
+            return data.CountGameAttributeData(
+            );
+        }       
+        public virtual int CountGameAttributeDataByUuid(
+            string uuid
+        )  {            
+            return data.CountGameAttributeDataByUuid(
+                uuid
+            );
+        }       
+        public virtual int CountGameAttributeDataByGameId(
+            string game_id
+        )  {            
+            return data.CountGameAttributeDataByGameId(
+                game_id
+            );
+        }       
+        public virtual int CountGameAttributeDataByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {            
+            return data.CountGameAttributeDataByGameIdByAttributeId(
+                game_id
+                , attribute_id
+            );
+        }       
+        public virtual GameAttributeDataResult BrowseGameAttributeDataListByFilter(SearchFilter obj)  {
+            GameAttributeDataResult result = new GameAttributeDataResult();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.BrowseGameAttributeDataListByFilter(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeData game_attribute_data  = FillGameAttributeData(dr);
+                        result.data.Add(game_attribute_data);
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+        public virtual bool SetGameAttributeDataByUuid(string set_type, GameAttributeData obj)  {            
+            return data.SetGameAttributeDataByUuid(set_type, obj);
+        }    
+        public virtual bool SetGameAttributeDataByGameIdByAttributeId(string set_type, GameAttributeData obj)  {            
+            return data.SetGameAttributeDataByGameIdByAttributeId(set_type, obj);
+        }    
+        public virtual bool DelGameAttributeData(
+        )  {
+            return data.DelGameAttributeData(
+            );
+        }                     
+        public virtual bool DelGameAttributeDataByUuid(
+            string uuid
+        )  {
+            return data.DelGameAttributeDataByUuid(
+                uuid
+            );
+        }                     
+        public virtual bool DelGameAttributeDataByGameId(
+            string game_id
+        )  {
+            return data.DelGameAttributeDataByGameId(
+                game_id
+            );
+        }                     
+        public virtual bool DelGameAttributeDataByGameId(
+            string game_id
+        )  {
+            return data.DelGameAttributeDataByGameId(
+                game_id
+            );
+        }                     
+        public virtual List<GameAttributeData> GetGameAttributeDataList(
+        )  {
+            List<GameAttributeData> list = new List<GameAttributeData>();
+            DataSet ds = data.GetGameAttributeDataList(
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeData game_attribute_data  = FillGameAttributeData(dr);
+                        list.Add(game_attribute_data);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttributeData> GetGameAttributeDataListByUuid(
+            string uuid
+        )  {
+            List<GameAttributeData> list = new List<GameAttributeData>();
+            DataSet ds = data.GetGameAttributeDataListByUuid(
+                uuid
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeData game_attribute_data  = FillGameAttributeData(dr);
+                        list.Add(game_attribute_data);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttributeData> GetGameAttributeDataListByGameId(
+            string game_id
+        )  {
+            List<GameAttributeData> list = new List<GameAttributeData>();
+            DataSet ds = data.GetGameAttributeDataListByGameId(
+                game_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeData game_attribute_data  = FillGameAttributeData(dr);
+                        list.Add(game_attribute_data);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameAttributeData> GetGameAttributeDataListByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {
+            List<GameAttributeData> list = new List<GameAttributeData>();
+            DataSet ds = data.GetGameAttributeDataListByGameIdByAttributeId(
+                game_id
+                , attribute_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameAttributeData game_attribute_data  = FillGameAttributeData(dr);
+                        list.Add(game_attribute_data);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        
         public virtual GameCategory FillGameCategory(DataRow dr) {
             GameCategory obj = new GameCategory();
 
@@ -1127,6 +1838,8 @@ namespace gaming {
                     obj.type_id = dataType.FillDataString(dr, "type_id");                
             if (dr["profile_id"] != null)                    
                     obj.profile_id = dataType.FillDataString(dr, "profile_id");                
+            if (dr["profile_iteration"] != null)                    
+                    obj.profile_iteration = dataType.FillDataString(dr, "profile_iteration");                
             if (dr["game_profile"] != null)                    
                     obj.game_profile = dataType.FillDataString(dr, "game_profile");                
             if (dr["active"] != null)                    
@@ -1202,11 +1915,43 @@ namespace gaming {
         public virtual bool SetProfileGameByUuid(string set_type, ProfileGame obj)  {            
             return data.SetProfileGameByUuid(set_type, obj);
         }    
+        public virtual bool SetProfileGameByGameId(string set_type, ProfileGame obj)  {            
+            return data.SetProfileGameByGameId(set_type, obj);
+        }    
+        public virtual bool SetProfileGameByProfileId(string set_type, ProfileGame obj)  {            
+            return data.SetProfileGameByProfileId(set_type, obj);
+        }    
+        public virtual bool SetProfileGameByProfileIdByGameId(string set_type, ProfileGame obj)  {            
+            return data.SetProfileGameByProfileIdByGameId(set_type, obj);
+        }    
         public virtual bool DelProfileGameByUuid(
             string uuid
         )  {
             return data.DelProfileGameByUuid(
                 uuid
+            );
+        }                     
+        public virtual bool DelProfileGameByGameId(
+            string game_id
+        )  {
+            return data.DelProfileGameByGameId(
+                game_id
+            );
+        }                     
+        public virtual bool DelProfileGameByProfileId(
+            string profile_id
+        )  {
+            return data.DelProfileGameByProfileId(
+                profile_id
+            );
+        }                     
+        public virtual bool DelProfileGameByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {
+            return data.DelProfileGameByProfileIdByGameId(
+                profile_id
+                , game_id
             );
         }                     
         public virtual List<ProfileGame> GetProfileGameList(
@@ -1297,6 +2042,837 @@ namespace gaming {
                     foreach(DataRow dr in dt.Rows){
                        ProfileGame profile_game  = FillProfileGame(dr);
                         list.Add(profile_game);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        
+        public virtual GameProfileAttribute FillGameProfileAttribute(DataRow dr) {
+            GameProfileAttribute obj = new GameProfileAttribute();
+
+            if (dr["status"] != null)                    
+                    obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["sort"] != null)                    
+                    obj.sort = dataType.FillDataInt(dr, "sort");                
+            if (dr["code"] != null)                    
+                    obj.code = dataType.FillDataString(dr, "code");                
+            if (dr["display_name"] != null)                    
+                    obj.display_name = dataType.FillDataString(dr, "display_name");                
+            if (dr["name"] != null)                    
+                    obj.name = dataType.FillDataString(dr, "name");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["group"] != null)                    
+                    obj.group = dataType.FillDataInt(dr, "group");                
+            if (dr["game_id"] != null)                    
+                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["type"] != null)                    
+                    obj.type = dataType.FillDataInt(dr, "type");                
+            if (dr["order"] != null)                    
+                    obj.order = dataType.FillDataInt(dr, "order");                
+            if (dr["description"] != null)                    
+                    obj.description = dataType.FillDataString(dr, "description");                
+
+            return obj;
+        }
+        
+        public virtual int CountGameProfileAttribute(
+        )  {            
+            return data.CountGameProfileAttribute(
+            );
+        }       
+        public virtual int CountGameProfileAttributeByUuid(
+            string uuid
+        )  {            
+            return data.CountGameProfileAttributeByUuid(
+                uuid
+            );
+        }       
+        public virtual int CountGameProfileAttributeByCode(
+            string code
+        )  {            
+            return data.CountGameProfileAttributeByCode(
+                code
+            );
+        }       
+        public virtual int CountGameProfileAttributeByType(
+            int type
+        )  {            
+            return data.CountGameProfileAttributeByType(
+                type
+            );
+        }       
+        public virtual int CountGameProfileAttributeByGroup(
+            int group
+        )  {            
+            return data.CountGameProfileAttributeByGroup(
+                group
+            );
+        }       
+        public virtual int CountGameProfileAttributeByCodeByType(
+            string code
+            , int type
+        )  {            
+            return data.CountGameProfileAttributeByCodeByType(
+                code
+                , type
+            );
+        }       
+        public virtual int CountGameProfileAttributeByGameId(
+            string game_id
+        )  {            
+            return data.CountGameProfileAttributeByGameId(
+                game_id
+            );
+        }       
+        public virtual int CountGameProfileAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {            
+            return data.CountGameProfileAttributeByGameIdByCode(
+                game_id
+                , code
+            );
+        }       
+        public virtual GameProfileAttributeResult BrowseGameProfileAttributeListByFilter(SearchFilter obj)  {
+            GameProfileAttributeResult result = new GameProfileAttributeResult();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.BrowseGameProfileAttributeListByFilter(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttribute game_profile_attribute  = FillGameProfileAttribute(dr);
+                        result.data.Add(game_profile_attribute);
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+        public virtual bool SetGameProfileAttributeByUuid(string set_type, GameProfileAttribute obj)  {            
+            return data.SetGameProfileAttributeByUuid(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeByCode(string set_type, GameProfileAttribute obj)  {            
+            return data.SetGameProfileAttributeByCode(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeByGameId(string set_type, GameProfileAttribute obj)  {            
+            return data.SetGameProfileAttributeByGameId(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeByGameIdByCode(string set_type, GameProfileAttribute obj)  {            
+            return data.SetGameProfileAttributeByGameIdByCode(set_type, obj);
+        }    
+        public virtual bool DelGameProfileAttributeByUuid(
+            string uuid
+        )  {
+            return data.DelGameProfileAttributeByUuid(
+                uuid
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeByCode(
+            string code
+        )  {
+            return data.DelGameProfileAttributeByCode(
+                code
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeByCodeByType(
+            string code
+            , int type
+        )  {
+            return data.DelGameProfileAttributeByCodeByType(
+                code
+                , type
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeByGameId(
+            string game_id
+        )  {
+            return data.DelGameProfileAttributeByGameId(
+                game_id
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {
+            return data.DelGameProfileAttributeByGameIdByCode(
+                game_id
+                , code
+            );
+        }                     
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeList(
+        )  {
+            List<GameProfileAttribute> list = new List<GameProfileAttribute>();
+            DataSet ds = data.GetGameProfileAttributeList(
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttribute game_profile_attribute  = FillGameProfileAttribute(dr);
+                        list.Add(game_profile_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByUuid(
+            string uuid
+        )  {
+            List<GameProfileAttribute> list = new List<GameProfileAttribute>();
+            DataSet ds = data.GetGameProfileAttributeListByUuid(
+                uuid
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttribute game_profile_attribute  = FillGameProfileAttribute(dr);
+                        list.Add(game_profile_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByCode(
+            string code
+        )  {
+            List<GameProfileAttribute> list = new List<GameProfileAttribute>();
+            DataSet ds = data.GetGameProfileAttributeListByCode(
+                code
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttribute game_profile_attribute  = FillGameProfileAttribute(dr);
+                        list.Add(game_profile_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByType(
+            int type
+        )  {
+            List<GameProfileAttribute> list = new List<GameProfileAttribute>();
+            DataSet ds = data.GetGameProfileAttributeListByType(
+                type
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttribute game_profile_attribute  = FillGameProfileAttribute(dr);
+                        list.Add(game_profile_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByGroup(
+            int group
+        )  {
+            List<GameProfileAttribute> list = new List<GameProfileAttribute>();
+            DataSet ds = data.GetGameProfileAttributeListByGroup(
+                group
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttribute game_profile_attribute  = FillGameProfileAttribute(dr);
+                        list.Add(game_profile_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByCodeByType(
+            string code
+            , int type
+        )  {
+            List<GameProfileAttribute> list = new List<GameProfileAttribute>();
+            DataSet ds = data.GetGameProfileAttributeListByCodeByType(
+                code
+                , type
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttribute game_profile_attribute  = FillGameProfileAttribute(dr);
+                        list.Add(game_profile_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByGameIdByCode(
+            string game_id
+            , string code
+        )  {
+            List<GameProfileAttribute> list = new List<GameProfileAttribute>();
+            DataSet ds = data.GetGameProfileAttributeListByGameIdByCode(
+                game_id
+                , code
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttribute game_profile_attribute  = FillGameProfileAttribute(dr);
+                        list.Add(game_profile_attribute);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        
+        public virtual GameProfileAttributeText FillGameProfileAttributeText(DataRow dr) {
+            GameProfileAttributeText obj = new GameProfileAttributeText();
+
+            if (dr["status"] != null)                    
+                    obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["sort"] != null)                    
+                    obj.sort = dataType.FillDataInt(dr, "sort");                
+            if (dr["profile_id"] != null)                    
+                    obj.profile_id = dataType.FillDataString(dr, "profile_id");                
+            if (dr["game_id"] != null)                    
+                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["attribute_value"] != null)                    
+                    obj.attribute_value = dataType.FillDataString(dr, "attribute_value");                
+            if (dr["group"] != null)                    
+                    obj.group = dataType.FillDataInt(dr, "group");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["attribute_id"] != null)                    
+                    obj.attribute_id = dataType.FillDataString(dr, "attribute_id");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["type"] != null)                    
+                    obj.type = dataType.FillDataInt(dr, "type");                
+            if (dr["order"] != null)                    
+                    obj.order = dataType.FillDataInt(dr, "order");                
+
+            return obj;
+        }
+        
+        public virtual int CountGameProfileAttributeText(
+        )  {            
+            return data.CountGameProfileAttributeText(
+            );
+        }       
+        public virtual int CountGameProfileAttributeTextByUuid(
+            string uuid
+        )  {            
+            return data.CountGameProfileAttributeTextByUuid(
+                uuid
+            );
+        }       
+        public virtual int CountGameProfileAttributeTextByProfileId(
+            string profile_id
+        )  {            
+            return data.CountGameProfileAttributeTextByProfileId(
+                profile_id
+            );
+        }       
+        public virtual int CountGameProfileAttributeTextByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {            
+            return data.CountGameProfileAttributeTextByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            );
+        }       
+        public virtual int CountGameProfileAttributeTextByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {            
+            return data.CountGameProfileAttributeTextByGameIdByProfileId(
+                game_id
+                , profile_id
+            );
+        }       
+        public virtual int CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {            
+            return data.CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
+            );
+        }       
+        public virtual GameProfileAttributeTextResult BrowseGameProfileAttributeTextListByFilter(SearchFilter obj)  {
+            GameProfileAttributeTextResult result = new GameProfileAttributeTextResult();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.BrowseGameProfileAttributeTextListByFilter(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeText game_profile_attribute_text  = FillGameProfileAttributeText(dr);
+                        result.data.Add(game_profile_attribute_text);
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+        public virtual bool SetGameProfileAttributeTextByUuid(string set_type, GameProfileAttributeText obj)  {            
+            return data.SetGameProfileAttributeTextByUuid(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeTextByProfileId(string set_type, GameProfileAttributeText obj)  {            
+            return data.SetGameProfileAttributeTextByProfileId(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeTextByProfileIdByAttributeId(string set_type, GameProfileAttributeText obj)  {            
+            return data.SetGameProfileAttributeTextByProfileIdByAttributeId(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileId(string set_type, GameProfileAttributeText obj)  {            
+            return data.SetGameProfileAttributeTextByGameIdByProfileId(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(string set_type, GameProfileAttributeText obj)  {            
+            return data.SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(set_type, obj);
+        }    
+        public virtual bool DelGameProfileAttributeTextByUuid(
+            string uuid
+        )  {
+            return data.DelGameProfileAttributeTextByUuid(
+                uuid
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeTextByProfileId(
+            string profile_id
+        )  {
+            return data.DelGameProfileAttributeTextByProfileId(
+                profile_id
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeTextByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {
+            return data.DelGameProfileAttributeTextByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeTextByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {
+            return data.DelGameProfileAttributeTextByGameIdByProfileId(
+                game_id
+                , profile_id
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {
+            return data.DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
+            );
+        }                     
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByUuid(
+            string uuid
+        )  {
+            List<GameProfileAttributeText> list = new List<GameProfileAttributeText>();
+            DataSet ds = data.GetGameProfileAttributeTextListByUuid(
+                uuid
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeText game_profile_attribute_text  = FillGameProfileAttributeText(dr);
+                        list.Add(game_profile_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByProfileId(
+            string profile_id
+        )  {
+            List<GameProfileAttributeText> list = new List<GameProfileAttributeText>();
+            DataSet ds = data.GetGameProfileAttributeTextListByProfileId(
+                profile_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeText game_profile_attribute_text  = FillGameProfileAttributeText(dr);
+                        list.Add(game_profile_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {
+            List<GameProfileAttributeText> list = new List<GameProfileAttributeText>();
+            DataSet ds = data.GetGameProfileAttributeTextListByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeText game_profile_attribute_text  = FillGameProfileAttributeText(dr);
+                        list.Add(game_profile_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {
+            List<GameProfileAttributeText> list = new List<GameProfileAttributeText>();
+            DataSet ds = data.GetGameProfileAttributeTextListByGameIdByProfileId(
+                game_id
+                , profile_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeText game_profile_attribute_text  = FillGameProfileAttributeText(dr);
+                        list.Add(game_profile_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {
+            List<GameProfileAttributeText> list = new List<GameProfileAttributeText>();
+            DataSet ds = data.GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeText game_profile_attribute_text  = FillGameProfileAttributeText(dr);
+                        list.Add(game_profile_attribute_text);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        
+        public virtual GameProfileAttributeData FillGameProfileAttributeData(DataRow dr) {
+            GameProfileAttributeData obj = new GameProfileAttributeData();
+
+            if (dr["status"] != null)                    
+                    obj.status = dataType.FillDataString(dr, "status");                
+            if (dr["sort"] != null)                    
+                    obj.sort = dataType.FillDataInt(dr, "sort");                
+            if (dr["profile_id"] != null)                    
+                    obj.profile_id = dataType.FillDataString(dr, "profile_id");                
+            if (dr["game_id"] != null)                    
+                    obj.game_id = dataType.FillDataString(dr, "game_id");                
+            if (dr["active"] != null)                    
+                    obj.active = dataType.FillDataBool(dr, "active");                
+            if (dr["attribute_value"] != null)                    
+                    obj.attribute_value = dataType.FillDataString(dr, "attribute_value");                
+            if (dr["group"] != null)                    
+                    obj.group = dataType.FillDataInt(dr, "group");                
+            if (dr["uuid"] != null)                    
+                    obj.uuid = dataType.FillDataString(dr, "uuid");                
+            if (dr["date_modified"] != null)                    
+                    obj.date_modified = dataType.FillDataDateTime(dr, "date_modified");                
+            if (dr["attribute_id"] != null)                    
+                    obj.attribute_id = dataType.FillDataString(dr, "attribute_id");                
+            if (dr["date_created"] != null)                    
+                    obj.date_created = dataType.FillDataDateTime(dr, "date_created");                
+            if (dr["type"] != null)                    
+                    obj.type = dataType.FillDataInt(dr, "type");                
+            if (dr["order"] != null)                    
+                    obj.order = dataType.FillDataInt(dr, "order");                
+
+            return obj;
+        }
+        
+        public virtual int CountGameProfileAttributeData(
+        )  {            
+            return data.CountGameProfileAttributeData(
+            );
+        }       
+        public virtual int CountGameProfileAttributeDataByUuid(
+            string uuid
+        )  {            
+            return data.CountGameProfileAttributeDataByUuid(
+                uuid
+            );
+        }       
+        public virtual int CountGameProfileAttributeDataByProfileId(
+            string profile_id
+        )  {            
+            return data.CountGameProfileAttributeDataByProfileId(
+                profile_id
+            );
+        }       
+        public virtual int CountGameProfileAttributeDataByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {            
+            return data.CountGameProfileAttributeDataByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            );
+        }       
+        public virtual int CountGameProfileAttributeDataByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {            
+            return data.CountGameProfileAttributeDataByGameIdByProfileId(
+                game_id
+                , profile_id
+            );
+        }       
+        public virtual int CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {            
+            return data.CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
+            );
+        }       
+        public virtual GameProfileAttributeDataResult BrowseGameProfileAttributeDataListByFilter(SearchFilter obj)  {
+            GameProfileAttributeDataResult result = new GameProfileAttributeDataResult();
+            result.page = obj.page;
+            result.page_size = obj.page_size;
+            DataSet ds = data.BrowseGameProfileAttributeDataListByFilter(obj);
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeData game_profile_attribute_data  = FillGameProfileAttributeData(dr);
+                        result.data.Add(game_profile_attribute_data);
+                        if (dr["total_rows"] != null)                    
+                            result.total_rows = dataType.FillDataInt(dr, "total_rows");                     
+                    }
+                }
+            }
+            return result;
+        }
+        public virtual bool SetGameProfileAttributeDataByUuid(string set_type, GameProfileAttributeData obj)  {            
+            return data.SetGameProfileAttributeDataByUuid(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeDataByProfileIdByAttributeId(string set_type, GameProfileAttributeData obj)  {            
+            return data.SetGameProfileAttributeDataByProfileIdByAttributeId(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileId(string set_type, GameProfileAttributeData obj)  {            
+            return data.SetGameProfileAttributeDataByGameIdByProfileId(set_type, obj);
+        }    
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(string set_type, GameProfileAttributeData obj)  {            
+            return data.SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(set_type, obj);
+        }    
+        public virtual bool DelGameProfileAttributeDataByUuid(
+            string uuid
+        )  {
+            return data.DelGameProfileAttributeDataByUuid(
+                uuid
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeDataByProfileId(
+            string profile_id
+        )  {
+            return data.DelGameProfileAttributeDataByProfileId(
+                profile_id
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeDataByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {
+            return data.DelGameProfileAttributeDataByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeDataByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {
+            return data.DelGameProfileAttributeDataByGameIdByProfileId(
+                game_id
+                , profile_id
+            );
+        }                     
+        public virtual bool DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {
+            return data.DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
+            );
+        }                     
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataList(
+        )  {
+            List<GameProfileAttributeData> list = new List<GameProfileAttributeData>();
+            DataSet ds = data.GetGameProfileAttributeDataList(
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeData game_profile_attribute_data  = FillGameProfileAttributeData(dr);
+                        list.Add(game_profile_attribute_data);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByUuid(
+            string uuid
+        )  {
+            List<GameProfileAttributeData> list = new List<GameProfileAttributeData>();
+            DataSet ds = data.GetGameProfileAttributeDataListByUuid(
+                uuid
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeData game_profile_attribute_data  = FillGameProfileAttributeData(dr);
+                        list.Add(game_profile_attribute_data);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByProfileId(
+            string profile_id
+        )  {
+            List<GameProfileAttributeData> list = new List<GameProfileAttributeData>();
+            DataSet ds = data.GetGameProfileAttributeDataListByProfileId(
+                profile_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeData game_profile_attribute_data  = FillGameProfileAttributeData(dr);
+                        list.Add(game_profile_attribute_data);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {
+            List<GameProfileAttributeData> list = new List<GameProfileAttributeData>();
+            DataSet ds = data.GetGameProfileAttributeDataListByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeData game_profile_attribute_data  = FillGameProfileAttributeData(dr);
+                        list.Add(game_profile_attribute_data);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {
+            List<GameProfileAttributeData> list = new List<GameProfileAttributeData>();
+            DataSet ds = data.GetGameProfileAttributeDataListByGameIdByProfileId(
+                game_id
+                , profile_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeData game_profile_attribute_data  = FillGameProfileAttributeData(dr);
+                        list.Add(game_profile_attribute_data);
+                    }
+                }
+            }
+            return list;
+        }
+        
+        
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {
+            List<GameProfileAttributeData> list = new List<GameProfileAttributeData>();
+            DataSet ds = data.GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
+            );
+            if(ds != null) {
+                foreach(DataTable dt in ds.Tables){
+                    foreach(DataRow dr in dt.Rows){
+                       GameProfileAttributeData game_profile_attribute_data  = FillGameProfileAttributeData(dr);
+                        list.Add(game_profile_attribute_data);
                     }
                 }
             }

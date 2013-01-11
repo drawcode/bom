@@ -275,6 +275,650 @@ class BaseGamingACT(object):
             return results        
         
         
+    def FillGameAttribute(self, row) :
+        obj = GameAttribute()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['sort'] != None) :                 
+            obj.sort = row['sort'] #dataType.FillData(dr, "sort");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['group'] != None) :                 
+            obj.group = row['group'] #dataType.FillData(dr, "group");                
+        if (row['game_id'] != None) :                 
+            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['order'] != None) :                 
+            obj.order = row['order'] #dataType.FillData(dr, "order");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountGameAttribute(self
+    ) :         
+        return self.data.CountGameAttribute(
+        )
+               
+    def CountGameAttributeByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountGameAttributeByUuid(
+            uuid
+        )
+               
+    def CountGameAttributeByCode(self
+        , code
+    ) :         
+        return self.data.CountGameAttributeByCode(
+            code
+        )
+               
+    def CountGameAttributeByType(self
+        , type
+    ) :         
+        return self.data.CountGameAttributeByType(
+            type
+        )
+               
+    def CountGameAttributeByGroup(self
+        , group
+    ) :         
+        return self.data.CountGameAttributeByGroup(
+            group
+        )
+               
+    def CountGameAttributeByCodeByType(self
+        , code
+        , type
+    ) :         
+        return self.data.CountGameAttributeByCodeByType(
+            code
+            , type
+        )
+               
+    def CountGameAttributeByGameId(self
+        , game_id
+    ) :         
+        return self.data.CountGameAttributeByGameId(
+            game_id
+        )
+               
+    def CountGameAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :         
+        return self.data.CountGameAttributeByGameIdByCode(
+            game_id
+            , code
+        )
+               
+    def BrowseGameAttributeListByFilter(self, filter_obj) :
+        result = GameAttributeResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseGameAttributeListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                game_attribute = self.FillGameAttribute(row)
+                result.data.append(game_attribute)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetGameAttributeByUuid(self, set_type, obj) :            
+            return self.data.SetGameAttributeByUuid(set_type, obj)
+            
+    def SetGameAttributeByCode(self, set_type, obj) :            
+            return self.data.SetGameAttributeByCode(set_type, obj)
+            
+    def SetGameAttributeByGameId(self, set_type, obj) :            
+            return self.data.SetGameAttributeByGameId(set_type, obj)
+            
+    def SetGameAttributeByGameIdByCode(self, set_type, obj) :            
+            return self.data.SetGameAttributeByGameIdByCode(set_type, obj)
+            
+    def DelGameAttributeByUuid(self
+        , uuid
+    ) :
+        return self.data.DelGameAttributeByUuid(
+            uuid
+        )
+        
+    def DelGameAttributeByCode(self
+        , code
+    ) :
+        return self.data.DelGameAttributeByCode(
+            code
+        )
+        
+    def DelGameAttributeByCodeByType(self
+        , code
+        , type
+    ) :
+        return self.data.DelGameAttributeByCodeByType(
+            code
+            , type
+        )
+        
+    def DelGameAttributeByGameId(self
+        , game_id
+    ) :
+        return self.data.DelGameAttributeByGameId(
+            game_id
+        )
+        
+    def DelGameAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        return self.data.DelGameAttributeByGameIdByCode(
+            game_id
+            , code
+        )
+        
+    def GetGameAttributeList(self
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeList(
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute  = self.FillGameAttribute(row)
+                results.append(game_attribute)
+            return results        
+        
+    def GetGameAttributeListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute  = self.FillGameAttribute(row)
+                results.append(game_attribute)
+            return results        
+        
+    def GetGameAttributeListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute  = self.FillGameAttribute(row)
+                results.append(game_attribute)
+            return results        
+        
+    def GetGameAttributeListByType(self
+        , type
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeListByType(
+            type
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute  = self.FillGameAttribute(row)
+                results.append(game_attribute)
+            return results        
+        
+    def GetGameAttributeListByGroup(self
+        , group
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeListByGroup(
+            group
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute  = self.FillGameAttribute(row)
+                results.append(game_attribute)
+            return results        
+        
+    def GetGameAttributeListByCodeByType(self
+        , code
+        , type
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeListByCodeByType(
+            code
+            , type
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute  = self.FillGameAttribute(row)
+                results.append(game_attribute)
+            return results        
+        
+    def GetGameAttributeListByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeListByGameIdByCode(
+            game_id
+            , code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute  = self.FillGameAttribute(row)
+                results.append(game_attribute)
+            return results        
+        
+        
+    def FillGameAttributeText(self, row) :
+        obj = GameAttributeText()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['sort'] != None) :                 
+            obj.sort = row['sort'] #dataType.FillData(dr, "sort");                
+        if (row['attribute_value'] != None) :                 
+            obj.attribute_value = row['attribute_value'] #dataType.FillData(dr, "attribute_value");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['game_id'] != None) :                 
+            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['group'] != None) :                 
+            obj.group = row['group'] #dataType.FillData(dr, "group");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['attribute_id'] != None) :                 
+            obj.attribute_id = row['attribute_id'] #dataType.FillData(dr, "attribute_id");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['order'] != None) :                 
+            obj.order = row['order'] #dataType.FillData(dr, "order");                
+
+        return obj
+        
+    def CountGameAttributeText(self
+    ) :         
+        return self.data.CountGameAttributeText(
+        )
+               
+    def CountGameAttributeTextByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountGameAttributeTextByUuid(
+            uuid
+        )
+               
+    def CountGameAttributeTextByGameId(self
+        , game_id
+    ) :         
+        return self.data.CountGameAttributeTextByGameId(
+            game_id
+        )
+               
+    def CountGameAttributeTextByAttributeId(self
+        , attribute_id
+    ) :         
+        return self.data.CountGameAttributeTextByAttributeId(
+            attribute_id
+        )
+               
+    def CountGameAttributeTextByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :         
+        return self.data.CountGameAttributeTextByGameIdByAttributeId(
+            game_id
+            , attribute_id
+        )
+               
+    def BrowseGameAttributeTextListByFilter(self, filter_obj) :
+        result = GameAttributeTextResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseGameAttributeTextListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                game_attribute_text = self.FillGameAttributeText(row)
+                result.data.append(game_attribute_text)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetGameAttributeText(self, set_type, obj) :            
+            return self.data.SetGameAttributeText(set_type, obj)
+            
+    def SetGameAttributeTextByUuid(self, set_type, obj) :            
+            return self.data.SetGameAttributeTextByUuid(set_type, obj)
+            
+    def SetGameAttributeTextByGameId(self, set_type, obj) :            
+            return self.data.SetGameAttributeTextByGameId(set_type, obj)
+            
+    def SetGameAttributeTextByAttributeId(self, set_type, obj) :            
+            return self.data.SetGameAttributeTextByAttributeId(set_type, obj)
+            
+    def SetGameAttributeTextByGameIdByAttributeId(self, set_type, obj) :            
+            return self.data.SetGameAttributeTextByGameIdByAttributeId(set_type, obj)
+            
+    def DelGameAttributeText(self
+    ) :
+        return self.data.DelGameAttributeText(
+        )
+        
+    def DelGameAttributeTextByUuid(self
+        , uuid
+    ) :
+        return self.data.DelGameAttributeTextByUuid(
+            uuid
+        )
+        
+    def DelGameAttributeTextByGameId(self
+        , game_id
+    ) :
+        return self.data.DelGameAttributeTextByGameId(
+            game_id
+        )
+        
+    def DelGameAttributeTextByAttributeId(self
+        , attribute_id
+    ) :
+        return self.data.DelGameAttributeTextByAttributeId(
+            attribute_id
+        )
+        
+    def DelGameAttributeTextByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+        return self.data.DelGameAttributeTextByGameIdByAttributeId(
+            game_id
+            , attribute_id
+        )
+        
+    def GetGameAttributeTextList(self
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeTextList(
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute_text  = self.FillGameAttributeText(row)
+                results.append(game_attribute_text)
+            return results        
+        
+    def GetGameAttributeTextListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeTextListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute_text  = self.FillGameAttributeText(row)
+                results.append(game_attribute_text)
+            return results        
+        
+    def GetGameAttributeTextListByGameId(self
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeTextListByGameId(
+            game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute_text  = self.FillGameAttributeText(row)
+                results.append(game_attribute_text)
+            return results        
+        
+    def GetGameAttributeTextListByAttributeId(self
+        , attribute_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeTextListByAttributeId(
+            attribute_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute_text  = self.FillGameAttributeText(row)
+                results.append(game_attribute_text)
+            return results        
+        
+    def GetGameAttributeTextListByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeTextListByGameIdByAttributeId(
+            game_id
+            , attribute_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute_text  = self.FillGameAttributeText(row)
+                results.append(game_attribute_text)
+            return results        
+        
+        
+    def FillGameAttributeData(self, row) :
+        obj = GameAttributeData()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['sort'] != None) :                 
+            obj.sort = row['sort'] #dataType.FillData(dr, "sort");                
+        if (row['attribute_value'] != None) :                 
+            obj.attribute_value = row['attribute_value'] #dataType.FillData(dr, "attribute_value");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['game_id'] != None) :                 
+            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['group'] != None) :                 
+            obj.group = row['group'] #dataType.FillData(dr, "group");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['attribute_id'] != None) :                 
+            obj.attribute_id = row['attribute_id'] #dataType.FillData(dr, "attribute_id");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['order'] != None) :                 
+            obj.order = row['order'] #dataType.FillData(dr, "order");                
+
+        return obj
+        
+    def CountGameAttributeData(self
+    ) :         
+        return self.data.CountGameAttributeData(
+        )
+               
+    def CountGameAttributeDataByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountGameAttributeDataByUuid(
+            uuid
+        )
+               
+    def CountGameAttributeDataByGameId(self
+        , game_id
+    ) :         
+        return self.data.CountGameAttributeDataByGameId(
+            game_id
+        )
+               
+    def CountGameAttributeDataByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :         
+        return self.data.CountGameAttributeDataByGameIdByAttributeId(
+            game_id
+            , attribute_id
+        )
+               
+    def BrowseGameAttributeDataListByFilter(self, filter_obj) :
+        result = GameAttributeDataResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseGameAttributeDataListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                game_attribute_data = self.FillGameAttributeData(row)
+                result.data.append(game_attribute_data)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetGameAttributeDataByUuid(self, set_type, obj) :            
+            return self.data.SetGameAttributeDataByUuid(set_type, obj)
+            
+    def SetGameAttributeDataByGameIdByAttributeId(self, set_type, obj) :            
+            return self.data.SetGameAttributeDataByGameIdByAttributeId(set_type, obj)
+            
+    def DelGameAttributeData(self
+    ) :
+        return self.data.DelGameAttributeData(
+        )
+        
+    def DelGameAttributeDataByUuid(self
+        , uuid
+    ) :
+        return self.data.DelGameAttributeDataByUuid(
+            uuid
+        )
+        
+    def DelGameAttributeDataByGameId(self
+        , game_id
+    ) :
+        return self.data.DelGameAttributeDataByGameId(
+            game_id
+        )
+        
+    def DelGameAttributeDataByGameId(self
+        , game_id
+    ) :
+        return self.data.DelGameAttributeDataByGameId(
+            game_id
+        )
+        
+    def GetGameAttributeDataList(self
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeDataList(
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute_data  = self.FillGameAttributeData(row)
+                results.append(game_attribute_data)
+            return results        
+        
+    def GetGameAttributeDataListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeDataListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute_data  = self.FillGameAttributeData(row)
+                results.append(game_attribute_data)
+            return results        
+        
+    def GetGameAttributeDataListByGameId(self
+        , game_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeDataListByGameId(
+            game_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute_data  = self.FillGameAttributeData(row)
+                results.append(game_attribute_data)
+            return results        
+        
+    def GetGameAttributeDataListByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameAttributeDataListByGameIdByAttributeId(
+            game_id
+            , attribute_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_attribute_data  = self.FillGameAttributeData(row)
+                results.append(game_attribute_data)
+            return results        
+        
+        
     def FillGameCategory(self, row) :
         obj = GameCategory()
 
@@ -997,6 +1641,8 @@ class BaseGamingACT(object):
             obj.type_id = row['type_id'] #dataType.FillData(dr, "type_id");                
         if (row['profile_id'] != None) :                 
             obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['profile_iteration'] != None) :                 
+            obj.profile_iteration = row['profile_iteration'] #dataType.FillData(dr, "profile_iteration");                
         if (row['game_profile'] != None) :                 
             obj.game_profile = row['game_profile'] #dataType.FillData(dr, "game_profile");                
         if (row['active'] != None) :                 
@@ -1071,11 +1717,43 @@ class BaseGamingACT(object):
     def SetProfileGameByUuid(self, set_type, obj) :            
             return self.data.SetProfileGameByUuid(set_type, obj)
             
+    def SetProfileGameByGameId(self, set_type, obj) :            
+            return self.data.SetProfileGameByGameId(set_type, obj)
+            
+    def SetProfileGameByProfileId(self, set_type, obj) :            
+            return self.data.SetProfileGameByProfileId(set_type, obj)
+            
+    def SetProfileGameByProfileIdByGameId(self, set_type, obj) :            
+            return self.data.SetProfileGameByProfileIdByGameId(set_type, obj)
+            
     def DelProfileGameByUuid(self
         , uuid
     ) :
         return self.data.DelProfileGameByUuid(
             uuid
+        )
+        
+    def DelProfileGameByGameId(self
+        , game_id
+    ) :
+        return self.data.DelProfileGameByGameId(
+            game_id
+        )
+        
+    def DelProfileGameByProfileId(self
+        , profile_id
+    ) :
+        return self.data.DelProfileGameByProfileId(
+            profile_id
+        )
+        
+    def DelProfileGameByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :
+        return self.data.DelProfileGameByProfileIdByGameId(
+            profile_id
+            , game_id
         )
         
     def GetProfileGameList(self
@@ -1151,6 +1829,762 @@ class BaseGamingACT(object):
             for row in rows :
                 profile_game  = self.FillProfileGame(row)
                 results.append(profile_game)
+            return results        
+        
+        
+    def FillGameProfileAttribute(self, row) :
+        obj = GameProfileAttribute()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['sort'] != None) :                 
+            obj.sort = row['sort'] #dataType.FillData(dr, "sort");                
+        if (row['code'] != None) :                 
+            obj.code = row['code'] #dataType.FillData(dr, "code");                
+        if (row['display_name'] != None) :                 
+            obj.display_name = row['display_name'] #dataType.FillData(dr, "display_name");                
+        if (row['name'] != None) :                 
+            obj.name = row['name'] #dataType.FillData(dr, "name");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['group'] != None) :                 
+            obj.group = row['group'] #dataType.FillData(dr, "group");                
+        if (row['game_id'] != None) :                 
+            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['order'] != None) :                 
+            obj.order = row['order'] #dataType.FillData(dr, "order");                
+        if (row['description'] != None) :                 
+            obj.description = row['description'] #dataType.FillData(dr, "description");                
+
+        return obj
+        
+    def CountGameProfileAttribute(self
+    ) :         
+        return self.data.CountGameProfileAttribute(
+        )
+               
+    def CountGameProfileAttributeByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountGameProfileAttributeByUuid(
+            uuid
+        )
+               
+    def CountGameProfileAttributeByCode(self
+        , code
+    ) :         
+        return self.data.CountGameProfileAttributeByCode(
+            code
+        )
+               
+    def CountGameProfileAttributeByType(self
+        , type
+    ) :         
+        return self.data.CountGameProfileAttributeByType(
+            type
+        )
+               
+    def CountGameProfileAttributeByGroup(self
+        , group
+    ) :         
+        return self.data.CountGameProfileAttributeByGroup(
+            group
+        )
+               
+    def CountGameProfileAttributeByCodeByType(self
+        , code
+        , type
+    ) :         
+        return self.data.CountGameProfileAttributeByCodeByType(
+            code
+            , type
+        )
+               
+    def CountGameProfileAttributeByGameId(self
+        , game_id
+    ) :         
+        return self.data.CountGameProfileAttributeByGameId(
+            game_id
+        )
+               
+    def CountGameProfileAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :         
+        return self.data.CountGameProfileAttributeByGameIdByCode(
+            game_id
+            , code
+        )
+               
+    def BrowseGameProfileAttributeListByFilter(self, filter_obj) :
+        result = GameProfileAttributeResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseGameProfileAttributeListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute = self.FillGameProfileAttribute(row)
+                result.data.append(game_profile_attribute)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetGameProfileAttributeByUuid(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeByUuid(set_type, obj)
+            
+    def SetGameProfileAttributeByCode(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeByCode(set_type, obj)
+            
+    def SetGameProfileAttributeByGameId(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeByGameId(set_type, obj)
+            
+    def SetGameProfileAttributeByGameIdByCode(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeByGameIdByCode(set_type, obj)
+            
+    def DelGameProfileAttributeByUuid(self
+        , uuid
+    ) :
+        return self.data.DelGameProfileAttributeByUuid(
+            uuid
+        )
+        
+    def DelGameProfileAttributeByCode(self
+        , code
+    ) :
+        return self.data.DelGameProfileAttributeByCode(
+            code
+        )
+        
+    def DelGameProfileAttributeByCodeByType(self
+        , code
+        , type
+    ) :
+        return self.data.DelGameProfileAttributeByCodeByType(
+            code
+            , type
+        )
+        
+    def DelGameProfileAttributeByGameId(self
+        , game_id
+    ) :
+        return self.data.DelGameProfileAttributeByGameId(
+            game_id
+        )
+        
+    def DelGameProfileAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        return self.data.DelGameProfileAttributeByGameIdByCode(
+            game_id
+            , code
+        )
+        
+    def GetGameProfileAttributeList(self
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeList(
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute  = self.FillGameProfileAttribute(row)
+                results.append(game_profile_attribute)
+            return results        
+        
+    def GetGameProfileAttributeListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute  = self.FillGameProfileAttribute(row)
+                results.append(game_profile_attribute)
+            return results        
+        
+    def GetGameProfileAttributeListByCode(self
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeListByCode(
+            code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute  = self.FillGameProfileAttribute(row)
+                results.append(game_profile_attribute)
+            return results        
+        
+    def GetGameProfileAttributeListByType(self
+        , type
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeListByType(
+            type
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute  = self.FillGameProfileAttribute(row)
+                results.append(game_profile_attribute)
+            return results        
+        
+    def GetGameProfileAttributeListByGroup(self
+        , group
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeListByGroup(
+            group
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute  = self.FillGameProfileAttribute(row)
+                results.append(game_profile_attribute)
+            return results        
+        
+    def GetGameProfileAttributeListByCodeByType(self
+        , code
+        , type
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeListByCodeByType(
+            code
+            , type
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute  = self.FillGameProfileAttribute(row)
+                results.append(game_profile_attribute)
+            return results        
+        
+    def GetGameProfileAttributeListByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeListByGameIdByCode(
+            game_id
+            , code
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute  = self.FillGameProfileAttribute(row)
+                results.append(game_profile_attribute)
+            return results        
+        
+        
+    def FillGameProfileAttributeText(self, row) :
+        obj = GameProfileAttributeText()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['sort'] != None) :                 
+            obj.sort = row['sort'] #dataType.FillData(dr, "sort");                
+        if (row['profile_id'] != None) :                 
+            obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['game_id'] != None) :                 
+            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['attribute_value'] != None) :                 
+            obj.attribute_value = row['attribute_value'] #dataType.FillData(dr, "attribute_value");                
+        if (row['group'] != None) :                 
+            obj.group = row['group'] #dataType.FillData(dr, "group");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['attribute_id'] != None) :                 
+            obj.attribute_id = row['attribute_id'] #dataType.FillData(dr, "attribute_id");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['order'] != None) :                 
+            obj.order = row['order'] #dataType.FillData(dr, "order");                
+
+        return obj
+        
+    def CountGameProfileAttributeText(self
+    ) :         
+        return self.data.CountGameProfileAttributeText(
+        )
+               
+    def CountGameProfileAttributeTextByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountGameProfileAttributeTextByUuid(
+            uuid
+        )
+               
+    def CountGameProfileAttributeTextByProfileId(self
+        , profile_id
+    ) :         
+        return self.data.CountGameProfileAttributeTextByProfileId(
+            profile_id
+        )
+               
+    def CountGameProfileAttributeTextByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :         
+        return self.data.CountGameProfileAttributeTextByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+        )
+               
+    def CountGameProfileAttributeTextByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :         
+        return self.data.CountGameProfileAttributeTextByGameIdByProfileId(
+            game_id
+            , profile_id
+        )
+               
+    def CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :         
+        return self.data.CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+        )
+               
+    def BrowseGameProfileAttributeTextListByFilter(self, filter_obj) :
+        result = GameProfileAttributeTextResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseGameProfileAttributeTextListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_text = self.FillGameProfileAttributeText(row)
+                result.data.append(game_profile_attribute_text)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetGameProfileAttributeTextByUuid(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeTextByUuid(set_type, obj)
+            
+    def SetGameProfileAttributeTextByProfileId(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeTextByProfileId(set_type, obj)
+            
+    def SetGameProfileAttributeTextByProfileIdByAttributeId(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeTextByProfileIdByAttributeId(set_type, obj)
+            
+    def SetGameProfileAttributeTextByGameIdByProfileId(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeTextByGameIdByProfileId(set_type, obj)
+            
+    def SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(set_type, obj)
+            
+    def DelGameProfileAttributeTextByUuid(self
+        , uuid
+    ) :
+        return self.data.DelGameProfileAttributeTextByUuid(
+            uuid
+        )
+        
+    def DelGameProfileAttributeTextByProfileId(self
+        , profile_id
+    ) :
+        return self.data.DelGameProfileAttributeTextByProfileId(
+            profile_id
+        )
+        
+    def DelGameProfileAttributeTextByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        return self.data.DelGameProfileAttributeTextByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+        )
+        
+    def DelGameProfileAttributeTextByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        return self.data.DelGameProfileAttributeTextByGameIdByProfileId(
+            game_id
+            , profile_id
+        )
+        
+    def DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        return self.data.DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+        )
+        
+    def GetGameProfileAttributeTextListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeTextListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_text  = self.FillGameProfileAttributeText(row)
+                results.append(game_profile_attribute_text)
+            return results        
+        
+    def GetGameProfileAttributeTextListByProfileId(self
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeTextListByProfileId(
+            profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_text  = self.FillGameProfileAttributeText(row)
+                results.append(game_profile_attribute_text)
+            return results        
+        
+    def GetGameProfileAttributeTextListByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeTextListByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_text  = self.FillGameProfileAttributeText(row)
+                results.append(game_profile_attribute_text)
+            return results        
+        
+    def GetGameProfileAttributeTextListByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeTextListByGameIdByProfileId(
+            game_id
+            , profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_text  = self.FillGameProfileAttributeText(row)
+                results.append(game_profile_attribute_text)
+            return results        
+        
+    def GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_text  = self.FillGameProfileAttributeText(row)
+                results.append(game_profile_attribute_text)
+            return results        
+        
+        
+    def FillGameProfileAttributeData(self, row) :
+        obj = GameProfileAttributeData()
+
+        if (row['status'] != None) :                 
+            obj.status = row['status'] #dataType.FillData(dr, "status");                
+        if (row['sort'] != None) :                 
+            obj.sort = row['sort'] #dataType.FillData(dr, "sort");                
+        if (row['profile_id'] != None) :                 
+            obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
+        if (row['game_id'] != None) :                 
+            obj.game_id = row['game_id'] #dataType.FillData(dr, "game_id");                
+        if (row['active'] != None) :                 
+            obj.active = row['active'] #dataType.FillData(dr, "active");                
+        if (row['attribute_value'] != None) :                 
+            obj.attribute_value = row['attribute_value'] #dataType.FillData(dr, "attribute_value");                
+        if (row['group'] != None) :                 
+            obj.group = row['group'] #dataType.FillData(dr, "group");                
+        if (row['uuid'] != None) :                 
+            obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
+        if (row['date_modified'] != None) :                 
+            obj.date_modified = row['date_modified'] #dataType.FillData(dr, "date_modified");                
+        if (row['attribute_id'] != None) :                 
+            obj.attribute_id = row['attribute_id'] #dataType.FillData(dr, "attribute_id");                
+        if (row['date_created'] != None) :                 
+            obj.date_created = row['date_created'] #dataType.FillData(dr, "date_created");                
+        if (row['type'] != None) :                 
+            obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['order'] != None) :                 
+            obj.order = row['order'] #dataType.FillData(dr, "order");                
+
+        return obj
+        
+    def CountGameProfileAttributeData(self
+    ) :         
+        return self.data.CountGameProfileAttributeData(
+        )
+               
+    def CountGameProfileAttributeDataByUuid(self
+        , uuid
+    ) :         
+        return self.data.CountGameProfileAttributeDataByUuid(
+            uuid
+        )
+               
+    def CountGameProfileAttributeDataByProfileId(self
+        , profile_id
+    ) :         
+        return self.data.CountGameProfileAttributeDataByProfileId(
+            profile_id
+        )
+               
+    def CountGameProfileAttributeDataByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :         
+        return self.data.CountGameProfileAttributeDataByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+        )
+               
+    def CountGameProfileAttributeDataByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :         
+        return self.data.CountGameProfileAttributeDataByGameIdByProfileId(
+            game_id
+            , profile_id
+        )
+               
+    def CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :         
+        return self.data.CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+        )
+               
+    def BrowseGameProfileAttributeDataListByFilter(self, filter_obj) :
+        result = GameProfileAttributeDataResult()
+        result.page = filter_obj.page
+        result.page_size = filter_obj.page_size
+        result.data = []
+        
+        rows = []
+        rows = self.data.BrowseGameProfileAttributeDataListByFilter(filter_obj)
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_data = self.FillGameProfileAttributeData(row)
+                result.data.append(game_profile_attribute_data)
+                if(row["total_rows"] != None) :
+                    result.total_rows = int(row["total_rows"])
+        
+        return result
+
+    def SetGameProfileAttributeDataByUuid(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeDataByUuid(set_type, obj)
+            
+    def SetGameProfileAttributeDataByProfileIdByAttributeId(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeDataByProfileIdByAttributeId(set_type, obj)
+            
+    def SetGameProfileAttributeDataByGameIdByProfileId(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeDataByGameIdByProfileId(set_type, obj)
+            
+    def SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self, set_type, obj) :            
+            return self.data.SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(set_type, obj)
+            
+    def DelGameProfileAttributeDataByUuid(self
+        , uuid
+    ) :
+        return self.data.DelGameProfileAttributeDataByUuid(
+            uuid
+        )
+        
+    def DelGameProfileAttributeDataByProfileId(self
+        , profile_id
+    ) :
+        return self.data.DelGameProfileAttributeDataByProfileId(
+            profile_id
+        )
+        
+    def DelGameProfileAttributeDataByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        return self.data.DelGameProfileAttributeDataByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+        )
+        
+    def DelGameProfileAttributeDataByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        return self.data.DelGameProfileAttributeDataByGameIdByProfileId(
+            game_id
+            , profile_id
+        )
+        
+    def DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        return self.data.DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+        )
+        
+    def GetGameProfileAttributeDataList(self
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeDataList(
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_data  = self.FillGameProfileAttributeData(row)
+                results.append(game_profile_attribute_data)
+            return results        
+        
+    def GetGameProfileAttributeDataListByUuid(self
+        , uuid
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeDataListByUuid(
+            uuid
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_data  = self.FillGameProfileAttributeData(row)
+                results.append(game_profile_attribute_data)
+            return results        
+        
+    def GetGameProfileAttributeDataListByProfileId(self
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeDataListByProfileId(
+            profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_data  = self.FillGameProfileAttributeData(row)
+                results.append(game_profile_attribute_data)
+            return results        
+        
+    def GetGameProfileAttributeDataListByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeDataListByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_data  = self.FillGameProfileAttributeData(row)
+                results.append(game_profile_attribute_data)
+            return results        
+        
+    def GetGameProfileAttributeDataListByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeDataListByGameIdByProfileId(
+            game_id
+            , profile_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_data  = self.FillGameProfileAttributeData(row)
+                results.append(game_profile_attribute_data)
+            return results        
+        
+    def GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+
+        results = []
+        rows = self.data.GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+        )
+        
+        if(rows != None) :
+            for row in rows :
+                game_profile_attribute_data  = self.FillGameProfileAttributeData(row)
+                results.append(game_profile_attribute_data)
             return results        
         
         

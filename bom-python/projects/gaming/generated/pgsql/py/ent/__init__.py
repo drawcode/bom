@@ -1,5 +1,11 @@
 import Game
 from Game import *
+import GameAttribute
+from GameAttribute import *
+import GameAttributeText
+from GameAttributeText import *
+import GameAttributeData
+from GameAttributeData import *
 import GameCategory
 from GameCategory import *
 import GameCategoryTree
@@ -10,6 +16,12 @@ import GameType
 from GameType import *
 import ProfileGame
 from ProfileGame import *
+import GameProfileAttribute
+from GameProfileAttribute import *
+import GameProfileAttributeText
+from GameProfileAttributeText import *
+import GameProfileAttributeData
+from GameProfileAttributeData import *
 import GameNetwork
 from GameNetwork import *
 import GameNetworkAuth
@@ -97,6 +109,12 @@ from RewardCompetition import *
 __all__ = [
     "Game"
     , "GameResult"
+    , "GameAttribute"
+    , "GameAttributeResult"
+    , "GameAttributeText"
+    , "GameAttributeTextResult"
+    , "GameAttributeData"
+    , "GameAttributeDataResult"
     , "GameCategory"
     , "GameCategoryResult"
     , "GameCategoryTree"
@@ -107,6 +125,12 @@ __all__ = [
     , "GameTypeResult"
     , "ProfileGame"
     , "ProfileGameResult"
+    , "GameProfileAttribute"
+    , "GameProfileAttributeResult"
+    , "GameProfileAttributeText"
+    , "GameProfileAttributeTextResult"
+    , "GameProfileAttributeData"
+    , "GameProfileAttributeDataResult"
     , "GameNetwork"
     , "GameNetworkResult"
     , "GameNetworkAuth"

@@ -116,6 +116,170 @@
         ]
       }
     },
+    {
+        "id":"game_attribute",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid", "required":false},
+            "sort":{"type":"int", "required":false},
+            "order":{"type":"int", "required":false},
+            "group":{"type":"int", "required":false},
+            "type":{"type":"int", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["code"], "inherited":"base_meta", "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["type"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["group"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["code", "type"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id", "code"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "set":[               
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "code"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "del":[                    
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code", "type"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "code"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["type"]},
+                {"params":["group"]},
+                {"params":["code", "type"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "code"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_attribute_text",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid", "required":false},
+            "attribute_id":{"type":"uuid",  "required":false},
+            "attribute_value":{"type":"string", "maximum":1000, "required":false},
+            "sort":{"type":"int", "required":false},
+            "order":{"type":"int", "required":false},
+            "group":{"type":"int", "required":false},
+            "type":{"type":"int", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id","attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["attribute_id"]},
+                {"params":["game_id", "attribute_id"]}
+            ],
+            "set":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["attribute_id"]},
+                {"params":["game_id", "attribute_id"]}
+            ],
+            "del":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["attribute_id"]},
+                {"params":["game_id", "attribute_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["attribute_id"]},
+                {"params":["game_id", "attribute_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_attribute_data",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid", "required":false},
+            "attribute_id":{"type":"uuid", "required":false},
+            "attribute_value":{"type":"data", "required":false},
+            "sort":{"type":"int", "required":false},
+            "order":{"type":"int", "required":false},
+            "group":{"type":"int", "required":false},
+            "type":{"type":"int", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+            {"fields":["game_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id","attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "methods":{
+            "get":[                
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "attribute_id"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["game_id", "attribute_id"]}
+            ],
+            "del":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["game_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "attribute_id"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
   {
       "id":"game_category",
       "extends": "base_meta",
@@ -289,7 +453,8 @@
             "profile_id":{"type":"uuid",  "required":false},
             "type_id":{"type":"uuid",  "required":false},
             "game_profile":{"type":"data", "required":false},
-            "profile_version":{"type":"string", "required":false}
+            "profile_version":{"type":"string", "required":false},
+            "profile_iteration":{"type":"string", "required":false}
         },
         "relation":[
             {"table":"", "field":""}
@@ -306,10 +471,16 @@
                 {"params":["profile_id","game_id"]}
             ],
             "set":[
-                {"params":["uuid"]}
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_id"]}
             ],
             "del":[
-                {"params":["uuid"]}
+                {"params":["uuid"]},
+                {"params":["game_id"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id","game_id"]}
             ],
             "count":[
                 {"scope":"public"},
@@ -317,6 +488,185 @@
                 {"params":["game_id"]},
                 {"params":["profile_id"]},
                 {"params":["profile_id","game_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_profile_attribute",
+        "extends": "base_meta",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid", "required":false},
+            "sort":{"type":"int", "required":false},
+            "order":{"type":"int", "required":false},
+            "group":{"type":"int", "required":false},
+            "type":{"type":"int", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+        ],
+        "methods":{
+            "get":[
+                {"scope":"public"},
+                {"params":["uuid"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["code"], "inherited":"base_meta", "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["type"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["group"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["code", "type"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id", "code"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "set":[               
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "code"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "del":[                    
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["code", "type"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "code"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["code"]},
+                {"params":["type"]},
+                {"params":["group"]},
+                {"params":["code", "type"]},
+                {"params":["game_id"]},
+                {"params":["game_id", "code"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_profile_attribute_text",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid", "required":false},
+            "profile_id":{"type":"uuid", "required":false},
+            "attribute_id":{"type":"uuid",  "required":false},
+            "attribute_value":{"type":"string", "maximum":1000, "required":false},
+            "sort":{"type":"int", "required":false},
+            "order":{"type":"int", "required":false},
+            "group":{"type":"int", "required":false},
+            "type":{"type":"int", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id","attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id","profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id", "profile_id","attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id","attribute_id","sort"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "methods":{
+            "get":[
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id", "attribute_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id", "profile_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id", "profile_id", "attribute_id"]}
+            ],
+            "set":[               
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id", "attribute_id"]},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "profile_id", "attribute_id"]}
+            ],
+            "del":[                    
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id", "attribute_id"]},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "profile_id", "attribute_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id", "attribute_id"]},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "profile_id", "attribute_id"]}
+            ],
+            "browse":[
+                {"params":["filter"]}
+            ]
+        }
+    },
+    {
+        "id":"game_profile_attribute_data",
+        "extends": "base_entity",
+        "description":"",
+        "type":"object",
+        "generate":["code","data"],
+        "properties":{
+            "game_id":{"type":"uuid", "required":false},
+            "profile_id":{"type":"uuid", "required":false},
+            "attribute_id":{"type":"uuid", "required":false},
+            "attribute_value":{"type":"data", "required":false},
+            "sort":{"type":"int", "required":false},
+            "order":{"type":"int", "required":false},
+            "group":{"type":"int", "required":false},
+            "type":{"type":"int", "required":false}
+        },
+        "relation":[
+            {"table":"", "field":""}
+        ],
+        "indexes":[
+            {"fields":["profile_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id","attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["game_id", "profile_id","attribute_id"], "unique": false, "type":"clustered", "direction":"ASC"},
+            {"fields":["profile_id","attribute_id", "sort"], "unique": false, "type":"clustered", "direction":"ASC"}
+        ],
+        "methods":{
+            "get":[                
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id", "attribute_id"], "sort_field":"sort", "sort_direction":"ASC"},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "profile_id", "attribute_id"], "sort_field":"sort", "sort_direction":"ASC"}
+            ],
+            "set":[
+                {"params":["uuid"]},
+                {"params":["profile_id", "attribute_id"]},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "profile_id", "attribute_id"]}
+            ],
+            "del":[
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id", "attribute_id"]},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "profile_id", "attribute_id"]}
+            ],
+            "count":[
+                {"scope":"public"},
+                {"params":["uuid"]},
+                {"params":["profile_id"]},
+                {"params":["profile_id", "attribute_id"]},
+                {"params":["game_id", "profile_id"]},
+                {"params":["game_id", "profile_id", "attribute_id"]}
             ],
             "browse":[
                 {"params":["filter"]}

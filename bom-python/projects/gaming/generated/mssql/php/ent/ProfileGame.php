@@ -35,11 +35,12 @@ class ProfileGame extends BaseEntity {
     
     }
     
-    public $game_id;
-    public $profile_id;
-    public $game_profile;
-    public $profile_version;
     public $type_id;
+    public $profile_version;
+    public $profile_id;
+    public $profile_iteration;
+    public $game_profile;
+    public $game_id;
 
     public function __construct() {
         

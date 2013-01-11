@@ -125,21 +125,25 @@ var ah_#{app}_global = new ah.#{app}.global();
     //-------------------------------------------------
     #{script_name}: function
     (
-                        <?py for param in method['params']: ?>
+                        <?py if method.has_key('params'): ?>
+                          <?py for param in method['params']: ?>
                             <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
                             <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
         #{param},
-                        <?py #end ?> 
+                          <?py #end ?> 
+                        <?py #endif ?> 
         fn
     ){
         this.fn_callback = fn;
         var service_url = bb_#{app}_global.#{model_id}_service + '#{item}'
                 + "#{service_name}"
-                        <?py for param in method['params']: ?>
+                        <?py if method.has_key('params'): ?>
+                          <?py for param in method['params']: ?>
                             <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
                             <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
                 + "/#{param}/" + #{param}            
-                        <?py #end ?>                
+                          <?py #end ?>  
+                        <?py #endif ?>               
                 ;
 
         _log("serviceurl::", service_url);
@@ -248,11 +252,13 @@ var ah_#{app}_global = new ah.#{app}.global();
         this.fn_callback = fn;
         var service_url = bb_#{app}_global.#{model_id}_service + '#{item}'
                 + "#{service_name}"
-                        <?py for param in method['params']: ?>
+                        <?py if method.has_key('params'): ?>
+                          <?py for param in method['params']: ?>
                             <?py bom_type = bom.bom_model_property_extended_type(model_id, param) ?>
                             <?py converted_type = bom.bom_type.bom_type_from_custom_type(bom_type, 'code', bom.current_code_type) ?>
                 + "/#{param}/" + #{param}            
-                        <?py #end ?>
+                          <?py #end ?>
+                        <?py #endif ?>
                         
                 ;
 

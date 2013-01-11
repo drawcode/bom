@@ -785,6 +785,1677 @@ class BaseGamingData {
                 
         return NULL;
     }
+    public function CountGameAttribute(
+    ) {
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_count(".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_count_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeByCode(
+        $code
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_count_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeByType(
+        $type
+    ) {
+        $parameters = array();
+        $parameters['in_type'] = $type; // #"in_type"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_count_type(".
+                    "in_type".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeByGroup(
+        $group
+    ) {
+        $parameters = array();
+        $parameters['in_group'] = $group; // #"in_group"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_count_group(".
+                    "in_group".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeByCodeByType(
+        $code
+        , $type
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_type'] = $type; // #"in_type"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_count_code_type(".
+                    "in_code".
+                    ", in_type".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_count_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_count_game_id_code(".
+                    "in_game_id".
+                    ", in_code".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function BrowseGameAttributeListByFilter($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_browse_filter(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+    public function SetGameAttributeByUuid($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_set_uuid(".
+                        "in_uuid".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameAttributeByCode($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_set_code(".
+                        "in_code".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameAttributeByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_set_game_id(".
+                        "in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameAttributeByGameIdByCode($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_set_game_id_code(".
+                        "in_game_id".
+                        ", in_code".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function DelGameAttributeByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_del_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeByCode(
+        $code
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_del_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeByCodeByType(
+        $code
+        , $type
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_type'] = $type; // #"in_type"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_del_code_type(".
+                    "in_code".
+                    ", in_type".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_del_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_del_game_id_code(".
+                    "in_game_id".
+                    ", in_code".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function GetGameAttributeList(
+    ) {
+            
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_get(".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeListByUuid(
+        $uuid
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_get_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeListByCode(
+        $code
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_get_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeListByType(
+        $type
+    ) {
+            
+        $parameters = array();
+        $parameters['in_type'] =  $type; //#"in_type"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_get_type(".
+                    "in_type".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeListByGroup(
+        $group
+    ) {
+            
+        $parameters = array();
+        $parameters['in_group'] =  $group; //#"in_group"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_get_group(".
+                    "in_group".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeListByCodeByType(
+        $code
+        , $type
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+        $parameters['in_type'] =  $type; //#"in_type"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_get_code_type(".
+                    "in_code".
+                    ", in_type".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeListByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_code'] =  $code; //#"in_code"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_get_game_id_code(".
+                    "in_game_id".
+                    ", in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function CountGameAttributeText(
+    ) {
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_count(".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeTextByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_count_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeTextByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_count_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeTextByAttributeId(
+        $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_count_attribute_id(".
+                    "in_attribute_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeTextByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_count_game_id_attribute_id(".
+                    "in_game_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function BrowseGameAttributeTextListByFilter($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_browse_filter(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+    public function SetGameAttributeText($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_text_set(".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameAttributeTextByUuid($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_text_set_uuid(".
+                        "in_uuid".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameAttributeTextByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_text_set_game_id(".
+                        "in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameAttributeTextByAttributeId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_text_set_attribute_id(".
+                        "in_attribute_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameAttributeTextByGameIdByAttributeId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_text_set_game_id_attribute_id(".
+                        "in_game_id".
+                        ", in_attribute_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function DelGameAttributeText(
+    ) {
+        $parameters = array();
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_del(".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeTextByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_del_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeTextByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_del_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeTextByAttributeId(
+        $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_del_attribute_id(".
+                    "in_attribute_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeTextByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_del_game_id_attribute_id(".
+                    "in_game_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function GetGameAttributeTextList(
+    ) {
+            
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_get(".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeTextListByUuid(
+        $uuid
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_get_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeTextListByGameId(
+        $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_get_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeTextListByAttributeId(
+        $attribute_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_attribute_id'] =  $attribute_id; //#"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_get_attribute_id(".
+                    "in_attribute_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeTextListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_attribute_id'] =  $attribute_id; //#"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_text_get_game_id_attribute_id(".
+                    "in_game_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function CountGameAttributeData(
+    ) {
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_count(".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeDataByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_count_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeDataByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_count_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameAttributeDataByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_count_game_id_attribute_id(".
+                    "in_game_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function BrowseGameAttributeDataListByFilter($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_browse_filter(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+    public function SetGameAttributeDataByUuid($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_data_set_uuid(".
+                        "in_uuid".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameAttributeDataByGameIdByAttributeId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_attribute_data_set_game_id_attribute_id(".
+                        "in_game_id".
+                        ", in_attribute_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function DelGameAttributeData(
+    ) {
+        $parameters = array();
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_del(".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeDataByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_del_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeDataByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_del_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameAttributeDataByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_del_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function GetGameAttributeDataList(
+    ) {
+            
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_get(".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeDataListByUuid(
+        $uuid
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_get_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeDataListByGameId(
+        $game_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_get_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameAttributeDataListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_attribute_id'] =  $attribute_id; //#"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_attribute_data_get_game_id_attribute_id(".
+                    "in_game_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
     public function CountGameCategory(
     ) {
         $parameters = array();
@@ -2336,6 +4007,8 @@ class BaseGamingData {
                 $parameters['in_type_id'] = $obj->type_id; // #"in_type_id"
             if($obj->profile_id != NULL)
                 $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->profile_iteration != NULL)
+                $parameters['in_profile_iteration'] = $obj->profile_iteration; // #"in_profile_iteration"
             if($obj->game_profile != NULL)
                 $parameters['in_game_profile'] = $obj->game_profile; // #"in_game_profile"
             if($obj->active != NULL)
@@ -2371,6 +4044,148 @@ class BaseGamingData {
         return FALSE;
     }
     
+    public function SetProfileGameByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->type_id != NULL)
+                $parameters['in_type_id'] = $obj->type_id; // #"in_type_id"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->profile_iteration != NULL)
+                $parameters['in_profile_iteration'] = $obj->profile_iteration; // #"in_profile_iteration"
+            if($obj->game_profile != NULL)
+                $parameters['in_game_profile'] = $obj->game_profile; // #"in_game_profile"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->profile_version != NULL)
+                $parameters['in_profile_version'] = $obj->profile_version; // #"in_profile_version"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_profile_game_set_game_id(".
+                        "in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetProfileGameByProfileId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->type_id != NULL)
+                $parameters['in_type_id'] = $obj->type_id; // #"in_type_id"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->profile_iteration != NULL)
+                $parameters['in_profile_iteration'] = $obj->profile_iteration; // #"in_profile_iteration"
+            if($obj->game_profile != NULL)
+                $parameters['in_game_profile'] = $obj->game_profile; // #"in_game_profile"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->profile_version != NULL)
+                $parameters['in_profile_version'] = $obj->profile_version; // #"in_profile_version"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_profile_game_set_profile_id(".
+                        "in_profile_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetProfileGameByProfileIdByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->type_id != NULL)
+                $parameters['in_type_id'] = $obj->type_id; // #"in_type_id"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->profile_iteration != NULL)
+                $parameters['in_profile_iteration'] = $obj->profile_iteration; // #"in_profile_iteration"
+            if($obj->game_profile != NULL)
+                $parameters['in_game_profile'] = $obj->game_profile; // #"in_game_profile"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->profile_version != NULL)
+                $parameters['in_profile_version'] = $obj->profile_version; // #"in_profile_version"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_profile_game_set_profile_id_game_id(".
+                        "in_profile_id".
+                        ", in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
     public function DelProfileGameByUuid(
         $uuid
     ) {
@@ -2383,6 +4198,78 @@ class BaseGamingData {
                 , CommandType::StoredProcedure
                 , "CALL usp_profile_game_del_uuid(".
                     "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelProfileGameByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_profile_game_del_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelProfileGameByProfileId(
+        $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_profile_game_del_profile_id(".
+                    "in_profile_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelProfileGameByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_profile_game_del_profile_id_game_id(".
+                    "in_profile_id".
+                    ", in_game_id".
                     ")"
                 , $parameters
             );
@@ -2499,6 +4386,1997 @@ class BaseGamingData {
                 , "CALL usp_profile_game_get_profile_id_game_id(".
                     "in_profile_id".
                     ", in_game_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function CountGameProfileAttribute(
+    ) {
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_count(".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_count_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeByCode(
+        $code
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_count_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeByType(
+        $type
+    ) {
+        $parameters = array();
+        $parameters['in_type'] = $type; // #"in_type"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_count_type(".
+                    "in_type".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeByGroup(
+        $group
+    ) {
+        $parameters = array();
+        $parameters['in_group'] = $group; // #"in_group"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_count_group(".
+                    "in_group".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeByCodeByType(
+        $code
+        , $type
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_type'] = $type; // #"in_type"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_count_code_type(".
+                    "in_code".
+                    ", in_type".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_count_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_count_game_id_code(".
+                    "in_game_id".
+                    ", in_code".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function BrowseGameProfileAttributeListByFilter($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_browse_filter(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+    public function SetGameProfileAttributeByUuid($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_set_uuid(".
+                        "in_uuid".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeByCode($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_set_code(".
+                        "in_code".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeByGameId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_set_game_id(".
+                        "in_game_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeByGameIdByCode($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->code != NULL)
+                $parameters['in_code'] = $obj->code; // #"in_code"
+            if($obj->display_name != NULL)
+                $parameters['in_display_name'] = $obj->display_name; // #"in_display_name"
+            if($obj->name != NULL)
+                $parameters['in_name'] = $obj->name; // #"in_name"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+            if($obj->description != NULL)
+                $parameters['in_description'] = $obj->description; // #"in_description"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_set_game_id_code(".
+                        "in_game_id".
+                        ", in_code".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function DelGameProfileAttributeByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_del_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeByCode(
+        $code
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_del_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeByCodeByType(
+        $code
+        , $type
+    ) {
+        $parameters = array();
+        $parameters['in_code'] = $code; // #"in_code"
+        $parameters['in_type'] = $type; // #"in_type"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_del_code_type(".
+                    "in_code".
+                    ", in_type".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeByGameId(
+        $game_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_del_game_id(".
+                    "in_game_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_code'] = $code; // #"in_code"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_del_game_id_code(".
+                    "in_game_id".
+                    ", in_code".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function GetGameProfileAttributeList(
+    ) {
+            
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_get(".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeListByUuid(
+        $uuid
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_get_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeListByCode(
+        $code
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_get_code(".
+                    "in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeListByType(
+        $type
+    ) {
+            
+        $parameters = array();
+        $parameters['in_type'] =  $type; //#"in_type"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_get_type(".
+                    "in_type".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeListByGroup(
+        $group
+    ) {
+            
+        $parameters = array();
+        $parameters['in_group'] =  $group; //#"in_group"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_get_group(".
+                    "in_group".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeListByCodeByType(
+        $code
+        , $type
+    ) {
+            
+        $parameters = array();
+        $parameters['in_code'] =  $code; //#"in_code"
+        $parameters['in_type'] =  $type; //#"in_type"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_get_code_type(".
+                    "in_code".
+                    ", in_type".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeListByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_code'] =  $code; //#"in_code"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_get_game_id_code(".
+                    "in_game_id".
+                    ", in_code".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function CountGameProfileAttributeText(
+    ) {
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_count(".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeTextByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_count_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeTextByProfileId(
+        $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_count_profile_id(".
+                    "in_profile_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeTextByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_count_profile_id_attribute_id(".
+                    "in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeTextByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_count_game_id_profile_id(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_count_game_id_profile_id_attrib(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function BrowseGameProfileAttributeTextListByFilter($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_browse_filter(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+    public function SetGameProfileAttributeTextByUuid($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_text_set_uuid(".
+                        "in_uuid".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeTextByProfileId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_text_set_profile_id(".
+                        "in_profile_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeTextByProfileIdByAttributeId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_text_set_profile_id_attribute_id(".
+                        "in_profile_id".
+                        ", in_attribute_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeTextByGameIdByProfileId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_text_set_game_id_profile_id(".
+                        "in_game_id".
+                        ", in_profile_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_text_set_game_id_profile_id_attribut(".
+                        "in_game_id".
+                        ", in_profile_id".
+                        ", in_attribute_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function DelGameProfileAttributeTextByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_del_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeTextByProfileId(
+        $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_del_profile_id(".
+                    "in_profile_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeTextByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_del_profile_id_attribute_id(".
+                    "in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeTextByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_del_game_id_profile_id(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_del_game_id_profile_id_attribut(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function GetGameProfileAttributeTextListByUuid(
+        $uuid
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_get_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeTextListByProfileId(
+        $profile_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_get_profile_id(".
+                    "in_profile_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeTextListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+        $parameters['in_attribute_id'] =  $attribute_id; //#"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_get_profile_id_attribute_id(".
+                    "in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeTextListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_get_game_id_profile_id(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+        $parameters['in_attribute_id'] =  $attribute_id; //#"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_text_get_game_id_profile_id_attribut(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function CountGameProfileAttributeData(
+    ) {
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_count(".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeDataByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_count_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeDataByProfileId(
+        $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_count_profile_id(".
+                    "in_profile_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeDataByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_count_profile_id_attribute_id(".
+                    "in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeDataByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_count_game_id_profile_id(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_scalar(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_count_game_id_profile_id_attrib(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return 0;
+    }
+    public function BrowseGameProfileAttributeDataListByFilter($filter_obj) {
+        $parameters = array();
+            
+        $parameters['in_page'] = $filter_obj->page; //"in_page"
+        $parameters['in_page_size'] = $filter_obj->page_size; //"in_page_size"
+        $parameters['in_sort'] = $filter_obj->sort; //"in_sort"
+        $parameters['in_filter'] = $filter_obj->filter; //"in_filter"
+                                    
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_browse_filter(in_page, in_page_size, in_sort, in_filter)"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+    }
+
+    public function SetGameProfileAttributeDataByUuid($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_data_set_uuid(".
+                        "in_uuid".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeDataByProfileIdByAttributeId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_data_set_profile_id_attribute_id(".
+                        "in_profile_id".
+                        ", in_attribute_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeDataByGameIdByProfileId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_data_set_game_id_profile_id(".
+                        "in_game_id".
+                        ", in_profile_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId($set_type, $obj) {
+        $parameters = array();
+        $parameters['in_set_type'] = $set_type;
+        if($obj != NULL) {
+            if($obj->status != NULL)
+                $parameters['in_status'] = $obj->status; // #"in_status"
+            if($obj->sort != NULL)
+                $parameters['in_sort'] = $obj->sort; // #"in_sort"
+            if($obj->profile_id != NULL)
+                $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
+            if($obj->game_id != NULL)
+                $parameters['in_game_id'] = $obj->game_id; // #"in_game_id"
+            if($obj->active != NULL)
+                $parameters['in_active'] = $obj->active; // #"in_active"
+            if($obj->attribute_value != NULL)
+                $parameters['in_attribute_value'] = $obj->attribute_value; // #"in_attribute_value"
+            if($obj->group != NULL)
+                $parameters['in_group'] = $obj->group; // #"in_group"
+            if($obj->uuid != NULL)
+                $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
+            if($obj->date_modified != NULL)
+                $parameters['in_date_modified'] = $obj->date_modified; // #"in_date_modified"
+            if($obj->attribute_id != NULL)
+                $parameters['in_attribute_id'] = $obj->attribute_id; // #"in_attribute_id"
+            if($obj->date_created != NULL)
+                $parameters['in_date_created'] = $obj->date_created; // #"in_date_created"
+            if($obj->type != NULL)
+                $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->order != NULL)
+                $parameters['in_order'] = $obj->order; // #"in_order"
+
+            try {
+                return $this->data_provider->execute_scalar(
+                    $this->connection_string
+                    , CommandType::StoredProcedure
+                    , "CALL usp_game_profile_attribute_data_set_game_id_profile_id_attribut(".
+                        "in_game_id".
+                        ", in_profile_id".
+                        ", in_attribute_id".
+                    ")"
+                    , $parameters
+                );       
+            }
+            catch (Exception $e) {
+                echo "<!-- ERROR".$e."-->";
+            }
+        }
+                
+        return FALSE;
+    }
+    
+    public function DelGameProfileAttributeDataByUuid(
+        $uuid
+    ) {
+        $parameters = array();
+        $parameters['in_uuid'] = $uuid; // #"in_uuid"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_del_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeDataByProfileId(
+        $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_del_profile_id(".
+                    "in_profile_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeDataByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_del_profile_id_attribute_id(".
+                    "in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeDataByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_del_game_id_profile_id(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        $parameters = array();
+        $parameters['in_game_id'] = $game_id; // #"in_game_id"
+        $parameters['in_profile_id'] = $profile_id; // #"in_profile_id"
+        $parameters['in_attribute_id'] = $attribute_id; // #"in_attribute_id"
+                        
+        try {
+            $this->data_provider->execute_no_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_del_game_id_profile_id_attribut(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+            return TRUE;       
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+        
+        return FALSE;
+    }
+    public function GetGameProfileAttributeDataList(
+    ) {
+            
+        $parameters = array();
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_get(".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeDataListByUuid(
+        $uuid
+    ) {
+            
+        $parameters = array();
+        $parameters['in_uuid'] =  $uuid; //#"in_uuid"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_get_uuid(".
+                    "in_uuid".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeDataListByProfileId(
+        $profile_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_get_profile_id(".
+                    "in_profile_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeDataListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+        $parameters['in_attribute_id'] =  $attribute_id; //#"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_get_profile_id_attribute_id(".
+                    "in_profile_id".
+                    ", in_attribute_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeDataListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_get_game_id_profile_id(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ")"
+                , $parameters
+            );
+        }
+        catch (Exception $e) {
+            echo "<!-- ERROR".$e."-->";
+        }
+                
+        return NULL;
+    }
+    public function GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+            
+        $parameters = array();
+        $parameters['in_game_id'] =  $game_id; //#"in_game_id"
+        $parameters['in_profile_id'] =  $profile_id; //#"in_profile_id"
+        $parameters['in_attribute_id'] =  $attribute_id; //#"in_attribute_id"
+                        
+        try {
+            return $this->data_provider->execute_results(
+                $this->connection_string
+                , CommandType::StoredProcedure
+                , "CALL usp_game_profile_attribute_data_get_game_id_profile_id_attribut(".
+                    "in_game_id".
+                    ", in_profile_id".
+                    ", in_attribute_id".
                     ")"
                 , $parameters
             );

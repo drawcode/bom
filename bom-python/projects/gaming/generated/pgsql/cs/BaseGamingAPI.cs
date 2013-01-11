@@ -644,6 +644,1374 @@ namespace gaming {
             return objs;
         }        
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameAttribute(
+        )  {            
+            return act.CountGameAttribute(
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByUuid(
+            string uuid
+        )  {            
+            return act.CountGameAttributeByUuid(
+            uuid
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByCode(
+            string code
+        )  {            
+            return act.CountGameAttributeByCode(
+            code
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByType(
+            int type
+        )  {            
+            return act.CountGameAttributeByType(
+            type
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByGroup(
+            int group
+        )  {            
+            return act.CountGameAttributeByGroup(
+            group
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByCodeByType(
+            string code
+            , int type
+        )  {            
+            return act.CountGameAttributeByCodeByType(
+            code
+            , type
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByGameId(
+            string game_id
+        )  {            
+            return act.CountGameAttributeByGameId(
+            game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {            
+            return act.CountGameAttributeByGameIdByCode(
+            game_id
+            , code
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual GameAttributeResult BrowseGameAttributeListByFilter(SearchFilter obj)  {
+            return act.BrowseGameAttributeListByFilter(obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeByUuid(string set_type, GameAttribute obj)  {
+            return act.SetGameAttributeByUuid(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeByUuid(SetType set_type, GameAttribute obj)  {
+            return act.SetGameAttributeByUuid(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeByUuid(GameAttribute obj)  {
+            return act.SetGameAttributeByUuid(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeByCode(string set_type, GameAttribute obj)  {
+            return act.SetGameAttributeByCode(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeByCode(SetType set_type, GameAttribute obj)  {
+            return act.SetGameAttributeByCode(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeByCode(GameAttribute obj)  {
+            return act.SetGameAttributeByCode(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeByGameId(string set_type, GameAttribute obj)  {
+            return act.SetGameAttributeByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeByGameId(SetType set_type, GameAttribute obj)  {
+            return act.SetGameAttributeByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeByGameId(GameAttribute obj)  {
+            return act.SetGameAttributeByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeByGameIdByCode(string set_type, GameAttribute obj)  {
+            return act.SetGameAttributeByGameIdByCode(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeByGameIdByCode(SetType set_type, GameAttribute obj)  {
+            return act.SetGameAttributeByGameIdByCode(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeByGameIdByCode(GameAttribute obj)  {
+            return act.SetGameAttributeByGameIdByCode(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByUuid(
+            string uuid
+        )  {            
+            return act.DelGameAttributeByUuid(
+            uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByCode(
+            string code
+        )  {            
+            return act.DelGameAttributeByCode(
+            code
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByCodeByType(
+            string code
+            , int type
+        )  {            
+            return act.DelGameAttributeByCodeByType(
+            code
+            , type
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByGameId(
+            string game_id
+        )  {            
+            return act.DelGameAttributeByGameId(
+            game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {            
+            return act.DelGameAttributeByGameIdByCode(
+            game_id
+            , code
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttribute> GetGameAttributeList(
+        )  {
+            return act.GetGameAttributeList(
+            );
+        }
+        
+        public virtual GameAttribute GetGameAttribute(
+        )  {
+            foreach (GameAttribute item in GetGameAttributeList(
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeList(
+        ) {
+            return CachedGetGameAttributeList(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                );
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeList(
+            bool overrideCache
+            , int cacheHours
+        ) {
+            List<GameAttribute> objs;
+
+            string method_name = "CachedGetGameAttributeList";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeList(
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttribute> GetGameAttributeListByUuid(
+            string uuid
+        )  {
+            return act.GetGameAttributeListByUuid(
+            uuid
+            );
+        }
+        
+        public virtual GameAttribute GetGameAttributeByUuid(
+            string uuid
+        )  {
+            foreach (GameAttribute item in GetGameAttributeListByUuid(
+            uuid
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByUuid(
+            string uuid
+        ) {
+            return CachedGetGameAttributeListByUuid(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                );
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByUuid(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+        ) {
+            List<GameAttribute> objs;
+
+            string method_name = "CachedGetGameAttributeListByUuid";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeListByUuid(
+                    uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttribute> GetGameAttributeListByCode(
+            string code
+        )  {
+            return act.GetGameAttributeListByCode(
+            code
+            );
+        }
+        
+        public virtual GameAttribute GetGameAttributeByCode(
+            string code
+        )  {
+            foreach (GameAttribute item in GetGameAttributeListByCode(
+            code
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByCode(
+            string code
+        ) {
+            return CachedGetGameAttributeListByCode(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                );
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByCode(
+            bool overrideCache
+            , int cacheHours
+            , string code
+        ) {
+            List<GameAttribute> objs;
+
+            string method_name = "CachedGetGameAttributeListByCode";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeListByCode(
+                    code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttribute> GetGameAttributeListByType(
+            int type
+        )  {
+            return act.GetGameAttributeListByType(
+            type
+            );
+        }
+        
+        public virtual GameAttribute GetGameAttributeByType(
+            int type
+        )  {
+            foreach (GameAttribute item in GetGameAttributeListByType(
+            type
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByType(
+            int type
+        ) {
+            return CachedGetGameAttributeListByType(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , type
+                );
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByType(
+            bool overrideCache
+            , int cacheHours
+            , int type
+        ) {
+            List<GameAttribute> objs;
+
+            string method_name = "CachedGetGameAttributeListByType";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("type".ToLower());
+            sb.Append("_");
+            sb.Append(type);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeListByType(
+                    type
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttribute> GetGameAttributeListByGroup(
+            int group
+        )  {
+            return act.GetGameAttributeListByGroup(
+            group
+            );
+        }
+        
+        public virtual GameAttribute GetGameAttributeByGroup(
+            int group
+        )  {
+            foreach (GameAttribute item in GetGameAttributeListByGroup(
+            group
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByGroup(
+            int group
+        ) {
+            return CachedGetGameAttributeListByGroup(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , group
+                );
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByGroup(
+            bool overrideCache
+            , int cacheHours
+            , int group
+        ) {
+            List<GameAttribute> objs;
+
+            string method_name = "CachedGetGameAttributeListByGroup";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("group".ToLower());
+            sb.Append("_");
+            sb.Append(group);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeListByGroup(
+                    group
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttribute> GetGameAttributeListByCodeByType(
+            string code
+            , int type
+        )  {
+            return act.GetGameAttributeListByCodeByType(
+            code
+            , type
+            );
+        }
+        
+        public virtual GameAttribute GetGameAttributeByCodeByType(
+            string code
+            , int type
+        )  {
+            foreach (GameAttribute item in GetGameAttributeListByCodeByType(
+            code
+            , type
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByCodeByType(
+            string code
+            , int type
+        ) {
+            return CachedGetGameAttributeListByCodeByType(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                    , type
+                );
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByCodeByType(
+            bool overrideCache
+            , int cacheHours
+            , string code
+            , int type
+        ) {
+            List<GameAttribute> objs;
+
+            string method_name = "CachedGetGameAttributeListByCodeByType";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+            sb.Append("_");
+            sb.Append("type".ToLower());
+            sb.Append("_");
+            sb.Append(type);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeListByCodeByType(
+                    code
+                    , type
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttribute> GetGameAttributeListByGameIdByCode(
+            string game_id
+            , string code
+        )  {
+            return act.GetGameAttributeListByGameIdByCode(
+            game_id
+            , code
+            );
+        }
+        
+        public virtual GameAttribute GetGameAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {
+            foreach (GameAttribute item in GetGameAttributeListByGameIdByCode(
+            game_id
+            , code
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByGameIdByCode(
+            string game_id
+            , string code
+        ) {
+            return CachedGetGameAttributeListByGameIdByCode(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                    , code
+                );
+        }
+        
+        public virtual List<GameAttribute> CachedGetGameAttributeListByGameIdByCode(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+            , string code
+        ) {
+            List<GameAttribute> objs;
+
+            string method_name = "CachedGetGameAttributeListByGameIdByCode";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeListByGameIdByCode(
+                    game_id
+                    , code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeText(
+        )  {            
+            return act.CountGameAttributeText(
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeTextByUuid(
+            string uuid
+        )  {            
+            return act.CountGameAttributeTextByUuid(
+            uuid
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeTextByGameId(
+            string game_id
+        )  {            
+            return act.CountGameAttributeTextByGameId(
+            game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeTextByAttributeId(
+            string attribute_id
+        )  {            
+            return act.CountGameAttributeTextByAttributeId(
+            attribute_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeTextByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {            
+            return act.CountGameAttributeTextByGameIdByAttributeId(
+            game_id
+            , attribute_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual GameAttributeTextResult BrowseGameAttributeTextListByFilter(SearchFilter obj)  {
+            return act.BrowseGameAttributeTextListByFilter(obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeText(string set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeText(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeText(SetType set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeText(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeText(GameAttributeText obj)  {
+            return act.SetGameAttributeText(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeTextByUuid(string set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeTextByUuid(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeTextByUuid(SetType set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeTextByUuid(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeTextByUuid(GameAttributeText obj)  {
+            return act.SetGameAttributeTextByUuid(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeTextByGameId(string set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeTextByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeTextByGameId(SetType set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeTextByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeTextByGameId(GameAttributeText obj)  {
+            return act.SetGameAttributeTextByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeTextByAttributeId(string set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeTextByAttributeId(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeTextByAttributeId(SetType set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeTextByAttributeId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeTextByAttributeId(GameAttributeText obj)  {
+            return act.SetGameAttributeTextByAttributeId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeTextByGameIdByAttributeId(string set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeTextByGameIdByAttributeId(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeTextByGameIdByAttributeId(SetType set_type, GameAttributeText obj)  {
+            return act.SetGameAttributeTextByGameIdByAttributeId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeTextByGameIdByAttributeId(GameAttributeText obj)  {
+            return act.SetGameAttributeTextByGameIdByAttributeId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeText(
+        )  {            
+            return act.DelGameAttributeText(
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeTextByUuid(
+            string uuid
+        )  {            
+            return act.DelGameAttributeTextByUuid(
+            uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeTextByGameId(
+            string game_id
+        )  {            
+            return act.DelGameAttributeTextByGameId(
+            game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeTextByAttributeId(
+            string attribute_id
+        )  {            
+            return act.DelGameAttributeTextByAttributeId(
+            attribute_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeTextByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {            
+            return act.DelGameAttributeTextByGameIdByAttributeId(
+            game_id
+            , attribute_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttributeText> GetGameAttributeTextList(
+        )  {
+            return act.GetGameAttributeTextList(
+            );
+        }
+        
+        public virtual GameAttributeText GetGameAttributeText(
+        )  {
+            foreach (GameAttributeText item in GetGameAttributeTextList(
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextList(
+        ) {
+            return CachedGetGameAttributeTextList(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                );
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextList(
+            bool overrideCache
+            , int cacheHours
+        ) {
+            List<GameAttributeText> objs;
+
+            string method_name = "CachedGetGameAttributeTextList";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeTextList(
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttributeText> GetGameAttributeTextListByUuid(
+            string uuid
+        )  {
+            return act.GetGameAttributeTextListByUuid(
+            uuid
+            );
+        }
+        
+        public virtual GameAttributeText GetGameAttributeTextByUuid(
+            string uuid
+        )  {
+            foreach (GameAttributeText item in GetGameAttributeTextListByUuid(
+            uuid
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextListByUuid(
+            string uuid
+        ) {
+            return CachedGetGameAttributeTextListByUuid(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                );
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextListByUuid(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+        ) {
+            List<GameAttributeText> objs;
+
+            string method_name = "CachedGetGameAttributeTextListByUuid";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeTextListByUuid(
+                    uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttributeText> GetGameAttributeTextListByGameId(
+            string game_id
+        )  {
+            return act.GetGameAttributeTextListByGameId(
+            game_id
+            );
+        }
+        
+        public virtual GameAttributeText GetGameAttributeTextByGameId(
+            string game_id
+        )  {
+            foreach (GameAttributeText item in GetGameAttributeTextListByGameId(
+            game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextListByGameId(
+            string game_id
+        ) {
+            return CachedGetGameAttributeTextListByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextListByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+        ) {
+            List<GameAttributeText> objs;
+
+            string method_name = "CachedGetGameAttributeTextListByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeTextListByGameId(
+                    game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttributeText> GetGameAttributeTextListByAttributeId(
+            string attribute_id
+        )  {
+            return act.GetGameAttributeTextListByAttributeId(
+            attribute_id
+            );
+        }
+        
+        public virtual GameAttributeText GetGameAttributeTextByAttributeId(
+            string attribute_id
+        )  {
+            foreach (GameAttributeText item in GetGameAttributeTextListByAttributeId(
+            attribute_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextListByAttributeId(
+            string attribute_id
+        ) {
+            return CachedGetGameAttributeTextListByAttributeId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , attribute_id
+                );
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextListByAttributeId(
+            bool overrideCache
+            , int cacheHours
+            , string attribute_id
+        ) {
+            List<GameAttributeText> objs;
+
+            string method_name = "CachedGetGameAttributeTextListByAttributeId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("attribute_id".ToLower());
+            sb.Append("_");
+            sb.Append(attribute_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeTextListByAttributeId(
+                    attribute_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttributeText> GetGameAttributeTextListByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {
+            return act.GetGameAttributeTextListByGameIdByAttributeId(
+            game_id
+            , attribute_id
+            );
+        }
+        
+        public virtual GameAttributeText GetGameAttributeTextByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {
+            foreach (GameAttributeText item in GetGameAttributeTextListByGameIdByAttributeId(
+            game_id
+            , attribute_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextListByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        ) {
+            return CachedGetGameAttributeTextListByGameIdByAttributeId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                    , attribute_id
+                );
+        }
+        
+        public virtual List<GameAttributeText> CachedGetGameAttributeTextListByGameIdByAttributeId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+            , string attribute_id
+        ) {
+            List<GameAttributeText> objs;
+
+            string method_name = "CachedGetGameAttributeTextListByGameIdByAttributeId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("attribute_id".ToLower());
+            sb.Append("_");
+            sb.Append(attribute_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeTextListByGameIdByAttributeId(
+                    game_id
+                    , attribute_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeData(
+        )  {            
+            return act.CountGameAttributeData(
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeDataByUuid(
+            string uuid
+        )  {            
+            return act.CountGameAttributeDataByUuid(
+            uuid
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeDataByGameId(
+            string game_id
+        )  {            
+            return act.CountGameAttributeDataByGameId(
+            game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeDataByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {            
+            return act.CountGameAttributeDataByGameIdByAttributeId(
+            game_id
+            , attribute_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual GameAttributeDataResult BrowseGameAttributeDataListByFilter(SearchFilter obj)  {
+            return act.BrowseGameAttributeDataListByFilter(obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeDataByUuid(string set_type, GameAttributeData obj)  {
+            return act.SetGameAttributeDataByUuid(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeDataByUuid(SetType set_type, GameAttributeData obj)  {
+            return act.SetGameAttributeDataByUuid(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeDataByUuid(GameAttributeData obj)  {
+            return act.SetGameAttributeDataByUuid(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeDataByGameIdByAttributeId(string set_type, GameAttributeData obj)  {
+            return act.SetGameAttributeDataByGameIdByAttributeId(set_type, obj);
+        }
+        
+        public virtual bool SetGameAttributeDataByGameIdByAttributeId(SetType set_type, GameAttributeData obj)  {
+            return act.SetGameAttributeDataByGameIdByAttributeId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameAttributeDataByGameIdByAttributeId(GameAttributeData obj)  {
+            return act.SetGameAttributeDataByGameIdByAttributeId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeData(
+        )  {            
+            return act.DelGameAttributeData(
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeDataByUuid(
+            string uuid
+        )  {            
+            return act.DelGameAttributeDataByUuid(
+            uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeDataByGameId(
+            string game_id
+        )  {            
+            return act.DelGameAttributeDataByGameId(
+            game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeDataByGameId(
+            string game_id
+        )  {            
+            return act.DelGameAttributeDataByGameId(
+            game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttributeData> GetGameAttributeDataList(
+        )  {
+            return act.GetGameAttributeDataList(
+            );
+        }
+        
+        public virtual GameAttributeData GetGameAttributeData(
+        )  {
+            foreach (GameAttributeData item in GetGameAttributeDataList(
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttributeData> CachedGetGameAttributeDataList(
+        ) {
+            return CachedGetGameAttributeDataList(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                );
+        }
+        
+        public virtual List<GameAttributeData> CachedGetGameAttributeDataList(
+            bool overrideCache
+            , int cacheHours
+        ) {
+            List<GameAttributeData> objs;
+
+            string method_name = "CachedGetGameAttributeDataList";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeDataList(
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttributeData> GetGameAttributeDataListByUuid(
+            string uuid
+        )  {
+            return act.GetGameAttributeDataListByUuid(
+            uuid
+            );
+        }
+        
+        public virtual GameAttributeData GetGameAttributeDataByUuid(
+            string uuid
+        )  {
+            foreach (GameAttributeData item in GetGameAttributeDataListByUuid(
+            uuid
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttributeData> CachedGetGameAttributeDataListByUuid(
+            string uuid
+        ) {
+            return CachedGetGameAttributeDataListByUuid(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                );
+        }
+        
+        public virtual List<GameAttributeData> CachedGetGameAttributeDataListByUuid(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+        ) {
+            List<GameAttributeData> objs;
+
+            string method_name = "CachedGetGameAttributeDataListByUuid";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeDataListByUuid(
+                    uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttributeData> GetGameAttributeDataListByGameId(
+            string game_id
+        )  {
+            return act.GetGameAttributeDataListByGameId(
+            game_id
+            );
+        }
+        
+        public virtual GameAttributeData GetGameAttributeDataByGameId(
+            string game_id
+        )  {
+            foreach (GameAttributeData item in GetGameAttributeDataListByGameId(
+            game_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttributeData> CachedGetGameAttributeDataListByGameId(
+            string game_id
+        ) {
+            return CachedGetGameAttributeDataListByGameId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                );
+        }
+        
+        public virtual List<GameAttributeData> CachedGetGameAttributeDataListByGameId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+        ) {
+            List<GameAttributeData> objs;
+
+            string method_name = "CachedGetGameAttributeDataListByGameId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeDataListByGameId(
+                    game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameAttributeData> GetGameAttributeDataListByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {
+            return act.GetGameAttributeDataListByGameIdByAttributeId(
+            game_id
+            , attribute_id
+            );
+        }
+        
+        public virtual GameAttributeData GetGameAttributeDataByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        )  {
+            foreach (GameAttributeData item in GetGameAttributeDataListByGameIdByAttributeId(
+            game_id
+            , attribute_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameAttributeData> CachedGetGameAttributeDataListByGameIdByAttributeId(
+            string game_id
+            , string attribute_id
+        ) {
+            return CachedGetGameAttributeDataListByGameIdByAttributeId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                    , attribute_id
+                );
+        }
+        
+        public virtual List<GameAttributeData> CachedGetGameAttributeDataListByGameIdByAttributeId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+            , string attribute_id
+        ) {
+            List<GameAttributeData> objs;
+
+            string method_name = "CachedGetGameAttributeDataListByGameIdByAttributeId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("attribute_id".ToLower());
+            sb.Append("_");
+            sb.Append(attribute_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameAttributeDataListByGameIdByAttributeId(
+                    game_id
+                    , attribute_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
         public virtual int CountGameCategory(
         )  {            
             return act.CountGameCategory(
@@ -2258,11 +3626,73 @@ namespace gaming {
             return act.SetProfileGameByUuid(DEFAULT_SET_TYPE, obj);
         }
 //------------------------------------------------------------------------------                    
+        public virtual bool SetProfileGameByGameId(string set_type, ProfileGame obj)  {
+            return act.SetProfileGameByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetProfileGameByGameId(SetType set_type, ProfileGame obj)  {
+            return act.SetProfileGameByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetProfileGameByGameId(ProfileGame obj)  {
+            return act.SetProfileGameByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetProfileGameByProfileId(string set_type, ProfileGame obj)  {
+            return act.SetProfileGameByProfileId(set_type, obj);
+        }
+        
+        public virtual bool SetProfileGameByProfileId(SetType set_type, ProfileGame obj)  {
+            return act.SetProfileGameByProfileId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetProfileGameByProfileId(ProfileGame obj)  {
+            return act.SetProfileGameByProfileId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetProfileGameByProfileIdByGameId(string set_type, ProfileGame obj)  {
+            return act.SetProfileGameByProfileIdByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetProfileGameByProfileIdByGameId(SetType set_type, ProfileGame obj)  {
+            return act.SetProfileGameByProfileIdByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetProfileGameByProfileIdByGameId(ProfileGame obj)  {
+            return act.SetProfileGameByProfileIdByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
         public virtual bool DelProfileGameByUuid(
             string uuid
         )  {            
             return act.DelProfileGameByUuid(
             uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelProfileGameByGameId(
+            string game_id
+        )  {            
+            return act.DelProfileGameByGameId(
+            game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelProfileGameByProfileId(
+            string profile_id
+        )  {            
+            return act.DelProfileGameByProfileId(
+            profile_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelProfileGameByProfileIdByGameId(
+            string profile_id
+            , string game_id
+        )  {            
+            return act.DelProfileGameByProfileIdByGameId(
+            profile_id
+            , game_id
             );
         }                     
 //------------------------------------------------------------------------------                    
@@ -2560,6 +3990,1664 @@ namespace gaming {
                 objs = GetProfileGameListByProfileIdByGameId(
                     profile_id
                     , game_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttribute(
+        )  {            
+            return act.CountGameProfileAttribute(
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByUuid(
+            string uuid
+        )  {            
+            return act.CountGameProfileAttributeByUuid(
+            uuid
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByCode(
+            string code
+        )  {            
+            return act.CountGameProfileAttributeByCode(
+            code
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByType(
+            int type
+        )  {            
+            return act.CountGameProfileAttributeByType(
+            type
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByGroup(
+            int group
+        )  {            
+            return act.CountGameProfileAttributeByGroup(
+            group
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByCodeByType(
+            string code
+            , int type
+        )  {            
+            return act.CountGameProfileAttributeByCodeByType(
+            code
+            , type
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByGameId(
+            string game_id
+        )  {            
+            return act.CountGameProfileAttributeByGameId(
+            game_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {            
+            return act.CountGameProfileAttributeByGameIdByCode(
+            game_id
+            , code
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual GameProfileAttributeResult BrowseGameProfileAttributeListByFilter(SearchFilter obj)  {
+            return act.BrowseGameProfileAttributeListByFilter(obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeByUuid(string set_type, GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByUuid(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeByUuid(SetType set_type, GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByUuid(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeByUuid(GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByUuid(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeByCode(string set_type, GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByCode(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeByCode(SetType set_type, GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByCode(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeByCode(GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByCode(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeByGameId(string set_type, GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByGameId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeByGameId(SetType set_type, GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByGameId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeByGameId(GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByGameId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeByGameIdByCode(string set_type, GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByGameIdByCode(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeByGameIdByCode(SetType set_type, GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByGameIdByCode(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeByGameIdByCode(GameProfileAttribute obj)  {
+            return act.SetGameProfileAttributeByGameIdByCode(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByUuid(
+            string uuid
+        )  {            
+            return act.DelGameProfileAttributeByUuid(
+            uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByCode(
+            string code
+        )  {            
+            return act.DelGameProfileAttributeByCode(
+            code
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByCodeByType(
+            string code
+            , int type
+        )  {            
+            return act.DelGameProfileAttributeByCodeByType(
+            code
+            , type
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByGameId(
+            string game_id
+        )  {            
+            return act.DelGameProfileAttributeByGameId(
+            game_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {            
+            return act.DelGameProfileAttributeByGameIdByCode(
+            game_id
+            , code
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeList(
+        )  {
+            return act.GetGameProfileAttributeList(
+            );
+        }
+        
+        public virtual GameProfileAttribute GetGameProfileAttribute(
+        )  {
+            foreach (GameProfileAttribute item in GetGameProfileAttributeList(
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeList(
+        ) {
+            return CachedGetGameProfileAttributeList(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                );
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeList(
+            bool overrideCache
+            , int cacheHours
+        ) {
+            List<GameProfileAttribute> objs;
+
+            string method_name = "CachedGetGameProfileAttributeList";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeList(
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByUuid(
+            string uuid
+        )  {
+            return act.GetGameProfileAttributeListByUuid(
+            uuid
+            );
+        }
+        
+        public virtual GameProfileAttribute GetGameProfileAttributeByUuid(
+            string uuid
+        )  {
+            foreach (GameProfileAttribute item in GetGameProfileAttributeListByUuid(
+            uuid
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByUuid(
+            string uuid
+        ) {
+            return CachedGetGameProfileAttributeListByUuid(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                );
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByUuid(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+        ) {
+            List<GameProfileAttribute> objs;
+
+            string method_name = "CachedGetGameProfileAttributeListByUuid";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeListByUuid(
+                    uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByCode(
+            string code
+        )  {
+            return act.GetGameProfileAttributeListByCode(
+            code
+            );
+        }
+        
+        public virtual GameProfileAttribute GetGameProfileAttributeByCode(
+            string code
+        )  {
+            foreach (GameProfileAttribute item in GetGameProfileAttributeListByCode(
+            code
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByCode(
+            string code
+        ) {
+            return CachedGetGameProfileAttributeListByCode(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                );
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByCode(
+            bool overrideCache
+            , int cacheHours
+            , string code
+        ) {
+            List<GameProfileAttribute> objs;
+
+            string method_name = "CachedGetGameProfileAttributeListByCode";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeListByCode(
+                    code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByType(
+            int type
+        )  {
+            return act.GetGameProfileAttributeListByType(
+            type
+            );
+        }
+        
+        public virtual GameProfileAttribute GetGameProfileAttributeByType(
+            int type
+        )  {
+            foreach (GameProfileAttribute item in GetGameProfileAttributeListByType(
+            type
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByType(
+            int type
+        ) {
+            return CachedGetGameProfileAttributeListByType(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , type
+                );
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByType(
+            bool overrideCache
+            , int cacheHours
+            , int type
+        ) {
+            List<GameProfileAttribute> objs;
+
+            string method_name = "CachedGetGameProfileAttributeListByType";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("type".ToLower());
+            sb.Append("_");
+            sb.Append(type);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeListByType(
+                    type
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByGroup(
+            int group
+        )  {
+            return act.GetGameProfileAttributeListByGroup(
+            group
+            );
+        }
+        
+        public virtual GameProfileAttribute GetGameProfileAttributeByGroup(
+            int group
+        )  {
+            foreach (GameProfileAttribute item in GetGameProfileAttributeListByGroup(
+            group
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByGroup(
+            int group
+        ) {
+            return CachedGetGameProfileAttributeListByGroup(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , group
+                );
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByGroup(
+            bool overrideCache
+            , int cacheHours
+            , int group
+        ) {
+            List<GameProfileAttribute> objs;
+
+            string method_name = "CachedGetGameProfileAttributeListByGroup";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("group".ToLower());
+            sb.Append("_");
+            sb.Append(group);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeListByGroup(
+                    group
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByCodeByType(
+            string code
+            , int type
+        )  {
+            return act.GetGameProfileAttributeListByCodeByType(
+            code
+            , type
+            );
+        }
+        
+        public virtual GameProfileAttribute GetGameProfileAttributeByCodeByType(
+            string code
+            , int type
+        )  {
+            foreach (GameProfileAttribute item in GetGameProfileAttributeListByCodeByType(
+            code
+            , type
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByCodeByType(
+            string code
+            , int type
+        ) {
+            return CachedGetGameProfileAttributeListByCodeByType(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , code
+                    , type
+                );
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByCodeByType(
+            bool overrideCache
+            , int cacheHours
+            , string code
+            , int type
+        ) {
+            List<GameProfileAttribute> objs;
+
+            string method_name = "CachedGetGameProfileAttributeListByCodeByType";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+            sb.Append("_");
+            sb.Append("type".ToLower());
+            sb.Append("_");
+            sb.Append(type);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeListByCodeByType(
+                    code
+                    , type
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttribute> GetGameProfileAttributeListByGameIdByCode(
+            string game_id
+            , string code
+        )  {
+            return act.GetGameProfileAttributeListByGameIdByCode(
+            game_id
+            , code
+            );
+        }
+        
+        public virtual GameProfileAttribute GetGameProfileAttributeByGameIdByCode(
+            string game_id
+            , string code
+        )  {
+            foreach (GameProfileAttribute item in GetGameProfileAttributeListByGameIdByCode(
+            game_id
+            , code
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByGameIdByCode(
+            string game_id
+            , string code
+        ) {
+            return CachedGetGameProfileAttributeListByGameIdByCode(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                    , code
+                );
+        }
+        
+        public virtual List<GameProfileAttribute> CachedGetGameProfileAttributeListByGameIdByCode(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+            , string code
+        ) {
+            List<GameProfileAttribute> objs;
+
+            string method_name = "CachedGetGameProfileAttributeListByGameIdByCode";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("code".ToLower());
+            sb.Append("_");
+            sb.Append(code);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeListByGameIdByCode(
+                    game_id
+                    , code
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeText(
+        )  {            
+            return act.CountGameProfileAttributeText(
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByUuid(
+            string uuid
+        )  {            
+            return act.CountGameProfileAttributeTextByUuid(
+            uuid
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByProfileId(
+            string profile_id
+        )  {            
+            return act.CountGameProfileAttributeTextByProfileId(
+            profile_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {            
+            return act.CountGameProfileAttributeTextByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {            
+            return act.CountGameProfileAttributeTextByGameIdByProfileId(
+            game_id
+            , profile_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {            
+            return act.CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual GameProfileAttributeTextResult BrowseGameProfileAttributeTextListByFilter(SearchFilter obj)  {
+            return act.BrowseGameProfileAttributeTextListByFilter(obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByUuid(string set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByUuid(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByUuid(SetType set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByUuid(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByUuid(GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByUuid(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByProfileId(string set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByProfileId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByProfileId(SetType set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByProfileId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByProfileId(GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByProfileId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByProfileIdByAttributeId(string set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByProfileIdByAttributeId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByProfileIdByAttributeId(SetType set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByProfileIdByAttributeId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByProfileIdByAttributeId(GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByProfileIdByAttributeId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileId(string set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByGameIdByProfileId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileId(SetType set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByGameIdByProfileId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileId(GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByGameIdByProfileId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(string set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(SetType set_type, GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(GameProfileAttributeText obj)  {
+            return act.SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByUuid(
+            string uuid
+        )  {            
+            return act.DelGameProfileAttributeTextByUuid(
+            uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByProfileId(
+            string profile_id
+        )  {            
+            return act.DelGameProfileAttributeTextByProfileId(
+            profile_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {            
+            return act.DelGameProfileAttributeTextByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {            
+            return act.DelGameProfileAttributeTextByGameIdByProfileId(
+            game_id
+            , profile_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {            
+            return act.DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByUuid(
+            string uuid
+        )  {
+            return act.GetGameProfileAttributeTextListByUuid(
+            uuid
+            );
+        }
+        
+        public virtual GameProfileAttributeText GetGameProfileAttributeTextByUuid(
+            string uuid
+        )  {
+            foreach (GameProfileAttributeText item in GetGameProfileAttributeTextListByUuid(
+            uuid
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByUuid(
+            string uuid
+        ) {
+            return CachedGetGameProfileAttributeTextListByUuid(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                );
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByUuid(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+        ) {
+            List<GameProfileAttributeText> objs;
+
+            string method_name = "CachedGetGameProfileAttributeTextListByUuid";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeTextListByUuid(
+                    uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByProfileId(
+            string profile_id
+        )  {
+            return act.GetGameProfileAttributeTextListByProfileId(
+            profile_id
+            );
+        }
+        
+        public virtual GameProfileAttributeText GetGameProfileAttributeTextByProfileId(
+            string profile_id
+        )  {
+            foreach (GameProfileAttributeText item in GetGameProfileAttributeTextListByProfileId(
+            profile_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByProfileId(
+            string profile_id
+        ) {
+            return CachedGetGameProfileAttributeTextListByProfileId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                );
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByProfileId(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+        ) {
+            List<GameProfileAttributeText> objs;
+
+            string method_name = "CachedGetGameProfileAttributeTextListByProfileId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeTextListByProfileId(
+                    profile_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {
+            return act.GetGameProfileAttributeTextListByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+            );
+        }
+        
+        public virtual GameProfileAttributeText GetGameProfileAttributeTextByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {
+            foreach (GameProfileAttributeText item in GetGameProfileAttributeTextListByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        ) {
+            return CachedGetGameProfileAttributeTextListByProfileIdByAttributeId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                    , attribute_id
+                );
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByProfileIdByAttributeId(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+            , string attribute_id
+        ) {
+            List<GameProfileAttributeText> objs;
+
+            string method_name = "CachedGetGameProfileAttributeTextListByProfileIdByAttributeId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("attribute_id".ToLower());
+            sb.Append("_");
+            sb.Append(attribute_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeTextListByProfileIdByAttributeId(
+                    profile_id
+                    , attribute_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {
+            return act.GetGameProfileAttributeTextListByGameIdByProfileId(
+            game_id
+            , profile_id
+            );
+        }
+        
+        public virtual GameProfileAttributeText GetGameProfileAttributeTextByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {
+            foreach (GameProfileAttributeText item in GetGameProfileAttributeTextListByGameIdByProfileId(
+            game_id
+            , profile_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        ) {
+            return CachedGetGameProfileAttributeTextListByGameIdByProfileId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                    , profile_id
+                );
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByGameIdByProfileId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+            , string profile_id
+        ) {
+            List<GameProfileAttributeText> objs;
+
+            string method_name = "CachedGetGameProfileAttributeTextListByGameIdByProfileId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeTextListByGameIdByProfileId(
+                    game_id
+                    , profile_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeText> GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {
+            return act.GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+            );
+        }
+        
+        public virtual GameProfileAttributeText GetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {
+            foreach (GameProfileAttributeText item in GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        ) {
+            return CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                    , profile_id
+                    , attribute_id
+                );
+        }
+        
+        public virtual List<GameProfileAttributeText> CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+            , string profile_id
+            , string attribute_id
+        ) {
+            List<GameProfileAttributeText> objs;
+
+            string method_name = "CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("attribute_id".ToLower());
+            sb.Append("_");
+            sb.Append(attribute_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+                    game_id
+                    , profile_id
+                    , attribute_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeData(
+        )  {            
+            return act.CountGameProfileAttributeData(
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByUuid(
+            string uuid
+        )  {            
+            return act.CountGameProfileAttributeDataByUuid(
+            uuid
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByProfileId(
+            string profile_id
+        )  {            
+            return act.CountGameProfileAttributeDataByProfileId(
+            profile_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {            
+            return act.CountGameProfileAttributeDataByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {            
+            return act.CountGameProfileAttributeDataByGameIdByProfileId(
+            game_id
+            , profile_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {            
+            return act.CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+            );
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual GameProfileAttributeDataResult BrowseGameProfileAttributeDataListByFilter(SearchFilter obj)  {
+            return act.BrowseGameProfileAttributeDataListByFilter(obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeDataByUuid(string set_type, GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByUuid(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeDataByUuid(SetType set_type, GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByUuid(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeDataByUuid(GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByUuid(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeDataByProfileIdByAttributeId(string set_type, GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByProfileIdByAttributeId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeDataByProfileIdByAttributeId(SetType set_type, GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByProfileIdByAttributeId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeDataByProfileIdByAttributeId(GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByProfileIdByAttributeId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileId(string set_type, GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByGameIdByProfileId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileId(SetType set_type, GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByGameIdByProfileId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileId(GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByGameIdByProfileId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(string set_type, GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(set_type, obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(SetType set_type, GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(ConvertSetTypeToString(set_type), obj);
+        }
+        
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(GameProfileAttributeData obj)  {
+            return act.SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(DEFAULT_SET_TYPE, obj);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByUuid(
+            string uuid
+        )  {            
+            return act.DelGameProfileAttributeDataByUuid(
+            uuid
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByProfileId(
+            string profile_id
+        )  {            
+            return act.DelGameProfileAttributeDataByProfileId(
+            profile_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {            
+            return act.DelGameProfileAttributeDataByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {            
+            return act.DelGameProfileAttributeDataByGameIdByProfileId(
+            game_id
+            , profile_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {            
+            return act.DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+            );
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataList(
+        )  {
+            return act.GetGameProfileAttributeDataList(
+            );
+        }
+        
+        public virtual GameProfileAttributeData GetGameProfileAttributeData(
+        )  {
+            foreach (GameProfileAttributeData item in GetGameProfileAttributeDataList(
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataList(
+        ) {
+            return CachedGetGameProfileAttributeDataList(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                );
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataList(
+            bool overrideCache
+            , int cacheHours
+        ) {
+            List<GameProfileAttributeData> objs;
+
+            string method_name = "CachedGetGameProfileAttributeDataList";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeDataList(
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByUuid(
+            string uuid
+        )  {
+            return act.GetGameProfileAttributeDataListByUuid(
+            uuid
+            );
+        }
+        
+        public virtual GameProfileAttributeData GetGameProfileAttributeDataByUuid(
+            string uuid
+        )  {
+            foreach (GameProfileAttributeData item in GetGameProfileAttributeDataListByUuid(
+            uuid
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByUuid(
+            string uuid
+        ) {
+            return CachedGetGameProfileAttributeDataListByUuid(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , uuid
+                );
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByUuid(
+            bool overrideCache
+            , int cacheHours
+            , string uuid
+        ) {
+            List<GameProfileAttributeData> objs;
+
+            string method_name = "CachedGetGameProfileAttributeDataListByUuid";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("uuid".ToLower());
+            sb.Append("_");
+            sb.Append(uuid);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeDataListByUuid(
+                    uuid
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByProfileId(
+            string profile_id
+        )  {
+            return act.GetGameProfileAttributeDataListByProfileId(
+            profile_id
+            );
+        }
+        
+        public virtual GameProfileAttributeData GetGameProfileAttributeDataByProfileId(
+            string profile_id
+        )  {
+            foreach (GameProfileAttributeData item in GetGameProfileAttributeDataListByProfileId(
+            profile_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByProfileId(
+            string profile_id
+        ) {
+            return CachedGetGameProfileAttributeDataListByProfileId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                );
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByProfileId(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+        ) {
+            List<GameProfileAttributeData> objs;
+
+            string method_name = "CachedGetGameProfileAttributeDataListByProfileId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeDataListByProfileId(
+                    profile_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {
+            return act.GetGameProfileAttributeDataListByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+            );
+        }
+        
+        public virtual GameProfileAttributeData GetGameProfileAttributeDataByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        )  {
+            foreach (GameProfileAttributeData item in GetGameProfileAttributeDataListByProfileIdByAttributeId(
+            profile_id
+            , attribute_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByProfileIdByAttributeId(
+            string profile_id
+            , string attribute_id
+        ) {
+            return CachedGetGameProfileAttributeDataListByProfileIdByAttributeId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , profile_id
+                    , attribute_id
+                );
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByProfileIdByAttributeId(
+            bool overrideCache
+            , int cacheHours
+            , string profile_id
+            , string attribute_id
+        ) {
+            List<GameProfileAttributeData> objs;
+
+            string method_name = "CachedGetGameProfileAttributeDataListByProfileIdByAttributeId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("attribute_id".ToLower());
+            sb.Append("_");
+            sb.Append(attribute_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeDataListByProfileIdByAttributeId(
+                    profile_id
+                    , attribute_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {
+            return act.GetGameProfileAttributeDataListByGameIdByProfileId(
+            game_id
+            , profile_id
+            );
+        }
+        
+        public virtual GameProfileAttributeData GetGameProfileAttributeDataByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        )  {
+            foreach (GameProfileAttributeData item in GetGameProfileAttributeDataListByGameIdByProfileId(
+            game_id
+            , profile_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByGameIdByProfileId(
+            string game_id
+            , string profile_id
+        ) {
+            return CachedGetGameProfileAttributeDataListByGameIdByProfileId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                    , profile_id
+                );
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByGameIdByProfileId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+            , string profile_id
+        ) {
+            List<GameProfileAttributeData> objs;
+
+            string method_name = "CachedGetGameProfileAttributeDataListByGameIdByProfileId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeDataListByGameIdByProfileId(
+                    game_id
+                    , profile_id
+                );
+                CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+            }
+            return objs;
+        }        
+//------------------------------------------------------------------------------                    
+        public virtual List<GameProfileAttributeData> GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {
+            return act.GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+            );
+        }
+        
+        public virtual GameProfileAttributeData GetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        )  {
+            foreach (GameProfileAttributeData item in GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            game_id
+            , profile_id
+            , attribute_id
+            ))  {
+                return item;
+            }
+            return null;
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            string game_id
+            , string profile_id
+            , string attribute_id
+        ) {
+            return CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+                    false
+                    , CACHE_DEFAULT_HOURS
+                    , game_id
+                    , profile_id
+                    , attribute_id
+                );
+        }
+        
+        public virtual List<GameProfileAttributeData> CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            bool overrideCache
+            , int cacheHours
+            , string game_id
+            , string profile_id
+            , string attribute_id
+        ) {
+            List<GameProfileAttributeData> objs;
+
+            string method_name = "CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId";
+
+            StringBuilder sb = new StringBuilder();
+            sb.Length = 0;
+            sb.Append(method_name);
+            sb.Append("_");
+            sb.Append("game_id".ToLower());
+            sb.Append("_");
+            sb.Append(game_id);
+            sb.Append("_");
+            sb.Append("profile_id".ToLower());
+            sb.Append("_");
+            sb.Append(profile_id);
+            sb.Append("_");
+            sb.Append("attribute_id".ToLower());
+            sb.Append("_");
+            sb.Append(attribute_id);
+
+            string cache_key = sb.ToString();
+
+            objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+            if (objs == null || overrideCache) // if object not cached, get and cache
+            {
+                objs = GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+                    game_id
+                    , profile_id
+                    , attribute_id
                 );
                 CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
             }

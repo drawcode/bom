@@ -573,6 +573,1275 @@ class BaseGamingAPI(object):
         """
               
 #------------------------------------------------------------------------------                    
+    def CountGameAttribute(self
+    ) :         
+        return self.act.CountGameAttribute(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeByUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameAttributeByUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeByCode(self
+        , code
+    ) :         
+        return self.act.CountGameAttributeByCode(
+        code
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeByType(self
+        , type
+    ) :         
+        return self.act.CountGameAttributeByType(
+        type
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeByGroup(self
+        , group
+    ) :         
+        return self.act.CountGameAttributeByGroup(
+        group
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeByCodeByType(self
+        , code
+        , type
+    ) :         
+        return self.act.CountGameAttributeByCodeByType(
+        code
+        , type
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeByGameId(self
+        , game_id
+    ) :         
+        return self.act.CountGameAttributeByGameId(
+        game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :         
+        return self.act.CountGameAttributeByGameIdByCode(
+        game_id
+        , code
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameAttributeListByFilter(self, filter_obj) :
+        return self.act.BrowseGameAttributeListByFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeByUuidType(self, set_type, obj) :
+        return self.act.SetGameAttributeByUuid(set_type, obj)
+               
+    def SetGameAttributeByUuid(self, obj) :
+        return self.act.SetGameAttributeByUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeByCodeType(self, set_type, obj) :
+        return self.act.SetGameAttributeByCode(set_type, obj)
+               
+    def SetGameAttributeByCode(self, obj) :
+        return self.act.SetGameAttributeByCode('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeByGameIdType(self, set_type, obj) :
+        return self.act.SetGameAttributeByGameId(set_type, obj)
+               
+    def SetGameAttributeByGameId(self, obj) :
+        return self.act.SetGameAttributeByGameId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeByGameIdByCodeType(self, set_type, obj) :
+        return self.act.SetGameAttributeByGameIdByCode(set_type, obj)
+               
+    def SetGameAttributeByGameIdByCode(self, obj) :
+        return self.act.SetGameAttributeByGameIdByCode('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeByUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameAttributeByUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeByCode(self
+        , code
+    ) :          
+        return self.act.DelGameAttributeByCode(
+        code
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeByCodeByType(self
+        , code
+        , type
+    ) :          
+        return self.act.DelGameAttributeByCodeByType(
+        code
+        , type
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeByGameId(self
+        , game_id
+    ) :          
+        return self.act.DelGameAttributeByGameId(
+        game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :          
+        return self.act.DelGameAttributeByGameIdByCode(
+        game_id
+        , code
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeList(self
+        ) :
+            return self.act.GetGameAttributeList(
+            )
+        
+    def GetGameAttribute(self
+    ) :
+        for item in self.GetGameAttributeList(
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeList(self
+    ) :
+        return CachedGetGameAttributeList(
+            false
+            , self.CACHE_DEFAULT_HOURS
+        )
+        
+    def CachedGetGameAttributeList(self
+        , overrideCache
+        , cacheHours
+    ) :
+        pass
+        """
+        List<GameAttribute> objs;
+
+        string method_name = "CachedGetGameAttributeList";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeList(
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeListByUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameAttributeListByUuid(
+                uuid
+            )
+        
+    def GetGameAttributeByUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameAttributeListByUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeListByUuid(self
+        , uuid
+    ) :
+        return CachedGetGameAttributeListByUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameAttributeListByUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameAttribute> objs;
+
+        string method_name = "CachedGetGameAttributeListByUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeListByUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeListByCode(self
+        , code
+        ) :
+            return self.act.GetGameAttributeListByCode(
+                code
+            )
+        
+    def GetGameAttributeByCode(self
+        , code
+    ) :
+        for item in self.GetGameAttributeListByCode(
+        code
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeListByCode(self
+        , code
+    ) :
+        return CachedGetGameAttributeListByCode(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+        )
+        
+    def CachedGetGameAttributeListByCode(self
+        , overrideCache
+        , cacheHours
+        , code
+    ) :
+        pass
+        """
+        List<GameAttribute> objs;
+
+        string method_name = "CachedGetGameAttributeListByCode";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeListByCode(
+                code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeListByType(self
+        , type
+        ) :
+            return self.act.GetGameAttributeListByType(
+                type
+            )
+        
+    def GetGameAttributeByType(self
+        , type
+    ) :
+        for item in self.GetGameAttributeListByType(
+        type
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeListByType(self
+        , type
+    ) :
+        return CachedGetGameAttributeListByType(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , type
+        )
+        
+    def CachedGetGameAttributeListByType(self
+        , overrideCache
+        , cacheHours
+        , type
+    ) :
+        pass
+        """
+        List<GameAttribute> objs;
+
+        string method_name = "CachedGetGameAttributeListByType";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("type".ToLower());
+        sb.Append("_");
+        sb.Append(type);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeListByType(
+                type
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeListByGroup(self
+        , group
+        ) :
+            return self.act.GetGameAttributeListByGroup(
+                group
+            )
+        
+    def GetGameAttributeByGroup(self
+        , group
+    ) :
+        for item in self.GetGameAttributeListByGroup(
+        group
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeListByGroup(self
+        , group
+    ) :
+        return CachedGetGameAttributeListByGroup(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , group
+        )
+        
+    def CachedGetGameAttributeListByGroup(self
+        , overrideCache
+        , cacheHours
+        , group
+    ) :
+        pass
+        """
+        List<GameAttribute> objs;
+
+        string method_name = "CachedGetGameAttributeListByGroup";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("group".ToLower());
+        sb.Append("_");
+        sb.Append(group);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeListByGroup(
+                group
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeListByCodeByType(self
+        , code
+        , type
+        ) :
+            return self.act.GetGameAttributeListByCodeByType(
+                code
+                , type
+            )
+        
+    def GetGameAttributeByCodeByType(self
+        , code
+        , type
+    ) :
+        for item in self.GetGameAttributeListByCodeByType(
+        code
+        , type
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeListByCodeByType(self
+        , code
+        , type
+    ) :
+        return CachedGetGameAttributeListByCodeByType(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , type
+        )
+        
+    def CachedGetGameAttributeListByCodeByType(self
+        , overrideCache
+        , cacheHours
+        , code
+        , type
+    ) :
+        pass
+        """
+        List<GameAttribute> objs;
+
+        string method_name = "CachedGetGameAttributeListByCodeByType";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("type".ToLower());
+        sb.Append("_");
+        sb.Append(type);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeListByCodeByType(
+                code
+                , type
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeListByGameIdByCode(self
+        , game_id
+        , code
+        ) :
+            return self.act.GetGameAttributeListByGameIdByCode(
+                game_id
+                , code
+            )
+        
+    def GetGameAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        for item in self.GetGameAttributeListByGameIdByCode(
+        game_id
+        , code
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeListByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        return CachedGetGameAttributeListByGameIdByCode(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+            , code
+        )
+        
+    def CachedGetGameAttributeListByGameIdByCode(self
+        , overrideCache
+        , cacheHours
+        , game_id
+        , code
+    ) :
+        pass
+        """
+        List<GameAttribute> objs;
+
+        string method_name = "CachedGetGameAttributeListByGameIdByCode";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeListByGameIdByCode(
+                game_id
+                , code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeText(self
+    ) :         
+        return self.act.CountGameAttributeText(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeTextByUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameAttributeTextByUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeTextByGameId(self
+        , game_id
+    ) :         
+        return self.act.CountGameAttributeTextByGameId(
+        game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeTextByAttributeId(self
+        , attribute_id
+    ) :         
+        return self.act.CountGameAttributeTextByAttributeId(
+        attribute_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeTextByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :         
+        return self.act.CountGameAttributeTextByGameIdByAttributeId(
+        game_id
+        , attribute_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameAttributeTextListByFilter(self, filter_obj) :
+        return self.act.BrowseGameAttributeTextListByFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeTextType(self, set_type, obj) :
+        return self.act.SetGameAttributeText(set_type, obj)
+               
+    def SetGameAttributeText(self, obj) :
+        return self.act.SetGameAttributeText('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeTextByUuidType(self, set_type, obj) :
+        return self.act.SetGameAttributeTextByUuid(set_type, obj)
+               
+    def SetGameAttributeTextByUuid(self, obj) :
+        return self.act.SetGameAttributeTextByUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeTextByGameIdType(self, set_type, obj) :
+        return self.act.SetGameAttributeTextByGameId(set_type, obj)
+               
+    def SetGameAttributeTextByGameId(self, obj) :
+        return self.act.SetGameAttributeTextByGameId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeTextByAttributeIdType(self, set_type, obj) :
+        return self.act.SetGameAttributeTextByAttributeId(set_type, obj)
+               
+    def SetGameAttributeTextByAttributeId(self, obj) :
+        return self.act.SetGameAttributeTextByAttributeId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeTextByGameIdByAttributeIdType(self, set_type, obj) :
+        return self.act.SetGameAttributeTextByGameIdByAttributeId(set_type, obj)
+               
+    def SetGameAttributeTextByGameIdByAttributeId(self, obj) :
+        return self.act.SetGameAttributeTextByGameIdByAttributeId('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeText(self
+    ) :          
+        return self.act.DelGameAttributeText(
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeTextByUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameAttributeTextByUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeTextByGameId(self
+        , game_id
+    ) :          
+        return self.act.DelGameAttributeTextByGameId(
+        game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeTextByAttributeId(self
+        , attribute_id
+    ) :          
+        return self.act.DelGameAttributeTextByAttributeId(
+        attribute_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeTextByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :          
+        return self.act.DelGameAttributeTextByGameIdByAttributeId(
+        game_id
+        , attribute_id
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeTextList(self
+        ) :
+            return self.act.GetGameAttributeTextList(
+            )
+        
+    def GetGameAttributeText(self
+    ) :
+        for item in self.GetGameAttributeTextList(
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeTextList(self
+    ) :
+        return CachedGetGameAttributeTextList(
+            false
+            , self.CACHE_DEFAULT_HOURS
+        )
+        
+    def CachedGetGameAttributeTextList(self
+        , overrideCache
+        , cacheHours
+    ) :
+        pass
+        """
+        List<GameAttributeText> objs;
+
+        string method_name = "CachedGetGameAttributeTextList";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeTextList(
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeTextListByUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameAttributeTextListByUuid(
+                uuid
+            )
+        
+    def GetGameAttributeTextByUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameAttributeTextListByUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeTextListByUuid(self
+        , uuid
+    ) :
+        return CachedGetGameAttributeTextListByUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameAttributeTextListByUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameAttributeText> objs;
+
+        string method_name = "CachedGetGameAttributeTextListByUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeTextListByUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeTextListByGameId(self
+        , game_id
+        ) :
+            return self.act.GetGameAttributeTextListByGameId(
+                game_id
+            )
+        
+    def GetGameAttributeTextByGameId(self
+        , game_id
+    ) :
+        for item in self.GetGameAttributeTextListByGameId(
+        game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeTextListByGameId(self
+        , game_id
+    ) :
+        return CachedGetGameAttributeTextListByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+        )
+        
+    def CachedGetGameAttributeTextListByGameId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+    ) :
+        pass
+        """
+        List<GameAttributeText> objs;
+
+        string method_name = "CachedGetGameAttributeTextListByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeTextListByGameId(
+                game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeTextListByAttributeId(self
+        , attribute_id
+        ) :
+            return self.act.GetGameAttributeTextListByAttributeId(
+                attribute_id
+            )
+        
+    def GetGameAttributeTextByAttributeId(self
+        , attribute_id
+    ) :
+        for item in self.GetGameAttributeTextListByAttributeId(
+        attribute_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeTextListByAttributeId(self
+        , attribute_id
+    ) :
+        return CachedGetGameAttributeTextListByAttributeId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , attribute_id
+        )
+        
+    def CachedGetGameAttributeTextListByAttributeId(self
+        , overrideCache
+        , cacheHours
+        , attribute_id
+    ) :
+        pass
+        """
+        List<GameAttributeText> objs;
+
+        string method_name = "CachedGetGameAttributeTextListByAttributeId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("attribute_id".ToLower());
+        sb.Append("_");
+        sb.Append(attribute_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeTextListByAttributeId(
+                attribute_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeTextListByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+        ) :
+            return self.act.GetGameAttributeTextListByGameIdByAttributeId(
+                game_id
+                , attribute_id
+            )
+        
+    def GetGameAttributeTextByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+        for item in self.GetGameAttributeTextListByGameIdByAttributeId(
+        game_id
+        , attribute_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeTextListByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+        return CachedGetGameAttributeTextListByGameIdByAttributeId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+            , attribute_id
+        )
+        
+    def CachedGetGameAttributeTextListByGameIdByAttributeId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+        , attribute_id
+    ) :
+        pass
+        """
+        List<GameAttributeText> objs;
+
+        string method_name = "CachedGetGameAttributeTextListByGameIdByAttributeId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("attribute_id".ToLower());
+        sb.Append("_");
+        sb.Append(attribute_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeTextListByGameIdByAttributeId(
+                game_id
+                , attribute_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeData(self
+    ) :         
+        return self.act.CountGameAttributeData(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeDataByUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameAttributeDataByUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeDataByGameId(self
+        , game_id
+    ) :         
+        return self.act.CountGameAttributeDataByGameId(
+        game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameAttributeDataByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :         
+        return self.act.CountGameAttributeDataByGameIdByAttributeId(
+        game_id
+        , attribute_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameAttributeDataListByFilter(self, filter_obj) :
+        return self.act.BrowseGameAttributeDataListByFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeDataByUuidType(self, set_type, obj) :
+        return self.act.SetGameAttributeDataByUuid(set_type, obj)
+               
+    def SetGameAttributeDataByUuid(self, obj) :
+        return self.act.SetGameAttributeDataByUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameAttributeDataByGameIdByAttributeIdType(self, set_type, obj) :
+        return self.act.SetGameAttributeDataByGameIdByAttributeId(set_type, obj)
+               
+    def SetGameAttributeDataByGameIdByAttributeId(self, obj) :
+        return self.act.SetGameAttributeDataByGameIdByAttributeId('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeData(self
+    ) :          
+        return self.act.DelGameAttributeData(
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeDataByUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameAttributeDataByUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeDataByGameId(self
+        , game_id
+    ) :          
+        return self.act.DelGameAttributeDataByGameId(
+        game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameAttributeDataByGameId(self
+        , game_id
+    ) :          
+        return self.act.DelGameAttributeDataByGameId(
+        game_id
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeDataList(self
+        ) :
+            return self.act.GetGameAttributeDataList(
+            )
+        
+    def GetGameAttributeData(self
+    ) :
+        for item in self.GetGameAttributeDataList(
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeDataList(self
+    ) :
+        return CachedGetGameAttributeDataList(
+            false
+            , self.CACHE_DEFAULT_HOURS
+        )
+        
+    def CachedGetGameAttributeDataList(self
+        , overrideCache
+        , cacheHours
+    ) :
+        pass
+        """
+        List<GameAttributeData> objs;
+
+        string method_name = "CachedGetGameAttributeDataList";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeDataList(
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeDataListByUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameAttributeDataListByUuid(
+                uuid
+            )
+        
+    def GetGameAttributeDataByUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameAttributeDataListByUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeDataListByUuid(self
+        , uuid
+    ) :
+        return CachedGetGameAttributeDataListByUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameAttributeDataListByUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameAttributeData> objs;
+
+        string method_name = "CachedGetGameAttributeDataListByUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeDataListByUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeDataListByGameId(self
+        , game_id
+        ) :
+            return self.act.GetGameAttributeDataListByGameId(
+                game_id
+            )
+        
+    def GetGameAttributeDataByGameId(self
+        , game_id
+    ) :
+        for item in self.GetGameAttributeDataListByGameId(
+        game_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeDataListByGameId(self
+        , game_id
+    ) :
+        return CachedGetGameAttributeDataListByGameId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+        )
+        
+    def CachedGetGameAttributeDataListByGameId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+    ) :
+        pass
+        """
+        List<GameAttributeData> objs;
+
+        string method_name = "CachedGetGameAttributeDataListByGameId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeDataListByGameId(
+                game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameAttributeDataListByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+        ) :
+            return self.act.GetGameAttributeDataListByGameIdByAttributeId(
+                game_id
+                , attribute_id
+            )
+        
+    def GetGameAttributeDataByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+        for item in self.GetGameAttributeDataListByGameIdByAttributeId(
+        game_id
+        , attribute_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameAttributeDataListByGameIdByAttributeId(self
+        , game_id
+        , attribute_id
+    ) :
+        return CachedGetGameAttributeDataListByGameIdByAttributeId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+            , attribute_id
+        )
+        
+    def CachedGetGameAttributeDataListByGameIdByAttributeId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+        , attribute_id
+    ) :
+        pass
+        """
+        List<GameAttributeData> objs;
+
+        string method_name = "CachedGetGameAttributeDataListByGameIdByAttributeId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("attribute_id".ToLower());
+        sb.Append("_");
+        sb.Append(attribute_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameAttributeDataListByGameIdByAttributeId(
+                game_id
+                , attribute_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
     def CountGameCategory(self
     ) :         
         return self.act.CountGameCategory(
@@ -2122,11 +3391,52 @@ class BaseGamingAPI(object):
     def SetProfileGameByUuid(self, obj) :
         return self.act.SetProfileGameByUuid('full', obj)
 #------------------------------------------------------------------------------                    
+    def SetProfileGameByGameIdType(self, set_type, obj) :
+        return self.act.SetProfileGameByGameId(set_type, obj)
+               
+    def SetProfileGameByGameId(self, obj) :
+        return self.act.SetProfileGameByGameId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetProfileGameByProfileIdType(self, set_type, obj) :
+        return self.act.SetProfileGameByProfileId(set_type, obj)
+               
+    def SetProfileGameByProfileId(self, obj) :
+        return self.act.SetProfileGameByProfileId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetProfileGameByProfileIdByGameIdType(self, set_type, obj) :
+        return self.act.SetProfileGameByProfileIdByGameId(set_type, obj)
+               
+    def SetProfileGameByProfileIdByGameId(self, obj) :
+        return self.act.SetProfileGameByProfileIdByGameId('full', obj)
+#------------------------------------------------------------------------------                    
     def DelProfileGameByUuid(self
         , uuid
     ) :          
         return self.act.DelProfileGameByUuid(
         uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelProfileGameByGameId(self
+        , game_id
+    ) :          
+        return self.act.DelProfileGameByGameId(
+        game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelProfileGameByProfileId(self
+        , profile_id
+    ) :          
+        return self.act.DelProfileGameByProfileId(
+        profile_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelProfileGameByProfileIdByGameId(self
+        , profile_id
+        , game_id
+    ) :          
+        return self.act.DelProfileGameByProfileIdByGameId(
+        profile_id
+        , game_id
         )
 #------------------------------------------------------------------------------                    
     def GetProfileGameList(self
@@ -2417,6 +3727,1550 @@ class BaseGamingAPI(object):
             objs = GetProfileGameListByProfileIdByGameId(
                 profile_id
                 , game_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttribute(self
+    ) :         
+        return self.act.CountGameProfileAttribute(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeByUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameProfileAttributeByUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeByCode(self
+        , code
+    ) :         
+        return self.act.CountGameProfileAttributeByCode(
+        code
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeByType(self
+        , type
+    ) :         
+        return self.act.CountGameProfileAttributeByType(
+        type
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeByGroup(self
+        , group
+    ) :         
+        return self.act.CountGameProfileAttributeByGroup(
+        group
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeByCodeByType(self
+        , code
+        , type
+    ) :         
+        return self.act.CountGameProfileAttributeByCodeByType(
+        code
+        , type
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeByGameId(self
+        , game_id
+    ) :         
+        return self.act.CountGameProfileAttributeByGameId(
+        game_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :         
+        return self.act.CountGameProfileAttributeByGameIdByCode(
+        game_id
+        , code
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameProfileAttributeListByFilter(self, filter_obj) :
+        return self.act.BrowseGameProfileAttributeListByFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeByUuidType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeByUuid(set_type, obj)
+               
+    def SetGameProfileAttributeByUuid(self, obj) :
+        return self.act.SetGameProfileAttributeByUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeByCodeType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeByCode(set_type, obj)
+               
+    def SetGameProfileAttributeByCode(self, obj) :
+        return self.act.SetGameProfileAttributeByCode('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeByGameIdType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeByGameId(set_type, obj)
+               
+    def SetGameProfileAttributeByGameId(self, obj) :
+        return self.act.SetGameProfileAttributeByGameId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeByGameIdByCodeType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeByGameIdByCode(set_type, obj)
+               
+    def SetGameProfileAttributeByGameIdByCode(self, obj) :
+        return self.act.SetGameProfileAttributeByGameIdByCode('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeByUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameProfileAttributeByUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeByCode(self
+        , code
+    ) :          
+        return self.act.DelGameProfileAttributeByCode(
+        code
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeByCodeByType(self
+        , code
+        , type
+    ) :          
+        return self.act.DelGameProfileAttributeByCodeByType(
+        code
+        , type
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeByGameId(self
+        , game_id
+    ) :          
+        return self.act.DelGameProfileAttributeByGameId(
+        game_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :          
+        return self.act.DelGameProfileAttributeByGameIdByCode(
+        game_id
+        , code
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeList(self
+        ) :
+            return self.act.GetGameProfileAttributeList(
+            )
+        
+    def GetGameProfileAttribute(self
+    ) :
+        for item in self.GetGameProfileAttributeList(
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeList(self
+    ) :
+        return CachedGetGameProfileAttributeList(
+            false
+            , self.CACHE_DEFAULT_HOURS
+        )
+        
+    def CachedGetGameProfileAttributeList(self
+        , overrideCache
+        , cacheHours
+    ) :
+        pass
+        """
+        List<GameProfileAttribute> objs;
+
+        string method_name = "CachedGetGameProfileAttributeList";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeList(
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeListByUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameProfileAttributeListByUuid(
+                uuid
+            )
+        
+    def GetGameProfileAttributeByUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameProfileAttributeListByUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeListByUuid(self
+        , uuid
+    ) :
+        return CachedGetGameProfileAttributeListByUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameProfileAttributeListByUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameProfileAttribute> objs;
+
+        string method_name = "CachedGetGameProfileAttributeListByUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeListByUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeListByCode(self
+        , code
+        ) :
+            return self.act.GetGameProfileAttributeListByCode(
+                code
+            )
+        
+    def GetGameProfileAttributeByCode(self
+        , code
+    ) :
+        for item in self.GetGameProfileAttributeListByCode(
+        code
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeListByCode(self
+        , code
+    ) :
+        return CachedGetGameProfileAttributeListByCode(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+        )
+        
+    def CachedGetGameProfileAttributeListByCode(self
+        , overrideCache
+        , cacheHours
+        , code
+    ) :
+        pass
+        """
+        List<GameProfileAttribute> objs;
+
+        string method_name = "CachedGetGameProfileAttributeListByCode";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeListByCode(
+                code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeListByType(self
+        , type
+        ) :
+            return self.act.GetGameProfileAttributeListByType(
+                type
+            )
+        
+    def GetGameProfileAttributeByType(self
+        , type
+    ) :
+        for item in self.GetGameProfileAttributeListByType(
+        type
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeListByType(self
+        , type
+    ) :
+        return CachedGetGameProfileAttributeListByType(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , type
+        )
+        
+    def CachedGetGameProfileAttributeListByType(self
+        , overrideCache
+        , cacheHours
+        , type
+    ) :
+        pass
+        """
+        List<GameProfileAttribute> objs;
+
+        string method_name = "CachedGetGameProfileAttributeListByType";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("type".ToLower());
+        sb.Append("_");
+        sb.Append(type);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeListByType(
+                type
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeListByGroup(self
+        , group
+        ) :
+            return self.act.GetGameProfileAttributeListByGroup(
+                group
+            )
+        
+    def GetGameProfileAttributeByGroup(self
+        , group
+    ) :
+        for item in self.GetGameProfileAttributeListByGroup(
+        group
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeListByGroup(self
+        , group
+    ) :
+        return CachedGetGameProfileAttributeListByGroup(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , group
+        )
+        
+    def CachedGetGameProfileAttributeListByGroup(self
+        , overrideCache
+        , cacheHours
+        , group
+    ) :
+        pass
+        """
+        List<GameProfileAttribute> objs;
+
+        string method_name = "CachedGetGameProfileAttributeListByGroup";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("group".ToLower());
+        sb.Append("_");
+        sb.Append(group);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeListByGroup(
+                group
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeListByCodeByType(self
+        , code
+        , type
+        ) :
+            return self.act.GetGameProfileAttributeListByCodeByType(
+                code
+                , type
+            )
+        
+    def GetGameProfileAttributeByCodeByType(self
+        , code
+        , type
+    ) :
+        for item in self.GetGameProfileAttributeListByCodeByType(
+        code
+        , type
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeListByCodeByType(self
+        , code
+        , type
+    ) :
+        return CachedGetGameProfileAttributeListByCodeByType(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , code
+            , type
+        )
+        
+    def CachedGetGameProfileAttributeListByCodeByType(self
+        , overrideCache
+        , cacheHours
+        , code
+        , type
+    ) :
+        pass
+        """
+        List<GameProfileAttribute> objs;
+
+        string method_name = "CachedGetGameProfileAttributeListByCodeByType";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+        sb.Append("_");
+        sb.Append("type".ToLower());
+        sb.Append("_");
+        sb.Append(type);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeListByCodeByType(
+                code
+                , type
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeListByGameIdByCode(self
+        , game_id
+        , code
+        ) :
+            return self.act.GetGameProfileAttributeListByGameIdByCode(
+                game_id
+                , code
+            )
+        
+    def GetGameProfileAttributeByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        for item in self.GetGameProfileAttributeListByGameIdByCode(
+        game_id
+        , code
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeListByGameIdByCode(self
+        , game_id
+        , code
+    ) :
+        return CachedGetGameProfileAttributeListByGameIdByCode(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+            , code
+        )
+        
+    def CachedGetGameProfileAttributeListByGameIdByCode(self
+        , overrideCache
+        , cacheHours
+        , game_id
+        , code
+    ) :
+        pass
+        """
+        List<GameProfileAttribute> objs;
+
+        string method_name = "CachedGetGameProfileAttributeListByGameIdByCode";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("code".ToLower());
+        sb.Append("_");
+        sb.Append(code);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeListByGameIdByCode(
+                game_id
+                , code
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeText(self
+    ) :         
+        return self.act.CountGameProfileAttributeText(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeTextByUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameProfileAttributeTextByUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeTextByProfileId(self
+        , profile_id
+    ) :         
+        return self.act.CountGameProfileAttributeTextByProfileId(
+        profile_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeTextByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :         
+        return self.act.CountGameProfileAttributeTextByProfileIdByAttributeId(
+        profile_id
+        , attribute_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeTextByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :         
+        return self.act.CountGameProfileAttributeTextByGameIdByProfileId(
+        game_id
+        , profile_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :         
+        return self.act.CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        game_id
+        , profile_id
+        , attribute_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameProfileAttributeTextListByFilter(self, filter_obj) :
+        return self.act.BrowseGameProfileAttributeTextListByFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeTextByUuidType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeTextByUuid(set_type, obj)
+               
+    def SetGameProfileAttributeTextByUuid(self, obj) :
+        return self.act.SetGameProfileAttributeTextByUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeTextByProfileIdType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeTextByProfileId(set_type, obj)
+               
+    def SetGameProfileAttributeTextByProfileId(self, obj) :
+        return self.act.SetGameProfileAttributeTextByProfileId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeTextByProfileIdByAttributeIdType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeTextByProfileIdByAttributeId(set_type, obj)
+               
+    def SetGameProfileAttributeTextByProfileIdByAttributeId(self, obj) :
+        return self.act.SetGameProfileAttributeTextByProfileIdByAttributeId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeTextByGameIdByProfileIdType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeTextByGameIdByProfileId(set_type, obj)
+               
+    def SetGameProfileAttributeTextByGameIdByProfileId(self, obj) :
+        return self.act.SetGameProfileAttributeTextByGameIdByProfileId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeTextByGameIdByProfileIdByAttributeIdType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(set_type, obj)
+               
+    def SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self, obj) :
+        return self.act.SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeTextByUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameProfileAttributeTextByUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeTextByProfileId(self
+        , profile_id
+    ) :          
+        return self.act.DelGameProfileAttributeTextByProfileId(
+        profile_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeTextByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :          
+        return self.act.DelGameProfileAttributeTextByProfileIdByAttributeId(
+        profile_id
+        , attribute_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeTextByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :          
+        return self.act.DelGameProfileAttributeTextByGameIdByProfileId(
+        game_id
+        , profile_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :          
+        return self.act.DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        game_id
+        , profile_id
+        , attribute_id
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeTextListByUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameProfileAttributeTextListByUuid(
+                uuid
+            )
+        
+    def GetGameProfileAttributeTextByUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameProfileAttributeTextListByUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeTextListByUuid(self
+        , uuid
+    ) :
+        return CachedGetGameProfileAttributeTextListByUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameProfileAttributeTextListByUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameProfileAttributeText> objs;
+
+        string method_name = "CachedGetGameProfileAttributeTextListByUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeTextListByUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeTextListByProfileId(self
+        , profile_id
+        ) :
+            return self.act.GetGameProfileAttributeTextListByProfileId(
+                profile_id
+            )
+        
+    def GetGameProfileAttributeTextByProfileId(self
+        , profile_id
+    ) :
+        for item in self.GetGameProfileAttributeTextListByProfileId(
+        profile_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeTextListByProfileId(self
+        , profile_id
+    ) :
+        return CachedGetGameProfileAttributeTextListByProfileId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+        )
+        
+    def CachedGetGameProfileAttributeTextListByProfileId(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+    ) :
+        pass
+        """
+        List<GameProfileAttributeText> objs;
+
+        string method_name = "CachedGetGameProfileAttributeTextListByProfileId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeTextListByProfileId(
+                profile_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeTextListByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+        ) :
+            return self.act.GetGameProfileAttributeTextListByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            )
+        
+    def GetGameProfileAttributeTextByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        for item in self.GetGameProfileAttributeTextListByProfileIdByAttributeId(
+        profile_id
+        , attribute_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeTextListByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        return CachedGetGameProfileAttributeTextListByProfileIdByAttributeId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , attribute_id
+        )
+        
+    def CachedGetGameProfileAttributeTextListByProfileIdByAttributeId(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , attribute_id
+    ) :
+        pass
+        """
+        List<GameProfileAttributeText> objs;
+
+        string method_name = "CachedGetGameProfileAttributeTextListByProfileIdByAttributeId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("attribute_id".ToLower());
+        sb.Append("_");
+        sb.Append(attribute_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeTextListByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeTextListByGameIdByProfileId(self
+        , game_id
+        , profile_id
+        ) :
+            return self.act.GetGameProfileAttributeTextListByGameIdByProfileId(
+                game_id
+                , profile_id
+            )
+        
+    def GetGameProfileAttributeTextByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        for item in self.GetGameProfileAttributeTextListByGameIdByProfileId(
+        game_id
+        , profile_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeTextListByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        return CachedGetGameProfileAttributeTextListByGameIdByProfileId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+            , profile_id
+        )
+        
+    def CachedGetGameProfileAttributeTextListByGameIdByProfileId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+        , profile_id
+    ) :
+        pass
+        """
+        List<GameProfileAttributeText> objs;
+
+        string method_name = "CachedGetGameProfileAttributeTextListByGameIdByProfileId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeTextListByGameIdByProfileId(
+                game_id
+                , profile_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+        ) :
+            return self.act.GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
+            )
+        
+    def GetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        for item in self.GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+        game_id
+        , profile_id
+        , attribute_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        return CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+            , profile_id
+            , attribute_id
+        )
+        
+    def CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        pass
+        """
+        List<GameProfileAttributeText> objs;
+
+        string method_name = "CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("attribute_id".ToLower());
+        sb.Append("_");
+        sb.Append(attribute_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeData(self
+    ) :         
+        return self.act.CountGameProfileAttributeData(
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeDataByUuid(self
+        , uuid
+    ) :         
+        return self.act.CountGameProfileAttributeDataByUuid(
+        uuid
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeDataByProfileId(self
+        , profile_id
+    ) :         
+        return self.act.CountGameProfileAttributeDataByProfileId(
+        profile_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeDataByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :         
+        return self.act.CountGameProfileAttributeDataByProfileIdByAttributeId(
+        profile_id
+        , attribute_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeDataByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :         
+        return self.act.CountGameProfileAttributeDataByGameIdByProfileId(
+        game_id
+        , profile_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :         
+        return self.act.CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        game_id
+        , profile_id
+        , attribute_id
+        )
+        
+#------------------------------------------------------------------------------                    
+    def BrowseGameProfileAttributeDataListByFilter(self, filter_obj) :
+        return self.act.BrowseGameProfileAttributeDataListByFilter(filter_obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeDataByUuidType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeDataByUuid(set_type, obj)
+               
+    def SetGameProfileAttributeDataByUuid(self, obj) :
+        return self.act.SetGameProfileAttributeDataByUuid('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeDataByProfileIdByAttributeIdType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeDataByProfileIdByAttributeId(set_type, obj)
+               
+    def SetGameProfileAttributeDataByProfileIdByAttributeId(self, obj) :
+        return self.act.SetGameProfileAttributeDataByProfileIdByAttributeId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeDataByGameIdByProfileIdType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeDataByGameIdByProfileId(set_type, obj)
+               
+    def SetGameProfileAttributeDataByGameIdByProfileId(self, obj) :
+        return self.act.SetGameProfileAttributeDataByGameIdByProfileId('full', obj)
+#------------------------------------------------------------------------------                    
+    def SetGameProfileAttributeDataByGameIdByProfileIdByAttributeIdType(self, set_type, obj) :
+        return self.act.SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(set_type, obj)
+               
+    def SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self, obj) :
+        return self.act.SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId('full', obj)
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeDataByUuid(self
+        , uuid
+    ) :          
+        return self.act.DelGameProfileAttributeDataByUuid(
+        uuid
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeDataByProfileId(self
+        , profile_id
+    ) :          
+        return self.act.DelGameProfileAttributeDataByProfileId(
+        profile_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeDataByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :          
+        return self.act.DelGameProfileAttributeDataByProfileIdByAttributeId(
+        profile_id
+        , attribute_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeDataByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :          
+        return self.act.DelGameProfileAttributeDataByGameIdByProfileId(
+        game_id
+        , profile_id
+        )
+#------------------------------------------------------------------------------                    
+    def DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :          
+        return self.act.DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        game_id
+        , profile_id
+        , attribute_id
+        )
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeDataList(self
+        ) :
+            return self.act.GetGameProfileAttributeDataList(
+            )
+        
+    def GetGameProfileAttributeData(self
+    ) :
+        for item in self.GetGameProfileAttributeDataList(
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeDataList(self
+    ) :
+        return CachedGetGameProfileAttributeDataList(
+            false
+            , self.CACHE_DEFAULT_HOURS
+        )
+        
+    def CachedGetGameProfileAttributeDataList(self
+        , overrideCache
+        , cacheHours
+    ) :
+        pass
+        """
+        List<GameProfileAttributeData> objs;
+
+        string method_name = "CachedGetGameProfileAttributeDataList";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeDataList(
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeDataListByUuid(self
+        , uuid
+        ) :
+            return self.act.GetGameProfileAttributeDataListByUuid(
+                uuid
+            )
+        
+    def GetGameProfileAttributeDataByUuid(self
+        , uuid
+    ) :
+        for item in self.GetGameProfileAttributeDataListByUuid(
+        uuid
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeDataListByUuid(self
+        , uuid
+    ) :
+        return CachedGetGameProfileAttributeDataListByUuid(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , uuid
+        )
+        
+    def CachedGetGameProfileAttributeDataListByUuid(self
+        , overrideCache
+        , cacheHours
+        , uuid
+    ) :
+        pass
+        """
+        List<GameProfileAttributeData> objs;
+
+        string method_name = "CachedGetGameProfileAttributeDataListByUuid";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("uuid".ToLower());
+        sb.Append("_");
+        sb.Append(uuid);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeDataListByUuid(
+                uuid
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeDataListByProfileId(self
+        , profile_id
+        ) :
+            return self.act.GetGameProfileAttributeDataListByProfileId(
+                profile_id
+            )
+        
+    def GetGameProfileAttributeDataByProfileId(self
+        , profile_id
+    ) :
+        for item in self.GetGameProfileAttributeDataListByProfileId(
+        profile_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeDataListByProfileId(self
+        , profile_id
+    ) :
+        return CachedGetGameProfileAttributeDataListByProfileId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+        )
+        
+    def CachedGetGameProfileAttributeDataListByProfileId(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+    ) :
+        pass
+        """
+        List<GameProfileAttributeData> objs;
+
+        string method_name = "CachedGetGameProfileAttributeDataListByProfileId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeDataListByProfileId(
+                profile_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeDataListByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+        ) :
+            return self.act.GetGameProfileAttributeDataListByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            )
+        
+    def GetGameProfileAttributeDataByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        for item in self.GetGameProfileAttributeDataListByProfileIdByAttributeId(
+        profile_id
+        , attribute_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeDataListByProfileIdByAttributeId(self
+        , profile_id
+        , attribute_id
+    ) :
+        return CachedGetGameProfileAttributeDataListByProfileIdByAttributeId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , profile_id
+            , attribute_id
+        )
+        
+    def CachedGetGameProfileAttributeDataListByProfileIdByAttributeId(self
+        , overrideCache
+        , cacheHours
+        , profile_id
+        , attribute_id
+    ) :
+        pass
+        """
+        List<GameProfileAttributeData> objs;
+
+        string method_name = "CachedGetGameProfileAttributeDataListByProfileIdByAttributeId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("attribute_id".ToLower());
+        sb.Append("_");
+        sb.Append(attribute_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeDataListByProfileIdByAttributeId(
+                profile_id
+                , attribute_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeDataListByGameIdByProfileId(self
+        , game_id
+        , profile_id
+        ) :
+            return self.act.GetGameProfileAttributeDataListByGameIdByProfileId(
+                game_id
+                , profile_id
+            )
+        
+    def GetGameProfileAttributeDataByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        for item in self.GetGameProfileAttributeDataListByGameIdByProfileId(
+        game_id
+        , profile_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeDataListByGameIdByProfileId(self
+        , game_id
+        , profile_id
+    ) :
+        return CachedGetGameProfileAttributeDataListByGameIdByProfileId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+            , profile_id
+        )
+        
+    def CachedGetGameProfileAttributeDataListByGameIdByProfileId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+        , profile_id
+    ) :
+        pass
+        """
+        List<GameProfileAttributeData> objs;
+
+        string method_name = "CachedGetGameProfileAttributeDataListByGameIdByProfileId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeDataListByGameIdByProfileId(
+                game_id
+                , profile_id
+            );
+            CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return objs;
+        """
+              
+#------------------------------------------------------------------------------                    
+    def GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+        ) :
+            return self.act.GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
+            )
+        
+    def GetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        for item in self.GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+        game_id
+        , profile_id
+        , attribute_id
+        ) :
+            return item
+        return None
+    
+    def CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(self
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        return CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            false
+            , self.CACHE_DEFAULT_HOURS
+            , game_id
+            , profile_id
+            , attribute_id
+        )
+        
+    def CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(self
+        , overrideCache
+        , cacheHours
+        , game_id
+        , profile_id
+        , attribute_id
+    ) :
+        pass
+        """
+        List<GameProfileAttributeData> objs;
+
+        string method_name = "CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Length = 0;
+        sb.Append(method_name);
+        sb.Append("_");
+        sb.Append("game_id".ToLower());
+        sb.Append("_");
+        sb.Append(game_id);
+        sb.Append("_");
+        sb.Append("profile_id".ToLower());
+        sb.Append("_");
+        sb.Append(profile_id);
+        sb.Append("_");
+        sb.Append("attribute_id".ToLower());
+        sb.Append("_");
+        sb.Append(attribute_id);
+
+        string cache_key = sb.ToString();
+
+        objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if (objs == None || overrideCache) // if object not cached, get and cache
+        {
+            objs = GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+                game_id
+                , profile_id
+                , attribute_id
             );
             CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }

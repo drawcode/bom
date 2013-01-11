@@ -1,11 +1,17 @@
 <?php // namespace Gaming;
 
 require_once('ent/Game.php');
+require_once('ent/GameAttribute.php');
+require_once('ent/GameAttributeText.php');
+require_once('ent/GameAttributeData.php');
 require_once('ent/GameCategory.php');
 require_once('ent/GameCategoryTree.php');
 require_once('ent/GameCategoryAssoc.php');
 require_once('ent/GameType.php');
 require_once('ent/ProfileGame.php');
+require_once('ent/GameProfileAttribute.php');
+require_once('ent/GameProfileAttributeText.php');
+require_once('ent/GameProfileAttributeData.php');
 require_once('ent/GameNetwork.php');
 require_once('ent/GameNetworkAuth.php');
 require_once('ent/ProfileGameNetwork.php');
@@ -385,6 +391,809 @@ class BaseGamingACT {
             foreach ($rows as $row) {
                 $game  = $this->FillGame($row);
                 $results[] = $game;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameAttribute($row) {
+        $obj = new GameAttribute();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['sort'] != NULL) {                
+            $obj->sort = $row['sort'];#dataType.FillDataInt(dr, "sort");
+        }
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
+        }
+        if ($row['display_name'] != NULL) {                
+            $obj->display_name = $row['display_name'];#dataType.FillDataString(dr, "display_name");
+        }
+        if ($row['name'] != NULL) {                
+            $obj->name = $row['name'];#dataType.FillDataString(dr, "name");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['group'] != NULL) {                
+            $obj->group = $row['group'];#dataType.FillDataInt(dr, "group");
+        }
+        if ($row['game_id'] != NULL) {                
+            $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataInt(dr, "type");
+        }
+        if ($row['order'] != NULL) {                
+            $obj->order = $row['order'];#dataType.FillDataInt(dr, "order");
+        }
+        if ($row['description'] != NULL) {                
+            $obj->description = $row['description'];#dataType.FillDataString(dr, "description");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameAttribute(
+    ) {       
+        return $this->data->CountGameAttribute(
+        );
+    }
+               
+    public function CountGameAttributeByUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameAttributeByUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameAttributeByCode(
+        $code
+    ) {       
+        return $this->data->CountGameAttributeByCode(
+            $code
+        );
+    }
+               
+    public function CountGameAttributeByType(
+        $type
+    ) {       
+        return $this->data->CountGameAttributeByType(
+            $type
+        );
+    }
+               
+    public function CountGameAttributeByGroup(
+        $group
+    ) {       
+        return $this->data->CountGameAttributeByGroup(
+            $group
+        );
+    }
+               
+    public function CountGameAttributeByCodeByType(
+        $code
+        , $type
+    ) {       
+        return $this->data->CountGameAttributeByCodeByType(
+            $code
+            , $type
+        );
+    }
+               
+    public function CountGameAttributeByGameId(
+        $game_id
+    ) {       
+        return $this->data->CountGameAttributeByGameId(
+            $game_id
+        );
+    }
+               
+    public function CountGameAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {       
+        return $this->data->CountGameAttributeByGameIdByCode(
+            $game_id
+            , $code
+        );
+    }
+               
+    public function BrowseGameAttributeListByFilter($filter_obj) {
+        $result = new GameAttributeResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameAttributeListByFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_attribute = $this->FillGameAttribute($row);
+                $result->data[] = $game_attribute;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameAttributeByUuid($set_type, $obj) {           
+        return $this->data->SetGameAttributeByUuid($set_type, $obj);
+    }
+            
+    public function SetGameAttributeByCode($set_type, $obj) {           
+        return $this->data->SetGameAttributeByCode($set_type, $obj);
+    }
+            
+    public function SetGameAttributeByGameId($set_type, $obj) {           
+        return $this->data->SetGameAttributeByGameId($set_type, $obj);
+    }
+            
+    public function SetGameAttributeByGameIdByCode($set_type, $obj) {           
+        return $this->data->SetGameAttributeByGameIdByCode($set_type, $obj);
+    }
+            
+    public function DelGameAttributeByUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameAttributeByUuid(
+            $uuid
+        );
+    }
+        
+    public function DelGameAttributeByCode(
+        $code
+    ) {
+        return $this->data->DelGameAttributeByCode(
+            $code
+        );
+    }
+        
+    public function DelGameAttributeByCodeByType(
+        $code
+        , $type
+    ) {
+        return $this->data->DelGameAttributeByCodeByType(
+            $code
+            , $type
+        );
+    }
+        
+    public function DelGameAttributeByGameId(
+        $game_id
+    ) {
+        return $this->data->DelGameAttributeByGameId(
+            $game_id
+        );
+    }
+        
+    public function DelGameAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        return $this->data->DelGameAttributeByGameIdByCode(
+            $game_id
+            , $code
+        );
+    }
+        
+    public function GetGameAttributeList(
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeList(
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute  = $this->FillGameAttribute($row);
+                $results[] = $game_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeListByUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeListByUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute  = $this->FillGameAttribute($row);
+                $results[] = $game_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeListByCode(
+        $code
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeListByCode(
+            $code
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute  = $this->FillGameAttribute($row);
+                $results[] = $game_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeListByType(
+        $type
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeListByType(
+            $type
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute  = $this->FillGameAttribute($row);
+                $results[] = $game_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeListByGroup(
+        $group
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeListByGroup(
+            $group
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute  = $this->FillGameAttribute($row);
+                $results[] = $game_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeListByCodeByType(
+        $code
+        , $type
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeListByCodeByType(
+            $code
+            , $type
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute  = $this->FillGameAttribute($row);
+                $results[] = $game_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeListByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeListByGameIdByCode(
+            $game_id
+            , $code
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute  = $this->FillGameAttribute($row);
+                $results[] = $game_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameAttributeText($row) {
+        $obj = new GameAttributeText();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['sort'] != NULL) {                
+            $obj->sort = $row['sort'];#dataType.FillDataInt(dr, "sort");
+        }
+        if ($row['attribute_value'] != NULL) {                
+            $obj->attribute_value = $row['attribute_value'];#dataType.FillDataString(dr, "attribute_value");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['game_id'] != NULL) {                
+            $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['group'] != NULL) {                
+            $obj->group = $row['group'];#dataType.FillDataInt(dr, "group");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['attribute_id'] != NULL) {                
+            $obj->attribute_id = $row['attribute_id'];#dataType.FillDataString(dr, "attribute_id");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataInt(dr, "type");
+        }
+        if ($row['order'] != NULL) {                
+            $obj->order = $row['order'];#dataType.FillDataInt(dr, "order");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameAttributeText(
+    ) {       
+        return $this->data->CountGameAttributeText(
+        );
+    }
+               
+    public function CountGameAttributeTextByUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameAttributeTextByUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameAttributeTextByGameId(
+        $game_id
+    ) {       
+        return $this->data->CountGameAttributeTextByGameId(
+            $game_id
+        );
+    }
+               
+    public function CountGameAttributeTextByAttributeId(
+        $attribute_id
+    ) {       
+        return $this->data->CountGameAttributeTextByAttributeId(
+            $attribute_id
+        );
+    }
+               
+    public function CountGameAttributeTextByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {       
+        return $this->data->CountGameAttributeTextByGameIdByAttributeId(
+            $game_id
+            , $attribute_id
+        );
+    }
+               
+    public function BrowseGameAttributeTextListByFilter($filter_obj) {
+        $result = new GameAttributeTextResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameAttributeTextListByFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_attribute_text = $this->FillGameAttributeText($row);
+                $result->data[] = $game_attribute_text;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameAttributeText($set_type, $obj) {           
+        return $this->data->SetGameAttributeText($set_type, $obj);
+    }
+            
+    public function SetGameAttributeTextByUuid($set_type, $obj) {           
+        return $this->data->SetGameAttributeTextByUuid($set_type, $obj);
+    }
+            
+    public function SetGameAttributeTextByGameId($set_type, $obj) {           
+        return $this->data->SetGameAttributeTextByGameId($set_type, $obj);
+    }
+            
+    public function SetGameAttributeTextByAttributeId($set_type, $obj) {           
+        return $this->data->SetGameAttributeTextByAttributeId($set_type, $obj);
+    }
+            
+    public function SetGameAttributeTextByGameIdByAttributeId($set_type, $obj) {           
+        return $this->data->SetGameAttributeTextByGameIdByAttributeId($set_type, $obj);
+    }
+            
+    public function DelGameAttributeText(
+    ) {
+        return $this->data->DelGameAttributeText(
+        );
+    }
+        
+    public function DelGameAttributeTextByUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameAttributeTextByUuid(
+            $uuid
+        );
+    }
+        
+    public function DelGameAttributeTextByGameId(
+        $game_id
+    ) {
+        return $this->data->DelGameAttributeTextByGameId(
+            $game_id
+        );
+    }
+        
+    public function DelGameAttributeTextByAttributeId(
+        $attribute_id
+    ) {
+        return $this->data->DelGameAttributeTextByAttributeId(
+            $attribute_id
+        );
+    }
+        
+    public function DelGameAttributeTextByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+        return $this->data->DelGameAttributeTextByGameIdByAttributeId(
+            $game_id
+            , $attribute_id
+        );
+    }
+        
+    public function GetGameAttributeTextList(
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeTextList(
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute_text  = $this->FillGameAttributeText($row);
+                $results[] = $game_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeTextListByUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeTextListByUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute_text  = $this->FillGameAttributeText($row);
+                $results[] = $game_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeTextListByGameId(
+        $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeTextListByGameId(
+            $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute_text  = $this->FillGameAttributeText($row);
+                $results[] = $game_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeTextListByAttributeId(
+        $attribute_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeTextListByAttributeId(
+            $attribute_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute_text  = $this->FillGameAttributeText($row);
+                $results[] = $game_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeTextListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeTextListByGameIdByAttributeId(
+            $game_id
+            , $attribute_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute_text  = $this->FillGameAttributeText($row);
+                $results[] = $game_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameAttributeData($row) {
+        $obj = new GameAttributeData();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['sort'] != NULL) {                
+            $obj->sort = $row['sort'];#dataType.FillDataInt(dr, "sort");
+        }
+        if ($row['attribute_value'] != NULL) {                
+            $obj->attribute_value = $row['attribute_value'];#dataType.FillDataString(dr, "attribute_value");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['game_id'] != NULL) {                
+            $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['group'] != NULL) {                
+            $obj->group = $row['group'];#dataType.FillDataInt(dr, "group");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['attribute_id'] != NULL) {                
+            $obj->attribute_id = $row['attribute_id'];#dataType.FillDataString(dr, "attribute_id");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataInt(dr, "type");
+        }
+        if ($row['order'] != NULL) {                
+            $obj->order = $row['order'];#dataType.FillDataInt(dr, "order");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameAttributeData(
+    ) {       
+        return $this->data->CountGameAttributeData(
+        );
+    }
+               
+    public function CountGameAttributeDataByUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameAttributeDataByUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameAttributeDataByGameId(
+        $game_id
+    ) {       
+        return $this->data->CountGameAttributeDataByGameId(
+            $game_id
+        );
+    }
+               
+    public function CountGameAttributeDataByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {       
+        return $this->data->CountGameAttributeDataByGameIdByAttributeId(
+            $game_id
+            , $attribute_id
+        );
+    }
+               
+    public function BrowseGameAttributeDataListByFilter($filter_obj) {
+        $result = new GameAttributeDataResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameAttributeDataListByFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_attribute_data = $this->FillGameAttributeData($row);
+                $result->data[] = $game_attribute_data;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameAttributeDataByUuid($set_type, $obj) {           
+        return $this->data->SetGameAttributeDataByUuid($set_type, $obj);
+    }
+            
+    public function SetGameAttributeDataByGameIdByAttributeId($set_type, $obj) {           
+        return $this->data->SetGameAttributeDataByGameIdByAttributeId($set_type, $obj);
+    }
+            
+    public function DelGameAttributeData(
+    ) {
+        return $this->data->DelGameAttributeData(
+        );
+    }
+        
+    public function DelGameAttributeDataByUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameAttributeDataByUuid(
+            $uuid
+        );
+    }
+        
+    public function DelGameAttributeDataByGameId(
+        $game_id
+    ) {
+        return $this->data->DelGameAttributeDataByGameId(
+            $game_id
+        );
+    }
+        
+    public function DelGameAttributeDataByGameId(
+        $game_id
+    ) {
+        return $this->data->DelGameAttributeDataByGameId(
+            $game_id
+        );
+    }
+        
+    public function GetGameAttributeDataList(
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeDataList(
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute_data  = $this->FillGameAttributeData($row);
+                $results[] = $game_attribute_data;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeDataListByUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeDataListByUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute_data  = $this->FillGameAttributeData($row);
+                $results[] = $game_attribute_data;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeDataListByGameId(
+        $game_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeDataListByGameId(
+            $game_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute_data  = $this->FillGameAttributeData($row);
+                $results[] = $game_attribute_data;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameAttributeDataListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameAttributeDataListByGameIdByAttributeId(
+            $game_id
+            , $attribute_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_attribute_data  = $this->FillGameAttributeData($row);
+                $results[] = $game_attribute_data;
             }
         }
         
@@ -1293,6 +2102,9 @@ class BaseGamingACT {
         if ($row['profile_id'] != NULL) {                
             $obj->profile_id = $row['profile_id'];#dataType.FillDataString(dr, "profile_id");
         }
+        if ($row['profile_iteration'] != NULL) {                
+            $obj->profile_iteration = $row['profile_iteration'];#dataType.FillDataString(dr, "profile_iteration");
+        }
         if ($row['game_profile'] != NULL) {                
             $obj->game_profile = $row['game_profile'];#dataType.FillDataString(dr, "game_profile");
         }
@@ -1386,11 +2198,49 @@ class BaseGamingACT {
         return $this->data->SetProfileGameByUuid($set_type, $obj);
     }
             
+    public function SetProfileGameByGameId($set_type, $obj) {           
+        return $this->data->SetProfileGameByGameId($set_type, $obj);
+    }
+            
+    public function SetProfileGameByProfileId($set_type, $obj) {           
+        return $this->data->SetProfileGameByProfileId($set_type, $obj);
+    }
+            
+    public function SetProfileGameByProfileIdByGameId($set_type, $obj) {           
+        return $this->data->SetProfileGameByProfileIdByGameId($set_type, $obj);
+    }
+            
     public function DelProfileGameByUuid(
         $uuid
     ) {
         return $this->data->DelProfileGameByUuid(
             $uuid
+        );
+    }
+        
+    public function DelProfileGameByGameId(
+        $game_id
+    ) {
+        return $this->data->DelProfileGameByGameId(
+            $game_id
+        );
+    }
+        
+    public function DelProfileGameByProfileId(
+        $profile_id
+    ) {
+        return $this->data->DelProfileGameByProfileId(
+            $profile_id
+        );
+    }
+        
+    public function DelProfileGameByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {
+        return $this->data->DelProfileGameByProfileIdByGameId(
+            $profile_id
+            , $game_id
         );
     }
         
@@ -1483,6 +2333,937 @@ class BaseGamingACT {
             foreach ($rows as $row) {
                 $profile_game  = $this->FillProfileGame($row);
                 $results[] = $profile_game;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameProfileAttribute($row) {
+        $obj = new GameProfileAttribute();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['sort'] != NULL) {                
+            $obj->sort = $row['sort'];#dataType.FillDataInt(dr, "sort");
+        }
+        if ($row['code'] != NULL) {                
+            $obj->code = $row['code'];#dataType.FillDataString(dr, "code");
+        }
+        if ($row['display_name'] != NULL) {                
+            $obj->display_name = $row['display_name'];#dataType.FillDataString(dr, "display_name");
+        }
+        if ($row['name'] != NULL) {                
+            $obj->name = $row['name'];#dataType.FillDataString(dr, "name");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['group'] != NULL) {                
+            $obj->group = $row['group'];#dataType.FillDataInt(dr, "group");
+        }
+        if ($row['game_id'] != NULL) {                
+            $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataInt(dr, "type");
+        }
+        if ($row['order'] != NULL) {                
+            $obj->order = $row['order'];#dataType.FillDataInt(dr, "order");
+        }
+        if ($row['description'] != NULL) {                
+            $obj->description = $row['description'];#dataType.FillDataString(dr, "description");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameProfileAttribute(
+    ) {       
+        return $this->data->CountGameProfileAttribute(
+        );
+    }
+               
+    public function CountGameProfileAttributeByUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameProfileAttributeByUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameProfileAttributeByCode(
+        $code
+    ) {       
+        return $this->data->CountGameProfileAttributeByCode(
+            $code
+        );
+    }
+               
+    public function CountGameProfileAttributeByType(
+        $type
+    ) {       
+        return $this->data->CountGameProfileAttributeByType(
+            $type
+        );
+    }
+               
+    public function CountGameProfileAttributeByGroup(
+        $group
+    ) {       
+        return $this->data->CountGameProfileAttributeByGroup(
+            $group
+        );
+    }
+               
+    public function CountGameProfileAttributeByCodeByType(
+        $code
+        , $type
+    ) {       
+        return $this->data->CountGameProfileAttributeByCodeByType(
+            $code
+            , $type
+        );
+    }
+               
+    public function CountGameProfileAttributeByGameId(
+        $game_id
+    ) {       
+        return $this->data->CountGameProfileAttributeByGameId(
+            $game_id
+        );
+    }
+               
+    public function CountGameProfileAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {       
+        return $this->data->CountGameProfileAttributeByGameIdByCode(
+            $game_id
+            , $code
+        );
+    }
+               
+    public function BrowseGameProfileAttributeListByFilter($filter_obj) {
+        $result = new GameProfileAttributeResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameProfileAttributeListByFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_profile_attribute = $this->FillGameProfileAttribute($row);
+                $result->data[] = $game_profile_attribute;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameProfileAttributeByUuid($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeByUuid($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeByCode($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeByCode($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeByGameId($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeByGameId($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeByGameIdByCode($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeByGameIdByCode($set_type, $obj);
+    }
+            
+    public function DelGameProfileAttributeByUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameProfileAttributeByUuid(
+            $uuid
+        );
+    }
+        
+    public function DelGameProfileAttributeByCode(
+        $code
+    ) {
+        return $this->data->DelGameProfileAttributeByCode(
+            $code
+        );
+    }
+        
+    public function DelGameProfileAttributeByCodeByType(
+        $code
+        , $type
+    ) {
+        return $this->data->DelGameProfileAttributeByCodeByType(
+            $code
+            , $type
+        );
+    }
+        
+    public function DelGameProfileAttributeByGameId(
+        $game_id
+    ) {
+        return $this->data->DelGameProfileAttributeByGameId(
+            $game_id
+        );
+    }
+        
+    public function DelGameProfileAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        return $this->data->DelGameProfileAttributeByGameIdByCode(
+            $game_id
+            , $code
+        );
+    }
+        
+    public function GetGameProfileAttributeList(
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeList(
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute  = $this->FillGameProfileAttribute($row);
+                $results[] = $game_profile_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeListByUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeListByUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute  = $this->FillGameProfileAttribute($row);
+                $results[] = $game_profile_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeListByCode(
+        $code
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeListByCode(
+            $code
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute  = $this->FillGameProfileAttribute($row);
+                $results[] = $game_profile_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeListByType(
+        $type
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeListByType(
+            $type
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute  = $this->FillGameProfileAttribute($row);
+                $results[] = $game_profile_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeListByGroup(
+        $group
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeListByGroup(
+            $group
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute  = $this->FillGameProfileAttribute($row);
+                $results[] = $game_profile_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeListByCodeByType(
+        $code
+        , $type
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeListByCodeByType(
+            $code
+            , $type
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute  = $this->FillGameProfileAttribute($row);
+                $results[] = $game_profile_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeListByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeListByGameIdByCode(
+            $game_id
+            , $code
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute  = $this->FillGameProfileAttribute($row);
+                $results[] = $game_profile_attribute;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameProfileAttributeText($row) {
+        $obj = new GameProfileAttributeText();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['sort'] != NULL) {                
+            $obj->sort = $row['sort'];#dataType.FillDataInt(dr, "sort");
+        }
+        if ($row['profile_id'] != NULL) {                
+            $obj->profile_id = $row['profile_id'];#dataType.FillDataString(dr, "profile_id");
+        }
+        if ($row['game_id'] != NULL) {                
+            $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['attribute_value'] != NULL) {                
+            $obj->attribute_value = $row['attribute_value'];#dataType.FillDataString(dr, "attribute_value");
+        }
+        if ($row['group'] != NULL) {                
+            $obj->group = $row['group'];#dataType.FillDataInt(dr, "group");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['attribute_id'] != NULL) {                
+            $obj->attribute_id = $row['attribute_id'];#dataType.FillDataString(dr, "attribute_id");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataInt(dr, "type");
+        }
+        if ($row['order'] != NULL) {                
+            $obj->order = $row['order'];#dataType.FillDataInt(dr, "order");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameProfileAttributeText(
+    ) {       
+        return $this->data->CountGameProfileAttributeText(
+        );
+    }
+               
+    public function CountGameProfileAttributeTextByUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameProfileAttributeTextByUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameProfileAttributeTextByProfileId(
+        $profile_id
+    ) {       
+        return $this->data->CountGameProfileAttributeTextByProfileId(
+            $profile_id
+        );
+    }
+               
+    public function CountGameProfileAttributeTextByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {       
+        return $this->data->CountGameProfileAttributeTextByProfileIdByAttributeId(
+            $profile_id
+            , $attribute_id
+        );
+    }
+               
+    public function CountGameProfileAttributeTextByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {       
+        return $this->data->CountGameProfileAttributeTextByGameIdByProfileId(
+            $game_id
+            , $profile_id
+        );
+    }
+               
+    public function CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {       
+        return $this->data->CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            $game_id
+            , $profile_id
+            , $attribute_id
+        );
+    }
+               
+    public function BrowseGameProfileAttributeTextListByFilter($filter_obj) {
+        $result = new GameProfileAttributeTextResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameProfileAttributeTextListByFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_text = $this->FillGameProfileAttributeText($row);
+                $result->data[] = $game_profile_attribute_text;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameProfileAttributeTextByUuid($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeTextByUuid($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeTextByProfileId($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeTextByProfileId($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeTextByProfileIdByAttributeId($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeTextByProfileIdByAttributeId($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeTextByGameIdByProfileId($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeTextByGameIdByProfileId($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId($set_type, $obj);
+    }
+            
+    public function DelGameProfileAttributeTextByUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameProfileAttributeTextByUuid(
+            $uuid
+        );
+    }
+        
+    public function DelGameProfileAttributeTextByProfileId(
+        $profile_id
+    ) {
+        return $this->data->DelGameProfileAttributeTextByProfileId(
+            $profile_id
+        );
+    }
+        
+    public function DelGameProfileAttributeTextByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        return $this->data->DelGameProfileAttributeTextByProfileIdByAttributeId(
+            $profile_id
+            , $attribute_id
+        );
+    }
+        
+    public function DelGameProfileAttributeTextByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        return $this->data->DelGameProfileAttributeTextByGameIdByProfileId(
+            $game_id
+            , $profile_id
+        );
+    }
+        
+    public function DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        return $this->data->DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+            $game_id
+            , $profile_id
+            , $attribute_id
+        );
+    }
+        
+    public function GetGameProfileAttributeTextListByUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeTextListByUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_text  = $this->FillGameProfileAttributeText($row);
+                $results[] = $game_profile_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeTextListByProfileId(
+        $profile_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeTextListByProfileId(
+            $profile_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_text  = $this->FillGameProfileAttributeText($row);
+                $results[] = $game_profile_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeTextListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeTextListByProfileIdByAttributeId(
+            $profile_id
+            , $attribute_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_text  = $this->FillGameProfileAttributeText($row);
+                $results[] = $game_profile_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeTextListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeTextListByGameIdByProfileId(
+            $game_id
+            , $profile_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_text  = $this->FillGameProfileAttributeText($row);
+                $results[] = $game_profile_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            $game_id
+            , $profile_id
+            , $attribute_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_text  = $this->FillGameProfileAttributeText($row);
+                $results[] = $game_profile_attribute_text;
+            }
+        }
+        
+        return $results;
+    }
+        
+        
+    public function FillGameProfileAttributeData($row) {
+        $obj = new GameProfileAttributeData();
+
+        if ($row['status'] != NULL) {                
+            $obj->status = $row['status'];#dataType.FillDataString(dr, "status");
+        }
+        if ($row['sort'] != NULL) {                
+            $obj->sort = $row['sort'];#dataType.FillDataInt(dr, "sort");
+        }
+        if ($row['profile_id'] != NULL) {                
+            $obj->profile_id = $row['profile_id'];#dataType.FillDataString(dr, "profile_id");
+        }
+        if ($row['game_id'] != NULL) {                
+            $obj->game_id = $row['game_id'];#dataType.FillDataString(dr, "game_id");
+        }
+        if ($row['active'] != NULL) {                
+            $obj->active = $row['active'];#dataType.FillDataBoolean(dr, "active");
+        }
+        if ($row['attribute_value'] != NULL) {                
+            $obj->attribute_value = $row['attribute_value'];#dataType.FillDataString(dr, "attribute_value");
+        }
+        if ($row['group'] != NULL) {                
+            $obj->group = $row['group'];#dataType.FillDataInt(dr, "group");
+        }
+        if ($row['uuid'] != NULL) {                
+            $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
+        }
+        if ($row['date_modified'] != NULL) {                
+            $obj->date_modified = $row['date_modified'];#dataType.FillDataDate(dr, "date_modified");
+        }
+        if ($row['attribute_id'] != NULL) {                
+            $obj->attribute_id = $row['attribute_id'];#dataType.FillDataString(dr, "attribute_id");
+        }
+        if ($row['date_created'] != NULL) {                
+            $obj->date_created = $row['date_created'];#dataType.FillDataDate(dr, "date_created");
+        }
+        if ($row['type'] != NULL) {                
+            $obj->type = $row['type'];#dataType.FillDataInt(dr, "type");
+        }
+        if ($row['order'] != NULL) {                
+            $obj->order = $row['order'];#dataType.FillDataInt(dr, "order");
+        }
+
+        return $obj;
+    }
+        
+    public function CountGameProfileAttributeData(
+    ) {       
+        return $this->data->CountGameProfileAttributeData(
+        );
+    }
+               
+    public function CountGameProfileAttributeDataByUuid(
+        $uuid
+    ) {       
+        return $this->data->CountGameProfileAttributeDataByUuid(
+            $uuid
+        );
+    }
+               
+    public function CountGameProfileAttributeDataByProfileId(
+        $profile_id
+    ) {       
+        return $this->data->CountGameProfileAttributeDataByProfileId(
+            $profile_id
+        );
+    }
+               
+    public function CountGameProfileAttributeDataByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {       
+        return $this->data->CountGameProfileAttributeDataByProfileIdByAttributeId(
+            $profile_id
+            , $attribute_id
+        );
+    }
+               
+    public function CountGameProfileAttributeDataByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {       
+        return $this->data->CountGameProfileAttributeDataByGameIdByProfileId(
+            $game_id
+            , $profile_id
+        );
+    }
+               
+    public function CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {       
+        return $this->data->CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            $game_id
+            , $profile_id
+            , $attribute_id
+        );
+    }
+               
+    public function BrowseGameProfileAttributeDataListByFilter($filter_obj) {
+        $result = new GameProfileAttributeDataResult();
+        $result->page = $filter_obj->page;
+        $result->page_size = $filter_obj->page_size;
+        $result->data = array();
+        
+        $rows = array();
+        $rows = $this->data->BrowseGameProfileAttributeDataListByFilter(filter_obj);
+        if($rows != None) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_data = $this->FillGameProfileAttributeData($row);
+                $result->data[] = $game_profile_attribute_data;
+                if($row["total_rows"] != NULL) {
+                    $result->total_rows = $row["total_rows"];
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function SetGameProfileAttributeDataByUuid($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeDataByUuid($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeDataByProfileIdByAttributeId($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeDataByProfileIdByAttributeId($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeDataByGameIdByProfileId($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeDataByGameIdByProfileId($set_type, $obj);
+    }
+            
+    public function SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId($set_type, $obj) {           
+        return $this->data->SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId($set_type, $obj);
+    }
+            
+    public function DelGameProfileAttributeDataByUuid(
+        $uuid
+    ) {
+        return $this->data->DelGameProfileAttributeDataByUuid(
+            $uuid
+        );
+    }
+        
+    public function DelGameProfileAttributeDataByProfileId(
+        $profile_id
+    ) {
+        return $this->data->DelGameProfileAttributeDataByProfileId(
+            $profile_id
+        );
+    }
+        
+    public function DelGameProfileAttributeDataByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        return $this->data->DelGameProfileAttributeDataByProfileIdByAttributeId(
+            $profile_id
+            , $attribute_id
+        );
+    }
+        
+    public function DelGameProfileAttributeDataByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        return $this->data->DelGameProfileAttributeDataByGameIdByProfileId(
+            $game_id
+            , $profile_id
+        );
+    }
+        
+    public function DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        return $this->data->DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+            $game_id
+            , $profile_id
+            , $attribute_id
+        );
+    }
+        
+    public function GetGameProfileAttributeDataList(
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeDataList(
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_data  = $this->FillGameProfileAttributeData($row);
+                $results[] = $game_profile_attribute_data;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeDataListByUuid(
+        $uuid
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeDataListByUuid(
+            $uuid
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_data  = $this->FillGameProfileAttributeData($row);
+                $results[] = $game_profile_attribute_data;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeDataListByProfileId(
+        $profile_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeDataListByProfileId(
+            $profile_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_data  = $this->FillGameProfileAttributeData($row);
+                $results[] = $game_profile_attribute_data;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeDataListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeDataListByProfileIdByAttributeId(
+            $profile_id
+            , $attribute_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_data  = $this->FillGameProfileAttributeData($row);
+                $results[] = $game_profile_attribute_data;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeDataListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeDataListByGameIdByProfileId(
+            $game_id
+            , $profile_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_data  = $this->FillGameProfileAttributeData($row);
+                $results[] = $game_profile_attribute_data;
+            }
+        }
+        
+        return $results;
+    }
+        
+    public function GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+
+        $results = array();
+        $rows = $this->data->GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            $game_id
+            , $profile_id
+            , $attribute_id
+        );
+        
+        if($rows != NULL) {
+            foreach ($rows as $row) {
+                $game_profile_attribute_data  = $this->FillGameProfileAttributeData($row);
+                $results[] = $game_profile_attribute_data;
             }
         }
         

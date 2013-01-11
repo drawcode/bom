@@ -672,6 +672,1414 @@ namespace gaming {
             }
         } 
 //------------------------------------------------------------------------------                    
+        public virtual int CountGameAttribute(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_count_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByCode(
+             code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_count_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByType(
+             type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@type", type));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_count_by_type"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByGroup(
+             group
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@group", group));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_count_by_group"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByCodeByType(
+             code
+            ,  type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@type", type));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_count_by_code_by_type"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_count_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeByGameIdByCode(
+             game_id
+            ,  code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_count_by_game_id_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameAttributeListByFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_browse_by_filter"
+                , "game_attribute"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeByUuid(string set_type, GameAttribute obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeByCode(string set_type, GameAttribute obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_set_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeByGameId(string set_type, GameAttribute obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_set_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeByGameIdByCode(string set_type, GameAttribute obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_set_by_game_id_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByCode(
+             code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_del_by_code"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByCodeByType(
+             code
+            ,  type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@type", type));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_del_by_code_by_type"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_del_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeByGameIdByCode(
+             game_id
+            ,  code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_del_by_game_id_by_code"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeList(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_get"
+                , "game_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeListByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_get_by_uuid"
+                , "game_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeListByCode(
+             code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_get_by_code"
+                , "game_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeListByType(
+             type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@type", type));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_get_by_type"
+                , "game_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeListByGroup(
+             group
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@group", group));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_get_by_group"
+                , "game_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeListByCodeByType(
+             code
+            ,  type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@type", type));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_get_by_code_by_type"
+                , "game_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeListByGameIdByCode(
+             game_id
+            ,  code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_get_by_game_id_by_code"
+                , "game_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeText(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeTextByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_count_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeTextByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_count_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeTextByAttributeId(
+             attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_count_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeTextByGameIdByAttributeId(
+             game_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_count_by_game_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameAttributeTextListByFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_browse_by_filter"
+                , "game_attribute_text"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeText(string set_type, GameAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_set"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeTextByUuid(string set_type, GameAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeTextByGameId(string set_type, GameAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_set_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeTextByAttributeId(string set_type, GameAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_set_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeTextByGameIdByAttributeId(string set_type, GameAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_set_by_game_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeText(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_text_del"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeTextByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_text_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeTextByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_text_del_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeTextByAttributeId(
+             attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_text_del_by_attribute_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeTextByGameIdByAttributeId(
+             game_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_text_del_by_game_id_by_attribute_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeTextList(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_get"
+                , "game_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeTextListByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_get_by_uuid"
+                , "game_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeTextListByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_get_by_game_id"
+                , "game_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeTextListByAttributeId(
+             attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_get_by_attribute_id"
+                , "game_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeTextListByGameIdByAttributeId(
+             game_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_text_get_by_game_id_by_attribute_id"
+                , "game_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeData(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeDataByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_count_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeDataByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_count_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameAttributeDataByGameIdByAttributeId(
+             game_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_count_by_game_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameAttributeDataListByFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_browse_by_filter"
+                , "game_attribute_data"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeDataByUuid(string set_type, GameAttributeData obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameAttributeDataByGameIdByAttributeId(string set_type, GameAttributeData obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_set_by_game_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeData(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_data_del"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeDataByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_data_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeDataByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_data_del_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameAttributeDataByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_attribute_data_del_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeDataList(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_get"
+                , "game_attribute_data"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeDataListByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_get_by_uuid"
+                , "game_attribute_data"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeDataListByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_get_by_game_id"
+                , "game_attribute_data"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameAttributeDataListByGameIdByAttributeId(
+             game_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_attribute_data_get_by_game_id_by_attribute_id"
+                , "game_attribute_data"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
         public virtual int CountGameCategory(
         )  {
             List<SqlParameter> parameters 
@@ -2071,6 +3479,7 @@ namespace gaming {
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@type_id", obj.type_id));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@profile_iteration", obj.profile_iteration));
             parameters.Add(new SqlParameter("@game_profile", obj.game_profile));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@game_id", obj.game_id));
@@ -2095,6 +3504,102 @@ namespace gaming {
             
         }    
 //------------------------------------------------------------------------------                    
+        public virtual bool SetProfileGameByGameId(string set_type, ProfileGame obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@type_id", obj.type_id));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@profile_iteration", obj.profile_iteration));
+            parameters.Add(new SqlParameter("@game_profile", obj.game_profile));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@profile_version", obj.profile_version));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_set_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetProfileGameByProfileId(string set_type, ProfileGame obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@type_id", obj.type_id));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@profile_iteration", obj.profile_iteration));
+            parameters.Add(new SqlParameter("@game_profile", obj.game_profile));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@profile_version", obj.profile_version));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_set_by_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetProfileGameByProfileIdByGameId(string set_type, ProfileGame obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@type_id", obj.type_id));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@profile_iteration", obj.profile_iteration));
+            parameters.Add(new SqlParameter("@game_profile", obj.game_profile));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@profile_version", obj.profile_version));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_profile_game_set_by_profile_id_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
         public virtual bool DelProfileGameByUuid(
              uuid
         )  {
@@ -2106,6 +3611,71 @@ namespace gaming {
                     BaseGamingData.connectionString
                     , CommandType.StoredProcedure
                     , "usp_profile_game_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelProfileGameByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_profile_game_del_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelProfileGameByProfileId(
+             profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_profile_game_del_by_profile_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelProfileGameByProfileIdByGameId(
+             profile_id
+            ,  game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_profile_game_del_by_profile_id_by_game_id"
                     , parameters
                     );
                 return true;            
@@ -2212,6 +3782,1654 @@ namespace gaming {
                 , CommandType.StoredProcedure
                 , "usp_profile_game_get_by_profile_id_by_game_id"
                 , "profile_game"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttribute(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_count_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByCode(
+             code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_count_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByType(
+             type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@type", type));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_count_by_type"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByGroup(
+             group
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@group", group));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_count_by_group"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByCodeByType(
+             code
+            ,  type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@type", type));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_count_by_code_by_type"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_count_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeByGameIdByCode(
+             game_id
+            ,  code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_count_by_game_id_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameProfileAttributeListByFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_browse_by_filter"
+                , "game_profile_attribute"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeByUuid(string set_type, GameProfileAttribute obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeByCode(string set_type, GameProfileAttribute obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_set_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeByGameId(string set_type, GameProfileAttribute obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_set_by_game_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeByGameIdByCode(string set_type, GameProfileAttribute obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@code", obj.code));
+            parameters.Add(new SqlParameter("@display_name", obj.display_name));
+            parameters.Add(new SqlParameter("@name", obj.name));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+            parameters.Add(new SqlParameter("@description", obj.description));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_set_by_game_id_by_code"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByCode(
+             code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_del_by_code"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByCodeByType(
+             code
+            ,  type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@type", type));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_del_by_code_by_type"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByGameId(
+             game_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_del_by_game_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeByGameIdByCode(
+             game_id
+            ,  code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_del_by_game_id_by_code"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeList(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_get"
+                , "game_profile_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeListByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_get_by_uuid"
+                , "game_profile_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeListByCode(
+             code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_get_by_code"
+                , "game_profile_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeListByType(
+             type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@type", type));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_get_by_type"
+                , "game_profile_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeListByGroup(
+             group
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@group", group));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_get_by_group"
+                , "game_profile_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeListByCodeByType(
+             code
+            ,  type
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@code", code));
+            parameters.Add(new SqlParameter("@type", type));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_get_by_code_by_type"
+                , "game_profile_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeListByGameIdByCode(
+             game_id
+            ,  code
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@code", code));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_get_by_game_id_by_code"
+                , "game_profile_attribute"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeText(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_count_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByProfileId(
+             profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_count_by_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByProfileIdByAttributeId(
+             profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_count_by_profile_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByGameIdByProfileId(
+             game_id
+            ,  profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_count_by_game_id_by_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+             game_id
+            ,  profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_count_by_game_id_by_profile_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameProfileAttributeTextListByFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_browse_by_filter"
+                , "game_profile_attribute_text"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByUuid(string set_type, GameProfileAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByProfileId(string set_type, GameProfileAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_set_by_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByProfileIdByAttributeId(string set_type, GameProfileAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_set_by_profile_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileId(string set_type, GameProfileAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_set_by_game_id_by_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(string set_type, GameProfileAttributeText obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_set_by_game_id_by_profile_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_text_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByProfileId(
+             profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_text_del_by_profile_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByProfileIdByAttributeId(
+             profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_text_del_by_profile_id_by_attribute_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByGameIdByProfileId(
+             game_id
+            ,  profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_text_del_by_game_id_by_profile_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+             game_id
+            ,  profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_text_del_by_game_id_by_profile_id_by_attribute_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeTextListByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_get_by_uuid"
+                , "game_profile_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeTextListByProfileId(
+             profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_get_by_profile_id"
+                , "game_profile_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeTextListByProfileIdByAttributeId(
+             profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_get_by_profile_id_by_attribute_id"
+                , "game_profile_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeTextListByGameIdByProfileId(
+             game_id
+            ,  profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_get_by_game_id_by_profile_id"
+                , "game_profile_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+             game_id
+            ,  profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_text_get_by_game_id_by_profile_id_by_attribute_id"
+                , "game_profile_attribute_text"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeData(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_count"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_count_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByProfileId(
+             profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_count_by_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByProfileIdByAttributeId(
+             profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_count_by_profile_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByGameIdByProfileId(
+             game_id
+            ,  profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_count_by_game_id_by_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual int CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+             game_id
+            ,  profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {        
+                return (int)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_count_by_game_id_by_profile_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return 0;
+            }    
+        }       
+//------------------------------------------------------------------------------                    
+        public virtual DataSet BrowseGameProfileAttributeDataListByFilter(SearchFilter obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@page", obj.page));
+            parameters.Add(new SqlParameter("@page_size", obj.page_size));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@filter", obj.filter));
+            
+            try { 
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_browse_by_filter"
+                , "game_profile_attribute_data"
+                , parameters
+                );         
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+            
+        }
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeDataByUuid(string set_type, GameProfileAttributeData obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_set_by_uuid"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeDataByProfileIdByAttributeId(string set_type, GameProfileAttributeData obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_set_by_profile_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileId(string set_type, GameProfileAttributeData obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_set_by_game_id_by_profile_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(string set_type, GameProfileAttributeData obj)  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@set_type", set_type));
+            parameters.Add(new SqlParameter("@status", obj.status));
+            parameters.Add(new SqlParameter("@sort", obj.sort));
+            parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
+            parameters.Add(new SqlParameter("@game_id", obj.game_id));
+            parameters.Add(new SqlParameter("@active", obj.active));
+            parameters.Add(new SqlParameter("@attribute_value", obj.attribute_value));
+            parameters.Add(new SqlParameter("@group", obj.group));
+            parameters.Add(new SqlParameter("@uuid", obj.uuid));
+            parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
+            parameters.Add(new SqlParameter("@attribute_id", obj.attribute_id));
+            parameters.Add(new SqlParameter("@date_created", obj.date_created));
+            parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@order", obj.order));
+                        
+            try { 
+                return (bool)data.ExecuteScalar(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_set_by_game_id_by_profile_id_by_attribute_id"
+                , parameters
+                );          
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+            
+        }    
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_data_del_by_uuid"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByProfileId(
+             profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_data_del_by_profile_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByProfileIdByAttributeId(
+             profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_data_del_by_profile_id_by_attribute_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByGameIdByProfileId(
+             game_id
+            ,  profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_data_del_by_game_id_by_profile_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual bool DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+             game_id
+            ,  profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                data.ExecuteNonQuery(
+                    BaseGamingData.connectionString
+                    , CommandType.StoredProcedure
+                    , "usp_game_profile_attribute_data_del_by_game_id_by_profile_id_by_attribute_id"
+                    , parameters
+                    );
+                return true;            
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return false;
+            }
+        }                     
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeDataList(
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_get"
+                , "game_profile_attribute_data"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeDataListByUuid(
+             uuid
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@uuid", uuid));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_get_by_uuid"
+                , "game_profile_attribute_data"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeDataListByProfileId(
+             profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_get_by_profile_id"
+                , "game_profile_attribute_data"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeDataListByProfileIdByAttributeId(
+             profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_get_by_profile_id_by_attribute_id"
+                , "game_profile_attribute_data"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeDataListByGameIdByProfileId(
+             game_id
+            ,  profile_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_get_by_game_id_by_profile_id"
+                , "game_profile_attribute_data"
+                , parameters
+                );           
+            }
+            catch (Exception e){     
+                log.Error(e);       
+                return None;
+            }
+        } 
+//------------------------------------------------------------------------------                    
+        public virtual DataSet GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+             game_id
+            ,  profile_id
+            ,  attribute_id
+        )  {
+            List<SqlParameter> parameters 
+                = new List<SqlParameter>();                        
+            parameters.Add(new SqlParameter("@game_id", game_id));
+            parameters.Add(new SqlParameter("@profile_id", profile_id));
+            parameters.Add(new SqlParameter("@attribute_id", attribute_id));
+            try {
+                return data.ExecuteDataSet(
+                BaseGamingData.connectionString
+                , CommandType.StoredProcedure
+                , "usp_game_profile_attribute_data_get_by_game_id_by_profile_id_by_attribute_id"
+                , "game_profile_attribute_data"
                 , parameters
                 );           
             }

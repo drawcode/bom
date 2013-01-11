@@ -632,6 +632,1395 @@ class BaseGamingAPI {
     }
               
 #------------------------------------------------------------------------------                    
+    public function CountGameAttribute(
+    ) {      
+        return $this->act->CountGameAttribute(
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeByUuid(
+        $uuid
+    ) {      
+        return $this->act->CountGameAttributeByUuid(
+        $uuid
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeByCode(
+        $code
+    ) {      
+        return $this->act->CountGameAttributeByCode(
+        $code
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeByType(
+        $type
+    ) {      
+        return $this->act->CountGameAttributeByType(
+        $type
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeByGroup(
+        $group
+    ) {      
+        return $this->act->CountGameAttributeByGroup(
+        $group
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeByCodeByType(
+        $code
+        , $type
+    ) {      
+        return $this->act->CountGameAttributeByCodeByType(
+        $code
+        , $type
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeByGameId(
+        $game_id
+    ) {      
+        return $this->act->CountGameAttributeByGameId(
+        $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {      
+        return $this->act->CountGameAttributeByGameIdByCode(
+        $game_id
+        , $code
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseGameAttributeListByFilter($filter_obj) {
+        return $this->act->BrowseGameAttributeListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeByUuid($set_type, $obj) {
+        return $this->act->SetGameAttributeByUuid($set_type, $obj);
+    }
+               
+    public function SetGameAttributeByUuidFull($obj) {
+        return $this->act->SetGameAttributeByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeByCode($set_type, $obj) {
+        return $this->act->SetGameAttributeByCode($set_type, $obj);
+    }
+               
+    public function SetGameAttributeByCodeFull($obj) {
+        return $this->act->SetGameAttributeByCode('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeByGameId($set_type, $obj) {
+        return $this->act->SetGameAttributeByGameId($set_type, $obj);
+    }
+               
+    public function SetGameAttributeByGameIdFull($obj) {
+        return $this->act->SetGameAttributeByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeByGameIdByCode($set_type, $obj) {
+        return $this->act->SetGameAttributeByGameIdByCode($set_type, $obj);
+    }
+               
+    public function SetGameAttributeByGameIdByCodeFull($obj) {
+        return $this->act->SetGameAttributeByGameIdByCode('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelGameAttributeByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeByCode(
+        $code
+    ) {         
+        return $this->act->DelGameAttributeByCode(
+        $code
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeByCodeByType(
+        $code
+        , $type
+    ) {         
+        return $this->act->DelGameAttributeByCodeByType(
+        $code
+        , $type
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeByGameId(
+        $game_id
+    ) {         
+        return $this->act->DelGameAttributeByGameId(
+        $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {         
+        return $this->act->DelGameAttributeByGameIdByCode(
+        $game_id
+        , $code
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeList(
+        ) {
+            return $this->act->GetGameAttributeList(
+            );
+        }
+        
+    public function GetGameAttribute(
+    ) {
+        foreach($this->act->GetGameAttributeList(
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeList(
+    ) {
+        return $this->CachedGetGameAttributeList(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeList(
+        $overrideCache
+        , $cacheHours
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeList";
+
+        $sb = "";
+        $sb += $method_name;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeList(
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeListByUuid(
+        $uuid
+        ) {
+            return $this->act->GetGameAttributeListByUuid(
+                $uuid
+            );
+        }
+        
+    public function GetGameAttributeByUuid(
+        $uuid
+    ) {
+        foreach($this->act->GetGameAttributeListByUuid(
+        $uuid
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeListByUuid(
+        $uuid
+    ) {
+        return $this->CachedGetGameAttributeListByUuid(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeListByUuid(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeListByUuid";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeListByUuid(
+                $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeListByCode(
+        $code
+        ) {
+            return $this->act->GetGameAttributeListByCode(
+                $code
+            );
+        }
+        
+    public function GetGameAttributeByCode(
+        $code
+    ) {
+        foreach($this->act->GetGameAttributeListByCode(
+        $code
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeListByCode(
+        $code
+    ) {
+        return $this->CachedGetGameAttributeListByCode(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $code
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeListByCode(
+        $overrideCache
+        , $cacheHours
+        , $code
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeListByCode";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeListByCode(
+                $code
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeListByType(
+        $type
+        ) {
+            return $this->act->GetGameAttributeListByType(
+                $type
+            );
+        }
+        
+    public function GetGameAttributeByType(
+        $type
+    ) {
+        foreach($this->act->GetGameAttributeListByType(
+        $type
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeListByType(
+        $type
+    ) {
+        return $this->CachedGetGameAttributeListByType(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $type
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeListByType(
+        $overrideCache
+        , $cacheHours
+        , $type
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeListByType";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$type");
+        $sb += "_";
+        $sb += $type;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeListByType(
+                $type
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeListByGroup(
+        $group
+        ) {
+            return $this->act->GetGameAttributeListByGroup(
+                $group
+            );
+        }
+        
+    public function GetGameAttributeByGroup(
+        $group
+    ) {
+        foreach($this->act->GetGameAttributeListByGroup(
+        $group
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeListByGroup(
+        $group
+    ) {
+        return $this->CachedGetGameAttributeListByGroup(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $group
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeListByGroup(
+        $overrideCache
+        , $cacheHours
+        , $group
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeListByGroup";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$group");
+        $sb += "_";
+        $sb += $group;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeListByGroup(
+                $group
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeListByCodeByType(
+        $code
+        , $type
+        ) {
+            return $this->act->GetGameAttributeListByCodeByType(
+                $code
+                , $type
+            );
+        }
+        
+    public function GetGameAttributeByCodeByType(
+        $code
+        , $type
+    ) {
+        foreach($this->act->GetGameAttributeListByCodeByType(
+        $code
+        , $type
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeListByCodeByType(
+        $code
+        , $type
+    ) {
+        return $this->CachedGetGameAttributeListByCodeByType(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $code
+            , $type
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeListByCodeByType(
+        $overrideCache
+        , $cacheHours
+        , $code
+        , $type
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeListByCodeByType";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+        $sb += "_";
+        $sb += strtolower("$type");
+        $sb += "_";
+        $sb += $type;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeListByCodeByType(
+                $code
+                , $type
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeListByGameIdByCode(
+        $game_id
+        , $code
+        ) {
+            return $this->act->GetGameAttributeListByGameIdByCode(
+                $game_id
+                , $code
+            );
+        }
+        
+    public function GetGameAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        foreach($this->act->GetGameAttributeListByGameIdByCode(
+        $game_id
+        , $code
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeListByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        return $this->CachedGetGameAttributeListByGameIdByCode(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+            , $code
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeListByGameIdByCode(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+        , $code
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeListByGameIdByCode";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeListByGameIdByCode(
+                $game_id
+                , $code
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeText(
+    ) {      
+        return $this->act->CountGameAttributeText(
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeTextByUuid(
+        $uuid
+    ) {      
+        return $this->act->CountGameAttributeTextByUuid(
+        $uuid
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeTextByGameId(
+        $game_id
+    ) {      
+        return $this->act->CountGameAttributeTextByGameId(
+        $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeTextByAttributeId(
+        $attribute_id
+    ) {      
+        return $this->act->CountGameAttributeTextByAttributeId(
+        $attribute_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeTextByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {      
+        return $this->act->CountGameAttributeTextByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseGameAttributeTextListByFilter($filter_obj) {
+        return $this->act->BrowseGameAttributeTextListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeText($set_type, $obj) {
+        return $this->act->SetGameAttributeText($set_type, $obj);
+    }
+               
+    public function SetGameAttributeTextFull($obj) {
+        return $this->act->SetGameAttributeText('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeTextByUuid($set_type, $obj) {
+        return $this->act->SetGameAttributeTextByUuid($set_type, $obj);
+    }
+               
+    public function SetGameAttributeTextByUuidFull($obj) {
+        return $this->act->SetGameAttributeTextByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeTextByGameId($set_type, $obj) {
+        return $this->act->SetGameAttributeTextByGameId($set_type, $obj);
+    }
+               
+    public function SetGameAttributeTextByGameIdFull($obj) {
+        return $this->act->SetGameAttributeTextByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeTextByAttributeId($set_type, $obj) {
+        return $this->act->SetGameAttributeTextByAttributeId($set_type, $obj);
+    }
+               
+    public function SetGameAttributeTextByAttributeIdFull($obj) {
+        return $this->act->SetGameAttributeTextByAttributeId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeTextByGameIdByAttributeId($set_type, $obj) {
+        return $this->act->SetGameAttributeTextByGameIdByAttributeId($set_type, $obj);
+    }
+               
+    public function SetGameAttributeTextByGameIdByAttributeIdFull($obj) {
+        return $this->act->SetGameAttributeTextByGameIdByAttributeId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeText(
+    ) {         
+        return $this->act->DelGameAttributeText(
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeTextByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelGameAttributeTextByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeTextByGameId(
+        $game_id
+    ) {         
+        return $this->act->DelGameAttributeTextByGameId(
+        $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeTextByAttributeId(
+        $attribute_id
+    ) {         
+        return $this->act->DelGameAttributeTextByAttributeId(
+        $attribute_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeTextByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {         
+        return $this->act->DelGameAttributeTextByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeTextList(
+        ) {
+            return $this->act->GetGameAttributeTextList(
+            );
+        }
+        
+    public function GetGameAttributeText(
+    ) {
+        foreach($this->act->GetGameAttributeTextList(
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeTextList(
+    ) {
+        return $this->CachedGetGameAttributeTextList(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeTextList(
+        $overrideCache
+        , $cacheHours
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeTextList";
+
+        $sb = "";
+        $sb += $method_name;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeTextList(
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeTextListByUuid(
+        $uuid
+        ) {
+            return $this->act->GetGameAttributeTextListByUuid(
+                $uuid
+            );
+        }
+        
+    public function GetGameAttributeTextByUuid(
+        $uuid
+    ) {
+        foreach($this->act->GetGameAttributeTextListByUuid(
+        $uuid
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeTextListByUuid(
+        $uuid
+    ) {
+        return $this->CachedGetGameAttributeTextListByUuid(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeTextListByUuid(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeTextListByUuid";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeTextListByUuid(
+                $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeTextListByGameId(
+        $game_id
+        ) {
+            return $this->act->GetGameAttributeTextListByGameId(
+                $game_id
+            );
+        }
+        
+    public function GetGameAttributeTextByGameId(
+        $game_id
+    ) {
+        foreach($this->act->GetGameAttributeTextListByGameId(
+        $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeTextListByGameId(
+        $game_id
+    ) {
+        return $this->CachedGetGameAttributeTextListByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeTextListByGameId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeTextListByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeTextListByGameId(
+                $game_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeTextListByAttributeId(
+        $attribute_id
+        ) {
+            return $this->act->GetGameAttributeTextListByAttributeId(
+                $attribute_id
+            );
+        }
+        
+    public function GetGameAttributeTextByAttributeId(
+        $attribute_id
+    ) {
+        foreach($this->act->GetGameAttributeTextListByAttributeId(
+        $attribute_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeTextListByAttributeId(
+        $attribute_id
+    ) {
+        return $this->CachedGetGameAttributeTextListByAttributeId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $attribute_id
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeTextListByAttributeId(
+        $overrideCache
+        , $cacheHours
+        , $attribute_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeTextListByAttributeId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$attribute_id");
+        $sb += "_";
+        $sb += $attribute_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeTextListByAttributeId(
+                $attribute_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeTextListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+        ) {
+            return $this->act->GetGameAttributeTextListByGameIdByAttributeId(
+                $game_id
+                , $attribute_id
+            );
+        }
+        
+    public function GetGameAttributeTextByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+        foreach($this->act->GetGameAttributeTextListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeTextListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+        return $this->CachedGetGameAttributeTextListByGameIdByAttributeId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+            , $attribute_id
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeTextListByGameIdByAttributeId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+        , $attribute_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeTextListByGameIdByAttributeId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$attribute_id");
+        $sb += "_";
+        $sb += $attribute_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeTextListByGameIdByAttributeId(
+                $game_id
+                , $attribute_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeData(
+    ) {      
+        return $this->act->CountGameAttributeData(
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeDataByUuid(
+        $uuid
+    ) {      
+        return $this->act->CountGameAttributeDataByUuid(
+        $uuid
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeDataByGameId(
+        $game_id
+    ) {      
+        return $this->act->CountGameAttributeDataByGameId(
+        $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameAttributeDataByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {      
+        return $this->act->CountGameAttributeDataByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseGameAttributeDataListByFilter($filter_obj) {
+        return $this->act->BrowseGameAttributeDataListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeDataByUuid($set_type, $obj) {
+        return $this->act->SetGameAttributeDataByUuid($set_type, $obj);
+    }
+               
+    public function SetGameAttributeDataByUuidFull($obj) {
+        return $this->act->SetGameAttributeDataByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameAttributeDataByGameIdByAttributeId($set_type, $obj) {
+        return $this->act->SetGameAttributeDataByGameIdByAttributeId($set_type, $obj);
+    }
+               
+    public function SetGameAttributeDataByGameIdByAttributeIdFull($obj) {
+        return $this->act->SetGameAttributeDataByGameIdByAttributeId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeData(
+    ) {         
+        return $this->act->DelGameAttributeData(
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeDataByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelGameAttributeDataByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeDataByGameId(
+        $game_id
+    ) {         
+        return $this->act->DelGameAttributeDataByGameId(
+        $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameAttributeDataByGameId(
+        $game_id
+    ) {         
+        return $this->act->DelGameAttributeDataByGameId(
+        $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeDataList(
+        ) {
+            return $this->act->GetGameAttributeDataList(
+            );
+        }
+        
+    public function GetGameAttributeData(
+    ) {
+        foreach($this->act->GetGameAttributeDataList(
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeDataList(
+    ) {
+        return $this->CachedGetGameAttributeDataList(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeDataList(
+        $overrideCache
+        , $cacheHours
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeDataList";
+
+        $sb = "";
+        $sb += $method_name;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeDataList(
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeDataListByUuid(
+        $uuid
+        ) {
+            return $this->act->GetGameAttributeDataListByUuid(
+                $uuid
+            );
+        }
+        
+    public function GetGameAttributeDataByUuid(
+        $uuid
+    ) {
+        foreach($this->act->GetGameAttributeDataListByUuid(
+        $uuid
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeDataListByUuid(
+        $uuid
+    ) {
+        return $this->CachedGetGameAttributeDataListByUuid(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeDataListByUuid(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeDataListByUuid";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeDataListByUuid(
+                $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeDataListByGameId(
+        $game_id
+        ) {
+            return $this->act->GetGameAttributeDataListByGameId(
+                $game_id
+            );
+        }
+        
+    public function GetGameAttributeDataByGameId(
+        $game_id
+    ) {
+        foreach($this->act->GetGameAttributeDataListByGameId(
+        $game_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeDataListByGameId(
+        $game_id
+    ) {
+        return $this->CachedGetGameAttributeDataListByGameId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeDataListByGameId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeDataListByGameId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeDataListByGameId(
+                $game_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameAttributeDataListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+        ) {
+            return $this->act->GetGameAttributeDataListByGameIdByAttributeId(
+                $game_id
+                , $attribute_id
+            );
+        }
+        
+    public function GetGameAttributeDataByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+        foreach($this->act->GetGameAttributeDataListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameAttributeDataListByGameIdByAttributeId(
+        $game_id
+        , $attribute_id
+    ) {
+        return $this->CachedGetGameAttributeDataListByGameIdByAttributeId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+            , $attribute_id
+        );
+    }
+    */
+        
+    public function CachedGetGameAttributeDataListByGameIdByAttributeId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+        , $attribute_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameAttributeDataListByGameIdByAttributeId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$attribute_id");
+        $sb += "_";
+        $sb += $attribute_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameAttributeDataListByGameIdByAttributeId(
+                $game_id
+                , $attribute_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
     public function CountGameCategory(
     ) {      
         return $this->act->CountGameCategory(
@@ -2315,11 +3704,61 @@ class BaseGamingAPI {
         return $this->act->SetProfileGameByUuid('full', $obj);
     }
 #------------------------------------------------------------------------------                    
+    public function SetProfileGameByGameId($set_type, $obj) {
+        return $this->act->SetProfileGameByGameId($set_type, $obj);
+    }
+               
+    public function SetProfileGameByGameIdFull($obj) {
+        return $this->act->SetProfileGameByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetProfileGameByProfileId($set_type, $obj) {
+        return $this->act->SetProfileGameByProfileId($set_type, $obj);
+    }
+               
+    public function SetProfileGameByProfileIdFull($obj) {
+        return $this->act->SetProfileGameByProfileId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetProfileGameByProfileIdByGameId($set_type, $obj) {
+        return $this->act->SetProfileGameByProfileIdByGameId($set_type, $obj);
+    }
+               
+    public function SetProfileGameByProfileIdByGameIdFull($obj) {
+        return $this->act->SetProfileGameByProfileIdByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
     public function DelProfileGameByUuid(
         $uuid
     ) {         
         return $this->act->DelProfileGameByUuid(
         $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelProfileGameByGameId(
+        $game_id
+    ) {         
+        return $this->act->DelProfileGameByGameId(
+        $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelProfileGameByProfileId(
+        $profile_id
+    ) {         
+        return $this->act->DelProfileGameByProfileId(
+        $profile_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelProfileGameByProfileIdByGameId(
+        $profile_id
+        , $game_id
+    ) {         
+        return $this->act->DelProfileGameByProfileIdByGameId(
+        $profile_id
+        , $game_id
         );
     }
 #------------------------------------------------------------------------------                    
@@ -2631,6 +4070,1686 @@ class BaseGamingAPI {
             $objs = $this->GetProfileGameListByProfileIdByGameId(
                 $profile_id
                 , $game_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttribute(
+    ) {      
+        return $this->act->CountGameProfileAttribute(
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeByUuid(
+        $uuid
+    ) {      
+        return $this->act->CountGameProfileAttributeByUuid(
+        $uuid
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeByCode(
+        $code
+    ) {      
+        return $this->act->CountGameProfileAttributeByCode(
+        $code
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeByType(
+        $type
+    ) {      
+        return $this->act->CountGameProfileAttributeByType(
+        $type
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeByGroup(
+        $group
+    ) {      
+        return $this->act->CountGameProfileAttributeByGroup(
+        $group
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeByCodeByType(
+        $code
+        , $type
+    ) {      
+        return $this->act->CountGameProfileAttributeByCodeByType(
+        $code
+        , $type
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeByGameId(
+        $game_id
+    ) {      
+        return $this->act->CountGameProfileAttributeByGameId(
+        $game_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {      
+        return $this->act->CountGameProfileAttributeByGameIdByCode(
+        $game_id
+        , $code
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseGameProfileAttributeListByFilter($filter_obj) {
+        return $this->act->BrowseGameProfileAttributeListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeByUuid($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeByUuid($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeByUuidFull($obj) {
+        return $this->act->SetGameProfileAttributeByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeByCode($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeByCode($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeByCodeFull($obj) {
+        return $this->act->SetGameProfileAttributeByCode('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeByGameId($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeByGameId($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeByGameIdFull($obj) {
+        return $this->act->SetGameProfileAttributeByGameId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeByGameIdByCode($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeByGameIdByCode($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeByGameIdByCodeFull($obj) {
+        return $this->act->SetGameProfileAttributeByGameIdByCode('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelGameProfileAttributeByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeByCode(
+        $code
+    ) {         
+        return $this->act->DelGameProfileAttributeByCode(
+        $code
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeByCodeByType(
+        $code
+        , $type
+    ) {         
+        return $this->act->DelGameProfileAttributeByCodeByType(
+        $code
+        , $type
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeByGameId(
+        $game_id
+    ) {         
+        return $this->act->DelGameProfileAttributeByGameId(
+        $game_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {         
+        return $this->act->DelGameProfileAttributeByGameIdByCode(
+        $game_id
+        , $code
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeList(
+        ) {
+            return $this->act->GetGameProfileAttributeList(
+            );
+        }
+        
+    public function GetGameProfileAttribute(
+    ) {
+        foreach($this->act->GetGameProfileAttributeList(
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeList(
+    ) {
+        return $this->CachedGetGameProfileAttributeList(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeList(
+        $overrideCache
+        , $cacheHours
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeList";
+
+        $sb = "";
+        $sb += $method_name;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeList(
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeListByUuid(
+        $uuid
+        ) {
+            return $this->act->GetGameProfileAttributeListByUuid(
+                $uuid
+            );
+        }
+        
+    public function GetGameProfileAttributeByUuid(
+        $uuid
+    ) {
+        foreach($this->act->GetGameProfileAttributeListByUuid(
+        $uuid
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeListByUuid(
+        $uuid
+    ) {
+        return $this->CachedGetGameProfileAttributeListByUuid(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeListByUuid(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeListByUuid";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeListByUuid(
+                $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeListByCode(
+        $code
+        ) {
+            return $this->act->GetGameProfileAttributeListByCode(
+                $code
+            );
+        }
+        
+    public function GetGameProfileAttributeByCode(
+        $code
+    ) {
+        foreach($this->act->GetGameProfileAttributeListByCode(
+        $code
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeListByCode(
+        $code
+    ) {
+        return $this->CachedGetGameProfileAttributeListByCode(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $code
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeListByCode(
+        $overrideCache
+        , $cacheHours
+        , $code
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeListByCode";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeListByCode(
+                $code
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeListByType(
+        $type
+        ) {
+            return $this->act->GetGameProfileAttributeListByType(
+                $type
+            );
+        }
+        
+    public function GetGameProfileAttributeByType(
+        $type
+    ) {
+        foreach($this->act->GetGameProfileAttributeListByType(
+        $type
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeListByType(
+        $type
+    ) {
+        return $this->CachedGetGameProfileAttributeListByType(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $type
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeListByType(
+        $overrideCache
+        , $cacheHours
+        , $type
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeListByType";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$type");
+        $sb += "_";
+        $sb += $type;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeListByType(
+                $type
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeListByGroup(
+        $group
+        ) {
+            return $this->act->GetGameProfileAttributeListByGroup(
+                $group
+            );
+        }
+        
+    public function GetGameProfileAttributeByGroup(
+        $group
+    ) {
+        foreach($this->act->GetGameProfileAttributeListByGroup(
+        $group
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeListByGroup(
+        $group
+    ) {
+        return $this->CachedGetGameProfileAttributeListByGroup(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $group
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeListByGroup(
+        $overrideCache
+        , $cacheHours
+        , $group
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeListByGroup";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$group");
+        $sb += "_";
+        $sb += $group;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeListByGroup(
+                $group
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeListByCodeByType(
+        $code
+        , $type
+        ) {
+            return $this->act->GetGameProfileAttributeListByCodeByType(
+                $code
+                , $type
+            );
+        }
+        
+    public function GetGameProfileAttributeByCodeByType(
+        $code
+        , $type
+    ) {
+        foreach($this->act->GetGameProfileAttributeListByCodeByType(
+        $code
+        , $type
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeListByCodeByType(
+        $code
+        , $type
+    ) {
+        return $this->CachedGetGameProfileAttributeListByCodeByType(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $code
+            , $type
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeListByCodeByType(
+        $overrideCache
+        , $cacheHours
+        , $code
+        , $type
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeListByCodeByType";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+        $sb += "_";
+        $sb += strtolower("$type");
+        $sb += "_";
+        $sb += $type;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeListByCodeByType(
+                $code
+                , $type
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeListByGameIdByCode(
+        $game_id
+        , $code
+        ) {
+            return $this->act->GetGameProfileAttributeListByGameIdByCode(
+                $game_id
+                , $code
+            );
+        }
+        
+    public function GetGameProfileAttributeByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        foreach($this->act->GetGameProfileAttributeListByGameIdByCode(
+        $game_id
+        , $code
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeListByGameIdByCode(
+        $game_id
+        , $code
+    ) {
+        return $this->CachedGetGameProfileAttributeListByGameIdByCode(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+            , $code
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeListByGameIdByCode(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+        , $code
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeListByGameIdByCode";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$code");
+        $sb += "_";
+        $sb += $code;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttribute>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeListByGameIdByCode(
+                $game_id
+                , $code
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeText(
+    ) {      
+        return $this->act->CountGameProfileAttributeText(
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeTextByUuid(
+        $uuid
+    ) {      
+        return $this->act->CountGameProfileAttributeTextByUuid(
+        $uuid
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeTextByProfileId(
+        $profile_id
+    ) {      
+        return $this->act->CountGameProfileAttributeTextByProfileId(
+        $profile_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeTextByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {      
+        return $this->act->CountGameProfileAttributeTextByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeTextByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {      
+        return $this->act->CountGameProfileAttributeTextByGameIdByProfileId(
+        $game_id
+        , $profile_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {      
+        return $this->act->CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseGameProfileAttributeTextListByFilter($filter_obj) {
+        return $this->act->BrowseGameProfileAttributeTextListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeTextByUuid($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeTextByUuid($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeTextByUuidFull($obj) {
+        return $this->act->SetGameProfileAttributeTextByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeTextByProfileId($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeTextByProfileId($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeTextByProfileIdFull($obj) {
+        return $this->act->SetGameProfileAttributeTextByProfileId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeTextByProfileIdByAttributeId($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeTextByProfileIdByAttributeId($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeTextByProfileIdByAttributeIdFull($obj) {
+        return $this->act->SetGameProfileAttributeTextByProfileIdByAttributeId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeTextByGameIdByProfileId($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeTextByGameIdByProfileId($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeTextByGameIdByProfileIdFull($obj) {
+        return $this->act->SetGameProfileAttributeTextByGameIdByProfileId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeTextByGameIdByProfileIdByAttributeIdFull($obj) {
+        return $this->act->SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeTextByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelGameProfileAttributeTextByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeTextByProfileId(
+        $profile_id
+    ) {         
+        return $this->act->DelGameProfileAttributeTextByProfileId(
+        $profile_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeTextByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {         
+        return $this->act->DelGameProfileAttributeTextByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeTextByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {         
+        return $this->act->DelGameProfileAttributeTextByGameIdByProfileId(
+        $game_id
+        , $profile_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {         
+        return $this->act->DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeTextListByUuid(
+        $uuid
+        ) {
+            return $this->act->GetGameProfileAttributeTextListByUuid(
+                $uuid
+            );
+        }
+        
+    public function GetGameProfileAttributeTextByUuid(
+        $uuid
+    ) {
+        foreach($this->act->GetGameProfileAttributeTextListByUuid(
+        $uuid
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeTextListByUuid(
+        $uuid
+    ) {
+        return $this->CachedGetGameProfileAttributeTextListByUuid(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeTextListByUuid(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeTextListByUuid";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeTextListByUuid(
+                $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeTextListByProfileId(
+        $profile_id
+        ) {
+            return $this->act->GetGameProfileAttributeTextListByProfileId(
+                $profile_id
+            );
+        }
+        
+    public function GetGameProfileAttributeTextByProfileId(
+        $profile_id
+    ) {
+        foreach($this->act->GetGameProfileAttributeTextListByProfileId(
+        $profile_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeTextListByProfileId(
+        $profile_id
+    ) {
+        return $this->CachedGetGameProfileAttributeTextListByProfileId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $profile_id
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeTextListByProfileId(
+        $overrideCache
+        , $cacheHours
+        , $profile_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeTextListByProfileId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeTextListByProfileId(
+                $profile_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeTextListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+        ) {
+            return $this->act->GetGameProfileAttributeTextListByProfileIdByAttributeId(
+                $profile_id
+                , $attribute_id
+            );
+        }
+        
+    public function GetGameProfileAttributeTextByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        foreach($this->act->GetGameProfileAttributeTextListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeTextListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        return $this->CachedGetGameProfileAttributeTextListByProfileIdByAttributeId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $profile_id
+            , $attribute_id
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeTextListByProfileIdByAttributeId(
+        $overrideCache
+        , $cacheHours
+        , $profile_id
+        , $attribute_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeTextListByProfileIdByAttributeId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$attribute_id");
+        $sb += "_";
+        $sb += $attribute_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeTextListByProfileIdByAttributeId(
+                $profile_id
+                , $attribute_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeTextListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+        ) {
+            return $this->act->GetGameProfileAttributeTextListByGameIdByProfileId(
+                $game_id
+                , $profile_id
+            );
+        }
+        
+    public function GetGameProfileAttributeTextByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        foreach($this->act->GetGameProfileAttributeTextListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeTextListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        return $this->CachedGetGameProfileAttributeTextListByGameIdByProfileId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+            , $profile_id
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeTextListByGameIdByProfileId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+        , $profile_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeTextListByGameIdByProfileId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeTextListByGameIdByProfileId(
+                $game_id
+                , $profile_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+        ) {
+            return $this->act->GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+                $game_id
+                , $profile_id
+                , $attribute_id
+            );
+        }
+        
+    public function GetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        foreach($this->act->GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        return $this->CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+            , $profile_id
+            , $attribute_id
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$attribute_id");
+        $sb += "_";
+        $sb += $attribute_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeText>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+                $game_id
+                , $profile_id
+                , $attribute_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeData(
+    ) {      
+        return $this->act->CountGameProfileAttributeData(
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeDataByUuid(
+        $uuid
+    ) {      
+        return $this->act->CountGameProfileAttributeDataByUuid(
+        $uuid
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeDataByProfileId(
+        $profile_id
+    ) {      
+        return $this->act->CountGameProfileAttributeDataByProfileId(
+        $profile_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeDataByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {      
+        return $this->act->CountGameProfileAttributeDataByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeDataByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {      
+        return $this->act->CountGameProfileAttributeDataByGameIdByProfileId(
+        $game_id
+        , $profile_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {      
+        return $this->act->CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+        );
+    }
+        
+#------------------------------------------------------------------------------                    
+    public function BrowseGameProfileAttributeDataListByFilter($filter_obj) {
+        return $this->act->BrowseGameProfileAttributeDataListByFilter($filter_obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeDataByUuid($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeDataByUuid($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeDataByUuidFull($obj) {
+        return $this->act->SetGameProfileAttributeDataByUuid('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeDataByProfileIdByAttributeId($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeDataByProfileIdByAttributeId($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeDataByProfileIdByAttributeIdFull($obj) {
+        return $this->act->SetGameProfileAttributeDataByProfileIdByAttributeId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeDataByGameIdByProfileId($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeDataByGameIdByProfileId($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeDataByGameIdByProfileIdFull($obj) {
+        return $this->act->SetGameProfileAttributeDataByGameIdByProfileId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId($set_type, $obj) {
+        return $this->act->SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId($set_type, $obj);
+    }
+               
+    public function SetGameProfileAttributeDataByGameIdByProfileIdByAttributeIdFull($obj) {
+        return $this->act->SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId('full', $obj);
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeDataByUuid(
+        $uuid
+    ) {         
+        return $this->act->DelGameProfileAttributeDataByUuid(
+        $uuid
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeDataByProfileId(
+        $profile_id
+    ) {         
+        return $this->act->DelGameProfileAttributeDataByProfileId(
+        $profile_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeDataByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {         
+        return $this->act->DelGameProfileAttributeDataByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeDataByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {         
+        return $this->act->DelGameProfileAttributeDataByGameIdByProfileId(
+        $game_id
+        , $profile_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {         
+        return $this->act->DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+        );
+    }
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeDataList(
+        ) {
+            return $this->act->GetGameProfileAttributeDataList(
+            );
+        }
+        
+    public function GetGameProfileAttributeData(
+    ) {
+        foreach($this->act->GetGameProfileAttributeDataList(
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeDataList(
+    ) {
+        return $this->CachedGetGameProfileAttributeDataList(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeDataList(
+        $overrideCache
+        , $cacheHours
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeDataList";
+
+        $sb = "";
+        $sb += $method_name;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeDataList(
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeDataListByUuid(
+        $uuid
+        ) {
+            return $this->act->GetGameProfileAttributeDataListByUuid(
+                $uuid
+            );
+        }
+        
+    public function GetGameProfileAttributeDataByUuid(
+        $uuid
+    ) {
+        foreach($this->act->GetGameProfileAttributeDataListByUuid(
+        $uuid
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeDataListByUuid(
+        $uuid
+    ) {
+        return $this->CachedGetGameProfileAttributeDataListByUuid(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $uuid
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeDataListByUuid(
+        $overrideCache
+        , $cacheHours
+        , $uuid
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeDataListByUuid";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$uuid");
+        $sb += "_";
+        $sb += $uuid;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeDataListByUuid(
+                $uuid
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeDataListByProfileId(
+        $profile_id
+        ) {
+            return $this->act->GetGameProfileAttributeDataListByProfileId(
+                $profile_id
+            );
+        }
+        
+    public function GetGameProfileAttributeDataByProfileId(
+        $profile_id
+    ) {
+        foreach($this->act->GetGameProfileAttributeDataListByProfileId(
+        $profile_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeDataListByProfileId(
+        $profile_id
+    ) {
+        return $this->CachedGetGameProfileAttributeDataListByProfileId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $profile_id
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeDataListByProfileId(
+        $overrideCache
+        , $cacheHours
+        , $profile_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeDataListByProfileId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeDataListByProfileId(
+                $profile_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeDataListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+        ) {
+            return $this->act->GetGameProfileAttributeDataListByProfileIdByAttributeId(
+                $profile_id
+                , $attribute_id
+            );
+        }
+        
+    public function GetGameProfileAttributeDataByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        foreach($this->act->GetGameProfileAttributeDataListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeDataListByProfileIdByAttributeId(
+        $profile_id
+        , $attribute_id
+    ) {
+        return $this->CachedGetGameProfileAttributeDataListByProfileIdByAttributeId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $profile_id
+            , $attribute_id
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeDataListByProfileIdByAttributeId(
+        $overrideCache
+        , $cacheHours
+        , $profile_id
+        , $attribute_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeDataListByProfileIdByAttributeId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$attribute_id");
+        $sb += "_";
+        $sb += $attribute_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeDataListByProfileIdByAttributeId(
+                $profile_id
+                , $attribute_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeDataListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+        ) {
+            return $this->act->GetGameProfileAttributeDataListByGameIdByProfileId(
+                $game_id
+                , $profile_id
+            );
+        }
+        
+    public function GetGameProfileAttributeDataByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        foreach($this->act->GetGameProfileAttributeDataListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeDataListByGameIdByProfileId(
+        $game_id
+        , $profile_id
+    ) {
+        return $this->CachedGetGameProfileAttributeDataListByGameIdByProfileId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+            , $profile_id
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeDataListByGameIdByProfileId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+        , $profile_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeDataListByGameIdByProfileId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeDataListByGameIdByProfileId(
+                $game_id
+                , $profile_id
+            );
+            //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
+        }
+        return $objs;
+    }
+              
+#------------------------------------------------------------------------------                    
+    public function GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+        ) {
+            return $this->act->GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+                $game_id
+                , $profile_id
+                , $attribute_id
+            );
+        }
+        
+    public function GetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        foreach($this->act->GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+        ) as $item) {
+            return $item;
+        }
+        return NULL;
+    }
+    
+    /*
+    public function CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+        $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+        return $this->CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+            FALSE
+            , $this->CACHE_DEFAULT_HOURS
+            , $game_id
+            , $profile_id
+            , $attribute_id
+        );
+    }
+    */
+        
+    public function CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+        $overrideCache
+        , $cacheHours
+        , $game_id
+        , $profile_id
+        , $attribute_id
+    ) {
+
+        $objs = array();
+
+        $method_name = "CachedGetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId";
+
+        $sb = "";
+        $sb += $method_name;
+        $sb += "_";
+        $sb += strtolower("$game_id");
+        $sb += "_";
+        $sb += $game_id;
+        $sb += "_";
+        $sb += strtolower("$profile_id");
+        $sb += "_";
+        $sb += $profile_id;
+        $sb += "_";
+        $sb += strtolower("$attribute_id");
+        $sb += "_";
+        $sb += $attribute_id;
+
+        $cache_key = $sb;
+
+        //$objs = CacheUtil.Get<List<GameProfileAttributeData>>(cache_key);
+
+        if ($objs == NULL || $overrideCache) // if object not cached, get and cache
+        {
+            $objs = $this->GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+                $game_id
+                , $profile_id
+                , $attribute_id
             );
             //CacheUtil.AddAbsoluteByHours(objs, cache_key, cacheHours);
         }

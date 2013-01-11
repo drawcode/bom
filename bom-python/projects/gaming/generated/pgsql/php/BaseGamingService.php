@@ -169,6 +169,189 @@ namespace gaming {
             else if(IsContext("game/get/by-org-id/by-app-id")){
                 GetGameListByOrgIdByAppId();
             }
+            if(IsContext("game-attribute/count")){
+                CountGameAttribute();
+            }
+            else if(IsContext("game-attribute/count/by-uuid")){
+                CountGameAttributeByUuid();
+            }
+            else if(IsContext("game-attribute/count/by-code")){
+                CountGameAttributeByCode();
+            }
+            else if(IsContext("game-attribute/count/by-type")){
+                CountGameAttributeByType();
+            }
+            else if(IsContext("game-attribute/count/by-group")){
+                CountGameAttributeByGroup();
+            }
+            else if(IsContext("game-attribute/count/by-code/by-type")){
+                CountGameAttributeByCodeByType();
+            }
+            else if(IsContext("game-attribute/count/by-game-id")){
+                CountGameAttributeByGameId();
+            }
+            else if(IsContext("game-attribute/count/by-game-id/by-code")){
+                CountGameAttributeByGameIdByCode();
+            }
+            else if(IsContext("game-attribute/browse/by-filter")){
+                BrowseGameAttributeListByFilter();
+            }
+            else if(IsContext("game-attribute/set/by-uuid")){
+                SetGameAttributeByUuid();
+            }
+            else if(IsContext("game-attribute/set/by-code")){
+                SetGameAttributeByCode();
+            }
+            else if(IsContext("game-attribute/set/by-game-id")){
+                SetGameAttributeByGameId();
+            }
+            else if(IsContext("game-attribute/set/by-game-id/by-code")){
+                SetGameAttributeByGameIdByCode();
+            }
+            else if(IsContext("game-attribute/del/by-uuid")){
+                DelGameAttributeByUuid();
+            }
+            else if(IsContext("game-attribute/del/by-code")){
+                DelGameAttributeByCode();
+            }
+            else if(IsContext("game-attribute/del/by-code/by-type")){
+                DelGameAttributeByCodeByType();
+            }
+            else if(IsContext("game-attribute/del/by-game-id")){
+                DelGameAttributeByGameId();
+            }
+            else if(IsContext("game-attribute/del/by-game-id/by-code")){
+                DelGameAttributeByGameIdByCode();
+            }
+            else if(IsContext("game-attribute/get")){
+                GetGameAttributeList();
+            }
+            else if(IsContext("game-attribute/get/by-uuid")){
+                GetGameAttributeListByUuid();
+            }
+            else if(IsContext("game-attribute/get/by-code")){
+                GetGameAttributeListByCode();
+            }
+            else if(IsContext("game-attribute/get/by-type")){
+                GetGameAttributeListByType();
+            }
+            else if(IsContext("game-attribute/get/by-group")){
+                GetGameAttributeListByGroup();
+            }
+            else if(IsContext("game-attribute/get/by-code/by-type")){
+                GetGameAttributeListByCodeByType();
+            }
+            else if(IsContext("game-attribute/get/by-game-id/by-code")){
+                GetGameAttributeListByGameIdByCode();
+            }
+            if(IsContext("game-attribute-text/count")){
+                CountGameAttributeText();
+            }
+            else if(IsContext("game-attribute-text/count/by-uuid")){
+                CountGameAttributeTextByUuid();
+            }
+            else if(IsContext("game-attribute-text/count/by-game-id")){
+                CountGameAttributeTextByGameId();
+            }
+            else if(IsContext("game-attribute-text/count/by-attribute-id")){
+                CountGameAttributeTextByAttributeId();
+            }
+            else if(IsContext("game-attribute-text/count/by-game-id/by-attribute-id")){
+                CountGameAttributeTextByGameIdByAttributeId();
+            }
+            else if(IsContext("game-attribute-text/browse/by-filter")){
+                BrowseGameAttributeTextListByFilter();
+            }
+            else if(IsContext("game-attribute-text/set")){
+                SetGameAttributeText();
+            }
+            else if(IsContext("game-attribute-text/set/by-uuid")){
+                SetGameAttributeTextByUuid();
+            }
+            else if(IsContext("game-attribute-text/set/by-game-id")){
+                SetGameAttributeTextByGameId();
+            }
+            else if(IsContext("game-attribute-text/set/by-attribute-id")){
+                SetGameAttributeTextByAttributeId();
+            }
+            else if(IsContext("game-attribute-text/set/by-game-id/by-attribute-id")){
+                SetGameAttributeTextByGameIdByAttributeId();
+            }
+            else if(IsContext("game-attribute-text/del")){
+                DelGameAttributeText();
+            }
+            else if(IsContext("game-attribute-text/del/by-uuid")){
+                DelGameAttributeTextByUuid();
+            }
+            else if(IsContext("game-attribute-text/del/by-game-id")){
+                DelGameAttributeTextByGameId();
+            }
+            else if(IsContext("game-attribute-text/del/by-attribute-id")){
+                DelGameAttributeTextByAttributeId();
+            }
+            else if(IsContext("game-attribute-text/del/by-game-id/by-attribute-id")){
+                DelGameAttributeTextByGameIdByAttributeId();
+            }
+            else if(IsContext("game-attribute-text/get")){
+                GetGameAttributeTextList();
+            }
+            else if(IsContext("game-attribute-text/get/by-uuid")){
+                GetGameAttributeTextListByUuid();
+            }
+            else if(IsContext("game-attribute-text/get/by-game-id")){
+                GetGameAttributeTextListByGameId();
+            }
+            else if(IsContext("game-attribute-text/get/by-attribute-id")){
+                GetGameAttributeTextListByAttributeId();
+            }
+            else if(IsContext("game-attribute-text/get/by-game-id/by-attribute-id")){
+                GetGameAttributeTextListByGameIdByAttributeId();
+            }
+            if(IsContext("game-attribute-data/count")){
+                CountGameAttributeData();
+            }
+            else if(IsContext("game-attribute-data/count/by-uuid")){
+                CountGameAttributeDataByUuid();
+            }
+            else if(IsContext("game-attribute-data/count/by-game-id")){
+                CountGameAttributeDataByGameId();
+            }
+            else if(IsContext("game-attribute-data/count/by-game-id/by-attribute-id")){
+                CountGameAttributeDataByGameIdByAttributeId();
+            }
+            else if(IsContext("game-attribute-data/browse/by-filter")){
+                BrowseGameAttributeDataListByFilter();
+            }
+            else if(IsContext("game-attribute-data/set/by-uuid")){
+                SetGameAttributeDataByUuid();
+            }
+            else if(IsContext("game-attribute-data/set/by-game-id/by-attribute-id")){
+                SetGameAttributeDataByGameIdByAttributeId();
+            }
+            else if(IsContext("game-attribute-data/del")){
+                DelGameAttributeData();
+            }
+            else if(IsContext("game-attribute-data/del/by-uuid")){
+                DelGameAttributeDataByUuid();
+            }
+            else if(IsContext("game-attribute-data/del/by-game-id")){
+                DelGameAttributeDataByGameId();
+            }
+            else if(IsContext("game-attribute-data/del/by-game-id")){
+                DelGameAttributeDataByGameId();
+            }
+            else if(IsContext("game-attribute-data/get")){
+                GetGameAttributeDataList();
+            }
+            else if(IsContext("game-attribute-data/get/by-uuid")){
+                GetGameAttributeDataListByUuid();
+            }
+            else if(IsContext("game-attribute-data/get/by-game-id")){
+                GetGameAttributeDataListByGameId();
+            }
+            else if(IsContext("game-attribute-data/get/by-game-id/by-attribute-id")){
+                GetGameAttributeDataListByGameIdByAttributeId();
+            }
             if(IsContext("game-category/count")){
                 CountGameCategory();
             }
@@ -367,8 +550,26 @@ namespace gaming {
             else if(IsContext("profile-game/set/by-uuid")){
                 SetProfileGameByUuid();
             }
+            else if(IsContext("profile-game/set/by-game-id")){
+                SetProfileGameByGameId();
+            }
+            else if(IsContext("profile-game/set/by-profile-id")){
+                SetProfileGameByProfileId();
+            }
+            else if(IsContext("profile-game/set/by-profile-id/by-game-id")){
+                SetProfileGameByProfileIdByGameId();
+            }
             else if(IsContext("profile-game/del/by-uuid")){
                 DelProfileGameByUuid();
+            }
+            else if(IsContext("profile-game/del/by-game-id")){
+                DelProfileGameByGameId();
+            }
+            else if(IsContext("profile-game/del/by-profile-id")){
+                DelProfileGameByProfileId();
+            }
+            else if(IsContext("profile-game/del/by-profile-id/by-game-id")){
+                DelProfileGameByProfileIdByGameId();
             }
             else if(IsContext("profile-game/get")){
                 GetProfileGameList();
@@ -384,6 +585,213 @@ namespace gaming {
             }
             else if(IsContext("profile-game/get/by-profile-id/by-game-id")){
                 GetProfileGameListByProfileIdByGameId();
+            }
+            if(IsContext("game-profile-attribute/count")){
+                CountGameProfileAttribute();
+            }
+            else if(IsContext("game-profile-attribute/count/by-uuid")){
+                CountGameProfileAttributeByUuid();
+            }
+            else if(IsContext("game-profile-attribute/count/by-code")){
+                CountGameProfileAttributeByCode();
+            }
+            else if(IsContext("game-profile-attribute/count/by-type")){
+                CountGameProfileAttributeByType();
+            }
+            else if(IsContext("game-profile-attribute/count/by-group")){
+                CountGameProfileAttributeByGroup();
+            }
+            else if(IsContext("game-profile-attribute/count/by-code/by-type")){
+                CountGameProfileAttributeByCodeByType();
+            }
+            else if(IsContext("game-profile-attribute/count/by-game-id")){
+                CountGameProfileAttributeByGameId();
+            }
+            else if(IsContext("game-profile-attribute/count/by-game-id/by-code")){
+                CountGameProfileAttributeByGameIdByCode();
+            }
+            else if(IsContext("game-profile-attribute/browse/by-filter")){
+                BrowseGameProfileAttributeListByFilter();
+            }
+            else if(IsContext("game-profile-attribute/set/by-uuid")){
+                SetGameProfileAttributeByUuid();
+            }
+            else if(IsContext("game-profile-attribute/set/by-code")){
+                SetGameProfileAttributeByCode();
+            }
+            else if(IsContext("game-profile-attribute/set/by-game-id")){
+                SetGameProfileAttributeByGameId();
+            }
+            else if(IsContext("game-profile-attribute/set/by-game-id/by-code")){
+                SetGameProfileAttributeByGameIdByCode();
+            }
+            else if(IsContext("game-profile-attribute/del/by-uuid")){
+                DelGameProfileAttributeByUuid();
+            }
+            else if(IsContext("game-profile-attribute/del/by-code")){
+                DelGameProfileAttributeByCode();
+            }
+            else if(IsContext("game-profile-attribute/del/by-code/by-type")){
+                DelGameProfileAttributeByCodeByType();
+            }
+            else if(IsContext("game-profile-attribute/del/by-game-id")){
+                DelGameProfileAttributeByGameId();
+            }
+            else if(IsContext("game-profile-attribute/del/by-game-id/by-code")){
+                DelGameProfileAttributeByGameIdByCode();
+            }
+            else if(IsContext("game-profile-attribute/get")){
+                GetGameProfileAttributeList();
+            }
+            else if(IsContext("game-profile-attribute/get/by-uuid")){
+                GetGameProfileAttributeListByUuid();
+            }
+            else if(IsContext("game-profile-attribute/get/by-code")){
+                GetGameProfileAttributeListByCode();
+            }
+            else if(IsContext("game-profile-attribute/get/by-type")){
+                GetGameProfileAttributeListByType();
+            }
+            else if(IsContext("game-profile-attribute/get/by-group")){
+                GetGameProfileAttributeListByGroup();
+            }
+            else if(IsContext("game-profile-attribute/get/by-code/by-type")){
+                GetGameProfileAttributeListByCodeByType();
+            }
+            else if(IsContext("game-profile-attribute/get/by-game-id/by-code")){
+                GetGameProfileAttributeListByGameIdByCode();
+            }
+            if(IsContext("game-profile-attribute-text/count")){
+                CountGameProfileAttributeText();
+            }
+            else if(IsContext("game-profile-attribute-text/count/by-uuid")){
+                CountGameProfileAttributeTextByUuid();
+            }
+            else if(IsContext("game-profile-attribute-text/count/by-profile-id")){
+                CountGameProfileAttributeTextByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-text/count/by-profile-id/by-attribute-id")){
+                CountGameProfileAttributeTextByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-text/count/by-game-id/by-profile-id")){
+                CountGameProfileAttributeTextByGameIdByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-text/count/by-game-id/by-profile-id/by-attribute-id")){
+                CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-text/browse/by-filter")){
+                BrowseGameProfileAttributeTextListByFilter();
+            }
+            else if(IsContext("game-profile-attribute-text/set/by-uuid")){
+                SetGameProfileAttributeTextByUuid();
+            }
+            else if(IsContext("game-profile-attribute-text/set/by-profile-id")){
+                SetGameProfileAttributeTextByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-text/set/by-profile-id/by-attribute-id")){
+                SetGameProfileAttributeTextByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-text/set/by-game-id/by-profile-id")){
+                SetGameProfileAttributeTextByGameIdByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-text/set/by-game-id/by-profile-id/by-attribute-id")){
+                SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-text/del/by-uuid")){
+                DelGameProfileAttributeTextByUuid();
+            }
+            else if(IsContext("game-profile-attribute-text/del/by-profile-id")){
+                DelGameProfileAttributeTextByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-text/del/by-profile-id/by-attribute-id")){
+                DelGameProfileAttributeTextByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-text/del/by-game-id/by-profile-id")){
+                DelGameProfileAttributeTextByGameIdByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-text/del/by-game-id/by-profile-id/by-attribute-id")){
+                DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-text/get/by-uuid")){
+                GetGameProfileAttributeTextListByUuid();
+            }
+            else if(IsContext("game-profile-attribute-text/get/by-profile-id")){
+                GetGameProfileAttributeTextListByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-text/get/by-profile-id/by-attribute-id")){
+                GetGameProfileAttributeTextListByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-text/get/by-game-id/by-profile-id")){
+                GetGameProfileAttributeTextListByGameIdByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-text/get/by-game-id/by-profile-id/by-attribute-id")){
+                GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId();
+            }
+            if(IsContext("game-profile-attribute-data/count")){
+                CountGameProfileAttributeData();
+            }
+            else if(IsContext("game-profile-attribute-data/count/by-uuid")){
+                CountGameProfileAttributeDataByUuid();
+            }
+            else if(IsContext("game-profile-attribute-data/count/by-profile-id")){
+                CountGameProfileAttributeDataByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-data/count/by-profile-id/by-attribute-id")){
+                CountGameProfileAttributeDataByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-data/count/by-game-id/by-profile-id")){
+                CountGameProfileAttributeDataByGameIdByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-data/count/by-game-id/by-profile-id/by-attribute-id")){
+                CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-data/browse/by-filter")){
+                BrowseGameProfileAttributeDataListByFilter();
+            }
+            else if(IsContext("game-profile-attribute-data/set/by-uuid")){
+                SetGameProfileAttributeDataByUuid();
+            }
+            else if(IsContext("game-profile-attribute-data/set/by-profile-id/by-attribute-id")){
+                SetGameProfileAttributeDataByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-data/set/by-game-id/by-profile-id")){
+                SetGameProfileAttributeDataByGameIdByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-data/set/by-game-id/by-profile-id/by-attribute-id")){
+                SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-data/del/by-uuid")){
+                DelGameProfileAttributeDataByUuid();
+            }
+            else if(IsContext("game-profile-attribute-data/del/by-profile-id")){
+                DelGameProfileAttributeDataByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-data/del/by-profile-id/by-attribute-id")){
+                DelGameProfileAttributeDataByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-data/del/by-game-id/by-profile-id")){
+                DelGameProfileAttributeDataByGameIdByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-data/del/by-game-id/by-profile-id/by-attribute-id")){
+                DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-data/get")){
+                GetGameProfileAttributeDataList();
+            }
+            else if(IsContext("game-profile-attribute-data/get/by-uuid")){
+                GetGameProfileAttributeDataListByUuid();
+            }
+            else if(IsContext("game-profile-attribute-data/get/by-profile-id")){
+                GetGameProfileAttributeDataListByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-data/get/by-profile-id/by-attribute-id")){
+                GetGameProfileAttributeDataListByProfileIdByAttributeId();
+            }
+            else if(IsContext("game-profile-attribute-data/get/by-game-id/by-profile-id")){
+                GetGameProfileAttributeDataListByGameIdByProfileId();
+            }
+            else if(IsContext("game-profile-attribute-data/get/by-game-id/by-profile-id/by-attribute-id")){
+                GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId();
             }
             if(IsContext("game-network/count")){
                 CountGameNetwork();
@@ -3791,6 +4199,2109 @@ namespace gaming {
         }     
 //------------------------------------------------------------------------------                    
                     
+        public virtual void CountGameAttribute() {
+        
+
+            ResponseGameAttributeInt wrapper = new ResponseGameAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/count";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttribute(
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameAttributeInt wrapper = new ResponseGameAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/count/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeByCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameAttributeInt wrapper = new ResponseGameAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/count/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeByCode(
+                _code
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeByType() {
+        
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameAttributeInt wrapper = new ResponseGameAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/count/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeByType(
+                _type
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeByGroup() {
+        
+             _group = ()util.GetParamValue(_context, "@group");
+
+            ResponseGameAttributeInt wrapper = new ResponseGameAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/count/by-group";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeByGroup(
+                _group
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeByCodeByType() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameAttributeInt wrapper = new ResponseGameAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/count/by-code/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeByCodeByType(
+                _code
+                , _type
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameAttributeInt wrapper = new ResponseGameAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/count/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeByGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeByGameIdByCode() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameAttributeInt wrapper = new ResponseGameAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/count/by-game-id/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeByGameIdByCode(
+                _game_id
+                , _code
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void BrowseGameAttributeListByFilter()  {
+        
+            ResponseGameAttributeList wrapper = new ResponseGameAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/browse/by-filter";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            GameAttributeResult result = api.BrowseGameAttributeListByFilter(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeByUuid()  {
+        
+            ResponseGameAttributeBool wrapper = new ResponseGameAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/set/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttribute obj = new GameAttribute();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeByUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeByCode()  {
+        
+            ResponseGameAttributeBool wrapper = new ResponseGameAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/set/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttribute obj = new GameAttribute();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeByCode(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeByGameId()  {
+        
+            ResponseGameAttributeBool wrapper = new ResponseGameAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/set/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttribute obj = new GameAttribute();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeByGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeByGameIdByCode()  {
+        
+            ResponseGameAttributeBool wrapper = new ResponseGameAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/set/by-game-id/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttribute obj = new GameAttribute();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeByGameIdByCode(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameAttributeBool wrapper = new ResponseGameAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/del/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeByUuid(
+                        
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeByCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameAttributeBool wrapper = new ResponseGameAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/del/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeByCode(
+                        
+                _code
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeByCodeByType() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameAttributeBool wrapper = new ResponseGameAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/del/by-code/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeByCodeByType(
+                        
+                _code
+                , _type
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameAttributeBool wrapper = new ResponseGameAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/del/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeByGameId(
+                        
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeByGameIdByCode() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameAttributeBool wrapper = new ResponseGameAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/del/by-game-id/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeByGameIdByCode(
+                        
+                _game_id
+                , _code
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeList() {
+        
+
+            ResponseGameAttributeList wrapper = new ResponseGameAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/get";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttribute> objs = api.GetGameAttributeList(
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeListByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameAttributeList wrapper = new ResponseGameAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/get/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttribute> objs = api.GetGameAttributeListByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeListByCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameAttributeList wrapper = new ResponseGameAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/get/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttribute> objs = api.GetGameAttributeListByCode(
+                _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeListByType() {
+        
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameAttributeList wrapper = new ResponseGameAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/get/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttribute> objs = api.GetGameAttributeListByType(
+                _type
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeListByGroup() {
+        
+             _group = ()util.GetParamValue(_context, "@group");
+
+            ResponseGameAttributeList wrapper = new ResponseGameAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/get/by-group";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttribute> objs = api.GetGameAttributeListByGroup(
+                _group
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeListByCodeByType() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameAttributeList wrapper = new ResponseGameAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/get/by-code/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttribute> objs = api.GetGameAttributeListByCodeByType(
+                _code
+                , _type
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeListByGameIdByCode() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameAttributeList wrapper = new ResponseGameAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute/get/by-game-id/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttribute> objs = api.GetGameAttributeListByGameIdByCode(
+                _game_id
+                , _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeText() {
+        
+
+            ResponseGameAttributeTextInt wrapper = new ResponseGameAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/count";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeText(
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeTextByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameAttributeTextInt wrapper = new ResponseGameAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/count/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeTextByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeTextByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameAttributeTextInt wrapper = new ResponseGameAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/count/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeTextByGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeTextByAttributeId() {
+        
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameAttributeTextInt wrapper = new ResponseGameAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/count/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeTextByAttributeId(
+                _attribute_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeTextByGameIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameAttributeTextInt wrapper = new ResponseGameAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/count/by-game-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeTextByGameIdByAttributeId(
+                _game_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void BrowseGameAttributeTextListByFilter()  {
+        
+            ResponseGameAttributeTextList wrapper = new ResponseGameAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/browse/by-filter";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            GameAttributeTextResult result = api.BrowseGameAttributeTextListByFilter(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeText()  {
+        
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/set";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttributeText obj = new GameAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeText(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeTextByUuid()  {
+        
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/set/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttributeText obj = new GameAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeTextByUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeTextByGameId()  {
+        
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/set/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttributeText obj = new GameAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeTextByGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeTextByAttributeId()  {
+        
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/set/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttributeText obj = new GameAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeTextByAttributeId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeTextByGameIdByAttributeId()  {
+        
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/set/by-game-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttributeText obj = new GameAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeTextByGameIdByAttributeId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeText() {
+        
+
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/del";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeText(
+                        
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeTextByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/del/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeTextByUuid(
+                        
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeTextByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/del/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeTextByGameId(
+                        
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeTextByAttributeId() {
+        
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/del/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeTextByAttributeId(
+                        
+                _attribute_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeTextByGameIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameAttributeTextBool wrapper = new ResponseGameAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/del/by-game-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeTextByGameIdByAttributeId(
+                        
+                _game_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeTextList() {
+        
+
+            ResponseGameAttributeTextList wrapper = new ResponseGameAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/get";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttributeText> objs = api.GetGameAttributeTextList(
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeTextListByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameAttributeTextList wrapper = new ResponseGameAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/get/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttributeText> objs = api.GetGameAttributeTextListByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeTextListByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameAttributeTextList wrapper = new ResponseGameAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/get/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttributeText> objs = api.GetGameAttributeTextListByGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeTextListByAttributeId() {
+        
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameAttributeTextList wrapper = new ResponseGameAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/get/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttributeText> objs = api.GetGameAttributeTextListByAttributeId(
+                _attribute_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeTextListByGameIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameAttributeTextList wrapper = new ResponseGameAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-text/get/by-game-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttributeText> objs = api.GetGameAttributeTextListByGameIdByAttributeId(
+                _game_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeData() {
+        
+
+            ResponseGameAttributeDataInt wrapper = new ResponseGameAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/count";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeData(
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeDataByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameAttributeDataInt wrapper = new ResponseGameAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/count/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeDataByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeDataByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameAttributeDataInt wrapper = new ResponseGameAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/count/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeDataByGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameAttributeDataByGameIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameAttributeDataInt wrapper = new ResponseGameAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/count/by-game-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameAttributeDataByGameIdByAttributeId(
+                _game_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void BrowseGameAttributeDataListByFilter()  {
+        
+            ResponseGameAttributeDataList wrapper = new ResponseGameAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/browse/by-filter";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            GameAttributeDataResult result = api.BrowseGameAttributeDataListByFilter(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeDataByUuid()  {
+        
+            ResponseGameAttributeDataBool wrapper = new ResponseGameAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/set/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttributeData obj = new GameAttributeData();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeDataByUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameAttributeDataByGameIdByAttributeId()  {
+        
+            ResponseGameAttributeDataBool wrapper = new ResponseGameAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/set/by-game-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameAttributeData obj = new GameAttributeData();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameAttributeDataByGameIdByAttributeId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeData() {
+        
+
+            ResponseGameAttributeDataBool wrapper = new ResponseGameAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/del";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeData(
+                        
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeDataByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameAttributeDataBool wrapper = new ResponseGameAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/del/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeDataByUuid(
+                        
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeDataByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameAttributeDataBool wrapper = new ResponseGameAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/del/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeDataByGameId(
+                        
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameAttributeDataByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameAttributeDataBool wrapper = new ResponseGameAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/del/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameAttributeDataByGameId(
+                        
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeDataList() {
+        
+
+            ResponseGameAttributeDataList wrapper = new ResponseGameAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/get";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttributeData> objs = api.GetGameAttributeDataList(
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeDataListByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameAttributeDataList wrapper = new ResponseGameAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/get/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttributeData> objs = api.GetGameAttributeDataListByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeDataListByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameAttributeDataList wrapper = new ResponseGameAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/get/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttributeData> objs = api.GetGameAttributeDataListByGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameAttributeDataListByGameIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameAttributeDataList wrapper = new ResponseGameAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-attribute-data/get/by-game-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameAttributeData> objs = api.GetGameAttributeDataListByGameIdByAttributeId(
+                _game_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
         public virtual void CountGameCategory() {
         
 
@@ -5617,6 +8128,10 @@ namespace gaming {
             if(!String.IsNoneOrEmpty(_profile_id))
                 obj.profile_id = ()_profile_id;
             
+            string _profile_iteration = util.GetParamValue(_context, "@profile_iteration");
+            if(!String.IsNoneOrEmpty(_profile_iteration))
+                obj.profile_iteration = ()_profile_iteration;
+            
             string _game_profile = util.GetParamValue(_context, "@game_profile");
             if(!String.IsNoneOrEmpty(_game_profile))
                 obj.game_profile = ()_game_profile;
@@ -5660,6 +8175,225 @@ namespace gaming {
             util.SerializeTypeJSONToResponse(_context, wrapper);
         }
 //------------------------------------------------------------------------------                    
+        public virtual void SetProfileGameByGameId()  {
+        
+            ResponseProfileGameBool wrapper = new ResponseProfileGameBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "profile-game/set/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            ProfileGame obj = new ProfileGame();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _type_id = util.GetParamValue(_context, "@type_id");
+            if(!String.IsNoneOrEmpty(_type_id))
+                obj.type_id = ()_type_id;
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _profile_iteration = util.GetParamValue(_context, "@profile_iteration");
+            if(!String.IsNoneOrEmpty(_profile_iteration))
+                obj.profile_iteration = ()_profile_iteration;
+            
+            string _game_profile = util.GetParamValue(_context, "@game_profile");
+            if(!String.IsNoneOrEmpty(_game_profile))
+                obj.game_profile = ()_game_profile;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _profile_version = util.GetParamValue(_context, "@profile_version");
+            if(!String.IsNoneOrEmpty(_profile_version))
+                obj.profile_version = ()_profile_version;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetProfileGameByGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetProfileGameByProfileId()  {
+        
+            ResponseProfileGameBool wrapper = new ResponseProfileGameBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "profile-game/set/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            ProfileGame obj = new ProfileGame();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _type_id = util.GetParamValue(_context, "@type_id");
+            if(!String.IsNoneOrEmpty(_type_id))
+                obj.type_id = ()_type_id;
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _profile_iteration = util.GetParamValue(_context, "@profile_iteration");
+            if(!String.IsNoneOrEmpty(_profile_iteration))
+                obj.profile_iteration = ()_profile_iteration;
+            
+            string _game_profile = util.GetParamValue(_context, "@game_profile");
+            if(!String.IsNoneOrEmpty(_game_profile))
+                obj.game_profile = ()_game_profile;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _profile_version = util.GetParamValue(_context, "@profile_version");
+            if(!String.IsNoneOrEmpty(_profile_version))
+                obj.profile_version = ()_profile_version;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetProfileGameByProfileId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetProfileGameByProfileIdByGameId()  {
+        
+            ResponseProfileGameBool wrapper = new ResponseProfileGameBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "profile-game/set/by-profile-id/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            ProfileGame obj = new ProfileGame();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _type_id = util.GetParamValue(_context, "@type_id");
+            if(!String.IsNoneOrEmpty(_type_id))
+                obj.type_id = ()_type_id;
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _profile_iteration = util.GetParamValue(_context, "@profile_iteration");
+            if(!String.IsNoneOrEmpty(_profile_iteration))
+                obj.profile_iteration = ()_profile_iteration;
+            
+            string _game_profile = util.GetParamValue(_context, "@game_profile");
+            if(!String.IsNoneOrEmpty(_game_profile))
+                obj.game_profile = ()_game_profile;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _profile_version = util.GetParamValue(_context, "@profile_version");
+            if(!String.IsNoneOrEmpty(_profile_version))
+                obj.profile_version = ()_profile_version;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = ()_type;
+            
+            
+            // get data
+            wrapper.data = api.SetProfileGameByProfileIdByGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
         public virtual void DelProfileGameByUuid() {
         
              _uuid = ()util.GetParamValue(_context, "@uuid");
@@ -5677,6 +8411,83 @@ namespace gaming {
             bool completed = api.DelProfileGameByUuid(
                         
                 _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelProfileGameByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseProfileGameBool wrapper = new ResponseProfileGameBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "profile-game/del/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelProfileGameByGameId(
+                        
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelProfileGameByProfileId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseProfileGameBool wrapper = new ResponseProfileGameBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "profile-game/del/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelProfileGameByProfileId(
+                        
+                _profile_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelProfileGameByProfileIdByGameId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseProfileGameBool wrapper = new ResponseProfileGameBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "profile-game/del/by-profile-id/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelProfileGameByProfileIdByGameId(
+                        
+                _profile_id
+                , _game_id
             );
             
             // get data
@@ -5802,6 +8613,2485 @@ namespace gaming {
             List<ProfileGame> objs = api.GetProfileGameListByProfileIdByGameId(
                 _profile_id
                 , _game_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttribute() {
+        
+
+            ResponseGameProfileAttributeInt wrapper = new ResponseGameProfileAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/count";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttribute(
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameProfileAttributeInt wrapper = new ResponseGameProfileAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/count/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeByCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameProfileAttributeInt wrapper = new ResponseGameProfileAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/count/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeByCode(
+                _code
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeByType() {
+        
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameProfileAttributeInt wrapper = new ResponseGameProfileAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/count/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeByType(
+                _type
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeByGroup() {
+        
+             _group = ()util.GetParamValue(_context, "@group");
+
+            ResponseGameProfileAttributeInt wrapper = new ResponseGameProfileAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/count/by-group";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeByGroup(
+                _group
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeByCodeByType() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameProfileAttributeInt wrapper = new ResponseGameProfileAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/count/by-code/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeByCodeByType(
+                _code
+                , _type
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileAttributeInt wrapper = new ResponseGameProfileAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/count/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeByGameId(
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeByGameIdByCode() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameProfileAttributeInt wrapper = new ResponseGameProfileAttributeInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/count/by-game-id/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeByGameIdByCode(
+                _game_id
+                , _code
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void BrowseGameProfileAttributeListByFilter()  {
+        
+            ResponseGameProfileAttributeList wrapper = new ResponseGameProfileAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/browse/by-filter";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            GameProfileAttributeResult result = api.BrowseGameProfileAttributeListByFilter(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeByUuid()  {
+        
+            ResponseGameProfileAttributeBool wrapper = new ResponseGameProfileAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/set/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttribute obj = new GameProfileAttribute();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeByUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeByCode()  {
+        
+            ResponseGameProfileAttributeBool wrapper = new ResponseGameProfileAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/set/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttribute obj = new GameProfileAttribute();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeByCode(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeByGameId()  {
+        
+            ResponseGameProfileAttributeBool wrapper = new ResponseGameProfileAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/set/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttribute obj = new GameProfileAttribute();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeByGameId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeByGameIdByCode()  {
+        
+            ResponseGameProfileAttributeBool wrapper = new ResponseGameProfileAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/set/by-game-id/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttribute obj = new GameProfileAttribute();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _code = util.GetParamValue(_context, "@code");
+            if(!String.IsNoneOrEmpty(_code))
+                obj.code = ()_code;
+            
+            string _display_name = util.GetParamValue(_context, "@display_name");
+            if(!String.IsNoneOrEmpty(_display_name))
+                obj.display_name = ()_display_name;
+            
+            string _name = util.GetParamValue(_context, "@name");
+            if(!String.IsNoneOrEmpty(_name))
+                obj.name = ()_name;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            string _description = util.GetParamValue(_context, "@description");
+            if(!String.IsNoneOrEmpty(_description))
+                obj.description = ()_description;
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeByGameIdByCode(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameProfileAttributeBool wrapper = new ResponseGameProfileAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/del/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeByUuid(
+                        
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeByCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameProfileAttributeBool wrapper = new ResponseGameProfileAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/del/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeByCode(
+                        
+                _code
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeByCodeByType() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameProfileAttributeBool wrapper = new ResponseGameProfileAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/del/by-code/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeByCodeByType(
+                        
+                _code
+                , _type
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeByGameId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+
+            ResponseGameProfileAttributeBool wrapper = new ResponseGameProfileAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/del/by-game-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeByGameId(
+                        
+                _game_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeByGameIdByCode() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameProfileAttributeBool wrapper = new ResponseGameProfileAttributeBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/del/by-game-id/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeByGameIdByCode(
+                        
+                _game_id
+                , _code
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeList() {
+        
+
+            ResponseGameProfileAttributeList wrapper = new ResponseGameProfileAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/get";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttribute> objs = api.GetGameProfileAttributeList(
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeListByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameProfileAttributeList wrapper = new ResponseGameProfileAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/get/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttribute> objs = api.GetGameProfileAttributeListByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeListByCode() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameProfileAttributeList wrapper = new ResponseGameProfileAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/get/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttribute> objs = api.GetGameProfileAttributeListByCode(
+                _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeListByType() {
+        
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameProfileAttributeList wrapper = new ResponseGameProfileAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/get/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttribute> objs = api.GetGameProfileAttributeListByType(
+                _type
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeListByGroup() {
+        
+             _group = ()util.GetParamValue(_context, "@group");
+
+            ResponseGameProfileAttributeList wrapper = new ResponseGameProfileAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/get/by-group";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttribute> objs = api.GetGameProfileAttributeListByGroup(
+                _group
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeListByCodeByType() {
+        
+             _code = ()util.GetParamValue(_context, "@code");
+             _type = ()util.GetParamValue(_context, "@type");
+
+            ResponseGameProfileAttributeList wrapper = new ResponseGameProfileAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/get/by-code/by-type";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttribute> objs = api.GetGameProfileAttributeListByCodeByType(
+                _code
+                , _type
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeListByGameIdByCode() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _code = ()util.GetParamValue(_context, "@code");
+
+            ResponseGameProfileAttributeList wrapper = new ResponseGameProfileAttributeList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute/get/by-game-id/by-code";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttribute> objs = api.GetGameProfileAttributeListByGameIdByCode(
+                _game_id
+                , _code
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeText() {
+        
+
+            ResponseGameProfileAttributeTextInt wrapper = new ResponseGameProfileAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/count";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeText(
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeTextByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameProfileAttributeTextInt wrapper = new ResponseGameProfileAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/count/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeTextByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeTextByProfileId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeTextInt wrapper = new ResponseGameProfileAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/count/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeTextByProfileId(
+                _profile_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeTextByProfileIdByAttributeId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeTextInt wrapper = new ResponseGameProfileAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/count/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeTextByProfileIdByAttributeId(
+                _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeTextByGameIdByProfileId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeTextInt wrapper = new ResponseGameProfileAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/count/by-game-id/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeTextByGameIdByProfileId(
+                _game_id
+                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeTextInt wrapper = new ResponseGameProfileAttributeTextInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/count/by-game-id/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+                _game_id
+                , _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void BrowseGameProfileAttributeTextListByFilter()  {
+        
+            ResponseGameProfileAttributeTextList wrapper = new ResponseGameProfileAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/browse/by-filter";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            GameProfileAttributeTextResult result = api.BrowseGameProfileAttributeTextListByFilter(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeTextByUuid()  {
+        
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/set/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttributeText obj = new GameProfileAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeTextByUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeTextByProfileId()  {
+        
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/set/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttributeText obj = new GameProfileAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeTextByProfileId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeTextByProfileIdByAttributeId()  {
+        
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/set/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttributeText obj = new GameProfileAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeTextByProfileIdByAttributeId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeTextByGameIdByProfileId()  {
+        
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/set/by-game-id/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttributeText obj = new GameProfileAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeTextByGameIdByProfileId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId()  {
+        
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/set/by-game-id/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttributeText obj = new GameProfileAttributeText();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeTextByGameIdByProfileIdByAttributeId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeTextByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/del/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeTextByUuid(
+                        
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeTextByProfileId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/del/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeTextByProfileId(
+                        
+                _profile_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeTextByProfileIdByAttributeId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/del/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeTextByProfileIdByAttributeId(
+                        
+                _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeTextByGameIdByProfileId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/del/by-game-id/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeTextByGameIdByProfileId(
+                        
+                _game_id
+                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeTextBool wrapper = new ResponseGameProfileAttributeTextBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/del/by-game-id/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeTextByGameIdByProfileIdByAttributeId(
+                        
+                _game_id
+                , _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeTextListByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameProfileAttributeTextList wrapper = new ResponseGameProfileAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/get/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeText> objs = api.GetGameProfileAttributeTextListByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeTextListByProfileId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeTextList wrapper = new ResponseGameProfileAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/get/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeText> objs = api.GetGameProfileAttributeTextListByProfileId(
+                _profile_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeTextListByProfileIdByAttributeId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeTextList wrapper = new ResponseGameProfileAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/get/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeText> objs = api.GetGameProfileAttributeTextListByProfileIdByAttributeId(
+                _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeTextListByGameIdByProfileId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeTextList wrapper = new ResponseGameProfileAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/get/by-game-id/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeText> objs = api.GetGameProfileAttributeTextListByGameIdByProfileId(
+                _game_id
+                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeTextList wrapper = new ResponseGameProfileAttributeTextList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-text/get/by-game-id/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeText> objs = api.GetGameProfileAttributeTextListByGameIdByProfileIdByAttributeId(
+                _game_id
+                , _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeData() {
+        
+
+            ResponseGameProfileAttributeDataInt wrapper = new ResponseGameProfileAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/count";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeData(
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeDataByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameProfileAttributeDataInt wrapper = new ResponseGameProfileAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/count/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeDataByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeDataByProfileId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeDataInt wrapper = new ResponseGameProfileAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/count/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeDataByProfileId(
+                _profile_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeDataByProfileIdByAttributeId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeDataInt wrapper = new ResponseGameProfileAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/count/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeDataByProfileIdByAttributeId(
+                _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeDataByGameIdByProfileId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeDataInt wrapper = new ResponseGameProfileAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/count/by-game-id/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeDataByGameIdByProfileId(
+                _game_id
+                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeDataInt wrapper = new ResponseGameProfileAttributeDataInt();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/count/by-game-id/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            int i = api.CountGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+                _game_id
+                , _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = i;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void BrowseGameProfileAttributeDataListByFilter()  {
+        
+            ResponseGameProfileAttributeDataList wrapper = new ResponseGameProfileAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/browse/by-filter";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+            
+            SearchFilter obj = new SearchFilter();
+            obj.page = Convert.ToInt32(util.GetParamValue(_context, "@page"));
+            obj.page_size = Convert.ToInt32(util.GetParamValue(_context, "@page-size"));
+            obj.filter = util.GetParamValue(_context, "@filter");
+            
+            GameProfileAttributeDataResult result = api.BrowseGameProfileAttributeDataListByFilter(obj);
+            wrapper.info.Add("total_rows", result.total_rows);
+            wrapper.info.Add("total_pages", result.total_pages);
+            wrapper.info.Add("page", result.page);
+            wrapper.info.Add("page_size", result.page_size);
+            
+            // get data
+            wrapper.data = result.data;
+                        
+	    util.SerializeTypeToResponse(_format, _context, wrapper);          
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeDataByUuid()  {
+        
+            ResponseGameProfileAttributeDataBool wrapper = new ResponseGameProfileAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/set/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttributeData obj = new GameProfileAttributeData();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeDataByUuid(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeDataByProfileIdByAttributeId()  {
+        
+            ResponseGameProfileAttributeDataBool wrapper = new ResponseGameProfileAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/set/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttributeData obj = new GameProfileAttributeData();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeDataByProfileIdByAttributeId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeDataByGameIdByProfileId()  {
+        
+            ResponseGameProfileAttributeDataBool wrapper = new ResponseGameProfileAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/set/by-game-id/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttributeData obj = new GameProfileAttributeData();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeDataByGameIdByProfileId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId()  {
+        
+            ResponseGameProfileAttributeDataBool wrapper = new ResponseGameProfileAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/set/by-game-id/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+                        
+            GameProfileAttributeData obj = new GameProfileAttributeData();
+            
+            string _status = util.GetParamValue(_context, "@status");
+            if(!String.IsNoneOrEmpty(_status))
+                obj.status = ()_status;
+            
+            string _sort = util.GetParamValue(_context, "@sort");
+            if(!String.IsNoneOrEmpty(_sort))
+                obj.sort = Convert.ToInt32(_sort);
+            
+            string _profile_id = util.GetParamValue(_context, "@profile_id");
+            if(!String.IsNoneOrEmpty(_profile_id))
+                obj.profile_id = ()_profile_id;
+            
+            string _game_id = util.GetParamValue(_context, "@game_id");
+            if(!String.IsNoneOrEmpty(_game_id))
+                obj.game_id = ()_game_id;
+            
+            string _active = util.GetParamValue(_context, "@active");
+            if(!String.IsNoneOrEmpty(_active))
+                obj.active = Convert.ToBoolean(_active);
+            
+            string _attribute_value = util.GetParamValue(_context, "@attribute_value");
+            if(!String.IsNoneOrEmpty(_attribute_value))
+                obj.attribute_value = ()_attribute_value;
+            
+            string _group = util.GetParamValue(_context, "@group");
+            if(!String.IsNoneOrEmpty(_group))
+                obj.group = Convert.ToInt32(_group);
+            
+            string _uuid = util.GetParamValue(_context, "@uuid");
+            if(!String.IsNoneOrEmpty(_uuid))
+                obj.uuid = ()_uuid;
+            
+            string _date_modified = util.GetParamValue(_context, "@date_modified");
+            if(!String.IsNoneOrEmpty(_date_modified))
+                obj.date_modified = Convert.ToDateTime(_date_modified);
+            else 
+                obj.date_modified = DateTime.Now;
+            
+            string _attribute_id = util.GetParamValue(_context, "@attribute_id");
+            if(!String.IsNoneOrEmpty(_attribute_id))
+                obj.attribute_id = ()_attribute_id;
+            
+            string _date_created = util.GetParamValue(_context, "@date_created");
+            if(!String.IsNoneOrEmpty(_date_created))
+                obj.date_created = Convert.ToDateTime(_date_created);
+            else 
+                obj.date_created = DateTime.Now;
+            
+            string _type = util.GetParamValue(_context, "@type");
+            if(!String.IsNoneOrEmpty(_type))
+                obj.type = Convert.ToInt32(_type);
+            
+            string _order = util.GetParamValue(_context, "@order");
+            if(!String.IsNoneOrEmpty(_order))
+                obj.order = Convert.ToInt32(_order);
+            
+            
+            // get data
+            wrapper.data = api.SetGameProfileAttributeDataByGameIdByProfileIdByAttributeId(obj);
+                        
+            util.SerializeTypeJSONToResponse(_context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeDataByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameProfileAttributeDataBool wrapper = new ResponseGameProfileAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/del/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeDataByUuid(
+                        
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeDataByProfileId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeDataBool wrapper = new ResponseGameProfileAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/del/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeDataByProfileId(
+                        
+                _profile_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeDataByProfileIdByAttributeId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeDataBool wrapper = new ResponseGameProfileAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/del/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeDataByProfileIdByAttributeId(
+                        
+                _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeDataByGameIdByProfileId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeDataBool wrapper = new ResponseGameProfileAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/del/by-game-id/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeDataByGameIdByProfileId(
+                        
+                _game_id
+                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+        public virtual void DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeDataBool wrapper = new ResponseGameProfileAttributeDataBool();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/del/by-game-id/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            bool completed = api.DelGameProfileAttributeDataByGameIdByProfileIdByAttributeId(
+                        
+                _game_id
+                , _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = completed;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeDataList() {
+        
+
+            ResponseGameProfileAttributeDataList wrapper = new ResponseGameProfileAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/get";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeData> objs = api.GetGameProfileAttributeDataList(
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeDataListByUuid() {
+        
+             _uuid = ()util.GetParamValue(_context, "@uuid");
+
+            ResponseGameProfileAttributeDataList wrapper = new ResponseGameProfileAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/get/by-uuid";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeData> objs = api.GetGameProfileAttributeDataListByUuid(
+                _uuid
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeDataListByProfileId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeDataList wrapper = new ResponseGameProfileAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/get/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeData> objs = api.GetGameProfileAttributeDataListByProfileId(
+                _profile_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeDataListByProfileIdByAttributeId() {
+        
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeDataList wrapper = new ResponseGameProfileAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/get/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeData> objs = api.GetGameProfileAttributeDataListByProfileIdByAttributeId(
+                _profile_id
+                , _attribute_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeDataListByGameIdByProfileId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+
+            ResponseGameProfileAttributeDataList wrapper = new ResponseGameProfileAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/get/by-game-id/by-profile-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeData> objs = api.GetGameProfileAttributeDataListByGameIdByProfileId(
+                _game_id
+                , _profile_id
+            );
+            
+            // get data
+            wrapper.data = objs;
+            
+	    util.SerializeTypeToResponse(_format, _context, wrapper);
+        }     
+//------------------------------------------------------------------------------                    
+                    
+        public virtual void GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId() {
+        
+             _game_id = ()util.GetParamValue(_context, "@game_id");
+             _profile_id = ()util.GetParamValue(_context, "@profile_id");
+             _attribute_id = ()util.GetParamValue(_context, "@attribute_id");
+
+            ResponseGameProfileAttributeDataList wrapper = new ResponseGameProfileAttributeDataList();
+            wrapper.message = "Success";
+            wrapper.error = 0;
+            wrapper.action = "game-profile-attribute-data/get/by-game-id/by-profile-id/by-attribute-id";
+            wrapper.info.Add("path", path);
+            wrapper.info.Add("path_info", path_info);
+            wrapper.info.Add("qstring", qstring);
+            wrapper.info.Add("action", action);
+            wrapper.info.Add("action_params", action_params);
+
+            List<GameProfileAttributeData> objs = api.GetGameProfileAttributeDataListByGameIdByProfileIdByAttributeId(
+                _game_id
+                , _profile_id
+                , _attribute_id
             );
             
             // get data

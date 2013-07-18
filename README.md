@@ -1,6 +1,6 @@
 bom
 ===
-#Baseplane Object Model
+##Baseplane Object Model
 
 The bom is the baseplane object model generator for code or templates. It is a code generator, there are good and bad points to these. 
 
@@ -19,11 +19,11 @@ bom was build mainly due to lots of the same systems built that clients need in 
   
 Models and projects defined in `templates` and `projects` folder. 
 
-#TODO
+##TODO
  - Add ability to pass in config or create at command
  - Provide web hook in flask or other to put into WSGI app
 
-#ABOUT
+##ABOUT
 
 Each generation from the default templates creates API and Service layers, data objects and anything else needed like client scripts. The generation creates py, php, c# code and pgsql, mysql + mssql stored procedures.  These are all contained in GET, SET (UPSERT), COUNT, DELETE, BROWSE methods.  
 

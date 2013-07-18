@@ -1,5 +1,6 @@
-#bom
+bom
 ===
+#Baseplane Object Model
 
 The bom is the baseplane object model generator for code or templates. It is a code generator, there are good and bad points to these. 
 
@@ -26,4 +27,4 @@ Models and projects defined in `templates` and `projects` folder.
 
 Each generation from the default templates creates API and Service layers, data objects and anything else needed like client scripts. The generation creates py, php, c# code and pgsql, mysql + mssql stored procedures.  These are all contained in GET, SET (UPSERT), COUNT, DELETE, BROWSE methods.  
 
-This library is pre-alpha and still a programmer tool but has some good parts on the differences between py, php, C# and PostgreSQL, MySQL and MSSQL as well as basing all objects on common baseplane types.
+This library is pre-alpha and still a programmer tool but has some good parts on the differences between py, php, C# and PostgreSQL, MySQL and MSSQL as well as basing all objects on common baseplane types. Ultimatly this library will be exposed via web to help generate platforms in platform service.

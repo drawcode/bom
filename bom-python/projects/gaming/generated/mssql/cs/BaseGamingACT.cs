@@ -5112,8 +5112,6 @@ namespace gaming {
                     obj.status = dataType.FillDataString(dr, "status");                
             if (dr["game_location_id"] != null)                    
                     obj.game_location_id = dataType.FillDataString(dr, "game_location_id");                
-            if (dr["type_id"] != null)                    
-                    obj.type_id = dataType.FillDataString(dr, "type_id");                
             if (dr["uuid"] != null)                    
                     obj.uuid = dataType.FillDataString(dr, "uuid");                
             if (dr["date_modified"] != null)                    
@@ -5126,6 +5124,8 @@ namespace gaming {
                     obj.profile_id = dataType.FillDataString(dr, "profile_id");                
             if (dr["type"] != null)                    
                     obj.type = dataType.FillDataString(dr, "type");                
+            if (dr["type_id"] != null)                    
+                    obj.type_id = dataType.FillDataString(dr, "type_id");                
 
             return obj;
         }

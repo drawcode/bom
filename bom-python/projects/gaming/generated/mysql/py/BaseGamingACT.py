@@ -4626,8 +4626,6 @@ class BaseGamingACT(object):
             obj.status = row['status'] #dataType.FillData(dr, "status");                
         if (row['game_location_id'] != None) :                 
             obj.game_location_id = row['game_location_id'] #dataType.FillData(dr, "game_location_id");                
-        if (row['type_id'] != None) :                 
-            obj.type_id = row['type_id'] #dataType.FillData(dr, "type_id");                
         if (row['uuid'] != None) :                 
             obj.uuid = row['uuid'] #dataType.FillData(dr, "uuid");                
         if (row['date_modified'] != None) :                 
@@ -4640,6 +4638,8 @@ class BaseGamingACT(object):
             obj.profile_id = row['profile_id'] #dataType.FillData(dr, "profile_id");                
         if (row['type'] != None) :                 
             obj.type = row['type'] #dataType.FillData(dr, "type");                
+        if (row['type_id'] != None) :                 
+            obj.type_id = row['type_id'] #dataType.FillData(dr, "type_id");                
 
         return obj
         

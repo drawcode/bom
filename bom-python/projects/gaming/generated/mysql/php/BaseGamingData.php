@@ -11532,8 +11532,6 @@ class BaseGamingData {
                 $parameters['in_status'] = $obj->status; // #"in_status"
             if($obj->game_location_id != NULL)
                 $parameters['in_game_location_id'] = $obj->game_location_id; // #"in_game_location_id"
-            if($obj->type_id != NULL)
-                $parameters['in_type_id'] = $obj->type_id; // #"in_type_id"
             if($obj->uuid != NULL)
                 $parameters['in_uuid'] = $obj->uuid; // #"in_uuid"
             if($obj->date_modified != NULL)
@@ -11546,6 +11544,8 @@ class BaseGamingData {
                 $parameters['in_profile_id'] = $obj->profile_id; // #"in_profile_id"
             if($obj->type != NULL)
                 $parameters['in_type'] = $obj->type; // #"in_type"
+            if($obj->type_id != NULL)
+                $parameters['in_type_id'] = $obj->type_id; // #"in_type_id"
 
             try {
                 return $this->data_provider->execute_scalar(

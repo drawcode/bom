@@ -20427,13 +20427,13 @@ gaming.profile_game_location.prototype = {
     (
         status,
         game_location_id,
-        type_id,
         uuid,
         date_modified,
         active,
         date_created,
         profile_id,
         type,
+        type_id,
         fn
     ){
         this.fn_callback = fn;
@@ -20449,13 +20449,13 @@ gaming.profile_game_location.prototype = {
             hash: "08445a31a78661b5c746feff39a9db6e4e2cc5cf"
             , "status": status
             , "game_location_id": game_location_id
-            , "type_id": type_id
             , "uuid": uuid
             , "date_modified": date_modified
             , "active": active
             , "date_created": date_created
             , "profile_id": profile_id
             , "type": type
+            , "type_id": type_id
         }
 
         _log("obj to submit::", obj);

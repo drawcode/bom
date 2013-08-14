@@ -9083,13 +9083,13 @@ class BaseGamingData(object):
         parameters.append(set_type) #"in_set_type"
         parameters.append(obj.status) #"in_status"
         parameters.append(obj.game_location_id) #"in_game_location_id"
-        parameters.append(obj.type_id) #"in_type_id"
         parameters.append(obj.uuid) #"in_uuid"
         parameters.append(obj.date_modified) #"in_date_modified"
         parameters.append(obj.active) #"in_active"
         parameters.append(obj.date_created) #"in_date_created"
         parameters.append(obj.profile_id) #"in_profile_id"
         parameters.append(obj.type) #"in_type"
+        parameters.append(obj.type_id) #"in_type_id"
                         
         try:
             return bool(self.data_provider.execute_scalar(

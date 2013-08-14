@@ -799,7 +799,6 @@ CREATE TABLE [dbo].[profile_game_location]
 (
     [status] varchar (255)
     , [game_location_id] uniqueidentifier
-    , [type_id] uniqueidentifier
     , [uuid] uniqueidentifier NOT NULL
     , [date_modified] DATETIME
                 CONSTRAINT DF_profile_game_location_date_modified DEFAULT GETDATE()
@@ -809,6 +808,7 @@ CREATE TABLE [dbo].[profile_game_location]
                 CONSTRAINT DF_profile_game_location_date_created DEFAULT GETDATE()
     , [profile_id] uniqueidentifier
     , [type] varchar (500)
+    , [type_id] uniqueidentifier
 )
 GO
 ALTER TABLE [dbo].[profile_game_location] ADD 
@@ -22196,13 +22196,13 @@ BEGIN
     SET @sql = @sql + ') AS row_num , COUNT(*) OVER(PARTITION BY 1) as total_rows'
     SET @sql = @sql + ', [status]'
     SET @sql = @sql + ', [game_location_id]'
-    SET @sql = @sql + ', [type_id]'
     SET @sql = @sql + ', [uuid]'
     SET @sql = @sql + ', [date_modified]'
     SET @sql = @sql + ', [active]'
     SET @sql = @sql + ', [date_created]'
     SET @sql = @sql + ', [profile_id]'
     SET @sql = @sql + ', [type]'
+    SET @sql = @sql + ', [type_id]'
 
     SET @sql = @sql + ' FROM [dbo].[profile_game_location] WHERE 1=1 '
     BEGIN
@@ -22248,13 +22248,13 @@ CREATE PROCEDURE usp_profile_game_location_set_by_uuid
     @set_type varchar (50) = 'full'                        
     , @status varchar (255) = NULL
     , @game_location_id uniqueidentifier = NULL
-    , @type_id uniqueidentifier = NULL
     , @uuid uniqueidentifier 
     , @date_modified DATETIME = GETDATE
     , @active bit = NULL
     , @date_created DATETIME = GETDATE
     , @profile_id uniqueidentifier = NULL
     , @type varchar (500) = NULL
+    , @type_id uniqueidentifier = NULL
 )
 AS
 BEGIN
@@ -22291,13 +22291,13 @@ BEGIN
                 SET
                     [status] = @status
                     , [game_location_id] = @game_location_id
-                    , [type_id] = @type_id
                     , [uuid] = @uuid
                     , [date_modified] = @date_modified
                     , [active] = @active
                     , [date_created] = @date_created
                     , [profile_id] = @profile_id
                     , [type] = @type
+                    , [type_id] = @type_id
                 WHERE 1=1
                 AND [uuid] = @uuid
                 SET @id=1
@@ -22311,25 +22311,25 @@ BEGIN
                 (
                     [status]
                     , [game_location_id]
-                    , [type_id]
                     , [uuid]
                     , [date_modified]
                     , [active]
                     , [date_created]
                     , [profile_id]
                     , [type]
+                    , [type_id]
                 )
                 VALUES
                 (
                     @status
                     , @game_location_id
-                    , @type_id
                     , @uuid
                     , @date_modified
                     , @active
                     , @date_created
                     , @profile_id
                     , @type
+                    , @type_id
                 )                    
                 SET @id=1                    
             END
@@ -22380,13 +22380,13 @@ BEGIN
     SELECT
         [status]
         , [game_location_id]
-        , [type_id]
         , [uuid]
         , [date_modified]
         , [active]
         , [date_created]
         , [profile_id]
         , [type]
+        , [type_id]
     FROM [dbo].[profile_game_location]
     WHERE 1=1
 END
@@ -22406,13 +22406,13 @@ BEGIN
     SELECT
         [status]
         , [game_location_id]
-        , [type_id]
         , [uuid]
         , [date_modified]
         , [active]
         , [date_created]
         , [profile_id]
         , [type]
+        , [type_id]
     FROM [dbo].[profile_game_location]
     WHERE 1=1
     AND [uuid] = @uuid
@@ -22433,13 +22433,13 @@ BEGIN
     SELECT
         [status]
         , [game_location_id]
-        , [type_id]
         , [uuid]
         , [date_modified]
         , [active]
         , [date_created]
         , [profile_id]
         , [type]
+        , [type_id]
     FROM [dbo].[profile_game_location]
     WHERE 1=1
     AND [game_location_id] = @game_location_id
@@ -22460,13 +22460,13 @@ BEGIN
     SELECT
         [status]
         , [game_location_id]
-        , [type_id]
         , [uuid]
         , [date_modified]
         , [active]
         , [date_created]
         , [profile_id]
         , [type]
+        , [type_id]
     FROM [dbo].[profile_game_location]
     WHERE 1=1
     AND [profile_id] = @profile_id
@@ -22488,13 +22488,13 @@ BEGIN
     SELECT
         [status]
         , [game_location_id]
-        , [type_id]
         , [uuid]
         , [date_modified]
         , [active]
         , [date_created]
         , [profile_id]
         , [type]
+        , [type_id]
     FROM [dbo].[profile_game_location]
     WHERE 1=1
     AND [profile_id] = @profile_id

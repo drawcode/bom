@@ -9712,13 +9712,13 @@ namespace gaming {
             parameters.Add(new NpgsqlParameter("in_set_type", set_type));
             parameters.Add(new NpgsqlParameter("in_status", obj.status));
             parameters.Add(new NpgsqlParameter("in_game_location_id", obj.game_location_id));
-            parameters.Add(new NpgsqlParameter("in_type_id", obj.type_id));
             parameters.Add(new NpgsqlParameter("in_uuid", obj.uuid));
             parameters.Add(new NpgsqlParameter("in_date_modified", obj.date_modified));
             parameters.Add(new NpgsqlParameter("in_active", obj.active));
             parameters.Add(new NpgsqlParameter("in_date_created", obj.date_created));
             parameters.Add(new NpgsqlParameter("in_profile_id", obj.profile_id));
             parameters.Add(new NpgsqlParameter("in_type", obj.type));
+            parameters.Add(new NpgsqlParameter("in_type_id", obj.type_id));
             
             try {
                 return Convert.ToBoolean(data.ExecuteScalar(

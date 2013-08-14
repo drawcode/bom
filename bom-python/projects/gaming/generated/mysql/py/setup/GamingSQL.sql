@@ -697,7 +697,6 @@ CREATE TABLE `profile_game_location`
 (
     `status` VARCHAR (255)
     , `game_location_id` BINARY(16)
-    , `type_id` BINARY(16)
     , `uuid` BINARY(16) 
     , `date_modified` TIMESTAMP
                     DEFAULT NOW()
@@ -707,6 +706,7 @@ CREATE TABLE `profile_game_location`
                     DEFAULT '0000-00-00 00:00:00'
     , `profile_id` BINARY(16)
     , `type` VARCHAR (500)
+    , `type_id` BINARY(16)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `profile_game_location` ADD PRIMARY KEY (`uuid`);
@@ -20837,13 +20837,13 @@ BEGIN
     
     SET @sfields = CONCAT('', '`status`');
     SET @sfields = CONCAT(@sfields, ', `game_location_id`');
-    SET @sfields = CONCAT(@sfields, ', `type_id`');
     SET @sfields = CONCAT(@sfields, ', `uuid`');
     SET @sfields = CONCAT(@sfields, ', `date_modified`');
     SET @sfields = CONCAT(@sfields, ', `active`');
     SET @sfields = CONCAT(@sfields, ', `date_created`');
     SET @sfields = CONCAT(@sfields, ', `profile_id`');
     SET @sfields = CONCAT(@sfields, ', `type`');
+    SET @sfields = CONCAT(@sfields, ', `type_id`');
     
     SET @stable = CONCAT('', ' FROM `profile_game_location` WHERE 1=1 ');
     
@@ -20882,13 +20882,13 @@ CREATE PROCEDURE `usp_profile_game_location_set_uuid`
     in_set_type varchar(50)                      
     , in_status VARCHAR (255) 
     , in_game_location_id BINARY(16) 
-    , in_type_id BINARY(16) 
     , in_uuid BINARY(16) 
     , in_date_modified TIMESTAMP 
     , in_active int 
     , in_date_created TIMESTAMP 
     , in_profile_id BINARY(16) 
     , in_type VARCHAR (500) 
+    , in_type_id BINARY(16) 
 )
 BEGIN
     BEGIN
@@ -20925,13 +20925,13 @@ BEGIN
                     SET
                         `status` = in_status
                         , `game_location_id` = in_game_location_id
-                        , `type_id` = in_type_id
                         , `uuid` = in_uuid
                         , `date_modified` = in_date_modified
                         , `active` = in_active
                         , `date_created` = in_date_created
                         , `profile_id` = in_profile_id
                         , `type` = in_type
+                        , `type_id` = in_type_id
                     WHERE 1=1
                     AND `uuid` = in_uuid
                     ;
@@ -20947,25 +20947,25 @@ BEGIN
                     (
                         `status`
                         , `game_location_id`
-                        , `type_id`
                         , `uuid`
                         , `date_modified`
                         , `active`
                         , `date_created`
                         , `profile_id`
                         , `type`
+                        , `type_id`
                     )
                     VALUES
                     (
                         in_status
                         , in_game_location_id
-                        , in_type_id
                         , in_uuid
                         , in_date_modified
                         , in_active
                         , in_date_created
                         , in_profile_id
                         , in_type
+                        , in_type_id
                     )
                     ;
                     SET @id = 1;                  
@@ -21017,13 +21017,13 @@ BEGIN
     SELECT
         `status`
         , `game_location_id`
-        , `type_id`
         , `uuid`
         , `date_modified`
         , `active`
         , `date_created`
         , `profile_id`
         , `type`
+        , `type_id`
     FROM `profile_game_location`
     WHERE 1=1
     ;
@@ -21041,13 +21041,13 @@ BEGIN
     SELECT
         `status`
         , `game_location_id`
-        , `type_id`
         , `uuid`
         , `date_modified`
         , `active`
         , `date_created`
         , `profile_id`
         , `type`
+        , `type_id`
     FROM `profile_game_location`
     WHERE 1=1
     AND `uuid` = in_uuid
@@ -21066,13 +21066,13 @@ BEGIN
     SELECT
         `status`
         , `game_location_id`
-        , `type_id`
         , `uuid`
         , `date_modified`
         , `active`
         , `date_created`
         , `profile_id`
         , `type`
+        , `type_id`
     FROM `profile_game_location`
     WHERE 1=1
     AND `game_location_id` = in_game_location_id
@@ -21091,13 +21091,13 @@ BEGIN
     SELECT
         `status`
         , `game_location_id`
-        , `type_id`
         , `uuid`
         , `date_modified`
         , `active`
         , `date_created`
         , `profile_id`
         , `type`
+        , `type_id`
     FROM `profile_game_location`
     WHERE 1=1
     AND `profile_id` = in_profile_id
@@ -21117,13 +21117,13 @@ BEGIN
     SELECT
         `status`
         , `game_location_id`
-        , `type_id`
         , `uuid`
         , `date_modified`
         , `active`
         , `date_created`
         , `profile_id`
         , `type`
+        , `type_id`
     FROM `profile_game_location`
     WHERE 1=1
     AND `profile_id` = in_profile_id

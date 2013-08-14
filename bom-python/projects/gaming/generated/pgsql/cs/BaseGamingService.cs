@@ -15679,10 +15679,6 @@ namespace gaming {
             if(!String.IsNullOrEmpty(_game_location_id))
                 obj.game_location_id = (string)_game_location_id;
             
-            string _type_id = util.GetParamValue(_context, "type_id");
-            if(!String.IsNullOrEmpty(_type_id))
-                obj.type_id = (string)_type_id;
-            
             string _uuid = util.GetParamValue(_context, "uuid");
             if(!String.IsNullOrEmpty(_uuid))
                 obj.uuid = (string)_uuid;
@@ -15710,6 +15706,10 @@ namespace gaming {
             string _type = util.GetParamValue(_context, "type");
             if(!String.IsNullOrEmpty(_type))
                 obj.type = (string)_type;
+            
+            string _type_id = util.GetParamValue(_context, "type_id");
+            if(!String.IsNullOrEmpty(_type_id))
+                obj.type_id = (string)_type_id;
             
             
             // get data

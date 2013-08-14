@@ -682,7 +682,6 @@ CREATE TABLE "profile_game_location"
 (
     "status" varchar (255)
     , "game_location_id" uuid
-    , "type_id" uuid
     , "uuid" uuid NOT NULL
     , "date_modified" TIMESTAMP
                 --CONSTRAINT DF_profile_game_location_date_modified DEFAULT GETDATE()
@@ -692,6 +691,7 @@ CREATE TABLE "profile_game_location"
                 --CONSTRAINT DF_profile_game_location_date_created DEFAULT GETDATE()
     , "profile_id" uuid
     , "type" varchar (500)
+    , "type_id" uuid
 );
 
 ALTER TABLE "profile_game_location" ADD PRIMARY KEY ("uuid");
@@ -2087,13 +2087,13 @@ CREATE TYPE "profile_game_location_result" as
     total_rows bigint
     , "status" varchar
     , "game_location_id" uuid
-    , "type_id" uuid
     , "uuid" uuid
     , "date_modified" TIMESTAMP
     , "active" boolean
     , "date_created" TIMESTAMP
     , "profile_id" uuid
     , "type" varchar
+    , "type_id" uuid
 );    
 CREATE TYPE "game_photo_result" as
 (
@@ -31195,12 +31195,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_count
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_count
@@ -31225,12 +31225,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_count_uuid
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_count_uuid
@@ -31257,12 +31257,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_count_game_location_id
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_count_game_location_id
@@ -31289,12 +31289,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_count_profile_id
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_count_profile_id
@@ -31321,12 +31321,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_count_profile_id_game_location
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_count_profile_id_game_location_id
@@ -31369,12 +31369,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_browse_filter
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_browse_filter
@@ -31401,13 +31401,13 @@ BEGIN
     _sql := 'SELECT count(*) over () as total_rows'
     || ', "status"'
     || ', "game_location_id"'
-    || ', "type_id"'
     || ', "uuid"'
     || ', "date_modified"'
     || ', "active"'
     || ', "date_created"'
     || ', "profile_id"'
     || ', "type"'
+    || ', "type_id"'
     || ' FROM "profile_game_location" WHERE 1=1 ';
     
     BEGIN
@@ -31420,13 +31420,13 @@ BEGIN
     || ' GROUP BY '
     || '"status" '
     || ', "game_location_id" '
-    || ', "type_id" '
     || ', "uuid" '
     || ', "date_modified" '
     || ', "active" '
     || ', "date_created" '
     || ', "profile_id" '
     || ', "type" '
+    || ', "type_id" '
     ;
     
     _sql := _sql 
@@ -31461,12 +31461,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_set_uuid
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_set_uuid
@@ -31474,13 +31474,13 @@ CREATE OR REPLACE FUNCTION usp_profile_game_location_set_uuid
     in_set_type varchar (50) = 'full'                        
     , in_status varchar (255) = NULL
     , in_game_location_id uuid = NULL
-    , in_type_id uuid = NULL
     , in_uuid uuid = NULL
     , in_date_modified TIMESTAMP = now()
     , in_active boolean = NULL
     , in_date_created TIMESTAMP = now()
     , in_profile_id uuid = NULL
     , in_type varchar (500) = NULL
+    , in_type_id uuid = NULL
     , OUT out_id int                        
 )
 RETURNS int
@@ -31523,13 +31523,13 @@ BEGIN
                     SET
                         "status" = in_status
                         , "game_location_id" = in_game_location_id
-                        , "type_id" = in_type_id
                         , "uuid" = in_uuid
                         , "date_modified" = in_date_modified
                         , "active" = in_active
                         , "date_created" = in_date_created
                         , "profile_id" = in_profile_id
                         , "type" = in_type
+                        , "type_id" = in_type_id
                     WHERE 1=1
                     AND "uuid" = in_uuid
                     ;
@@ -31545,25 +31545,25 @@ BEGIN
                     (
                         "status"
                         , "game_location_id"
-                        , "type_id"
                         , "uuid"
                         , "date_modified"
                         , "active"
                         , "date_created"
                         , "profile_id"
                         , "type"
+                        , "type_id"
                     )
                     VALUES
                     (
                         in_status
                         , in_game_location_id
-                        , in_type_id
                         , in_uuid
                         , in_date_modified
                         , in_active
                         , in_date_created
                         , in_profile_id
                         , in_type
+                        , in_type_id
                     )
                     ;
                     _id := 1;                  
@@ -31595,12 +31595,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_del_uuid
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_del_uuid
@@ -31639,12 +31639,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_get
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_get
@@ -31657,13 +31657,13 @@ BEGIN
     RETURN QUERY SELECT
         "status"
         , "game_location_id"
-        , "type_id"
         , "uuid"
         , "date_modified"
         , "active"
         , "date_created"
         , "profile_id"
         , "type"
+        , "type_id"
     FROM "profile_game_location"
     WHERE 1=1
     ;
@@ -31676,12 +31676,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_get_uuid
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_get_uuid
@@ -31695,13 +31695,13 @@ BEGIN
     RETURN QUERY SELECT
         "status"
         , "game_location_id"
-        , "type_id"
         , "uuid"
         , "date_modified"
         , "active"
         , "date_created"
         , "profile_id"
         , "type"
+        , "type_id"
     FROM "profile_game_location"
     WHERE 1=1
     AND "uuid" = in_uuid
@@ -31715,12 +31715,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_get_game_location_id
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_get_game_location_id
@@ -31734,13 +31734,13 @@ BEGIN
     RETURN QUERY SELECT
         "status"
         , "game_location_id"
-        , "type_id"
         , "uuid"
         , "date_modified"
         , "active"
         , "date_created"
         , "profile_id"
         , "type"
+        , "type_id"
     FROM "profile_game_location"
     WHERE 1=1
     AND "game_location_id" = in_game_location_id
@@ -31754,12 +31754,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_get_profile_id
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_get_profile_id
@@ -31773,13 +31773,13 @@ BEGIN
     RETURN QUERY SELECT
         "status"
         , "game_location_id"
-        , "type_id"
         , "uuid"
         , "date_modified"
         , "active"
         , "date_created"
         , "profile_id"
         , "type"
+        , "type_id"
     FROM "profile_game_location"
     WHERE 1=1
     AND "profile_id" = in_profile_id
@@ -31793,12 +31793,12 @@ DROP FUNCTION IF EXISTS usp_profile_game_location_get_profile_id_game_location_i
     varchar
     , uuid
     , uuid
-    , uuid
     , TIMESTAMP
     , boolean
     , TIMESTAMP
     , uuid
     , varchar
+    , uuid
 );
 
 CREATE OR REPLACE FUNCTION usp_profile_game_location_get_profile_id_game_location_id
@@ -31813,13 +31813,13 @@ BEGIN
     RETURN QUERY SELECT
         "status"
         , "game_location_id"
-        , "type_id"
         , "uuid"
         , "date_modified"
         , "active"
         , "date_created"
         , "profile_id"
         , "type"
+        , "type_id"
     FROM "profile_game_location"
     WHERE 1=1
     AND "profile_id" = in_profile_id

@@ -5801,9 +5801,6 @@ class BaseGamingACT {
         if ($row['game_location_id'] != NULL) {                
             $obj->game_location_id = $row['game_location_id'];#dataType.FillDataString(dr, "game_location_id");
         }
-        if ($row['type_id'] != NULL) {                
-            $obj->type_id = $row['type_id'];#dataType.FillDataString(dr, "type_id");
-        }
         if ($row['uuid'] != NULL) {                
             $obj->uuid = $row['uuid'];#dataType.FillDataString(dr, "uuid");
         }
@@ -5821,6 +5818,9 @@ class BaseGamingACT {
         }
         if ($row['type'] != NULL) {                
             $obj->type = $row['type'];#dataType.FillDataString(dr, "type");
+        }
+        if ($row['type_id'] != NULL) {                
+            $obj->type_id = $row['type_id'];#dataType.FillDataString(dr, "type_id");
         }
 
         return $obj;

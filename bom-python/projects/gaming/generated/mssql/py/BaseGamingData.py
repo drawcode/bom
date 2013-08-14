@@ -9588,13 +9588,13 @@ namespace gaming {
             parameters.Add(new SqlParameter("@set_type", set_type));
             parameters.Add(new SqlParameter("@status", obj.status));
             parameters.Add(new SqlParameter("@game_location_id", obj.game_location_id));
-            parameters.Add(new SqlParameter("@type_id", obj.type_id));
             parameters.Add(new SqlParameter("@uuid", obj.uuid));
             parameters.Add(new SqlParameter("@date_modified", obj.date_modified));
             parameters.Add(new SqlParameter("@active", obj.active));
             parameters.Add(new SqlParameter("@date_created", obj.date_created));
             parameters.Add(new SqlParameter("@profile_id", obj.profile_id));
             parameters.Add(new SqlParameter("@type", obj.type));
+            parameters.Add(new SqlParameter("@type_id", obj.type_id));
                         
             try { 
                 return (bool)data.ExecuteScalar(
